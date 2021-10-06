@@ -54,7 +54,12 @@
                 "file": "Week2"
             }
         ],
-        "embed": [],
+        "embed": [
+	    {
+	    	"name": "Discussion slides",
+	    	"embedCode": "<p><a href=\"../files/DiscussionWeek2.pptx\">Download pptx slides</a></p>"
+	    }
+	],
         "Due Dates": [
             {
                 "name": "hw1-definitions-and-notation-CSE20F21"
