@@ -7,9 +7,6 @@
   <title>complete-week</title>
   <style>
     html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
       color: #1a1a1a;
       background-color: #fdfdfd;
     }
@@ -28,13 +25,16 @@
     @media (max-width: 600px) {
       body {
         font-size: 0.9em;
-        padding: 1em;
+        padding: 12px;
       }
       h1 {
         font-size: 1.8em;
       }
     }
     @media print {
+      html {
+        background-color: white;
+      }
       body {
         background-color: transparent;
         color: black;
@@ -84,9 +84,10 @@
       color: #606060;
     }
     code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
       font-size: 85%;
       margin: 0;
+      hyphens: manual;
     }
     pre {
       margin: 1em 0;
@@ -148,10 +149,15 @@
     }
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
   </style>
   <script
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
@@ -1474,10 +1480,10 @@ right-most coefficient of expansion</p>
 <p>Idea: <span>(when <span class="math inline">\(k &gt;
 1\)</span>)</span> <span class="math display">\[\begin{aligned}
       n &amp;= a_{k-1} b^{k-1} + \cdots + a_1 b + a_0 \\
-        &amp;= b ( a_{k-1} b^{k-2} + \cdots + a_1) +
-a_0\end{aligned}\]</span> so <span class="math inline">\(a_0 = n
-\textbf{ mod } b\)</span> and <span class="math inline">\(a_{k-1}
-b^{k-2} + \cdots + a_1 = n \textbf{ div } b\)</span>.</p>
+        &amp;= b ( a_{k-1} b^{k-2} + \cdots + a_1) + a_0
+\end{aligned}\]</span> so <span class="math inline">\(a_0 = n \textbf{
+mod } b\)</span> and <span class="math inline">\(a_{k-1} b^{k-2} +
+\cdots + a_1 = n \textbf{ div } b\)</span>.</p>
 <div class="algorithm">
 <p>procedure <span class="math inline">\(\textit{baseb2}\)</span>(<span
 class="math inline">\(n, b\)</span>: positive integers with <span
@@ -2630,15 +2636,18 @@ sum?</em></span></p>
 <p><span>3</span> <span class="math display">\[\begin{aligned}
    &amp; (1~ 1~ 0~ 1~ 0~ 0)_{2,6}\\
 + &amp; (0~ 0~ 0~ 1~ 0~ 1)_{2,6}\\
-&amp;\overline{\phantom{(1~1~1~0~0~1)_{2,6}}}\\\end{aligned}\]</span></p>
+&amp;\overline{\phantom{(1~1~1~0~0~1)_{2,6}}}\\
+\end{aligned}\]</span></p>
 <p><span class="math display">\[\begin{aligned}
    &amp; [1~ 1~ 0~ 1~ 0~ 0]_{s,6}\\
 + &amp; [0~ 0~ 0~ 1~ 0~ 1]_{s,6}\\
-&amp;\overline{\phantom{(1~1~1~0~0~1)_2}}\\\end{aligned}\]</span></p>
+&amp;\overline{\phantom{(1~1~1~0~0~1)_2}}\\
+\end{aligned}\]</span></p>
 <p><span class="math display">\[\begin{aligned}
    &amp; [1~ 1~ 0~ 1~ 0~ 0]_{2c,6}\\
 + &amp; [0~ 0~ 0~ 1~ 0~ 1]_{2c,6}\\
-&amp;\overline{\phantom{(1~1~1~0~0~1)_2}}\\\end{aligned}\]</span></p>
+&amp;\overline{\phantom{(1~1~1~0~0~1)_2}}\\
+\end{aligned}\]</span></p>
 </div>
 <h2 class="unnumbered" id="review-week-2-wednesday">Review: Week 2
 Wednesday</h2>
@@ -2675,7 +2684,8 @@ class="math display">\[\begin{aligned}
         &amp;1110  \qquad  \text{first summand}\\
         +&amp;0100 \qquad  \text{second summand}\\
         &amp;\overline{0010} \qquad \text{result}
-    \end{aligned}\]</span> Select all and only the true statements
+    
+\end{aligned}\]</span> Select all and only the true statements
 below:</p>
 <ol>
 <li><p>When interpreting each of the summands and the result in binary
@@ -2695,7 +2705,8 @@ class="math display">\[\begin{aligned}
         &amp;0110  \qquad  \text{first summand}\\
         +&amp;0111 \qquad  \text{second summand}\\
         &amp;\overline{1101} \qquad \text{result}
-    \end{aligned}\]</span> Select all and only the true statements
+    
+\end{aligned}\]</span> Select all and only the true statements
 below:</p>
 <ol>
 <li><p>When interpreting each of the summands and the result in binary
@@ -4203,21 +4214,23 @@ that you bought the computer less than a year ago" <span
 class="math display">\[\begin{aligned}
 w &amp;\text{ is  ``the warranty is good&quot;} \\
 b &amp;\text{ is  ``you bought the computer less than a year ago&quot;}
-\\\end{aligned}\]</span></p>
+\\
+\end{aligned}\]</span></p>
 </div>
 <div class="multicols">
 <p><span>2</span> “Whenever the message was sent from an unknown system,
 it is scanned for viruses." <span class="math display">\[\begin{aligned}
 s &amp;\text{ is  ``The message is scanned for viruses&quot;} \\
 u &amp;\text{ is  ``The message was sent from an unknown system&quot;}
-\\\end{aligned}\]</span></p>
+\\
+\end{aligned}\]</span></p>
 </div>
 <div class="multicols">
 <p><span>2</span> “I will complete my to-do list only if I put a
 reminder in my calendar" <span class="math display">\[\begin{aligned}
 d &amp;\text{ is  ``I will complete my to-do list&quot;} \\
-c &amp;\text{ is  ``I put a reminder in my calendar&quot;}
-\\\end{aligned}\]</span></p>
+c &amp;\text{ is  ``I put a reminder in my calendar&quot;} \\
+\end{aligned}\]</span></p>
 </div>
 <p><span><strong>Definition</strong></span>: A collection of compound
 propositions is called <span><strong>consistent</strong></span> if there
@@ -4308,7 +4321,8 @@ role="doc-noteref"><sup>4</sup></a></p>
 can"; <span class="math inline">\(C =\)</span> “you can".</p>
 <ol>
 <li><p><span class="math display">\[\begin{aligned}
-&amp;T \to C \\&amp;  \neg T \to \neg C \end{aligned}\]</span></p></li>
+&amp;T \to C \\&amp;  \neg T \to \neg C
+\end{aligned}\]</span></p></li>
 <li><p><span class="math display">\[\begin{aligned}
 &amp;T \wedge C \\  &amp; \neg  T \wedge \neg C
 \end{aligned}\]</span></p></li>
@@ -4329,13 +4343,16 @@ password is written down".</p>
 <ol>
 <li><p><span class="math display">\[\begin{aligned}
 &amp;\neg (P \wedge C) \to \neg  S  \\ &amp; C \to H  \\ &amp; W \wedge
-H \\ &amp; W \to  \neg P \\ &amp; S \end{aligned}\]</span></p></li>
+H \\ &amp; W \to  \neg P \\ &amp; S
+\end{aligned}\]</span></p></li>
 <li><p><span class="math display">\[\begin{aligned}
 &amp;(P \wedge  C)  \to S  \\ &amp;  C \to H\\ &amp; W  \to  H \\  &amp;
-W \to P \\ &amp; S\end{aligned}\]</span></p></li>
+W \to P \\ &amp; S
+\end{aligned}\]</span></p></li>
 <li><p><span class="math display">\[\begin{aligned}
 &amp; S  \to (P \wedge C)  \\ &amp;  C \to H\\ &amp; H  \to  W \\  &amp;
-W \to \neg P \\ &amp; S\end{aligned}\]</span></p></li>
+W \to \neg P \\ &amp; S
+\end{aligned}\]</span></p></li>
 </ol></li>
 </ol></li>
 </ol>
@@ -5763,8 +5780,9 @@ class="math display">\[\begin{aligned}
 \texttt{A})~)~) \\
     \land &amp; (~ rnalen(\texttt{U}) \geq basecount(~(\texttt{U},
 \texttt{A})~)~) \land (~ rnalen(\texttt{G}) \geq basecount(~(\texttt{G},
-\texttt{A})~)~)\end{aligned}\]</span> We calculate, using the
-definitions of <span class="math inline">\(rnalen\)</span> and <span
+\texttt{A})~)~)
+\end{aligned}\]</span> We calculate, using the definitions of <span
+class="math inline">\(rnalen\)</span> and <span
 class="math inline">\(basecount\)</span>:</p>
 <p><span><strong>Recursive Case</strong></span>: We will prove that
 <span class="math display">\[\forall u \in S ~\forall b \in B ~(
@@ -5850,7 +5868,8 @@ class="math inline">\(\texttt{C}\texttt{U}\texttt{G}\)</span></p></li>
 \forall s_1 \in S~\forall s_2 \in S ~&amp;\forall b \in B ~\big( ~\big(
 rnalen(s_1) = basecount(~(s_1,b)~) \\
     &amp;\land rnalen(s_2) = basecount(~(s_2,b)~) \land rnalen(s_1) =
-rnalen(s_2) \big) \to s_1 = s_2  \big)\end{aligned}\]</span></p></li>
+rnalen(s_2) \big) \to s_1 = s_2  \big)
+\end{aligned}\]</span></p></li>
 <li><p>None of the above.</p></li>
 </ol></li>
 </ol>
@@ -5936,7 +5955,8 @@ recursively by</p>
 {2}
     \text{Basis step:  } \qquad &amp; sumPow(0) = 1 &amp;\\
     \text{Recursive step:  } &amp; \text{If } x \in \mathbb{N} \text{,
-then } &amp;sumPow(x+1) = sumPow(x) + 2^{x+1}\end{aligned}\]</span></p>
+then } &amp;sumPow(x+1) = sumPow(x) + 2^{x+1}
+\end{aligned}\]</span></p>
 <p><span class="math inline">\(sumPow(0) =\)</span></p>
 <p><span class="math inline">\(sumPow(1) =\)</span></p>
 <p><span class="math inline">\(sumPow(2) =\)</span></p>
@@ -6069,7 +6089,8 @@ We want to show that <span class="math inline">\(2^{k+1} &lt;
         &amp;&lt; (k+1) \cdot k!  \qquad \text{by
 }\underline{\hspace{0.2in}BLANK 6\hspace{0.2in}}\\
         &amp;= (k+1)!  \qquad \text{by }\underline{\hspace{0.2in}BLANK
-7\hspace{0.2in}}\\\end{aligned}\]</span> as required.</p>
+7\hspace{0.2in}}\\
+\end{aligned}\]</span> as required.</p>
 <ol>
 <li><p>properties of addition, multiplication, and <span
 class="math inline">\(&lt;\)</span> for real numbers</p></li>
@@ -6204,7 +6225,8 @@ recursive definition of $length$}\\
 &amp;&gt; 1+ length(l&#39;)  \qquad \text{by the induction hypothesis}\\
 &amp;= length( (n,l&#39;) )  \qquad \text{by the recursive definition of
 $length$}\\
-&amp;= RHS \end{aligned}\]</span></p>
+&amp;= RHS
+\end{aligned}\]</span></p>
 <p>Prove or disprove: <span class="math inline">\(\forall n \in
 \mathbb{N} ~\exists l \in L ~(~length(l) = n~)\)</span></p>
 <h2 class="unnumbered" id="review-11">Review</h2>
@@ -6383,8 +6405,8 @@ class="math display">\[\begin{aligned}
     &amp;= \left(~ (n+1) \textbf{ mod } 2 ~\right ) + 2 \left(~(n+1)
 \textbf{ div } 2 ~\right) &amp;\qquad &amp;\text{by definition of $c_0$}
 \\
-    &amp;= n+1 &amp;\qquad&amp;\text{by definition of long
-division}\end{aligned}\]</span></p>
+    &amp;= n+1 &amp;\qquad&amp;\text{by definition of long division}
+\end{aligned}\]</span></p>
 <p>Thus, <span class="math inline">\(n+1\)</span> can be expressed as a
 sum of powers of <span class="math inline">\(2\)</span>, as
 required.</p>
@@ -6446,7 +6468,8 @@ form using these stamps? In other words, which postage can we pay?</p>
     &amp;CanPay(3) \land \lnot CanPay(4) \land CanPay(5) \land CanPay(6)
 \\
     &amp;\lnot CanPay(7) \land \forall n \in \mathbb{Z}^{\geq 8}
-CanPay(n)\end{aligned}\]</span></p>
+CanPay(n)
+\end{aligned}\]</span></p>
 <p>where the predicate <span class="math inline">\(CanPay\)</span> with
 domain <span class="math inline">\(\mathbb{N}\)</span> is <span
 class="math display">\[CanPay(n) = \exists x \in \mathbb{N} \exists y
@@ -6562,7 +6585,8 @@ class="math inline">\(\mathbb{N}\)</span> by case assumption).</p>
 5x&#39; +  3y&#39; &amp;\overset{\text{by def}}{=}  5(x-1) +  3(y+2)  =
 5x -  5 +3y +   6  \\
 &amp;\overset{\text{rearranging}} = (5x+3y) -5  + 6\\
-&amp; \overset{\text{IH}}{=} n-5+6 =  n+1\end{aligned}\]</span></p>
+&amp; \overset{\text{IH}}{=} n-5+6 =  n+1
+\end{aligned}\]</span></p>
 <p><span><em>Case 2</em></span>: Assume <span class="math inline">\(x =
 0\)</span>. Therefore <span class="math inline">\(n  = 3y\)</span>, so
 since <span class="math inline">\(n \geq 8\)</span>, <span
@@ -6574,8 +6598,8 @@ Calculating: <span class="math display">\[\begin{aligned}
 5x&#39; +  3y&#39; &amp;\overset{\text{by def}}{=}  5(2) +  3(y-3)  =
 10  +3y -9  \\
 &amp;\overset{\text{rearranging}} = 3y +10 -9 \\
-&amp;\overset{\text{IH and case}}{=} n+10-9
-=  n+1\end{aligned}\]</span></p>
+&amp;\overset{\text{IH and case}}{=} n+10-9 =  n+1
+\end{aligned}\]</span></p>
 <p>Since the goal has been proved from each case, the proof by cases is
 complete and we have proved the recursive step. <span
 class="math inline">\(\square\)</span><br />
@@ -7192,7 +7216,8 @@ domain $A$, codomain $B$} \\
 |A| \geq |B| &amp;\text{ means there is an onto function with domain
 $A$, codomain $B$} \\
 |A| = |B| &amp;\text{ means there is a bijection with domain $A$,
-codomain $B$}\end{aligned}\]</span></p>
+codomain $B$}
+\end{aligned}\]</span></p>
 <p>For all sets <span class="math inline">\(A\)</span>, we say <span
 class="math inline">\(|A| = |\emptyset|\)</span>, <span
 class="math inline">\(|\emptyset| = |A|\)</span> if and only if <span
@@ -7441,7 +7466,8 @@ class="math display">\[\begin{aligned}
 &amp;\forall A ~ (~  |A| = |A| ~)\\
 &amp;\forall A ~ \forall B ~(~ |A| = |B|  ~\to ~ |B| = |A|~)\\
 &amp;\forall A ~ \forall B ~ \forall C~ (~ (|A| = |B| ~\wedge~ |B| =
-|C|) ~\to ~ |A| = |C|~)\end{aligned}\]</span></p>
+|C|) ~\to ~ |A| = |C|~)
+\end{aligned}\]</span></p>
 <p><span><em>Extra practice with proofs:</em></span> Use the definitions
 of bijections to prove these properties.</p>
 <p><span><strong>Cantor-Schroder-Bernstein Theorem</strong></span>: For
@@ -7553,12 +7579,14 @@ class="math inline">\(L\)</span> is countably infinite</p>
 <p><span>2</span> <span class="math display">\[\begin{aligned}
     &amp;list: \mathbb{N} \to L \\
     &amp;list(n) = (n, []) \\
-    &amp;\end{aligned}\]</span></p>
+    &amp;
+\end{aligned}\]</span></p>
 <p><span class="math display">\[\begin{aligned}
     &amp;toNum: L \to \mathbb{N} \\
     &amp;toNum([]) = 0 \\
     &amp;toNum( ~(n,l)~) = 2^n 3^{toNum}(l) \qquad \text{for $n \in
-\mathbb{N}$, $l \in L$}\end{aligned}\]</span></p>
+\mathbb{N}$, $l \in L$}
+\end{aligned}\]</span></p>
 </div>
 <p><span><strong>Claim</strong></span>: <span
 class="math inline">\(|\mathbb{Z}^+| = |\mathbb{Q}|\)</span></p>
@@ -7574,7 +7602,8 @@ class="math inline">\(n \in \mathbb{N}\)</span>.</p>
         (0,1) &amp; \text{if $x = 0$} \\
         (p,q) &amp; \text{if $x = \frac{p}{q}$,}\\
                 &amp; \text{$gcd(p,q) = 1$, $q &gt; 0$}
-    \end{cases}\end{aligned}\]</span></p>
+    \end{cases}
+\end{aligned}\]</span></p>
 <div class="multicols">
 <p><span>2</span> <span class="math display">\[\begin{aligned}
     &amp;f_3: \mathbb{Z} \times \mathbb{Z} \to \mathbb{Z}^+ \times
@@ -7584,11 +7613,12 @@ class="math inline">\(n \in \mathbb{N}\)</span>.</p>
         (-2x-1, 2y+2) &amp; \text{if $x &lt; 0, y \geq 0$} \\
         (2x+2, -2y+1) &amp; \text{if $x \geq 0, y &lt; 0$} \\
         (-2x-1, -2y-1) &amp; \text{if $x &lt; 0, y &lt; 0$} \\
-    \end{cases}\end{aligned}\]</span></p>
+    \end{cases}
+\end{aligned}\]</span></p>
 <p><span class="math display">\[\begin{aligned}
     &amp;f_4: \mathbb{Z}^+ \times \mathbb{Z}^+ \to \mathbb{Z}^+ \\
-    &amp;f_4(~(x,y)~) = 2^x 3^y \qquad \text{for $x,y \in
-\mathbb{Z}^+$}\end{aligned}\]</span></p>
+    &amp;f_4(~(x,y)~) = 2^x 3^y \qquad \text{for $x,y \in \mathbb{Z}^+$}
+\end{aligned}\]</span></p>
 </div>
 <h2 class="unnumbered" id="review-16">Review</h2>
 <ol>
@@ -7763,7 +7793,8 @@ class="math inline">\((~|A| \leq |B| ~) \land \lnot (~|A| =
 \{1\} \} \qquad &amp;&amp;|\{1\}| &lt; |\mathcal{P}(\{1\})| \\
     &amp;\{1,2 \} \qquad &amp;&amp;\mathcal{P}(\{1,2\}) = \{ \emptyset,
 \{1\}, \{2\}, \{1,2\} \} \qquad &amp;&amp;|\{1,2\}| &lt;
-|\mathcal{P}(\{1,2\})| \\\end{aligned}\]</span></p>
+|\mathcal{P}(\{1,2\})| \\
+\end{aligned}\]</span></p>
 <p><span><strong><span class="math inline">\(\mathbb{N}\)</span> and its
 power set</strong></span></p>
 <p>Example elements of <span
@@ -8407,8 +8438,8 @@ guaranteed by transitivity.</p>
 class="math inline">\(\{a,b,c,d,e,f,g\}\)</span> defined as <span
 class="math display">\[\begin{aligned}
     \{  &amp;(a,a), (b,b), (c,c), (d,d), (e,e), (f,f), (g,g), \\
-        &amp;(a,c), (a,d), (d,g), (a,g), (b,f), (b,e), (e,g), (b,g)
-\}\end{aligned}\]</span></p>
+        &amp;(a,c), (a,d), (d,g), (a,g), (b,f), (b,e), (e,g), (b,g) \}
+\end{aligned}\]</span></p>
 <p><span><em>Summary</em></span>: binary relations can be useful for
 organizing elements in a domain. Some binary relations have special
 properties that make them act like some familiar relations. Equivalence
@@ -8547,9 +8578,10 @@ _{R_{(\textbf{mod } 4)}} &amp;= \phantom{ \{ x \in \mathbb{Z} \mid x
     [-1]_{R_{(\textbf{mod } 4)}} &amp;= \phantom{ \{ x \in \mathbb{Z}
 \mid x \equiv -1 ((\textbf{mod } 4)) \}
     = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = -1 \textbf{ mod } 4
-= 3 \} = \{ 4c+3 \mid c \in \mathbb{Z}\} }\end{aligned}\]</span> <span
-class="math display">\[\mathbb{Z} =  [0]_{R_{(\textbf{mod } 4)}}~ \cup
-~[1]_{R_{(\textbf{mod } 4)}} ~\cup~[2]_{R_{(\textbf{mod } 4)}}~\cup~
+= 3 \} = \{ 4c+3 \mid c \in \mathbb{Z}\} }
+\end{aligned}\]</span> <span class="math display">\[\mathbb{Z}
+=  [0]_{R_{(\textbf{mod } 4)}}~ \cup ~[1]_{R_{(\textbf{mod } 4)}}
+~\cup~[2]_{R_{(\textbf{mod } 4)}}~\cup~
 [3]_{R_{(\textbf{mod } 4)}}\]</span></p>
 <p>Integers are useful because they can be used to encode other objects
 and have multiple representations. However, infinite sets are sometimes
@@ -8977,45 +9009,43 @@ mathematical notation.)</p></li>
 </ol>
 <h1 class="unnumbered" id="friday-november-26">Friday November 26</h1>
 <p>No class, in observance of Thanksgiving holiday.</p>
-<section class="footnotes footnotes-end-of-document"
+<section id="footnotes" class="footnotes footnotes-end-of-document"
 role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1" role="doc-endnote"><p>This RGB representation is common in
-web applications. Many online tools are available to play around with
-mixing these colors, e.g. <a
-href="https://www.w3schools.com/colors/colors_rgb.asp"
+<li id="fn1"><p>This RGB representation is common in web applications.
+Many online tools are available to play around with mixing these colors,
+e.g. <a href="https://www.w3schools.com/colors/colors_rgb.asp"
 class="uri">https://www.w3schools.com/colors/colors_rgb.asp</a>.<a
 href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2" role="doc-endnote"><p>iclickers are used in many classes to
-encourage active participation in class. They’re remotes that allow you
-to respond to multiple choice questions and the instructor can show a
-histogram of responses in real time.<a href="#fnref2"
-class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3" role="doc-endnote"><p>This matches a frequent debugging
-task – sometimes a program will show a number formatted as a base <span
+<li id="fn2"><p>iclickers are used in many classes to encourage active
+participation in class. They’re remotes that allow you to respond to
+multiple choice questions and the instructor can show a histogram of
+responses in real time.<a href="#fnref2" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>This matches a frequent debugging task – sometimes a
+program will show a number formatted as a base <span
 class="math inline">\(10\)</span> integer that is much better understood
 with another representation.<a href="#fnref3" class="footnote-back"
 role="doc-backlink">↩︎</a></p></li>
-<li id="fn4" role="doc-endnote"><p>Henry Ford<a href="#fnref4"
-class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn5" role="doc-endnote"><p>Mutations of specific RNA codons have
-been linked to many disorders and cancers.<a href="#fnref5"
-class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn6" role="doc-endnote"><p>This RadioLab podcast episode goes
-into more detail on bit flips: <a
-href="https://www.wnycstudios.org/story/bit-flip"
+<li id="fn4"><p>Henry Ford<a href="#fnref4" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>Mutations of specific RNA codons have been linked to
+many disorders and cancers.<a href="#fnref5" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>This RadioLab podcast episode goes into more detail on
+bit flips: <a href="https://www.wnycstudios.org/story/bit-flip"
 class="uri">https://www.wnycstudios.org/story/bit-flip</a><a
 href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn7" role="doc-endnote"><p>There’s a subtle imprecision in this
-part of the proof as presented, but it can be fixed.<a href="#fnref7"
+<li id="fn7"><p>There’s a subtle imprecision in this part of the proof
+as presented, but it can be fixed.<a href="#fnref7"
 class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn8" role="doc-endnote"><p>We leave the definition of “large”
-vague here, but think hundreds of digits for practical applications. In
-practice, we also need a particular relationship between <span
-class="math inline">\(a\)</span> and <span
-class="math inline">\(p\)</span> to hold, which we leave out here.<a
-href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8"><p>We leave the definition of “large” vague here, but think
+hundreds of digits for practical applications. In practice, we also need
+a particular relationship between <span class="math inline">\(a\)</span>
+and <span class="math inline">\(p\)</span> to hold, which we leave out
+here.<a href="#fnref8" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 </body>

@@ -7,9 +7,6 @@
   <title>Week6</title>
   <style>
     html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
       color: #1a1a1a;
       background-color: #fdfdfd;
     }
@@ -28,13 +25,16 @@
     @media (max-width: 600px) {
       body {
         font-size: 0.9em;
-        padding: 1em;
+        padding: 12px;
       }
       h1 {
         font-size: 1.8em;
       }
     }
     @media print {
+      html {
+        background-color: white;
+      }
       body {
         background-color: transparent;
         color: black;
@@ -84,9 +84,10 @@
       color: #606060;
     }
     code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
       font-size: 85%;
       margin: 0;
+      hyphens: manual;
     }
     pre {
       margin: 1em 0;
@@ -148,10 +149,15 @@
     }
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
   </style>
   <script
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
@@ -308,8 +314,9 @@ class="math display">\[\begin{aligned}
 \texttt{A})~)~) \\
     \land &amp; (~ rnalen(\texttt{U}) \geq basecount(~(\texttt{U},
 \texttt{A})~)~) \land (~ rnalen(\texttt{G}) \geq basecount(~(\texttt{G},
-\texttt{A})~)~)\end{aligned}\]</span> We calculate, using the
-definitions of <span class="math inline">\(rnalen\)</span> and <span
+\texttt{A})~)~)
+\end{aligned}\]</span> We calculate, using the definitions of <span
+class="math inline">\(rnalen\)</span> and <span
 class="math inline">\(basecount\)</span>:</p>
 <p><span><strong>Recursive Case</strong></span>: We will prove that
 <span class="math display">\[\forall u \in S ~\forall b \in B ~(
@@ -395,7 +402,8 @@ class="math inline">\(\texttt{C}\texttt{U}\texttt{G}\)</span></p></li>
 \forall s_1 \in S~\forall s_2 \in S ~&amp;\forall b \in B ~\big( ~\big(
 rnalen(s_1) = basecount(~(s_1,b)~) \\
     &amp;\land rnalen(s_2) = basecount(~(s_2,b)~) \land rnalen(s_1) =
-rnalen(s_2) \big) \to s_1 = s_2  \big)\end{aligned}\]</span></p></li>
+rnalen(s_2) \big) \to s_1 = s_2  \big)
+\end{aligned}\]</span></p></li>
 <li><p>None of the above.</p></li>
 </ol></li>
 </ol>
@@ -481,7 +489,8 @@ recursively by</p>
 {2}
     \text{Basis step:  } \qquad &amp; sumPow(0) = 1 &amp;\\
     \text{Recursive step:  } &amp; \text{If } x \in \mathbb{N} \text{,
-then } &amp;sumPow(x+1) = sumPow(x) + 2^{x+1}\end{aligned}\]</span></p>
+then } &amp;sumPow(x+1) = sumPow(x) + 2^{x+1}
+\end{aligned}\]</span></p>
 <p><span class="math inline">\(sumPow(0) =\)</span></p>
 <p><span class="math inline">\(sumPow(1) =\)</span></p>
 <p><span class="math inline">\(sumPow(2) =\)</span></p>
@@ -614,7 +623,8 @@ We want to show that <span class="math inline">\(2^{k+1} &lt;
         &amp;&lt; (k+1) \cdot k!  \qquad \text{by
 }\underline{\hspace{0.2in}BLANK 6\hspace{0.2in}}\\
         &amp;= (k+1)!  \qquad \text{by }\underline{\hspace{0.2in}BLANK
-7\hspace{0.2in}}\\\end{aligned}\]</span> as required.</p>
+7\hspace{0.2in}}\\
+\end{aligned}\]</span> as required.</p>
 <ol>
 <li><p>properties of addition, multiplication, and <span
 class="math inline">\(&lt;\)</span> for real numbers</p></li>
@@ -749,7 +759,8 @@ recursive definition of $length$}\\
 &amp;&gt; 1+ length(l&#39;)  \qquad \text{by the induction hypothesis}\\
 &amp;= length( (n,l&#39;) )  \qquad \text{by the recursive definition of
 $length$}\\
-&amp;= RHS \end{aligned}\]</span></p>
+&amp;= RHS
+\end{aligned}\]</span></p>
 <p>Prove or disprove: <span class="math inline">\(\forall n \in
 \mathbb{N} ~\exists l \in L ~(~length(l) = n~)\)</span></p>
 <h2 class="unnumbered" id="review-2">Review</h2>

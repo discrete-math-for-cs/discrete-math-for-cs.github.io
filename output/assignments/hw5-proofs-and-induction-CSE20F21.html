@@ -8,9 +8,6 @@
   <title>HW5 Proofs and Induction</title>
   <style>
     html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
       color: #1a1a1a;
       background-color: #fdfdfd;
     }
@@ -29,13 +26,16 @@
     @media (max-width: 600px) {
       body {
         font-size: 0.9em;
-        padding: 1em;
+        padding: 12px;
       }
       h1 {
         font-size: 1.8em;
       }
     }
     @media print {
+      html {
+        background-color: white;
+      }
       body {
         background-color: transparent;
         color: black;
@@ -85,9 +85,10 @@
       color: #606060;
     }
     code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
       font-size: 85%;
       margin: 0;
+      hyphens: manual;
     }
     pre {
       margin: 1em 0;
@@ -149,10 +150,15 @@
     }
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
   </style>
   <script
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
@@ -355,7 +361,8 @@ we divide we get: <span class="math display">\[\begin{aligned}
 $4$}\\
         4 &amp;= 2 \cdot 2 + 0 \qquad \text{so $2$ is a factor of $4$}\\
         4 &amp;= 1 \cdot 4 + 0 \qquad \text{so $1$ is a factor of $4$}
-   \end{aligned}\]</span></p>
+   
+\end{aligned}\]</span></p>
 <hr />
 <ol>
 <li><p>(<span><em>Graded for correctness</em></span><a href="#fn1"
@@ -431,7 +438,8 @@ is, fill in the blanks <span class="math display">\[sumOfFirst:
 step}} \\
             &amp;\textbf{Recursive step}: \underline{\text{fill in
 recursive step}}
-        \end{aligned}\]</span></p>
+        
+\end{aligned}\]</span></p>
 <p><span><em>Notation</em></span>: Using summation, this function can be
 written <span class="math inline">\(sumOfFirst(n) = \sum_{i=1}^n
 i\)</span>.<br />
@@ -487,7 +495,8 @@ and }n \in \mathbb{N}
             1 + count(~(l,m)~) &amp;\text{if $n=m$} \\
             count(~(l,m)~) &amp;\text{otherwise} \\
         \end{cases}
-    \end{aligned}\]</span></p>
+    
+\end{aligned}\]</span></p>
 <p>A mystery function is defined by <span class="math inline">\(mystery
 : L \times \mathbb{N} \to L\)</span>, where</p>
 <p><span class="math display">\[\begin{aligned}
@@ -501,7 +510,8 @@ and }n \in \mathbb{N}
             l &amp;\text{if $n=m$} \\
             mystery(~(l,m)~) &amp;\text{otherwise} \\
         \end{cases}
-    \end{aligned}\]</span></p>
+    
+\end{aligned}\]</span></p>
 <ol>
 <li><p>(<span><em>Graded for correctness</em></span>) Prove that <span
 class="math display">\[\forall m \in \mathbb{N}~ \exists l \in L ~\left(
@@ -527,29 +537,28 @@ class="math inline">\(count\)</span>. Express this invariant both
 symbolically and in English.</p></li>
 </ol></li>
 </ol>
-<section class="footnotes footnotes-end-of-document"
+<section id="footnotes" class="footnotes footnotes-end-of-document"
 role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1" role="doc-endnote"><p>Graded for correctness means your
-solution will be evaluated not only on the correctness of your answers,
-but on your ability to present your ideas clearly and logically. You
-should explain how you arrived at your conclusions, using mathematically
-sound reasoning. Whether you use formal proof techniques or write a more
+<li id="fn1"><p>Graded for correctness means your solution will be
+evaluated not only on the correctness of your answers, but on your
+ability to present your ideas clearly and logically. You should explain
+how you arrived at your conclusions, using mathematically sound
+reasoning. Whether you use formal proof techniques or write a more
 informal argument for why something is true, your answers should always
 be well-supported. Your goal should be to convince the reader that your
 results and methods are sound.<a href="#fnref1" class="footnote-back"
 role="doc-backlink">↩︎</a></p></li>
-<li id="fn2" role="doc-endnote"><p>Graded for fair effort completeness
-means you will get full credit so long as your submission demonstrates
-honest effort to answer the question. You will not be penalized for
-incorrect answers.<a href="#fnref2" class="footnote-back"
+<li id="fn2"><p>Graded for fair effort completeness means you will get
+full credit so long as your submission demonstrates honest effort to
+answer the question. You will not be penalized for incorrect answers.<a
+href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>When the value of a function that is recursively defined
+can also be calculated without recursion, we call the formula that we
+can use to calculate the value without recursion the “closed form
+formula” for the function.<a href="#fnref3" class="footnote-back"
 role="doc-backlink">↩︎</a></p></li>
-<li id="fn3" role="doc-endnote"><p>When the value of a function that is
-recursively defined can also be calculated without recursion, we call
-the formula that we can use to calculate the value without recursion the
-“closed form formula” for the function.<a href="#fnref3"
-class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 </body>

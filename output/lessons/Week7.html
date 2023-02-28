@@ -7,9 +7,6 @@
   <title>Week7</title>
   <style>
     html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
       color: #1a1a1a;
       background-color: #fdfdfd;
     }
@@ -28,13 +25,16 @@
     @media (max-width: 600px) {
       body {
         font-size: 0.9em;
-        padding: 1em;
+        padding: 12px;
       }
       h1 {
         font-size: 1.8em;
       }
     }
     @media print {
+      html {
+        background-color: white;
+      }
       body {
         background-color: transparent;
         color: black;
@@ -84,9 +84,10 @@
       color: #606060;
     }
     code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
       font-size: 85%;
       margin: 0;
+      hyphens: manual;
     }
     pre {
       margin: 1em 0;
@@ -148,10 +149,15 @@
     }
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
   </style>
   <script
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
@@ -241,8 +247,8 @@ class="math display">\[\begin{aligned}
     &amp;= \left(~ (n+1) \textbf{ mod } 2 ~\right ) + 2 \left(~(n+1)
 \textbf{ div } 2 ~\right) &amp;\qquad &amp;\text{by definition of $c_0$}
 \\
-    &amp;= n+1 &amp;\qquad&amp;\text{by definition of long
-division}\end{aligned}\]</span></p>
+    &amp;= n+1 &amp;\qquad&amp;\text{by definition of long division}
+\end{aligned}\]</span></p>
 <p>Thus, <span class="math inline">\(n+1\)</span> can be expressed as a
 sum of powers of <span class="math inline">\(2\)</span>, as
 required.</p>
@@ -304,7 +310,8 @@ form using these stamps? In other words, which postage can we pay?</p>
     &amp;CanPay(3) \land \lnot CanPay(4) \land CanPay(5) \land CanPay(6)
 \\
     &amp;\lnot CanPay(7) \land \forall n \in \mathbb{Z}^{\geq 8}
-CanPay(n)\end{aligned}\]</span></p>
+CanPay(n)
+\end{aligned}\]</span></p>
 <p>where the predicate <span class="math inline">\(CanPay\)</span> with
 domain <span class="math inline">\(\mathbb{N}\)</span> is <span
 class="math display">\[CanPay(n) = \exists x \in \mathbb{N} \exists y
@@ -420,7 +427,8 @@ class="math inline">\(\mathbb{N}\)</span> by case assumption).</p>
 5x&#39; +  3y&#39; &amp;\overset{\text{by def}}{=}  5(x-1) +  3(y+2)  =
 5x -  5 +3y +   6  \\
 &amp;\overset{\text{rearranging}} = (5x+3y) -5  + 6\\
-&amp; \overset{\text{IH}}{=} n-5+6 =  n+1\end{aligned}\]</span></p>
+&amp; \overset{\text{IH}}{=} n-5+6 =  n+1
+\end{aligned}\]</span></p>
 <p><span><em>Case 2</em></span>: Assume <span class="math inline">\(x =
 0\)</span>. Therefore <span class="math inline">\(n  = 3y\)</span>, so
 since <span class="math inline">\(n \geq 8\)</span>, <span
@@ -432,8 +440,8 @@ Calculating: <span class="math display">\[\begin{aligned}
 5x&#39; +  3y&#39; &amp;\overset{\text{by def}}{=}  5(2) +  3(y-3)  =
 10  +3y -9  \\
 &amp;\overset{\text{rearranging}} = 3y +10 -9 \\
-&amp;\overset{\text{IH and case}}{=} n+10-9
-=  n+1\end{aligned}\]</span></p>
+&amp;\overset{\text{IH and case}}{=} n+10-9 =  n+1
+\end{aligned}\]</span></p>
 <p>Since the goal has been proved from each case, the proof by cases is
 complete and we have proved the recursive step. <span
 class="math inline">\(\square\)</span><br />

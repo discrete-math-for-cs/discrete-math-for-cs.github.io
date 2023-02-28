@@ -7,9 +7,6 @@
   <title>todoapp</title>
   <style>
     html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
       color: #1a1a1a;
       background-color: #fdfdfd;
     }
@@ -28,13 +25,16 @@
     @media (max-width: 600px) {
       body {
         font-size: 0.9em;
-        padding: 1em;
+        padding: 12px;
       }
       h1 {
         font-size: 1.8em;
       }
     }
     @media print {
+      html {
+        background-color: white;
+      }
       body {
         background-color: transparent;
         color: black;
@@ -84,9 +84,10 @@
       color: #606060;
     }
     code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
       font-size: 85%;
       margin: 0;
+      hyphens: manual;
     }
     pre {
       margin: 1em 0;
@@ -148,10 +149,15 @@
     }
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
   </style>
   <script
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
@@ -818,10 +824,10 @@ right-most coefficient of expansion</p>
 <p>Idea: <span>(when <span class="math inline">\(k &gt;
 1\)</span>)</span> <span class="math display">\[\begin{aligned}
       n &amp;= a_{k-1} b^{k-1} + \cdots + a_1 b + a_0 \\
-        &amp;= b ( a_{k-1} b^{k-2} + \cdots + a_1) +
-a_0\end{aligned}\]</span> so <span class="math inline">\(a_0 = n
-\textbf{ mod } b\)</span> and <span class="math inline">\(a_{k-1}
-b^{k-2} + \cdots + a_1 = n \textbf{ div } b\)</span>.</p>
+        &amp;= b ( a_{k-1} b^{k-2} + \cdots + a_1) + a_0
+\end{aligned}\]</span> so <span class="math inline">\(a_0 = n \textbf{
+mod } b\)</span> and <span class="math inline">\(a_{k-1} b^{k-2} +
+\cdots + a_1 = n \textbf{ div } b\)</span>.</p>
 <div class="algorithm">
 <p>procedure <span class="math inline">\(\textit{baseb2}\)</span>(<span
 class="math inline">\(n, b\)</span>: positive integers with <span
@@ -1562,15 +1568,18 @@ sum?</em></span></p>
 <p><span>3</span> <span class="math display">\[\begin{aligned}
    &amp; (1~ 1~ 0~ 1~ 0~ 0)_{2,6}\\
 + &amp; (0~ 0~ 0~ 1~ 0~ 1)_{2,6}\\
-&amp;\overline{\phantom{(1~1~1~0~0~1)_{2,6}}}\\\end{aligned}\]</span></p>
+&amp;\overline{\phantom{(1~1~1~0~0~1)_{2,6}}}\\
+\end{aligned}\]</span></p>
 <p><span class="math display">\[\begin{aligned}
    &amp; [1~ 1~ 0~ 1~ 0~ 0]_{s,6}\\
 + &amp; [0~ 0~ 0~ 1~ 0~ 1]_{s,6}\\
-&amp;\overline{\phantom{(1~1~1~0~0~1)_2}}\\\end{aligned}\]</span></p>
+&amp;\overline{\phantom{(1~1~1~0~0~1)_2}}\\
+\end{aligned}\]</span></p>
 <p><span class="math display">\[\begin{aligned}
    &amp; [1~ 1~ 0~ 1~ 0~ 0]_{2c,6}\\
 + &amp; [0~ 0~ 0~ 1~ 0~ 1]_{2c,6}\\
-&amp;\overline{\phantom{(1~1~1~0~0~1)_2}}\\\end{aligned}\]</span></p>
+&amp;\overline{\phantom{(1~1~1~0~0~1)_2}}\\
+\end{aligned}\]</span></p>
 </div>
 <h1 class="unnumbered" id="circuits-basics">Circuits basics</h1>
 <p>In a <span><strong>combinatorial circuit</strong></span> (also known
@@ -2923,21 +2932,23 @@ that you bought the computer less than a year ago" <span
 class="math display">\[\begin{aligned}
 w &amp;\text{ is  ``the warranty is good&quot;} \\
 b &amp;\text{ is  ``you bought the computer less than a year ago&quot;}
-\\\end{aligned}\]</span></p>
+\\
+\end{aligned}\]</span></p>
 </div>
 <div class="multicols">
 <p><span>2</span> “Whenever the message was sent from an unknown system,
 it is scanned for viruses." <span class="math display">\[\begin{aligned}
 s &amp;\text{ is  ``The message is scanned for viruses&quot;} \\
 u &amp;\text{ is  ``The message was sent from an unknown system&quot;}
-\\\end{aligned}\]</span></p>
+\\
+\end{aligned}\]</span></p>
 </div>
 <div class="multicols">
 <p><span>2</span> “I will complete my to-do list only if I put a
 reminder in my calendar" <span class="math display">\[\begin{aligned}
 d &amp;\text{ is  ``I will complete my to-do list&quot;} \\
-c &amp;\text{ is  ``I put a reminder in my calendar&quot;}
-\\\end{aligned}\]</span></p>
+c &amp;\text{ is  ``I put a reminder in my calendar&quot;} \\
+\end{aligned}\]</span></p>
 </div>
 <h1 class="unnumbered" id="consistency-def">Consistency def</h1>
 <p><span><strong>Definition</strong></span>: A collection of compound
@@ -4013,8 +4024,9 @@ class="math display">\[\begin{aligned}
 \texttt{A})~)~) \\
     \land &amp; (~ rnalen(\texttt{U}) \geq basecount(~(\texttt{U},
 \texttt{A})~)~) \land (~ rnalen(\texttt{G}) \geq basecount(~(\texttt{G},
-\texttt{A})~)~)\end{aligned}\]</span> We calculate, using the
-definitions of <span class="math inline">\(rnalen\)</span> and <span
+\texttt{A})~)~)
+\end{aligned}\]</span> We calculate, using the definitions of <span
+class="math inline">\(rnalen\)</span> and <span
 class="math inline">\(basecount\)</span>:</p>
 <p><span><strong>Recursive Case</strong></span>: We will prove that
 <span class="math display">\[\forall u \in S ~\forall b \in B ~(
@@ -4101,7 +4113,8 @@ class="math inline">\(\texttt{C}\texttt{U}\texttt{G}\)</span></p></li>
 \forall s_1 \in S~\forall s_2 \in S ~&amp;\forall b \in B ~\big( ~\big(
 rnalen(s_1) = basecount(~(s_1,b)~) \\
     &amp;\land rnalen(s_2) = basecount(~(s_2,b)~) \land rnalen(s_1) =
-rnalen(s_2) \big) \to s_1 = s_2  \big)\end{aligned}\]</span></p></li>
+rnalen(s_2) \big) \to s_1 = s_2  \big)
+\end{aligned}\]</span></p></li>
 <li><p>None of the above.</p></li>
 </ol></li>
 </ol>
@@ -4193,7 +4206,8 @@ recursively by</p>
 {2}
     \text{Basis step:  } \qquad &amp; sumPow(0) = 1 &amp;\\
     \text{Recursive step:  } &amp; \text{If } x \in \mathbb{N} \text{,
-then } &amp;sumPow(x+1) = sumPow(x) + 2^{x+1}\end{aligned}\]</span></p>
+then } &amp;sumPow(x+1) = sumPow(x) + 2^{x+1}
+\end{aligned}\]</span></p>
 <p><span class="math inline">\(sumPow(0) =\)</span></p>
 <p><span class="math inline">\(sumPow(1) =\)</span></p>
 <p><span class="math inline">\(sumPow(2) =\)</span></p>
@@ -4358,7 +4372,8 @@ recursive definition of $length$}\\
 &amp;&gt; 1+ length(l&#39;)  \qquad \text{by the induction hypothesis}\\
 &amp;= length( (n,l&#39;) )  \qquad \text{by the recursive definition of
 $length$}\\
-&amp;= RHS \end{aligned}\]</span></p>
+&amp;= RHS
+\end{aligned}\]</span></p>
 <h1 class="unnumbered" id="linked-list-example-each-length">Linked list
 example each length</h1>
 <p>Prove or disprove: <span class="math inline">\(\forall n \in
@@ -4545,8 +4560,8 @@ class="math display">\[\begin{aligned}
     &amp;= \left(~ (n+1) \textbf{ mod } 2 ~\right ) + 2 \left(~(n+1)
 \textbf{ div } 2 ~\right) &amp;\qquad &amp;\text{by definition of $c_0$}
 \\
-    &amp;= n+1 &amp;\qquad&amp;\text{by definition of long
-division}\end{aligned}\]</span></p>
+    &amp;= n+1 &amp;\qquad&amp;\text{by definition of long division}
+\end{aligned}\]</span></p>
 <p>Thus, <span class="math inline">\(n+1\)</span> can be expressed as a
 sum of powers of <span class="math inline">\(2\)</span>, as
 required.</p>
@@ -4607,7 +4622,8 @@ form using these stamps? In other words, which postage can we pay?</p>
     &amp;CanPay(3) \land \lnot CanPay(4) \land CanPay(5) \land CanPay(6)
 \\
     &amp;\lnot CanPay(7) \land \forall n \in \mathbb{Z}^{\geq 8}
-CanPay(n)\end{aligned}\]</span></p>
+CanPay(n)
+\end{aligned}\]</span></p>
 <p>where the predicate <span class="math inline">\(CanPay\)</span> with
 domain <span class="math inline">\(\mathbb{N}\)</span> is <span
 class="math display">\[CanPay(n) = \exists x \in \mathbb{N} \exists y
@@ -5111,7 +5127,8 @@ class="math display">\[\begin{aligned}
 &amp;\forall A ~ (~  |A| = |A| ~)\\
 &amp;\forall A ~ \forall B ~(~ |A| = |B|  ~\to ~ |B| = |A|~)\\
 &amp;\forall A ~ \forall B ~ \forall C~ (~ (|A| = |B| ~\wedge~ |B| =
-|C|) ~\to ~ |A| = |C|~)\end{aligned}\]</span></p>
+|C|) ~\to ~ |A| = |C|~)
+\end{aligned}\]</span></p>
 <p><span><em>Extra practice with proofs:</em></span> Use the definitions
 of bijections to prove these properties.</p>
 <h1 class="unnumbered" id="cantor-schroder-bernstein-theorem">Cantor
@@ -5233,12 +5250,14 @@ class="math inline">\(L\)</span> is countably infinite</p>
 <p><span>2</span> <span class="math display">\[\begin{aligned}
     &amp;list: \mathbb{N} \to L \\
     &amp;list(n) = (n, []) \\
-    &amp;\end{aligned}\]</span></p>
+    &amp;
+\end{aligned}\]</span></p>
 <p><span class="math display">\[\begin{aligned}
     &amp;toNum: L \to \mathbb{N} \\
     &amp;toNum([]) = 0 \\
     &amp;toNum( ~(n,l)~) = 2^n 3^{toNum}(l) \qquad \text{for $n \in
-\mathbb{N}$, $l \in L$}\end{aligned}\]</span></p>
+\mathbb{N}$, $l \in L$}
+\end{aligned}\]</span></p>
 </div>
 <p><span><strong>Claim</strong></span>: <span
 class="math inline">\(|\mathbb{Z}^+| = |\mathbb{Q}|\)</span></p>
@@ -5254,7 +5273,8 @@ class="math inline">\(n \in \mathbb{N}\)</span>.</p>
         (0,1) &amp; \text{if $x = 0$} \\
         (p,q) &amp; \text{if $x = \frac{p}{q}$,}\\
                 &amp; \text{$gcd(p,q) = 1$, $q &gt; 0$}
-    \end{cases}\end{aligned}\]</span></p>
+    \end{cases}
+\end{aligned}\]</span></p>
 <div class="multicols">
 <p><span>2</span> <span class="math display">\[\begin{aligned}
     &amp;f_3: \mathbb{Z} \times \mathbb{Z} \to \mathbb{Z}^+ \times
@@ -5264,11 +5284,12 @@ class="math inline">\(n \in \mathbb{N}\)</span>.</p>
         (-2x-1, 2y+2) &amp; \text{if $x &lt; 0, y \geq 0$} \\
         (2x+2, -2y+1) &amp; \text{if $x \geq 0, y &lt; 0$} \\
         (-2x-1, -2y-1) &amp; \text{if $x &lt; 0, y &lt; 0$} \\
-    \end{cases}\end{aligned}\]</span></p>
+    \end{cases}
+\end{aligned}\]</span></p>
 <p><span class="math display">\[\begin{aligned}
     &amp;f_4: \mathbb{Z}^+ \times \mathbb{Z}^+ \to \mathbb{Z}^+ \\
-    &amp;f_4(~(x,y)~) = 2^x 3^y \qquad \text{for $x,y \in
-\mathbb{Z}^+$}\end{aligned}\]</span></p>
+    &amp;f_4(~(x,y)~) = 2^x 3^y \qquad \text{for $x,y \in \mathbb{Z}^+$}
+\end{aligned}\]</span></p>
 </div>
 <h1 class="unnumbered" id="cardinality-categories">Cardinality
 categories</h1>
@@ -5339,7 +5360,8 @@ class="math inline">\((~|A| \leq |B| ~) \land \lnot (~|A| =
 \{1\} \} \qquad &amp;&amp;|\{1\}| &lt; |\mathcal{P}(\{1\})| \\
     &amp;\{1,2 \} \qquad &amp;&amp;\mathcal{P}(\{1,2\}) = \{ \emptyset,
 \{1\}, \{2\}, \{1,2\} \} \qquad &amp;&amp;|\{1,2\}| &lt;
-|\mathcal{P}(\{1,2\})| \\\end{aligned}\]</span></p>
+|\mathcal{P}(\{1,2\})| \\
+\end{aligned}\]</span></p>
 <p><span><strong><span class="math inline">\(\mathbb{N}\)</span> and its
 power set</strong></span></p>
 <p>Example elements of <span
@@ -5914,8 +5936,8 @@ example</h1>
 class="math inline">\(\{a,b,c,d,e,f,g\}\)</span> defined as <span
 class="math display">\[\begin{aligned}
     \{  &amp;(a,a), (b,b), (c,c), (d,d), (e,e), (f,f), (g,g), \\
-        &amp;(a,c), (a,d), (d,g), (a,g), (b,f), (b,e), (e,g), (b,g)
-\}\end{aligned}\]</span></p>
+        &amp;(a,c), (a,d), (d,g), (a,g), (b,f), (b,e), (e,g), (b,g) \}
+\end{aligned}\]</span></p>
 <h1 class="unnumbered" id="partition-definition">Partition
 definition</h1>
 <p>A <span><strong>partition</strong></span> of a set <span
@@ -5972,9 +5994,10 @@ _{R_{(\textbf{mod } 4)}} &amp;= \phantom{ \{ x \in \mathbb{Z} \mid x
     [-1]_{R_{(\textbf{mod } 4)}} &amp;= \phantom{ \{ x \in \mathbb{Z}
 \mid x \equiv -1 ((\textbf{mod } 4)) \}
     = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = -1 \textbf{ mod } 4
-= 3 \} = \{ 4c+3 \mid c \in \mathbb{Z}\} }\end{aligned}\]</span> <span
-class="math display">\[\mathbb{Z} =  [0]_{R_{(\textbf{mod } 4)}}~ \cup
-~[1]_{R_{(\textbf{mod } 4)}} ~\cup~[2]_{R_{(\textbf{mod } 4)}}~\cup~
+= 3 \} = \{ 4c+3 \mid c \in \mathbb{Z}\} }
+\end{aligned}\]</span> <span class="math display">\[\mathbb{Z}
+=  [0]_{R_{(\textbf{mod } 4)}}~ \cup ~[1]_{R_{(\textbf{mod } 4)}}
+~\cup~[2]_{R_{(\textbf{mod } 4)}}~\cup~
 [3]_{R_{(\textbf{mod } 4)}}\]</span></p>
 <h1 class="unnumbered" id="modular-arithmetic-motivation">Modular
 arithmetic motivation</h1>
@@ -6402,8 +6425,8 @@ example</h1>
 class="math inline">\(\{a,b,c,d,e,f,g\}\)</span> defined as <span
 class="math display">\[\begin{aligned}
     \{  &amp;(a,a), (b,b), (c,c), (d,d), (e,e), (f,f), (g,g), \\
-        &amp;(a,c), (a,d), (d,g), (a,g), (b,f), (b,e), (e,g), (b,g)
-\}\end{aligned}\]</span></p>
+        &amp;(a,c), (a,d), (d,g), (a,g), (b,f), (b,e), (e,g), (b,g) \}
+\end{aligned}\]</span></p>
 <h1 class="unnumbered" id="partition-definition-1">Partition
 definition</h1>
 <p>A <span><strong>partition</strong></span> of a set <span
@@ -6460,9 +6483,10 @@ _{R_{(\textbf{mod } 4)}} &amp;= \phantom{ \{ x \in \mathbb{Z} \mid x
     [-1]_{R_{(\textbf{mod } 4)}} &amp;= \phantom{ \{ x \in \mathbb{Z}
 \mid x \equiv -1 ((\textbf{mod } 4)) \}
     = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = -1 \textbf{ mod } 4
-= 3 \} = \{ 4c+3 \mid c \in \mathbb{Z}\} }\end{aligned}\]</span> <span
-class="math display">\[\mathbb{Z} =  [0]_{R_{(\textbf{mod } 4)}}~ \cup
-~[1]_{R_{(\textbf{mod } 4)}} ~\cup~[2]_{R_{(\textbf{mod } 4)}}~\cup~
+= 3 \} = \{ 4c+3 \mid c \in \mathbb{Z}\} }
+\end{aligned}\]</span> <span class="math display">\[\mathbb{Z}
+=  [0]_{R_{(\textbf{mod } 4)}}~ \cup ~[1]_{R_{(\textbf{mod } 4)}}
+~\cup~[2]_{R_{(\textbf{mod } 4)}}~\cup~
 [3]_{R_{(\textbf{mod } 4)}}\]</span></p>
 <h1 class="unnumbered" id="modular-arithmetic-motivation-1">Modular
 arithmetic motivation</h1>
@@ -6942,7 +6966,8 @@ class="math display">\[\begin{aligned}
 &amp;\forall A ~ (~  |A| = |A| ~)\\
 &amp;\forall A ~ \forall B ~(~ |A| = |B|  ~\to ~ |B| = |A|~)\\
 &amp;\forall A ~ \forall B ~ \forall C~ (~ (|A| = |B| ~\wedge~ |B| =
-|C|) ~\to ~ |A| = |C|~)\end{aligned}\]</span></p>
+|C|) ~\to ~ |A| = |C|~)
+\end{aligned}\]</span></p>
 <p><span><em>Extra practice with proofs:</em></span> Use the definitions
 of bijections to prove these properties.</p>
 <h1 class="unnumbered" id="cantor-schroder-bernstein-theorem-1">Cantor
@@ -7064,12 +7089,14 @@ class="math inline">\(L\)</span> is countably infinite</p>
 <p><span>2</span> <span class="math display">\[\begin{aligned}
     &amp;list: \mathbb{N} \to L \\
     &amp;list(n) = (n, []) \\
-    &amp;\end{aligned}\]</span></p>
+    &amp;
+\end{aligned}\]</span></p>
 <p><span class="math display">\[\begin{aligned}
     &amp;toNum: L \to \mathbb{N} \\
     &amp;toNum([]) = 0 \\
     &amp;toNum( ~(n,l)~) = 2^n 3^{toNum}(l) \qquad \text{for $n \in
-\mathbb{N}$, $l \in L$}\end{aligned}\]</span></p>
+\mathbb{N}$, $l \in L$}
+\end{aligned}\]</span></p>
 </div>
 <p><span><strong>Claim</strong></span>: <span
 class="math inline">\(|\mathbb{Z}^+| = |\mathbb{Q}|\)</span></p>
@@ -7085,7 +7112,8 @@ class="math inline">\(n \in \mathbb{N}\)</span>.</p>
         (0,1) &amp; \text{if $x = 0$} \\
         (p,q) &amp; \text{if $x = \frac{p}{q}$,}\\
                 &amp; \text{$gcd(p,q) = 1$, $q &gt; 0$}
-    \end{cases}\end{aligned}\]</span></p>
+    \end{cases}
+\end{aligned}\]</span></p>
 <div class="multicols">
 <p><span>2</span> <span class="math display">\[\begin{aligned}
     &amp;f_3: \mathbb{Z} \times \mathbb{Z} \to \mathbb{Z}^+ \times
@@ -7095,11 +7123,12 @@ class="math inline">\(n \in \mathbb{N}\)</span>.</p>
         (-2x-1, 2y+2) &amp; \text{if $x &lt; 0, y \geq 0$} \\
         (2x+2, -2y+1) &amp; \text{if $x \geq 0, y &lt; 0$} \\
         (-2x-1, -2y-1) &amp; \text{if $x &lt; 0, y &lt; 0$} \\
-    \end{cases}\end{aligned}\]</span></p>
+    \end{cases}
+\end{aligned}\]</span></p>
 <p><span class="math display">\[\begin{aligned}
     &amp;f_4: \mathbb{Z}^+ \times \mathbb{Z}^+ \to \mathbb{Z}^+ \\
-    &amp;f_4(~(x,y)~) = 2^x 3^y \qquad \text{for $x,y \in
-\mathbb{Z}^+$}\end{aligned}\]</span></p>
+    &amp;f_4(~(x,y)~) = 2^x 3^y \qquad \text{for $x,y \in \mathbb{Z}^+$}
+\end{aligned}\]</span></p>
 </div>
 <h1 class="unnumbered" id="cardinality-categories-1">Cardinality
 categories</h1>
@@ -7171,7 +7200,8 @@ class="math inline">\((~|A| \leq |B| ~) \land \lnot (~|A| =
 \{1\} \} \qquad &amp;&amp;|\{1\}| &lt; |\mathcal{P}(\{1\})| \\
     &amp;\{1,2 \} \qquad &amp;&amp;\mathcal{P}(\{1,2\}) = \{ \emptyset,
 \{1\}, \{2\}, \{1,2\} \} \qquad &amp;&amp;|\{1,2\}| &lt;
-|\mathcal{P}(\{1,2\})| \\\end{aligned}\]</span></p>
+|\mathcal{P}(\{1,2\})| \\
+\end{aligned}\]</span></p>
 <p><span><strong><span class="math inline">\(\mathbb{N}\)</span> and its
 power set</strong></span></p>
 <p>Example elements of <span
@@ -8643,8 +8673,9 @@ class="math display">\[\begin{aligned}
 \texttt{A})~)~) \\
     \land &amp; (~ rnalen(\texttt{U}) \geq basecount(~(\texttt{U},
 \texttt{A})~)~) \land (~ rnalen(\texttt{G}) \geq basecount(~(\texttt{G},
-\texttt{A})~)~)\end{aligned}\]</span> We calculate, using the
-definitions of <span class="math inline">\(rnalen\)</span> and <span
+\texttt{A})~)~)
+\end{aligned}\]</span> We calculate, using the definitions of <span
+class="math inline">\(rnalen\)</span> and <span
 class="math inline">\(basecount\)</span>:</p>
 <p><span><strong>Recursive Case</strong></span>: We will prove that
 <span class="math display">\[\forall u \in S ~\forall b \in B ~(
@@ -8731,7 +8762,8 @@ class="math inline">\(\texttt{C}\texttt{U}\texttt{G}\)</span></p></li>
 \forall s_1 \in S~\forall s_2 \in S ~&amp;\forall b \in B ~\big( ~\big(
 rnalen(s_1) = basecount(~(s_1,b)~) \\
     &amp;\land rnalen(s_2) = basecount(~(s_2,b)~) \land rnalen(s_1) =
-rnalen(s_2) \big) \to s_1 = s_2  \big)\end{aligned}\]</span></p></li>
+rnalen(s_2) \big) \to s_1 = s_2  \big)
+\end{aligned}\]</span></p></li>
 <li><p>None of the above.</p></li>
 </ol></li>
 </ol>
@@ -8823,7 +8855,8 @@ recursively by</p>
 {2}
     \text{Basis step:  } \qquad &amp; sumPow(0) = 1 &amp;\\
     \text{Recursive step:  } &amp; \text{If } x \in \mathbb{N} \text{,
-then } &amp;sumPow(x+1) = sumPow(x) + 2^{x+1}\end{aligned}\]</span></p>
+then } &amp;sumPow(x+1) = sumPow(x) + 2^{x+1}
+\end{aligned}\]</span></p>
 <p><span class="math inline">\(sumPow(0) =\)</span></p>
 <p><span class="math inline">\(sumPow(1) =\)</span></p>
 <p><span class="math inline">\(sumPow(2) =\)</span></p>
@@ -8990,7 +9023,8 @@ recursive definition of $length$}\\
 &amp;&gt; 1+ length(l&#39;)  \qquad \text{by the induction hypothesis}\\
 &amp;= length( (n,l&#39;) )  \qquad \text{by the recursive definition of
 $length$}\\
-&amp;= RHS \end{aligned}\]</span></p>
+&amp;= RHS
+\end{aligned}\]</span></p>
 <h1 class="unnumbered" id="linked-list-example-each-length-1">Linked
 list example each length</h1>
 <p>Prove or disprove: <span class="math inline">\(\forall n \in
@@ -9177,8 +9211,8 @@ class="math display">\[\begin{aligned}
     &amp;= \left(~ (n+1) \textbf{ mod } 2 ~\right ) + 2 \left(~(n+1)
 \textbf{ div } 2 ~\right) &amp;\qquad &amp;\text{by definition of $c_0$}
 \\
-    &amp;= n+1 &amp;\qquad&amp;\text{by definition of long
-division}\end{aligned}\]</span></p>
+    &amp;= n+1 &amp;\qquad&amp;\text{by definition of long division}
+\end{aligned}\]</span></p>
 <p>Thus, <span class="math inline">\(n+1\)</span> can be expressed as a
 sum of powers of <span class="math inline">\(2\)</span>, as
 required.</p>
@@ -9239,7 +9273,8 @@ form using these stamps? In other words, which postage can we pay?</p>
     &amp;CanPay(3) \land \lnot CanPay(4) \land CanPay(5) \land CanPay(6)
 \\
     &amp;\lnot CanPay(7) \land \forall n \in \mathbb{Z}^{\geq 8}
-CanPay(n)\end{aligned}\]</span></p>
+CanPay(n)
+\end{aligned}\]</span></p>
 <p>where the predicate <span class="math inline">\(CanPay\)</span> with
 domain <span class="math inline">\(\mathbb{N}\)</span> is <span
 class="math display">\[CanPay(n) = \exists x \in \mathbb{N} \exists y
@@ -10596,21 +10631,23 @@ that you bought the computer less than a year ago" <span
 class="math display">\[\begin{aligned}
 w &amp;\text{ is  ``the warranty is good&quot;} \\
 b &amp;\text{ is  ``you bought the computer less than a year ago&quot;}
-\\\end{aligned}\]</span></p>
+\\
+\end{aligned}\]</span></p>
 </div>
 <div class="multicols">
 <p><span>2</span> “Whenever the message was sent from an unknown system,
 it is scanned for viruses." <span class="math display">\[\begin{aligned}
 s &amp;\text{ is  ``The message is scanned for viruses&quot;} \\
 u &amp;\text{ is  ``The message was sent from an unknown system&quot;}
-\\\end{aligned}\]</span></p>
+\\
+\end{aligned}\]</span></p>
 </div>
 <div class="multicols">
 <p><span>2</span> “I will complete my to-do list only if I put a
 reminder in my calendar" <span class="math display">\[\begin{aligned}
 d &amp;\text{ is  ``I will complete my to-do list&quot;} \\
-c &amp;\text{ is  ``I put a reminder in my calendar&quot;}
-\\\end{aligned}\]</span></p>
+c &amp;\text{ is  ``I put a reminder in my calendar&quot;} \\
+\end{aligned}\]</span></p>
 </div>
 <h1 class="unnumbered" id="consistency-def-1">Consistency def</h1>
 <p><span><strong>Definition</strong></span>: A collection of compound
@@ -11055,15 +11092,18 @@ sum?</em></span></p>
 <p><span>3</span> <span class="math display">\[\begin{aligned}
    &amp; (1~ 1~ 0~ 1~ 0~ 0)_{2,6}\\
 + &amp; (0~ 0~ 0~ 1~ 0~ 1)_{2,6}\\
-&amp;\overline{\phantom{(1~1~1~0~0~1)_{2,6}}}\\\end{aligned}\]</span></p>
+&amp;\overline{\phantom{(1~1~1~0~0~1)_{2,6}}}\\
+\end{aligned}\]</span></p>
 <p><span class="math display">\[\begin{aligned}
    &amp; [1~ 1~ 0~ 1~ 0~ 0]_{s,6}\\
 + &amp; [0~ 0~ 0~ 1~ 0~ 1]_{s,6}\\
-&amp;\overline{\phantom{(1~1~1~0~0~1)_2}}\\\end{aligned}\]</span></p>
+&amp;\overline{\phantom{(1~1~1~0~0~1)_2}}\\
+\end{aligned}\]</span></p>
 <p><span class="math display">\[\begin{aligned}
    &amp; [1~ 1~ 0~ 1~ 0~ 0]_{2c,6}\\
 + &amp; [0~ 0~ 0~ 1~ 0~ 1]_{2c,6}\\
-&amp;\overline{\phantom{(1~1~1~0~0~1)_2}}\\\end{aligned}\]</span></p>
+&amp;\overline{\phantom{(1~1~1~0~0~1)_2}}\\
+\end{aligned}\]</span></p>
 </div>
 <h1 class="unnumbered" id="circuits-basics-1">Circuits basics</h1>
 <p>In a <span><strong>combinatorial circuit</strong></span> (also known
@@ -12005,10 +12045,10 @@ right-most coefficient of expansion</p>
 <p>Idea: <span>(when <span class="math inline">\(k &gt;
 1\)</span>)</span> <span class="math display">\[\begin{aligned}
       n &amp;= a_{k-1} b^{k-1} + \cdots + a_1 b + a_0 \\
-        &amp;= b ( a_{k-1} b^{k-2} + \cdots + a_1) +
-a_0\end{aligned}\]</span> so <span class="math inline">\(a_0 = n
-\textbf{ mod } b\)</span> and <span class="math inline">\(a_{k-1}
-b^{k-2} + \cdots + a_1 = n \textbf{ div } b\)</span>.</p>
+        &amp;= b ( a_{k-1} b^{k-2} + \cdots + a_1) + a_0
+\end{aligned}\]</span> so <span class="math inline">\(a_0 = n \textbf{
+mod } b\)</span> and <span class="math inline">\(a_{k-1} b^{k-2} +
+\cdots + a_1 = n \textbf{ div } b\)</span>.</p>
 <div class="algorithm">
 <p>procedure <span class="math inline">\(\textit{baseb2}\)</span>(<span
 class="math inline">\(n, b\)</span>: positive integers with <span
@@ -12328,30 +12368,28 @@ arithmetic final review</h1>
 class="math display">\[(42)^{2021}\]</span></p>
 <p><span><em>Extra</em></span> Describe the pattern that helps you
 perform this computation and prove it using mathematical induction.</p>
-<section class="footnotes footnotes-end-of-document"
+<section id="footnotes" class="footnotes footnotes-end-of-document"
 role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1" role="doc-endnote"><p>Mutations of specific RNA codons have
-been linked to many disorders and cancers.<a href="#fnref1"
-class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2" role="doc-endnote"><p>This RadioLab podcast episode goes
-into more detail on bit flips: <a
-href="https://www.wnycstudios.org/story/bit-flip"
+<li id="fn1"><p>Mutations of specific RNA codons have been linked to
+many disorders and cancers.<a href="#fnref1" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>This RadioLab podcast episode goes into more detail on
+bit flips: <a href="https://www.wnycstudios.org/story/bit-flip"
 class="uri">https://www.wnycstudios.org/story/bit-flip</a><a
 href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3" role="doc-endnote"><p>There’s a subtle imprecision in this
-part of the proof as presented, but it can be fixed.<a href="#fnref3"
+<li id="fn3"><p>There’s a subtle imprecision in this part of the proof
+as presented, but it can be fixed.<a href="#fnref3"
 class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn4" role="doc-endnote"><p>There’s a subtle imprecision in this
-part of the proof as presented, but it can be fixed.<a href="#fnref4"
+<li id="fn4"><p>There’s a subtle imprecision in this part of the proof
+as presented, but it can be fixed.<a href="#fnref4"
 class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn5" role="doc-endnote"><p>Mutations of specific RNA codons have
-been linked to many disorders and cancers.<a href="#fnref5"
-class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn6" role="doc-endnote"><p>This RadioLab podcast episode goes
-into more detail on bit flips: <a
-href="https://www.wnycstudios.org/story/bit-flip"
+<li id="fn5"><p>Mutations of specific RNA codons have been linked to
+many disorders and cancers.<a href="#fnref5" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>This RadioLab podcast episode goes into more detail on
+bit flips: <a href="https://www.wnycstudios.org/story/bit-flip"
 class="uri">https://www.wnycstudios.org/story/bit-flip</a><a
 href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>

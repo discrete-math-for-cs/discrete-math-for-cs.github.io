@@ -7,9 +7,6 @@
   <title>Week9</title>
   <style>
     html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
       color: #1a1a1a;
       background-color: #fdfdfd;
     }
@@ -28,13 +25,16 @@
     @media (max-width: 600px) {
       body {
         font-size: 0.9em;
-        padding: 1em;
+        padding: 12px;
       }
       h1 {
         font-size: 1.8em;
       }
     }
     @media print {
+      html {
+        background-color: white;
+      }
       body {
         background-color: transparent;
         color: black;
@@ -84,9 +84,10 @@
       color: #606060;
     }
     code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
       font-size: 85%;
       margin: 0;
+      hyphens: manual;
     }
     pre {
       margin: 1em 0;
@@ -148,10 +149,15 @@
     }
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
   </style>
   <script
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
@@ -294,8 +300,8 @@ guaranteed by transitivity.</p>
 class="math inline">\(\{a,b,c,d,e,f,g\}\)</span> defined as <span
 class="math display">\[\begin{aligned}
     \{  &amp;(a,a), (b,b), (c,c), (d,d), (e,e), (f,f), (g,g), \\
-        &amp;(a,c), (a,d), (d,g), (a,g), (b,f), (b,e), (e,g), (b,g)
-\}\end{aligned}\]</span></p>
+        &amp;(a,c), (a,d), (d,g), (a,g), (b,f), (b,e), (e,g), (b,g) \}
+\end{aligned}\]</span></p>
 <p><span><em>Summary</em></span>: binary relations can be useful for
 organizing elements in a domain. Some binary relations have special
 properties that make them act like some familiar relations. Equivalence
@@ -434,9 +440,10 @@ _{R_{(\textbf{mod } 4)}} &amp;= \phantom{ \{ x \in \mathbb{Z} \mid x
     [-1]_{R_{(\textbf{mod } 4)}} &amp;= \phantom{ \{ x \in \mathbb{Z}
 \mid x \equiv -1 ((\textbf{mod } 4)) \}
     = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = -1 \textbf{ mod } 4
-= 3 \} = \{ 4c+3 \mid c \in \mathbb{Z}\} }\end{aligned}\]</span> <span
-class="math display">\[\mathbb{Z} =  [0]_{R_{(\textbf{mod } 4)}}~ \cup
-~[1]_{R_{(\textbf{mod } 4)}} ~\cup~[2]_{R_{(\textbf{mod } 4)}}~\cup~
+= 3 \} = \{ 4c+3 \mid c \in \mathbb{Z}\} }
+\end{aligned}\]</span> <span class="math display">\[\mathbb{Z}
+=  [0]_{R_{(\textbf{mod } 4)}}~ \cup ~[1]_{R_{(\textbf{mod } 4)}}
+~\cup~[2]_{R_{(\textbf{mod } 4)}}~\cup~
 [3]_{R_{(\textbf{mod } 4)}}\]</span></p>
 <p>Integers are useful because they can be used to encode other objects
 and have multiple representations. However, infinite sets are sometimes
@@ -864,16 +871,16 @@ mathematical notation.)</p></li>
 </ol>
 <h1 class="unnumbered" id="friday-november-26">Friday November 26</h1>
 <p>No class, in observance of Thanksgiving holiday.</p>
-<section class="footnotes footnotes-end-of-document"
+<section id="footnotes" class="footnotes footnotes-end-of-document"
 role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1" role="doc-endnote"><p>We leave the definition of “large”
-vague here, but think hundreds of digits for practical applications. In
-practice, we also need a particular relationship between <span
-class="math inline">\(a\)</span> and <span
-class="math inline">\(p\)</span> to hold, which we leave out here.<a
-href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>We leave the definition of “large” vague here, but think
+hundreds of digits for practical applications. In practice, we also need
+a particular relationship between <span class="math inline">\(a\)</span>
+and <span class="math inline">\(p\)</span> to hold, which we leave out
+here.<a href="#fnref1" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 </body>

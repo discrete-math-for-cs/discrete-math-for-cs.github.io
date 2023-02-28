@@ -7,9 +7,6 @@
   <title>Week8</title>
   <style>
     html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
       color: #1a1a1a;
       background-color: #fdfdfd;
     }
@@ -28,13 +25,16 @@
     @media (max-width: 600px) {
       body {
         font-size: 0.9em;
-        padding: 1em;
+        padding: 12px;
       }
       h1 {
         font-size: 1.8em;
       }
     }
     @media print {
+      html {
+        background-color: white;
+      }
       body {
         background-color: transparent;
         color: black;
@@ -84,9 +84,10 @@
       color: #606060;
     }
     code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
       font-size: 85%;
       margin: 0;
+      hyphens: manual;
     }
     pre {
       margin: 1em 0;
@@ -148,10 +149,15 @@
     }
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
   </style>
   <script
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
@@ -323,7 +329,8 @@ domain $A$, codomain $B$} \\
 |A| \geq |B| &amp;\text{ means there is an onto function with domain
 $A$, codomain $B$} \\
 |A| = |B| &amp;\text{ means there is a bijection with domain $A$,
-codomain $B$}\end{aligned}\]</span></p>
+codomain $B$}
+\end{aligned}\]</span></p>
 <p>For all sets <span class="math inline">\(A\)</span>, we say <span
 class="math inline">\(|A| = |\emptyset|\)</span>, <span
 class="math inline">\(|\emptyset| = |A|\)</span> if and only if <span
@@ -572,7 +579,8 @@ class="math display">\[\begin{aligned}
 &amp;\forall A ~ (~  |A| = |A| ~)\\
 &amp;\forall A ~ \forall B ~(~ |A| = |B|  ~\to ~ |B| = |A|~)\\
 &amp;\forall A ~ \forall B ~ \forall C~ (~ (|A| = |B| ~\wedge~ |B| =
-|C|) ~\to ~ |A| = |C|~)\end{aligned}\]</span></p>
+|C|) ~\to ~ |A| = |C|~)
+\end{aligned}\]</span></p>
 <p><span><em>Extra practice with proofs:</em></span> Use the definitions
 of bijections to prove these properties.</p>
 <p><span><strong>Cantor-Schroder-Bernstein Theorem</strong></span>: For
@@ -684,12 +692,14 @@ class="math inline">\(L\)</span> is countably infinite</p>
 <p><span>2</span> <span class="math display">\[\begin{aligned}
     &amp;list: \mathbb{N} \to L \\
     &amp;list(n) = (n, []) \\
-    &amp;\end{aligned}\]</span></p>
+    &amp;
+\end{aligned}\]</span></p>
 <p><span class="math display">\[\begin{aligned}
     &amp;toNum: L \to \mathbb{N} \\
     &amp;toNum([]) = 0 \\
     &amp;toNum( ~(n,l)~) = 2^n 3^{toNum}(l) \qquad \text{for $n \in
-\mathbb{N}$, $l \in L$}\end{aligned}\]</span></p>
+\mathbb{N}$, $l \in L$}
+\end{aligned}\]</span></p>
 </div>
 <p><span><strong>Claim</strong></span>: <span
 class="math inline">\(|\mathbb{Z}^+| = |\mathbb{Q}|\)</span></p>
@@ -705,7 +715,8 @@ class="math inline">\(n \in \mathbb{N}\)</span>.</p>
         (0,1) &amp; \text{if $x = 0$} \\
         (p,q) &amp; \text{if $x = \frac{p}{q}$,}\\
                 &amp; \text{$gcd(p,q) = 1$, $q &gt; 0$}
-    \end{cases}\end{aligned}\]</span></p>
+    \end{cases}
+\end{aligned}\]</span></p>
 <div class="multicols">
 <p><span>2</span> <span class="math display">\[\begin{aligned}
     &amp;f_3: \mathbb{Z} \times \mathbb{Z} \to \mathbb{Z}^+ \times
@@ -715,11 +726,12 @@ class="math inline">\(n \in \mathbb{N}\)</span>.</p>
         (-2x-1, 2y+2) &amp; \text{if $x &lt; 0, y \geq 0$} \\
         (2x+2, -2y+1) &amp; \text{if $x \geq 0, y &lt; 0$} \\
         (-2x-1, -2y-1) &amp; \text{if $x &lt; 0, y &lt; 0$} \\
-    \end{cases}\end{aligned}\]</span></p>
+    \end{cases}
+\end{aligned}\]</span></p>
 <p><span class="math display">\[\begin{aligned}
     &amp;f_4: \mathbb{Z}^+ \times \mathbb{Z}^+ \to \mathbb{Z}^+ \\
-    &amp;f_4(~(x,y)~) = 2^x 3^y \qquad \text{for $x,y \in
-\mathbb{Z}^+$}\end{aligned}\]</span></p>
+    &amp;f_4(~(x,y)~) = 2^x 3^y \qquad \text{for $x,y \in \mathbb{Z}^+$}
+\end{aligned}\]</span></p>
 </div>
 <h2 class="unnumbered" id="review-1">Review</h2>
 <ol>
@@ -894,7 +906,8 @@ class="math inline">\((~|A| \leq |B| ~) \land \lnot (~|A| =
 \{1\} \} \qquad &amp;&amp;|\{1\}| &lt; |\mathcal{P}(\{1\})| \\
     &amp;\{1,2 \} \qquad &amp;&amp;\mathcal{P}(\{1,2\}) = \{ \emptyset,
 \{1\}, \{2\}, \{1,2\} \} \qquad &amp;&amp;|\{1,2\}| &lt;
-|\mathcal{P}(\{1,2\})| \\\end{aligned}\]</span></p>
+|\mathcal{P}(\{1,2\})| \\
+\end{aligned}\]</span></p>
 <p><span><strong><span class="math inline">\(\mathbb{N}\)</span> and its
 power set</strong></span></p>
 <p>Example elements of <span
@@ -1408,12 +1421,12 @@ has a binary fixed-width $5$ expansion} \}\)</span></p></li>
 (0.10)_{(2,1,2)} \}\)</span></p></li>
 </ol></li>
 </ol>
-<section class="footnotes footnotes-end-of-document"
+<section id="footnotes" class="footnotes footnotes-end-of-document"
 role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1" role="doc-endnote"><p>There’s a subtle imprecision in this
-part of the proof as presented, but it can be fixed.<a href="#fnref1"
+<li id="fn1"><p>There’s a subtle imprecision in this part of the proof
+as presented, but it can be fixed.<a href="#fnref1"
 class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>

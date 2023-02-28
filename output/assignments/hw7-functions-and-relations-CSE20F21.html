@@ -8,9 +8,6 @@
   <title>HW7 Function and Relations</title>
   <style>
     html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
       color: #1a1a1a;
       background-color: #fdfdfd;
     }
@@ -29,13 +26,16 @@
     @media (max-width: 600px) {
       body {
         font-size: 0.9em;
-        padding: 1em;
+        padding: 12px;
       }
       h1 {
         font-size: 1.8em;
       }
     }
     @media print {
+      html {
+        background-color: white;
+      }
       body {
         background-color: transparent;
         color: black;
@@ -85,9 +85,10 @@
       color: #606060;
     }
     code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
       font-size: 85%;
       margin: 0;
+      hyphens: manual;
     }
     pre {
       margin: 1em 0;
@@ -149,10 +150,15 @@
     }
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
   </style>
   <script
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
@@ -438,8 +444,9 @@ class="math display">\[\begin{aligned}
 &amp;\text{$s$ is a prefix of $s&#39;$, }\\
         &amp;\text{namely either $s = s&#39;$ or there is
         some base $b$ such that $sb=s&#39;$} \}
-    \end{aligned}\]</span> This is a partial ordering (you do not need
-to prove this).</p>
+    
+\end{aligned}\]</span> This is a partial ordering (you do not need to
+prove this).</p>
 <p>Draw the Hasse diagram of <span
 class="math inline">\(P\)</span>.</p></li>
 <li><p>Consider the set <span class="math inline">\(CP\)</span> of
@@ -513,22 +520,21 @@ are some possible values for Bob’s secret integer? What algorithm are
 you using to compute them?</p></li>
 </ol></li>
 </ol>
-<section class="footnotes footnotes-end-of-document"
+<section id="footnotes" class="footnotes footnotes-end-of-document"
 role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1" role="doc-endnote"><p>This means your solution will be
-evaluated not only on the correctness of your answers, but on your
-ability to present your ideas clearly and logically. You should explain
-how you arrived at your conclusions, using mathematically sound
-reasoning. Whether you use formal proof techniques or write a more
-informal argument for why something is true, your answers should always
-be well-supported. Your goal should be to convince the reader that your
-results and methods are sound.<a href="#fnref1" class="footnote-back"
+<li id="fn1"><p>This means your solution will be evaluated not only on
+the correctness of your answers, but on your ability to present your
+ideas clearly and logically. You should explain how you arrived at your
+conclusions, using mathematically sound reasoning. Whether you use
+formal proof techniques or write a more informal argument for why
+something is true, your answers should always be well-supported. Your
+goal should be to convince the reader that your results and methods are
+sound.<a href="#fnref1" class="footnote-back"
 role="doc-backlink">↩︎</a></p></li>
-<li id="fn2" role="doc-endnote"><p>For sets <span
-class="math inline">\(A\)</span> and <span
-class="math inline">\(B\)</span>, when the relation <span
+<li id="fn2"><p>For sets <span class="math inline">\(A\)</span> and
+<span class="math inline">\(B\)</span>, when the relation <span
 class="math inline">\(A\subseteq B\)</span> holds we say that <span
 class="math inline">\(A\)</span> is a subset of <span
 class="math inline">\(B\)</span> and that <span
@@ -540,10 +546,10 @@ class="math inline">\(B\)</span> and that <span
 class="math inline">\(B\)</span> is a proper superset of <span
 class="math inline">\(A\)</span>.<a href="#fnref2" class="footnote-back"
 role="doc-backlink">↩︎</a></p></li>
-<li id="fn3" role="doc-endnote"><p>This means you will get full credit
-so long as your submission demonstrates honest effort to answer the
-question. You will not be penalized for incorrect answers.<a
-href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>This means you will get full credit so long as your
+submission demonstrates honest effort to answer the question. You will
+not be penalized for incorrect answers.<a href="#fnref3"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 </body>

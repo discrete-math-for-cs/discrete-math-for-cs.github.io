@@ -7,9 +7,6 @@
   <title>Week3</title>
   <style>
     html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
       color: #1a1a1a;
       background-color: #fdfdfd;
     }
@@ -28,13 +25,16 @@
     @media (max-width: 600px) {
       body {
         font-size: 0.9em;
-        padding: 1em;
+        padding: 12px;
       }
       h1 {
         font-size: 1.8em;
       }
     }
     @media print {
+      html {
+        background-color: white;
+      }
       body {
         background-color: transparent;
         color: black;
@@ -84,9 +84,10 @@
       color: #606060;
     }
     code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
       font-size: 85%;
       margin: 0;
+      hyphens: manual;
     }
     pre {
       margin: 1em 0;
@@ -148,10 +149,15 @@
     }
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
   </style>
   <script
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
@@ -1308,21 +1314,23 @@ that you bought the computer less than a year ago" <span
 class="math display">\[\begin{aligned}
 w &amp;\text{ is  ``the warranty is good&quot;} \\
 b &amp;\text{ is  ``you bought the computer less than a year ago&quot;}
-\\\end{aligned}\]</span></p>
+\\
+\end{aligned}\]</span></p>
 </div>
 <div class="multicols">
 <p><span>2</span> “Whenever the message was sent from an unknown system,
 it is scanned for viruses." <span class="math display">\[\begin{aligned}
 s &amp;\text{ is  ``The message is scanned for viruses&quot;} \\
 u &amp;\text{ is  ``The message was sent from an unknown system&quot;}
-\\\end{aligned}\]</span></p>
+\\
+\end{aligned}\]</span></p>
 </div>
 <div class="multicols">
 <p><span>2</span> “I will complete my to-do list only if I put a
 reminder in my calendar" <span class="math display">\[\begin{aligned}
 d &amp;\text{ is  ``I will complete my to-do list&quot;} \\
-c &amp;\text{ is  ``I put a reminder in my calendar&quot;}
-\\\end{aligned}\]</span></p>
+c &amp;\text{ is  ``I put a reminder in my calendar&quot;} \\
+\end{aligned}\]</span></p>
 </div>
 <p><span><strong>Definition</strong></span>: A collection of compound
 propositions is called <span><strong>consistent</strong></span> if there
@@ -1413,7 +1421,8 @@ role="doc-noteref"><sup>1</sup></a></p>
 can"; <span class="math inline">\(C =\)</span> “you can".</p>
 <ol>
 <li><p><span class="math display">\[\begin{aligned}
-&amp;T \to C \\&amp;  \neg T \to \neg C \end{aligned}\]</span></p></li>
+&amp;T \to C \\&amp;  \neg T \to \neg C
+\end{aligned}\]</span></p></li>
 <li><p><span class="math display">\[\begin{aligned}
 &amp;T \wedge C \\  &amp; \neg  T \wedge \neg C
 \end{aligned}\]</span></p></li>
@@ -1434,22 +1443,25 @@ password is written down".</p>
 <ol>
 <li><p><span class="math display">\[\begin{aligned}
 &amp;\neg (P \wedge C) \to \neg  S  \\ &amp; C \to H  \\ &amp; W \wedge
-H \\ &amp; W \to  \neg P \\ &amp; S \end{aligned}\]</span></p></li>
+H \\ &amp; W \to  \neg P \\ &amp; S
+\end{aligned}\]</span></p></li>
 <li><p><span class="math display">\[\begin{aligned}
 &amp;(P \wedge  C)  \to S  \\ &amp;  C \to H\\ &amp; W  \to  H \\  &amp;
-W \to P \\ &amp; S\end{aligned}\]</span></p></li>
+W \to P \\ &amp; S
+\end{aligned}\]</span></p></li>
 <li><p><span class="math display">\[\begin{aligned}
 &amp; S  \to (P \wedge C)  \\ &amp;  C \to H\\ &amp; H  \to  W \\  &amp;
-W \to \neg P \\ &amp; S\end{aligned}\]</span></p></li>
+W \to \neg P \\ &amp; S
+\end{aligned}\]</span></p></li>
 </ol></li>
 </ol></li>
 </ol>
-<section class="footnotes footnotes-end-of-document"
+<section id="footnotes" class="footnotes footnotes-end-of-document"
 role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1" role="doc-endnote"><p>Henry Ford<a href="#fnref1"
-class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>Henry Ford<a href="#fnref1" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 </body>
