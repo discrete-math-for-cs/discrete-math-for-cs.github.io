@@ -34,6 +34,18 @@
     float: right;
 }
 
+.header {
+    height: 80vh;
+    background: url('../../resources/images/Red_flowers_at_Carlsbad.jpeg');
+ /* flex-box thing */
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ background-size: cover; 
+ margin-bottom: 30px;
+}
+
 h1 {
     font-family: 'Atkinson Hyperlegible', sans-serif;
     font-style: normal;
@@ -54,6 +66,14 @@ h2 {
 h3 {
     font-family: 'Atkinson Hyperlegible', sans-serif;
     font-weight: bold;
+    font-size: 150%;
+    color: #182B49;
+}
+
+h4 {
+    font-family: 'Atkinson Hyperlegible', sans-serif;
+    font-weight: bold;
+    font-style: italic;
     font-size: 150%;
     color: #182B49;
 }
@@ -101,7 +121,7 @@ body {
 }
 
 .calendar-margin{
-    margin-left: 100px;
+    margin-left: 10%;
 }
 
 @media screen and (max-width: 600px) {
@@ -196,8 +216,8 @@ p {
 
 ul {
     /*list-style:none;*/
-     font-size: 100%;
-     margin-left: 0%;
+     font-size: 140%;
+     margin-left: 2%;
      text-decoration: none;
  }
 
@@ -361,7 +381,7 @@ label {
     margin-bottom: 0%;
     bottom:0%;
     width:100%;
-    position: fixed;
+    /* position: fixed; */
    left: 0;
    bottom: 0;
    width: 100%;
@@ -402,7 +422,7 @@ label {
 }
 
 dl{
-    font-size: 150%;
+    font-size: 140%;
 }
 dd{
     margin-left: 30px;
@@ -441,7 +461,7 @@ dd{
 }
 
 .column {
-    column-count: 2;
+    column-count: 1;
 }
 
 .box:hover {
