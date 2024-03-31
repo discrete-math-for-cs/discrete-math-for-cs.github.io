@@ -1,16 +1,16 @@
 %! app: Recommendation Systems
 %! outcome: function and relation definitions, data types
 
-Recall the function
-$d_0$ which takes an ordered pair of ratings $3$-tuples and returns a measure
-of the distance between them 
+Recall the function which takes an ordered pair of ratings $4$-tuples and returns a measure of the difference between them
+$d_0: \{-1,0,1\}^4 \times \{-1,0,1\}^4 \to \mathbb{R}$
 given by
 \[
-d_0 (~(~ (x_1, x_2, x_3), (y_1, y_2, y_3) ~) ~) = \sqrt{ (x_1 - y_1)^2 + (x_2 - y_2)^2 + (x_3 -y_3)^2}
+d_0 (~(~ (x_1, x_2, x_3, x_4), (y_1, y_2, y_3, y_4) ~) ~) = \sqrt{ (x_1 - y_1)^2 + (x_2 - y_2)^2 + (x_3 -y_3)^2 + (x_4 -y_4)^2}
 \]
+
 Consider the function application 
 \[
-  d_0 (~( ~(-1,1,1), (1, 0, -1)~) ~)
+  d_0 (~( ~(-1,1,1, 0), (1, 0, -1, 0)~) ~)
 \]
 \begin{enumerate}
     \item What is the input? 

@@ -1,0 +1,389 @@
+\documentclass[12pt, oneside]{article}
+
+\usepackage[letterpaper, scale=0.89, centering]{geometry}
+\usepackage{fancyhdr}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\rfoot{\href{https://creativecommons.org/licenses/by-nc-sa/2.0/}{CC BY-NC-SA 2.0} Version \today~(\thepage)}
+
+\usepackage{amssymb,amsmath,pifont,amsfonts,comment,enumerate,enumitem}
+\usepackage{currfile,xstring,hyperref,tabularx,graphicx,wasysym}
+\usepackage[labelformat=empty]{caption}
+\usepackage{xcolor}
+\usepackage{multicol,multirow,array,listings,tabularx,lastpage,textcomp,booktabs}
+
+\lstnewenvironment{algorithm}[1][] {   
+    \lstset{ mathescape=true,
+        frame=tB,
+        numbers=left, 
+        numberstyle=\tiny,
+        basicstyle=\rmfamily\scriptsize, 
+        keywordstyle=\color{black}\bfseries,
+        keywords={,procedure, div, for, to, input, output, return, datatype, function, in, if, else, foreach, while, begin, end, }
+        numbers=left,
+        xleftmargin=.04\textwidth,
+        #1
+    }
+}
+{}
+\lstnewenvironment{java}[1][]
+{   
+    \lstset{
+        language=java,
+        mathescape=true,
+        frame=tB,
+        numbers=left, 
+        numberstyle=\tiny,
+        basicstyle=\ttfamily\scriptsize, 
+        keywordstyle=\color{black}\bfseries,
+        keywords={, int, double, for, return, if, else, while, }
+        numbers=left,
+        xleftmargin=.04\textwidth,
+        #1
+    }
+}
+{}
+
+\newcommand\abs[1]{\lvert~#1~\rvert}
+\newcommand{\st}{\mid}
+
+\newcommand{\A}[0]{\texttt{A}}
+\newcommand{\C}[0]{\texttt{C}}
+\newcommand{\G}[0]{\texttt{G}}
+\newcommand{\U}[0]{\texttt{U}}
+
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+
+ 
+\begin{document}
+\begin{flushright}
+    \StrBefore{\currfilename}{.}
+\end{flushright} \section*{Netflix intro}
+
+
+What data should we encode about each Netflix account holder to help us make effective recommendations?
+
+\vfill
+\vfill
+
+In machine learning, clustering can be used to group similar data for prediction and recommendation.  For example,
+each Netflix user's viewing history can be represented as a $n$-tuple indicating their preferences about
+movies in the database, where $n$ is the number of movies in the database.  People with similar tastes in movies can then be clustered to provide recommendations
+of movies for one another.  Mathematically, clustering is based on a notion of distance between pairs of $n$-tuples.
+ \vfill
+\section*{Data types}
+
+
+\begin{center}
+    \begin{tabular}{p{4.6in}p{2.6in}}
+    {\bf  Term} & {\bf Examples}:\\
+    &  (add additional examples from class)\\
+    \hline 
+    {\bf set} \newline
+    unordered collection of elements & $7 \in \{43, 7, 9 \}$ \qquad $2 \notin \{43, 7, 9 \}$ \\
+    {\it repetition doesn't matter} & \\
+    {\it Equal sets agree on membership of all elements}& \\
+    \hline
+    {\bf $n$-tuple} \newline
+    ordered sequence of elements with $n$ ``slots" ($n >0$) & \\
+    {\it repetition matters, fixed length} &\\
+    {\it Equal $n$-tuples have corresponding components equal}& \\
+    \hline
+    {\bf string} \newline
+    ordered finite sequence of elements each from specified
+    set (called the alphabet over which the string is defined)& \\
+    {\it repetition matters, arbitrary finite length} &\\
+    {\it Equal strings have same length and corresponding characters equal}
+    \end{tabular}
+\end{center}
+
+{\it Special cases}: 
+
+When $n=2$, the 2-tuple is called an {\bf ordered pair}.
+
+A string of length $0$ is called the {\bf empty string} and is denoted $\lambda$.
+
+A set with no elements is called the {\bf empty set} and is denoted $\{\}$ or $\emptyset$. \vfill
+\section*{Ratings encoding}
+
+
+In the table  below,  each row represents a user's ratings of movies: 
+\cmark~(check) indicates the person liked the movie, \xmark~(x)
+that they didn't, and $\bullet$ (dot) that they didn't rate it one way or 
+another (neutral rating or didn't watch). Can encode
+these ratings numerically with $1$ for \cmark~(check), $-1$ for \xmark~(x), 
+and $0$ for $\bullet$ (dot).
+
+\vfill
+
+\begin{center}
+\begin{tabular}{c|cccc||c}
+Person & Dune & Oppenheimer & Barbie & Nimona & Ratings written as a $4$-tuple\\
+\hline
+$P_1$     & \xmark & $\bullet$ & \cmark & \phantom{$(-1, 0, 1, 1)$} \\
+&&&& \\
+$P_2$     & \cmark & \cmark & \xmark & \phantom{$(1, 1, -1, 1)$} \\
+&&&& \\
+$P_3$     & \cmark & \cmark & \cmark & \phantom{$(1, 1, 1, 1)$} \\
+&&&& \\
+$P_4$     & $\bullet$ & \xmark & \cmark &  \\
+&&&& \\
+$You$     &  &  &  &  \\
+&&&& \\
+\end{tabular}
+\end{center} \vfill
+\section*{Definitions set prereqs}
+
+
+\begin{center}
+\begin{tabular}{|llp{9.8cm}|}
+\hline
+{\bf Term} & {\bf Notation Example(s)} & {\bf We say in English \ldots } \\
+\hline
+all reals & $\mathbb{R}$ & The (set of all) real numbers (numbers on the number line)\\
+all integers & $\mathbb{Z}$ & The (set of all) integers (whole numbers including negatives, zero, and positives) \\
+all positive integers & $\mathbb{Z}^+$ & The (set of all) strictly positive integers \\
+all natural numbers & $\mathbb{N}$ & The (set of all) natural numbers. {\bf Note}: we use the convention that $0$ is a natural number. \\
+
+
+\hline
+\end{tabular}
+\end{center} \vfill
+\section*{Defining sets}
+
+
+{\it To define sets:}
+
+To define a set using {\bf roster method}, explicitly list its elements. That is,
+start with $\{$ then list elements of 
+the set separated by commas and close with $\}$.
+
+\vfill
+
+To define a set using {\bf set builder definition}, either form 
+``The set of all $x$ from the universe $U$ such that $x$ is ..." by writing
+\[\{x \in U \mid ...x... \}\]
+or form ``the collection of all outputs of some operation when the input ranges over the universe $U$"
+by writing
+\[\{ ...x... \mid x\in U \}\]
+
+\vfill
+
+We use the symbol $\in$ as ``is an element of'' to indicate membership in a set.\\
+
+\newpage 
+
+{\bf Example sets}: For each of the following, identify whether it's defined using the roster method
+or set builder notation and give an example element.
+
+Can we infer the data type of the example element from the notation?
+
+\begin{itemize}
+    \item[]$\{ -1, 1\}$
+    \vfill
+    \item[]$\{0, 0 \}$
+    \vfill
+    \item[]$\{-1, 0, 1 \}$
+    \vfill
+    \item[]$\{(x,x,x) \mid x \in \{-1,0,1\} \}$
+    \vfill
+    \item[]$\{ \}$
+    \vfill
+    \item[]$\{ x \in \mathbb{Z} \mid x \geq 0 \}$
+    \vfill
+    \item[]$\{ x \in \mathbb{Z}  \mid x > 0 \}$
+    \vfill
+    \item[]$\{ \smile, \sun \}$
+    \vfill
+    \item[]$\{\A,\C,\U,\G\}$
+    \vfill
+    \item[]$\{\A\U\G, \U\A\G, \U\G\A, \U\A\A \}$
+    \vfill
+\end{itemize}
+ \vfill
+\section*{Definitions functions prereqs}
+
+
+\begin{center}
+\begin{tabular}{|p{1.2in}p{2.8in}p{3in}|}
+\hline
+{\bf Term} & {\bf Notation Example(s)} & {\bf We say in English \ldots } \\
+\hline
+sequence & $x_1, \ldots, x_n$ & A sequence $x_1$ to $x_n$ \\
+summation & $\sum_{i=1}^n x_i$ or $\displaystyle{\sum_{i=1}^n x_i}$ & The sum of the terms of the sequence $x_1$ to $x_n$ \\
+&&\\
+&&\\
+piecewise rule definition & $f(x) = \begin{cases} \text{rule 1 for } x & \text{when~COND 1} \\ \text{rule 2 for } x & \text{when COND 2}\end{cases}$ &
+Define $f$ of $x$ to be the result of applying rule 1 to $x$ when condition COND 1 is true and the result of 
+applying rule 2 to $x$ when condition COND 2 is true. This can be generalized to having more than two conditions
+(or cases).\\
+&&\\
+function application & $f(7)$ & $f$ of $7$ {\bf or} $f$ applied to $7$ {\bf or} the image of $7$ under $f$\\
+                     & $f(z)$ & $f$ of $z$ {\bf or} $f$ applied to $z$ {\bf or} the image of $z$ under $f$\\
+                     & $f(g(z))$ & $f$ of $g$ of $z$ {\bf or} $f$ applied to the result of $g$ applied to $z$ \\
+&&\\
+absolute value & $\lvert -3 \rvert$ & The absolute value of $-3$ \\
+square root & $\sqrt{9}$ & The non-negative square root of $9$ \\
+
+
+\hline
+\end{tabular}
+\end{center}
+
+{\bf Pro-tip}: the meaning of two vertical lines $| ~~~ |$ depends on the data-types of what's between the lines.
+For example, when placed around a number, the two vertical lines represent absolute value.
+We've seen a single vertial line $|$ used as part of set builder definitions to represent ``such that''.
+Again, this is 
+(one of the many reasons) why is it very important to declare the data-type of variables before we use them.
+ \vfill
+\section*{Defining functions}
+
+
+\fbox{\parbox{\textwidth}{{\bf New! Defining functions} A function is defined by its (1) domain, 
+(2) codomain, and (3) rule assigning each 
+element in the domain exactly one element in the codomain.\\
+
+The domain and codomain are nonempty sets.
+
+The rule can be depicted as a table, formula, piecewise definition, or English description.
+
+The notation is 
+\begin{center}
+    ``Let the function FUNCTION-NAME: DOMAIN $\to$ CODOMAIN be given by \\
+FUNCTION-NAME(x) = \ldots for every $x \in DOMAIN$''.
+\end{center}
+
+or 
+\begin{center}
+    ``Consider the function FUNCTION-NAME: DOMAIN $\to$ CODOMAIN defined as  \\
+FUNCTION-NAME(x) = \ldots for every $x \in DOMAIN$''.
+\end{center}
+}}
+
+\vfill
+\newpage
+
+Example: The absolute value function 
+
+{\bf Domain}
+
+{\bf Codomain}
+
+{\bf Rule}
+
+\vfill 
+ \vfill
+\section*{Defining functions ratings}
+
+
+Recall our representation of Netflix users' ratings of movies as $n$-tuples, where
+$n$ is the number of movies in the database. 
+Each component of the $n$-tuple is $-1$ (didn't like the movie), $0$ 
+(neutral rating or didn't watch the movie), or $1$ (liked the movie).
+
+Consider the ratings $P_1 = (-1, 0, 1, 0)$, $P_2 = (1, 1, -1, 0)$, $P_3 = (1, 1, 1, 0)$,
+$P_4 = (0,-1,1, 0)$
+
+
+Which of $P_1$, $P_2$, $P_3$ has movie preferences most similar to $P_4$?
+
+One approach to answer this question: use {\bf functions} to quantify difference among user preferences.
+
+For example, consider the function 
+$d_0: \{-1,0,1\}^4 \times \{-1,0,1\}^4 \to \mathbb{R}$
+given by
+\[
+d_0 (~(~ (x_1, x_2, x_3, x_4), (y_1, y_2, y_3, y_4) ~) ~) = \sqrt{ (x_1 - y_1)^2 + (x_2 - y_2)^2 + (x_3 -y_3)^2 + (x_4 -y_4)^2}
+\]
+
+
+\vfill
+\vfill
+
+\begin{comment}
+    
+
+{\it Extra example:} A new movie is released, and $P_1$ and $P_2$ watch it before $P_3$, and give it
+ratings; $P_1$ gives \cmark~and $P_2$ gives \xmark.
+Should this movie be recommended to $P_3$? Why or why not?
+
+{\it Extra example:} Define a new function that could be used to compare the $4$-tuples of ratings encoding
+movie preferences now that there are four movies in the database.
+
+\vfill
+\end{comment}
+\newpage \vfill
+\section*{Defining functions recursively}
+
+
+When the domain of a function is a {\it recursively defined set}, the rule assigning 
+images to domain elements (outputs) can also be defined recursively.
+
+Recall: The set of RNA strands $S$ is defined (recursively) by:
+\[
+\begin{array}{ll}
+\textrm{Basis Step: } & \A \in S, \C \in S, \U \in S, \G \in S \\
+\textrm{Recursive Step: } & \textrm{If } s \in S\textrm{ and }b \in B \textrm{, then }sb \in S
+\end{array}
+\]
+where $sb$ is string concatenation.
+
+{\bf Definition} (Of a function, recursively) A function \textit{rnalen} that computes the length of RNA strands in $S$ is defined by:
+\[
+\begin{array}{llll}
+& & \textit{rnalen} : S & \to \mathbb{Z}^+ \\
+\textrm{Basis Step:} & \textrm{If } b \in B\textrm{ then } & \textit{rnalen}(b) & = 1 \\
+\textrm{Recursive Step:} & \textrm{If } s \in S\textrm{ and }b \in B\textrm{, then  } & \textit{rnalen}(sb) & = 1 + \textit{rnalen}(s)
+\end{array}
+\]
+
+The domain of \textit{rnalen} is \phantom{$S$}\\
+
+The codomain of \textit{rnalen} is \phantom{$\mathbb{Z}^+$}\\
+
+Example function application:
+\[
+rnalen(\A\C\U) = \phantom{1+ rnalen(\A\C) = 1 + (1 + rnalen(\A) ) = 1 + ( 1 + 1) = 3}
+\]
+
+\vfill
+
+{\it Example}: A function \textit{basecount} that computes the number of a given base 
+$b$ appearing in a RNA strand $s$ is defined recursively:
+    
+\[
+\begin{array}{llll}
+& & \textit{basecount} : S \times B & \to \mathbb{N} \\
+\textrm{Basis Step:} &  \textrm{If } b_1 \in B, b_2 \in B & \textit{basecount}(~(b_1, b_2)~) & =
+        \begin{cases}
+            1 & \textrm{when } b_1 = b_2 \\
+            0 & \textrm{when } b_1 \neq b_2 \\
+        \end{cases} \\
+\textrm{Recursive Step:} & \textrm{If } s \in S, b_1 \in B, b_2 \in B &\textit{basecount}(~(s b_1, b_2)~) & =
+        \begin{cases}
+            1 + \textit{basecount}(~(s, b_2)~) & \textrm{when } b_1 = b_2 \\
+            \textit{basecount}(~(s, b_2)~) & \textrm{when } b_1 \neq b_2 \\
+        \end{cases}
+\end{array}
+\]
+
+\begin{comment}
+$basecount(~(\A\C\U,\A)~) = basecount( ~(\A\C, \A)~) = basecount(~(\A, \A)~) = 1$\\
+
+
+$basecount(~(\A\C\U,\G)~) = basecount( ~(\A\C, \G)~) = basecount(~(\A, \G)~) = 0$\\
+
+
+\vfill
+{\it Extra example}: The function which outputs $2^n$ when given a nonnegative integer $n$ can be defined recursively, 
+because its domain is the set of nonnegative integers.
+
+\vfill
+\end{comment}
+ \vfill
+\end{document}

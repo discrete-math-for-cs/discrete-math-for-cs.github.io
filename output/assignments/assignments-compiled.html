@@ -174,31 +174,30 @@
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">HW1 Definitions and NotationProject</h1>
+<h1 class="title">hw1-definitions-and-notationProject</h1>
 <p class="author">CSE20S24</p>
-<p class="date">Due: Tuesday, October 5, 2021 at 11:00PM on
-GradescopePart 1 due 10/14/21; Part 2 due 11/4/21; Part 3 due
+<p class="date">Due: 4/9/24 at 5pm (no penalty late submission until 8am
+next morning)Part 1 due 10/14/21; Part 2 due 11/4/21; Part 3 due
 12/2/21</p>
 </header>
 <p><span><strong>In this assignment,</strong></span></p>
 <p>You will practice reading and applying definitions to get comfortable
-working with mathematical language. As a result, you can expect to spend
-more time reading the questions and looking up notation than doing
-calculations.</p>
-<p><span><strong>For all HW assignments:</strong></span> Assignments
-give you practice with the main concepts and techniques of the course,
-while getting to know and learn from your classmates. These homework
+working with mathematical language.</p>
+<p><span><strong>Relevant class material</strong></span>: Week 1.</p>
+<p>You will submit this assignment via Gradescope (<a
+href="https://www.gradescope.com">https://www.gradescope.com</a>) in the
+assignment called “hw1-definitions-and-notation”.</p>
+<p><span><strong>For all HW assignments:</strong></span> These homework
 assignments may be done individually or in groups of up to 3 students.
-You may switch HW partners for different HW assignments. Please ensure
-your name(s) and PID(s) are clearly visible on the first page of your
-homework submission, start each question on a new page, and upload the
-PDF to Gradescope.</p>
-<p>If you’re working in a group, <span><em>ubmit only one submission per
-group</em></span>: one partner uploads the submission through their
-Gradescope account and then adds the other group member(s) to the
-Gradescope submission by selecting their name(s) in the “Add Group
-Members” dialog box. You will need to re-add your group member(s) every
-time you resubmit a new version of your assignment.</p>
+Please ensure your name(s) and PID(s) are clearly visible on the first
+page of your homework submission, start each question on a new page, and
+upload the PDF to Gradescope. If you’re working in a group,
+<span><em>submit only one submission per group</em></span>: one partner
+uploads the submission through their Gradescope account and then adds
+the other group member(s) to the Gradescope submission by selecting
+their name(s) in the “Add Group Members” dialog box. You will need to
+re-add your group member(s) every time you resubmit a new version of
+your assignment.</p>
 <p>Each homework question will be graded either for
 <span><strong>correctness</strong></span> (including clear and precise
 explanations and justifications of all answers) or <span><strong>fair
@@ -216,12 +215,7 @@ Notepad, Vim, Google Docs, etc.) but you might find it useful to take
 this opportunity to learn LaTeX. LaTeX is a markup language used widely
 in computer science and mathematics. The homework assignments are typed
 using LaTeX and you can use the source files as templates for
-typesetting your solutions. To generate state diagrams of machines, we
-recommend using Flap.js or JFLAP. Photographs of clearly hand-drawn
-diagrams may also be used. We recommend that you submit early drafts to
-Gradescope so that in case of any technical difficulties, at least some
-of your work is present. You may update your submission as many times as
-you’d like up to the deadline.</p>
+typesetting your solutions.</p>
 <p><span><strong>Integrity reminders</strong></span></p>
 <ul>
 <li><p>Problems should be solved together, not divided up between the
@@ -243,20 +237,77 @@ with other students in the class who are not in your group. Doing so
 would dilute their learning experience and detract from their success in
 the class.</p></li>
 </ul>
-<p>You will submit this assignment via Gradescope (<a
-href="https://www.gradescope.com">https://www.gradescope.com</a>) in the
-assignment called “hw1-definitions-and-notation”.</p>
-<p><span><strong>Resources</strong></span>: To review the topics you are
-working with for this assignment, see the class material from Week 0 and
-1. We will post frequently asked questions and our answers to them in a
-pinned Piazza post.</p>
 <p><span><strong>Assigned questions</strong></span></p>
 <ol>
-<li><p>(<span><em>Graded for correctness</em></span><a href="#fn1"
-class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>)
-Each of the sets below is described using set builder notation or as a
-result of set operations applied to other known sets. Rewrite them using
-the roster method.</p>
+<li><p>Modeling</p>
+<ol>
+<li><p>(<span><em>Graded for completeness</em></span>) <a href="#fn1"
+class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> In
+class, we used <span class="math inline">\(4\)</span>-tuples to
+represent the user ratings for four movies. This representation is
+memory-efficient because we use the order of the components in the <span
+class="math inline">\(4\)</span>-tuples to represent which move is being
+rated. However, it is not easily extended when we want to add new movies
+to the database. Define a new model that would allow us to represent the
+user ratings of movie databases where we allow for new movies to be
+added. Use only the data types we have talked about in class: sets,
+<span class="math inline">\(n\)</span>-tuples, and strings. Explain the
+design choices that you used to define your model by referencing
+properties of the data-type(s) you choose. Demonstrate your model by
+showing how the rating of the user who dislikes Dune and Oppenheimer and
+likes Barbie and Nimona is represented.</p></li>
+<li><p>(<span><em>Graded for completeness</em></span>) Colors can be
+described as amounts of red, green, and blue mixed together <a
+href="#fn2" class="footnote-ref" id="fnref2"
+role="doc-noteref"><sup>2</sup></a> Mathematically, a color can be
+represented as a <span class="math inline">\(3\)</span>-tuple <span
+class="math inline">\((r, g, b)\)</span> where <span
+class="math inline">\(r\)</span> represents the red component, <span
+class="math inline">\(g\)</span> the green component, <span
+class="math inline">\(b\)</span> the blue component and where each of
+<span class="math inline">\(r\)</span>, <span
+class="math inline">\(g\)</span>, <span class="math inline">\(b\)</span>
+must be a value from this collection of numbers:</p>
+<blockquote>
+<p><span class="math inline">\(\{\)</span>0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
+10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27,
+28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45,
+46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63,
+64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81,
+82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99,
+100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113,
+114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127,
+128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141,
+142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155,
+156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169,
+170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183,
+184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196, 197,
+198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211,
+212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225,
+226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239,
+240, 241, 242, 243, 244, 245, 246, 247, 248, 249, 250, 251, 252, 253,
+254, 255<span class="math inline">\(\}\)</span></p>
+</blockquote>
+<p>(This is the same definition as in the Week 1 Review quiz.)</p>
+<p>Can you find two different <span
+class="math inline">\(3\)</span>-tuples that represent colors that are
+indistinguishable to your eye? You can use the website in the footnote
+to play around with different choices of red, green, and blue levels to
+see if you can distinguish between the resulting colors. Why or why
+not?</p>
+<p>A complete answer will include the specific example <span
+class="math inline">\(3\)</span>-tuples that work, along with a
+description of the colors that they represent and why they are
+indistinguishable, or an explanation of why there can’t be such an
+example.</p></li>
+</ol></li>
+<li><p>Sets and functions</p>
+<ol>
+<li><p>(<span><em>Graded for correctness</em></span>) <a href="#fn3"
+class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>
+Each of the sets below is described using set builder notation or
+recursion or as a result of set operations applied to other known sets.
+Rewrite each of the sets using the roster method.</p>
 <p>Remember our discussions of data-types: use clear notation that is
 consistent with our class notes and definitions to communicate the
 data-types of the elements in each set.</p>
@@ -271,113 +322,102 @@ as <span class="math display">\[\{ \texttt{A}\texttt{A}\texttt{U},
 \texttt{A}\texttt{A}\texttt{G}\}\]</span> because set-wise concatenation
 gives a set whose elements are all possible results of concatenating an
 element of the left set with an element of the right set. Since the left
-set in this example only has one element (<span
-class="math inline">\(\texttt{A}\)</span>), each of the elements of the
+set in this example only has one element, namely <span
+class="math inline">\(\texttt{A}\)</span>, each of the elements of the
 set we described starts with <span
 class="math inline">\(\texttt{A}\)</span>. There are three elements of
 this set, one for each of the distinct elements of the right set.</p>
 <hr />
 <ol>
-<li><p><span class="math display">\[\{ x \in S \mid rnalen(x) = 1 \}
-\circ \{x \in S \mid rnalen(x) = 1 \}\]</span> where <span
+<li><p><span class="math display">\[\{ n \in \mathbb{Z}^+ \mid n \leq 3
+\} \times \{ m \in \mathbb{N} \mid n \leq 3\}\]</span></p></li>
+<li><p>The set <span class="math inline">\(X\)</span> defined
+recursively as <span class="math display">\[\begin{array}{ll}
+    \textrm{Basis Step: } &amp; 1 \in X, 3 \in X, 5 \in X \\
+    \textrm{Recursive Step: } &amp; \textrm{If the integer } n \in X
+\textrm{, then the result of multiplying } n \textrm{ by } -1 \textrm{
+is in }X
+    \end{array}\]</span></p></li>
+<li><p><span class="math display">\[\{ x \in S \mid rnalen(x) = 2 \}
+\circ \{x \in S \mid rnalen(x) = 0 \}\]</span> where <span
 class="math inline">\(S\)</span> is the set of RNA strands and <span
 class="math inline">\(rnalen\)</span> is the recursively defined
-function that we discussed in class.</p></li>
-<li><p><span class="math display">\[\{ (r,g,b) \in C \mid r+g+b =
-1\}\]</span> where <span class="math inline">\(C = \{ (r,g,b) \mid 0
-\leq r \leq 255, 0 \leq g \leq 255, 0 \leq b \leq 255, r \in \mathbb{N},
-g \in \mathbb{N}, b \in \mathbb{N} \}\)</span> is the set that you
-worked with in Monday’s review quiz.</p></li>
-<li><p><span class="math display">\[\{ a \in \mathbb{Z} \mid  a \textbf{
-div } 2 = a \textbf{ mod } 2\}\]</span></p></li>
-</ol></li>
-<li><p>(<span><em>Graded for fair effort completeness</em></span><a
-href="#fn2" class="footnote-ref" id="fnref2"
-role="doc-noteref"><sup>2</sup></a>)</p>
-<ol>
-<li><p>In Wednesday’s review quiz, you considered some attempted
-recursive definitions for the function with domain <span
-class="math inline">\(\mathbb{N}\)</span> and with codomain <span
-class="math inline">\(\mathbb{Z}\)</span> which gives <span
-class="math inline">\(2^n\)</span> for each <span
-class="math inline">\(n\)</span>. Write out a correct recursive
-definition of this function.</p></li>
-<li><p>How would your answer to part (a) change if we consider a new
-function with the same domain and rule but whose codomain is <span
-class="math inline">\(\mathbb{R}\)</span>?</p></li>
-<li><p>How would your answer to part (a) change if we consider a new
-function with the same codomain and rule but whose domain is <span
-class="math inline">\(\mathbb{R}\)</span>?</p></li>
-<li><p>Write a recursive definition of the function with domain <span
-class="math inline">\(\mathbb{Z}^+\)</span>, codomain <span
-class="math inline">\(\mathbb{Z}^+\)</span> and which gives <span
-class="math inline">\(n!\)</span> for each <span
-class="math inline">\(n\)</span>. The <span
-class="math inline">\(!\)</span> symbol is the “factorial” symbol and
-means that we need to multiple <span class="math inline">\(n\)</span> by
-each of the integers between it and <span
-class="math inline">\(1\)</span> inclusive. For example, <span
-class="math inline">\(5! = 5 \cdot 4 \cdot 3 \cdot 2 \cdot 1 =
-120\)</span>.</p></li>
+function that we discussed in class, <span
+class="math display">\[\begin{array}{llll}
+&amp; &amp; \textit{rnalen} : S &amp; \to \mathbb{Z}^+ \\
+\textrm{Basis Step:} &amp; \textrm{If } b \in B\textrm{ then } &amp;
+\textit{rnalen}(b) &amp; = 1 \\
+\textrm{Recursive Step:} &amp; \textrm{If } s \in S\textrm{ and }b \in
+B\textrm{, then  } &amp; \textit{rnalen}(sb) &amp; = 1 +
+\textit{rnalen}(s)
+\end{array}\]</span></p></li>
+<li><p><span class="math display">\[\{ (r,g,b) \in C \mid r+g+b = 2
+\textrm{ and } g=1\}\]</span> where <span class="math inline">\(C = \{
+(r,g,b) \mid 0 \leq r \leq 255, 0 \leq g \leq 255, 0 \leq b \leq 255, r
+\in \mathbb{N}, g \in \mathbb{N}, b \in \mathbb{N} \}\)</span> is the
+set that you worked with in Monday’s review quiz.</p></li>
 </ol></li>
 <li><p>(<span><em>Graded for correctness</em></span>) Recall the
-function <span class="math inline">\(d_0\)</span> which takes an ordered
-pair of ratings <span class="math inline">\(3\)</span>-tuples and
-returns a measure of the distance between them given by <span
-class="math display">\[d_0 (~(~ (x_1, x_2, x_3), (y_1, y_2, y_3) ~) ~) =
-\sqrt{ (x_1 - y_1)^2 + (x_2 - y_2)^2 + (x_3 -y_3)^2}\]</span></p>
-<hr />
-<p><span><em>Sample response that can be used as reference for the
-detail expected in your answers for this question:</em> </span></p>
-<p>To give an example of two <span
-class="math inline">\(3\)</span>-tuples that are <span
-class="math inline">\(d_0\)</span> distance <span
-class="math inline">\(1\)</span> from each other, consider the <span
-class="math inline">\(3\)</span>-tuples <span
-class="math inline">\((1,0,0)\)</span> and <span
-class="math inline">\((0,0,0)\)</span>. We calculate the function
-application: <span class="math display">\[\begin{aligned}
-    d_0 (~(~ (1, 0,0), (0,0,0) ~) ~) &amp;= \sqrt{ (1 - 0)^2 + (0 - 0)^2
-+ (0 -0)^2} = \sqrt{1^2 + 0^2 + 0^2} = \sqrt{1} = 1,
-\end{aligned}\]</span> which is the result required for this
-example.</p>
-<hr />
-<ol>
-<li><p>Give an example of three <span
-class="math inline">\(3\)</span>-tuples <span
-class="math display">\[\begin{aligned}
-    &amp;(x_{1,1}, x_{1,2}, x_{1,3}) \\
-    &amp;(x_{2,1}, x_{2,2}, x_{2,3}) \\
-    &amp;(x_{3,1}, x_{3,2}, x_{3,3}) \\
-    
-\end{aligned}\]</span> that are all <span
-class="math inline">\(d_0\)</span> distance <span><strong>greater
-than</strong></span> <span class="math inline">\(1\)</span> from each
-other. In other words, for each <span class="math inline">\(i\)</span>
-and <span class="math inline">\(j\)</span> between <span
-class="math inline">\(1\)</span> and <span
-class="math inline">\(3\)</span> (with <span class="math inline">\(i
-\neq j\)</span>), <span class="math display">\[d_{0}(~(~(x_{i,1},
-x_{i,2}, x_{i,3})  , (x_{j,1}, x_{j,2}, x_{j,3})~)~) &gt; 1\]</span></p>
-<p>Your answer should include <span><strong>both</strong></span>
-specific values for each example <span
-class="math inline">\(3\)</span>-tuple <span><strong>and</strong></span>
-a justification of your examples with (clear, correct, complete)
-calculations and/or references to definitions and connecting them with
-the desired conclusion.<br />
-<span><em>To think about</em></span>: how will you justify that the
-square root of a number is greater than <span
-class="math inline">\(1\)</span>? Are calculations from a calculator
-accurate enough to help us?</p></li>
-<li><p>What is the range of values that results from applying the
-function <span class="math inline">\(d_0\)</span> to ordered pairs of
-<span class="math inline">\(3\)</span>-tuple ratings? That is, what are
-the smallest and largest possible results?</p>
-<p>Your answer should include <span><strong>both</strong></span>
-specific values for the smallest and largest possible results
-<span><strong>and</strong></span> a justification of your answers with
-(clear, correct, complete) calculations and/or references to definitions
-and connecting them with the desired conclusion.</p></li>
+function which takes an ordered pair of ratings <span
+class="math inline">\(4\)</span>-tuples and returns a measure of the
+difference between them <span class="math display">\[d_0: \{-1,0,1\}^4
+\times \{-1,0,1\}^4 \to \mathbb{R}\]</span> given by <span
+class="math display">\[d_0 (~(~ (x_1, x_2, x_3, x_4), (y_1, y_2, y_3,
+y_4) ~) ~) = \sqrt{ (x_1 - y_1)^2 + (x_2 - y_2)^2 + (x_3 -y_3)^2 + (x_4
+-y_4)^2}\]</span></p>
+<p>Define a <span><strong>new</strong></span> function which we’ll call
+<span class="math inline">\(d_{new}\)</span> with the same domain <span
+class="math inline">\(\{-1,0,1\}^4 \times \{-1,0,1\}^4\)</span> and
+codomain <span class="math inline">\(\mathbb{R}\)</span> but where there
+is some example pair of ratings <span
+class="math inline">\(4\)</span>-tuples <span class="math display">\[(~
+(x_1, x_2, x_3, x_4), (y_1, y_2, y_3, y_4)~)\]</span> where <span
+class="math display">\[d_0 (~(~ (x_1, x_2, x_3, x_4), (y_1, y_2, y_3,
+y_4) ~) ~) \neq d_{new} (~(~ (x_1, x_2, x_3, x_4), (y_1, y_2, y_3, y_4)
+~) ~)\]</span></p>
+<p>Your answer should include <span><strong>both</strong></span> a
+precise and clear definition for the rule defining <span
+class="math inline">\(d_{new}\)</span> which unambiguously specifies
+output for each input of the function <span><strong>and</strong></span>
+the example ordered pair of ratings <span
+class="math inline">\(4\)</span>-tuples that demonstrate that the
+functions are not equal. Also include a justification of your answers
+with (clear, correct, complete) calculations for each of the function
+applications and/or references to definitions and connecting them with
+the desired conclusion.</p></li>
+<li><p>(<span><em>Graded for correctness</em></span>) A function
+<em>basecount</em> that computes the number of a given base <span
+class="math inline">\(b\)</span> appearing in a RNA strand <span
+class="math inline">\(s\)</span> is defined recursively:</p>
+<p><span class="math display">\[\begin{array}{llll}
+&amp; \textit{basecount} : S \times B &amp; \to \mathbb{N} &amp;\\
+\textrm{Basis Step:} &amp;  \\
+\textrm{If } b_1 \in B, b_2 \in B &amp; \textit{basecount}(~(b_1, b_2)~)
+&amp; =
+        \begin{cases}
+            1 &amp; \textrm{when } b_1 = b_2 \\
+            0 &amp; \textrm{when } b_1 \neq b_2 \\
+        \end{cases}&amp; \\
+\textrm{Recursive Step:} &amp; \\
+\textrm{If } s \in S, b_1 \in B, b_2 \in B &amp;\textit{basecount}(~(s
+b_1, b_2)~) &amp; =
+        \begin{cases}
+            1 + \textit{basecount}(~(s, b_2)~) &amp; \textrm{when } b_1
+= b_2 \\
+            \textit{basecount}(~(s, b_2)~) &amp; \textrm{when } b_1 \neq
+b_2 \\
+        \end{cases} &amp;
+\end{array}\]</span> Consider the function application <span
+class="math display">\[basecount(
+~(\texttt{A}\texttt{C}\texttt{A}\texttt{U}, \texttt{A})~)\]</span> What
+is the input? What is the output? Give an example of a different choice
+of input that gives the same output.</p>
+<p>Your answer should include clearly labeled answers to each of the
+three parts of the question, along with a justification for the values
+of the applications that makes specific reference to the parts of the
+recursive definition of the <span
+class="math inline">\(basecount\)</span> function used to calculate
+it.</p></li>
 </ol></li>
 </ol>
 <p>The project component of this class will be an opportunity for you to
@@ -803,19 +843,28 @@ on screen.</p></li>
 role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1"><p>This means your solution will be evaluated not only on
+<li id="fn1"><p>This means you will get full credit so long as your
+submission demonstrates honest effort to answer the question. You will
+not be penalized for incorrect answers. To demonstrate your honest
+effort in answering the question, we expect you to include your attempt
+to answer *each* part of the question. If you get stuck with your
+attempt, you can still demonstrate your effort by explaining where you
+got stuck and what you did to try to get unstuck.<a href="#fnref1"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>This RGB representation is common in web applications.
+Many online tools are available to play around with mixing these colors,
+e.g. <a href="https://www.w3schools.com/colors/colors_rgb.asp"
+class="uri">https://www.w3schools.com/colors/colors_rgb.asp</a>.<a
+href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>This means your solution will be evaluated not only on
 the correctness of your answers, but on your ability to present your
 ideas clearly and logically. You should explain how you arrived at your
 conclusions, using mathematically sound reasoning. Whether you use
 formal proof techniques or write a more informal argument for why
 something is true, your answers should always be well-supported. Your
 goal should be to convince the reader that your results and methods are
-sound.<a href="#fnref1" class="footnote-back"
+sound.<a href="#fnref3" class="footnote-back"
 role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>This means you will get full credit so long as your
-submission demonstrates honest effort to answer the question. You will
-not be penalized for incorrect answers.<a href="#fnref2"
-class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 </body>

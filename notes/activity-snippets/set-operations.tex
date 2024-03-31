@@ -1,5 +1,5 @@
 %! app: TODOapp
-%! outcome: write set definition, TODOoutcome
+%! outcome: write set definition, important sets
 
 \fbox{\parbox{\textwidth}{%
 To define a set we can use the roster method, set builder notation, a recursive definition, 
@@ -13,6 +13,11 @@ $X \times Y$, is the set of all ordered pairs $(x,y)$ where $x \in X$ and $y \in
 \[
 X \times Y = \{ (x,y) \mid x \in X \text{ and } y \in Y \}
 \]
+
+Conventions: (1) Cartesian products can be chained together to result in sets of $n$-tuples and 
+(2) When we form the Cartesian product of a set with itself $X \times X$ we can denote that set as 
+$X^2$, or $X^n$ for the Cartesian product of a set with itself $n$ times for a positive integer $n$.\\
+
 {\bf Definition}: Let $X$ and $Y$ be sets of strings over the same alphabet. The {\bf set-wise concatenation} 
 of $X$ and $Y$, denoted $X \circ Y$, is the set of all results of string concatenation $xy$ where $x \in X$ 
 and $y \in Y$
@@ -30,7 +35,7 @@ When $x$ and $y$ are numbers, the convention is that $xy$ is the result of multi
 
 \begin{center}
 \begin{tabular}{cc}
-{\bf  Set} & {\bf Example elements in this set}:\\
+{\bf  Set} & {\bf Example elements in this set and their data type}:\\
 \hline 
 & \\
 $B$ &\A \qquad \C \qquad \G \qquad \U \\

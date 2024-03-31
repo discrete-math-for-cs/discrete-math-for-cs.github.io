@@ -1,0 +1,274 @@
+\documentclass[12pt, oneside]{article}
+
+\usepackage[letterpaper, scale=0.89, centering]{geometry}
+\usepackage{fancyhdr}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\rfoot{\href{https://creativecommons.org/licenses/by-nc-sa/2.0/}{CC BY-NC-SA 2.0} Version \today~(\thepage)}
+
+\usepackage{amssymb,amsmath,pifont,amsfonts,comment,enumerate,enumitem}
+\usepackage{currfile,xstring,hyperref,tabularx,graphicx,wasysym}
+\usepackage[labelformat=empty]{caption}
+\usepackage{xcolor}
+\usepackage{multicol,multirow,array,listings,tabularx,lastpage,textcomp,booktabs}
+
+\lstnewenvironment{algorithm}[1][] {   
+    \lstset{ mathescape=true,
+        frame=tB,
+        numbers=left, 
+        numberstyle=\tiny,
+        basicstyle=\rmfamily\scriptsize, 
+        keywordstyle=\color{black}\bfseries,
+        keywords={,procedure, div, for, to, input, output, return, datatype, function, in, if, else, foreach, while, begin, end, }
+        numbers=left,
+        xleftmargin=.04\textwidth,
+        #1
+    }
+}
+{}
+\lstnewenvironment{java}[1][]
+{   
+    \lstset{
+        language=java,
+        mathescape=true,
+        frame=tB,
+        numbers=left, 
+        numberstyle=\tiny,
+        basicstyle=\ttfamily\scriptsize, 
+        keywordstyle=\color{black}\bfseries,
+        keywords={, int, double, for, return, if, else, while, }
+        numbers=left,
+        xleftmargin=.04\textwidth,
+        #1
+    }
+}
+{}
+
+\newcommand\abs[1]{\lvert~#1~\rvert}
+\newcommand{\st}{\mid}
+
+\newcommand{\A}[0]{\texttt{A}}
+\newcommand{\C}[0]{\texttt{C}}
+\newcommand{\G}[0]{\texttt{G}}
+\newcommand{\U}[0]{\texttt{U}}
+
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+
+ 
+\begin{document}
+\begin{flushright}
+    \StrBefore{\currfilename}{.}
+\end{flushright} \section*{Data types}
+
+
+\begin{center}
+    \begin{tabular}{p{4.6in}p{2.6in}}
+    {\bf  Term} & {\bf Examples}:\\
+    &  (add additional examples from class)\\
+    \hline 
+    {\bf set} \newline
+    unordered collection of elements & $7 \in \{43, 7, 9 \}$ \qquad $2 \notin \{43, 7, 9 \}$ \\
+    {\it repetition doesn't matter} & \\
+    {\it Equal sets agree on membership of all elements}& \\
+    \hline
+    {\bf $n$-tuple} \newline
+    ordered sequence of elements with $n$ ``slots" ($n >0$) & \\
+    {\it repetition matters, fixed length} &\\
+    {\it Equal $n$-tuples have corresponding components equal}& \\
+    \hline
+    {\bf string} \newline
+    ordered finite sequence of elements each from specified
+    set (called the alphabet over which the string is defined)& \\
+    {\it repetition matters, arbitrary finite length} &\\
+    {\it Equal strings have same length and corresponding characters equal}
+    \end{tabular}
+\end{center}
+
+{\it Special cases}: 
+
+When $n=2$, the 2-tuple is called an {\bf ordered pair}.
+
+A string of length $0$ is called the {\bf empty string} and is denoted $\lambda$.
+
+A set with no elements is called the {\bf empty set} and is denoted $\{\}$ or $\emptyset$. \vfill
+\section*{Definitions set prereqs}
+
+
+\begin{center}
+\begin{tabular}{|llp{9.8cm}|}
+\hline
+{\bf Term} & {\bf Notation Example(s)} & {\bf We say in English \ldots } \\
+\hline
+all reals & $\mathbb{R}$ & The (set of all) real numbers (numbers on the number line)\\
+all integers & $\mathbb{Z}$ & The (set of all) integers (whole numbers including negatives, zero, and positives) \\
+all positive integers & $\mathbb{Z}^+$ & The (set of all) strictly positive integers \\
+all natural numbers & $\mathbb{N}$ & The (set of all) natural numbers. {\bf Note}: we use the convention that $0$ is a natural number. \\
+
+
+\hline
+\end{tabular}
+\end{center} \vfill
+\section*{Defining sets}
+
+
+{\it To define sets:}
+
+To define a set using {\bf roster method}, explicitly list its elements. That is,
+start with $\{$ then list elements of 
+the set separated by commas and close with $\}$.
+
+\vfill
+
+To define a set using {\bf set builder definition}, either form 
+``The set of all $x$ from the universe $U$ such that $x$ is ..." by writing
+\[\{x \in U \mid ...x... \}\]
+or form ``the collection of all outputs of some operation when the input ranges over the universe $U$"
+by writing
+\[\{ ...x... \mid x\in U \}\]
+
+\vfill
+
+We use the symbol $\in$ as ``is an element of'' to indicate membership in a set.\\
+
+\newpage 
+
+{\bf Example sets}: For each of the following, identify whether it's defined using the roster method
+or set builder notation and give an example element.
+
+Can we infer the data type of the example element from the notation?
+
+\begin{itemize}
+    \item[]$\{ -1, 1\}$
+    \vfill
+    \item[]$\{0, 0 \}$
+    \vfill
+    \item[]$\{-1, 0, 1 \}$
+    \vfill
+    \item[]$\{(x,x,x) \mid x \in \{-1,0,1\} \}$
+    \vfill
+    \item[]$\{ \}$
+    \vfill
+    \item[]$\{ x \in \mathbb{Z} \mid x \geq 0 \}$
+    \vfill
+    \item[]$\{ x \in \mathbb{Z}  \mid x > 0 \}$
+    \vfill
+    \item[]$\{ \smile, \sun \}$
+    \vfill
+    \item[]$\{\A,\C,\U,\G\}$
+    \vfill
+    \item[]$\{\A\U\G, \U\A\G, \U\G\A, \U\A\A \}$
+    \vfill
+\end{itemize}
+ \vfill
+\section*{Set operations}
+
+
+\fbox{\parbox{\textwidth}{To define a set we can use the roster method, set builder notation, a recursive definition, 
+and also we can apply a set operation to other sets. \\
+
+{\bf New! Cartesian product of sets} and {\bf set-wise concatenation of sets of strings}\\
+
+
+{\bf Definition}: Let $X$ and $Y$ be sets.  The {\bf Cartesian product} of $X$ and $Y$, denoted
+$X \times Y$, is the set of all ordered pairs $(x,y)$ where $x \in X$ and $y \in Y$
+\[
+X \times Y = \{ (x,y) \mid x \in X \text{ and } y \in Y \}
+\]
+
+Conventions: (1) Cartesian products can be chained together to result in sets of $n$-tuples and 
+(2) When we form the Cartesian product of a set with itself $X \times X$ we can denote that set as 
+$X^2$, or $X^n$ for the Cartesian product of a set with itself $n$ times for a positive integer $n$.\\
+
+{\bf Definition}: Let $X$ and $Y$ be sets of strings over the same alphabet. The {\bf set-wise concatenation} 
+of $X$ and $Y$, denoted $X \circ Y$, is the set of all results of string concatenation $xy$ where $x \in X$ 
+and $y \in Y$
+\[
+X \circ Y = \{ xy \mid x \in X \text{ and } y \in Y \}
+\]
+}}
+
+{\bf Pro-tip}: the meaning of writing one element next to another like $xy$ depends on the data-types of $x$ and 
+$y$. When $x$ and $y$ are strings, the convention is that $xy$ is the result of string concatenation. 
+When $x$ and $y$ are numbers, the convention is that $xy$ is the result of multiplication. This is 
+(one of the many reasons) why is it very important to declare the data-type of variables before we use them.
+
+{\it Fill in the missing entries in the table}:
+
+\begin{center}
+\begin{tabular}{cc}
+{\bf  Set} & {\bf Example elements in this set and their data type}:\\
+\hline 
+& \\
+$B$ &\A \qquad \C \qquad \G \qquad \U \\
+& \\
+\hline
+& \\
+\phantom{$B \times B$} & $(\A, \C)$ \qquad $(\U, \U)$\\
+& \\
+\hline
+& \\
+$B \times \{-1,0,1\}$ & \\
+& \\
+\hline
+& \\
+$\{-1,0,1\} \times B$ & \\
+& \\
+\hline
+& \\
+\phantom{$\{-1,0,1\} \times \{-1,0,1\}  \times \{-1,0,1\} $} & \qquad $(0,0,0)$ \\
+& \\
+\hline
+& \\
+$ \{\A, \C, \G, \U \} \circ  \{\A, \C, \G, \U \}$& \\
+& \\
+\hline
+& \\
+\phantom{$\{G\} \circ \{G\} \circ \{G\}$} & \qquad $\G\G\G\G$ \\
+& \\
+\hline
+
+\end{tabular}
+\end{center}
+
+\vfill \vfill
+\section*{Definitions functions prereqs}
+
+
+\begin{center}
+\begin{tabular}{|p{1.2in}p{2.8in}p{3in}|}
+\hline
+{\bf Term} & {\bf Notation Example(s)} & {\bf We say in English \ldots } \\
+\hline
+sequence & $x_1, \ldots, x_n$ & A sequence $x_1$ to $x_n$ \\
+summation & $\sum_{i=1}^n x_i$ or $\displaystyle{\sum_{i=1}^n x_i}$ & The sum of the terms of the sequence $x_1$ to $x_n$ \\
+&&\\
+&&\\
+piecewise rule definition & $f(x) = \begin{cases} \text{rule 1 for } x & \text{when~COND 1} \\ \text{rule 2 for } x & \text{when COND 2}\end{cases}$ &
+Define $f$ of $x$ to be the result of applying rule 1 to $x$ when condition COND 1 is true and the result of 
+applying rule 2 to $x$ when condition COND 2 is true. This can be generalized to having more than two conditions
+(or cases).\\
+&&\\
+function application & $f(7)$ & $f$ of $7$ {\bf or} $f$ applied to $7$ {\bf or} the image of $7$ under $f$\\
+                     & $f(z)$ & $f$ of $z$ {\bf or} $f$ applied to $z$ {\bf or} the image of $z$ under $f$\\
+                     & $f(g(z))$ & $f$ of $g$ of $z$ {\bf or} $f$ applied to the result of $g$ applied to $z$ \\
+&&\\
+absolute value & $\lvert -3 \rvert$ & The absolute value of $-3$ \\
+square root & $\sqrt{9}$ & The non-negative square root of $9$ \\
+
+
+\hline
+\end{tabular}
+\end{center}
+
+{\bf Pro-tip}: the meaning of two vertical lines $| ~~~ |$ depends on the data-types of what's between the lines.
+For example, when placed around a number, the two vertical lines represent absolute value.
+We've seen a single vertial line $|$ used as part of set builder definitions to represent ``such that''.
+Again, this is 
+(one of the many reasons) why is it very important to declare the data-type of variables before we use them.
+ \vfill
+\end{document}

@@ -1,0 +1,118 @@
+\documentclass[12pt, oneside]{article}
+
+\usepackage[letterpaper, scale=0.89, centering]{geometry}
+\usepackage{fancyhdr}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\rfoot{\href{https://creativecommons.org/licenses/by-nc-sa/2.0/}{CC BY-NC-SA 2.0} Version \today~(\thepage)}
+
+\usepackage{amssymb,amsmath,pifont,amsfonts,comment,enumerate,enumitem}
+\usepackage{currfile,xstring,hyperref,tabularx,graphicx,wasysym}
+\usepackage[labelformat=empty]{caption}
+\usepackage{xcolor}
+\usepackage{multicol,multirow,array,listings,tabularx,lastpage,textcomp,booktabs}
+
+\lstnewenvironment{algorithm}[1][] {   
+    \lstset{ mathescape=true,
+        frame=tB,
+        numbers=left, 
+        numberstyle=\tiny,
+        basicstyle=\rmfamily\scriptsize, 
+        keywordstyle=\color{black}\bfseries,
+        keywords={,procedure, div, for, to, input, output, return, datatype, function, in, if, else, foreach, while, begin, end, }
+        numbers=left,
+        xleftmargin=.04\textwidth,
+        #1
+    }
+}
+{}
+\lstnewenvironment{java}[1][]
+{   
+    \lstset{
+        language=java,
+        mathescape=true,
+        frame=tB,
+        numbers=left, 
+        numberstyle=\tiny,
+        basicstyle=\ttfamily\scriptsize, 
+        keywordstyle=\color{black}\bfseries,
+        keywords={, int, double, for, return, if, else, while, }
+        numbers=left,
+        xleftmargin=.04\textwidth,
+        #1
+    }
+}
+{}
+
+\newcommand\abs[1]{\lvert~#1~\rvert}
+\newcommand{\st}{\mid}
+
+\newcommand{\A}[0]{\texttt{A}}
+\newcommand{\C}[0]{\texttt{C}}
+\newcommand{\G}[0]{\texttt{G}}
+\newcommand{\U}[0]{\texttt{U}}
+
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+
+ 
+\begin{document}
+\begin{flushright}
+    \StrBefore{\currfilename}{.}
+\end{flushright} \section*{Definitions set prereqs}
+
+
+\begin{center}
+\begin{tabular}{|llp{9.8cm}|}
+\hline
+{\bf Term} & {\bf Notation Example(s)} & {\bf We say in English \ldots } \\
+\hline
+all reals & $\mathbb{R}$ & The (set of all) real numbers (numbers on the number line)\\
+all integers & $\mathbb{Z}$ & The (set of all) integers (whole numbers including negatives, zero, and positives) \\
+all positive integers & $\mathbb{Z}^+$ & The (set of all) strictly positive integers \\
+all natural numbers & $\mathbb{N}$ & The (set of all) natural numbers. {\bf Note}: we use the convention that $0$ is a natural number. \\
+
+
+\hline
+\end{tabular}
+\end{center} \vfill
+\section*{Definitions functions prereqs}
+
+
+\begin{center}
+\begin{tabular}{|p{1.2in}p{2.8in}p{3in}|}
+\hline
+{\bf Term} & {\bf Notation Example(s)} & {\bf We say in English \ldots } \\
+\hline
+sequence & $x_1, \ldots, x_n$ & A sequence $x_1$ to $x_n$ \\
+summation & $\sum_{i=1}^n x_i$ or $\displaystyle{\sum_{i=1}^n x_i}$ & The sum of the terms of the sequence $x_1$ to $x_n$ \\
+&&\\
+&&\\
+piecewise rule definition & $f(x) = \begin{cases} \text{rule 1 for } x & \text{when~COND 1} \\ \text{rule 2 for } x & \text{when COND 2}\end{cases}$ &
+Define $f$ of $x$ to be the result of applying rule 1 to $x$ when condition COND 1 is true and the result of 
+applying rule 2 to $x$ when condition COND 2 is true. This can be generalized to having more than two conditions
+(or cases).\\
+&&\\
+function application & $f(7)$ & $f$ of $7$ {\bf or} $f$ applied to $7$ {\bf or} the image of $7$ under $f$\\
+                     & $f(z)$ & $f$ of $z$ {\bf or} $f$ applied to $z$ {\bf or} the image of $z$ under $f$\\
+                     & $f(g(z))$ & $f$ of $g$ of $z$ {\bf or} $f$ applied to the result of $g$ applied to $z$ \\
+&&\\
+absolute value & $\lvert -3 \rvert$ & The absolute value of $-3$ \\
+square root & $\sqrt{9}$ & The non-negative square root of $9$ \\
+
+
+\hline
+\end{tabular}
+\end{center}
+
+{\bf Pro-tip}: the meaning of two vertical lines $| ~~~ |$ depends on the data-types of what's between the lines.
+For example, when placed around a number, the two vertical lines represent absolute value.
+We've seen a single vertial line $|$ used as part of set builder definitions to represent ``such that''.
+Again, this is 
+(one of the many reasons) why is it very important to declare the data-type of variables before we use them.
+ \vfill
+\end{document}

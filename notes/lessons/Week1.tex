@@ -39,7 +39,7 @@ Please reach out (minnes@ucsd.edu) if you need support with extenuating circumst
 
 \vfill
 
-\section*{Introductions}
+\section*{Welcome to CSE 20: Discrete Math for CS in Spring 2024!}
 Class website: \href{https://canvas.ucsd.edu//}{https://canvas.ucsd.edu/}
 
 
@@ -55,7 +55,7 @@ Fill in contact info for students around you, if you'd like:
 
 
 On a typical week in CSE 20: {\bf MWF} Lectures (sometimes with pre-class reading), {\bf W} Discussion,
-Review quiz, then {\bf M} Homework due.
+Review quiz, then {\bf T} Homework due.
 Office hours (hosted by instructors and TAs and tutors) where you can come to talk 
 about course concepts and ask for help as you work through sample problems 
 and Q+A on Piazza available throughout the week. CSE 20 has one project and two tests
@@ -71,11 +71,11 @@ Demonstration of class website on \href{https://canvas.ucsd.edu/}{Canvas (https:
 \end{enumerate}
 
 \vfill
-
+\begin{comment}
 There are lots of great reasons to have a laptop, tablet, or phone open during class. You might be taking notes, 
 getting a photo of an important moment on the board, trying out a construction that we're developing together, working 
 on the review quiz, and so on. 
-The main issue with screens and technology in the classroom isn't that it might 
+The main issue with screens and technology in the classroom isn't that they might 
 distract you, 
 it's the distraction of other students. We ask that if you would like to use
 a device in class and may have 
@@ -84,13 +84,10 @@ room so that it's not adversely affecting other students.
 
 
 \vfill
-
+\end{comment}
 {\bf Pro-tip}: you can use MATH109 to replace CSE20 for prerequisites and other requirements.
 
 \vfill
-
-\newpage
-Welcome to CSE 20: Discrete Math for Computer Science in Spring 2024!
 
 \section*{Themes and applications for CSE 20}
 \begin{itemize}
@@ -113,8 +110,98 @@ Recommendation systems and their roots in machine learning (with applications li
 Codes and information (secret message sharing and error correction),
 Bioinformatics algorithms and genomics (DNA and RNA).
 
+\newpage
+
+\subsection*{Week 1 at a glance}
+
+\subsubsection*{We will be learning and practicing to:}
+%data types, translating, important sets, write set definition, function and relation definitions, recursive definitions
+\begin{itemize}
+\item Model systems with tools from discrete mathematics and reason about implications of modelling choices. Explore applications in CS through multiple perspectives, including software, hardware, and theory.
+\begin{itemize}
+
+   \item Selecting and representing appropriate data types and using notation conventions to clearly communicate choices
+
+\end{itemize}
+
+\item Translate between different representations to illustrate a concept.
+
+\begin{itemize}
+   \item Translating between symbolic and English versions of statements using precise mathematical language
+\end{itemize}
+
+
+\item Use precise notation to encode meaning and present arguments concisely and clearly
+\begin{itemize}
+    \item Defining important sets of numbers, e.g. set of integers, set of rational numbers
+    \item Precisely describing a set using appropriate notation e.g. roster method, set builder notation, and recursive definitions
+    \item Defining functions using multiple representations
+\end{itemize}
+
+\item Know, select and apply appropriate computing knowledge and problem-solving techniques. Reason about computation and systems. Use mathematical techniques to solve problems. Determine appropriate conceptual tools to apply to new situations. Know when tools do not apply and try different approaches. Critically analyze and evaluate candidate solutions.
+\begin{itemize}
+    \item Using a recursive definition to evaluate a function or determine membership in a set
+\end{itemize}
+
+\end{itemize}
+
+\subsubsection*{TODO:}
+\begin{list}
+   {\itemsep2pt}
+   \item \#FinAid Assignment on Canvas (complete as soon as possible) 
+   \item Review quiz based on class material each day (due Friday April 5, 2024)
+   \item Homework assignment 1 (due Tuesday April 9, 2024).
+\end{list}
 
 \newpage
 
+\section*{Week 1 Monday: Modeling applications}
+\input{../activity-snippets/netflix-intro.tex}
+
+\vfill
+\subsection*{Data Types: sets, $n$-tuples, and strings}
+\input{../activity-snippets/data-types.tex}
+\newpage
+\input{../activity-snippets/ratings-encoding.tex}
+\vfill
+{\bf Conclusion}: Modeling involves choosing data types to represent and organize data
+
+\newpage
+\section*{Week 1 Wednesday: Defining sets}
+\subsection*{Notation and prerequisites}
+\input{../activity-snippets/definitions-set-prereqs.tex}
+\input{../activity-snippets/defining-sets.tex}
+\newpage
+\input{../activity-snippets/rna-motivation.tex}
+\input{../activity-snippets/recursive-sets-definition.tex}
+\input{../activity-snippets/set-recursive-examples.tex}
+\input{../activity-snippets/set-operations.tex}
+
+\section*{Week 1 Friday: Defining functions}
+\input{../activity-snippets/definitions-functions-prereqs.tex}
+\input{../activity-snippets/defining-functions.tex}
+\input{../activity-snippets/defining-functions-ratings.tex}
+\input{../activity-snippets/defining-functions-recursively.tex}
+
+\newpage
+\subsection*{Review Quiz}
+\begin{enumerate}
+\item Modeling
+\begin{enumerate}
+    \item {\input{../activity-snippets/quiz-ratings-tuples.tex}}
+    \item {\input{../activity-snippets/quiz-ratings-count.tex}}
+    \item {\input{../activity-snippets/quiz-color-rgb-definitions.tex}}
+    \item {\input{../activity-snippets/quiz-color-rgb-definitions-data-types.tex}}
+\end{enumerate}
+\item Sets and functions
+\begin{enumerate}
+    \item {\input{../activity-snippets/quiz-set-membership.tex}}
+    \item {\input{../activity-snippets/quiz-strands-set-operations.tex}}
+    \item {\input{../activity-snippets/quiz-defining-functions-domain-codomain.tex}}
+%    \item {\input{../activity-snippets/quiz-recursive-definitions.tex}}
+%    \item {\input{../activity-snippets/quiz-defining-functions-recursively.tex}}
+\end{enumerate}
+
+\end{enumerate}
 
 \end{document}

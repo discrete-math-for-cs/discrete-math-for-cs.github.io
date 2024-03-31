@@ -1,5 +1,5 @@
 %! app: TODOapp
-%! outcome: TODOoutcome
+%! outcome: function and relation definitions, data types
 
 When the domain of a function is a {\it recursively defined set}, the rule assigning 
 images to domain elements (outputs) can also be defined recursively.
@@ -33,7 +33,7 @@ rnalen(\A\C\U) = \phantom{1+ rnalen(\A\C) = 1 + (1 + rnalen(\A) ) = 1 + ( 1 + 1)
 
 \vfill
 
-{\it Extra example}: A function \textit{basecount} that computes the number of a given base 
+{\it Example}: A function \textit{basecount} that computes the number of a given base 
 $b$ appearing in a RNA strand $s$ is defined recursively:
     
 \[
@@ -52,6 +52,7 @@ $b$ appearing in a RNA strand $s$ is defined recursively:
 \end{array}
 \]
 
+\begin{comment}
 $basecount(~(\A\C\U,\A)~) = basecount( ~(\A\C, \A)~) = basecount(~(\A, \A)~) = 1$\\
 
 
@@ -63,3 +64,4 @@ $basecount(~(\A\C\U,\G)~) = basecount( ~(\A\C, \G)~) = basecount(~(\A, \G)~) = 0
 because its domain is the set of nonnegative integers.
 
 \vfill
+\end{comment}

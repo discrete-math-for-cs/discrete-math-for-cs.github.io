@@ -1,0 +1,288 @@
+\documentclass[12pt, oneside]{article}
+
+\usepackage[letterpaper, scale=0.89, centering]{geometry}
+\usepackage{fancyhdr}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\rfoot{\href{https://creativecommons.org/licenses/by-nc-sa/2.0/}{CC BY-NC-SA 2.0} Version \today~(\thepage)}
+
+\usepackage{amssymb,amsmath,pifont,amsfonts,comment,enumerate,enumitem}
+\usepackage{currfile,xstring,hyperref,tabularx,graphicx,wasysym}
+\usepackage[labelformat=empty]{caption}
+\usepackage{xcolor}
+\usepackage{multicol,multirow,array,listings,tabularx,lastpage,textcomp,booktabs}
+
+\lstnewenvironment{algorithm}[1][] {   
+    \lstset{ mathescape=true,
+        frame=tB,
+        numbers=left, 
+        numberstyle=\tiny,
+        basicstyle=\rmfamily\scriptsize, 
+        keywordstyle=\color{black}\bfseries,
+        keywords={,procedure, div, for, to, input, output, return, datatype, function, in, if, else, foreach, while, begin, end, }
+        numbers=left,
+        xleftmargin=.04\textwidth,
+        #1
+    }
+}
+{}
+\lstnewenvironment{java}[1][]
+{   
+    \lstset{
+        language=java,
+        mathescape=true,
+        frame=tB,
+        numbers=left, 
+        numberstyle=\tiny,
+        basicstyle=\ttfamily\scriptsize, 
+        keywordstyle=\color{black}\bfseries,
+        keywords={, int, double, for, return, if, else, while, }
+        numbers=left,
+        xleftmargin=.04\textwidth,
+        #1
+    }
+}
+{}
+
+\newcommand\abs[1]{\lvert~#1~\rvert}
+\newcommand{\st}{\mid}
+
+\newcommand{\A}[0]{\texttt{A}}
+\newcommand{\C}[0]{\texttt{C}}
+\newcommand{\G}[0]{\texttt{G}}
+\newcommand{\U}[0]{\texttt{U}}
+
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+
+ 
+\begin{document}
+\begin{flushright}
+    \StrBefore{\currfilename}{.}
+\end{flushright} \section*{Netflix intro}
+
+
+What data should we encode about each Netflix account holder to help us make effective recommendations?
+
+\vfill
+\vfill
+
+In machine learning, clustering can be used to group similar data for prediction and recommendation.  For example,
+each Netflix user's viewing history can be represented as a $n$-tuple indicating their preferences about
+movies in the database, where $n$ is the number of movies in the database.  People with similar tastes in movies can then be clustered to provide recommendations
+of movies for one another.  Mathematically, clustering is based on a notion of distance between pairs of $n$-tuples.
+ \vfill
+\section*{Data types}
+
+
+\begin{center}
+    \begin{tabular}{p{4.6in}p{2.6in}}
+    {\bf  Term} & {\bf Examples}:\\
+    &  (add additional examples from class)\\
+    \hline 
+    {\bf set} \newline
+    unordered collection of elements & $7 \in \{43, 7, 9 \}$ \qquad $2 \notin \{43, 7, 9 \}$ \\
+    {\it repetition doesn't matter} & \\
+    {\it Equal sets agree on membership of all elements}& \\
+    \hline
+    {\bf $n$-tuple} \newline
+    ordered sequence of elements with $n$ ``slots" ($n >0$) & \\
+    {\it repetition matters, fixed length} &\\
+    {\it Equal $n$-tuples have corresponding components equal}& \\
+    \hline
+    {\bf string} \newline
+    ordered finite sequence of elements each from specified
+    set (called the alphabet over which the string is defined)& \\
+    {\it repetition matters, arbitrary finite length} &\\
+    {\it Equal strings have same length and corresponding characters equal}
+    \end{tabular}
+\end{center}
+
+{\it Special cases}: 
+
+When $n=2$, the 2-tuple is called an {\bf ordered pair}.
+
+A string of length $0$ is called the {\bf empty string} and is denoted $\lambda$.
+
+A set with no elements is called the {\bf empty set} and is denoted $\{\}$ or $\emptyset$. \vfill
+\section*{Set operations}
+
+
+\fbox{\parbox{\textwidth}{To define a set we can use the roster method, set builder notation, a recursive definition, 
+and also we can apply a set operation to other sets. \\
+
+{\bf New! Cartesian product of sets} and {\bf set-wise concatenation of sets of strings}\\
+
+
+{\bf Definition}: Let $X$ and $Y$ be sets.  The {\bf Cartesian product} of $X$ and $Y$, denoted
+$X \times Y$, is the set of all ordered pairs $(x,y)$ where $x \in X$ and $y \in Y$
+\[
+X \times Y = \{ (x,y) \mid x \in X \text{ and } y \in Y \}
+\]
+
+Conventions: (1) Cartesian products can be chained together to result in sets of $n$-tuples and 
+(2) When we form the Cartesian product of a set with itself $X \times X$ we can denote that set as 
+$X^2$, or $X^n$ for the Cartesian product of a set with itself $n$ times for a positive integer $n$.\\
+
+{\bf Definition}: Let $X$ and $Y$ be sets of strings over the same alphabet. The {\bf set-wise concatenation} 
+of $X$ and $Y$, denoted $X \circ Y$, is the set of all results of string concatenation $xy$ where $x \in X$ 
+and $y \in Y$
+\[
+X \circ Y = \{ xy \mid x \in X \text{ and } y \in Y \}
+\]
+}}
+
+{\bf Pro-tip}: the meaning of writing one element next to another like $xy$ depends on the data-types of $x$ and 
+$y$. When $x$ and $y$ are strings, the convention is that $xy$ is the result of string concatenation. 
+When $x$ and $y$ are numbers, the convention is that $xy$ is the result of multiplication. This is 
+(one of the many reasons) why is it very important to declare the data-type of variables before we use them.
+
+{\it Fill in the missing entries in the table}:
+
+\begin{center}
+\begin{tabular}{cc}
+{\bf  Set} & {\bf Example elements in this set and their data type}:\\
+\hline 
+& \\
+$B$ &\A \qquad \C \qquad \G \qquad \U \\
+& \\
+\hline
+& \\
+\phantom{$B \times B$} & $(\A, \C)$ \qquad $(\U, \U)$\\
+& \\
+\hline
+& \\
+$B \times \{-1,0,1\}$ & \\
+& \\
+\hline
+& \\
+$\{-1,0,1\} \times B$ & \\
+& \\
+\hline
+& \\
+\phantom{$\{-1,0,1\} \times \{-1,0,1\}  \times \{-1,0,1\} $} & \qquad $(0,0,0)$ \\
+& \\
+\hline
+& \\
+$ \{\A, \C, \G, \U \} \circ  \{\A, \C, \G, \U \}$& \\
+& \\
+\hline
+& \\
+\phantom{$\{G\} \circ \{G\} \circ \{G\}$} & \qquad $\G\G\G\G$ \\
+& \\
+\hline
+
+\end{tabular}
+\end{center}
+
+\vfill \vfill
+\section*{Defining functions}
+
+
+\fbox{\parbox{\textwidth}{{\bf New! Defining functions} A function is defined by its (1) domain, 
+(2) codomain, and (3) rule assigning each 
+element in the domain exactly one element in the codomain.\\
+
+The domain and codomain are nonempty sets.
+
+The rule can be depicted as a table, formula, piecewise definition, or English description.
+
+The notation is 
+\begin{center}
+    ``Let the function FUNCTION-NAME: DOMAIN $\to$ CODOMAIN be given by \\
+FUNCTION-NAME(x) = \ldots for every $x \in DOMAIN$''.
+\end{center}
+
+or 
+\begin{center}
+    ``Consider the function FUNCTION-NAME: DOMAIN $\to$ CODOMAIN defined as  \\
+FUNCTION-NAME(x) = \ldots for every $x \in DOMAIN$''.
+\end{center}
+}}
+
+\vfill
+\newpage
+
+Example: The absolute value function 
+
+{\bf Domain}
+
+{\bf Codomain}
+
+{\bf Rule}
+
+\vfill 
+ \vfill
+\section*{Defining functions recursively}
+
+
+When the domain of a function is a {\it recursively defined set}, the rule assigning 
+images to domain elements (outputs) can also be defined recursively.
+
+Recall: The set of RNA strands $S$ is defined (recursively) by:
+\[
+\begin{array}{ll}
+\textrm{Basis Step: } & \A \in S, \C \in S, \U \in S, \G \in S \\
+\textrm{Recursive Step: } & \textrm{If } s \in S\textrm{ and }b \in B \textrm{, then }sb \in S
+\end{array}
+\]
+where $sb$ is string concatenation.
+
+{\bf Definition} (Of a function, recursively) A function \textit{rnalen} that computes the length of RNA strands in $S$ is defined by:
+\[
+\begin{array}{llll}
+& & \textit{rnalen} : S & \to \mathbb{Z}^+ \\
+\textrm{Basis Step:} & \textrm{If } b \in B\textrm{ then } & \textit{rnalen}(b) & = 1 \\
+\textrm{Recursive Step:} & \textrm{If } s \in S\textrm{ and }b \in B\textrm{, then  } & \textit{rnalen}(sb) & = 1 + \textit{rnalen}(s)
+\end{array}
+\]
+
+The domain of \textit{rnalen} is \phantom{$S$}\\
+
+The codomain of \textit{rnalen} is \phantom{$\mathbb{Z}^+$}\\
+
+Example function application:
+\[
+rnalen(\A\C\U) = \phantom{1+ rnalen(\A\C) = 1 + (1 + rnalen(\A) ) = 1 + ( 1 + 1) = 3}
+\]
+
+\vfill
+
+{\it Example}: A function \textit{basecount} that computes the number of a given base 
+$b$ appearing in a RNA strand $s$ is defined recursively:
+    
+\[
+\begin{array}{llll}
+& & \textit{basecount} : S \times B & \to \mathbb{N} \\
+\textrm{Basis Step:} &  \textrm{If } b_1 \in B, b_2 \in B & \textit{basecount}(~(b_1, b_2)~) & =
+        \begin{cases}
+            1 & \textrm{when } b_1 = b_2 \\
+            0 & \textrm{when } b_1 \neq b_2 \\
+        \end{cases} \\
+\textrm{Recursive Step:} & \textrm{If } s \in S, b_1 \in B, b_2 \in B &\textit{basecount}(~(s b_1, b_2)~) & =
+        \begin{cases}
+            1 + \textit{basecount}(~(s, b_2)~) & \textrm{when } b_1 = b_2 \\
+            \textit{basecount}(~(s, b_2)~) & \textrm{when } b_1 \neq b_2 \\
+        \end{cases}
+\end{array}
+\]
+
+\begin{comment}
+$basecount(~(\A\C\U,\A)~) = basecount( ~(\A\C, \A)~) = basecount(~(\A, \A)~) = 1$\\
+
+
+$basecount(~(\A\C\U,\G)~) = basecount( ~(\A\C, \G)~) = basecount(~(\A, \G)~) = 0$\\
+
+
+\vfill
+{\it Extra example}: The function which outputs $2^n$ when given a nonnegative integer $n$ can be defined recursively, 
+because its domain is the set of nonnegative integers.
+
+\vfill
+\end{comment}
+ \vfill
+\end{document}
