@@ -1,0 +1,255 @@
+\documentclass[12pt, oneside]{article}
+
+\usepackage[letterpaper, scale=0.89, centering]{geometry}
+\usepackage{fancyhdr}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\rfoot{\href{https://creativecommons.org/licenses/by-nc-sa/2.0/}{CC BY-NC-SA 2.0} Version \today~(\thepage)}
+
+\usepackage{amssymb,amsmath,pifont,amsfonts,comment,enumerate,enumitem}
+\usepackage{currfile,xstring,hyperref,tabularx,graphicx,wasysym}
+\usepackage[labelformat=empty]{caption}
+\usepackage{xcolor}
+\usepackage{multicol,multirow,array,listings,tabularx,lastpage,textcomp,booktabs}
+
+\lstnewenvironment{algorithm}[1][] {   
+    \lstset{ mathescape=true,
+        frame=tB,
+        numbers=left, 
+        numberstyle=\tiny,
+        basicstyle=\rmfamily\scriptsize, 
+        keywordstyle=\color{black}\bfseries,
+        keywords={,procedure, div, for, to, input, output, return, datatype, function, in, if, else, foreach, while, begin, end, }
+        numbers=left,
+        xleftmargin=.04\textwidth,
+        #1
+    }
+}
+{}
+\lstnewenvironment{java}[1][]
+{   
+    \lstset{
+        language=java,
+        mathescape=true,
+        frame=tB,
+        numbers=left, 
+        numberstyle=\tiny,
+        basicstyle=\ttfamily\scriptsize, 
+        keywordstyle=\color{black}\bfseries,
+        keywords={, int, double, for, return, if, else, while, }
+        numbers=left,
+        xleftmargin=.04\textwidth,
+        #1
+    }
+}
+{}
+
+\newcommand\abs[1]{\lvert~#1~\rvert}
+\newcommand{\st}{\mid}
+
+\newcommand{\A}[0]{\texttt{A}}
+\newcommand{\C}[0]{\texttt{C}}
+\newcommand{\G}[0]{\texttt{G}}
+\newcommand{\U}[0]{\texttt{U}}
+
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+
+ 
+\begin{document}
+\begin{flushright}
+    \StrBefore{\currfilename}{.}
+\end{flushright} \section*{Why represent numbers}
+
+
+Modeling uses data-types that are encoded in a computer.
+The details of the encoding impact the efficiency of algorithms
+we use to understand the systems we are modeling and the 
+impacts of these algorithms on the people using the systems.
+Case study: how to encode numbers?
+
+\phantom{
+Positional representation with familiar (decimal) number encodings
+\vspace{30pt}
+}
+\vfill \vfill
+\section*{Fixed width definition}
+
+
+{\bf Definition} For $b$ an integer greater than $1$, $w$ a positive integer, 
+and $n$ a nonnegative integer
+$\underline{\phantom{\hspace{1in}}}$, ~
+the {\bf base $b$ fixed-width $w$ expansion of $n$}  is
+\[
+(a_{w-1} \cdots a_1 a_0)_{b,w}
+\]
+where  $a_0, a_1, \ldots, a_{w-1}$ are nonnegative integers less than $b$ and
+\[
+n =  \sum_{i=0}^{w-1} a_{i} b^{i}
+\]
+ \vfill
+\section*{Fixed width example}
+
+
+\begin{center}
+    \begin{tabular}{|c|c|c|c|c|}
+    \hline
+    Decimal &  Binary  & Binary fixed-width $10$& Binary fixed-width $7$ & Binary fixed-width $4$\\
+    $b=10$ & $b=2$ & $b=2$, $w =  10$& $b=2$, $w =  7$& $b=2$, $w =  4$ \\
+    \hline 
+    &&&&  \\
+    $(20)_{10}$&\phantom{$(10100)_{2}$\qquad\qquad}&&  &\\
+    &&&&  \\
+\hline
+    \end{tabular}
+    \end{center}
+ \vfill
+\section*{Fixed width fractional definition}
+
+
+{\bf Definition} For $b$ an integer greater than $1$, $w$ a positive integer, 
+$w'$ a positive  integer, and $x$ a real number the {\bf base $b$ fixed-width 
+expansion of $x$ with integer part width $w$  and fractional part width $w'$} is
+$(a_{w-1} \cdots a_1 a_0 .  c_{1} \cdots c_{w'})_{b,w,w'}$
+where  $a_0, a_1, \ldots, a_{w-1}, c_1, \ldots, c_{w'}$ are nonnegative integers less than $b$ and
+$$x \geq \sum_{i=0}^{w-1} a_{i} b^{i} + \sum_{j=1}^{w'}  c_{j} b^{-j} \hfill
+\textrm{\qquad and \qquad}
+\hfill x < \sum_{i=0}^{w-1} a_{i} b^{i} + \sum_{j=1}^{w'} c_{j} b^{-j} + b^{-w'}$$
+
+\begin{center}
+\begin{tabular}{|c|p{5in}|}
+\hline
+& \\
+$3.75$  in fixed-width binary,& \\
+integer part width $2$,&\\
+ fractional part width $8$ & \\
+& \\
+& \\
+& \\
+& \\
+\hline
+& \\
+$0.1$  in fixed-width binary, & \\
+integer part width $2$, &\\
+ fractional part width $8$ & \\
+ & \\
+ & \\
+ & \\
+ & \\
+ \hline
+\end{tabular}
+\end{center}
+
+\vfill
+
+\includegraphics[width=2in]{../../resources/images/ArithmeticDemo.png}
+
+Note: Java uses floating point, not fixed width representation, but similar rounding errors appear in both.
+ \vfill
+\section*{Negative int expansions}
+
+
+{\bf Representing negative integers in binary}: Fix a positive integer  width for the representation  $w$, $w >1$.
+
+\begin{tabular}{|cc|p{3.4in}|p{3.7in}|}
+\hline
+& & To  represent a positive integer $n$ & To represent a negative integer $-n$\\
+\hline
+&& &  \\
+&\parbox[t]{2mm}{\multirow{4}{*}{\rotatebox[origin=c]{90}{Sign-magnitude}}} &
+$[ 0a_{w-2} \cdots a_0]_{s,w}$, where $n =  (a_{w-2} \cdots a_0)_{2,w-1}$& 
+$[1a_{w-2} \cdots a_0]_{s,w}$
+, where $n =  (a_{w-2} \cdots a_0)_{2,w-1}$\\
+&& & \\
+&& Example $n=17$, $w=7$:  & Example $-n=-17$, $w=7$: \\
+&& & \\
+&& & \\
+&& & \\
+&& & \\
+&& & \\
+&& & \\
+&& & \\
+\hline
+&&  &  \\
+&\parbox[t]{2mm}{\multirow{4}{*}{\rotatebox[origin=c]{90}{2s complement}}} &
+$[0a_{w-2} \cdots a_0]_{2c,w}$, where $n =  (a_{w-2} \cdots a_0)_{2,w-1}$& $[1a_{w-2} \cdots a_0]_{2c,w}$, where $2^{w-1} - n =  (a_{w-2} \cdots a_0)_{2,w-1}$\\
+&& & \\
+&& Example $n=17$, $w=7$:  & Example $-n=-17$, $w=7$: \\
+&& & \\
+&& & \\
+&& & \\
+&& & \\
+&& & \\
+&& & \\
+&& & \\
+\hline
+\end{tabular} \vfill
+\section*{Calculating 2s complement}
+
+
+For positive integer $n$, to represent $-n$ in 
+$2$s complement with width $w$,
+\begin{itemize}
+    \item Calculate $2^{w-1} - n$, convert 
+    result to binary fixed-width $w-1$, pad 
+    with leading $1$, or
+    \item Express $-n$ as a sum of powers of $2$, 
+    where the leftmost $2^{w-1}$ is negative weight, or
+    \item Convert $n$ to binary fixed-width $w$, 
+    flip bits, add 1 (ignore overflow)
+\end{itemize}
+
+{\it Challenge: use definitions to explain why
+each of these approaches works.} \vfill
+\section*{Representing zero}
+
+
+{\bf Representing $0$}:
+
+So far, we have representations for
+positive and negative integers. What about $0$?
+
+\begin{tabular}{|cc|p{3.4in}|p{3.7in}|}
+   \hline
+   & & To  represent a {\bf non-negative} integer $n$ & To represent a {\bf non-positive} integer $-n$\\
+   \hline
+   && &  \\
+   &\parbox[t]{2mm}{\multirow{4}{*}{\rotatebox[origin=c]{90}{Sign-magnitude}}} &
+   $[ 0a_{w-2} \cdots a_0]_{s,w}$, where $n =  (a_{w-2} \cdots a_0)_{2,w-1}$& 
+   $[1a_{w-2} \cdots a_0]_{s,w}$
+   , where $n =  (a_{w-2} \cdots a_0)_{2,w-1}$\\
+   && & \\
+   && Example $n=0$, $w=7$:  & Example $-n=0$, $w=7$: \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+\hline
+   &&  &  \\
+   &\parbox[t]{2mm}{\multirow{4}{*}{\rotatebox[origin=c]{90}{2s complement}}} &
+   $[0a_{w-2} \cdots a_0]_{2c,w}$, where $n =  (a_{w-2} \cdots a_0)_{2,w-1}$& $[1a_{w-2} \cdots a_0]_{2c,w}$, where $2^{w-1} - n =  (a_{w-2} \cdots a_0)_{2,w-1}$\\
+   && & \\
+   && Example $n=0$, $w=7$:  & Example $-n=0$, $w=7$: \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+\hline
+\end{tabular} \vfill
+\end{document}

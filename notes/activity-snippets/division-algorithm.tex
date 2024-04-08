@@ -1,12 +1,50 @@
-%! app: TODOapp
-%! outcome: TODOoutcome
+%! app: Numbers
+%! outcome: div and mod, data types
 
 {\bf Integer division and remainders} (aka The Division Algorithm) Let $n$ be an integer 
 and $d$ a positive integer. There are unique integers $q$ and $r$, with $0 \leq r < d$, such that 
 $n = dq + r$. In this case, $d$ is called the divisor, $n$ is called the dividend, 
 $q$ is called the quotient, 
-and $r$ is called the remainder. We write $q=n \textbf{ div } d$ and $r=n \textbf{ mod } d$.
+and $r$ is called the remainder. 
 
-\textit{Extra example}: How do $\textbf{ div }$ and $\textbf{ mod }$ compare to $/$ and $\%$ in Java and python?
+Because these numbers are guaranteed to exist, the following functions are well-defined: 
+\begin{itemize}\setlength{\leftmargin}{-0.25in}
+\item $\textbf{ div } : \mathbb{Z} \times \mathbb{Z}^+ \to \mathbb{Z}$ given by $\textbf{ div } ( ~(n,d)~)$ 
+is the quotient when $n$ is the dividend and $d$ is the divisor.
+\item $\textbf{ mod } : \mathbb{Z} \times \mathbb{Z}^+ \to \mathbb{Z}$ given by $\textbf{ mod } ( ~(n,d)~)$ 
+is the remainder when $n$ is the dividend and $d$ is the divisor.
+\end{itemize}
+Because these functions are so important, we sometimes use the notation
+$n \textbf{ div } d = \textbf{ div } ( ~(n,d)~)$ and $n \textbf{ mod } d = \textbf{ mod } (~(n,d)~)$.
+
+
+{\bf Pro-tip}: The functions $\textbf{ div }$ and $\textbf{ mod }$ are similar to (but not exactly the same as) 
+the operators $/$ and $\%$ in Java and python.
+
+\vfill
+
+{\it Example calculations}:
+
+$20 \textbf{ div } 4$
+
+\vspace{20pt}
+
+$20 \textbf{ mod } 4$
+
+\vspace{20pt}
+
+$20 \textbf{ div } 3$
+
+\vspace{20pt}
+
+$20 \textbf{ mod } 3$
+
+\vspace{20pt}
+
+$-20 \textbf{ div } 3$
+
+\vspace{20pt}
+
+$-20 \textbf{ mod } 3$
 
 \vfill

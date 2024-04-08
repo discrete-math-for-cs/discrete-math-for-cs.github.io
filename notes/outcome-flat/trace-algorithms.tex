@@ -1,0 +1,186 @@
+\documentclass[12pt, oneside]{article}
+
+\usepackage[letterpaper, scale=0.89, centering]{geometry}
+\usepackage{fancyhdr}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\rfoot{\href{https://creativecommons.org/licenses/by-nc-sa/2.0/}{CC BY-NC-SA 2.0} Version \today~(\thepage)}
+
+\usepackage{amssymb,amsmath,pifont,amsfonts,comment,enumerate,enumitem}
+\usepackage{currfile,xstring,hyperref,tabularx,graphicx,wasysym}
+\usepackage[labelformat=empty]{caption}
+\usepackage{xcolor}
+\usepackage{multicol,multirow,array,listings,tabularx,lastpage,textcomp,booktabs}
+
+\lstnewenvironment{algorithm}[1][] {   
+    \lstset{ mathescape=true,
+        frame=tB,
+        numbers=left, 
+        numberstyle=\tiny,
+        basicstyle=\rmfamily\scriptsize, 
+        keywordstyle=\color{black}\bfseries,
+        keywords={,procedure, div, for, to, input, output, return, datatype, function, in, if, else, foreach, while, begin, end, }
+        numbers=left,
+        xleftmargin=.04\textwidth,
+        #1
+    }
+}
+{}
+\lstnewenvironment{java}[1][]
+{   
+    \lstset{
+        language=java,
+        mathescape=true,
+        frame=tB,
+        numbers=left, 
+        numberstyle=\tiny,
+        basicstyle=\ttfamily\scriptsize, 
+        keywordstyle=\color{black}\bfseries,
+        keywords={, int, double, for, return, if, else, while, }
+        numbers=left,
+        xleftmargin=.04\textwidth,
+        #1
+    }
+}
+{}
+
+\newcommand\abs[1]{\lvert~#1~\rvert}
+\newcommand{\st}{\mid}
+
+\newcommand{\A}[0]{\texttt{A}}
+\newcommand{\C}[0]{\texttt{C}}
+\newcommand{\G}[0]{\texttt{G}}
+\newcommand{\U}[0]{\texttt{U}}
+
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+
+ 
+\begin{document}
+\begin{flushright}
+    \StrBefore{\currfilename}{.}
+\end{flushright} \section*{Algorithm definition}
+
+
+\fbox{\parbox{\textwidth}{{\bf New!} An algorithm is a finite sequence of precise instructions for solving a problem.
+\hfill
+}}
+
+Algorithms can be expressed in English or in more formalized descriptions like pseudocode or fully executable programs.
+
+
+Sometimes, we can define algorithms whose output matches the 
+rule for a function we already care about. Consider the (integer) logarithm function
+\[
+logb  : \{b \in \mathbb{Z} \mid b >1 \}  \times \mathbb{Z}^+ ~~\to~~ \mathbb{N}
+\]
+defined by 
+\[
+logb (~ (b,n)~) =  \text{greatest integer } y \text{ so that } b^y  \text{ is less than or equal to } n 
+\]
+
+
+
+\begin{algorithm}[caption={Calculating integer part of base $b$ logarithm}]
+   procedure $logb$($b$,$n$: positive integers with $b > 1$)
+   $i$ := $0$
+   while $n$ > $b-1$
+     $i$ := $i + 1$
+     $n$ := $n$ div $b$
+   return $i$ $\{ i$ holds the integer part of the base $b$ logarithm of $n\}$
+\end{algorithm} 
+Trace this algorithm with inputs $b=3$ and $n=17$
+
+\vfill
+  \begin{tabular}{l|c|c|c|c}
+  & $b$ & $n$ & $i$  & $n > b-1$?\\
+  \hline 
+  Initial value & ~$3$~ & $17$ & \phantom{$0$} & \phantom{~Yes~}\\
+  After 1 iteration  & \phantom{$3$} & \phantom{$5$} & \phantom{$1$} & \phantom{T}\\
+  After 2 iterations & \phantom{$3$} & \phantom{$1$} & \phantom{$2$} & \phantom{F}\\
+  After 3 iterations &  &  & & \\
+  &&&&\\
+  \end{tabular}
+
+\vfill
+
+\vfill
+
+Compare: does the output match the rule for the (integer) logarithm function?
+
+
+\newpage \vfill
+\section*{Base expansion algorithms}
+
+
+{\bf Two algorithms for constructing base $b$ expansion from decimal representation}
+
+{\bf Most significant first}: Start with left-most coefficient of expansion (highest value)
+
+{\it Informally}: Build up to the value we need to represent in ``greedy'' approach, using 
+units determined by base.
+
+\vfill
+
+
+\begin{algorithm}[caption={Calculating base $b$ expansion, from left}]
+procedure $\textit{baseb1}$($n, b$: positive integers with $b > 1$)
+$v$ := $n$
+$k$ := $1 + $ output of $logb$ algorithm with inputs $b$ and $n$
+for $i$ := $1$ to $k$
+  $a_{k-i}$ := $0$
+  while $v \geq b^{k-i}$
+    $a_{k-i}$ := $a_{k-i} + 1$
+    $v$ := $v -  b^{k-i}$
+return $(a_{k-1}, \ldots, a_0) \{(a_{k-1} \ldots a_0)_b~\textrm{ is the base } b \textrm{ expansion of } n \}$
+\end{algorithm}
+
+\vfill
+\vfill
+
+\newpage
+{\bf Least significant first}: Start with right-most coefficient of expansion (lowest value)
+
+Idea: {\tiny(when $k > 1$)} 
+    \begin{align*}
+      n &= a_{k-1} b^{k-1} + \cdots + a_1 b + a_0 \\
+        &= b ( a_{k-1} b^{k-2} + \cdots + a_1) + a_0\end{align*}
+    so $a_0 = n \textbf{ mod } b$ and $a_{k-1} b^{k-2} + \cdots + a_1 = n \textbf{ div } b$.
+\begin{algorithm}[caption={Calculating base $b$ expansion, from right}]
+procedure $\textit{baseb2}$($n, b$: positive integers with $b > 1$)
+$q$ := $n$
+$k$ := $0$
+while $q  \neq 0$
+  $a_{k}$ := $q$ mod $b$
+  $q$ := $q$ div $b$
+  $k$ := $k+1$
+return $(a_{k-1}, \ldots, a_0) \{(a_{k-1} \ldots a_0)_b~\textrm{ is the base } b \textrm{ expansion of } n \}$
+\end{algorithm}
+
+
+\vfill
+\vfill
+\newpage \vfill
+\section*{Base conversion algorithm}
+
+
+
+
+Practice: write an algorithm for converting from base $b_1$ expansion to base $b_2$ expansion:
+
+\phantom{
+Earlier, we saw (two different) algorithms for, given 
+a target base $b$, converting from decimal to base $b$ expansions. 
+We will use either one of these as a subroutine in this algorithm.\\
+Given a base expansion in base $b_1$:\\
+Step 1: Use the definition of base expansion to calculate the value of
+    this number (in decimal).\\
+Step 2: Use the Least Significant First algorithm to write this value in 
+    base $b_2$ and output the result.
+}
+\vspace{200pt} \vfill
+\end{document}

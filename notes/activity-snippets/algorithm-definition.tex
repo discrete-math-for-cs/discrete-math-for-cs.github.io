@@ -1,7 +1,44 @@
 %! app: TODOapp
-%! outcome: TODOoutcome
+%! outcome: trace algorithms
 
 \fbox{\parbox{\textwidth}{%
 {\bf New!} An algorithm is a finite sequence of precise instructions for solving a problem.
 \hfill
 }}
+
+Algorithms can be expressed in English or in more formalized descriptions like pseudocode or fully executable programs.
+
+
+Sometimes, we can define algorithms whose output matches the 
+rule for a function we already care about. Consider the (integer) logarithm function
+\[
+logb  : \{b \in \mathbb{Z} \mid b >1 \}  \times \mathbb{Z}^+ ~~\to~~ \mathbb{N}
+\]
+defined by 
+\[
+logb (~ (b,n)~) =  \text{greatest integer } y \text{ so that } b^y  \text{ is less than or equal to } n 
+\]
+
+\input{../activity-snippets/algorithm-log.tex}
+
+Trace this algorithm with inputs $b=3$ and $n=17$
+
+\vfill
+  \begin{tabular}{l|c|c|c|c}
+  & $b$ & $n$ & $i$  & $n > b-1$?\\
+  \hline 
+  Initial value & ~$3$~ & $17$ & \phantom{$0$} & \phantom{~Yes~}\\
+  After 1 iteration  & \phantom{$3$} & \phantom{$5$} & \phantom{$1$} & \phantom{T}\\
+  After 2 iterations & \phantom{$3$} & \phantom{$1$} & \phantom{$2$} & \phantom{F}\\
+  After 3 iterations &  &  & & \\
+  &&&&\\
+  \end{tabular}
+
+\vfill
+
+\vfill
+
+Compare: does the output match the rule for the (integer) logarithm function?
+
+
+\newpage

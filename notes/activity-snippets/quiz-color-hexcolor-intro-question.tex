@@ -1,0 +1,48 @@
+%! app: CP
+%! outcome: data types, div and mod
+
+We saw last week that, mathematically, a color can be represented as a $3$-tuple $(r, g, b)$ 
+where $r$ represents the red component, $g$ the green component, $b$ the blue component and where each of $r$, $g$, $b$ must be from the collection $\{x \in \mathbb{N}\mid 0 \leq x \leq 255 \}$.
+As an alternative representation, in this assignment
+we'll use base $b$ fixed-width expansions to represent colors
+as individual numbers.
+
+\input{../activity-snippets/quiz-color-hexcolor-definition.tex}
+
+\begin{enumerate}
+\item What is the hex color corresponding to full black? Namely, this means setting the value in each of the 
+    red, green, and blue components to be the minimum $0$.
+    \begin{enumerate}
+    \item[] $0$
+    \item[] $(0,0,0)$
+    \item[] $15^{5}+15^4+15^3+15^2+15^1+1$
+    \item[] $15\cdot 16^{5}+15\cdot 16^4+15\cdot 16^3+15 \cdot 16^2+15 \cdot 16^1+15$
+    \item[] $16^{5}+16^4+16^3+16^2+16^1+1$
+    \end{enumerate}
+\item What is the hex color corresponding to full white? Namely, this means setting the value in each of the 
+red, green, and blue components to be the maximum $255$.
+    \begin{enumerate}
+    \item[] $0$
+    \item[] $(0,0,0)$
+    \item[] $15^{5}+15^4+15^3+15^2+15^1+1$
+    \item[] $15\cdot 16^{5}+15\cdot 16^4+15\cdot 16^3+15 \cdot 16^2+15 \cdot 16^1+15$
+    \item[] $16^{5}+16^4+16^3+16^2+16^1+1$
+    \end{enumerate}
+\item Select all and only  correct representations of the hex color which is 
+full green (so the red and blue components are $0$ and green is set to $255$).
+\begin{enumerate}
+    \item[] $(00FF00)_{16,6}$
+    \item[] $(00FF00)_{16}$
+    \item[] $255$
+    \item[] $255\cdot 256$
+    \item[] $255\cdot 16^2$
+    \item[] $65280$
+    \end{enumerate}
+\item Which of the following is a definition using set builder notation for the set of hex colors. (Select all and only correct choices)
+    \begin{enumerate}
+    \item[] $\{ x \in \mathbb{Z} \mid 0 \leq x \leq 16777215\}$
+    \item[] $\{ x \in \mathbb{Z} \mid 0 \leq x \leq 16^6 -1\}$
+    \item[] $\{ x \in \mathbb{N} \mid x \leq 16777215\}$
+    \item[] $\{ x \in \mathbb{N} \mid x \leq 16^6 -1\}$
+    \end{enumerate}
+\end{enumerate}

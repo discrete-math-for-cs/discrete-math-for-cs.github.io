@@ -1,0 +1,16 @@
+%! app: Numbers
+%! outcome: data types
+
+What is a recursive definition of the set
+$\mathbb{Z}^+ \times \mathbb{N}$ that is the domain of the 
+function ``$b$ to the power of $i$''?
+For convenience, we'll refer to this set as $X$ 
+in the options below.
+
+\begin{enumerate}[labelindent=-10pt, leftmargin=-10pt]
+    \item[] Basis step: $(1,0) \in X$. Recursive step: If $(m,n) \in X$ then $(m+1, n+1) \in X$ too.
+    \item[] Basis step: $(1,0) \in X$. Recursive step: If $(m,m-1) \in X$ then $(m+1, m) \in X$ too.
+    \item[] Basis step: $(b,0) \in X$ for each $b \in \mathbb{Z}^+$. Recursive step: If $(m,n) \in X$ then $(m+1, n+1) \in X$ too.
+    \item[] Basis step: $(b,0) \in X$ for each $b \in \mathbb{Z}^+$. Recursive step: If $(m,n) \in X$ then $(m, n+1) \in X$ too.
+    \item[] None of the above.
+\end{enumerate}

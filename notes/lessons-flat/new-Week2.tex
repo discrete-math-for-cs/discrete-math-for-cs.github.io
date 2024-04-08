@@ -1,0 +1,834 @@
+\documentclass[12pt, oneside]{article}
+
+\usepackage[letterpaper, scale=0.89, centering]{geometry}
+\usepackage{fancyhdr}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\rfoot{\href{https://creativecommons.org/licenses/by-nc-sa/2.0/}{CC BY-NC-SA 2.0} Version \today~(\thepage)}
+
+\usepackage{amssymb,amsmath,pifont,amsfonts,comment,enumerate,enumitem}
+\usepackage{currfile,xstring,hyperref,tabularx,graphicx,wasysym}
+\usepackage[labelformat=empty]{caption}
+\usepackage{xcolor}
+\usepackage{multicol,multirow,array,listings,tabularx,lastpage,textcomp,booktabs}
+
+\lstnewenvironment{algorithm}[1][] {   
+    \lstset{ mathescape=true,
+        frame=tB,
+        numbers=left, 
+        numberstyle=\tiny,
+        basicstyle=\rmfamily\scriptsize, 
+        keywordstyle=\color{black}\bfseries,
+        keywords={,procedure, div, for, to, input, output, return, datatype, function, in, if, else, foreach, while, begin, end, }
+        numbers=left,
+        xleftmargin=.04\textwidth,
+        #1
+    }
+}
+{}
+\lstnewenvironment{java}[1][]
+{   
+    \lstset{
+        language=java,
+        mathescape=true,
+        frame=tB,
+        numbers=left, 
+        numberstyle=\tiny,
+        basicstyle=\ttfamily\scriptsize, 
+        keywordstyle=\color{black}\bfseries,
+        keywords={, int, double, for, return, if, else, while, }
+        numbers=left,
+        xleftmargin=.04\textwidth,
+        #1
+    }
+}
+{}
+
+\newcommand\abs[1]{\lvert~#1~\rvert}
+\newcommand{\st}{\mid}
+
+\newcommand{\A}[0]{\texttt{A}}
+\newcommand{\C}[0]{\texttt{C}}
+\newcommand{\G}[0]{\texttt{G}}
+\newcommand{\U}[0]{\texttt{U}}
+
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+
+ 
+\begin{document}
+\begin{flushright}
+    \StrBefore{\currfilename}{.}
+\end{flushright} 
+\subsection*{Week 2 at a glance}
+
+\subsubsection*{We will be learning and practicing to:}
+\begin{itemize}
+\item Model systems with tools from discrete mathematics and reason about implications of modelling choices. Explore applications in CS through multiple perspectives, including software, hardware, and theory.
+\begin{itemize}
+   \item Selecting and representing appropriate data types and using notation conventions to clearly communicate choices
+   \item Determining the properties of positional number representations, including overflow and bit operations
+\end{itemize}
+
+\item Translate between different representations to illustrate a concept.
+
+\begin{itemize}
+   \item Translating between symbolic and English versions of statements using precise mathematical language
+   \item Tracing algorithms specified in pseudocode
+   \item Representing numbers using positional representations, including decimal, binary, hexadecimal, fixed-width representations, and 2s complement
+\end{itemize}
+
+
+\item Use precise notation to encode meaning and present arguments concisely and clearly
+\begin{itemize}
+    \item Precisely describing a set using appropriate notation e.g. roster method, set builder notation, and recursive definitions
+    \item Defining functions using multiple representations
+\end{itemize}
+
+\item Know, select and apply appropriate computing knowledge and problem-solving techniques. Reason about computation and systems. Use mathematical techniques to solve problems. Determine appropriate conceptual tools to apply to new situations. Know when tools do not apply and try different approaches. Critically analyze and evaluate candidate solutions.
+\begin{itemize}
+    \item Using a recursive definition to evaluate a function or determine membership in a set
+    \item Using the definitions of the div and mod operators on integers
+\end{itemize}
+
+\end{itemize}
+
+\subsubsection*{TODO:}
+\begin{list}
+   {\itemsep2pt}
+   \item \#FinAid Assignment on Canvas (complete as soon as possible) 
+   \item Review quiz based on class material each day (due Friday April 12, 2024)
+   \item Homework assignment 2 (due Tuesday April 16, 2024).
+\end{list}
+
+\newpage
+
+\section*{Week 2 Monday: Sets, functions, and algorithms}
+
+
+Let's practice with functions related to some of our applications so far.
+
+Recall: We model user ratings of the collection of the four moviews Dune, Oppenheimer, Barbie, Nimona as the set
+$\{-1,0,1\}^4 \times \{-1,0,1\}^4$ . One function that compares pairs of ratings is
+$$d_0: \{-1,0,1\}^4 \times \{-1,0,1\}^4 \to \mathbb{R}$$
+given by
+\[
+d_0 (~(~ (x_1, x_2, x_3, x_4), (y_1, y_2, y_3, y_4) ~) ~) = \sqrt{ (x_1 - y_1)^2 + (x_2 - y_2)^2 + (x_3 -y_3)^2 + (x_4 -y_4)^2}
+\]
+
+Notice: any ordered pair of ratings is an okay input to $d_0$.
+
+Notice: there are (at most) 
+\[
+(3 \cdot 3 \cdot 3 \cdot 3)\cdot (3 \cdot 3 \cdot 3 \cdot 3) = 3^8 = 6561
+\]
+many pairs of ratings. There are therefore lots and lots of real numbers that are not the output of $d_0$.
+
+\vfill
+
+Recall: RNA is made up of strands of four different bases that encode genomic information
+in specific ways.\\
+The bases are elements of the set 
+$B  = \{\A, \C, \U, \G \}$. The set of RNA strands $S$ is defined (recursively) by:
+\[
+\begin{array}{ll}
+\textrm{Basis Step: } & \A \in S, \C \in S, \U \in S, \G \in S \\
+\textrm{Recursive Step: } & \textrm{If } s \in S\textrm{ and }b \in B \textrm{, then }sb \in S
+\end{array}
+\]
+where $sb$ is string concatenation.
+
+\vfill
+\newpage
+{\bf Pro-tip}: informal definitions sometime use $\cdots$ to indicate ``continue the pattern''. Often, 
+to make this pattern precise we use recursive definitions.
+
+\vspace{-20pt}
+
+\begin{center}
+\begin{tabular}{p{0.65in}ccp{2.4in}p{2.4in}}
+{\scriptsize {\bf Name}} & {\scriptsize {\bf  Domain}} & {\scriptsize {\bf Codomain}} & {\scriptsize {\bf Rule}} &{\scriptsize {\bf Example}}\\
+\hline 
+$rnalen$ & $S$ & $\mathbb{Z}^+$ & 
+    {\begin{align*}    
+    &\textrm{Basis Step:} \\
+    &\textrm{If } b \in B\textrm{ then } \textit{rnalen}(b) = 1 \\
+    &\textrm{Recursive Step:}\\
+    &\textrm{If } s \in S\textrm{ and } b \in B\textrm{, then  }\\
+    &\textit{rnalen}(sb) = 1 + \textit{rnalen}(s)
+    \end{align*}} & 
+    {\begin{align*}
+        rnalen(\A\C) &\overset{\text{rec step}}{=} 1 +rnalen(\A) \\ 
+        &\overset{\text{basis step}}{=} 1 + 1 = 2
+    \end{align*}}\\
+\hline
+$basecount$ & $S \times B$ & $\mathbb{N}$ & 
+{\begin{align*}    
+    &\textrm{Basis Step:} \\
+    &\textrm{If } b_1 \in B, b_2 \in B \textrm{ then} \\
+    &basecount(~(b_1, b_2)~) = \\
+    &\begin{cases}
+        1 & \textrm{when } b_1 = b_2 \\
+        0 & \textrm{when } b_1 \neq b_2 \\
+    \end{cases}\\
+    &\textrm{Recursive Step:}\\
+    &\textrm{If } s \in S, b_1 \in B, b_2 \in B\\
+    &basecount(~(sb_1, b_2)~) = \\
+    &\begin{cases}
+        1 + \textit{basecount}(~(s, b_2)~) & \textrm{when } b_1 = b_2 \\
+        \textit{basecount}(~(s, b_2)~) & \textrm{when } b_1 \neq b_2 \\
+    \end{cases}
+    \end{align*}} & 
+    {\begin{align*}
+        basecount(~(\A\C\U, \C)~) = 
+    \end{align*}}\\
+\hline
+``$2$ to the power of''& $\mathbb{N}$ & $\mathbb{N}$ & 
+{\begin{align*}    
+&\textrm{Basis Step:} \\
+&2^0= 1 \\
+&\textrm{Recursive Step:}\\
+&\textrm{If } n \in \mathbb{N}, 2^{n+1} = \phantom{2 \cdot 2^n}
+\end{align*}}\\
+\hline
+``$b$ to the power of $i$''& $\mathbb{Z}^+ \times \mathbb{N}$ & $\mathbb{N}$ & 
+{\begin{align*}    
+&\textrm{Basis Step:} \\
+&b^0 = 1 \\
+&\textrm{Recursive Step:}\\
+&\textrm{If } i \in \mathbb{N}, b^{i+1} = b \cdot b^i
+\end{align*}}
+\end{tabular}
+\end{center}
+
+\fbox{\parbox{\textwidth}{
+    $2^0 = 1$~~\hfill $2^1=2$~~\hfill $2^2=4$~~\hfill $2^3=8$~~
+    \hfill $2^4=16$~~\hfill $2^5=32$~~
+    \hfill $2^6=64$~~\hfill $2^7=128$~~
+    \hfill $2^8=256$~~\hfill $2^9=512$~~
+    \hfill $2^{10}=1024$}}
+\newpage \newpage
+
+
+{\bf Integer division and remainders} (aka The Division Algorithm) Let $n$ be an integer 
+and $d$ a positive integer. There are unique integers $q$ and $r$, with $0 \leq r < d$, such that 
+$n = dq + r$. In this case, $d$ is called the divisor, $n$ is called the dividend, 
+$q$ is called the quotient, 
+and $r$ is called the remainder. 
+
+Because these numbers are guaranteed to exist, the following functions are well-defined: 
+\begin{itemize}\setlength{\leftmargin}{-0.25in}
+\item $\textbf{ div } : \mathbb{Z} \times \mathbb{Z}^+ \to \mathbb{Z}$ given by $\textbf{ div } ( ~(n,d)~)$ 
+is the quotient when $n$ is the dividend and $d$ is the divisor.
+\item $\textbf{ mod } : \mathbb{Z} \times \mathbb{Z}^+ \to \mathbb{Z}$ given by $\textbf{ mod } ( ~(n,d)~)$ 
+is the remainder when $n$ is the dividend and $d$ is the divisor.
+\end{itemize}
+Because these functions are so important, we sometimes use the notation
+$n \textbf{ div } d = \textbf{ div } ( ~(n,d)~)$ and $n \textbf{ mod } d = \textbf{ mod } (~(n,d)~)$.
+
+
+{\bf Pro-tip}: The functions $\textbf{ div }$ and $\textbf{ mod }$ are similar to (but not exactly the same as) 
+the operators $/$ and $\%$ in Java and python.
+
+\vfill
+
+{\it Example calculations}:
+
+$20 \textbf{ div } 4$
+
+\vspace{20pt}
+
+$20 \textbf{ mod } 4$
+
+\vspace{20pt}
+
+$20 \textbf{ div } 3$
+
+\vspace{20pt}
+
+$20 \textbf{ mod } 3$
+
+\vspace{20pt}
+
+$-20 \textbf{ div } 3$
+
+\vspace{20pt}
+
+$-20 \textbf{ mod } 3$
+
+\vfill 
+
+\section*{Week 2 Wednesday: Representing numbers}
+
+
+Modeling uses data-types that are encoded in a computer.
+The details of the encoding impact the efficiency of algorithms
+we use to understand the systems we are modeling and the 
+impacts of these algorithms on the people using the systems.
+Case study: how to encode numbers?
+
+\phantom{
+Positional representation with familiar (decimal) number encodings
+\vspace{30pt}
+}
+\vfill 
+
+{\bf Definition} For $b$ an integer greater than $1$ and $n$ a positive integer, 
+the {\bf base $b$ expansion of $n$}  is
+\[
+(a_{k-1} \cdots a_1 a_0)_b
+\]
+where $k$ is a positive integer, $a_0, a_1, \ldots, a_{k-1}$ 
+are (symbols for) nonnegative integers less than $b$, $a_{k-1} \neq  0$, and
+\[
+n =  \sum_{i=0}^{k-1} a_{i} b^{i}
+\]
+
+Notice: {\it The base $b$ expansion of a positive integer $n$ is a string over the alphabet 
+$\{x \in \mathbb{N} \st x < b\}$
+whose leftmost character is nonzero.}
+
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+Base $b$ & Collection of possible coefficients in base $b$ expansion of  a positive integer \\
+\hline
+& \\
+Binary ($b=2$) & $\{0,1\}$ \\
+\hline
+& \\
+Ternary ($b=3$) & $\{0,1, 2\}$ \\
+\hline
+& \\
+Octal ($b=8$) & $\{0,1, 2, 3, 4, 5, 6, 7\}$\\
+\hline
+& \\
+Decimal ($b=10$) & $\{0,1, 2, 3, 4, 5, 6, 7, 8, 9\}$\\
+\hline
+& \\
+Hexadecimal ($b=16$) &  $\{0,1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F\}$\\
+& letter coefficient symbols represent numerical values $(A)_{16} = (10)_{10}$\\
+&$(B)_{16} = (11)_{10} ~~(C)_{16} = (12)_{10} ~~
+ (D)_{16} = (13)_{10} ~~ (E)_{16} = (14)_{10} ~~ (F)_{16} = (15)_{10} $\\
+\hline
+\end{tabular}
+\end{center}
+
+ \vfill
+\newpage
+
+
+
+
+{\it Examples}:
+
+$(1401)_{2}$
+
+\vfill
+
+$(1401)_{10}$
+
+\vfill
+\vfill
+\vfill
+
+
+$(1401)_{16}$
+
+\vfill
+\vfill
+\vfill
+ 
+
+\fbox{\parbox{\textwidth}{{\bf New!} An algorithm is a finite sequence of precise instructions for solving a problem.
+\hfill
+}}
+
+Algorithms can be expressed in English or in more formalized descriptions like pseudocode or fully executable programs.
+
+
+Sometimes, we can define algorithms whose output matches the 
+rule for a function we already care about. Consider the (integer) logarithm function
+\[
+logb  : \{b \in \mathbb{Z} \mid b >1 \}  \times \mathbb{Z}^+ ~~\to~~ \mathbb{N}
+\]
+defined by 
+\[
+logb (~ (b,n)~) =  \text{greatest integer } y \text{ so that } b^y  \text{ is less than or equal to } n 
+\]
+
+
+
+\begin{algorithm}[caption={Calculating integer part of base $b$ logarithm}]
+   procedure $logb$($b$,$n$: positive integers with $b > 1$)
+   $i$ := $0$
+   while $n$ > $b-1$
+     $i$ := $i + 1$
+     $n$ := $n$ div $b$
+   return $i$ $\{ i$ holds the integer part of the base $b$ logarithm of $n\}$
+\end{algorithm} 
+Trace this algorithm with inputs $b=3$ and $n=17$
+
+\vfill
+  \begin{tabular}{l|c|c|c|c}
+  & $b$ & $n$ & $i$  & $n > b-1$?\\
+  \hline 
+  Initial value & ~$3$~ & $17$ & \phantom{$0$} & \phantom{~Yes~}\\
+  After 1 iteration  & \phantom{$3$} & \phantom{$5$} & \phantom{$1$} & \phantom{T}\\
+  After 2 iterations & \phantom{$3$} & \phantom{$1$} & \phantom{$2$} & \phantom{F}\\
+  After 3 iterations &  &  & & \\
+  &&&&\\
+  \end{tabular}
+
+\vfill
+
+\vfill
+
+Compare: does the output match the rule for the (integer) logarithm function?
+
+
+\newpage 
+
+{\bf Two algorithms for constructing base $b$ expansion from decimal representation}
+
+{\bf Most significant first}: Start with left-most coefficient of expansion (highest value)
+
+{\it Informally}: Build up to the value we need to represent in ``greedy'' approach, using 
+units determined by base.
+
+\vfill
+
+
+\begin{algorithm}[caption={Calculating base $b$ expansion, from left}]
+procedure $\textit{baseb1}$($n, b$: positive integers with $b > 1$)
+$v$ := $n$
+$k$ := $1 + $ output of $logb$ algorithm with inputs $b$ and $n$
+for $i$ := $1$ to $k$
+  $a_{k-i}$ := $0$
+  while $v \geq b^{k-i}$
+    $a_{k-i}$ := $a_{k-i} + 1$
+    $v$ := $v -  b^{k-i}$
+return $(a_{k-1}, \ldots, a_0) \{(a_{k-1} \ldots a_0)_b~\textrm{ is the base } b \textrm{ expansion of } n \}$
+\end{algorithm}
+
+\vfill
+\vfill
+
+\newpage
+{\bf Least significant first}: Start with right-most coefficient of expansion (lowest value)
+
+Idea: {\tiny(when $k > 1$)} 
+    \begin{align*}
+      n &= a_{k-1} b^{k-1} + \cdots + a_1 b + a_0 \\
+        &= b ( a_{k-1} b^{k-2} + \cdots + a_1) + a_0\end{align*}
+    so $a_0 = n \textbf{ mod } b$ and $a_{k-1} b^{k-2} + \cdots + a_1 = n \textbf{ div } b$.
+\begin{algorithm}[caption={Calculating base $b$ expansion, from right}]
+procedure $\textit{baseb2}$($n, b$: positive integers with $b > 1$)
+$q$ := $n$
+$k$ := $0$
+while $q  \neq 0$
+  $a_{k}$ := $q$ mod $b$
+  $q$ := $q$ div $b$
+  $k$ := $k+1$
+return $(a_{k-1}, \ldots, a_0) \{(a_{k-1} \ldots a_0)_b~\textrm{ is the base } b \textrm{ expansion of } n \}$
+\end{algorithm}
+
+
+\vfill
+\vfill
+\newpage 
+
+\newpage
+\section*{Week 2 Friday: Algorithms for numbers}
+
+
+Find and fix any and all mistakes with the following:
+\begin{itemize}
+\item[(a)] $(1)_2 = (1)_8$
+\item[(b)] $(142)_{10} = (142)_{16}$
+\item[(c)] $(20)_{10} = (10100)_2$
+\item[(d)] $(35)_8 = (1D)_{16}$
+\end{itemize} 
+
+
+
+Practice: write an algorithm for converting from base $b_1$ expansion to base $b_2$ expansion:
+
+\phantom{
+Earlier, we saw (two different) algorithms for, given 
+a target base $b$, converting from decimal to base $b$ expansions. 
+We will use either one of these as a subroutine in this algorithm.\\
+Given a base expansion in base $b_1$:\\
+Step 1: Use the definition of base expansion to calculate the value of
+    this number (in decimal).\\
+Step 2: Use the Least Significant First algorithm to write this value in 
+    base $b_2$ and output the result.
+}
+\vspace{200pt} 
+
+{\bf Definition} For $b$ an integer greater than $1$, $w$ a positive integer, 
+and $n$ a nonnegative integer
+$\underline{\phantom{\hspace{1in}}}$, ~
+the {\bf base $b$ fixed-width $w$ expansion of $n$}  is
+\[
+(a_{w-1} \cdots a_1 a_0)_{b,w}
+\]
+where  $a_0, a_1, \ldots, a_{w-1}$ are nonnegative integers less than $b$ and
+\[
+n =  \sum_{i=0}^{w-1} a_{i} b^{i}
+\]
+ 
+
+\begin{center}
+    \begin{tabular}{|c|c|c|c|c|}
+    \hline
+    Decimal &  Binary  & Binary fixed-width $10$& Binary fixed-width $7$ & Binary fixed-width $4$\\
+    $b=10$ & $b=2$ & $b=2$, $w =  10$& $b=2$, $w =  7$& $b=2$, $w =  4$ \\
+    \hline 
+    &&&&  \\
+    $(20)_{10}$&\phantom{$(10100)_{2}$\qquad\qquad}&&  &\\
+    &&&&  \\
+\hline
+    \end{tabular}
+    \end{center}
+ 
+
+{\bf Definition} For $b$ an integer greater than $1$, $w$ a positive integer, 
+$w'$ a positive  integer, and $x$ a real number the {\bf base $b$ fixed-width 
+expansion of $x$ with integer part width $w$  and fractional part width $w'$} is
+$(a_{w-1} \cdots a_1 a_0 .  c_{1} \cdots c_{w'})_{b,w,w'}$
+where  $a_0, a_1, \ldots, a_{w-1}, c_1, \ldots, c_{w'}$ are nonnegative integers less than $b$ and
+$$x \geq \sum_{i=0}^{w-1} a_{i} b^{i} + \sum_{j=1}^{w'}  c_{j} b^{-j} \hfill
+\textrm{\qquad and \qquad}
+\hfill x < \sum_{i=0}^{w-1} a_{i} b^{i} + \sum_{j=1}^{w'} c_{j} b^{-j} + b^{-w'}$$
+
+\begin{center}
+\begin{tabular}{|c|p{5in}|}
+\hline
+& \\
+$3.75$  in fixed-width binary,& \\
+integer part width $2$,&\\
+ fractional part width $8$ & \\
+& \\
+& \\
+& \\
+& \\
+\hline
+& \\
+$0.1$  in fixed-width binary, & \\
+integer part width $2$, &\\
+ fractional part width $8$ & \\
+ & \\
+ & \\
+ & \\
+ & \\
+ \hline
+\end{tabular}
+\end{center}
+
+\vfill
+
+\includegraphics[width=2in]{resources/images/ArithmeticDemo.png}
+
+Note: Java uses floating point, not fixed width representation, but similar rounding errors appear in both.
+ \newpage
+
+
+{\bf Representing negative integers in binary}: Fix a positive integer  width for the representation  $w$, $w >1$.
+
+\begin{tabular}{|cc|p{3.4in}|p{3.7in}|}
+\hline
+& & To  represent a positive integer $n$ & To represent a negative integer $-n$\\
+\hline
+&& &  \\
+&\parbox[t]{2mm}{\multirow{4}{*}{\rotatebox[origin=c]{90}{Sign-magnitude}}} &
+$[ 0a_{w-2} \cdots a_0]_{s,w}$, where $n =  (a_{w-2} \cdots a_0)_{2,w-1}$& 
+$[1a_{w-2} \cdots a_0]_{s,w}$
+, where $n =  (a_{w-2} \cdots a_0)_{2,w-1}$\\
+&& & \\
+&& Example $n=17$, $w=7$:  & Example $-n=-17$, $w=7$: \\
+&& & \\
+&& & \\
+&& & \\
+&& & \\
+&& & \\
+&& & \\
+&& & \\
+\hline
+&&  &  \\
+&\parbox[t]{2mm}{\multirow{4}{*}{\rotatebox[origin=c]{90}{2s complement}}} &
+$[0a_{w-2} \cdots a_0]_{2c,w}$, where $n =  (a_{w-2} \cdots a_0)_{2,w-1}$& $[1a_{w-2} \cdots a_0]_{2c,w}$, where $2^{w-1} - n =  (a_{w-2} \cdots a_0)_{2,w-1}$\\
+&& & \\
+&& Example $n=17$, $w=7$:  & Example $-n=-17$, $w=7$: \\
+&& & \\
+&& & \\
+&& & \\
+&& & \\
+&& & \\
+&& & \\
+&& & \\
+\hline
+\end{tabular} 
+
+For positive integer $n$, to represent $-n$ in 
+$2$s complement with width $w$,
+\begin{itemize}
+    \item Calculate $2^{w-1} - n$, convert 
+    result to binary fixed-width $w-1$, pad 
+    with leading $1$, or
+    \item Express $-n$ as a sum of powers of $2$, 
+    where the leftmost $2^{w-1}$ is negative weight, or
+    \item Convert $n$ to binary fixed-width $w$, 
+    flip bits, add 1 (ignore overflow)
+\end{itemize}
+
+{\it Challenge: use definitions to explain why
+each of these approaches works.} \newpage
+
+
+{\bf Representing $0$}:
+
+So far, we have representations for
+positive and negative integers. What about $0$?
+
+\begin{tabular}{|cc|p{3.4in}|p{3.7in}|}
+   \hline
+   & & To  represent a {\bf non-negative} integer $n$ & To represent a {\bf non-positive} integer $-n$\\
+   \hline
+   && &  \\
+   &\parbox[t]{2mm}{\multirow{4}{*}{\rotatebox[origin=c]{90}{Sign-magnitude}}} &
+   $[ 0a_{w-2} \cdots a_0]_{s,w}$, where $n =  (a_{w-2} \cdots a_0)_{2,w-1}$& 
+   $[1a_{w-2} \cdots a_0]_{s,w}$
+   , where $n =  (a_{w-2} \cdots a_0)_{2,w-1}$\\
+   && & \\
+   && Example $n=0$, $w=7$:  & Example $-n=0$, $w=7$: \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+\hline
+   &&  &  \\
+   &\parbox[t]{2mm}{\multirow{4}{*}{\rotatebox[origin=c]{90}{2s complement}}} &
+   $[0a_{w-2} \cdots a_0]_{2c,w}$, where $n =  (a_{w-2} \cdots a_0)_{2,w-1}$& $[1a_{w-2} \cdots a_0]_{2c,w}$, where $2^{w-1} - n =  (a_{w-2} \cdots a_0)_{2,w-1}$\\
+   && & \\
+   && Example $n=0$, $w=7$:  & Example $-n=0$, $w=7$: \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+\hline
+\end{tabular} \newpage
+\subsection*{Review Quiz}
+\begin{enumerate}
+\item Functions and algorithms
+\begin{enumerate}
+    \item {
+
+What is a recursive definition of the set
+$\mathbb{Z}^+ \times \mathbb{N}$ that is the domain of the 
+function ``$b$ to the power of $i$''?
+For convenience, we'll refer to this set as $X$ 
+in the options below.
+
+\begin{enumerate}[labelindent=-10pt, leftmargin=-10pt]
+    \item[] Basis step: $(1,0) \in X$. Recursive step: If $(m,n) \in X$ then $(m+1, n+1) \in X$ too.
+    \item[] Basis step: $(1,0) \in X$. Recursive step: If $(m,m-1) \in X$ then $(m+1, m) \in X$ too.
+    \item[] Basis step: $(b,0) \in X$ for each $b \in \mathbb{Z}^+$. Recursive step: If $(m,n) \in X$ then $(m+1, n+1) \in X$ too.
+    \item[] Basis step: $(b,0) \in X$ for each $b \in \mathbb{Z}^+$. Recursive step: If $(m,n) \in X$ then $(m, n+1) \in X$ too.
+    \item[] None of the above.
+\end{enumerate} }
+    \item {
+
+When running the algorithm $logb$ for calculating the 
+integer part of base $b$ logarithm with inputs $b=4$ and $n=25$, 
+which of the following calculations are helpful? Select all and only 
+the calculations that are both relevant to the algorithm trace {\bf and}
+are correct.
+
+\begin{enumerate}
+    \item[] $25 \textbf{ div } 4 = 5$
+    \item[] $25 \textbf{ div } 4 = 6$
+    \item[] $25 \textbf{ div } 4 = 1$
+    \item[] $4 \textbf{ div } 25 = 0$
+    \item[] $4 \textbf{ div } 25 = 5$
+    \item[] $4 \textbf{ div } 25 = 1$
+    \item[] $6 \textbf{ div } 4= 1$
+    \item[] $5 \textbf{ div } 4= 1$
+    \item[] $4 \textbf{ div } 4= 1$
+\end{enumerate} }
+\end{enumerate}
+\item Base expansions
+\begin{enumerate}
+    \item {
+
+Give the value (using usual mathematical conventions) of 
+each of the following base expansions.
+\begin{enumerate}
+    \item $(10)_{2}$
+    \item $(10)_{4}$
+    \item $(17)_{16}$
+    \item $(211)_{3}$
+    \item $(3)_{8}$
+\end{enumerate} }
+    \item {
+
+Recall the definitions from class for number representations for {\bf base $b$ expansion of $n$},
+{\bf  base $b$ fixed-width $w$ expansion of $n$}, and {\bf base $b$ fixed-width expansion of $x$ 
+with integer part width $w$ and fractional part width $w'$}.
+
+For example, the base $2$ (binary) expansion of $4$ is 
+$\qquad
+(100)_2 \qquad$
+and the base $2$ (binary) fixed-width $8$ expansion of $4$ is
+$\qquad
+(00000100)_{2,8} \qquad$
+and the base $2$ (binary) fixed-width expansion of $4$ with integer part width $3$ and fractional
+part width $2$ of $4$ is
+$\qquad
+(100.00)_{2,3,2} \qquad$
+
+Compute the listed expansions.  Enter your number using the notation for base 
+expansions with parentheses but without subscripts. For example, 
+if your answer were $(100)_{2,3}$
+you would type \texttt{(100)2,3} into Gradescope.
+
+\begin{enumerate}
+\item Give the binary (base $2$) expansion of the number whose octal (base $8$) expansion is
+\[
+(371)_8
+\]
+\item Give the decimal (base $10$) expansion of the number whose octal (base $8$) expansion is
+\[
+(371)_8
+\]
+\item Give the octal (base $8$) fixed-width $3$ expansion of $(9)_{10}$ .
+\item Give the ternary (base $3$) fixed-width $8$ expansion of $(9)_{10}$ .
+\item Give the hexadecimal (base $16$) fixed-width $6$ expansion of
+$(16711935)_{10}$ .\footnote{This matches a frequent debugging task --
+sometimes a program will show a number formatted as a base $10$
+integer that is much better understood with another representation.}
+\item Give the hexadecimal (base $16$) fixed-width $4$ expansion of
+$$(1011~ 1010 ~ 1001~ 0000 )_2$$
+Note: the spaces between each group of 4 bits above are for your convenience only.  How
+might they help your calculations?
+\item Give the binary fixed width expansion of $0.125$ with integer part width $2$ and 
+fractional part width $4$.
+\item Give the binary fixed width expansion of $1$ with integer part width $2$ and 
+fractional part width $3$.
+\end{enumerate} }
+    \item {
+
+Select all and only the correct choices below.
+\begin{enumerate}
+\item Suppose you were told that the positive integer $n_1$ has the property that $n_1 \textbf{ div } 2 = 0$. Which of the following can you conclude?
+\begin{enumerate}
+\item $n_1$ has a binary (base $2$) expansion
+\item $n_1$ has a ternary (base $3$) expansion
+\item $n_1$ has a hexadecimal (base $16$) expansion
+\item $n_1$ has a base $2$ fixed-width $1$ expansion
+\item $n_1$ has a base $2$ fixed-width $20$ expansion
+\end{enumerate}
+\item Suppose you were told that the positive integer $n_2$ has the property that $n_2 \textbf{ mod } 4 = 0$. Which of the following can you conclude?
+\begin{enumerate}
+\item the leftmost symbol in the binary (base $2$) expansion of $n_2$ is $1$
+\item the leftmost symbol in the base $4$ expansion of $n_2$ is $1$
+\item the rightmost symbol in the base $4$ expansion of $n_2$ is $0$
+\item the rightmost symbol in the octal (base $8$) expansion of $n_2$ is $0$
+\end{enumerate}
+\end{enumerate} }
+    \item {
+
+Recall the definitions of signed integer representations from class: 
+sign-magnitude and 2s complement.
+
+\begin{enumerate}
+    \item Give the 2s complement width 6 representation of the number 
+    represented in binary fixed-width 5
+    representation as $(00101)_{2,5}$. 
+    \item Give the 2s complement width 6 representation of the number 
+    represented in binary fixed-width 5
+    representation as $(10101)_{2,5}$. 
+    \item Give the 2s complement width 4 representation of the number 
+    represented in sign-magnitude
+    width 4 as $[1111]_{s,4}$.
+    \item Give the sign magnitude width 4 representation of the number 
+    represented in 2s complement
+    width 4 as $[1111]_{2c,4}$.
+    \item Give the sign magnitude width 6 representation of the number 
+    represented in sign magnitude width 4 as $[1111]_{s,4}$.
+    \item Give the 2s complement width 6 representation of the number 
+    represented in 2s complement width 4 as $[1111]_{2c,4}$.
+\end{enumerate} }
+\end{enumerate}
+\item Multiple representations
+{
+
+We saw last week that, mathematically, a color can be represented as a $3$-tuple $(r, g, b)$ 
+where $r$ represents the red component, $g$ the green component, $b$ the blue component and where each of $r$, $g$, $b$ must be from the collection $\{x \in \mathbb{N}\mid 0 \leq x \leq 255 \}$.
+As an alternative representation, in this assignment
+we'll use base $b$ fixed-width expansions to represent colors
+as individual numbers.
+
+{\bf Definition}: A {\bf hex color} is a nonnegative
+integer, $n$, that has a base $16$ fixed-width $6$  expansion
+$$n = (r_1r_2g_1g_2b_1b_2)_{16,6}$$ 
+where $(r_1r_2)_{16,2}$ is the red
+component, $(g_1g_2)_{16,2}$ is the green component, 
+and $(b_1b_2)_{16,2}$ is the
+blue. 
+\begin{enumerate}
+\item What is the hex color corresponding to full black? Namely, this means setting the value in each of the 
+    red, green, and blue components to be the minimum $0$.
+    \begin{enumerate}
+    \item[] $0$
+    \item[] $(0,0,0)$
+    \item[] $15^{5}+15^4+15^3+15^2+15^1+1$
+    \item[] $15\cdot 16^{5}+15\cdot 16^4+15\cdot 16^3+15 \cdot 16^2+15 \cdot 16^1+15$
+    \item[] $16^{5}+16^4+16^3+16^2+16^1+1$
+    \end{enumerate}
+\item What is the hex color corresponding to full white? Namely, this means setting the value in each of the 
+red, green, and blue components to be the maximum $255$.
+    \begin{enumerate}
+    \item[] $0$
+    \item[] $(0,0,0)$
+    \item[] $15^{5}+15^4+15^3+15^2+15^1+1$
+    \item[] $15\cdot 16^{5}+15\cdot 16^4+15\cdot 16^3+15 \cdot 16^2+15 \cdot 16^1+15$
+    \item[] $16^{5}+16^4+16^3+16^2+16^1+1$
+    \end{enumerate}
+\item Select all and only  correct representations of the hex color which is 
+full green (so the red and blue components are $0$ and green is set to $255$).
+\begin{enumerate}
+    \item[] $(00FF00)_{16,6}$
+    \item[] $(00FF00)_{16}$
+    \item[] $255$
+    \item[] $255\cdot 256$
+    \item[] $255\cdot 16^2$
+    \item[] $65280$
+    \end{enumerate}
+\item Which of the following is a definition using set builder notation for the set of hex colors. (Select all and only correct choices)
+    \begin{enumerate}
+    \item[] $\{ x \in \mathbb{Z} \mid 0 \leq x \leq 16777215\}$
+    \item[] $\{ x \in \mathbb{Z} \mid 0 \leq x \leq 16^6 -1\}$
+    \item[] $\{ x \in \mathbb{N} \mid x \leq 16777215\}$
+    \item[] $\{ x \in \mathbb{N} \mid x \leq 16^6 -1\}$
+    \end{enumerate}
+\end{enumerate} }
+\end{enumerate}
+
+\end{document}

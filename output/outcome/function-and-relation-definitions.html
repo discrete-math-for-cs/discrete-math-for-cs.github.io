@@ -175,6 +175,149 @@
 <div class="flushright">
 
 </div>
+<h1 class="unnumbered" id="defining-functions-more-examples">Defining
+functions more examples</h1>
+<p>Let’s practice with functions related to some of our applications so
+far.</p>
+<p>Recall: We model user ratings of the collection of the four moviews
+Dune, Oppenheimer, Barbie, Nimona as the set <span
+class="math inline">\(\{-1,0,1\}^4 \times \{-1,0,1\}^4\)</span> . One
+function that compares pairs of ratings is <span
+class="math display">\[d_0: \{-1,0,1\}^4 \times \{-1,0,1\}^4 \to
+\mathbb{R}\]</span> given by <span class="math display">\[d_0 (~(~ (x_1,
+x_2, x_3, x_4), (y_1, y_2, y_3, y_4) ~) ~) = \sqrt{ (x_1 - y_1)^2 + (x_2
+- y_2)^2 + (x_3 -y_3)^2 + (x_4 -y_4)^2}\]</span></p>
+<p>Notice: any ordered pair of ratings is an okay input to <span
+class="math inline">\(d_0\)</span>.</p>
+<p>Notice: there are (at most) <span class="math display">\[(3 \cdot 3
+\cdot 3 \cdot 3)\cdot (3 \cdot 3 \cdot 3 \cdot 3) = 3^8 = 6561\]</span>
+many pairs of ratings. There are therefore lots and lots of real numbers
+that are not the output of <span class="math inline">\(d_0\)</span>.</p>
+<p>Recall: RNA is made up of strands of four different bases that encode
+genomic information in specific ways.<br />
+The bases are elements of the set <span class="math inline">\(B  =
+\{\texttt{A}, \texttt{C}, \texttt{U}, \texttt{G}\}\)</span>. The set of
+RNA strands <span class="math inline">\(S\)</span> is defined
+(recursively) by: <span class="math display">\[\begin{array}{ll}
+\textrm{Basis Step: } &amp; \texttt{A}\in S, \texttt{C}\in S,
+\texttt{U}\in S, \texttt{G}\in S \\
+\textrm{Recursive Step: } &amp; \textrm{If } s \in S\textrm{ and }b \in
+B \textrm{, then }sb \in S
+\end{array}\]</span> where <span class="math inline">\(sb\)</span> is
+string concatenation.</p>
+<p><span><strong>Pro-tip</strong></span>: informal definitions sometime
+use <span class="math inline">\(\cdots\)</span> to indicate “continue
+the pattern”. Often, to make this pattern precise we use recursive
+definitions.</p>
+<div class="center">
+<table>
+<thead>
+<tr class="header">
+<th
+style="text-align: left;"><span><span><strong>Name</strong></span></span></th>
+<th
+style="text-align: center;"><span><span><strong>Domain</strong></span></span></th>
+<th
+style="text-align: center;"><span><span><strong>Codomain</strong></span></span></th>
+<th
+style="text-align: left;"><span><span><strong>Rule</strong></span></span></th>
+<th
+style="text-align: left;"><span><span><strong>Example</strong></span></span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span
+class="math inline">\(rnalen\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(S\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\mathbb{Z}^+\)</span></td>
+<td style="text-align: left;"><span><span
+class="math display">\[\begin{aligned}
+    &amp;\textrm{Basis Step:} \\
+    &amp;\textrm{If } b \in B\textrm{ then } \textit{rnalen}(b) = 1 \\
+    &amp;\textrm{Recursive Step:}\\
+    &amp;\textrm{If } s \in S\textrm{ and } b \in B\textrm{, then  }\\
+    &amp;\textit{rnalen}(sb) = 1 + \textit{rnalen}(s)
+    
+\end{aligned}\]</span></span></td>
+<td style="text-align: left;"><span><span
+class="math display">\[\begin{aligned}
+        rnalen(\texttt{A}\texttt{C}) &amp;\overset{\text{rec step}}{=} 1
++rnalen(\texttt{A}) \\
+        &amp;\overset{\text{basis step}}{=} 1 + 1 = 2
+    
+\end{aligned}\]</span></span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span
+class="math inline">\(basecount\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(S \times
+B\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\mathbb{N}\)</span></td>
+<td style="text-align: left;"><span><span
+class="math display">\[\begin{aligned}
+    &amp;\textrm{Basis Step:} \\
+    &amp;\textrm{If } b_1 \in B, b_2 \in B \textrm{ then} \\
+    &amp;basecount(~(b_1, b_2)~) = \\
+    &amp;\begin{cases}
+        1 &amp; \textrm{when } b_1 = b_2 \\
+        0 &amp; \textrm{when } b_1 \neq b_2 \\
+    \end{cases}\\
+    &amp;\textrm{Recursive Step:}\\
+    &amp;\textrm{If } s \in S, b_1 \in B, b_2 \in B\\
+    &amp;basecount(~(sb_1, b_2)~) = \\
+    &amp;\begin{cases}
+        1 + \textit{basecount}(~(s, b_2)~) &amp; \textrm{when } b_1 =
+b_2 \\
+        \textit{basecount}(~(s, b_2)~) &amp; \textrm{when } b_1 \neq b_2
+\\
+    \end{cases}
+    
+\end{aligned}\]</span></span></td>
+<td style="text-align: left;"><span><span
+class="math display">\[\begin{aligned}
+        basecount(~(\texttt{A}\texttt{C}\texttt{U}, \texttt{C})~) =
+    
+\end{aligned}\]</span></span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">“<span class="math inline">\(2\)</span> to
+the power of”</td>
+<td style="text-align: center;"><span
+class="math inline">\(\mathbb{N}\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\mathbb{N}\)</span></td>
+<td style="text-align: left;"><span><span
+class="math display">\[\begin{aligned}
+&amp;\textrm{Basis Step:} \\
+&amp;2^0= 1 \\
+&amp;\textrm{Recursive Step:}\\
+&amp;\textrm{If } n \in \mathbb{N}, 2^{n+1} = \phantom{2 \cdot 2^n}
+\end{aligned}\]</span></span></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">“<span class="math inline">\(b\)</span> to
+the power of <span class="math inline">\(i\)</span>”</td>
+<td style="text-align: center;"><span class="math inline">\(\mathbb{Z}^+
+\times \mathbb{N}\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\mathbb{N}\)</span></td>
+<td style="text-align: left;"><span><span
+class="math display">\[\begin{aligned}
+&amp;\textrm{Basis Step:} \\
+&amp;b^0 = 1 \\
+&amp;\textrm{Recursive Step:}\\
+&amp;\textrm{If } i \in \mathbb{N}, b^{i+1} = b \cdot b^i
+\end{aligned}\]</span></span></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</div>
 <h1 class="unnumbered" id="definitions-set-prereqs">Definitions set
 prereqs</h1>
 <div class="center">

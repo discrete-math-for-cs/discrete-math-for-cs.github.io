@@ -1,0 +1,38 @@
+%! app: TODOapp
+%! outcome: TODOoutcome
+
+For $b$ an integer between $2$ and $9$ (inclusive), we define the set of possible coefficients 
+in a base $b$ expansion as  $C_b = \{ x \in \mathbb{N} \mid 0 \leq x < b \}$.
+\begin{enumerate}
+\item  ({\it Graded for fair effort completeness}) Fill in the recursive definition of the set of all strings that form base $b$ expansions, $S_b$: 
+
+{\bf Definition} The set $S_b$ is defined (recursively) by:
+\[
+\begin{array}{ll}
+\textrm{Basis Step: } & \textrm{If } x \in \underline{\phantom{\hspace{2in}}} \textrm{, then } x \in S_b\\
+\textrm{Recursive Step: } & \textrm{If } s \in S_b \textrm{ and } x \in C_b \textrm{, then }
+\underline{\phantom{\hspace{2in}}} \in S_b
+\end{array}
+\]
+
+{\it Hint:} Leave the integer $b$ as a parameter so that your definition works no matter which integer
+between $2$ and $9$ (inclusive) is plugged in for $b$.
+\item For each integer $b > 1$, we define the function $v_b: S_b \to \mathbb{Z}^+$ defined recursively by 
+
+
+Basis Step: If $x \in C_b$ and $x \neq 0$, then $v_b (x) = x$.
+
+Recursive Step: If $s \in S_b$ and $x \in C_b$, then $v_b (sx) = bv_b(s) + x$, where $b v_b (s)$
+is the result of integer multiplication.
+
+\begin{enumerate}
+\item For $b = 3$, calculate $v_3(111)$, including all steps in your calculation and justifying them by the definitions
+in the previous parts of this question, or explain why this is impossible.
+\item For $b = 8$, calculate $v_8(0)$, including all steps in your calculation and justifying them by the definitions
+in the previous parts of this question, or explain why this is impossible.
+\end{enumerate}
+
+
+\item  ({\it Graded for fair effort completeness}) Describe in English the rule defining the output of applying $v_b$. Try not to make a literal translation.
+\end{enumerate}
+

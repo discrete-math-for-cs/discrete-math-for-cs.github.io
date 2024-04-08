@@ -1,0 +1,105 @@
+%! app: Bioinformatics, Numbers, Recommendation Systems
+%! outcome: function and relation definitions, data types
+
+Let's practice with functions related to some of our applications so far.
+
+Recall: We model user ratings of the collection of the four moviews Dune, Oppenheimer, Barbie, Nimona as the set
+$\{-1,0,1\}^4 \times \{-1,0,1\}^4$ . One function that compares pairs of ratings is
+$$d_0: \{-1,0,1\}^4 \times \{-1,0,1\}^4 \to \mathbb{R}$$
+given by
+\[
+d_0 (~(~ (x_1, x_2, x_3, x_4), (y_1, y_2, y_3, y_4) ~) ~) = \sqrt{ (x_1 - y_1)^2 + (x_2 - y_2)^2 + (x_3 -y_3)^2 + (x_4 -y_4)^2}
+\]
+
+Notice: any ordered pair of ratings is an okay input to $d_0$.
+
+Notice: there are (at most) 
+\[
+(3 \cdot 3 \cdot 3 \cdot 3)\cdot (3 \cdot 3 \cdot 3 \cdot 3) = 3^8 = 6561
+\]
+many pairs of ratings. There are therefore lots and lots of real numbers that are not the output of $d_0$.
+
+\vfill
+
+Recall: RNA is made up of strands of four different bases that encode genomic information
+in specific ways.\\
+The bases are elements of the set 
+$B  = \{\A, \C, \U, \G \}$. The set of RNA strands $S$ is defined (recursively) by:
+\[
+\begin{array}{ll}
+\textrm{Basis Step: } & \A \in S, \C \in S, \U \in S, \G \in S \\
+\textrm{Recursive Step: } & \textrm{If } s \in S\textrm{ and }b \in B \textrm{, then }sb \in S
+\end{array}
+\]
+where $sb$ is string concatenation.
+
+\vfill
+\newpage
+{\bf Pro-tip}: informal definitions sometime use $\cdots$ to indicate ``continue the pattern''. Often, 
+to make this pattern precise we use recursive definitions.
+
+\vspace{-20pt}
+
+\begin{center}
+\begin{tabular}{p{0.65in}ccp{2.4in}p{2.4in}}
+{\scriptsize {\bf Name}} & {\scriptsize {\bf  Domain}} & {\scriptsize {\bf Codomain}} & {\scriptsize {\bf Rule}} &{\scriptsize {\bf Example}}\\
+\hline 
+$rnalen$ & $S$ & $\mathbb{Z}^+$ & 
+    {\begin{align*}    
+    &\textrm{Basis Step:} \\
+    &\textrm{If } b \in B\textrm{ then } \textit{rnalen}(b) = 1 \\
+    &\textrm{Recursive Step:}\\
+    &\textrm{If } s \in S\textrm{ and } b \in B\textrm{, then  }\\
+    &\textit{rnalen}(sb) = 1 + \textit{rnalen}(s)
+    \end{align*}} & 
+    {\begin{align*}
+        rnalen(\A\C) &\overset{\text{rec step}}{=} 1 +rnalen(\A) \\ 
+        &\overset{\text{basis step}}{=} 1 + 1 = 2
+    \end{align*}}\\
+\hline
+$basecount$ & $S \times B$ & $\mathbb{N}$ & 
+{\begin{align*}    
+    &\textrm{Basis Step:} \\
+    &\textrm{If } b_1 \in B, b_2 \in B \textrm{ then} \\
+    &basecount(~(b_1, b_2)~) = \\
+    &\begin{cases}
+        1 & \textrm{when } b_1 = b_2 \\
+        0 & \textrm{when } b_1 \neq b_2 \\
+    \end{cases}\\
+    &\textrm{Recursive Step:}\\
+    &\textrm{If } s \in S, b_1 \in B, b_2 \in B\\
+    &basecount(~(sb_1, b_2)~) = \\
+    &\begin{cases}
+        1 + \textit{basecount}(~(s, b_2)~) & \textrm{when } b_1 = b_2 \\
+        \textit{basecount}(~(s, b_2)~) & \textrm{when } b_1 \neq b_2 \\
+    \end{cases}
+    \end{align*}} & 
+    {\begin{align*}
+        basecount(~(\A\C\U, \C)~) = 
+    \end{align*}}\\
+\hline
+``$2$ to the power of''& $\mathbb{N}$ & $\mathbb{N}$ & 
+{\begin{align*}    
+&\textrm{Basis Step:} \\
+&2^0= 1 \\
+&\textrm{Recursive Step:}\\
+&\textrm{If } n \in \mathbb{N}, 2^{n+1} = \phantom{2 \cdot 2^n}
+\end{align*}}\\
+\hline
+``$b$ to the power of $i$''& $\mathbb{Z}^+ \times \mathbb{N}$ & $\mathbb{N}$ & 
+{\begin{align*}    
+&\textrm{Basis Step:} \\
+&b^0 = 1 \\
+&\textrm{Recursive Step:}\\
+&\textrm{If } i \in \mathbb{N}, b^{i+1} = b \cdot b^i
+\end{align*}}
+\end{tabular}
+\end{center}
+
+\fbox{\parbox{\textwidth}{
+    $2^0 = 1$~~\hfill $2^1=2$~~\hfill $2^2=4$~~\hfill $2^3=8$~~
+    \hfill $2^4=16$~~\hfill $2^5=32$~~
+    \hfill $2^6=64$~~\hfill $2^7=128$~~
+    \hfill $2^8=256$~~\hfill $2^9=512$~~
+    \hfill $2^{10}=1024$}}
+\newpage
