@@ -174,9 +174,10 @@
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">hw1-definitions-and-notationProject</h1>
+<h1 class="title">hw1-definitions-and-notationhw2-numbersProject</h1>
 <p class="author">CSE20S24</p>
 <p class="date">Due: 4/9/24 at 5pm (no penalty late submission until 8am
+next morning)Due: 4/16/24 at 5pm (no penalty late submission until 8am
 next morning)Part 1 due 10/14/21; Part 2 due 11/4/21; Part 3 due
 12/2/21</p>
 </header>
@@ -419,6 +420,323 @@ of the applications that makes specific reference to the parts of the
 recursive definition of the <span
 class="math inline">\(basecount\)</span> function used to calculate
 it.</p></li>
+</ol></li>
+</ol>
+<p><span><strong>In this assignment,</strong></span></p>
+<p>You will applying functions and tracing algorithms in multiple
+contexts, and exploring properties of positional number
+representations.</p>
+<p><span><strong>Relevant class material</strong></span>: Week 2.</p>
+<p>You will submit this assignment via Gradescope (<a
+href="https://www.gradescope.com">https://www.gradescope.com</a>) in the
+assignment called “hw2-numbers”.</p>
+<p><span><strong>For all HW assignments:</strong></span> These homework
+assignments may be done individually or in groups of up to 3 students.
+Please ensure your name(s) and PID(s) are clearly visible on the first
+page of your homework submission, start each question on a new page, and
+upload the PDF to Gradescope. If you’re working in a group,
+<span><em>submit only one submission per group</em></span>: one partner
+uploads the submission through their Gradescope account and then adds
+the other group member(s) to the Gradescope submission by selecting
+their name(s) in the “Add Group Members” dialog box. You will need to
+re-add your group member(s) every time you resubmit a new version of
+your assignment.</p>
+<p>Each homework question will be graded either for
+<span><strong>correctness</strong></span> (including clear and precise
+explanations and justifications of all answers) or <span><strong>fair
+effort completeness</strong></span>. You may collaborate on “graded for
+correctness” questions only with CSE 20 students in your group; if your
+group has questions about a problem, you may ask in drop-in help hours
+or post a private post (visible only to the Instructors) on Piazza. For
+“graded for completeness” questions: collaboration is allowed with any
+CSE 20 students this quarter; if your group has questions about a
+problem, you may ask in drop-in help hours or post a public post on
+Piazza.</p>
+<p>All submitted homework for this class must be typed. You can use a
+word processing editor if you like (Microsoft Word, Open Office,
+Notepad, Vim, Google Docs, etc.) but you might find it useful to take
+this opportunity to learn LaTeX. LaTeX is a markup language used widely
+in computer science and mathematics. The homework assignments are typed
+using LaTeX and you can use the source files as templates for
+typesetting your solutions.</p>
+<p><span><strong>Integrity reminders</strong></span></p>
+<ul>
+<li><p>Problems should be solved together, not divided up between the
+partners. The homework is designed to give you practice with the main
+concepts and techniques of the course, while getting to know and learn
+from your classmates.</p></li>
+<li><p>You may not collaborate on homework questions graded for
+correctness with anyone other than your group members. You may ask
+questions about the homework in office hours (of the instructor, TAs,
+and/or tutors) and on Piazza (as private notes viewable only to the
+Instructors). You <em>cannot</em> use any online resources about the
+course content other than the class material from this quarter – this is
+primarily to ensure that we all use consistent notation and definitions
+(aligned with the textbook) and also to protect the learning experience
+you will have when the ‘aha’ moments of solving the problem
+authentically happen.</p></li>
+<li><p>Do not share written solutions or partial solutions for homework
+with other students in the class who are not in your group. Doing so
+would dilute their learning experience and detract from their success in
+the class.</p></li>
+</ul>
+<p><span><strong>Assigned questions</strong></span></p>
+<ol>
+<li><p>Functions and algorithms: in this question you’ll explore the
+properties of the (integer) power and logarithm functions. We’ll use
+some definitions we introduced in class this week, namely the function
+<span class="math inline">\(b^i\)</span> with domain <span
+class="math inline">\(\mathbb{Z}^+ \times \mathbb{N}\)</span> and
+codomain <span class="math inline">\(\mathbb{N}\)</span> defined
+recursively by <span class="math display">\[\begin{aligned}
+&amp;\textrm{Basis Step:} \\
+&amp;b^0 = 1 \\
+&amp;\textrm{Recursive Step:}\\
+&amp;\textrm{If } i \in \mathbb{N}, b^{i+1} = b \cdot b^i
+\end{aligned}\]</span> and the algorithm:</p>
+<div class="algorithm">
+<p>procedure <span class="math inline">\(logb\)</span>(<span
+class="math inline">\(b\)</span>,<span class="math inline">\(n\)</span>:
+positive integers with <span class="math inline">\(b &gt; 1\)</span>)
+<span class="math inline">\(i\)</span> := <span
+class="math inline">\(0\)</span> while <span
+class="math inline">\(n\)</span> &gt; <span
+class="math inline">\(b-1\)</span> <span
+class="math inline">\(i\)</span> := <span class="math inline">\(i +
+1\)</span> <span class="math inline">\(n\)</span> := <span
+class="math inline">\(n\)</span> div <span
+class="math inline">\(b\)</span> return <span
+class="math inline">\(i\)</span> <span class="math inline">\(\{
+i\)</span> holds the integer part of the base <span
+class="math inline">\(b\)</span> logarithm of <span
+class="math inline">\(n\}\)</span></p>
+</div>
+<ol>
+<li><p>(<span><em>Graded for correctness</em></span>) <a href="#fn4"
+class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>
+Choose a positive integer <span class="math inline">\(b\)</span> between
+<span class="math inline">\(3\)</span> and <span
+class="math inline">\(6\)</span> (inclusive) and choose a nonnegative
+integer <span class="math inline">\(i\)</span> between <span
+class="math inline">\(2\)</span> and <span
+class="math inline">\(5\)</span> (inclusive). Demonstrate how to
+calculate the result of the <span class="math inline">\(logb\)</span>
+algorithm (procedure) when its input is the base <span
+class="math inline">\(b\)</span> you chose and <span
+class="math inline">\(n = b^i\)</span> (for the <span
+class="math inline">\(i\)</span> you choose.) A complete answer will
+include the specific choice of <span class="math inline">\(b\)</span>
+and <span class="math inline">\(i\)</span>, along with trace of the
+calculations of <span class="math inline">\(b^i\)</span> and the
+computation of the algorithm, including (clear, correct, complete)
+calculations for each of the function applications and/or references to
+definitions and a trace table for algorithm that includes the values of
+all relevant variables at each iteration (See the annotated Week 2 notes
+for the level of detail expected in a trace of a function application
+and a trace table).</p></li>
+<li><p>(<span><em>Graded for correctness</em></span>) Now we’ll go in
+other order: Demonstrate how to calculate the result of <span
+class="math inline">\(7^y\)</span> where <span
+class="math inline">\(y\)</span> is the result of the <span
+class="math inline">\(logb\)</span> algorithm (procedure) when its input
+is <span class="math inline">\(b=7\)</span> and <span
+class="math inline">\(n=30\)</span>. A complete answer will include
+clearly labelled traces of the calculations of <span
+class="math inline">\(b^i\)</span> and the computation of the algorithm,
+including (clear, correct, complete) calculations for each of the
+function applications and/or references to definitions and a trace table
+for algorithm that includes the values of all relevant variables at each
+iteration (See the annotated Week 2 notes for the level of detail
+expected in a trace of a function application and a trace
+table).</p></li>
+<li><p>(<span><em>Graded for completeness</em></span>) <a href="#fn5"
+class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>
+Logarithms and powers are supposed to “undo" one another. Explain
+whether your work in parts (a) and (b) supports that idea, whether you
+saw anything confusing or surprising about these calculations, and how
+to explain what you saw.</p></li>
+</ol></li>
+<li><p>Base expansions</p>
+<ol>
+<li><p>(<span><em>Graded for completeness</em></span>) Pick an integer
+between <span class="math inline">\(50\)</span> and <span
+class="math inline">\(1000\)</span> (inclusive) that you (or one of your
+group members) came across at some point this week. In a sentence or
+two, give some context for why you’re choosing this number). Write the
+base expansion of your chosen number in base <span
+class="math inline">\(2\)</span> (binary), base <span
+class="math inline">\(3\)</span> (ternary), base <span
+class="math inline">\(4\)</span>, and base <span
+class="math inline">\(16\)</span> (hexadecimal).</p></li>
+<li><p>(<span><em>Graded for correctness</em></span>) What is the
+<span><strong>smallest</strong></span> width <span
+class="math inline">\(w\)</span> in which they could write your chosen
+number in base <span class="math inline">\(8\)</span> (octal)
+fixed-width <span class="math inline">\(w\)</span>? Justify your answer
+with reference to the definitions of fixed-width expansions and relevant
+calculations.</p></li>
+<li><p>(<span><em>Graded for correctness</em></span>) Express in roster
+method the set of numbers between <span class="math inline">\(1\)</span>
+and <span class="math inline">\(2\)</span> (exclusive) that be written
+without error (full precision) in binary fixed width expansion with
+integer part width <span class="math inline">\(3\)</span> and fractional
+part width <span class="math inline">\(2\)</span>. Justify your answer
+with reference to the definitions of fixed-width expansions and relevant
+calculations.</p></li>
+<li><p>(<span><em>Graded for correctness</em></span>) Consider the
+strings of <span class="math inline">\(1\)</span>s that have length
+<span class="math inline">\(3\)</span>, <span
+class="math inline">\(5\)</span>, <span
+class="math inline">\(7\)</span>, and <span
+class="math inline">\(10\)</span>. Calculate the numbers</p>
+<ul>
+<li><p><span class="math inline">\([111]_{s,3}\)</span></p></li>
+<li><p><span class="math inline">\([11111]_{s,5}\)</span></p></li>
+<li><p><span class="math inline">\([1111111]_{s,7}\)</span></p></li>
+<li><p><span class="math inline">\([1111111111]_{s,10}\)</span></p></li>
+<li><p><span class="math inline">\([111]_{2c,3}\)</span></p></li>
+<li><p><span class="math inline">\([11111]_{2c,5}\)</span></p></li>
+<li><p><span class="math inline">\([1111111]_{2c,7}\)</span></p></li>
+<li><p><span
+class="math inline">\([1111111111]_{2c,10}\)</span></p></li>
+</ul>
+<p>Justify your answers with specific reference to the definitions of
+sign-magnitued and <span class="math inline">\(2\)</span>s complement
+expansions and relevant calculations.</p></li>
+<li><p>(<span><em>Graded for completeness</em></span>) What patterns do
+you notice in your calculations in part (b)?</p></li>
+</ol></li>
+<li><p>Multiple representations</p>
+<p>Recall that, mathematically, a color can be represented as a <span
+class="math inline">\(3\)</span>-tuple <span class="math inline">\((r,
+g, b)\)</span> where <span class="math inline">\(r\)</span> represents
+the red component, <span class="math inline">\(g\)</span> the green
+component, <span class="math inline">\(b\)</span> the blue component and
+where each of <span class="math inline">\(r\)</span>, <span
+class="math inline">\(g\)</span>, <span class="math inline">\(b\)</span>
+must be from the collection <span class="math inline">\(\{x \in
+\mathbb{N}\mid 0 \leq x \leq 255 \}\)</span>. As an alternative
+representation, in this assignment we’ll use base <span
+class="math inline">\(b\)</span> fixed-width expansions to represent
+colors as individual numbers (this definition was introduced in this
+week’s Review quiz).</p>
+<p><span><strong>Definition</strong></span>: A <span><strong>hex
+color</strong></span> is a nonnegative integer, <span
+class="math inline">\(n\)</span>, that has a base <span
+class="math inline">\(16\)</span> fixed-width <span
+class="math inline">\(6\)</span> expansion <span
+class="math display">\[n = (r_1r_2g_1g_2b_1b_2)_{16,6}\]</span> where
+<span class="math inline">\((r_1r_2)_{16,2}\)</span> is the red
+component, <span class="math inline">\((g_1g_2)_{16,2}\)</span> is the
+green component, and <span
+class="math inline">\((b_1b_2)_{16,2}\)</span> is the blue.</p>
+<p>For this question, let’s call the set of hex colors <span
+class="math inline">\(H\)</span>. In the Week 2 Review quiz (Question
+3d), we explored a few different set builder definitions for <span
+class="math inline">\(H\)</span>.</p>
+<ol>
+<li><p>(<span><em>Graded for completeness</em></span>) Rewrite the set
+builder definition of a set below so that it refers to colors rather
+than numbers: <span class="math inline">\(\{ c \in H \mid c \mod 256 =
+0\}\)</span>. A complete answer will justify the new set builder
+definition by connection with the definition of hex colors and how it
+impacts the colors that satisfy the specific property for this
+set.</p></li>
+<li><p>(<span><em>Graded for correctness</em></span>) Rewrite the set
+builder definition of a set below so that it refers to colors rather
+than numbers: <span class="math inline">\(\{ c \in H \mid c &lt;
+65536\}\)</span>. A complete answer will justify the new set builder
+definition by connection with the definition of hex colors and how it
+impacts the colors that satisfy the specific property for this
+set.</p></li>
+<li><p>(<span><em>Graded for correctness</em></span>) In art, we can mix
+two colors to get a new color. For example, red and blue make purple,
+blue and yellow make green, red and yellow make orange. A mathematical
+definition of <span><strong>hex color mixing</strong></span> would be a
+function with domain <span class="math inline">\(H \times H\)</span> and
+codomain <span class="math inline">\(H\)</span> where the result of
+applying this function to an input <span class="math inline">\((n_1,
+n_2)\)</span> is the hex color that results from mixing the hex colors
+<span class="math inline">\(n_1\)</span> and <span
+class="math inline">\(n_2\)</span>.</p>
+<hr />
+<p><span><em>Sample work for a related question that can be used as
+reference for the detail expected in your answer:</em></span> Consider
+the attempted mathematical definition <span class="math inline">\(f_1:
+H\times H \to H\)</span> given by <span class="math display">\[f_1
+(~(n_1, n_2) ~) = n_1 + n_2\]</span> We will show that this function is
+not well-defined so it cannot give a hex color mixing definition. The
+reason it is not well-defined is that the application of the rule
+sometimes gives values that are not in the stated codomain. To see this,
+we need an example input to <span class="math inline">\(f_1\)</span> for
+which the output of the rule is not in <span
+class="math inline">\(H\)</span>. Here is one such example: <span
+class="math inline">\((n_1, n_2) = (~(FFFFFF)_{16,6},
+(FFFFFF)_{16,6}~)\)</span>. This example is in <span
+class="math inline">\(H \times H\)</span> because <span
+class="math inline">\((FFFFFF)_{16,6}\)</span> is a nonnegative integer
+that has a base <span class="math inline">\(16\)</span> fixed-width
+<span class="math inline">\(6\)</span> expansion so it is a hex color.
+We now apply the definition of the rule in <span
+class="math inline">\(f_1\)</span>: <span
+class="math display">\[\begin{aligned}
+f_1 (~(n_1, n_2) ~) &amp;=  f_1 ( (~(FFFFFF)_{16,6}, (FFFFFF)_{16,6}~) )
+= (FFFFFF)_{16,6} + (FFFFFF)_{16,6} \\
+&amp;= 2 \left( 15\cdot 16^5 + 15\cdot 16^4 + 15 \cdot 16^3 + 15 \cdot
+16^2 + 15 \cdot 16^1 + 15 \cdot 16^0 \right) \\
+&amp;= 2 \cdot 15 \cdot (1048576 + 65536 + 4096 + 256 + 16 + 1) = 2
+\cdot 15 \cdot 1118481 = 33554430
+\end{aligned}\]</span> This is not a hex color because it is greater
+than or equal to <span class="math inline">\(16^6 = 16777216\)</span>,
+so (using the Week 2 notes on which numbers can be represented with
+fixed-width expansions) it does not have a hexadecimal
+<span><strong>fixed width <span
+class="math inline">\(6\)</span></strong></span> expansion.</p>
+<hr />
+<p>In this question, we’ll look at another attempted mathematical
+definition for hex color mixing. We define <span
+class="math inline">\(f_2: H\times H \to H\)</span> given by <span
+class="math display">\[f_2 (~(n_1, n_2) ~) = (n_1 + n_2) \textbf{ div }
+2\]</span></p>
+<p>This is a well-defined function. You do not need to prove this or
+hand it in, but it’s good practice to make sure you understand why it’s
+well-defined. Notice that the function application <span
+class="math display">\[f_2 ( ~(~ (FF0000)_{16,6} , (FFFE00)_{16,6}
+~)~)\]</span> can be calculated as: <span
+class="math display">\[\begin{aligned}
+f_2&amp;(((FF0000)_{16,6}, (FFFE00)_{16,6}))=
+((FF0000)_{16,6} + (FFFE00)_{16,6})) \textbf{ div } 2\\
+&amp;= \big(~ \left(15\cdot16^5 + 15\cdot16^4 + 0\cdot16^3 + 0\cdot16^2
++ 0\cdot16^1 + 0\cdot16^0 \right) \\
+&amp;~~~~+~
+    \left((15\cdot16^5 + 15\cdot16^4 + 15\cdot16^3 + 14\cdot16^2 +
+0\cdot16^1 + 0\cdot16^0\right )~\big )\textbf{ div } 2\\
+&amp;= (16711680 + 16776704) \textbf{ div } 2 = 33488384 \textbf{ div }
+2 = 16744192
+\end{aligned}\]</span> Since this is less than <span
+class="math inline">\(16^6 = 16777216\)</span>, we can represent it
+using base <span class="math inline">\(16\)</span> fixed-width <span
+class="math inline">\(6\)</span>:. <span
+class="math display">\[(16744192)_{10} = 15\cdot16^5 + 15\cdot16^4 +
+7\cdot16^3 + 15\cdot16^2 + 0\cdot16^1 + 0\cdot16^0 =
+(FF7F00)_{16,6}\]</span></p>
+<p>Using the web tool <a
+href="https://www.w3schools.com/colors/colors_rgb.asp"
+class="uri">https://www.w3schools.com/colors/colors_rgb.asp</a>, we can
+verify that <span class="math inline">\((FF0000)_{16,6}\)</span> is red,
+<span class="math inline">\((FFFE00)_{16,6}\)</span> is yellow, and
+<span class="math inline">\((FF7F00)_{16,6}\)</span> is orange.</p>
+<p>Show that <span class="math inline">\(f_2\)</span> does not work as a
+hex color mixing definition by finding another ordered pair of hex
+colors for which the result of applying <span
+class="math inline">\(f_2\)</span> does not give the expected hex color.
+Include the numerical description of each colors you mention, alongside
+a description of them in English. Describe how you know what these
+colors are (if you use a web color tool, include its URL in your
+submission writeup; if not, describe your reasoning). Justify your
+example with (clear, correct, complete) calculations and/or references
+to definitions, and connecting them with the desired
+conclusion.</p></li>
 </ol></li>
 </ol>
 <p>The project component of this class will be an opportunity for you to
@@ -866,6 +1184,23 @@ something is true, your answers should always be well-supported. Your
 goal should be to convince the reader that your results and methods are
 sound.<a href="#fnref3" class="footnote-back"
 role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>This means your solution will be evaluated not only on
+the correctness of your answers, but on your ability to present your
+ideas clearly and logically. You should explain how you arrived at your
+conclusions, using mathematically sound reasoning. Whether you use
+formal proof techniques or write a more informal argument for why
+something is true, your answers should always be well-supported. Your
+goal should be to convince the reader that your results and methods are
+sound.<a href="#fnref4" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>This means you will get full credit so long as your
+submission demonstrates honest effort to answer the question. You will
+not be penalized for incorrect answers. To demonstrate your honest
+effort in answering the question, we expect you to include your attempt
+to answer *each* part of the question. If you get stuck with your
+attempt, you can still demonstrate your effort by explaining where you
+got stuck and what you did to try to get unstuck.<a href="#fnref5"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 </body>

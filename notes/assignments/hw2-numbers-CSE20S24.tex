@@ -1,0 +1,182 @@
+\input{../../resources/assignment-head.tex}
+
+\title{hw2-numbers}
+\date{Due: 4/16/24 at 5pm (no penalty late submission until 8am next morning)}
+\begin{document}
+\maketitle
+\thispagestyle{fancy}
+
+
+{\bf In this assignment,}
+
+You will applying functions and tracing algorithms in multiple contexts, 
+and exploring properties of positional number representations.
+
+{\bf Relevant class material}: Week 2.
+
+You will submit this assignment via Gradescope
+(\href{https://www.gradescope.com}{https://www.gradescope.com}) 
+in the assignment called ``hw2-numbers''.
+
+\instructions
+
+{\bf Assigned questions}
+
+\begin{enumerate}[labelindent=0pt, leftmargin=0pt]
+\item Functions and algorithms: in this question you'll explore the properties of the (integer) power and logarithm
+functions. We'll use some definitions we introduced in class this week, namely the function
+$b^i$ with domain $\mathbb{Z}^+ \times \mathbb{N}$ and codomain $\mathbb{N}$ defined recursively by
+\begin{align*}    
+&\textrm{Basis Step:} \\
+&b^0 = 1 \\
+&\textrm{Recursive Step:}\\
+&\textrm{If } i \in \mathbb{N}, b^{i+1} = b \cdot b^i
+\end{align*}
+and the algorithm:
+\input{../activity-snippets/algorithm-log.tex}
+
+
+    \begin{enumerate}
+    \item\gradeCorrectFirst Choose a positive integer $b$ between $3$ and $6$ (inclusive) and choose a 
+    nonnegative integer $i$ between $2$ and $5$ (inclusive). Demonstrate how to calculate 
+    the result of the $logb$ algorithm (procedure) when its input is the base $b$ you chose and
+    $n = b^i$ (for the $i$ you choose.) 
+    A complete answer will include the specific choice of $b$ and $i$, along with 
+    trace of the calculations of $b^i$ and the computation of the algorithm, including 
+    (clear, correct, complete) calculations for each of the function applications 
+    and/or references to definitions and a trace table for algorithm that includes the values of all relevant 
+    variables at each iteration (See the annotated Week 2 notes for the level of detail expected
+    in a trace of a function application and a trace table).
+    \item\gradeCorrect Now we'll go in other order: Demonstrate how to calculate the result of 
+    $7^y$ where $y$ is the result of the $logb$ algorithm (procedure) when its input is $b=7$ and $n=30$.
+    A complete answer will include clearly labelled 
+    traces of the calculations of $b^i$ and the computation of the algorithm, including 
+    (clear, correct, complete) calculations for each of the function applications 
+    and/or references to definitions and a trace table for algorithm that includes the values of all relevant 
+    variables at each iteration (See the annotated Week 2 notes for the level of detail expected
+    in a trace of a function application and a trace table).    
+    \item\gradeCompleteFirst Logarithms and powers are supposed to ``undo" one another. Explain whether your work in parts (a) and (b)
+    supports that idea,  whether you saw anything confusing or surprising about these calculations, and how to explain what you saw.
+    \end{enumerate}
+
+\item Base expansions
+    \begin{enumerate}
+        \item\gradeComplete Pick an integer between $50$ and $1000$ (inclusive) that you (or one of your
+        group members) came across at some point this week. 
+        In a sentence or two, give some context for why you're choosing this number). 
+        Write the base expansion of your chosen number in base $2$ (binary), base $3$ (ternary), base $4$, and base $16$ (hexadecimal).
+        \item\gradeCorrect What is the {\bf smallest} width $w$ in which they could write your chosen number in base $8$ (octal) 
+        fixed-width $w$? Justify your answer with reference to the definitions of fixed-width expansions and relevant calculations.
+        \item\gradeCorrect Express in roster method the set of numbers between $1$ and $2$ (exclusive) that be written without error 
+        (full precision)
+        in binary fixed width expansion with integer part width $3$ and fractional part width $2$. Justify your answer with 
+        reference to the definitions of fixed-width expansions and relevant calculations.
+        \item\gradeCorrect Consider the strings of $1$s that have length $3$, $5$, $7$, and $10$.
+        Calculate the numbers 
+        \begin{itemize}
+            \item[] $[111]_{s,3}$
+            \item[] $[11111]_{s,5}$
+            \item[] $[1111111]_{s,7}$
+            \item[] $[1111111111]_{s,10}$
+            \item[] $[111]_{2c,3}$
+            \item[] $[11111]_{2c,5}$
+            \item[] $[1111111]_{2c,7}$
+            \item[] $[1111111111]_{2c,10}$
+        \end{itemize}
+        Justify your answers with specific reference to the definitions of sign-magnitued and $2$s complement expansions and relevant calculations.
+        \item \gradeComplete What patterns do you notice in your calculations in part (b)?
+    \end{enumerate}
+
+\item Multiple representations
+
+Recall that, mathematically, a color can be represented as a $3$-tuple $(r, g, b)$ 
+where $r$ represents the red component, $g$ the green component, $b$ the blue component and where each of $r$, $g$, $b$ must be from the collection $\{x \in \mathbb{N}\mid 0 \leq x \leq 255 \}$.
+As an alternative representation, in this assignment
+we'll use base $b$ fixed-width expansions to represent colors
+as individual numbers (this definition was introduced in this week's Review quiz).
+
+\input{../activity-snippets/quiz-color-hexcolor-definition.tex}
+
+For this question, let's call the set of hex colors $H$. In the Week 2 Review quiz (Question 3d), 
+we explored a few different set builder definitions for $H$.
+
+\begin{enumerate}
+\item \gradeComplete Rewrite the set builder definition of a set below so that it 
+refers to colors rather than numbers: $\{ c \in H \mid c \mod 256 = 0\}$. A complete answer will 
+justify the new set builder definition by connection with the definition of hex colors and how it impacts
+the colors that satisfy the specific property for this set.
+\item \gradeCorrect Rewrite the set builder definition of a set below so that it 
+refers to colors rather than numbers: $\{ c \in H \mid c < 65536\}$. A complete answer will 
+justify the new set builder definition by connection with the definition of hex colors and how it impacts
+the colors that satisfy the specific property for this set.
+\item \gradeCorrect In art, we can mix two colors to get a new color. For example, red and blue make 
+purple, blue and yellow make green, red and yellow make orange. 
+A mathematical definition of {\bf hex color mixing} would be a function with domain $H \times H$
+and codomain $H$ where the result of applying this function to an input $(n_1, n_2)$ is the hex color
+that results from mixing the hex colors $n_1$ and $n_2$.
+
+
+\rule{0.5\textwidth}{.4pt}
+
+{\it Sample work for a related question that can be used as reference for the detail expected 
+in your answer:} Consider the attempted mathematical definition  $f_1: H\times H \to H$ given by
+\[
+f_1 (~(n_1, n_2) ~) = n_1 + n_2
+\]
+We will show that this function is not well-defined so it cannot give a hex color mixing definition. 
+The reason it is not well-defined
+is that the application of the rule sometimes gives values that are not in the stated codomain. 
+To see this, we need an example input to $f_1$ for which the output of the rule is not in $H$.
+Here is one such example: $(n_1, n_2) = (~(FFFFFF)_{16,6}, (FFFFFF)_{16,6}~)$. 
+This example is in $H \times H$
+because $(FFFFFF)_{16,6}$ is a nonnegative integer that has a base $16$ fixed-width $6$ expansion 
+so it is a hex color.
+We now apply the definition of the rule in $f_1$:
+\begin{align*}
+f_1 (~(n_1, n_2) ~) &=  f_1 ( (~(FFFFFF)_{16,6}, (FFFFFF)_{16,6}~) ) = (FFFFFF)_{16,6} + (FFFFFF)_{16,6} \\
+&= 2 \left( 15\cdot 16^5 + 15\cdot 16^4 + 15 \cdot 16^3 + 15 \cdot 16^2 + 15 \cdot 16^1 + 15 \cdot 16^0 \right) \\
+&= 2 \cdot 15 \cdot (1048576 + 65536 + 4096 + 256 + 16 + 1) = 2 \cdot 15 \cdot 1118481 = 33554430
+\end{align*}
+This is not a hex color because it is greater than or equal to $16^6 = 16777216$, 
+so (using the Week 2 notes on which numbers can be represented
+with fixed-width expansions) it does not have a hexadecimal {\bf fixed width $6$} expansion.
+
+\rule{0.5\textwidth}{.4pt}
+
+In this question, we'll look at another attempted mathematical definition for hex color mixing. 
+We define $f_2: H\times H \to H$ given by
+\[
+f_2 (~(n_1, n_2) ~) = (n_1 + n_2) \textbf{ div } 2
+\]
+
+This is a well-defined function. You do not need to prove this or hand it in, but it's good practice to make 
+sure you understand why it's well-defined. Notice that the function application 
+\[
+f_2 ( ~(~ (FF0000)_{16,6} , (FFFE00)_{16,6} ~)~)
+\]
+can be calculated as:
+\begin{align*}
+f_2&(((FF0000)_{16,6}, (FFFE00)_{16,6}))=
+ ((FF0000)_{16,6} + (FFFE00)_{16,6})) \textbf{ div } 2\\
+&= \big(~ \left(15\cdot16^5 + 15\cdot16^4 + 0\cdot16^3 + 0\cdot16^2 + 0\cdot16^1 + 0\cdot16^0 \right) \\
+&~~~~+~
+    \left((15\cdot16^5 + 15\cdot16^4 + 15\cdot16^3 + 14\cdot16^2 + 0\cdot16^1 + 0\cdot16^0\right )~\big )\textbf{ div } 2\\
+&= (16711680 + 16776704) \textbf{ div } 2 = 33488384 \textbf{ div } 2 = 16744192
+\end{align*}
+Since this is less than $16^6 = 16777216$, we can represent it using base $16$ fixed-width $6$:.
+$$(16744192)_{10} = 15\cdot16^5 + 15\cdot16^4 + 7\cdot16^3 + 15\cdot16^2 + 0\cdot16^1 + 0\cdot16^0 = (FF7F00)_{16,6}$$
+
+Using the web tool \url{https://www.w3schools.com/colors/colors_rgb.asp}, we can verify that $(FF0000)_{16,6}$ is red, 
+$(FFFE00)_{16,6}$ is yellow, and $(FF7F00)_{16,6}$ is orange.
+
+Show that $f_2$ does not work as a hex color mixing definition by finding
+another ordered pair of hex colors for which the result of applying $f_2$ does not give the expected hex color.
+Include the numerical description of each colors you mention, alongside a description of them in English. 
+Describe how you know what these colors are
+(if you use a web color tool, include its URL in your submission writeup; if not, describe your reasoning).
+Justify your 
+example with (clear, correct, complete) calculations and/or references to definitions, and connecting them with
+the desired conclusion.
+\end{enumerate}
+\end{enumerate}
+\end{document}
