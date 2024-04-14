@@ -1,0 +1,36 @@
+%! app: Computers
+%! outcome: cnf and dnf
+
+
+
+Recall the definition of DNF (disjunctive normal form) and CNF (conjunctive normal form).
+In particular, remember that to build an expression in DNF whose output matches a given 
+truth table, we focus on the rows of the truth table that output $T$; 
+To build an expression in CNF whose output matches a given 
+truth table, we focus on the rows of the truth table that output $F$.
+Select all and only true statements about an expression  that has output $?$ in the truth table below:
+
+\begin{tabular}{ccc||c}
+    \multicolumn{3}{c||}{Input}  & Output\\
+    $p$ & $q$ & $r$  &  ?\\
+    \hline
+    $T$ & $T$  & $T$ & $T$ \\
+    $T$ & $T$  & $F$ & $T$ \\
+    $T$ & $F$  & $T$ & $F$ \\
+    $T$ & $F$  & $F$ & $T$ \\
+    $F$ & $T$  & $T$ & $F$ \\
+    $F$ & $T$  & $F$ & $F$ \\
+    $F$ & $F$  & $T$ & $T$ \\
+    $F$ & $F$  & $F$ & $F$ \\
+\end{tabular}
+
+\begin{enumerate}
+\item[] An expression in DNF that has output $?$ is 
+$$(p \land q \land r) \lor (p \land q \land \lnot r) \lor (p \land \lnot q \land \lnot r) \lor (\lnot p \land \lnot q \land r)$$
+\item[] An expression in DNF that has output $?$ is 
+$$(\lnot p \land \lnot q \land \lnot r) \lor (\lnot p \land \lnot q \land r) \lor (\lnot p \land q \land r) \lor (p \land q \land \lnot r)$$
+\item[] An expression in CNF that has output $?$ is 
+$$(p \lor \lnot q \lor r) \land (\lnot p \lor q \lor r) \land (\lnot p \lor  q \lor \lnot r) \land (\lnot p \lor \lnot q \lor \lnot r)$$
+\item[] An expression in CNF that has output $?$ is 
+$$(\lnot p \lor  q \lor \lnot r) \land ( p \lor \lnot q \lor \lnot r) \land ( p \lor \lnot q \lor r) \land (p \lor q \lor r)$$
+\end{enumerate}

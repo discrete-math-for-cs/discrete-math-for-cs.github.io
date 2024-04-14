@@ -1,10 +1,12 @@
-%! app: TODOapp
-%! outcome: TODOoutcome
+%! app: Computers, Numbers
+%! outcome: circuits, applications of number representations
 
 {\bf Fixed-width addition}: adding one bit at time, using the usual column-by-column and carry arithmetic, and dropping the carry from the leftmost column so the result is the same width as the summands.  In many cases, this gives representation of the correct value for the sum when we interpret the summands
 in fixed-width binary or in 2s complement.
 
 For single column:
+
+\begin{multicols}{2}
 \begin{center}
 \begin{tabular}{cc|cc}
 \multicolumn{2}{c|}{Input}  & \multicolumn{2}{|c}{Output}  \\
@@ -16,7 +18,8 @@ $0$ & $1$ & \phantom{$0$} & \phantom{$1$}\\
 $0$ & $0$ & \phantom{$0$} & \phantom{$0$}\\
 \end{tabular}
 \end{center}
-
+\columnbreak
 \begin{center}
 \includegraphics[width=1.5in]{../../resources/images/half-adder.png}
 \end{center}
+\end{multicols}
