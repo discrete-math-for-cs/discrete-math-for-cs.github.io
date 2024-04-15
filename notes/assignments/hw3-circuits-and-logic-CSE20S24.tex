@@ -1,0 +1,193 @@
+\input{../../resources/assignment-head.tex}
+
+
+\title{hw3-circuits-and-logic}
+\date{Due: 4/23/24 at 5pm (no penalty late submission until 8am next morning)}
+\begin{document}
+\maketitle
+\thispagestyle{fancy}
+
+{\bf In this assignment}, you will consider how circuits and logic can be used to represent
+mathematical claims. You will use propositional operators
+to express and evaluate these claims.
+
+{\bf Relevant class material}: Week 2 and Week 3.
+
+You will submit this assignment via Gradescope
+(\href{https://www.gradescope.com}{https://www.gradescope.com}) 
+in the assignment called ``hw3-circuits-and-logic''.
+
+\instructions
+
+{\bf Assigned questions}
+
+\begin{enumerate}[labelindent=0pt, leftmargin=0pt]
+        \item Fixed-width addition.  
+        \begin{enumerate}
+            \item\gradeCompleteFirst Choose  example width $5$ first summand and width $5$ second summand so that 
+            in the  binary fixed-width addition (adding one bit at time, using 
+            the usual column-by-column and carry arithmetic, and ignoring the carry 
+            from the  leftmost column), we will have that
+            \begin{itemize}
+            \item[(1)] When interpreting each of the summands and the result in binary fixed-width 5, 
+            the result represents the actual value of the sum of the summands {\bf and}
+            \item[(2)] when interpreting each of the summands and the sum in sign-magnitude width 5, the result  
+            represents the actual value of the sum of the summands {\bf and}
+            \item[(3)] when interpreting each of the summands and the sum in 2s complement width 5, the result 
+            represents the actual value of the sum of the summands.
+            \end{itemize}
+            \item\gradeCorrectFirst Choose an example width $5$ first summand and second summand so that 
+            in the binary fixed-width addition (adding one bit at time, using 
+            the usual column-by-column and carry arithmetic, and ignoring the carry 
+            from the  leftmost column), we will have that
+            \begin{itemize}
+            \item[(1)] When interpreting each of the summands and the result in binary fixed-width 5, 
+            the result {\bf does not} represent the actual value of the sum of the summands {\bf and}
+            \item[(2)] when interpreting each of the summands and the sum in sign-magnitude width 5, the result  
+            {\bf does not} represents the actual value of the sum of the summands {\bf and}
+            \item[(3)] when interpreting each of the summands and the sum in 2s complement width 5, the result 
+            represents the actual value of the sum of the summands.
+            \end{itemize}
+            A complete solution will clearly specify each summand and the result of binary fixed-width addition 
+            with this choice of summands; will specify  the value of each summand and the result for 
+            binary fixed-width 5, 
+            sign-magnitude width 5, and 2s complement width 5 (and include calculations connecting with the 
+            definitions of these representations to explain these values); and a conclusion connecting
+            the calculations to the properties laid out in the question.
+        \end{enumerate}    
+        \item Circuits. 
+        \begin{enumerate}
+            \item\gradeComplete Consider the circuit below with inputs $x$ and $y$. 
+            Identify a pair of gates that could 
+            be switched without changing the input-output table of the circuit.
+            If you do, write 
+            out the input-output table that results, and briefly explain why 
+            this choice of gates works. If there is no such pair of gates, 
+            explain why not with reference to the definitions
+            of the logic gates.            
+        \begin{center}
+            \includegraphics[width=2in]{../../files/circuits-hw3.png}
+        \end{center}
+
+        \item\gradeCorrect  Is there a way to fill in the blank portion of 
+        the two logic circuits below *with the same gates connected in the same way*
+        so that the resulting circuits have the same 
+        input-output value *even though* one uses an OR gate at the end and the other 
+        uses an XOR gate? If so, design the circuit that would be used, write 
+        out the input-output table that results, and briefly explain why your 
+        design works. If not, explain why not with reference to the definitions
+        of the logic gates.
+        \begin{multicols}{2}
+            \begin{center}
+                \includegraphics[width=2in]{../../files/circuit-blank-or-hw3.png}
+            \end{center}
+     
+            \begin{center}
+                \includegraphics[width=2in]{../../files/circuit-blank-xor-hw3.png}
+            \end{center}
+        \end{multicols}
+
+    \end{enumerate}
+    \newpage
+    \item Compound propositions. The set of strings of length $4$ whose characters are $0$s or $1$s is
+        the result of four successive set-wise concatenations: $\{0,1\} \circ \{0,1\} \circ \{0,1\}$. Let's call
+        this set $X_4$. Consider the function $f: X_4 \to X_4$ defined by
+        $$ f(x) = 
+        \begin{cases} 
+            y &\text{when $(x)_{2,4} < 15$ and $(y)_{2,4} = (x)_{2,4} + 1$}\\
+            1111 &\text{when $x = 1111$}
+        \end{cases}$$
+        for each $x \in X_4$. In other words, we can describe the function as: $f$ takes a string, interprets it as the binary fixed-width $4$
+        expansion of an integer, and then adds $1$ to that integer (unless $x$ is already representing
+        the greatest integer that can be represented in binary fixed-width $4$) and outputs the binary 
+        fixed-width $4$ expansion of the result.
+        \begin{enumerate} 
+        \item\gradeComplete Fill in the blanks in the following input-output definition table 
+        with four inputs $x_3$, $x_2$, $x_1$, $x_0$ and four outputs $y_3$, $y_2$, $y_1$, $y_0$
+        so that $f(x_3x_2x_1x_0) = y_3y_2y_1y_0$.
+        
+        \begin{center}
+        \begin{tabular}{cccc|cccc}
+        $x_3$ & $x_2$ & $x_1$ & $x_0$ & $y_3$ & $y_2$ & $y_1$ & $y_0$\\
+        \hline
+        $1$ & $1$ & $1$ & $1$ & $1$ & $1$ & BLANK1 & $1$\\
+        $1$ & $1$ & $1$ & $0$ & $1$ & $1$ & $1$ & $1$\\
+        $1$ & $1$ & $0$ & $1$ & $1$ & BLANK2 & $1$ & $0$\\
+        $1$ & $1$ & $0$ & $0$ & $1$ & $1$ & $0$ & $1$\\
+        $1$ & $0$ & $1$ & $1$ & $1$ & $1$ & $0$ & $0$\\
+        $1$ & $0$ & $1$ & $0$ & $1$ & $0$ & $1$ & $1$\\
+        $1$ & $0$ & $0$ & $1$ & $1$ & $0$ & $1$ & $0$\\
+        $1$ & $0$ & $0$ & $0$ & BLANK3& $0$ & $0$ & $1$\\
+        $0$ & $1$ & $1$ & $1$ & $1$ & $0$ & $0$ & $0$\\
+        $0$ & $1$ & $1$ & $0$ & $0$ & $1$ & $1$ & BLANK4\\
+        $0$ & $1$ & $0$ & $1$ & $0$ & $1$ & $1$ & BLANK5\\
+        $0$ & $1$ & $0$ & $0$ & $0$ & $1$ & $0$ & $1$\\
+        $0$ & $0$ & $1$ & $1$ & $0$ & $1$ & $0$ & $0$\\
+        $0$ & $0$ & $1$ & $0$ & $0$ & $0$ & $1$ & $1$\\
+        $0$ & $0$ & $0$ & $1$ & $0$ & $0$ & $1$ & $0$\\
+        $0$ & $0$ & $0$ & $0$ & BLANK6 & $0$ & $0$ & $1$\\
+        \end{tabular}
+        \end{center}
+  
+        \item\gradeCorrect
+        Construct an expression (as a compound proposition) for $y_0$ in terms of the inputs 
+        $x_3, x_2, x_1, x_0$. Justify your expression by referring to the definition of the logic 
+        gates XOR, AND, OR, NOT and the definition of the function $f$. Hint: our work on the half-adder might 
+        be helpful.
+        \item\gradeCorrect
+        Construct an expression (as a compound proposition) for $y_1$ in terms of the inputs 
+        $x_3, x_2, x_1, x_0$. Justify your expression by referring to the definition of the logic 
+        gates XOR, AND, OR, NOT and the definition of the function $f$. Hint: our work on the half-adder might 
+        be helpful.
+        \item\gradeComplete Draw a combinatorial circuit corresponding to these compound propositions.
+        Remember that the symbols for the inputs will be on the left-hand-side and 
+        the symbol for the outputs $y_0$ and $y_1$ will be on the right-hand side. Use gates (draw the appropriate
+        shapes and add labels for clarity) and wires to connect the inputs appropriately to give the output.
+        \item\gradeComplete Construct expressions (as a compound propositions) for $y_2$ and $y_3$ 
+        in terms of the inputs  $x_3, x_2, x_1, x_0$. Are these similar to the expressions for $y_0$ and $y_1$?
+        \end{enumerate}
+        \item Logical Equivalence. Imagine a friend suggests the following argument to you: ``The compound proposition
+        \[
+        (x \lor y) \land z
+        \]
+        is logically equivalent to 
+        \[
+        x \lor (y \land z)
+        \]
+        because I can transform one to the other using the following sequence of logical equivalences: 
+        \[
+           (x \lor y) \land z \equiv
+           (x \lor (y \land y)) \land z \equiv
+           x \lor ( (y \lor y) \land z) \equiv x \lor (y \land z) 
+        \]
+        because $y$ is logically equivalent to both $y \land y$ and to $y \lor y$".
+        
+        \begin{enumerate}
+        \item\gradeCorrect Prove to your friend that they made a mistake by giving a truth
+        assignment to the propositional variables $x,y,z$ so that 
+        the two compound propositions 
+        $ (x \lor y) \land z$ and $ x \lor (y \land z)$ have different truth values.
+        Justify your choice by evaluating these compound propositions using the definitions of the logical connectives 
+        and include enough intermediate steps so that a student in CSE 20 who may be 
+        struggling with the material can still follow along with your reasoning.
+        
+        \item\gradeComplete 
+        Help your friend find the problem in their argument by pointing out which step(s) were incorrect.
+        
+        \item\gradeComplete Give {\bf three} different compound propositions
+        that are actually logically equivalent to (and not the same as)
+        \[
+            (x \lor y) \land z
+        \]
+        Justify each one of these logical equivalences either by applying a sequence of logical equivalences
+        or using a truth table.  Notice that you can use other logical operators (e.g. $\lnot, \lor, \land, \oplus, \to, 
+        \leftrightarrow$) 
+        when constructing your compound propositions.
+     
+        {\it Bonus; not for credit (do not hand in)}: How would you translate each of the equivalent compound
+        propositions in English? Does doing so help illustrate why they are equivalent?
+        \end{enumerate}
+        
+     
+\end{enumerate}
+\end{document}

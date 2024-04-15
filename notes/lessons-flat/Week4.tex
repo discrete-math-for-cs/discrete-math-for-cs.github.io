@@ -1,0 +1,930 @@
+\documentclass[12pt, oneside]{article}
+
+\usepackage[letterpaper, scale=0.89, centering]{geometry}
+\usepackage{fancyhdr}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\rfoot{\href{https://creativecommons.org/licenses/by-nc-sa/2.0/}{CC BY-NC-SA 2.0} Version \today~(\thepage)}
+
+\usepackage{amssymb,amsmath,pifont,amsfonts,comment,enumerate,enumitem}
+\usepackage{currfile,xstring,hyperref,tabularx,graphicx,wasysym}
+\usepackage[labelformat=empty]{caption}
+\usepackage{xcolor}
+\usepackage{multicol,multirow,array,listings,tabularx,lastpage,textcomp,booktabs}
+
+\lstnewenvironment{algorithm}[1][] {   
+    \lstset{ mathescape=true,
+        frame=tB,
+        numbers=left, 
+        numberstyle=\tiny,
+        basicstyle=\rmfamily\scriptsize, 
+        keywordstyle=\color{black}\bfseries,
+        keywords={,procedure, div, for, to, input, output, return, datatype, function, in, if, else, foreach, while, begin, end, }
+        numbers=left,
+        xleftmargin=.04\textwidth,
+        #1
+    }
+}
+{}
+\lstnewenvironment{java}[1][]
+{   
+    \lstset{
+        language=java,
+        mathescape=true,
+        frame=tB,
+        numbers=left, 
+        numberstyle=\tiny,
+        basicstyle=\ttfamily\scriptsize, 
+        keywordstyle=\color{black}\bfseries,
+        keywords={, int, double, for, return, if, else, while, }
+        numbers=left,
+        xleftmargin=.04\textwidth,
+        #1
+    }
+}
+{}
+
+\newcommand\abs[1]{\lvert~#1~\rvert}
+\newcommand{\st}{\mid}
+
+\newcommand{\A}[0]{\texttt{A}}
+\newcommand{\C}[0]{\texttt{C}}
+\newcommand{\G}[0]{\texttt{G}}
+\newcommand{\U}[0]{\texttt{U}}
+
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+
+ 
+\begin{document}
+\begin{flushright}
+    \StrBefore{\currfilename}{.}
+\end{flushright} 
+\subsection*{Week 4 at a glance}
+
+\subsubsection*{We will be learning and practicing to:}
+\begin{itemize}
+
+\item Translate between different representations to illustrate a concept.
+\begin{itemize}
+   \item Translating between symbolic and English versions of statements using precise mathematical language
+   \item Translating between truth tables (tables of values) and compound propositions
+\end{itemize}
+
+\item Use precise notation to encode meaning and present arguments concisely and clearly
+\begin{itemize}
+    \item Listing the truth tables of atomic boolean functions (and, or, xor, not, if, iff)
+    \item Defining functions, predicates, and binary relations using multiple representations
+\end{itemize}
+
+\item Know, select and apply appropriate computing knowledge and problem-solving techniques. Reason about computation and systems. Use mathematical techniques to solve problems. Determine appropriate conceptual tools to apply to new situations. Know when tools do not apply and try different approaches. Critically analyze and evaluate candidate solutions.
+\begin{itemize}
+    \item Evaluating compound propositions
+    \item Judging logical equivalence of compound propositions using symbolic manipulation with known equivalences, including DeMorgan's Law
+    \item Writing the converse, contrapositive, and inverse of a given conditional statement
+    \item Determining what evidence is required to establish that a quantified statement is true or false
+    \item Evaluating quantified statements about finite and infinite domains
+\end{itemize}
+
+\end{itemize}
+
+\subsubsection*{TODO:}
+\begin{list}
+   {\itemsep2pt}
+   \item Review quiz based on class material each day (due Friday April 26, 2024)
+   \item Start reviewing for Test 1, in class next week on Friday May 3, 2024.
+\end{list}
+
+\newpage
+
+\section*{Week 4 Monday: Conditionals and Logical Equivalence}
+
+
+\begin{center}
+    \begin{tabular}{cc||c|c|c|c|c}
+    \multicolumn{2}{c||}{Input}  & \multicolumn{5}{c}{Output} \\
+     & & Conjunction &  Exclusive or & Disjunction  &  Conditional & Biconditional  \\
+    $p$ & $q$ & $p \wedge q$ &  $p  \oplus  q$ & $p \vee  q$ & $p \to q$ & $p \leftrightarrow q$\\
+    \hline
+    $T$ & $T$ & $T$ & $F$ & $T$ & $T$& $T$\\
+    $T$ & $F$ & $F$ & $T$ & $T$ & $F$& $F$\\
+    $F$ & $T$ & $F$ & $T$ & $T$ & $T$& $F$\\
+    $F$ & $F$ & $F$ & $F$ & $F$ & $T$& $T$\\
+    \hline
+    && ``$p$ and $q$'' & ``$p$ xor $q$'' & ``$p$ or $q$'' & ``if $p$ then $q$'' & ``$p$ if and only if $q$''
+    \end{tabular}
+\end{center}
+     
+
+The only way to make  the conditional statement $p \to q$ false is to \underline{\phantom{\hspace{3in}}}\\
+
+\begin{tabular}{llll}
+The {\bf  hypothesis}  of $p \to q$ is  &\underline{\phantom{\hspace{1in}}} &
+The {\bf  antecedent}  of $p \to q$ is  &\underline{\phantom{\hspace{1in}}} \\
+&&&  \\
+The {\bf  conclusion}  of $p \to q$ is & \underline{\phantom{\hspace{1in}}}&
+The {\bf  consequent}  of $p \to q$ is & \underline{\phantom{\hspace{1in}}}\\
+&&&  \\
+\end{tabular}
+ 
+
+The {\bf converse}  of $p \to q$ is \underline{\phantom{ $q \to p$\hspace{1.6in}}}\\
+
+The {\bf inverse}  of $p \to q$ is \underline{\phantom{ $\lnot p \to \lnot q$\hspace{1.6in}}}\\
+
+The {\bf contrapositive}  of $p \to q$ is \underline{\phantom{$\lnot q \to \lnot p$\hspace{1.6in}}} \\
+ \vfill
+
+
+We can use a recursive definition to describe all 
+compound propositions that use propositional variables 
+from a specified collection.  Here's the definition
+for all compound propositions whose propositional variables 
+are in $\{p, q\}$.
+
+\[
+\begin{array}{ll}
+\textrm{Basis Step: } & p \textrm{ and } q \textrm{ are each a compound proposition} \\
+\textrm{Recursive Step: } & \textrm{If } x \textrm{ is a compound proposition then so is } (\lnot x) 
+\textrm{ and if } \\
+& x \textrm{ and } y \textrm{ are both compound propositions then so is each of }\\
+&(x \land y), (x \oplus y), (x \lor y), (x \to y), (x \leftrightarrow y)
+\end{array}
+\] 
+
+Order of operations (Precedence) for logical operators: 
+
+Negation, then conjunction / disjunction, then conditional / biconditionals.
+
+Example: $\lnot p \lor \lnot q$ means $(\lnot p) \lor (\lnot q)$.
+ \newpage
+
+
+{\bf (Some) logical equivalences}
+
+{\it Can replace $p$ and $q$ with any compound proposition}
+
+\begin{tabular}{llp{3in}}
+$\lnot ( \lnot p) \equiv p$ & & {\bf Double negation}\\
+&& \\
+&& \\
+$p \lor q \equiv q \lor p$ & $p \land q \equiv q \land p$ & {\bf Commutativity} Ordering of terms\\
+&& \\
+&& \\
+$(p \lor q) \lor r  \equiv p \lor (q \lor r)$ & $(p \land q) \land r  \equiv p \land (q \land r)$ & {\bf Associativity} Grouping of terms\\
+&& \\
+&& \\
+$p \land F \equiv F$ \qquad $p \lor T \equiv T$ & $p \land T \equiv p$ \qquad $p \lor F \equiv p$ & {\bf Domination} aka 
+short circuit evaluation\\
+&& \\
+&& \\
+$\lnot (p \land q) \equiv \lnot p \lor \lnot q$ & $\lnot (p \lor q) \equiv \lnot p \land\lnot q$  & {\bf DeMorgan's Laws}\\
+&& \\
+\end{tabular}
+\vfill
+
+\begin{tabular}{llp{3in}}
+$p \to q \equiv \lnot p \lor q$ & & \\
+&& \\
+&& \\
+$p \to q \equiv \lnot q \to \lnot p$ & &{\bf Contrapositive} \\
+&& \\
+&& \\
+$\lnot (p \to q) \equiv p\land \lnot q$  & &\\
+&& \\
+&& \\
+$\lnot( p \leftrightarrow q) \equiv p \oplus q$ && \\
+&& \\
+&& \\
+$p \leftrightarrow q \equiv q \leftrightarrow p$ &&\\
+&& \\
+\end{tabular}
+
+\vfill
+
+{\it Extra examples}:
+
+$p \leftrightarrow q$ is not logically equivalent to $p \land q$ because \underline{\phantom{\hspace{4in}}} 
+
+$p \to q$ is not logically equivalent to $q \to p$ because \underline{\phantom{\hspace{4in}}} 
+\vfill
+ \newpage
+
+
+{\bf Common ways to express logical operators in English}:
+
+{\bf Negation} $\lnot p$ can be said in English as 
+
+\vspace{-20pt}
+\begin{itemize}
+\item Not $p$.
+\item It's not the case that $p$.
+\item $p$ is false.
+\end{itemize}
+
+{\bf Conjunction} $p \land q$ can be said in English as
+
+\vspace{-20pt}
+\begin{itemize}
+    \item $p$ and $q$.
+    \item Both $p$ and $q$ are true.
+    \item $p$ but $q$.
+\end{itemize}
+
+{\bf Exclusive or} $p \oplus q$ can be said in English as
+
+\vspace{-20pt}
+\begin{itemize}
+    \item $p$ or $q$, but not both.
+    \item Exactly one of $p$ and $q$ is true.
+\end{itemize}
+
+{\bf Disjunction} $p \lor q$ can be said in English as
+
+\vspace{-20pt}
+\begin{itemize}
+    \item $p$ or $q$, or both.
+    \item $p$ or $q$ (inclusive).
+    \item At least one of $p$ and $q$ is true.
+\end{itemize}
+
+{\bf Conditional} $p \to q$ can be said in English as
+
+\begin{multicols}{2}
+\begin{itemize}
+    \item if $p$, then $q$.
+    \item $p$ is sufficient for $q$.
+    \item $q$ when $p$.
+    \item $q$ whenever $p$.
+    \item $p$ implies $q$.
+    \item $q$ follows from $p$.
+    \item $p$ is sufficient for $q$.
+    \item $q$ is necessary for $p$.
+    \item $p$ only if $q$.
+\end{itemize}
+\end{multicols}
+
+{\bf Biconditional}
+
+\vspace{-20pt}
+\begin{itemize}
+    \item $p$ if and only if $q$.
+    \item $p$ iff $q$.
+    \item If $p$ then $q$, and conversely.
+    \item $p$ is necessary and sufficient for $q$.
+\end{itemize} \newpage
+
+
+{\bf Translation}: Express each of the following sentences as compound propositions, using
+the given propositions.
+
+\begin{multicols}{2}
+``A sufficient condition for the warranty to be good is that you bought the computer less than a year ago"
+\columnbreak
+\begin{align*}
+w &\text{ is  ``the warranty is good"} \\
+b &\text{ is  ``you bought the computer less than a year ago"} \\
+\end{align*}
+\end{multicols}
+\vfill
+
+\begin{multicols}{2}
+``Whenever the message was sent from an unknown system, it is scanned for viruses."
+\columnbreak
+\begin{align*}
+s &\text{ is  ``The message is scanned for viruses"} \\
+u &\text{ is  ``The message was sent from an unknown system"} \\
+\end{align*}
+\end{multicols}
+\vfill
+
+\begin{multicols}{2}
+``I will complete my to-do list only if I put a reminder in my calendar"
+\columnbreak
+\begin{align*}
+d &\text{ is  ``I will complete my to-do list"} \\
+c &\text{ is  ``I put a reminder in my calendar"} \\
+\end{align*}
+\end{multicols}
+\vfill \newpage
+
+
+{\bf Definition}: A collection of  compound  propositions
+is called {\bf consistent} if  there
+is  an assignment  of  truth values
+to  the  propositional variables that makes
+each of the compound propositions  true.
+ 
+
+{\bf Consistency}: 
+\begin{quote}
+Whenever the system software is being upgraded, users cannot access the file system. 
+If users can access the file system, then they can save new files. 
+If users cannot save new files, then the system software is not being upgraded.
+\end{quote}
+
+\begin{enumerate}
+\item Translate to symbolic compound propositions
+\vfill
+\item Look for some truth assignment to the propositional variables for which all the compound propositions output $T$
+\vfill
+\end{enumerate} \newpage
+
+
+\section*{Week 4 Wednesday: Predicates and Quantifiers}
+
+
+{\bf  Definition}: A  {\bf predicate}  is  a function from a given set (domain) to $\{T,F\}$.
+
+A predicate can be applied, or {\bf evaluated} at, an element of the domain.
+
+Usually, a predicate {\it describes a  property} that domain elements may or may not have.
+
+Two predicates over the same domain are {\bf equivalent} means they evaluate to
+the same truth values for all possible assignments of domain elements to the
+input. In other words, they are equivalent means that they are equal as functions.
+
+To define a predicate, we must specify its domain and its value at each domain element.
+The rule assigning truth values to domain elements can be specified using a formula, 
+English description, in a table (if the domain is finite), or recursively (if the domain is recursively
+defined). 
+
+\begin{center}
+    \begin{tabular}{c||c|c|c}
+    Input & \multicolumn{3}{c}{Output} \\
+    &$V(x)$ & $N(x)$ & $Mystery(x)$\\
+    $x$ & $[x]_{2c,3} > 0$ & $[x]_{2c,3} < 0$& \\
+    \hline
+    $000$  & $F$ & & $T$\\
+    $001$  & $T$ & & $T$\\
+    $010$  & $T$ & & $T$\\
+    $011$  & $T$ & & $F$\\
+    $100$  & $F$ & & $F$\\
+    $101$  & $F$ & & $T$\\
+    $110$  & $F$ & & $F$\\
+    $111$  & $F$ & & $T$\\
+    \end{tabular}
+    \end{center}
+    
+    The domain for each of the predicates $V(x)$, $N(x)$, $Mystery(x)$ is
+    \underline{\phantom{$\{ b_1b_2b_3 ~\mid~ b_i \in \{0,1\} \textrm{ for each } i, 1 \leq i \leq 3 \}$}}.
+
+    Fill in the table of values for the predicate $N(x)$ based on the formula given. \vfill
+
+
+{\bf Definition}: The {\bf truth  set} of a  predicate is the collection of all elements in its
+domain where the predicate evaluates to $T$.
+
+Notice that specifying the domain and the truth set is sufficient for defining
+a predicate. 
+
+The truth set for the predicate $V(x)$ is $\underline{\phantom{\{ x ~\mid~ V(x) = T\} = \{ 001, 010, 011 \}}}$.
+
+The truth set for the predicate $N(x)$ is $\underline{\phantom{\{ x ~\mid~ N(x) = T\} = \{ 101, 111 \}}}$.
+
+The truth set for the predicate $Mystery(x)$ is $\underline{\phantom{\{ x ~\mid~ Mystery(x) = T\} = \{ 000, 001, 010, 101, 111 \}}}$.
+
+
+\vfill \newpage
+
+
+The {\bf universal quantification} of predicate $P(x)$ over
+domain $U$ is the statement ``$P(x)$ for all values of $x$ in the domain $U$''
+and is written $\forall x P(x)$ or $\forall x \in U ~P(x)$. 
+When the domain is finite, universal quantification over the domain 
+is equivalent to iterated {\it conjunction} (ands).
+
+The {\bf existential quantification} of predicate $P(x)$ 
+over domain $U$ is the statement ``There exists an element $x$ 
+in the domain $U$ such that $P(x)$'' and is written $\exists x P(x)$
+for $\exists x \in U ~P(x)$. 
+When the domain is finite, existential quantification over the domain 
+is equivalent to iterated {\it disjunction} (ors).
+
+An element for which $P(x) = F$ is called a {\bf counterexample} of $\forall x P(x)$.
+
+An element for which $P(x) = T$ is called a {\bf witness} of $\exists x P(x)$.
+ \vfill
+
+
+Statements involving predicates and quantifiers are {\bf logically equivalent} 
+means they have the same truth value no matter which predicates (domains and functions) 
+are substituted in. 
+
+{\bf Quantifier version of De Morgan's laws}: 
+$\boxed{\neg \forall x P(x) ~\equiv~ \exists x \left( \neg P(x) \right)}$
+\qquad
+\qquad
+$\boxed{\neg \exists x Q(x) ~\equiv~ \forall x \left( \neg Q(x) \right)}$
+ \vfill
+
+
+Examples of quantifications using $V(x), N(x), Mystery(x)$:
+
+{\bf True} or {\bf False}: $\exists x~ (~V(x) \land N(x)~)$
+
+\vfill
+
+{\bf True} or {\bf False}: $\forall x~ (~V(x) \to N(x)~)$
+
+\vfill
+
+{\bf True} or {\bf False}: $\exists x~ (~N(x) \leftrightarrow Mystery(x)~)$
+
+\vfill
+
+Rewrite $\lnot \forall x~(~V(x) \oplus Mystery(x)~)$ into a logical equivalent statement.
+
+\vspace{50pt}
+
+
+Notice that these are examples where the predicates have {\it finite} domain.
+How would we evaluate quantifications where the domain may be infinite?
+
+\vfill
+
+ \vfill
+\newpage
+
+
+{\it Recall the definitions}: The set of RNA strands $S$ is defined (recursively) by:
+\[
+\begin{array}{ll}
+\textrm{Basis Step: } & \A \in S, \C \in S, \U \in S, \G \in S \\
+\textrm{Recursive Step: } & \textrm{If } s \in S\textrm{ and }b \in B \textrm{, then }sb \in S
+\end{array}
+\]
+where $sb$ is string concatenation.
+
+The function \textit{rnalen} that computes the length of RNA strands in $S$ is defined recursively by:
+\[
+\begin{array}{llll}
+& & \textit{rnalen} : S & \to \mathbb{Z}^+ \\
+\textrm{Basis Step:} & \textrm{If } b \in B\textrm{ then } & \textit{rnalen}(b) & = 1 \\
+\textrm{Recursive Step:} & \textrm{If } s \in S\textrm{ and }b \in B\textrm{, then  } & \textit{rnalen}(sb) & = 1 + \textit{rnalen}(s)
+\end{array}
+\]
+
+The function \textit{basecount} that computes the number of a given base 
+$b$ appearing in a RNA strand $s$ is defined recursively by:
+\[
+\begin{array}{llll}
+& & \textit{basecount} : S \times B & \to \mathbb{N} \\
+\textrm{Basis Step:} &  \textrm{If } b_1 \in B, b_2 \in B & \textit{basecount}(~(b_1, b_2)~) & =
+        \begin{cases}
+            1 & \textrm{when } b_1 = b_2 \\
+            0 & \textrm{when } b_1 \neq b_2 \\
+        \end{cases} \\
+\textrm{Recursive Step:} & \textrm{If } s \in S, b_1 \in B, b_2 \in B &\textit{basecount}(~(s b_1, b_2)~) & =
+        \begin{cases}
+            1 + \textit{basecount}(~(s, b_2)~) & \textrm{when } b_1 = b_2 \\
+            \textit{basecount}(~(s, b_2)~) & \textrm{when } b_1 \neq b_2 \\
+        \end{cases}
+\end{array}
+\] 
+
+{\bf Example predicates on $S$, the set of RNA strands (an infinite set)}
+
+
+$H: S \to \{T, F\}$ where $H(s) = T$ for all $s$.
+
+Truth set of $H$ is \underline{\phantom{$S$\hspace{1in}}}
+
+\vfill
+
+$F_{\A}: S \to \{T, F\}$  defined recursively by: 
+
+~~Basis step: $F_{\A}(\A) = T$, $F_{\A}(\C) = F_{\A}(\G) = F_{\A}(\U) = F$
+
+~~Recursive step: If $s \in S$ and $b \in B$, then $F_{\A}(sb) = F_{\A}(s)$.
+
+Example where $F_{\A}$ evaluates to $T$ is \underline{\phantom{$\A\C\G$~\hspace{1in}}}
+
+\vfill
+
+Example where $F_{\A}$ evaluates to $F$ is \underline{\phantom{$\U\A\C\U$\hspace{1in}}}
+
+\vfill \newpage
+
+
+{\bf Using functions to define predicates}:
+
+\fbox{\parbox{\textwidth}{
+$L$ with domain $S \times \mathbb{Z}^+$ is defined by, for $s \in S$ and $n \in \mathbb{Z}^+$,
+\[
+L( ~(s, n)~) = \begin{cases}
+T &\qquad\text{if $rnalen(s) = n$}\\
+F &\qquad\text{otherwise}\\
+\end{cases}
+\]
+In other words, $L(~(s,n)~)$ means $rnalen(s) = n$
+}}
+
+\vfill
+
+\fbox{\parbox{\textwidth}{
+$BC$ with domain $S \times B \times \mathbb{N}$ is defined by, 
+for $s \in S$ and $b \in B$ and $n \in \mathbb{N}$,
+\[
+BC(~(s, b, n)~) = \begin{cases}
+T &\qquad\text{if $basecount(~(s,b)~) = n$}\\
+F &\qquad\text{otherwise}\\
+\end{cases}
+\]
+In other words, $BC(~(s,b,n)~)$ means $basecount(~(s,b)~) = n$
+}}
+
+
+\vfill
+
+
+Example where $L$ evaluates to $T$: $\underline{\phantom{(\A, 1)\hspace{1in}}}$  Why?
+
+\vfill
+
+
+Example where $BC$ evaluates to $T$: $\underline{\phantom{(\A, \A1)\hspace{1in}}}$  Why?
+
+\vfill
+
+
+Example where $L$ evaluates to $F$: $\underline{\phantom{(\A, 2)\hspace{1in}}}$ Why?
+
+\vfill
+
+
+Example where $BC$ evaluates to $F$: $\underline{\phantom{(\A, \C, 1)\hspace{1in}}}$ Why? 
+
+\vfill
+
+
+\fbox{\parbox{\textwidth}{
+\[\exists t ~BC(t) \qquad \qquad 
+\exists (s,b,n) \in S \times B \times \mathbb{N}~ (basecount(~(s,b)~) = n)\]
+
+In English: \phantom{There exists an ordered $3$-tuple 
+at which the predicate $BC$ evaluates to $T$.}
+
+\vspace{30pt}
+
+Witness that proves this existential quantification is true:\phantom{$(\G\G, \G, 2)$ or $(\G\A\U\G, \G, 2)$)}
+}}
+
+\fbox{\parbox{\textwidth}{
+\[\forall t ~BC(t) \qquad \qquad 
+\forall(s,b,n) \in S \times B \times \mathbb{N} ~(basecount(~(s,b)~) = n)\]
+
+In English:\phantom{For all ordered $3$-tuples
+the predicate $BC$ evaluates to $T$.}
+
+\vspace{30pt}
+
+Counterexample that proves this universal quantification is false: \phantom{$(\G\G, \A, 2)$ or $(\G\A\U\G, \G, 3)$)}
+}}
+ \newpage
+
+\section*{Week 4 Friday: Evaluating Nested Quantifiers}
+
+
+{\bf New predicates from old}
+\begin{enumerate}
+\item Define the {\bf new} predicate with domain $S \times B$ and rule
+\[
+basecount(~(s,b)~) = 3
+\]
+Example domain element where predicate is $T$: \phantom{$(\A\U\A\A, \A)$}\\
+
+\vfill
+
+\item Define the {\bf new} predicate with domain $S \times \mathbb{N}$ and rule
+\[
+basecount(~(s,\A)~) = n
+\]
+Example domain element where predicate is $T$: \phantom{$(\A\U\A,2)$}\\
+
+\vfill
+
+
+\item Define the {\bf new} predicate with domain $S \times B$ and rule
+\[
+\exists n \in \mathbb{N} ~(basecount(~(s,b)~) = n)
+\]
+Example domain element where predicate is $T$: \phantom{$(\A\U\A,\A)$}\\
+
+\vfill
+
+
+\item Define the {\bf new} predicate with domain $S$ and rule
+\[
+\forall b \in B ~(basecount(~(s,b)~) = 1)
+\]
+Example domain element where predicate is $T$: \phantom{$\A\C\G\U$}\\
+
+\vfill
+
+
+\end{enumerate} \vfill
+
+
+{\bf Notation}: for a predicate $P$ with domain $X_1 \times \cdots \times X_n$ and a 
+$n$-tuple $(x_1, \ldots, x_n)$ 
+with each $x_i \in X$, we 
+can write $P(x_1, \ldots, x_n)$ to mean $P( ~(x_1, \ldots, x_n)~)$.
+ \vfill
+
+
+{\bf Nested quantifiers}
+
+\fbox{\parbox{\textwidth}{
+\[
+    \forall s \in S ~\forall b \in B ~\forall n \in \mathbb{N} ~(basecount(~(s,b)~) = n)
+\]
+
+In English: \phantom{There exists an ordered $3$-tuple 
+at which the predicate $BC$ evaluates to $T$.}
+
+\vspace{30pt}
+
+Counterexample that proves this universal quantification is false:
+\phantom{$(\G\G, \G, 3)$ or $(\G\A\U\G, \G, 2)$)}
+
+\vspace{30pt}
+
+}}
+
+\vfill
+
+\fbox{\parbox{\textwidth}{
+\[
+    ~\forall n \in \mathbb{N} ~\forall s \in S ~\forall b \in B  ~(basecount(~(s,b)~) = n)
+\]
+
+In English: \phantom{There exists an ordered $3$-tuple 
+at which the predicate $BC$ evaluates to $T$.}
+
+\vspace{30pt}
+
+Counterexample that proves this universal quantification is false:
+\phantom{$(\G\G, \G, 3)$ or $(\G\A\U\G, \G, 2)$)}
+
+\vspace{30pt}
+
+}}
+
+\vfill \newpage
+
+
+{\bf Alternating nested quantifiers}
+
+\fbox{\parbox{\textwidth}{
+$$\forall s \in S ~\exists b\in B ~(~basecount(~(s,b)~) = 3~)$$
+
+In English: For each RNA strand there is a base that occurs 3 times in this strand.\\
+
+Write the negation and use De Morgan's law to find a 
+logically equivalent version where the negation is applied only to the 
+$BC$ predicate (not next to a quantifier).
+
+\vspace{60pt}
+
+
+Is the original statement {\bf True} or {\bf False}?
+
+}}
+
+\vfill
+
+\fbox{\parbox{\textwidth}{
+
+$$\exists s \in S ~\forall b \in B ~\exists n \in \mathbb{N} ~(~basecount(~(s,b)~) = n~)$$
+
+In English: There is an RNA strand so that for each base there is some nonnegative
+integer that counts the number of occurrences of that base in this strand.\\
+
+Write the negation and use De Morgan's law to find a 
+logically equivalent version where the negation is applied only to the 
+$BC$ predicate (not next to a quantifier).
+
+\vspace{60pt}
+
+
+Is the original statement {\bf True} or {\bf False}?
+
+}}
+
+\vfill
+ \newpage
+
+\subsection*{Review Quiz}
+\begin{enumerate}
+\item Logical equivalence
+ 
+
+For each of the following propositions, indicate exactly one of:
+
+\begin{itemize}
+    \item There is no assignment of truth values to its variables that makes it true,
+    \item There is exactly one assignment of truth values to its variables that makes it true, or
+    \item There are exactly two assignments of truth values to its variables that make it true, or
+    \item There are exactly three assignments of truth values to its variables that make it true, or
+    \item \emph{All} assignments of truth values to its variables make it true.
+\end{itemize}
+
+\begin{enumerate}
+    \item $(p \leftrightarrow q) \oplus (p \land q)$
+    \item $(p \to q) \vee (q \to p)$
+    \item $(p \to q) \land (q \to p)$
+    \item $\lnot (p \to q) $
+\end{enumerate} \item Translating propositional logic
+    \begin{enumerate}
+    \item 
+
+Express each of the following sentences as compound propositions, using
+the given propositions.
+
+\begin{enumerate}
+\item ``If you try to run Zoom while your computer is running many applications,
+the video is likely to be choppy and laggy." $t$ is ``you run Zoom while your
+computer is running many applications'', $c$ is ``the video is likely to be choppy'',
+$g$ is ``the video is likely to be laggy''
+\begin{multicols}{2}
+    \begin{enumerate}
+    \item[] $t \to (c \land g)$
+    \item[] $(c \land g) \to t$
+    \item[] $(c \land g) \leftrightarrow t$
+    \item[] $t \oplus (c \land g)$
+\end{enumerate}
+\end{multicols}
+\item ``To connect wirelessly on campus without logging in you need to use
+the UCSD-Guest network."  $c$ is ``connect wirelessly 
+on campus'', $g$ is ``logging in'', and $u$ is ``use UCSD-Guest network''.
+\begin{multicols}{2}
+    \begin{enumerate}
+    \item[] $c \land \lnot g \land u$
+    \item[] $(c \land \lnot g) \lor u$
+    \item[] $(c \land \lnot g) \oplus u$
+    \item[] $(c \land \lnot g) \to u$
+    \item[] $u \to (c \land \lnot g)$
+    \item[] $u \leftrightarrow (c \land \lnot g)$
+\end{enumerate}
+\end{multicols}
+\end{enumerate}
+     \newpage
+    \item 
+
+For each of  the following  system specifications, 
+identify the compound propositions  that give their
+translations to logic  and then determine if the
+translated collection  of compound
+propositions is consistent.
+
+\begin{enumerate}
+    \item Specification: If the computer is out of memory, then network connectivity is unreliable. No disk errors can occur when the computer is out of memory. Disk
+    errors only occur when network connectivity is unreliable.
+    
+    Translation: $M =$ ``the computer is  out of memory"; $N = $ ``network connectivity
+    is unreliable"; $D = $  ``disk errors  can occur".
+
+    \begin{multicols}{3}
+    \begin{enumerate}
+        \item[] \begin{align*} &\neg M \to  N  \\ & \neg D \to M \\ & D \to N \end{align*}
+        \item[] \begin{align*} &M \to  \neg N  \\ & \neg D \wedge M \\ & N \to D \end{align*}
+        \item[] \begin{align*} &M \to  N  \\ &  M \to \neg D \\ & \neg  N \to \neg D \end{align*}
+    \end{enumerate}
+    \end{multicols}
+    
+    \item Specification: Whether you think you can, or you think you can't - you're right.
+\footnote{Henry Ford}
+    
+    Translation: $T =$ ``you  think  you  can"; $C = $  ``you  can".
+    
+    \begin{multicols}{3}
+    \begin{enumerate}
+        \item[] \begin{align*} &T \to C \\&  \neg T \to \neg C \end{align*}
+        \item[] \begin{align*} &T \wedge C \\  & \neg  T \wedge \neg C \end{align*}
+        \item[] \begin{align*} &T \to \neg T  \\ & C  \to \neg  C \end{align*}
+    \end{enumerate}
+    \end{multicols}
+
+    \item Specification: A secure password must be private and complicated. If
+    a password is  complicated then  it will be hard to  remember.  People
+    write down hard-to-remember passwords. If a password is written down, it's  not private.   The password is secure.
+
+    Translation: $S =$ ``the password is secure"; $P = $ ``the password is private"; 
+    $C = $  ``the password is  complicated"; $H = $ ``the password is hard to remember";
+    $W =  $ ``the password is written down".
+    
+    \begin{multicols}{3}
+    \begin{enumerate}
+        \item[] \begin{align*} &\neg (P \wedge C) \to \neg  S  \\ & C \to H  \\ & W \wedge H \\ & W \to  \neg P \\ & S \end{align*}
+        \item[] \begin{align*} &(P \wedge  C)  \to S  \\ &  C \to H\\ & W  \to  H \\  & W \to P \\ & S\end{align*}
+        \item[] \begin{align*} & S  \to (P \wedge C)  \\ &  C \to H\\ & H  \to  W \\  & W \to \neg P \\ & S\end{align*}
+    \end{enumerate}
+    \end{multicols}
+\end{enumerate}     \end{enumerate}
+\newpage
+\item Evaluating predicates
+    \begin{enumerate}
+    \item \hspace{1in}\\ 
+
+Recall the predicates $V(x)$, $N(x)$, and $Mystery(x)$
+on domain $\{000,001,010,011,100,101,110,111\}$ from class.
+Which of the following is true? (Select  all and only that apply.)
+ \begin{enumerate}
+    \item $\left( \forall x ~V(x) \right) \lor \left( \forall x ~N(x) \right)$
+    \item $\left( \exists x ~V(x) \right) \land \left( \exists x~N(x) \right) \land \left( \exists x~Mystery(x)\right)$
+    \item $\exists x ~(~V(x) \land N(x) \land Mystery(x)~)$
+    \item $\forall x ~(~V(x) \oplus N(x)~)$
+    \item $\forall x ~(~Mystery(x) \to V(x)~)$
+ \end{enumerate}        \item \hspace{1in}\\ 
+
+Consider the following predicates, each of which has 
+as its domain the set of all bitstrings whose leftmost bit is $1$
+
+$E(x)$ is $T$ exactly when $(x)_{2}$ is even, and is $F$ otherwise
+
+$L(x)$ is $T$ exactly when $(x)_2 < 3$, and is $F$ otherwise
+
+$M(x)$ is $T$ exactly when $(x)_2 > 256$ and is $F$ otherwise.
+
+\begin{enumerate}
+\item What is $E(110)$?
+\item Why is $L(00)$ undefined?
+\begin{enumerate}
+\item Because the domain of $L$ is infinite
+\item Because $00$ does not have $1$ in the leftmost position
+\item Because $00$ has length 2, not length 3
+\item Because $(00)_{2,2} = 0$ which is less than $3$
+\end{enumerate}
+\item Is there a bitstring of width (where width is the number of bits) $6$ at which $M(x)$ evaluates 
+to $T$?
+\end{enumerate}     \item \hspace{1in}\\ 
+
+For this question, we will use the following predicate.
+
+$F_{\A}$ with domain $S$ is defined recursively by: 
+\begin{itemize}
+\item[]Basis step: $F_{\A}(\A) = T$, $F_{\A}(\C) = F_{\A}(\G) = F_{\A}(\U) = F$
+\item[]Recursive step: If $s \in S$ and $b \in B$, then $F_{\A}(sb) = F_{\A}(s)$
+\end{itemize}
+
+Which of the following is true? (Select  all and only that apply.)
+ \begin{enumerate}
+    \item $F_\A ( \A\A)$
+    \item $F_\A ( \A\C)$
+    \item $F_\A ( \A\G)$
+    \item $F_\A ( \A\U)$
+    \item $F_\A ( \C\A)$
+    \item $F_\A ( \C\C)$
+    \item $F_\A ( \C\G)$
+    \item $F_\A ( \C\U)$
+ \end{enumerate}    
+     \end{enumerate}
+\newpage
+\item Evaluating nested predicates
+    \begin{enumerate}
+    \item \hspace{1in}\\
+
+Recall the predicate $L$ with domain $S \times \mathbb{Z}^+$ from class,
+$L(~(s,n)~)$ means $rnalen(s) = n$.
+Which of the following is true? (Select  all and only that apply.)
+\begin{enumerate}
+   \item $\exists s \in S ~\exists n \in \mathbb{Z}^+ ~L(~(s,n)~)$
+   \item $\exists s \in S ~\forall n \in \mathbb{Z}^+ ~L(~(s,n)~)$
+   \item $\forall n \in \mathbb{Z}^+ ~\exists s \in S ~L(~(s,n)~)$
+   \item $\forall s \in S ~\exists n \in \mathbb{Z}^+ ~L(~(s,n)~)$
+   \item $\exists n \in \mathbb{Z}^+ ~\forall s \in S ~L(~(s,n)~)$
+\end{enumerate} 
+     \item \hspace{1in}\\
+
+Recall the predicate $BC$ with domain $S \times B \times \mathbb{N}$ from class,
+$BC(~(s,b,n)~)$ means $basecount(~(s,b)~) = n$.
+Match each sentence to its English translation, or select none of the above.
+\begin{enumerate}
+\item $\forall s \in S ~\exists n \in \mathbb{N} ~\forall b \in B ~basecount(~(s,b)~) = n$
+\item $\forall s \in S ~\forall b \in B ~\exists n \in \mathbb{N} ~basecount(~(s,b)~) = n$
+\item $\forall s \in S ~\forall n \in \mathbb{N} ~\exists b \in B ~basecount(~(s,b)~) = n$
+\item $\forall b \in B ~\forall n \in \mathbb{N} ~\exists s \in S ~basecount(~(s,b)~) = n$
+\item $\forall n \in \mathbb{N} ~\forall b \in B ~\exists s \in S ~basecount(~(s,b)~) = n$
+\end{enumerate}
+
+\begin{enumerate}[label=\roman*.]
+    \item For each RNA strand and each possible base, the number of that base in that strand is a nonnegative integer.
+    \item For each RNA strand and each nonnegative integer, there is a base that occurs this many times in this strand.
+    \item Every RNA strand has the same number of each base, and that number is a nonnegative integer.
+    \item For every given nonnegative integer, there is a strand where each possible base appears the given number of times.
+    \item For every given base and nonnegative integer, there is an RNA strand that has this base occurring this many times.
+\end{enumerate}
+
+
+{\it Challenge}: Express symbolically
+
+\begin{quote}
+    There are (at least) two different RNA strands that have the same number of $\A$s.
+\end{quote}     \end{enumerate}
+\end{enumerate}
+\end{document}

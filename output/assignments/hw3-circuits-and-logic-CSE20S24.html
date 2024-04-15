@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="CSE20S24" />
+  <title>hw3-circuits-and-logic</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">hw3-circuits-and-logic</h1>
+<p class="author">CSE20S24</p>
+<p class="date">Due: 4/23/24 at 5pm (no penalty late submission until
+8am next morning)</p>
+</header>
+<p><span><strong>In this assignment</strong></span>, you will consider
+how circuits and logic can be used to represent mathematical claims. You
+will use propositional operators to express and evaluate these
+claims.</p>
+<p><span><strong>Relevant class material</strong></span>: Week 2 and
+Week 3.</p>
+<p>You will submit this assignment via Gradescope (<a
+href="https://www.gradescope.com">https://www.gradescope.com</a>) in the
+assignment called “hw3-circuits-and-logic”.</p>
+<p><span><strong>For all HW assignments:</strong></span> These homework
+assignments may be done individually or in groups of up to 3 students.
+Please ensure your name(s) and PID(s) are clearly visible on the first
+page of your homework submission, start each question on a new page, and
+upload the PDF to Gradescope. If you’re working in a group,
+<span><em>submit only one submission per group</em></span>: one partner
+uploads the submission through their Gradescope account and then adds
+the other group member(s) to the Gradescope submission by selecting
+their name(s) in the “Add Group Members” dialog box. You will need to
+re-add your group member(s) every time you resubmit a new version of
+your assignment.</p>
+<p>Each homework question will be graded either for
+<span><strong>correctness</strong></span> (including clear and precise
+explanations and justifications of all answers) or <span><strong>fair
+effort completeness</strong></span>. You may collaborate on “graded for
+correctness” questions only with CSE 20 students in your group; if your
+group has questions about a problem, you may ask in drop-in help hours
+or post a private post (visible only to the Instructors) on Piazza. For
+“graded for completeness” questions: collaboration is allowed with any
+CSE 20 students this quarter; if your group has questions about a
+problem, you may ask in drop-in help hours or post a public post on
+Piazza.</p>
+<p>All submitted homework for this class must be typed. You can use a
+word processing editor if you like (Microsoft Word, Open Office,
+Notepad, Vim, Google Docs, etc.) but you might find it useful to take
+this opportunity to learn LaTeX. LaTeX is a markup language used widely
+in computer science and mathematics. The homework assignments are typed
+using LaTeX and you can use the source files as templates for
+typesetting your solutions.</p>
+<p><span><strong>Integrity reminders</strong></span></p>
+<ul>
+<li><p>Problems should be solved together, not divided up between the
+partners. The homework is designed to give you practice with the main
+concepts and techniques of the course, while getting to know and learn
+from your classmates.</p></li>
+<li><p>You may not collaborate on homework questions graded for
+correctness with anyone other than your group members. You may ask
+questions about the homework in office hours (of the instructor, TAs,
+and/or tutors) and on Piazza (as private notes viewable only to the
+Instructors). You <em>cannot</em> use any online resources about the
+course content other than the class material from this quarter – this is
+primarily to ensure that we all use consistent notation and definitions
+(aligned with the textbook) and also to protect the learning experience
+you will have when the ‘aha’ moments of solving the problem
+authentically happen.</p></li>
+<li><p>Do not share written solutions or partial solutions for homework
+with other students in the class who are not in your group. Doing so
+would dilute their learning experience and detract from their success in
+the class.</p></li>
+</ul>
+<p><span><strong>Assigned questions</strong></span></p>
+<ol>
+<li><p>Fixed-width addition.</p>
+<ol>
+<li><p>(<span><em>Graded for completeness</em></span>) <a href="#fn1"
+class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>
+Choose example width <span class="math inline">\(5\)</span> first
+summand and width <span class="math inline">\(5\)</span> second summand
+so that in the binary fixed-width addition (adding one bit at time,
+using the usual column-by-column and carry arithmetic, and ignoring the
+carry from the leftmost column), we will have that</p>
+<ul>
+<li><p>When interpreting each of the summands and the result in binary
+fixed-width 5, the result represents the actual value of the sum of the
+summands <span><strong>and</strong></span></p></li>
+<li><p>when interpreting each of the summands and the sum in
+sign-magnitude width 5, the result represents the actual value of the
+sum of the summands <span><strong>and</strong></span></p></li>
+<li><p>when interpreting each of the summands and the sum in 2s
+complement width 5, the result represents the actual value of the sum of
+the summands.</p></li>
+</ul></li>
+<li><p>(<span><em>Graded for correctness</em></span>) <a href="#fn2"
+class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>
+Choose an example width <span class="math inline">\(5\)</span> first
+summand and second summand so that in the binary fixed-width addition
+(adding one bit at time, using the usual column-by-column and carry
+arithmetic, and ignoring the carry from the leftmost column), we will
+have that</p>
+<ul>
+<li><p>When interpreting each of the summands and the result in binary
+fixed-width 5, the result <span><strong>does not</strong></span>
+represent the actual value of the sum of the summands
+<span><strong>and</strong></span></p></li>
+<li><p>when interpreting each of the summands and the sum in
+sign-magnitude width 5, the result <span><strong>does
+not</strong></span> represents the actual value of the sum of the
+summands <span><strong>and</strong></span></p></li>
+<li><p>when interpreting each of the summands and the sum in 2s
+complement width 5, the result represents the actual value of the sum of
+the summands.</p></li>
+</ul>
+<p>A complete solution will clearly specify each summand and the result
+of binary fixed-width addition with this choice of summands; will
+specify the value of each summand and the result for binary fixed-width
+5, sign-magnitude width 5, and 2s complement width 5 (and include
+calculations connecting with the definitions of these representations to
+explain these values); and a conclusion connecting the calculations to
+the properties laid out in the question.</p></li>
+</ol></li>
+<li><p>Circuits.</p>
+<ol>
+<li><p>(<span><em>Graded for completeness</em></span>) Consider the
+circuit below with inputs <span class="math inline">\(x\)</span> and
+<span class="math inline">\(y\)</span>. Identify a pair of gates that
+could be switched without changing the input-output table of the
+circuit. If you do, write out the input-output table that results, and
+briefly explain why this choice of gates works. If there is no such pair
+of gates, explain why not with reference to the definitions of the logic
+gates.</p>
+<div class="center">
+<p><img src="../../files/circuits-hw3.png" style="width:2in"
+alt="image" /></p>
+</div></li>
+<li><p>(<span><em>Graded for correctness</em></span>) Is there a way to
+fill in the blank portion of the two logic circuits below *with the same
+gates connected in the same way* so that the resulting circuits have the
+same input-output value *even though* one uses an OR gate at the end and
+the other uses an XOR gate? If so, design the circuit that would be
+used, write out the input-output table that results, and briefly explain
+why your design works. If not, explain why not with reference to the
+definitions of the logic gates.</p>
+<div class="multicols">
+<p><span>2</span></p>
+<div class="center">
+<p><img src="../../files/circuit-blank-or-hw3.png" style="width:2in"
+alt="image" /></p>
+</div>
+<div class="center">
+<p><img src="../../files/circuit-blank-xor-hw3.png" style="width:2in"
+alt="image" /></p>
+</div>
+</div></li>
+</ol></li>
+<li><p>Compound propositions. The set of strings of length <span
+class="math inline">\(4\)</span> whose characters are <span
+class="math inline">\(0\)</span>s or <span
+class="math inline">\(1\)</span>s is the result of four successive
+set-wise concatenations: <span class="math inline">\(\{0,1\} \circ
+\{0,1\} \circ \{0,1\}\)</span>. Let’s call this set <span
+class="math inline">\(X_4\)</span>. Consider the function <span
+class="math inline">\(f: X_4 \to X_4\)</span> defined by <span
+class="math display">\[f(x) =
+        \begin{cases}
+            y &amp;\text{when $(x)_{2,4} &lt; 15$ and $(y)_{2,4} =
+(x)_{2,4} + 1$}\\
+            1111 &amp;\text{when $x = 1111$}
+        \end{cases}\]</span> for each <span class="math inline">\(x \in
+X_4\)</span>. In other words, we can describe the function as: <span
+class="math inline">\(f\)</span> takes a string, interprets it as the
+binary fixed-width <span class="math inline">\(4\)</span> expansion of
+an integer, and then adds <span class="math inline">\(1\)</span> to that
+integer (unless <span class="math inline">\(x\)</span> is already
+representing the greatest integer that can be represented in binary
+fixed-width <span class="math inline">\(4\)</span>) and outputs the
+binary fixed-width <span class="math inline">\(4\)</span> expansion of
+the result.</p>
+<ol>
+<li><p>(<span><em>Graded for completeness</em></span>) Fill in the
+blanks in the following input-output definition table with four inputs
+<span class="math inline">\(x_3\)</span>, <span
+class="math inline">\(x_2\)</span>, <span
+class="math inline">\(x_1\)</span>, <span
+class="math inline">\(x_0\)</span> and four outputs <span
+class="math inline">\(y_3\)</span>, <span
+class="math inline">\(y_2\)</span>, <span
+class="math inline">\(y_1\)</span>, <span
+class="math inline">\(y_0\)</span> so that <span
+class="math inline">\(f(x_3x_2x_1x_0) = y_3y_2y_1y_0\)</span>.</p>
+<div class="center">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span
+class="math inline">\(x_3\)</span></th>
+<th style="text-align: center;"><span
+class="math inline">\(x_2\)</span></th>
+<th style="text-align: center;"><span
+class="math inline">\(x_1\)</span></th>
+<th style="text-align: center;"><span
+class="math inline">\(x_0\)</span></th>
+<th style="text-align: center;"><span
+class="math inline">\(y_3\)</span></th>
+<th style="text-align: center;"><span
+class="math inline">\(y_2\)</span></th>
+<th style="text-align: center;"><span
+class="math inline">\(y_1\)</span></th>
+<th style="text-align: center;"><span
+class="math inline">\(y_0\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;">BLANK1</td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;">BLANK2</td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;">BLANK3</td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;">BLANK4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;">BLANK5</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;">BLANK6</td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+</tr>
+</tbody>
+</table>
+</div></li>
+<li><p>(<span><em>Graded for correctness</em></span>) Construct an
+expression (as a compound proposition) for <span
+class="math inline">\(y_0\)</span> in terms of the inputs <span
+class="math inline">\(x_3, x_2, x_1, x_0\)</span>. Justify your
+expression by referring to the definition of the logic gates XOR, AND,
+OR, NOT and the definition of the function <span
+class="math inline">\(f\)</span>. Hint: our work on the half-adder might
+be helpful.</p></li>
+<li><p>(<span><em>Graded for correctness</em></span>) Construct an
+expression (as a compound proposition) for <span
+class="math inline">\(y_1\)</span> in terms of the inputs <span
+class="math inline">\(x_3, x_2, x_1, x_0\)</span>. Justify your
+expression by referring to the definition of the logic gates XOR, AND,
+OR, NOT and the definition of the function <span
+class="math inline">\(f\)</span>. Hint: our work on the half-adder might
+be helpful.</p></li>
+<li><p>(<span><em>Graded for completeness</em></span>) Draw a
+combinatorial circuit corresponding to these compound propositions.
+Remember that the symbols for the inputs will be on the left-hand-side
+and the symbol for the outputs <span class="math inline">\(y_0\)</span>
+and <span class="math inline">\(y_1\)</span> will be on the right-hand
+side. Use gates (draw the appropriate shapes and add labels for clarity)
+and wires to connect the inputs appropriately to give the
+output.</p></li>
+<li><p>(<span><em>Graded for completeness</em></span>) Construct
+expressions (as a compound propositions) for <span
+class="math inline">\(y_2\)</span> and <span
+class="math inline">\(y_3\)</span> in terms of the inputs <span
+class="math inline">\(x_3, x_2, x_1, x_0\)</span>. Are these similar to
+the expressions for <span class="math inline">\(y_0\)</span> and <span
+class="math inline">\(y_1\)</span>?</p></li>
+</ol></li>
+<li><p>Logical Equivalence. Imagine a friend suggests the following
+argument to you: “The compound proposition <span
+class="math display">\[(x \lor y) \land z\]</span> is logically
+equivalent to <span class="math display">\[x \lor (y \land z)\]</span>
+because I can transform one to the other using the following sequence of
+logical equivalences: <span class="math display">\[(x \lor y) \land z
+\equiv
+           (x \lor (y \land y)) \land z \equiv
+           x \lor ( (y \lor y) \land z) \equiv x \lor (y \land
+z)\]</span> because <span class="math inline">\(y\)</span> is logically
+equivalent to both <span class="math inline">\(y \land y\)</span> and to
+<span class="math inline">\(y \lor y\)</span>".</p>
+<ol>
+<li><p>(<span><em>Graded for correctness</em></span>) Prove to your
+friend that they made a mistake by giving a truth assignment to the
+propositional variables <span class="math inline">\(x,y,z\)</span> so
+that the two compound propositions <span class="math inline">\((x \lor
+y) \land z\)</span> and <span class="math inline">\(x \lor (y \land
+z)\)</span> have different truth values. Justify your choice by
+evaluating these compound propositions using the definitions of the
+logical connectives and include enough intermediate steps so that a
+student in CSE 20 who may be struggling with the material can still
+follow along with your reasoning.</p></li>
+<li><p>(<span><em>Graded for completeness</em></span>) Help your friend
+find the problem in their argument by pointing out which step(s) were
+incorrect.</p></li>
+<li><p>(<span><em>Graded for completeness</em></span>) Give
+<span><strong>three</strong></span> different compound propositions that
+are actually logically equivalent to (and not the same as) <span
+class="math display">\[(x \lor y) \land z\]</span> Justify each one of
+these logical equivalences either by applying a sequence of logical
+equivalences or using a truth table. Notice that you can use other
+logical operators (e.g. <span class="math inline">\(\lnot, \lor, \land,
+\oplus, \to,
+        \leftrightarrow\)</span>) when constructing your compound
+propositions.</p>
+<p><span><em>Bonus; not for credit (do not hand in)</em></span>: How
+would you translate each of the equivalent compound propositions in
+English? Does doing so help illustrate why they are equivalent?</p></li>
+</ol></li>
+</ol>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>This means you will get full credit so long as your
+submission demonstrates honest effort to answer the question. You will
+not be penalized for incorrect answers. To demonstrate your honest
+effort in answering the question, we expect you to include your attempt
+to answer *each* part of the question. If you get stuck with your
+attempt, you can still demonstrate your effort by explaining where you
+got stuck and what you did to try to get unstuck.<a href="#fnref1"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>This means your solution will be evaluated not only on
+the correctness of your answers, but on your ability to present your
+ideas clearly and logically. You should explain how you arrived at your
+conclusions, using mathematically sound reasoning. Whether you use
+formal proof techniques or write a more informal argument for why
+something is true, your answers should always be well-supported. Your
+goal should be to convince the reader that your results and methods are
+sound.<a href="#fnref2" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+</body>
+</html>

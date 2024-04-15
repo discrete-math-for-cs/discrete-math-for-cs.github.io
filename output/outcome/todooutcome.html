@@ -175,6 +175,172 @@
 <div class="flushright">
 
 </div>
+<h1 class="unnumbered" id="quantification-definition">Quantification
+definition</h1>
+<p>The <span><strong>universal quantification</strong></span> of
+predicate <span class="math inline">\(P(x)\)</span> over domain <span
+class="math inline">\(U\)</span> is the statement “<span
+class="math inline">\(P(x)\)</span> for all values of <span
+class="math inline">\(x\)</span> in the domain <span
+class="math inline">\(U\)</span>” and is written <span
+class="math inline">\(\forall x P(x)\)</span> or <span
+class="math inline">\(\forall x \in U ~P(x)\)</span>. When the domain is
+finite, universal quantification over the domain is equivalent to
+iterated <span><em>conjunction</em></span> (ands).</p>
+<p>The <span><strong>existential quantification</strong></span> of
+predicate <span class="math inline">\(P(x)\)</span> over domain <span
+class="math inline">\(U\)</span> is the statement “There exists an
+element <span class="math inline">\(x\)</span> in the domain <span
+class="math inline">\(U\)</span> such that <span
+class="math inline">\(P(x)\)</span>” and is written <span
+class="math inline">\(\exists x P(x)\)</span> for <span
+class="math inline">\(\exists x \in U ~P(x)\)</span>. When the domain is
+finite, existential quantification over the domain is equivalent to
+iterated <span><em>disjunction</em></span> (ors).</p>
+<p>An element for which <span class="math inline">\(P(x) = F\)</span> is
+called a <span><strong>counterexample</strong></span> of <span
+class="math inline">\(\forall x P(x)\)</span>.</p>
+<p>An element for which <span class="math inline">\(P(x) = T\)</span> is
+called a <span><strong>witness</strong></span> of <span
+class="math inline">\(\exists x P(x)\)</span>.</p>
+<h1 class="unnumbered"
+id="quantification-logical-equivalence">Quantification logical
+equivalence</h1>
+<p>Statements involving predicates and quantifiers are
+<span><strong>logically equivalent</strong></span> means they have the
+same truth value no matter which predicates (domains and functions) are
+substituted in.</p>
+<p><span><strong>Quantifier version of De Morgan’s laws</strong></span>:
+<span class="math inline">\(\boxed{\neg \forall x P(x) ~\equiv~ \exists
+x \left( \neg P(x) \right)}\)</span> <span
+class="math inline">\(\boxed{\neg \exists x Q(x) ~\equiv~ \forall x
+\left( \neg Q(x) \right)}\)</span></p>
+<h1 class="unnumbered"
+id="quantification-examples-finite-domain">Quantification examples
+finite domain</h1>
+<p>Examples of quantifications using <span class="math inline">\(V(x),
+N(x), Mystery(x)\)</span>:</p>
+<p><span><strong>True</strong></span> or
+<span><strong>False</strong></span>: <span class="math inline">\(\exists
+x~ (~V(x) \land N(x)~)\)</span></p>
+<p><span><strong>True</strong></span> or
+<span><strong>False</strong></span>: <span class="math inline">\(\forall
+x~ (~V(x) \to N(x)~)\)</span></p>
+<p><span><strong>True</strong></span> or
+<span><strong>False</strong></span>: <span class="math inline">\(\exists
+x~ (~N(x) \leftrightarrow Mystery(x)~)\)</span></p>
+<p>Rewrite <span class="math inline">\(\lnot \forall x~(~V(x) \oplus
+Mystery(x)~)\)</span> into a logical equivalent statement.</p>
+<p>Notice that these are examples where the predicates have
+<span><em>finite</em></span> domain. How would we evaluate
+quantifications where the domain may be infinite?</p>
+<h1 class="unnumbered" id="rna-rnalen-basecount-definitions">Rna rnalen
+basecount definitions</h1>
+<p><span><em>Recall the definitions</em></span>: The set of RNA strands
+<span class="math inline">\(S\)</span> is defined (recursively) by:
+<span class="math display">\[\begin{array}{ll}
+\textrm{Basis Step: } &amp; \texttt{A}\in S, \texttt{C}\in S,
+\texttt{U}\in S, \texttt{G}\in S \\
+\textrm{Recursive Step: } &amp; \textrm{If } s \in S\textrm{ and }b \in
+B \textrm{, then }sb \in S
+\end{array}\]</span> where <span class="math inline">\(sb\)</span> is
+string concatenation.</p>
+<p>The function <em>rnalen</em> that computes the length of RNA strands
+in <span class="math inline">\(S\)</span> is defined recursively by:
+<span class="math display">\[\begin{array}{llll}
+&amp; &amp; \textit{rnalen} : S &amp; \to \mathbb{Z}^+ \\
+\textrm{Basis Step:} &amp; \textrm{If } b \in B\textrm{ then } &amp;
+\textit{rnalen}(b) &amp; = 1 \\
+\textrm{Recursive Step:} &amp; \textrm{If } s \in S\textrm{ and }b \in
+B\textrm{, then  } &amp; \textit{rnalen}(sb) &amp; = 1 +
+\textit{rnalen}(s)
+\end{array}\]</span></p>
+<p>The function <em>basecount</em> that computes the number of a given
+base <span class="math inline">\(b\)</span> appearing in a RNA strand
+<span class="math inline">\(s\)</span> is defined recursively by: <span
+class="math display">\[\begin{array}{llll}
+&amp; &amp; \textit{basecount} : S \times B &amp; \to \mathbb{N} \\
+\textrm{Basis Step:} &amp;  \textrm{If } b_1 \in B, b_2 \in B &amp;
+\textit{basecount}(~(b_1, b_2)~) &amp; =
+        \begin{cases}
+            1 &amp; \textrm{when } b_1 = b_2 \\
+            0 &amp; \textrm{when } b_1 \neq b_2 \\
+        \end{cases} \\
+\textrm{Recursive Step:} &amp; \textrm{If } s \in S, b_1 \in B, b_2 \in
+B &amp;\textit{basecount}(~(s b_1, b_2)~) &amp; =
+        \begin{cases}
+            1 + \textit{basecount}(~(s, b_2)~) &amp; \textrm{when } b_1
+= b_2 \\
+            \textit{basecount}(~(s, b_2)~) &amp; \textrm{when } b_1 \neq
+b_2 \\
+        \end{cases}
+\end{array}\]</span></p>
+<h1 class="unnumbered"
+id="predicates-example-rnalen-basecount">Predicates example rnalen
+basecount</h1>
+<p><span><strong>Using functions to define
+predicates</strong></span>:</p>
+<p>Example where <span class="math inline">\(L\)</span> evaluates to
+<span class="math inline">\(T\)</span>: <span
+class="math inline">\(\underline{\phantom{(\texttt{A},
+1)\hspace{1in}}}\)</span> Why?</p>
+<p>Example where <span class="math inline">\(BC\)</span> evaluates to
+<span class="math inline">\(T\)</span>: <span
+class="math inline">\(\underline{\phantom{(\texttt{A},
+\texttt{A}1)\hspace{1in}}}\)</span> Why?</p>
+<p>Example where <span class="math inline">\(L\)</span> evaluates to
+<span class="math inline">\(F\)</span>: <span
+class="math inline">\(\underline{\phantom{(\texttt{A},
+2)\hspace{1in}}}\)</span> Why?</p>
+<p>Example where <span class="math inline">\(BC\)</span> evaluates to
+<span class="math inline">\(F\)</span>: <span
+class="math inline">\(\underline{\phantom{(\texttt{A}, \texttt{C},
+1)\hspace{1in}}}\)</span> Why?</p>
+<h1 class="unnumbered"
+id="predicates-projecting-example-rna-basecount">Predicates projecting
+example rna basecount</h1>
+<p><span><strong>New predicates from old</strong></span></p>
+<ol>
+<li><p>Define the <span><strong>new</strong></span> predicate with
+domain <span class="math inline">\(S \times B\)</span> and rule <span
+class="math display">\[basecount(~(s,b)~) = 3\]</span> Example domain
+element where predicate is <span class="math inline">\(T\)</span>:<br />
+</p></li>
+<li><p>Define the <span><strong>new</strong></span> predicate with
+domain <span class="math inline">\(S \times \mathbb{N}\)</span> and rule
+<span class="math display">\[basecount(~(s,\texttt{A})~) = n\]</span>
+Example domain element where predicate is <span
+class="math inline">\(T\)</span>:<br />
+</p></li>
+<li><p>Define the <span><strong>new</strong></span> predicate with
+domain <span class="math inline">\(S \times B\)</span> and rule <span
+class="math display">\[\exists n \in \mathbb{N} ~(basecount(~(s,b)~) =
+n)\]</span> Example domain element where predicate is <span
+class="math inline">\(T\)</span>:<br />
+</p></li>
+<li><p>Define the <span><strong>new</strong></span> predicate with
+domain <span class="math inline">\(S\)</span> and rule <span
+class="math display">\[\forall b \in B ~(basecount(~(s,b)~) =
+1)\]</span> Example domain element where predicate is <span
+class="math inline">\(T\)</span>:<br />
+</p></li>
+</ol>
+<h1 class="unnumbered" id="nested-quantifiers">Nested quantifiers</h1>
+<p><span><strong>Nested quantifiers</strong></span></p>
+<h1 class="unnumbered"
+id="alternating-quantifiers-strategies-rna-examples">Alternating
+quantifiers strategies rna examples</h1>
+<p><span><strong>Alternating nested quantifiers</strong></span></p>
+<h1 class="unnumbered"
+id="tautology-contradiction-contingency-examples">Tautology
+contradiction contingency examples</h1>
+<p>Label each of the following as a tautology, contradiction, or
+contingency.</p>
+<p><span class="math inline">\(p \land p\)</span></p>
+<p><span class="math inline">\(p \oplus p\)</span></p>
+<p><span class="math inline">\(p \lor p\)</span></p>
+<p><span class="math inline">\(p \lor \lnot p\)</span></p>
+<p><span class="math inline">\(p \land \lnot p\)</span></p>
 <h1 class="unnumbered" id="why-represent-numbers">Why represent
 numbers</h1>
 <p>Modeling uses data-types that are encoded in a computer. The details

@@ -1,0 +1,107 @@
+\input{../../resources/lesson-head.tex}
+
+\subsection*{Week 3 at a glance}
+
+\subsubsection*{We will be learning and practicing to:}
+%applications of number representations
+%circuits
+%evaluating compound propositions
+%logical equivalence via laws
+%logical equivalence via truth tables
+%cnf and dnf
+%consistency
+%translating
+\begin{itemize}
+\item Model systems with tools from discrete mathematics and reason about implications of modelling choices. Explore applications in CS through multiple perspectives, including software, hardware, and theory.
+\begin{itemize}
+    \item Determining the properties of positional number representations, including overflow and bit operations
+   \item Connecting logical circuits and compound proposition and tracing to calcluate output values
+\end{itemize}
+
+\item Translate between different representations to illustrate a concept.
+\begin{itemize}
+   \item Translating between symbolic and English versions of statements using precise mathematical language
+\end{itemize}
+
+\item Use precise notation to encode meaning and present arguments concisely and clearly
+\begin{itemize}
+    \item Listing the truth tables of atomic boolean functions (and, or, xor, not, if, iff)
+\end{itemize}
+
+\item Know, select and apply appropriate computing knowledge and problem-solving techniques. Reason about computation and systems. Use mathematical techniques to solve problems. Determine appropriate conceptual tools to apply to new situations. Know when tools do not apply and try different approaches. Critically analyze and evaluate candidate solutions.
+\begin{itemize}
+    \item Evaluating compound propositions
+    \item Judging logical equivalence of compound propositions using symbolic manipulation with known equivalences, including DeMorgan's Law
+    \item Judging logical equivalence of compound propositions using truth tables
+    \item Rewriting compound propositions using normal forms
+    \item Judging whether a collection of propositions is consistent
+\end{itemize}
+
+\end{itemize}
+
+\subsubsection*{TODO:}
+\begin{list}
+   {\itemsep2pt}
+   \item Review quiz based on class material each day (due Friday April 19, 2024)
+   \item Homework assignment 3 (due Tuesday April 23, 2024)
+\end{list}
+
+\newpage
+\section*{Week 3 Monday: Fixed-width Addition and Circuits}
+
+\input{../activity-snippets/fixed-width-addition.tex}
+\vfill
+\vfill
+\input{../activity-snippets/circuits-basics.tex}
+
+\input{../activity-snippets/logic-gates-definitions.tex}
+\vfill
+\input{../activity-snippets/digital-circuits-basic-examples.tex}
+\vfill
+\newpage
+\section*{Week 3 Wednesday: Propositional Logic}
+\input{../activity-snippets/half-adder-circuit.tex}
+\input{../activity-snippets/two-bit-adder-circuit.tex}
+\newpage
+\input{../activity-snippets/logical-operators.tex}
+\input{../activity-snippets/logical-operators-truth-tables.tex}
+\vfill
+\input{../activity-snippets/logical-operators-example-truth-table.tex}
+\vfill
+\newpage
+\section*{Week 3 Friday: Logical Equivalence}
+\input{../activity-snippets/truth-table-to-compound-proposition.tex}
+\input{../activity-snippets/dnf-cnf-definition.tex}
+\newpage
+\input{../activity-snippets/compound-proposition-definitions.tex}
+\input{../activity-snippets/logical-equivalence.tex}
+\vfill
+\input{../activity-snippets/tautology-contradiction-contingency-examples.tex}
+\vfill
+\input{../activity-snippets/logical-equivalence-extra-example.tex}
+\vfill
+\newpage
+\subsection*{Review Quiz}
+\begin{enumerate}
+    \item Fixed-width addition: Recall the definitions of signed integer representations from class: 
+    sign-magnitude and 2s complement.    
+        \begin{enumerate}
+            \item {\input{../activity-snippets/quiz-fixed-width-bounds.tex}}
+            \item {\input{../activity-snippets/quiz-fixed-width-addition.tex}}
+        \end{enumerate}
+    \newpage
+    \item Circuits
+        \begin{enumerate}
+            \item {\input{../activity-snippets/quiz-circuit-tracing.tex}}
+            \item {\input{../activity-snippets/quiz-circuit-implementing-operation.tex}}
+            \item \input{../activity-snippets/quiz-circuit-tracing-with-or.tex}
+        \end{enumerate}
+    \item Compound Propositions
+        \begin{enumerate}
+            \item \input{../activity-snippets/quiz-dnf-cnf-example.tex}
+            \item \input{../activity-snippets/quiz-cnf-dnf.tex}
+        \end{enumerate}
+    \item Logical equivalence.
+    \input{../activity-snippets/quiz-truth-values-or-and.tex}
+\end{enumerate}
+\end{document}

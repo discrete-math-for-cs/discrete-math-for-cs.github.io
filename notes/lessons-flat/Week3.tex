@@ -1,0 +1,679 @@
+\documentclass[12pt, oneside]{article}
+
+\usepackage[letterpaper, scale=0.89, centering]{geometry}
+\usepackage{fancyhdr}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\rfoot{\href{https://creativecommons.org/licenses/by-nc-sa/2.0/}{CC BY-NC-SA 2.0} Version \today~(\thepage)}
+
+\usepackage{amssymb,amsmath,pifont,amsfonts,comment,enumerate,enumitem}
+\usepackage{currfile,xstring,hyperref,tabularx,graphicx,wasysym}
+\usepackage[labelformat=empty]{caption}
+\usepackage{xcolor}
+\usepackage{multicol,multirow,array,listings,tabularx,lastpage,textcomp,booktabs}
+
+\lstnewenvironment{algorithm}[1][] {   
+    \lstset{ mathescape=true,
+        frame=tB,
+        numbers=left, 
+        numberstyle=\tiny,
+        basicstyle=\rmfamily\scriptsize, 
+        keywordstyle=\color{black}\bfseries,
+        keywords={,procedure, div, for, to, input, output, return, datatype, function, in, if, else, foreach, while, begin, end, }
+        numbers=left,
+        xleftmargin=.04\textwidth,
+        #1
+    }
+}
+{}
+\lstnewenvironment{java}[1][]
+{   
+    \lstset{
+        language=java,
+        mathescape=true,
+        frame=tB,
+        numbers=left, 
+        numberstyle=\tiny,
+        basicstyle=\ttfamily\scriptsize, 
+        keywordstyle=\color{black}\bfseries,
+        keywords={, int, double, for, return, if, else, while, }
+        numbers=left,
+        xleftmargin=.04\textwidth,
+        #1
+    }
+}
+{}
+
+\newcommand\abs[1]{\lvert~#1~\rvert}
+\newcommand{\st}{\mid}
+
+\newcommand{\A}[0]{\texttt{A}}
+\newcommand{\C}[0]{\texttt{C}}
+\newcommand{\G}[0]{\texttt{G}}
+\newcommand{\U}[0]{\texttt{U}}
+
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+
+ 
+\begin{document}
+\begin{flushright}
+    \StrBefore{\currfilename}{.}
+\end{flushright} 
+\subsection*{Week 3 at a glance}
+
+\subsubsection*{We will be learning and practicing to:}
+\begin{itemize}
+\item Model systems with tools from discrete mathematics and reason about implications of modelling choices. Explore applications in CS through multiple perspectives, including software, hardware, and theory.
+\begin{itemize}
+    \item Determining the properties of positional number representations, including overflow and bit operations
+   \item Connecting logical circuits and compound proposition and tracing to calcluate output values
+\end{itemize}
+
+\item Translate between different representations to illustrate a concept.
+\begin{itemize}
+   \item Translating between symbolic and English versions of statements using precise mathematical language
+\end{itemize}
+
+\item Use precise notation to encode meaning and present arguments concisely and clearly
+\begin{itemize}
+    \item Listing the truth tables of atomic boolean functions (and, or, xor, not, if, iff)
+\end{itemize}
+
+\item Know, select and apply appropriate computing knowledge and problem-solving techniques. Reason about computation and systems. Use mathematical techniques to solve problems. Determine appropriate conceptual tools to apply to new situations. Know when tools do not apply and try different approaches. Critically analyze and evaluate candidate solutions.
+\begin{itemize}
+    \item Evaluating compound propositions
+    \item Judging logical equivalence of compound propositions using symbolic manipulation with known equivalences, including DeMorgan's Law
+    \item Judging logical equivalence of compound propositions using truth tables
+    \item Rewriting compound propositions using normal forms
+    \item Judging whether a collection of propositions is consistent
+\end{itemize}
+
+\end{itemize}
+
+\subsubsection*{TODO:}
+\begin{list}
+   {\itemsep2pt}
+   \item Review quiz based on class material each day (due Friday April 19, 2024)
+   \item Homework assignment 3 (due Tuesday April 23, 2024)
+\end{list}
+
+\newpage
+\section*{Week 3 Monday: Fixed-width Addition and Circuits}
+
+
+
+{\bf Fixed-width addition}: adding one bit at time, using the usual column-by-column and carry arithmetic, and dropping the carry from the leftmost column so the result is the same width as the summands.  {\it Does this give the right value for the sum?}
+\begin{multicols}{2}
+\begin{align*}
+   & [0~ 1~ 0~ 1]_{s,4}\\
++ &  [1~ 1~ 0~ 1]_{s,4}\\
+&\overline{\phantom{[0~0~1~0]_{s,4}}}\\
+\end{align*}
+
+\begin{align*}
+   & [0~ 1~ 0~ 1]_{2c,4}\\
++ &  [1~ 0~ 1~ 1]_{2c,4}\\
+&\overline{\phantom{[0~0~0~0]_{2c,4}}}\\
+\end{align*}
+
+\end{multicols}
+
+\vfill
+
+\begin{multicols}{3}
+   \begin{align*}
+      & (1~ 1~ 0~ 1~ 0~ 0)_{2,6}\\
+   + & (0~ 0~ 0~ 1~ 0~ 1)_{2,6}\\
+   &\overline{\phantom{(1~1~1~0~0~1)_{2,6}}}\\
+   \end{align*}
+   
+   \begin{align*}
+      & [1~ 1~ 0~ 1~ 0~ 0]_{s,6}\\
+   + & [0~ 0~ 0~ 1~ 0~ 1]_{s,6}\\
+   &\overline{\phantom{(1~1~1~0~0~1)_2}}\\
+   \end{align*}
+   
+   \begin{align*}
+      & [1~ 1~ 0~ 1~ 0~ 0]_{2c,6}\\
+   + & [0~ 0~ 0~ 1~ 0~ 1]_{2c,6}\\
+   &\overline{\phantom{(1~1~1~0~0~1)_2}}\\
+   \end{align*}
+\end{multicols}
+\vfill
+
+\newpage \vfill
+\vfill
+
+
+In a {\bf combinatorial circuit} (also known as
+a {\bf logic circuit}), we have {\bf logic gates} 
+connected
+by {\bf wires}. The inputs to the circuits are the 
+values set on the input wires: possible
+values are 0 (low) or 1 (high). The values
+flow along the wires from left to right.
+A wire may be split into two or more wires, 
+indicated with a filled-in circle (representing
+solder). Values stay the same along a wire. When 
+one or more wires flow into a gate, the output 
+value of that gate is computed
+from the input values based on the gate's definition
+table. Outputs of gates may become inputs to other
+gates.  
+
+
+\begin{multicols}{2}
+\begin{center}\begin{tabular}{cc|c}
+Inputs &  & Output \\
+$x$ & $y$ & $x \text{ AND } y$  \\
+\hline
+$1$ & $1$ & $1$\\
+$1$ & $0$ & $0$\\
+$0$ & $1$ & $0$\\
+$0$ & $0$ & $0$\\
+\end{tabular}\end{center}
+\columnbreak
+\begin{center}\includegraphics[height=0.6in]{../../resources/images/xANDy.png} \end{center}
+\end{multicols}
+
+\vfill
+
+\begin{multicols}{2}
+\begin{center}\begin{tabular}{cc|c}
+Inputs &  & Output \\
+$x$ & $y$ & $x \text{ XOR } y$  \\
+\hline
+$1$ & $1$ & $0$\\
+$1$ & $0$ & $1$\\
+$0$ & $1$ & $1$\\
+$0$ & $0$ & $0$\\
+\end{tabular}\end{center}
+\columnbreak
+\begin{center}\includegraphics[height=0.4in]{../../resources/images/xXORy.png} \end{center}
+\end{multicols}
+
+\vfill
+
+\begin{multicols}{2}
+\begin{center}\begin{tabular}{c|c}
+Input  & Output \\
+$x$ & $\text{NOT } x$  \\
+\hline
+$1$ & $0$\\
+$0$ & $1$\\
+\end{tabular}\end{center}
+\columnbreak
+\begin{center}\includegraphics[height=0.5in]{../../resources/images/NOTx.png} \end{center}
+\end{multicols}
+
+%
+ \vfill
+
+
+{\bf Example digital circuit}: 
+
+\begin{multicols}{2}
+\begin{center}
+   \includegraphics[width=1.2in]{../../resources/images/circuitEx.png} 
+\end{center}
+\columnbreak
+Output when $x=1, y=0, z=0, w = 1$ is \underline{\phantom{$~~~0~~~$}}
+Output when $x=1, y=1, z=1, w = 1$ is \underline{\phantom{$~~~0~~~$}}
+Output when $x=0, y=0, z=0, w = 1$ is \underline{\phantom{$~~~0~~~$}}
+\phantom{Output when $x=0, y=0, z=0, w = 0$ is \underline{\phantom{$~~~0~~~$}}}
+\end{multicols}
+
+
+
+Draw a logic circuit with inputs $x$ and $y$ whose output  is always $0$.  {\it  Can you use exactly 1 gate?}
+
+
+\vspace{40pt} \vfill
+\newpage
+\section*{Week 3 Wednesday: Propositional Logic}
+
+
+{\bf Fixed-width addition}: adding one bit at time, using the usual column-by-column and carry arithmetic, and dropping the carry from the leftmost column so the result is the same width as the summands.  In many cases, this gives representation of the correct value for the sum when we interpret the summands
+in fixed-width binary or in 2s complement.
+
+For single column:
+
+\begin{multicols}{2}
+\begin{center}
+\begin{tabular}{cc|cc}
+\multicolumn{2}{c|}{Input}  & \multicolumn{2}{|c}{Output}  \\
+$x_0$ & $y_0$ & $c_0$ & $s_0$  \\
+\hline
+$1$ & $1$ & \phantom{$1$} & \phantom{$0$} \\
+$1$ & $0$ & \phantom{$0$} & \phantom{$1$}\\
+$0$ & $1$ & \phantom{$0$} & \phantom{$1$}\\
+$0$ & $0$ & \phantom{$0$} & \phantom{$0$}\\
+\end{tabular}
+\end{center}
+\columnbreak
+\begin{center}
+\includegraphics[width=1.5in]{../../resources/images/half-adder.png}
+\end{center}
+\end{multicols} 
+
+Draw a logic circuit that implements binary addition of 
+two numbers that are each represented in fixed-width binary:
+\begin{itemize}
+\item Inputs  $x_0, y_0, x_1, y_1$ represent $(x_1  x_0)_{2,2}$ and $(y_1 y_0)_{2,2}$
+\item Outputs  $z_0, z_1, z_2$ represent $(z_2  z_1 z_0)_{2,3} = (x_1  x_0)_{2,2} + (y_1 y_0)_{2,2}$ (may require up to width  $3$)
+\end{itemize}
+
+{\it First approach}: half-adder for each column, then combine carry from right column with sum of left column
+
+
+Write expressions for the circuit output values in terms of input values:
+
+$z_0 = \underline{\phantom{x_0 \oplus y_0\hspace{3in}}}$
+
+$z_1 = \underline{\phantom{(x_1 \oplus y_1) \oplus c_0}\hspace{2.5in}}$ \phantom{where $c_0 = x_0 \land y_0$}
+
+$z_2 = \underline{\phantom{(c_0 \land (x_1 \oplus y_1)) \oplus c_1}\hspace{2in}}$ \phantom{where $c_1 = x_1 \land y_1$}\\
+
+\includegraphics[width=1.7in]{../../resources/images/width-2-adder.png}
+
+
+\vfill
+
+{\it There are other approaches, for example}: for middle column, first add carry from right column to $x_1$, then add result to $y_1$
+
+\begin{comment}
+Write expressions for the circuit output values in terms of input values:
+
+$z_0 = \underline{\phantom{x_0 \oplus y_0}\hspace{3in}}$
+
+$z_1 = \underline{ \phantom{(c_0 \oplus x_1) \oplus y_1}\hspace{2.4in}}$ \phantom{where $c_0 = x_0 \land y_0$}
+
+$z_2 = \underline{\phantom{(c_0 \land x_1) \oplus ((c_0 \oplus x_1)\land y_1)}\hspace{1.5in}}$
+
+\vfill
+
+{\it Extra example} Describe how to generalize this addition circuit for larger width inputs.
+\end{comment}
+ \newpage
+
+
+{\bf Logical operators} aka propositional connectives
+
+\begin{tabular}{lccccp{4in}}
+{\bf Conjunction} & AND & $\land$ &\verb|\land| & 2 inputs & Evaluates to $T$ exactly when {\bf both} inputs are $T$\\
+{\bf Exclusive or} & XOR & $\oplus$ &\verb|\oplus| & 2 inputs & Evaluates to $T$ exactly when {\bf exactly one} of inputs is $T$\\
+{\bf Disjunction} & OR & $\lor$ &\verb|\lor| & 2 inputs & Evaluates to $T$ exactly when {\bf at least one} of inputs is $T$\\
+{\bf Negation} & NOT & $\lnot$ &\verb|\lnot| & 1 input & Evaluates to $T$ exactly when its input is $F$\\
+\end{tabular} 
+
+Truth tables: Input-output tables where we use $T$ for $1$ and $F$ for $0$.
+
+\begin{center}
+\begin{tabular}{cc||c|c|c}
+\multicolumn{2}{c||}{Input}  & \multicolumn{3}{c}{Output} \\
+& & {\bf Conjunction} &  {\bf Exclusive or} & {\bf Disjunction} \\
+$p$ & $q$ & $p \land q$ &  $p  \oplus  q$ & $p \lor  q$ \\
+\hline
+$T$ & $T$ & $T$ & $F$ & $T$\\
+$T$ & $F$ & $F$ & $T$ & $T$\\
+$F$ & $T$ & $F$ & $T$ & $T$\\
+$F$ & $F$ & $F$ & $F$ & $F$\\
+\hline
+& & \includegraphics[width=0.5in]{../../resources/images/xANDy.png}
+&  \includegraphics[width=0.5in]{../../resources/images/xXORy.png}
+&  \includegraphics[width=0.5in]{../../resources/images/xORy.png}
+\end{tabular}
+\qquad \qquad\qquad
+\begin{tabular}{c||c}
+Input & Output \\
+& {\bf Negation} \\
+$p$ & $\lnot p$ \\
+\hline
+$T$ & $F$ \\
+$F$ & $T$\\
+\hline & \includegraphics[width=0.5in]{../../resources/images/NOTx.png}
+\end{tabular}
+\end{center}
+ \vfill
+
+
+\begin{center}
+    \begin{tabular}{ccc||p{3in}|c|c}
+    \multicolumn{3}{c||}{Input}  & \multicolumn{3}{c}{Output} \\
+    $p$ & $q$ & $r$  &  &  $(p \land q) \oplus (~ ( p \oplus q) \land r~)$ & $(p \land q) \vee (~ ( p \oplus q) \land r~)$ \\
+    \hline
+    $T$ & $T$  & $T$ &   && \\
+    $T$ & $T$  & $F$ &   && \\
+    $T$ & $F$  & $T$ &   && \\
+    $T$ & $F$  & $F$ &   && \\
+    $F$ & $T$  & $T$ &   && \\
+    $F$ & $T$  & $F$ &   && \\
+    $F$ & $F$  & $T$ &   && \\
+    $F$ & $F$  & $F$ &   && \\
+    \end{tabular}
+\end{center}
+    \vfill \vfill
+\newpage
+\section*{Week 3 Friday: Logical Equivalence}
+
+
+Given a truth table, how do we find an expression
+using the input variables and logical operators that has the 
+output values specified in this table?
+
+{\it Application}: design a circuit given a desired input-output relationship.
+
+\begin{center}
+\begin{tabular}{cc||cc}
+\multicolumn{2}{c||}{Input}  &\multicolumn{2}{c}{Output}\\
+$p$ & $q$& $mystery_1$ & $mystery_2$\\
+\hline
+$T$ & $T$  & $T$ & $F$\\
+$T$ & $F$  & $T$ & $F$\\
+$F$ & $T$  & $F$ & $F$\\
+$F$ & $F$  & $T$ & $T$\\
+\end{tabular}
+\end{center}
+
+
+Expressions that have output $mystery_1$ are
+
+\vspace{100pt}
+
+Expressions that have output $mystery_2$ are
+
+\vspace{100pt}
+
+{\it Idea}: To develop an algorithm for translating truth tables to expressions, 
+define a convenient {\bf normal form} for expressions. 
+
+{\bf  Definition} An expression built of variables and logical 
+operators is in {\bf disjunctive normal form}  (DNF) means
+that it is an OR of ANDs of variables and their negations.
+
+{\bf  Definition} An expression built of variables and logical 
+operators is in {\bf conjunctive normal form}  (CNF) means
+that it is an AND of ORs of variables and their negations.
+ \newpage
+
+
+{\bf Proposition}: Declarative sentence that is true or false (not both).
+
+{\bf Propositional variable}: Variable that represents a proposition.
+
+{\bf Compound proposition}: New proposition formed from existing propositions (potentially) using logical operators.
+{\it Note}: A propositional variable is one example of a compound proposition.
+
+{\bf Truth table}: Table with one row for each of the possible combinations of truth values of the input and 
+    an additional column that shows the truth value of the result of the operation corresponding to a particular row.
+    
+ 
+
+{\bf Logical equivalence }: Two compound  propositions are {\bf logically  equivalent} means that  they 
+have the  same  truth  values for all settings of truth  values to their propositional  variables.
+
+{\bf Tautology}:  A compound proposition that evaluates to true
+for all settings of truth  values to its propositional  variables; it is  abbreviated $T$.
+
+{\bf Contradiction}: A compound proposition that  evaluates  to  false 
+for  all settings of truth  values to its propositional  variables; it  is abbreviated $F$.
+
+{\bf Contingency}: A compound proposition that is neither a tautology nor a contradiction.
+ \vfill
+
+
+Label each of the following as a tautology, contradiction, or contingency.
+
+$p \land p$
+
+\vfill
+
+$p \oplus p$
+
+\vfill
+
+$p \lor p$
+
+\vfill
+
+$p \lor \lnot p$
+
+\vfill
+
+$p \land \lnot p$
+
+\vfill
+
+ \vfill
+
+
+{\it Extra Example}: Which of the  compound propositions in the table below are logically equivalent?
+\begin{center}
+\begin{tabular}{cc||c|c|c|c|c}
+\multicolumn{2}{c||}{Input}  & \multicolumn{5}{c}{Output} \\
+$p$ & $q$ & $\lnot (p \land \lnot q)$ & $\lnot (\lnot p  \lor \lnot q)$ &  $(\lnot p \lor  q)$
+& $(\lnot q \lor \lnot p)$ & $(p \land q)$  \\
+\hline
+$T$ & $T$ & &&&&\\
+$T$ & $F$ & &&&&\\
+$F$ & $T$ & &&&&\\
+$F$ & $F$ & &&&&\\
+\end{tabular}
+\end{center} \vfill
+\newpage
+\subsection*{Review Quiz}
+\begin{enumerate}
+    \item Fixed-width addition: Recall the definitions of signed integer representations from class: 
+    sign-magnitude and 2s complement.    
+        \begin{enumerate}
+            \item {
+
+Recall the definitions of signed integer representations from class: 
+sign-magnitude and 2s complement.
+
+\begin{enumerate}
+   \item What is the least integer that can be represented in sign-magnitude 
+   width $4$?
+   \item What is the greatest integer that  can be represented in sign-magnitude 
+   width $4$?
+   \item What is the least integer that can be represented in 2s complement
+   width $4$?
+   \item What is the greatest integer that  can be represented in 2s complement
+   width $4$?
+\end{enumerate}
+ }
+            \item {
+
+\begin{enumerate}
+    \item In binary fixed-width addition (adding one bit at time, using 
+    the usual column-by-column and carry arithmetic, and ignoring the carry 
+    from the  leftmost column), we get: 
+    \begin{align*}
+        &1110  \qquad  \text{first summand}\\
+        +&0100 \qquad  \text{second summand}\\
+        &\overline{0010} \qquad \text{result}
+    \end{align*}
+    Select all and only the  true  statements below:
+    \begin{enumerate}
+        \item When interpreting each of the summands and the result in binary fixed-width 4, 
+        the result represents the actual value of the sum of the summands.
+        \item When interpreting each of the summands and the sum in sign-magnitude width 4, the result  
+        represents the actual value of the sum of the summands.
+        \item When interpreting each of the summands and the sum in 2s complement width 4, the result 
+        represents the actual value of the sum of the summands.
+    \end{enumerate}    
+    \item In binary fixed-width addition (adding one bit at time, using the 
+    usual column-by-column and carry arithmetic, and ignoring the carry from the 
+    leftmost column), we get: 
+    \begin{align*}
+        &0110  \qquad  \text{first summand}\\
+        +&0111 \qquad  \text{second summand}\\
+        &\overline{1101} \qquad \text{result}
+    \end{align*}
+    Select all and only the  true  statements below:
+    \begin{enumerate}
+        \item When interpreting each of the summands and the result in binary fixed-width 4, 
+        the result represents the actual value of the sum of the summands.
+        \item When interpreting each of the summands and the sum in sign-magnitude width 4, 
+        the result  
+        represents the actual value of the sum of the summands.
+        \item When interpreting each of the summands and the sum in 2s complement width 4, 
+        the result 
+        represents the actual value of the sum of the summands.
+    \end{enumerate}   
+\end{enumerate} }
+        \end{enumerate}
+    \newpage
+    \item Circuits
+        \begin{enumerate}
+            \item {
+
+\begin{enumerate}
+    \item Consider the logic circuit
+        \begin{center}
+        \includegraphics[width=2in]{../../resources/images/review-circuit-1.png}
+        \end{center}
+        Calculate the value of the output of this circuit ($y_1$) for each of the following settings(s) of input values.
+        \begin{enumerate}
+            \item $x_1 = 1$, $x_2 = 1$
+            \item $x_1 = 1$, $x_2 = 0$
+            \item $x_1 = 0$, $x_2 = 1$
+            \item $x_1 = 0$, $x_2 = 0$
+        \end{enumerate}  \item Consider the logic circuit
+        \begin{center}
+        \includegraphics[width=2in]{../../resources/images/review-circuit-2.png}
+        \end{center}
+        For which of the following settings(s) of input values is the output
+        $y_1 = 0$, $y_2 = 1$? (Select all and only those that apply.)
+        \begin{enumerate}
+            \item $x_1 = 0$, $x_2 = 0$, $x_3 = 0$, and $x_4 = 0$
+            \item $x_1 = 1$, $x_2 = 1$, $x_3 = 1$, and $x_4 = 1$
+            \item $x_1 = 1$, $x_2 = 0$, $x_3 = 0$, and $x_4 = 1$
+            \item $x_1 = 0$, $x_2 = 0$, $x_3 = 1$, and $x_4 = 1$
+        \end{enumerate}
+      
+    \end{enumerate}
+     }
+            \item {
+
+Recall this circuit from class:
+\begin{center}
+    \includegraphics[width=1.2in]{../../resources/images/circuitEx.png} 
+ \end{center}
+
+ Which of the following is true about all possible 
+ input values $x,y,z,w$? (Select all and only 
+ choices that are true for all values.)
+ \begin{enumerate}
+    \item The output $out$ is set to $1$ exactly when $x$ is $0$,
+    and it is set to $0$ otherwise.
+    \item The output $out$ is set to $1$ exactly when  $(xyzw)_{2,4} < 8$,
+    and it is set to $0$ otherwise.
+    \item The output $out$ is set to $1$ exactly when  $(wzyx)_{2,4}$
+    is an even integer,
+    and it is set to $0$ otherwise.
+ \end{enumerate} }
+            \item 
+
+\begin{enumerate}
+    \item Consider the logic circuit
+    \begin{center}
+    \includegraphics[width=2in]{../../resources/images/review-circuit-3.png}
+    \end{center}
+    For which of the following settings(s) of input values is the output
+    $y_1 =  0$? (Select all and only those that apply.)
+    \begin{enumerate}
+        \item $x_1 = 0$, $x_2 = 0$, $x_3 = 0$, and $x_4 = 0$
+        \item $x_1 = 1$, $x_2 = 1$, $x_3 = 1$, and $x_4 = 1$
+        \item $x_1 = 1$, $x_2 = 0$, $x_3 = 0$, and $x_4 = 1$
+        \item $x_1 = 0$, $x_2 = 0$, $x_3 = 1$, and $x_4 = 1$
+    \end{enumerate}
+    \item Consider the logic circuits
+    \begin{center}
+    \includegraphics[width=2in]{../../resources/images/review-circuit-1.png}
+    \qquad \qquad \qquad
+    \includegraphics[width=2in]{../../resources/images/review-circuit-4.png}
+    \end{center}
+    For which  of the following settings(s) of input values do the outputs
+    of these  circuits have the  same value, i.e.\ $y_1 =  z_1$? 
+    (Select all and only those that apply.)
+    \begin{enumerate}
+        \item $x_1 = 1$, $x_2 = 1$
+        \item $x_1 = 1$, $x_2 = 0$
+        \item $x_1 = 0$, $x_2 = 1$
+        \item $x_1 = 0$, $x_2 = 0$
+    \end{enumerate}    
+    
+\end{enumerate}         \end{enumerate}
+    \item Compound Propositions
+        \begin{enumerate}
+            \item 
+
+
+
+Recall the definition of DNF (disjunctive normal form) and CNF (conjunctive normal form).
+In particular, remember that to build an expression in DNF whose output matches a given 
+truth table, we focus on the rows of the truth table that output $T$; 
+To build an expression in CNF whose output matches a given 
+truth table, we focus on the rows of the truth table that output $F$.
+Select all and only true statements about an expression  that has output $?$ in the truth table below:
+
+\begin{tabular}{ccc||c}
+    \multicolumn{3}{c||}{Input}  & Output\\
+    $p$ & $q$ & $r$  &  ?\\
+    \hline
+    $T$ & $T$  & $T$ & $T$ \\
+    $T$ & $T$  & $F$ & $T$ \\
+    $T$ & $F$  & $T$ & $F$ \\
+    $T$ & $F$  & $F$ & $T$ \\
+    $F$ & $T$  & $T$ & $F$ \\
+    $F$ & $T$  & $F$ & $F$ \\
+    $F$ & $F$  & $T$ & $T$ \\
+    $F$ & $F$  & $F$ & $F$ \\
+\end{tabular}
+
+\begin{enumerate}
+\item[] An expression in DNF that has output $?$ is 
+$$(p \land q \land r) \lor (p \land q \land \lnot r) \lor (p \land \lnot q \land \lnot r) \lor (\lnot p \land \lnot q \land r)$$
+\item[] An expression in DNF that has output $?$ is 
+$$(\lnot p \land \lnot q \land \lnot r) \lor (\lnot p \land \lnot q \land r) \lor (\lnot p \land q \land r) \lor (p \land q \land \lnot r)$$
+\item[] An expression in CNF that has output $?$ is 
+$$(p \lor \lnot q \lor r) \land (\lnot p \lor q \lor r) \land (\lnot p \lor  q \lor \lnot r) \land (\lnot p \lor \lnot q \lor \lnot r)$$
+\item[] An expression in CNF that has output $?$ is 
+$$(\lnot p \lor  q \lor \lnot r) \land ( p \lor \lnot q \lor \lnot r) \land ( p \lor \lnot q \lor r) \land (p \lor q \lor r)$$
+\end{enumerate}
+             \item 
+
+For each of the following compound propositions, determine
+if it is in DNF, CNF, both, or neither.
+
+\begin{enumerate}
+    \item $(x \lor y \lor z) \land (x \land \lnot y \land z)$
+    \item $\lnot (x \land y \land z) \land \lnot (\lnot x \land y \land \lnot z)$
+\end{enumerate}         \end{enumerate}
+    \item Logical equivalence.
+    
+
+For each of the following propositions, indicate exactly one of:
+
+\begin{itemize}
+    \item There is no assignment of truth values to its variables that makes it true,
+    \item There is exactly one assignment of truth values to its variables that makes it true, or
+    \item There are exactly two assignments of truth values to its variables that make it true, or
+    \item There are exactly three assignments of truth values to its variables that make it true, or
+    \item \emph{All} assignments of truth values to its variables make it true.
+\end{itemize}
+
+\begin{enumerate}
+    \item $x \land y \land (x \lor y)$
+    \item $\lnot x \land y \land (x \lor y)$
+    \item $x \land \lnot y \land (x \land y)$
+    \item $\lnot x \land (y \lor \lnot y)$
+    \item $x \land (y \lor \lnot x)$
+\end{enumerate} \end{enumerate}
+\end{document}

@@ -175,6 +175,102 @@
 <div class="flushright">
 
 </div>
+<h1 class="unnumbered" id="half-adder-circuit">Half adder circuit</h1>
+<p><span><strong>Fixed-width addition</strong></span>: adding one bit at
+time, using the usual column-by-column and carry arithmetic, and
+dropping the carry from the leftmost column so the result is the same
+width as the summands. In many cases, this gives representation of the
+correct value for the sum when we interpret the summands in fixed-width
+binary or in 2s complement.</p>
+<p>For single column:</p>
+<div class="multicols">
+<p><span>2</span></p>
+<div class="center">
+<table>
+<tbody>
+<tr class="odd">
+<td colspan="2" style="text-align: center;">Input</td>
+<td colspan="2" style="text-align: center;">Output</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(x_0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(y_0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(c_0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(s_0\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="center">
+<p><img src="../../resources/images/half-adder.png" style="width:1.5in"
+alt="image" /></p>
+</div>
+</div>
+<h1 class="unnumbered" id="two-bit-adder-circuit">Two bit adder
+circuit</h1>
+<p>Draw a logic circuit that implements binary addition of two numbers
+that are each represented in fixed-width binary:</p>
+<ul>
+<li><p>Inputs <span class="math inline">\(x_0, y_0, x_1, y_1\)</span>
+represent <span class="math inline">\((x_1  x_0)_{2,2}\)</span> and
+<span class="math inline">\((y_1 y_0)_{2,2}\)</span></p></li>
+<li><p>Outputs <span class="math inline">\(z_0, z_1, z_2\)</span>
+represent <span class="math inline">\((z_2  z_1 z_0)_{2,3} =
+(x_1  x_0)_{2,2} + (y_1 y_0)_{2,2}\)</span> (may require up to width
+<span class="math inline">\(3\)</span>)</p></li>
+</ul>
+<p><span><em>First approach</em></span>: half-adder for each column,
+then combine carry from right column with sum of left column</p>
+<p>Write expressions for the circuit output values in terms of input
+values:</p>
+<p><span class="math inline">\(z_0 = \underline{\phantom{x_0 \oplus
+y_0\hspace{3in}}}\)</span></p>
+<p><span class="math inline">\(z_1 = \underline{\phantom{(x_1 \oplus
+y_1) \oplus c_0}\hspace{2.5in}}\)</span></p>
+<p><span class="math inline">\(z_2 = \underline{\phantom{(c_0 \land (x_1
+\oplus y_1)) \oplus c_1}\hspace{2in}}\)</span><br />
+<img src="../../resources/images/width-2-adder.png" style="width:1.7in"
+alt="image" /></p>
+<p><span><em>There are other approaches, for example</em></span>: for
+middle column, first add carry from right column to <span
+class="math inline">\(x_1\)</span>, then add result to <span
+class="math inline">\(y_1\)</span></p>
 <h1 class="unnumbered" id="defining-functions-more-examples">Defining
 functions more examples</h1>
 <p>Let’s practice with functions related to some of our applications so

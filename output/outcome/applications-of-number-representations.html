@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>applications-of-number-representations</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<div class="flushright">
+
+</div>
+<h1 class="unnumbered" id="half-adder-circuit">Half adder circuit</h1>
+<p><span><strong>Fixed-width addition</strong></span>: adding one bit at
+time, using the usual column-by-column and carry arithmetic, and
+dropping the carry from the leftmost column so the result is the same
+width as the summands. In many cases, this gives representation of the
+correct value for the sum when we interpret the summands in fixed-width
+binary or in 2s complement.</p>
+<p>For single column:</p>
+<div class="multicols">
+<p><span>2</span></p>
+<div class="center">
+<table>
+<tbody>
+<tr class="odd">
+<td colspan="2" style="text-align: center;">Input</td>
+<td colspan="2" style="text-align: center;">Output</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(x_0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(y_0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(c_0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(s_0\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="center">
+<p><img src="../../resources/images/half-adder.png" style="width:1.5in"
+alt="image" /></p>
+</div>
+</div>
+<h1 class="unnumbered" id="two-bit-adder-circuit">Two bit adder
+circuit</h1>
+<p>Draw a logic circuit that implements binary addition of two numbers
+that are each represented in fixed-width binary:</p>
+<ul>
+<li><p>Inputs <span class="math inline">\(x_0, y_0, x_1, y_1\)</span>
+represent <span class="math inline">\((x_1  x_0)_{2,2}\)</span> and
+<span class="math inline">\((y_1 y_0)_{2,2}\)</span></p></li>
+<li><p>Outputs <span class="math inline">\(z_0, z_1, z_2\)</span>
+represent <span class="math inline">\((z_2  z_1 z_0)_{2,3} =
+(x_1  x_0)_{2,2} + (y_1 y_0)_{2,2}\)</span> (may require up to width
+<span class="math inline">\(3\)</span>)</p></li>
+</ul>
+<p><span><em>First approach</em></span>: half-adder for each column,
+then combine carry from right column with sum of left column</p>
+<p>Write expressions for the circuit output values in terms of input
+values:</p>
+<p><span class="math inline">\(z_0 = \underline{\phantom{x_0 \oplus
+y_0\hspace{3in}}}\)</span></p>
+<p><span class="math inline">\(z_1 = \underline{\phantom{(x_1 \oplus
+y_1) \oplus c_0}\hspace{2.5in}}\)</span></p>
+<p><span class="math inline">\(z_2 = \underline{\phantom{(c_0 \land (x_1
+\oplus y_1)) \oplus c_1}\hspace{2in}}\)</span><br />
+<img src="../../resources/images/width-2-adder.png" style="width:1.7in"
+alt="image" /></p>
+<p><span><em>There are other approaches, for example</em></span>: for
+middle column, first add carry from right column to <span
+class="math inline">\(x_1\)</span>, then add result to <span
+class="math inline">\(y_1\)</span></p>
+</body>
+</html>

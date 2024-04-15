@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>evidence-for-quantified-statements</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<div class="flushright">
+
+</div>
+<h1 class="unnumbered" id="predicate-definition">Predicate
+definition</h1>
+<p><span><strong>Definition</strong></span>: A
+<span><strong>predicate</strong></span> is a function from a given set
+(domain) to <span class="math inline">\(\{T,F\}\)</span>.</p>
+<p>A predicate can be applied, or
+<span><strong>evaluated</strong></span> at, an element of the
+domain.</p>
+<p>Usually, a predicate <span><em>describes a property</em></span> that
+domain elements may or may not have.</p>
+<p>Two predicates over the same domain are
+<span><strong>equivalent</strong></span> means they evaluate to the same
+truth values for all possible assignments of domain elements to the
+input. In other words, they are equivalent means that they are equal as
+functions.</p>
+<p>To define a predicate, we must specify its domain and its value at
+each domain element. The rule assigning truth values to domain elements
+can be specified using a formula, English description, in a table (if
+the domain is finite), or recursively (if the domain is recursively
+defined).</p>
+<h1 class="unnumbered" id="predicate-examples-finite-domain">Predicate
+examples finite domain</h1>
+<div class="center">
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Input</td>
+<td colspan="3" style="text-align: center;">Output</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span
+class="math inline">\(V(x)\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(N(x)\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(Mystery(x)\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(x\)</span></td>
+<td style="text-align: center;"><span class="math inline">\([x]_{2c,3}
+&gt; 0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\([x]_{2c,3}
+&lt; 0\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(000\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(F\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span
+class="math inline">\(T\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(001\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(T\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span
+class="math inline">\(T\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(010\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(T\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span
+class="math inline">\(T\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(011\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(T\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span
+class="math inline">\(F\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(100\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(F\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span
+class="math inline">\(F\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(101\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(F\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span
+class="math inline">\(T\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(110\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(F\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span
+class="math inline">\(F\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(111\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(F\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span
+class="math inline">\(T\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The domain for each of the predicates <span
+class="math inline">\(V(x)\)</span>, <span
+class="math inline">\(N(x)\)</span>, <span
+class="math inline">\(Mystery(x)\)</span> is <u></u>.</p>
+<p>Fill in the table of values for the predicate <span
+class="math inline">\(N(x)\)</span> based on the formula given.</p>
+<h1 class="unnumbered" id="predicate-truth-set-definition">Predicate
+truth set definition</h1>
+<p><span><strong>Definition</strong></span>: The <span><strong>truth
+set</strong></span> of a predicate is the collection of all elements in
+its domain where the predicate evaluates to <span
+class="math inline">\(T\)</span>.</p>
+<p>Notice that specifying the domain and the truth set is sufficient for
+defining a predicate.</p>
+<h1 class="unnumbered" id="predicate-truth-set-example">Predicate truth
+set example</h1>
+<p>The truth set for the predicate <span
+class="math inline">\(V(x)\)</span> is <span
+class="math inline">\(\underline{\phantom{\{ x ~\mid~ V(x) = T\} = \{
+001, 010, 011 \}}}\)</span>.</p>
+<p>The truth set for the predicate <span
+class="math inline">\(N(x)\)</span> is <span
+class="math inline">\(\underline{\phantom{\{ x ~\mid~ N(x) = T\} = \{
+101, 111 \}}}\)</span>.</p>
+<p>The truth set for the predicate <span
+class="math inline">\(Mystery(x)\)</span> is <span
+class="math inline">\(\underline{\phantom{\{ x ~\mid~ Mystery(x) = T\} =
+\{ 000, 001, 010, 101, 111 \}}}\)</span>.</p>
+<h1 class="unnumbered" id="predicate-rna-example">Predicate rna
+example</h1>
+<p><span><strong>Example predicates on <span
+class="math inline">\(S\)</span>, the set of RNA strands (an infinite
+set)</strong></span></p>
+<p><span class="math inline">\(H: S \to \{T, F\}\)</span> where <span
+class="math inline">\(H(s) = T\)</span> for all <span
+class="math inline">\(s\)</span>.</p>
+<p>Truth set of <span class="math inline">\(H\)</span> is <u></u></p>
+<p><span class="math inline">\(F_{\texttt{A}}: S \to \{T, F\}\)</span>
+defined recursively by:</p>
+<p>  Basis step: <span class="math inline">\(F_{\texttt{A}}(\texttt{A})
+= T\)</span>, <span class="math inline">\(F_{\texttt{A}}(\texttt{C}) =
+F_{\texttt{A}}(\texttt{G}) = F_{\texttt{A}}(\texttt{U}) = F\)</span></p>
+<p>  Recursive step: If <span class="math inline">\(s \in S\)</span> and
+<span class="math inline">\(b \in B\)</span>, then <span
+class="math inline">\(F_{\texttt{A}}(sb) =
+F_{\texttt{A}}(s)\)</span>.</p>
+<p>Example where <span class="math inline">\(F_{\texttt{A}}\)</span>
+evaluates to <span class="math inline">\(T\)</span> is <u></u></p>
+<p>Example where <span class="math inline">\(F_{\texttt{A}}\)</span>
+evaluates to <span class="math inline">\(F\)</span> is <u></u></p>
+</body>
+</html>
