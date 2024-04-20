@@ -1,0 +1,340 @@
+\documentclass[12pt, oneside]{article}
+
+\usepackage[letterpaper, scale=0.8, centering]{geometry}
+\usepackage{fancyhdr}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\rfoot{{\footnotesize Copyright Mia Minnes, 2024, Version \today~(\thepage)}}
+
+\usepackage{titlesec}
+
+\author{CSE20S24}
+
+\newcommand{\instructions}{{\bf For all HW assignments:} 
+These homework assignments may be done individually or in groups of up to 3 students.
+Please ensure your name(s) and PID(s)
+are clearly visible on the first page of your homework
+submission, start each question on a new page, and upload the PDF to Gradescope.
+If you're working in a group, {\it submit only one submission per group}: one partner uploads the
+submission through their Gradescope account and then adds the other group member(s) to the Gradescope submission
+by selecting their name(s) in the ``Add Group Members'' dialog box. You will need to re-add your group member(s)
+every time you resubmit a new version of your assignment.
+
+Each homework question will be graded either for
+{\bf correctness} (including clear and precise explanations and justifications of all answers) or
+{\bf fair effort completeness}. You may collaborate on ``graded for correctness''
+questions only with CSE 20 students in your group; if your
+ group has questions about a problem, you may ask in drop-in help hours or post a private
+post (visible only to the Instructors) on Piazza.  
+ For ``graded for completeness''
+ questions: collaboration is allowed with any CSE 20 students this quarter; 
+ if your group has questions about a problem, you may ask in drop-in 
+ help hours or post a public post on Piazza.
+
+All submitted homework for this class must be typed. 
+You can use a word processing editor if you like (Microsoft Word, Open Office, Notepad, Vim, Google Docs, etc.) 
+but you might find it useful to take this opportunity to learn LaTeX. 
+LaTeX is a markup language used widely in computer science and mathematics. 
+The homework assignments are typed using LaTeX and you can use the source files 
+as templates for typesetting your solutions.
+
+{\bf Integrity reminders}
+\begin{itemize}
+\item Problems should be solved together, not divided up between the partners. The homework is
+designed to give you practice with the main concepts and techniques of the course, 
+while getting to know and learn from your classmates.
+\item You may not collaborate on homework questions graded for correctness with anyone other than your group members.
+You may ask questions about the homework in office hours (of the instructor, TAs, and/or tutors) and 
+on Piazza (as private notes viewable only to the Instructors).  
+You \emph{cannot} use any online resources about the course content other than the class material 
+from this quarter -- this is primarily to ensure that we all use consistent notation and
+definitions (aligned with the textbook) and also to protect the learning experience you will have when
+the `aha' moments of solving the problem authentically happen.
+\item Do not share written solutions or partial solutions for homework with 
+other students in the class who are not in your group. Doing so would dilute their learning 
+experience and detract from their success in the class.
+\end{itemize}
+
+}
+
+\newcommand{\gradeCorrect}{({\it Graded for correctness}) }
+\newcommand{\gradeCorrectFirst}{\gradeCorrect\footnote{This means your solution 
+will be evaluated not only on the correctness of your answers, but on your ability
+to present your ideas clearly and logically. You should explain how you 
+arrived at your conclusions, using
+mathematically sound reasoning. Whether you use formal proof techniques or 
+write a more informal argument
+for why something is true, your answers should always be well-supported. 
+Your goal should be to convince the
+reader that your results and methods are sound.} }
+\newcommand{\gradeComplete}{({\it Graded for completeness}) }
+\newcommand{\gradeCompleteFirst}{\gradeComplete\footnote{This means you will 
+get full credit so long as your submission demonstrates honest effort to 
+answer the question. You will not be penalized for incorrect answers. 
+To demonstrate your honest effort in answering the question, we 
+expect you to include your attempt to answer *each* part of the question. 
+If you get stuck with your attempt, you can still demonstrate 
+your effort by explaining where you got stuck and what 
+you did to try to get unstuck.} }
+
+
+
+\usepackage{amssymb,amsmath,pifont,amsfonts,comment,enumerate,enumitem}
+\usepackage{currfile,xstring,hyperref,tabularx,graphicx,wasysym}
+\usepackage[labelformat=empty]{caption}
+\usepackage{xcolor}
+\usepackage{multicol,multirow,array,listings,tabularx,lastpage,textcomp,booktabs}
+
+\lstnewenvironment{algorithm}[1][] {   
+    \lstset{ mathescape=true,
+        frame=tB,
+        numbers=left, 
+        numberstyle=\tiny,
+        basicstyle=\rmfamily\scriptsize, 
+        keywordstyle=\color{black}\bfseries,
+        keywords={,procedure, div, for, to, input, output, return, datatype, function, in, if, else, foreach, while, begin, end, }
+        numbers=left,
+        xleftmargin=.04\textwidth,
+        #1
+    }
+}
+{}
+\lstnewenvironment{java}[1][]
+{   
+    \lstset{
+        language=java,
+        mathescape=true,
+        frame=tB,
+        numbers=left, 
+        numberstyle=\tiny,
+        basicstyle=\ttfamily\scriptsize, 
+        keywordstyle=\color{black}\bfseries,
+        keywords={, int, double, for, return, if, else, while, }
+        numbers=left,
+        xleftmargin=.04\textwidth,
+        #1
+    }
+}
+{}
+
+\newcommand\abs[1]{\lvert~#1~\rvert}
+\newcommand{\st}{\mid}
+
+\newcommand{\A}[0]{\texttt{A}}
+\newcommand{\C}[0]{\texttt{C}}
+\newcommand{\G}[0]{\texttt{G}}
+\newcommand{\U}[0]{\texttt{U}}
+
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+
+  
+\setlength{\parindent}{0em}
+\setlength{\parskip}{0em}
+
+\title{Project}
+\date{Due: 5/8/24 at 5pm (late submission until 8am next morning)}
+
+\begin{document}
+\maketitle
+\thispagestyle{fancy}
+
+\vspace{-20pt}
+
+In the project component of this class, you will extend your 
+work on assignments and explore applications of your choosing. 
+{\it Why?}
+To go deeper and explore the material from discrete math and how it relates to Computer Science.
+You will watch some videos and read some articles, and then connect them to our work in CSE 20. There 
+are two tasks in the project, and for each one you will submit a short video and a PDF document, each 
+addressing specific questions.
+
+
+As you work on the project, keep in mind our three high-level goals for CSE 20:
+\begin{itemize}
+\item Model systems with tools from discrete mathematics and reason about implications 
+of modelling choices. Explore applications in CS through multiple perspectives, including software, hardware, and theory.
+\item Know, select and apply appropriate computing knowledge and problem-solving techniques. Reason about computation and systems. Use mathematical techniques to solve problems. Determine appropriate conceptual tools to apply to new situations. Know when tools do not apply and try different approaches. Critically analyze and evaluate candidate solutions.
+\item Clearly and, unambiguously communicate computational ideas using appropriate formalism. Translate across levels of abstraction.
+\end{itemize}
+
+
+\subsubsection*{What resources can you use?} This project must be completed individually, 
+without any help from other people, including the course staff (other than logistics support if 
+you get stuck with screencast).
+You can use any of this quarter's CSE 20 offering (notes, readings, class videos, homework feedback)
+and videos and articles explicitly referenced in the project description. 
+These resources should be more than enough.
+If you are struggling to get started and want to look elsewhere online, 
+you must acknowledge this by listing and citing any resources you consult 
+(even if you do not explicitly quote them), including any large-language model style resources (ChatGPT, CoPilot, etc.). 
+Link directly to them and include the name of the author / video creator, 
+any search strings or prompts you used, and the reason you consulted this reference.
+
+If you get stuck on any part of the project, we encourage you to focus on communicating what you think 
+the question might mean, including referring to an example from class or homework you think might be relevant, 
+and include in your submission a discussion of any aspect where you're unsure. Clear communication about these
+theoretical ideas and their applications is one of the main goals of the project.
+
+\subsubsection*{Submitting the project} You will submit a PDF plus a video file for each of the 
+two tasks. All file submissions will be in Gradescope. 
+One way to record the video is to record your screen (this is sometimes called screencast).
+You can use any software you choose. 
+One option is to record yourself with Zoom; a tutorial on how to use Zoom to record a 
+screencast (courtesy of Prof. Joe Politz)  is here: 
+\url{https://drive.google.com/open?id=1KROMAQuTCk40zwrEFotlYSJJQdcG_GUU}.
+The video that was produced from that recording session in Zoom is here:
+\url{https://drive.google.com/open?id=1MxJN6CQcXqIbOekDYMxjh7mTt1TyRVMl}
+Please send an email to the instructor (minnes@ucsd.edu) if you have 
+concerns about  the video / screencast components of this project or cannot 
+complete projects in this style for some reason.
+
+\subsubsection*{Task 1: Exploring an application}
+In CSE 20 this quarter, we will be exploring the applications of discrete mathematics for core Computer
+Science and Engineering topics. {\bf Pick one} of the following videos about work done 
+here at UC San Diego (or by people associated with UC San Diego) and complete both steps of 
+the task described below.
+
+
+[{\bf Video}] Bioinformatics and virology {\it Niema Moshiri}
+{\small \url{https://www.youtube.com/watch?v=PrAoks7OhE8}}
+
+[{\bf Video}] Human robotics interaction {\it Healthcare Robotics Lab at UCSD}
+{\small \url{https://www.youtube.com/watch?v=bS0-asHDXPc}}
+
+[{\bf Video}] Natural Language Processing {\it Taylor Berg-Kirkpatrick}
+{\small \url{https://www.youtube.com/watch?v=8zMfAdPZKnk}}
+
+[{\bf Video}] Cryptography and Complexity {\it Russell Impagliazzo}
+{\small \url{https://youtu.be/RjzSFa03i2U}}
+
+[{\bf Video}] Machine learning (and surfing) for climate science {\it Jasmine Simmons and Engineers for Exploration}
+{\small \url{https://www.uctv.tv/computer-science/search-details.aspx?showID=34350}}
+
+
+
+\begin{enumerate}
+\item Watch the video from above that you selected. {\bf Record a new video} where you present 
+your answers to the following three questions:
+\begin{itemize}
+    \item Which video did you watch?
+    \item Why did you choose the video you watched?
+    \item What are three kinds of data or information that are related to the project described in the video?
+\end{itemize}
+Your video for this task should be 1-3 minutes. Start with 
+your face and your student ID visible for a few seconds at the beginning, and introduce yourself audibly while on screen. 
+You don't have to be on camera for the rest of the video, though it's fine if you are. 
+We are looking for a brief confirmation that it's you creating the video and doing the work 
+submitted for the project. When you are explaining the three kinds of data or information (third part of question 1), 
+we recommend you show them in the video in some form.
+
+\item In the document part of this task, you will explore how to use CSE 20 techniques to 
+model each of the three kinds of data or 
+information that you identified in 
+your video. In particular, answer the following questions in a document 
+that you will submit to Gradescope:
+\begin{itemize}
+    \item Describe how each of the three kinds of data or information 
+    can be modelled using the data types that we discussed in class (sets, ordered $n$-tuples, 
+    strings, or functions). Explain why you are choosing to model this data or information with this data type: what are the benefits 
+    and what are the limitations of this model?
+    \item Write a set using roster method or set builder notation or recursive description that has at least three elements
+    and that demonstrates
+    your model. Include a description of the data or information in English and also include how it is represented 
+    in your model.
+\end{itemize}
+{\bf Type out your answers} to these questions for all of the three kinds of data you identified, 
+how you could model each one, and example sets, and upload your PDF 
+to Gradescope.
+\end{enumerate}
+
+
+\subsubsection*{Task 2: Errors and multiple representations}
+
+Sometimes, the way we represent data leads to imprecision or outright mistakes. 
+Watch the video and read the articles below and then complete the task described.
+
+
+[{\bf Video}] Minecraft mysteries: {\small \url{https://youtu.be/ei58gGM9Z8k?si=oWZQtM_9-7WTGuRO}}
+
+[{\bf Article}]  Excel bug causes a wide-spread problem in published genomics papers.
+{\small \url{https://www.nature.com/articles/d41586-021-02211-4}  (You may need to be on the UCSD network to access this article.)}
+
+[{\bf Article}] IEEE profile of Katherine Johnson, a NASA ``computer" who calculated trajectories for 
+early space exploration and who passed away in 2020
+
+{\small \url{https://spectrum.ieee.org/the-institute/ieee-history/katherine-johnson-the-hidden-figures-mathematician-who-got-astronaut-john-glenn-into-space}}
+
+[{\bf Article}] NASA report about the unsuccessful 1999 Mars Climate Orbiter mission
+{\small \url{https://solarsystem.nasa.gov/missions/mars-climate-orbiter/in-depth/}}
+
+[{\bf Article}] Article about NASA Voyager 1 data corruption
+
+{\small \url{https://www.sciencealert.com/nasa-has-finally-identified-the-reason-behind-voyager-1s-gibberish}}
+
+
+\begin{enumerate}
+    \item {\bf Record a video} where you discuss your answers to these questions:
+    \begin{itemize}
+        \item What are examples in the video or articles above where computers or Computer Science were used
+        to help *avoid* an error?
+        \item Give an example where *you* used computers or Computer Science 
+        to help you *avoid* an error?
+        \item What are examples in the video or articles above where the use of computers or Computer Science
+         *caused* an error.
+        \item Give an example where *your* use of computers or Computer Science 
+        *caused* an error.
+        \item What do you do to increase your confidence in the results of your own human and digital 
+        (i.e. machine) computation? Why do you think these are sufficient?
+     \end{itemize}
+    Focus on your communication clarity in the video for this task. Imagine that your audience is a high school student
+    who is exploring the benefits and drawbacks of using computers to solve problems.
+    Your video for this task should be 1-3 minutes. Start with 
+    your face and your student ID visible for a few seconds at the beginning, and introduce yourself audibly while on screen. 
+    You don't have to be on camera for the rest of the video, though it's fine if you are. 
+    When you are giving examples, you should speak about them as well as having them 
+    displayed on the screen (written or typed using clear and correct notation if relevant, or screen shots from 
+    the video if relevant).
+    
+    \item In the document part of this task, you will explore what mistakes our choice of representations can cause by doing the following:
+    \begin{itemize}
+        \item Pick one of the definitions we've used in CSE 20 for representing {\bf numbers}. 
+        \item Copy the definition for this representation into your writeup, and cite 
+        which page of which week's notes you're using.
+        \item Describe, using roster method or set builder notation, the set of numbers that can represented 
+        with this number representation definition.
+        \item Give an example of a limitation of this number representation by showing 
+        what error could be introduced when using this number representation for an application of your choosing.
+    \end{itemize}
+    {\bf Type out your work} above and upload your PDF to Gradescope.
+    \end{enumerate}
+
+\subsubsection*{Grading}
+Your work on the project will be assigned a letter grade. 
+\begin{itemize}
+\item To earn at least a C on the project, most parts of the project should be attempted
+and your submission should correctly demonstrate some of the tools, techniques, and formalisms we 
+used in class. 
+\item To earn at least a B on the project, almost all of the parts of the project should be 
+substantially complete, and a significant amount of detail and correct notation should be 
+used throughout your examples and explanations.
+\item To earn at least an A on the project, all of the parts of the project should be substantially complete,
+with correct and appropriate use of CSE 20 concepts and notation and clear and detailed explanations.
+\end{itemize}
+
+Since the project is also used to add +/- modifiers at the end of the quarter, you can consider going beyond
+the requirements as well.
+\begin{itemize}
+    \item For example: in your PDF writeup for task 1, you could propose several alternate modelling choices and 
+discuss the tradeoffs (advantages and disadvantages) between them. 
+    \item Another exmaple: in your PDF writeup for 
+task 2, you could discuss what could be done to detect or correct possible errors resulting from choices of
+data representations. 
+    \item You are welcome to explore other extensions too.  Keep in mind, however, that resource limitations
+    means we will be limited to grading no more than 4 minutes of video and 2 pages for each task.
+\end{itemize}
+\end{document}
