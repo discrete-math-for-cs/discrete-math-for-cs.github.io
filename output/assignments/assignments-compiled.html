@@ -1530,6 +1530,344 @@ resulting from choices of data representations.</p></li>
 however, that resource limitations means we will be limited to grading
 no more than 4 minutes of video and 2 pages for each task.</p></li>
 </ul>
+<div class="center">
+<p><span> CSE 20 Spring 2024<br />
+Practice for Test 1 </span></p>
+</div>
+<p>Below are the instructions that will be on the first page of the test
+package:</p>
+<div class="center">
+<hr />
+<p><strong>INSTRUCTIONS — READ THIS NOW</strong></p>
+<ul>
+<li><p>Write your name, PID, current seat number, exam time, and the
+academic integrity pledge in the indicated space above and on the
+designated <span><strong>answer sheet</strong></span>. We will check for
+<span><strong>all</strong></span> of this identifying information before
+grading. Write your answers in the specified areas, or your work will
+not be graded.</p></li>
+<li><p>We will not be answering questions about the exam during the exam
+period. If any bugs are found in the exam after the exam period, the
+affected question part(s) will be addressed.</p></li>
+<li><p>You may use one 8.5"x11", doublesided sheet of notes that you
+create and bring to the exam room, but no other books, notes, or
+aids.</p></li>
+<li><p>You may not speak to any other student in the exam room while the
+exam is in progress (including after you hand in your own exam). You may
+not share <span><strong>any information</strong></span> about the exam
+with anyone who has not taken it.</p></li>
+<li><p>Turn off and put away all cellphones, calculators, and other
+electronic devices. You may not access any electronic device during the
+exam period. If you need to leave the room during the exam period, you
+must leave all electronic devices with an exam proctor.</p></li>
+<li><p>To receive full credit, your answers must be written neatly,
+legibly, and sufficiently darkly to scan well in the indicated answer
+box. Your solution will be evaluated both for correctness and clarity.
+Read the instructions for each part carefully to determine what is
+required for full credit. This test has <span
+class="math inline">\(??\)</span> problems worth a total of <span
+class="math inline">\(??\)</span> points.</p></li>
+<li><p>This exam is <span><strong>45 minutes</strong></span> long. Read
+all the problems first before you start working on any of them, so you
+can manage your time wisely.</p></li>
+<li><p>Please stay seated until the end of the exam period. We will
+collect all exams and note sheets at the
+<span><strong>end</strong></span> of the exam period, to minimize
+disruption for students who wish to use the full time for the exam.
+Please show your ID to a proctor when you hand in your exam.</p></li>
+</ul>
+</div>
+<dl>
+<dt>1. Modeling, Sets and Functions, Algorithms</dt>
+<dd>
+<p>In machine learning, clustering can be used to group similar data for
+prediction and recommendation. For example, each Netflix user’s viewing
+history can be represented as a <span
+class="math inline">\(n\)</span>-tuple indicating their preferences
+about movies in the database, where <span
+class="math inline">\(n\)</span> is the number of movies in the
+database. Each element in the <span
+class="math inline">\(n\)</span>-tuple indicate the user’s rating of the
+corresponding movie: <span class="math inline">\(1\)</span> indicates
+the person liked the movie, <span class="math inline">\(-1\)</span> that
+they didn’t, and <span class="math inline">\(0\)</span> that they didn’t
+rate it one way or another.</p>
+<p>Consider the following algorithm for determining if a user’s viewing
+history represents strong opinions on many movies.</p>
+<div class="algorithm">
+<p>procedure <span class="math inline">\(\textit{opinion}\)</span>(<span
+class="math inline">\((r_1, \ldots, r_n)\)</span>: a <span
+class="math inline">\(n\)</span>-tuple of ratings; <span
+class="math inline">\(c\)</span>: a nonnegative integer) <span
+class="math inline">\(sum\)</span> := <span
+class="math inline">\(0\)</span> for <span
+class="math inline">\(i\)</span> := <span
+class="math inline">\(1\)</span> to <span
+class="math inline">\(n\)</span> if <span class="math inline">\(r_i \neq
+0\)</span> <span class="math inline">\(sum\)</span> := <span
+class="math inline">\(sum + 1\)</span> return <span
+class="math inline">\(sum \geq c\)</span></p>
+</div>
+<ol>
+<li><p>When <span class="math inline">\(n = 3\)</span>, describe the set
+of all <span class="math inline">\(n\)</span>-tuples representing user
+ratings</p>
+<ol>
+<li><p>By the roster method.</p></li>
+<li><p>With set builder notation.</p></li>
+<li><p>Using a recursive definition.</p></li>
+</ol></li>
+<li><p>What are the possible return (output) values of this
+algorithm?</p></li>
+<li><p><span><strong>Trace</strong></span> the computation of <span
+class="math inline">\(opinion( (-1, 0, 0, 0, 1, 1,-1),
+2)\)</span>.</p></li>
+<li><p>Give an example of a nonnegative integer <span
+class="math inline">\(c\)</span> so that, no matter which <span
+class="math inline">\(n\)</span>-tuple <span class="math inline">\((r_1,
+\ldots, r_n)\)</span> we consider, <span class="math inline">\(opinion(
+(r_1, \ldots, r_n), c)\)</span> will have the same value. What value is
+it?</p></li>
+</ol>
+</dd>
+<dt>2. Sets and Functions</dt>
+<dd>
+<p><br />
+</p>
+<ol>
+<li><p>Give a recursive definition for the set <span
+class="math inline">\(\mathbb{N}\)</span>.</p></li>
+<li><p>Use the recursive definition from part (a) to give a recursive
+definition for the function with domain <span
+class="math inline">\(\mathbb{N}\)</span>, codomain <span
+class="math inline">\(\mathbb{N}\)</span> which computes, for input
+<span class="math inline">\(i\)</span>, the sum of the first <span
+class="math inline">\(i\)</span> powers of <span
+class="math inline">\(2\)</span>. For example, on input <span
+class="math inline">\(0\)</span>, the function evaluates to <span
+class="math inline">\(2^0\)</span>, namely to <span
+class="math inline">\(1\)</span>. On input <span
+class="math inline">\(1\)</span>, the function evaluates to <span
+class="math inline">\(2^0 + 2^1\)</span>, namely <span
+class="math inline">\(3\)</span>. On input <span
+class="math inline">\(2\)</span>, the function evaluates to <span
+class="math inline">\(2^0 + 2^1 + 2^2\)</span>, namely <span
+class="math inline">\(7\)</span>.</p></li>
+</ol>
+</dd>
+<dt>3. Base expansions, Multiple representations</dt>
+<dd>
+<p><br />
+</p>
+<ol>
+<li><p>Compute the ternary (base 3) expansion of <span
+class="math inline">\(28\)</span>.</p></li>
+<li><p>Compute the product of <span
+class="math inline">\((6A)_{16}\)</span> and <span
+class="math inline">\((11)_{16}\)</span>, without converting either
+number to another base.</p></li>
+<li><p>Confirm your answer for part (b) by converting <span
+class="math inline">\((6A)_{16}\)</span> and <span
+class="math inline">\((11)_{16}\)</span> to decimal, multiplying them,
+and converting the product to base <span
+class="math inline">\(16\)</span>.</p></li>
+<li><p>How many bits will there be in the binary (base <span
+class="math inline">\(2\)</span>) expansion of <span
+class="math inline">\(2020\)</span>? Can you compute this without fully
+converting <span class="math inline">\(2020\)</span> to base <span
+class="math inline">\(2\)</span>?</p></li>
+<li><p>Give an example of a number that can be represented in base 2
+fixed-width 3, but not in base 2 expansion.</p></li>
+<li><p>Give an example of a number that can be represented in base 2
+expansion, but not in base 2, fixed-width 3 expansion.</p></li>
+<li><p>Give the representation of -7 in sign-magnitude width 3 and 2s
+complement width 3. Then do the same for width 4.</p></li>
+<li><p>Give the representation of 10.5625 in fixed-width base-2
+expansion with integer width 4 and fractional width 9.</p></li>
+</ol>
+</dd>
+<dt>4. Circuits</dt>
+<dd>
+<p>A triangular number (or triangle number) counts the objects that can
+form an equilateral triangle, as in the diagram below. The <span
+class="math inline">\(n^{\text{th}}\)</span> triangular number is the
+sum of the first <span class="math inline">\(n\)</span> integers, as
+shown in the following figure illustrating the first four triangular
+numbers (what is the fifth one?):</p>
+<div class="center">
+<p><img src="../../resources/images/triangle.png" style="width:2.7in"
+alt="image" /></p>
+</div>
+<p>Design a circuit that takes four inputs <span
+class="math inline">\(x_0, x_1, x_2, x_3\)</span> and outputs True (T or
+1) if the integer value <span
+class="math inline">\((x_3x_2x_1x_0)_{2,4}\)</span> is a triangular
+number, and False (F or 0) otherwise. You may assume that 0 is not a
+triangular number. (<span><em>Credit: UBC Department of Computer
+Science</em></span>)</p>
+</dd>
+<dt>5. Circuits, Compound Propositions, Logical Equivalence</dt>
+<dd>
+<p><br />
+</p>
+<ol>
+<li><p>Draw a logic circuit that uses <span><strong>exactly
+three</strong></span> gates and is logically equivalent to <span
+class="math display">\[q \leftrightarrow (p \wedge r)\]</span> You may
+(only) use AND, OR, NOT, and XOR gates.</p></li>
+<li><p>Write a compound proposition which is logically equivalent to
+<span class="math display">\[(p \oplus q) \leftrightarrow r\]</span> You
+may only use the logical operators negation (<span
+class="math inline">\(\neg\)</span>), conjunction <span
+class="math inline">\((\wedge)\)</span>, and disjunction <span
+class="math inline">\((\vee)\)</span>.</p></li>
+<li><p>Find a compound proposition that is in DNF (disjunctive normal
+form) and is logically equivalent to <span class="math display">\[(p
+\vee q \vee \neg r) \wedge (p \vee \neg q \vee r ) \wedge (\neg p \vee q
+\vee r)\]</span></p></li>
+</ol>
+</dd>
+<dt>6. Translating Propositional Logic</dt>
+<dd>
+<p><br />
+</p>
+<div class="multicols">
+<p><span>2</span></p>
+<ul>
+<li><p><span class="math inline">\(p\)</span> is “The display is
+13.3-inch"</p></li>
+<li><p><span class="math inline">\(r\)</span> is “There is at least
+128GB of flash storage"</p></li>
+<li><p><span class="math inline">\(u\)</span> is “There is at least
+512GB of flash storage"</p></li>
+<li><p><span class="math inline">\(q\)</span> is “The processor is 2.2
+GHz"</p></li>
+<li><p><span class="math inline">\(s\)</span> is “There is at least
+256GB of flash storage"</p></li>
+</ul>
+</div>
+<ol>
+<li><p>Are the statements <span class="math display">\[p \to (r \vee s
+\vee u) \qquad, \qquad
+q \to (s \vee u) \qquad, \qquad
+p \leftrightarrow q
+\qquad, \qquad \neg u\]</span> consistent? If so, translate to English a
+possible assignment of truth values to the input propositions that makes
+all four statements true simultaneously.</p></li>
+<li><p>Consider this statement in English:</p>
+<blockquote>
+<p>It’s not the case that both the display is 13.3-inch and the
+processor is 2.2 GHz.</p>
+</blockquote>
+<p>Determine whether each of the compound propositions below is
+equivalent to the <span><strong>negation</strong></span> of that
+statement, and justify your answers using either truth tables or other
+equivalences.</p>
+<p>Possible compound propositions:</p>
+<ul>
+<li><p><span class="math inline">\(\neg p \vee \neg q\)</span></p></li>
+<li><p><span class="math inline">\(\neg (p \to \neg q)\)</span></p></li>
+<li><p><span class="math inline">\(\neg ( p \wedge q)\)</span></p></li>
+<li><p><span class="math inline">\((\neg p \leftrightarrow \neg q)
+\wedge p\)</span></p></li>
+</ul></li>
+<li><p>Consider the compound proposition <span class="math display">\[(p
+\wedge q) \to (r \vee s \vee u)\]</span> Express the
+<span><strong>contrapositive</strong></span> of this conditional as a
+compound proposition.</p>
+<p>Then, give an assignment of truth values to each of the input
+propositional variables for which the original compound proposition is
+True but its <span><strong>converse</strong></span> is False.</p></li>
+</ol>
+</dd>
+<dt>7. Evaluating predicates, Evaluating nested predicates</dt>
+<dd>
+<p><br />
+</p>
+<ol>
+<li><p>Over the domain <span class="math inline">\(\{
+1,2,3,4,5\}\)</span> give an example of predicates <span
+class="math inline">\(P(x), Q(x)\)</span> which demonstrate that <span
+class="math display">\[(\forall x P(x)) \vee (\forall x Q(x))
+\qquad \text{is not logically equivalent to} \qquad
+\forall x  (~ P(x) \vee Q(x) ~)\]</span></p></li>
+<li><p>Over the domain <span class="math inline">\(\{0,1,2\}\)</span>,
+give an example of predicates <span class="math inline">\(P(x),
+Q(x)\)</span> for which all of these statements are true: <span
+class="math display">\[\forall x (P(x) \to Q(x))\]</span> <span
+class="math display">\[\exists x \, P(x)\]</span> <span
+class="math display">\[\exists x \, \neg P(x)\]</span> <span
+class="math display">\[\exists x \, \neg Q(x)\]</span></p></li>
+</ol>
+</dd>
+<dt>8. Evaluating predicates, Evaluating nested predicates</dt>
+<dd>
+<p>Recall that <span class="math inline">\(S\)</span> is defined as the
+set of all RNA strands, where each strand is a nonempty string made of
+the bases in <span class="math inline">\(B =
+\{\texttt{A},\texttt{U},\texttt{G},\texttt{C}\}\)</span>. Recall the
+definition of the following predicates: <span
+class="math inline">\(F_{\texttt{A}}\)</span> with domain <span
+class="math inline">\(S\)</span> is defined recursively by:</p>
+<ul>
+<li><p>Basis step: <span
+class="math inline">\(F_{\texttt{A}}(\texttt{A}) = T\)</span>, <span
+class="math inline">\(F_{\texttt{A}}(\texttt{C}) =
+F_{\texttt{A}}(\texttt{G}) = F_{\texttt{A}}(\texttt{U}) =
+F\)</span></p></li>
+<li><p>Recursive step: If <span class="math inline">\(s \in S\)</span>
+and <span class="math inline">\(b \in B\)</span>, then <span
+class="math inline">\(F_{\texttt{A}}(sb) =
+F_{\texttt{A}}(s)\)</span></p></li>
+</ul>
+<p><span
+class="math inline">\(P_{\texttt{A}\texttt{U}\texttt{C}}\)</span> with
+domain <span class="math inline">\(S\)</span> is defined as the
+predicate whose truth set is the collection of RNA strands where the
+string <span
+class="math inline">\(\texttt{A}\texttt{U}\texttt{C}\)</span> is a
+substring (appears inside <span class="math inline">\(s\)</span>, in
+order and consecutively)</p>
+<p><span class="math inline">\(L\)</span> with domain <span
+class="math inline">\(S \times \mathbb{Z}^+\)</span> is defined by, for
+<span class="math inline">\(s \in S\)</span> and <span
+class="math inline">\(n \in \mathbb{Z}^+\)</span>, <span
+class="math display">\[L( s, n) = \begin{cases}
+T &amp;\qquad\text{if $rnalen(s) = n$}\\
+F &amp;\qquad\text{otherwise}\\
+\end{cases}\]</span></p>
+<ol>
+<li><p>Give a witness for <span class="math inline">\(\exists s_1  \,
+\exists s_2 \,(L(s_1, 4) \land L(s_2,4) \land
+\neg ( s_1 = s_2) )\)</span> where <span
+class="math inline">\(S\)</span> is the set of RNA strands, <span
+class="math inline">\(L(s, n)\)</span> is a predicate with domain <span
+class="math inline">\(S
+\times \mathbb{Z}^+\)</span> that is true when <span
+class="math inline">\(s\)</span> has length <span
+class="math inline">\(n\)</span></p></li>
+<li><p>Give a counterexample that disproves <span
+class="math inline">\(\forall i  \,(\neg
+L(\texttt{A}\texttt{C}\texttt{U}, i))\)</span></p></li>
+<li><p>Determine which of the following statements is True or False (you
+do not need to prove your answer).</p>
+<ol>
+<li><p><span class="math inline">\(\exists n \in \mathbb{Z}^+~ \forall s
+\in S~ ( P_{\texttt{A}\texttt{U}\texttt{C}}(s) \to \lnot L(s,n)
+)\)</span></p></li>
+<li><p><span class="math inline">\(\exists n \in \mathbb{Z}^+~ \forall s
+\in S~ ( P_{\texttt{A}\texttt{U}\texttt{C}}(s) \land \lnot L(s,n)
+)\)</span></p></li>
+<li><p><span class="math inline">\(\forall s \in S~\exists n \in
+\mathbb{Z}^+~ ( P_{\texttt{A}\texttt{U}\texttt{C}}(s) \lor \lnot L(s,n)
+)\)</span></p></li>
+<li><p><span class="math inline">\(\forall s \in S~\exists n \in
+\mathbb{Z}^+~ (L(s,n) \to \lnot
+P_{\texttt{A}\texttt{U}\texttt{C}}(s))\)</span></p></li>
+</ol></li>
+</ol>
+</dd>
+</dl>
 <section id="footnotes" class="footnotes footnotes-end-of-document"
 role="doc-endnotes">
 <hr />
