@@ -40,6 +40,10 @@
             {
                 "name": "Notes",
                 "source": "Week2.tex"
+            },
+            {
+                "name": "Discussion Notes",
+                "source": "cse20sp24_week2discussion.pdf"
             }
         ],
         "Due Dates": [
@@ -91,6 +95,10 @@
             {
                 "name": "Notes",
                 "source": "Week4.tex"
+            },
+            {
+                "name": "Discussion Notes",
+                "source": "cse20sp24_week4discussion.pdf"
             },
             {
                 "name": "(Video) Example translation to predicate logic",
