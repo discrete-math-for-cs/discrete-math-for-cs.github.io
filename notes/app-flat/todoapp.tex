@@ -63,7 +63,375 @@
 \begin{document}
 \begin{flushright}
     \StrBefore{\currfilename}{.}
-\end{flushright} \section*{Logical operators full truth table}
+\end{flushright} \section*{Algorithm redundancy}
+
+
+Real-life representations are often prone to corruption.  Biological codes, like RNA, 
+may mutate naturally\footnote{Mutations of specific RNA codons have been linked to many disorders and cancers.}
+and during measurement; cosmic radiation and other ambient noise 
+can flip bits in computer storage\footnote{This RadioLab podcast episode
+goes into more detail on bit flips: \url{https://www.wnycstudios.org/story/bit-flip}}. 
+One way to recover from corrupted data is to introduce or exploit redundancy. 
+
+Consider the following algorithm to introduce redundancy in a string of $0$s and $1$s.
+\begin{algorithm}[caption={Create redundancy by repeating each bit three times}]
+procedure $\textit{redun3}$($a_{k-1} \cdots a_0$: a nonempty bitstring)
+for $i$ := $0$ to $k-1$
+  $c_{3i}$ := $a_i$
+  $c_{3i+1}$ := $a_i$
+  $c_{3i+2}$ := $a_i$
+return $c_{3k-1} \cdots c_0$
+\end{algorithm}
+
+\begin{algorithm}[caption={Decode sequence of bits using majority rule on consecutive three bit sequences}]
+procedure $\textit{decode3}$($c_{3k-1} \cdots c_0$: a nonempty bitstring whose length is an integer multiple of $3$)
+for $i$ := $0$ to $k-1$
+  if exactly two or three of $c_{3i}, c_{3i+1}, c_{3i+2}$ are set to $1$
+    $a_i$ := 1
+  else 
+    $a_i$ := 0
+return $a_{k-1} \cdots a_0$
+\end{algorithm}
+
+Give a recursive definition of the set of outputs of the $redun3$ procedure, $Out$,
+
+\phantom{{\bf Basis step}: $000 \in Out$ and $111 \in Out$\\ {\bf Recursive step}: If $x \in Out$ then $x000 \in Out$ and $x111 \in Out$ (where $x000$ and $x111$ are the results of string concatenation).}
+
+
+Consider the message $m = 0001$ so that the sender calculates $redun3(m) = redun3(0001) = 000000000111$.
+
+Introduce $\underline{\phantom{~~4~~}} $
+errors into the message so that the signal received by the 
+receiver is $\underline{\phantom{010100010101}}$
+but the receiver is still able to decode the original message.
+
+
+{\it Challenge: what is the biggest number of errors you can introduce?} 
+
+Building a circuit for lines 3-6 in $decode$ procedure: given three input bits, we need to determine whether the
+majority is a $0$ or a $1$.
+
+\begin{center}
+\begin{multicols}{2}\begin{tabular}{ccc|c}
+$c_{3i}$ & $c_{3i+1}$ & $c_{3i+2}$ & $a_i$ \\
+\hline
+$1$ & $1$ & $1$ & $\phantom{1}$ \\
+$1$ & $1$ & $0$ & $\phantom{1}$ \\
+$1$ & $0$ & $1$ & $\phantom{1}$ \\
+$1$ & $0$ & $0$ & $\phantom{0}$ \\
+$0$ & $1$ & $1$ & $\phantom{1}$ \\
+$0$ & $1$ & $0$ & $\phantom{0}$ \\
+$0$ & $0$ & $1$ & $\phantom{0}$ \\
+$0$ & $0$ & $0$ & $\phantom{0}$ \\\\
+\end{tabular}
+\columnbreak
+
+Circuit 
+\end{multicols}
+\end{center} \vfill
+\section*{Cartesian product definition}
+
+
+{\bf Definition}: The {\bf Cartesian product} of the sets $A$ and $B$, 
+$A \times B$, is the set of all ordered pairs $(a, b)$, where $a \in A$ and $b \in B$. 
+That is: $A \times B = \{(a, b) \mid (a \in A) \land (b \in B)\}$.
+The Cartesian product of the sets $A_1, A_2, \ldots ,A_n$, denoted by 
+$A_1 \times A_2 \times \cdots \times A_n$, is the
+set of ordered n-tuples $(a_1, a_2,...,a_n)$, where $a_i$ belongs to 
+$A_i$ for $i = 1, 2,\ldots,n$. That is,
+\[
+    A_1 \times A_2 \times \cdots \times A_n = \{(a_1, a_2,\ldots,a_n) \mid a_i \in A_i \textrm{ for } i = 1, 2,\ldots,n\}
+\] \vfill
+\section*{Rna mutation insertion deletion example}
+
+
+Trace the pseudocode to find the output of $\textit{mutation}(~ (\A\U\C, 3, \G) ~)$
+
+\vspace{50pt}
+
+Fill in the blanks so that $\textit{insertion}(~(\A\U\C, \underline{\phantom{3}}, \underline{\phantom{\G}})~) = \A\U\C\G$
+
+\vspace{50pt}
+
+Fill in the blanks so that $\textit{deletion}(~(\underline{\phantom{\G\G}}, \underline{\phantom{1}})~) =  \G$
+
+\vspace{50pt}
+ \vfill
+\section*{Rna rnalen basecount definitions}
+
+
+{\it Recall the definitions}: The set of RNA strands $S$ is defined (recursively) by:
+\[
+\begin{array}{ll}
+\textrm{Basis Step: } & \A \in S, \C \in S, \U \in S, \G \in S \\
+\textrm{Recursive Step: } & \textrm{If } s \in S\textrm{ and }b \in B \textrm{, then }sb \in S
+\end{array}
+\]
+where $sb$ is string concatenation.
+
+The function \textit{rnalen} that computes the length of RNA strands in $S$ is defined recursively by:
+\[
+\begin{array}{llll}
+& & \textit{rnalen} : S & \to \mathbb{Z}^+ \\
+\textrm{Basis Step:} & \textrm{If } b \in B\textrm{ then } & \textit{rnalen}(b) & = 1 \\
+\textrm{Recursive Step:} & \textrm{If } s \in S\textrm{ and }b \in B\textrm{, then  } & \textit{rnalen}(sb) & = 1 + \textit{rnalen}(s)
+\end{array}
+\]
+
+The function \textit{basecount} that computes the number of a given base 
+$b$ appearing in a RNA strand $s$ is defined recursively by:
+\[
+\begin{array}{llll}
+& & \textit{basecount} : S \times B & \to \mathbb{N} \\
+\textrm{Basis Step:} &  \textrm{If } b_1 \in B, b_2 \in B & \textit{basecount}(~(b_1, b_2)~) & =
+        \begin{cases}
+            1 & \textrm{when } b_1 = b_2 \\
+            0 & \textrm{when } b_1 \neq b_2 \\
+        \end{cases} \\
+\textrm{Recursive Step:} & \textrm{If } s \in S, b_1 \in B, b_2 \in B &\textit{basecount}(~(s b_1, b_2)~) & =
+        \begin{cases}
+            1 + \textit{basecount}(~(s, b_2)~) & \textrm{when } b_1 = b_2 \\
+            \textit{basecount}(~(s, b_2)~) & \textrm{when } b_1 \neq b_2 \\
+        \end{cases}
+\end{array}
+\] \vfill
+\section*{Proof strategies quantification finite domain}
+
+
+When a predicate $P(x)$ is over a {\bf finite} domain:
+\begin{itemize}
+\item To show that $\forall x  P(x)$ is true: check that $P(x)$ evaluates to $T$ at each domain element by evaluating over and over. 
+This is called ``Proof of universal by {\bf exhaustion}".
+\item To show that $\forall x  P(x)$ is false: find a {\bf counterexample}, a domain element where $P(x)$~evaluates~to~$F$.
+\item To show that $\exists x  P(x)$ is true: find a {\bf witness}, a domain element where $P(x)$ evaluates to $T$.
+\item To show that $\exists x  P(x)$ is false: check that $P(x)$ evaluates to $F$ at each domain element by evaluating over and over.
+DeMorgan's Law gives that $\lnot \exists x P(x) ~~\equiv~~ \forall x \lnot P(x)$ so this amounts to a proof of universal by exhaustion.
+\end{itemize} \vfill
+\section*{Proof strategy universal generalization}
+
+
+\fbox{\parbox{\linewidth}{
+
+{\bf New! Proof by universal generalization}: To prove that $\forall x \, P(x)$
+is true, we can take an arbitrary element $e$ from the domain of 
+quantification and show that $P(e)$ is true, without making any assumptions about $e$ 
+other than that it comes from the domain.
+
+
+An {\bf arbitrary} element of a set or domain is a fixed but unknown element from that set. 
+}}
+ \vfill
+\section*{Quiz translating counting quantifiers}
+
+
+Suppose $P(x)$ is  a predicate over a domain $D$.
+\begin{enumerate}
+    \item True or False: To translate the statement
+    ``There are at least two  elements in $D$
+    where the predicate $P$ evaluates to true", we
+    could  write
+    \[
+    \exists  x_1 \in D \, \exists x_2 \in D  \, (P(x_1) \wedge P(x_2))
+    \]
+    \vfill
+    \item True or False: To translate the statement
+    ``There are at most two  elements in $D$
+    where the predicate $P$ evaluates to true", we
+    could write
+    \[
+    \forall  x_1 \in D \, \forall x_2 \in D \, \forall x_3 \in  D \, \left(~ (~P(x_1) \wedge P(x_2)  \wedge P(x_3) ~) \to (~ x_1 = x_2 \vee x_2 = x_3 \vee x_1 = x_3~)~\right)
+    \]
+    \vfill
+\end{enumerate} \vfill
+\section*{Sets equality subset definition}
+
+
+{\bf Definitions}:
+
+A {\bf set} is an  unordered collection of  elements.
+When $A$ and  $B$ are sets,  $A = B$ (set equality) means  
+\[
+    \forall x  ( x\in A \leftrightarrow x \in B)
+\]
+
+When $A$ and  $B$ are sets, $A \subseteq B$ (``$A$ is a {\bf subset} of $B$") means 
+\[
+    \forall x  (x \in A  \to x  \in B)
+\]
+
+When $A$ and  $B$ are sets,  $A \subsetneq B$ (``$A$ is a {\bf proper subset} of $B$") means 
+\[
+    (A\subseteq B) \wedge  (A \neq B)
+\] \vfill
+\section*{Proof strategies conditionals}
+
+
+\fbox{\parbox{\linewidth}{
+
+{\bf New! Proof of conditional by direct proof}: To prove that the conditional statement $p \to q$ is true, 
+we can assume $p$ is true and use that assumption to show $q$ is true.
+}}
+
+\fbox{\parbox{\linewidth}{
+
+{\bf New! Proof of conditional by contrapositive proof}: To prove that the implication $p \to q$ is true, 
+we can assume $q$ is false and use that assumption to show $p$ is also false.
+}}
+
+\fbox{\parbox{\linewidth}{
+
+{\bf New! Proof of disjuction using equivalent conditional}: To prove that the 
+disjunction $p \lor q$ is true, we can rewrite it equivalently as $\lnot p \to q$ and
+then use direct proof or contrapositive proof.
+}} \vfill
+\section*{Proof strategies proof by cases}
+
+
+\fbox{\parbox{\linewidth}{{\bf New! Proof by Cases}: To prove $q$, we can 
+work by cases by first describing all possible cases we might be in
+and then showing that each one guarantees $q$.
+Formally, if we know that $p_1 \lor p_2$ is true, 
+and we can show that $(p_1 \to q)$ is true and we can show that $(p_2 \to q)$, 
+then we can conclude $q$ is true.
+}} \vfill
+\section*{Proof strategies ands}
+
+
+\fbox{\parbox{\linewidth}{
+{\bf New! Proof of conjunctions with subgoals}:
+To show that $p \land q$ is true, we have two subgoals: subgoal (1) prove $p$ 
+is  true; and, subgoal (2) prove $q$ is true.
+
+\vspace{1em}
+
+ To show that $p \land q$ is false, it's enough to prove that $\lnot p$.
+ 
+ To show that $p \land q$ is false, it's enough to prove that $\lnot q$.
+}} \vfill
+\section*{Sets proof strategies}
+
+
+To prove that one set is a subset of another, e.g. to show $A \subseteq B$:
+
+\vspace{50pt}
+
+To prove that two sets are equal, e.g. to show $A = B$:
+
+\vspace{50pt}
+ \vfill
+\section*{Sets equality example}
+
+
+Example: $\{ 43, 7, 9 \} = \{ 7, 43, 9, 7\}$
+
+\vspace{50pt}
+ \vfill
+\section*{Sets basic proofs}
+
+
+{\bf Prove} or {\bf  disprove}: $\{ \A,  \C,  \U,  \G\} \subseteq \{ \A\A, \A\C, \A\U, \A\G \}$ 
+
+\vspace{150pt}
+
+{\bf Prove} or {\bf  disprove}: For some set $B$, $\emptyset \in B$.
+
+\vspace{150pt}
+
+{\bf Prove} or {\bf  disprove}: For every set $B$, $\emptyset \in B$.
+
+\vspace{150pt}
+
+{\bf Prove} or {\bf  disprove}: The empty set is a subset of every set.
+
+\vspace{150pt}
+
+{\bf Prove} or {\bf  disprove}: The empty set is a proper subset of every set.
+
+\vspace{150pt}
+
+{\bf Prove} or {\bf  disprove}: $\{ 4, 6 \} \subseteq \{ n \mid  \exists c \in \mathbb{Z} ( n = 4c) \} $
+
+\vspace{150pt}
+
+{\bf Prove} or {\bf  disprove}: $\{ 4, 6 \} \subseteq \{ n ~\textbf{mod}~10 \mid  \exists c \in \mathbb{Z} ( n = 4c) \} $
+
+\vspace{150pt}
+
+ \vfill
+\section*{Proofs signposting}
+
+
+\fbox{\parbox{\textwidth}{
+
+\vspace{10pt}
+
+Consider \ldots, an {\bf arbitrary} \ldots.
+{\bf Assume} \ldots, we {\bf want to show} that \ldots. Which is what was needed,
+so the proof is complete $\square$.
+
+\vspace{20pt} {\it or, in other words:} \vspace{20pt}
+
+Let \ldots be an {\bf arbitrary} \ldots. {\bf Assume} \ldots, {\bf WTS} that \ldots {\bf QED}.
+
+\vspace{10pt}
+
+}} \vfill
+\section*{Set operations union intersection powerset}
+
+
+{\bf Cartesian product}: When $A$ and  $B$ are sets, 
+\[
+    A \times  B = \{ (a,b) \mid a \in A  \wedge b  \in B \}
+\]
+
+Example: $\{43, 9\} \times  \{9, \mathbb{Z}\}  = $
+    
+Example: $\mathbb{Z} \times \emptyset  = $
+
+{\bf Union}: When $A$ and  $B$ are sets,
+\[
+    A \cup  B = \{ x \mid x \in A  \vee x \in B \}
+\]    
+    
+Example: $\{43, 9\} \cup \{9, \mathbb{Z}\}  = $
+
+Example: $\mathbb{Z} \cup \emptyset  = $ 
+
+{\bf Intersection}: When $A$ and  $B$ are sets,
+\[
+    A \cap  B = \{ x \mid x \in A  \wedge x \in B \}
+\]    
+Example: $\{43, 9\} \cap \{9,\mathbb{Z}\}  = $
+
+Example: $\mathbb{Z} \cap \emptyset  = $
+
+
+{\bf Set  difference}: When $A$ and  $B$ are sets,
+
+\[
+    A -  B = \{ x \mid x \in A  \wedge x \notin B \}
+\]
+
+Example: $\{43, 9\} - \{9, \mathbb{Z}\}  = $
+
+Example: $\mathbb{Z} - \emptyset  = $
+
+    
+{\bf Disjoint sets}: sets $A$ and  $B$ are disjoint means $A \cap  B  = \emptyset$
+
+Example: $\{43, 9\}, \{9, \mathbb{Z}\}$ are not  disjoint 
+
+Example: The sets $\mathbb{Z}$ and $\emptyset$ are disjoint
+
+    
+
+{\bf Power set}: When $U$ is a set, $\mathcal{P}(U) = \{ X \mid X \subseteq U\}$
+
+Example: $\mathcal{P}(\{43, 9\}) = $
+
+Example: $\mathcal{P}(\emptyset) = $
+ \vfill
+\section*{Logical operators full truth table}
 
 
 \begin{center}

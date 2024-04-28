@@ -63,7 +63,101 @@
 \begin{document}
 \begin{flushright}
     \StrBefore{\currfilename}{.}
-\end{flushright} \section*{Alternating quantifiers strategies rna examples}
+\end{flushright} \section*{Algorithm rna mutation insertion deletion}
+
+
+Recall that $S$ is defined as the set of all RNA strands, nonempty strings made of the bases in 
+$B = \{\A,\U,\G,\C\}$. 
+We define the functions 
+\[
+  \textit{mutation}: S \times \mathbb{Z}^+ \times B \to S
+\qquad \qquad
+  \textit{insertion}: S \times \mathbb{Z}^+ \times B \to S
+\]
+\[
+  \textit{deletion}: \{ s\in S \mid rnalen(s) > 1\} \times \mathbb{Z}^+ \to S
+  \qquad \qquad \textrm{with rules}
+\]
+
+\begin{algorithm}
+procedure $\textit{mutation}$($b_1\cdots b_n$: $\textrm{a RNA strand}$, $k$: $\textrm{a  positive integer}$, $b$: $\textrm{an  element of } B$)
+for $i$ := $1$ to $n$
+  if $i$ = $k$
+    $c_i$ := $b$
+  else
+    $c_i$ := $b_i$
+return $c_1\cdots c_n$ $\{ \textrm{The return value is a RNA strand made of the } c_i \textrm{ values}\}$
+\end{algorithm}
+
+\begin{algorithm}
+procedure $\textit{insertion}$($b_1\cdots b_n$: $\textrm{a RNA strand}$, $k$: $\textrm{a  positive integer}$, $b$: $\textrm{an  element of } B$)
+if $k > n$
+  for $i$ := $1$ to $n$
+    $c_i$ := $b_i$
+  $c_{n+1}$ := $b$
+else 
+  for $i$ := $1$ to $k-1$
+    $c_i$ := $b_i$
+  $c_k$ := $b$
+  for $i$ := $k+1$ to $n+1$
+    $c_i$ := $b_{i-1}$
+return $c_1\cdots c_{n+1}$ $\{ \textrm{The return value is a RNA strand made of the } c_i \textrm{ values}\}$
+\end{algorithm}
+
+\begin{algorithm}
+procedure $\textit{deletion}$($b_1\cdots b_n$: $\textrm{a RNA strand with } n>1$, $k$: $\textrm{a  positive integer}$)
+if $k > n$
+  $m$ := $n$
+  for $i$ := $1$ to $n$
+    $c_i$ := $b_i$
+else
+  $m$ := $n-1$
+  for $i$ := $1$ to $k-1$ 
+    $c_i$ := $b_i$
+  for $i$ := $k$ to $n-1$
+    $c_i$ := $b_{i+1}$
+return $c_1\cdots c_m$ $\{ \textrm{The return value is a RNA strand made of the } c_i \textrm{ values}\}$
+\end{algorithm}
+ \vfill
+\section*{Alternating quantifiers order rna examples}
+
+
+{\bf Alternating nested quantifiers}
+
+
+
+$$\forall s \in S ~\exists n \in \mathbb{N} ~(~basecount(~(s,\U)~) = n~)$$
+
+In English: For each strand, there is a nonnnegative integer that counts the number of occurrences of $\U$ in that 
+strand.\\
+
+$$\exists n \in ~\forall s \in S ~\mathbb{N} ~(~basecount(~(s,\U)~) = n~)$$
+
+In English: There is a nonnnegative integer that counts the number of occurrences of $\U$ in every 
+strand.\\
+
+\vfill
+
+Are these statements true or false?
+
+\newpage
+
+$$\forall s \in S ~\exists b\in B ~(~basecount(~(s,b)~) = 3~)$$
+
+In English: For each RNA strand there is a base that occurs 3 times in this strand.\\
+
+Write the negation and use De Morgan's law to find a 
+logically equivalent version where the negation is applied only to the 
+$BC$ predicate (not next to a quantifier).
+
+\vspace{60pt}
+
+
+Is the original statement {\bf True} or {\bf False}?
+
+\vfill
+ \vfill
+\section*{Alternating quantifiers strategies rna examples}
 
 
 {\bf Alternating nested quantifiers}

@@ -176,6 +176,132 @@
 
 </div>
 <h1 class="unnumbered"
+id="algorithm-rna-mutation-insertion-deletion">Algorithm rna mutation
+insertion deletion</h1>
+<p>Recall that <span class="math inline">\(S\)</span> is defined as the
+set of all RNA strands, nonempty strings made of the bases in <span
+class="math inline">\(B =
+\{\texttt{A},\texttt{U},\texttt{G},\texttt{C}\}\)</span>. We define the
+functions <span class="math display">\[\textit{mutation}: S \times
+\mathbb{Z}^+ \times B \to S
+\qquad \qquad
+  \textit{insertion}: S \times \mathbb{Z}^+ \times B \to S\]</span>
+<span class="math display">\[\textit{deletion}: \{ s\in S \mid rnalen(s)
+&gt; 1\} \times \mathbb{Z}^+ \to S
+  \qquad \qquad \textrm{with rules}\]</span></p>
+<div class="algorithm">
+<p>procedure <span
+class="math inline">\(\textit{mutation}\)</span>(<span
+class="math inline">\(b_1\cdots b_n\)</span>: <span
+class="math inline">\(\textrm{a RNA strand}\)</span>, <span
+class="math inline">\(k\)</span>: <span
+class="math inline">\(\textrm{a  positive integer}\)</span>, <span
+class="math inline">\(b\)</span>: <span
+class="math inline">\(\textrm{an  element of } B\)</span>) for <span
+class="math inline">\(i\)</span> := <span
+class="math inline">\(1\)</span> to <span
+class="math inline">\(n\)</span> if <span
+class="math inline">\(i\)</span> = <span
+class="math inline">\(k\)</span> <span
+class="math inline">\(c_i\)</span> := <span
+class="math inline">\(b\)</span> else <span
+class="math inline">\(c_i\)</span> := <span
+class="math inline">\(b_i\)</span> return <span
+class="math inline">\(c_1\cdots c_n\)</span> <span
+class="math inline">\(\{ \textrm{The return value is a RNA strand made
+of the } c_i \textrm{ values}\}\)</span></p>
+</div>
+<div class="algorithm">
+<p>procedure <span
+class="math inline">\(\textit{insertion}\)</span>(<span
+class="math inline">\(b_1\cdots b_n\)</span>: <span
+class="math inline">\(\textrm{a RNA strand}\)</span>, <span
+class="math inline">\(k\)</span>: <span
+class="math inline">\(\textrm{a  positive integer}\)</span>, <span
+class="math inline">\(b\)</span>: <span
+class="math inline">\(\textrm{an  element of } B\)</span>) if <span
+class="math inline">\(k &gt; n\)</span> for <span
+class="math inline">\(i\)</span> := <span
+class="math inline">\(1\)</span> to <span
+class="math inline">\(n\)</span> <span
+class="math inline">\(c_i\)</span> := <span
+class="math inline">\(b_i\)</span> <span
+class="math inline">\(c_{n+1}\)</span> := <span
+class="math inline">\(b\)</span> else for <span
+class="math inline">\(i\)</span> := <span
+class="math inline">\(1\)</span> to <span
+class="math inline">\(k-1\)</span> <span
+class="math inline">\(c_i\)</span> := <span
+class="math inline">\(b_i\)</span> <span
+class="math inline">\(c_k\)</span> := <span
+class="math inline">\(b\)</span> for <span
+class="math inline">\(i\)</span> := <span
+class="math inline">\(k+1\)</span> to <span
+class="math inline">\(n+1\)</span> <span
+class="math inline">\(c_i\)</span> := <span
+class="math inline">\(b_{i-1}\)</span> return <span
+class="math inline">\(c_1\cdots c_{n+1}\)</span> <span
+class="math inline">\(\{ \textrm{The return value is a RNA strand made
+of the } c_i \textrm{ values}\}\)</span></p>
+</div>
+<div class="algorithm">
+<p>procedure <span
+class="math inline">\(\textit{deletion}\)</span>(<span
+class="math inline">\(b_1\cdots b_n\)</span>: <span
+class="math inline">\(\textrm{a RNA strand with } n&gt;1\)</span>, <span
+class="math inline">\(k\)</span>: <span
+class="math inline">\(\textrm{a  positive integer}\)</span>) if <span
+class="math inline">\(k &gt; n\)</span> <span
+class="math inline">\(m\)</span> := <span
+class="math inline">\(n\)</span> for <span
+class="math inline">\(i\)</span> := <span
+class="math inline">\(1\)</span> to <span
+class="math inline">\(n\)</span> <span
+class="math inline">\(c_i\)</span> := <span
+class="math inline">\(b_i\)</span> else <span
+class="math inline">\(m\)</span> := <span
+class="math inline">\(n-1\)</span> for <span
+class="math inline">\(i\)</span> := <span
+class="math inline">\(1\)</span> to <span
+class="math inline">\(k-1\)</span> <span
+class="math inline">\(c_i\)</span> := <span
+class="math inline">\(b_i\)</span> for <span
+class="math inline">\(i\)</span> := <span
+class="math inline">\(k\)</span> to <span
+class="math inline">\(n-1\)</span> <span
+class="math inline">\(c_i\)</span> := <span
+class="math inline">\(b_{i+1}\)</span> return <span
+class="math inline">\(c_1\cdots c_m\)</span> <span
+class="math inline">\(\{ \textrm{The return value is a RNA strand made
+of the } c_i \textrm{ values}\}\)</span></p>
+</div>
+<h1 class="unnumbered"
+id="alternating-quantifiers-order-rna-examples">Alternating quantifiers
+order rna examples</h1>
+<p><span><strong>Alternating nested quantifiers</strong></span></p>
+<p><span class="math display">\[\forall s \in S ~\exists n \in
+\mathbb{N} ~(~basecount(~(s,\texttt{U})~) = n~)\]</span></p>
+<p>In English: For each strand, there is a nonnnegative integer that
+counts the number of occurrences of <span
+class="math inline">\(\texttt{U}\)</span> in that strand.<br />
+<span class="math display">\[\exists n \in ~\forall s \in S ~\mathbb{N}
+~(~basecount(~(s,\texttt{U})~) = n~)\]</span></p>
+<p>In English: There is a nonnnegative integer that counts the number of
+occurrences of <span class="math inline">\(\texttt{U}\)</span> in every
+strand.<br />
+</p>
+<p>Are these statements true or false?</p>
+<p><span class="math display">\[\forall s \in S ~\exists b\in B
+~(~basecount(~(s,b)~) = 3~)\]</span></p>
+<p>In English: For each RNA strand there is a base that occurs 3 times
+in this strand.<br />
+Write the negation and use De Morgan’s law to find a logically
+equivalent version where the negation is applied only to the <span
+class="math inline">\(BC\)</span> predicate (not next to a
+quantifier).</p>
+<p>Is the original statement <span><strong>True</strong></span> or
+<span><strong>False</strong></span>?</p>
+<h1 class="unnumbered"
 id="alternating-quantifiers-strategies-rna-examples">Alternating
 quantifiers strategies rna examples</h1>
 <p><span><strong>Alternating nested quantifiers</strong></span></p>
