@@ -578,6 +578,451 @@ class="math inline">\(T\)</span>:<br />
 id="alternating-quantifiers-strategies-rna-examples">Alternating
 quantifiers strategies rna examples</h1>
 <p><span><strong>Alternating nested quantifiers</strong></span></p>
+<h1 class="unnumbered" id="sets-proof-strategies-1">Sets proof
+strategies</h1>
+<p>To prove that one set is a subset of another, e.g. to show <span
+class="math inline">\(A \subseteq B\)</span>:</p>
+<p>To prove that two sets are equal, e.g. to show <span
+class="math inline">\(A = B\)</span>:</p>
+<h1 class="unnumbered" id="sets-basic-proofs-operations">Sets basic
+proofs operations</h1>
+<p>Let <span class="math inline">\(W =  \mathcal{P}(  \{ 1,2,3,4,5\}
+)\)</span></p>
+<p>Example elements in <span class="math inline">\(W\)</span> are:</p>
+<p><span><strong>Prove</strong></span> or
+<span><strong>disprove</strong></span>: <span
+class="math inline">\(\forall  A \in W\,  \forall B \in W\,  \left( A
+\subseteq B
+~\to ~ \mathcal{P}(A) \subseteq \mathcal{P}(B) \right)\)</span></p>
+<p><span><strong>Prove</strong></span> or
+<span><strong>disprove</strong></span>: <span
+class="math inline">\(\forall  A \in W\,  \forall B \in W\,  \left(
+\mathcal{P}(A)  =\mathcal{P}(B)
+~\to ~ A = B \right)\)</span></p>
+<p><span><strong>Prove</strong></span> or
+<span><strong>disprove</strong></span>: <span
+class="math inline">\(\forall  A \in W\,  \forall B \in W\, \forall
+C  \in W\,  \left( A\cup B  = A \cup  C
+~\to ~ B = C \right)\)</span></p>
+<h1 class="unnumbered" id="proof-strategies-road-map">Proof strategies
+road map</h1>
+<p>We now have propositional and predicate logic that can help us
+express statements about any domain. We will develop proof strategies to
+craft valid argument for proving that such statements are true or
+disproving them (by showing they are false). We will practice these
+strategies with statements about sets and numbers, both because they are
+familiar and because they can be used to build cryptographic systems.
+Then we will apply proof strategies more broadly to prove statements
+about data structures and machine learning applications.</p>
+<h1 class="unnumbered" id="numbers-facts">Numbers facts</h1>
+<ol>
+<li><p>Addition and multiplication of real numbers are each commutative
+and associative.</p></li>
+<li><p>The product of two positive numbers is positive, of two negative
+numbers is positive, and of a positive and a negative number is
+negative.</p></li>
+<li><p>The sum of two integers, the product of two integers, and the
+difference between two integers are each integers.</p></li>
+<li><p>For every integer <span class="math inline">\(x\)</span> there is
+no integer strictly between <span class="math inline">\(x\)</span> and
+<span class="math inline">\(x+1\)</span>,</p></li>
+<li><p>When <span class="math inline">\(x, y\)</span> are positive
+integers, <span class="math inline">\(xy \geq x\)</span> and <span
+class="math inline">\(xy \geq y\)</span>.</p></li>
+</ol>
+<h1 class="unnumbered" id="factoring-definition">Factoring
+definition</h1>
+<p><span><strong>Definition</strong></span>: When <span
+class="math inline">\(a\)</span> and <span
+class="math inline">\(b\)</span> are integers and <span
+class="math inline">\(a\)</span> is nonzero, <span><strong><span
+class="math inline">\(a\)</span> divides <span
+class="math inline">\(b\)</span></strong></span> means there is an
+integer <span class="math inline">\(c\)</span> such that <span
+class="math inline">\(b = ac\)</span> .</p>
+<p>Symbolically, <span class="math inline">\(F(~(a,b)~) =
+\phantom{\exists c\in \mathbb{Z}~(b=ac)}\)</span> and is a predicate
+over the domain <u></u></p>
+<p>Other (synonymous) ways to say that <span
+class="math inline">\(F(~(a,b)~)\)</span> is true:</p>
+<div class="center">
+<p><span class="math inline">\(a\)</span> is a
+<span><strong>factor</strong></span> of <span
+class="math inline">\(b\)</span> <span class="math inline">\(a\)</span>
+is a <span><strong>divisor</strong></span> of <span
+class="math inline">\(b\)</span> <span class="math inline">\(b\)</span>
+is a <span><strong>multiple</strong></span> of <span
+class="math inline">\(a\)</span> <span class="math inline">\(a |
+b\)</span></p>
+</div>
+<p>When <span class="math inline">\(a\)</span> is a positive integer and
+<span class="math inline">\(b\)</span> is any integer, <span
+class="math inline">\(a | b\)</span> exactly when <span
+class="math inline">\(b \textbf{ mod } a = 0\)</span></p>
+<p>When <span class="math inline">\(a\)</span> is a positive integer and
+<span class="math inline">\(b\)</span> is any integer, <span
+class="math inline">\(a | b\)</span> exactly <span
+class="math inline">\(b = a \cdot (b \textbf{ div } a)\)</span></p>
+<h1 class="unnumbered" id="factoring-translation-examples">Factoring
+translation examples</h1>
+<p><span><em>Translate these quantified statements by matching to
+English statement on right.</em></span></p>
+<div class="multicols">
+<p><span>2</span> <span class="math inline">\(\exists a\in
+\mathbb{Z}^{\neq 0} ~(~F(~(a,a)~)~)\)</span></p>
+<p><span class="math inline">\(\exists a\in \mathbb{Z}^{\neq 0} ~(~\lnot
+F(~(a,a)~)~)\)</span></p>
+<p><span class="math inline">\(\forall a\in \mathbb{Z}^{\neq 0}
+~(~F(~(a,a)~)~)\)</span></p>
+<p><span class="math inline">\(\forall a\in \mathbb{Z}^{\neq 0} ~(~\lnot
+F(~(a,a)~)~)\)</span></p>
+<p>Every nonzero integer is a factor of itself.</p>
+<p>No nonzero integer is a factor of itself.</p>
+<p>At least one nonzero integer is a factor of itself.</p>
+<p>Some nonzero integer is not a factor of itself.</p>
+</div>
+<h1 class="unnumbered" id="factoring-basic-claims">Factoring basic
+claims</h1>
+<p><span><strong>Claim</strong></span>: Every nonzero integer is a
+factor of itself.</p>
+<p><span><strong>Proof</strong></span>:</p>
+<p><span><strong>Prove</strong></span> or
+<span><strong>Disprove</strong></span>: There is a nonzero integer that
+does not divide its square.</p>
+<p><span><strong>Prove</strong></span> or
+<span><strong>Disprove</strong></span>: Every positive factor of a
+positive integer is less than or equal to it.</p>
+<h1 class="unnumbered" id="factoring-basic-claims-continued">Factoring
+basic claims continued</h1>
+<p><span><strong>Claim</strong></span>: Every nonzero integer is a
+factor of itself and every nonzero integer divides its square.</p>
+<h1 class="unnumbered" id="factoring-even-odd">Factoring even odd</h1>
+<p><span><strong>Definition</strong></span>: an integer <span
+class="math inline">\(n\)</span> is <span><strong>even</strong></span>
+means that there is an integer <span class="math inline">\(a\)</span>
+such that <span class="math inline">\(n = 2a\)</span>; an integer <span
+class="math inline">\(n\)</span> is <span><strong>odd</strong></span>
+means that there is an integer <span class="math inline">\(a\)</span>
+such that <span class="math inline">\(n = 2a+1\)</span>. Equivalently,
+an integer <span class="math inline">\(n\)</span> is
+<span><strong>even</strong></span> means <span class="math inline">\(n
+~\textbf{ mod }~2 = 0\)</span>; an integer <span
+class="math inline">\(n\)</span> is <span><strong>odd</strong></span>
+means <span class="math inline">\(n ~\textbf{ mod }~2 = 1\)</span>.
+Also, an integer is even if and only if it is not odd.</p>
+<h1 class="unnumbered" id="prime-number-definition">Prime number
+definition</h1>
+<p><span><strong>Definition</strong></span>: An integer <span
+class="math inline">\(p\)</span> greater than <span
+class="math inline">\(1\)</span> is called
+<span><strong>prime</strong></span> means the only positive factors of
+<span class="math inline">\(p\)</span> are <span
+class="math inline">\(1\)</span> and <span
+class="math inline">\(p\)</span>. A positive integer that is greater
+than <span class="math inline">\(1\)</span> and is not prime is called
+composite.</p>
+<h1 class="unnumbered" id="primes-basic-claims">Primes basic claims</h1>
+<p><span><em>Extra examples</em></span>: Use the definition to prove
+that <span class="math inline">\(1\)</span> is not prime, <span
+class="math inline">\(2\)</span> is prime, <span
+class="math inline">\(3\)</span> is prime, <span
+class="math inline">\(4\)</span> is not prime, <span
+class="math inline">\(5\)</span> is prime, <span
+class="math inline">\(6\)</span> is not prime, and <span
+class="math inline">\(7\)</span> is prime.</p>
+<p><span><strong>True or False</strong></span>: The statement “There are
+three consecutive positive integers that are prime."</p>
+<p><span><em>Hint</em></span>: These numbers would be of the form <span
+class="math inline">\(p, p+1, p+2\)</span> (where <span
+class="math inline">\(p\)</span> is a positive integer).</p>
+<p><span><strong>Proof</strong></span>: We need to show <u></u></p>
+<p><span><strong>True or False</strong></span>: The statement “There are
+three consecutive odd positive integers that are prime."</p>
+<p><span><em>Hint</em></span>: These numbers would be of the form <span
+class="math inline">\(p, p+2, p+4\)</span> (where <span
+class="math inline">\(p\)</span> is an odd positive integer).</p>
+<p><span><strong>Proof</strong></span>: We need to show <u></u></p>
+<h1 class="unnumbered" id="rna-rnalen-basecount-definitions-2">Rna
+rnalen basecount definitions</h1>
+<p><span><em>Recall the definitions</em></span>: The set of RNA strands
+<span class="math inline">\(S\)</span> is defined (recursively) by:
+<span class="math display">\[\begin{array}{ll}
+\textrm{Basis Step: } &amp; \texttt{A}\in S, \texttt{C}\in S,
+\texttt{U}\in S, \texttt{G}\in S \\
+\textrm{Recursive Step: } &amp; \textrm{If } s \in S\textrm{ and }b \in
+B \textrm{, then }sb \in S
+\end{array}\]</span> where <span class="math inline">\(sb\)</span> is
+string concatenation.</p>
+<p>The function <em>rnalen</em> that computes the length of RNA strands
+in <span class="math inline">\(S\)</span> is defined recursively by:
+<span class="math display">\[\begin{array}{llll}
+&amp; &amp; \textit{rnalen} : S &amp; \to \mathbb{Z}^+ \\
+\textrm{Basis Step:} &amp; \textrm{If } b \in B\textrm{ then } &amp;
+\textit{rnalen}(b) &amp; = 1 \\
+\textrm{Recursive Step:} &amp; \textrm{If } s \in S\textrm{ and }b \in
+B\textrm{, then  } &amp; \textit{rnalen}(sb) &amp; = 1 +
+\textit{rnalen}(s)
+\end{array}\]</span></p>
+<p>The function <em>basecount</em> that computes the number of a given
+base <span class="math inline">\(b\)</span> appearing in a RNA strand
+<span class="math inline">\(s\)</span> is defined recursively by: <span
+class="math display">\[\begin{array}{llll}
+&amp; &amp; \textit{basecount} : S \times B &amp; \to \mathbb{N} \\
+\textrm{Basis Step:} &amp;  \textrm{If } b_1 \in B, b_2 \in B &amp;
+\textit{basecount}(~(b_1, b_2)~) &amp; =
+        \begin{cases}
+            1 &amp; \textrm{when } b_1 = b_2 \\
+            0 &amp; \textrm{when } b_1 \neq b_2 \\
+        \end{cases} \\
+\textrm{Recursive Step:} &amp; \textrm{If } s \in S, b_1 \in B, b_2 \in
+B &amp;\textit{basecount}(~(s b_1, b_2)~) &amp; =
+        \begin{cases}
+            1 + \textit{basecount}(~(s, b_2)~) &amp; \textrm{when } b_1
+= b_2 \\
+            \textit{basecount}(~(s, b_2)~) &amp; \textrm{when } b_1 \neq
+b_2 \\
+        \end{cases}
+\end{array}\]</span></p>
+<h1 class="unnumbered"
+id="alternating-quantifiers-proofs-rna-examples">Alternating quantifiers
+proofs rna examples</h1>
+<p>Which proof strategies could be used to prove each of the following
+statements?</p>
+<p><span><em>Hint: first translate the statements to English and
+identify the main logical structure.</em></span></p>
+<p><span class="math inline">\(\forall s \in S~(~rnalen(s) &gt;
+0~)\)</span></p>
+<p><span class="math inline">\(\forall b \in B~\exists s \in
+S~(~basecount(~(s,b)~)~ &gt; 0~)\)</span></p>
+<p><span class="math inline">\(\forall s \in S ~\exists b\in B
+~(~basecount(~(s,b)~) &gt; 0~)\)</span></p>
+<p><span class="math inline">\(\exists s \in S \, (\textit{rnalen(s)} =
+\textit{basecount}(~(s, \texttt{A})~)\)</span></p>
+<p><span class="math inline">\(\forall s \in S \, (\textit{rnalen(s)}
+\geq \textit{basecount}(~(s, \texttt{A})~))\)</span></p>
+<h1 class="unnumbered"
+id="structural-induction-motivating-example-rna">Structural induction
+motivating example rna</h1>
+<p><span><strong>Claim</strong></span> <span
+class="math inline">\(\forall s \in S ~(~rnalen(s) &gt; 0~)\)</span></p>
+<p><span><strong>Proof</strong></span>: Let <span
+class="math inline">\(s\)</span> be an arbitrary RNA strand. By the
+recursive definition of <span class="math inline">\(S\)</span>, either
+<span class="math inline">\(s \in B\)</span> or there is some strand
+<span class="math inline">\(s_0\)</span> and some base <span
+class="math inline">\(b\)</span> such that <span class="math inline">\(s
+= s_0 b\)</span>. We will show that the inequality holds for both
+cases.</p>
+<p><span><span class="math inline">\(\phantom{Basis}\)</span></span>
+<span><strong>Case</strong></span>: Assume <span class="math inline">\(s
+\in B\)</span>. We need to show <span class="math inline">\(rnalen(s)
+&gt; 0\)</span>. By the basis step in the definition of <span
+class="math inline">\(rnalen\)</span>, <span
+class="math display">\[rnalen(s) = 1\]</span> which is greater than
+<span class="math inline">\(0\)</span>, as required.</p>
+<p><span><span class="math inline">\(\phantom{Recursive}\)</span></span>
+<span><strong>Case</strong></span>: Assume there is some strand <span
+class="math inline">\(s_0\)</span> and some base <span
+class="math inline">\(b\)</span> such that <span class="math inline">\(s
+= s_0 b\)</span>. We will show <span><em>(the stronger
+claim)</em></span> that <span class="math display">\[\forall u \in S
+~\forall b \in B ~( ~\textit{rnalen}(u) &gt;0  \to
+    \textit{rnalen}(ub) &gt;0 ~)\]</span> Consider an arbitrary RNA
+strand <span class="math inline">\(u\)</span> and an arbitrary base
+<span class="math inline">\(b\)</span>, and assume towards a direct
+proof,<span class="math inline">\(~~{\phantom{ this is the induction
+hypothesis}}~~\)</span> that <span class="math display">\[rnalen(u) &gt;
+0\]</span> We need to show that <span class="math inline">\(rnalen(ub)
+&gt; 0\)</span>. <span class="math display">\[rnalen(ub) = 1 + rnalen
+(u) &gt; 1 + 0 = 1 &gt; 0\]</span> as required.</p>
+<h1 class="unnumbered" id="proof-strategies-structural-induction">Proof
+strategies structural induction</h1>
+<h1 class="unnumbered"
+id="structural-induction-example-rnalen-basecount">Structural induction
+example rnalen basecount</h1>
+<p><span><strong>Claim</strong></span> <span
+class="math inline">\(\forall s \in S \, (\textit{rnalen(s)} \geq
+\textit{basecount}(~(s, \texttt{A})~))\)</span>:</p>
+<p><span><strong>Proof</strong></span>: We proceed by structural
+induction on the recursively defined set <span
+class="math inline">\(S\)</span>.</p>
+<p><span><strong>Basis Case</strong></span>: We need to prove that the
+inequality holds for each element in the basis step of the recursive
+definition of <span class="math inline">\(S\)</span>. Need to show <span
+class="math display">\[\begin{aligned}
+          &amp;(~ rnalen(\texttt{A}) \geq basecount(~(\texttt{A},
+\texttt{A})~)~) \land (~ rnalen(\texttt{C}) \geq basecount(~(\texttt{C},
+\texttt{A})~)~) \\
+    \land &amp; (~ rnalen(\texttt{U}) \geq basecount(~(\texttt{U},
+\texttt{A})~)~) \land (~ rnalen(\texttt{G}) \geq basecount(~(\texttt{G},
+\texttt{A})~)~)
+\end{aligned}\]</span> We calculate, using the definitions of <span
+class="math inline">\(rnalen\)</span> and <span
+class="math inline">\(basecount\)</span>:</p>
+<p><span><strong>Recursive Case</strong></span>: We will prove that
+<span class="math display">\[\forall u \in S ~\forall b \in B ~(
+~rnalen(u) \geq basecount(~(u, \texttt{A})~) \to
+    rnalen(ub) \geq basecount(~(ub, \texttt{A})~)\]</span></p>
+<p>Consider arbitrary RNA strand <span class="math inline">\(u\)</span>
+and arbitrary base <span class="math inline">\(b\)</span>. Assume, as
+the <span><strong>induction hypothesis</strong></span>, that <span
+class="math inline">\(rnalen(u) \geq
+basecount(~(u,\texttt{A})~)\)</span>. We need to show that <span
+class="math inline">\(rnalen(ub) \geq basecount(~(ub,
+\texttt{A})~)\)</span>.</p>
+<p>Using the recursive step in the definition of the function <span
+class="math inline">\(rnalen\)</span>: <span
+class="math display">\[rnalen(ub) = 1 + rnalen(u)\]</span> The recursive
+step in the definition of the function <span
+class="math inline">\(basecount\)</span> has two cases. We notice that
+<span class="math inline">\(b = \texttt{A}\lor b \neq
+\texttt{A}\)</span> and we proceed by cases.</p>
+<p><span><em>Case i.</em></span> Assume <span class="math inline">\(b =
+\texttt{A}\)</span>.</p>
+<p>Using the first case in the recursive step in the definition of the
+function <span class="math inline">\(basecount\)</span>: <span
+class="math display">\[basecount(~(ub, \texttt{A})~) = 1 +
+basecount(~(u,\texttt{A})~)\]</span> By the <span><strong>induction
+hypothesis</strong></span>, we know that <span
+class="math inline">\(basecount(~(u,\texttt{A})~) \leq
+rnalen(u)\)</span> so: <span class="math display">\[basecount(~(ub,
+\texttt{A})~) = 1 + basecount(~(u,\texttt{A})~) \leq 1 + rnalen(u) =
+rnalen (ub)\]</span> and, thus, <span
+class="math inline">\(basecount(~(ub,\texttt{A})~) \leq
+rnalen(ub)\)</span>, as required.</p>
+<p><span><em>Case ii.</em></span> Assume <span class="math inline">\(b
+\neq \texttt{A}\)</span>.</p>
+<p>Using the second case in the recursive step in the definition of the
+function <span class="math inline">\(basecount\)</span>: <span
+class="math display">\[basecount(~(ub, \texttt{A})~) =
+basecount(~(u,\texttt{A})~)\]</span> By the <span><strong>induction
+hypothesis</strong></span>, we know that <span
+class="math inline">\(basecount(~(u,\texttt{A})~) \leq
+rnalen(u)\)</span> so: <span class="math display">\[basecount(~(ub,
+\texttt{A})~) = basecount(~(u,\texttt{A})~) \leq rnalen(u) &lt; 1 +
+rnalen(u) = rnalen (ub)\]</span> and, thus, <span
+class="math inline">\(basecount(~(ub,\texttt{A})~) \leq
+rnalen(ub)\)</span>, as required.</p>
+<h1 class="unnumbered" id="proofs-signposting-kinds-of-claims">Proofs
+signposting kinds of claims</h1>
+<p>To organize our proofs, it’s useful to highlight which claims are
+most important for our overall goals. We use some terminology to
+describe different roles statements can have.</p>
+<p><span><strong>Theorem</strong></span>: Statement that can be shown to
+be true, usually an important one.</p>
+<p>Less important theorems can be called
+<span><strong>proposition</strong></span>,
+<span><strong>fact</strong></span>,
+<span><strong>result</strong></span>,
+<span><strong>claim</strong></span>.</p>
+<p><span><strong>Lemma</strong></span>: A less important theorem that is
+useful in proving a theorem.</p>
+<p><span><strong>Corollary</strong></span>: A theorem that can be proved
+directly after another one has been proved, without needing a lot of
+extra work.</p>
+<p><span><strong>Invariant</strong></span>: A theorem that describes a
+property that is true about an algorithm or system no matter what inputs
+are used.</p>
+<h1 class="unnumbered"
+id="structural-induction-example-robot-grid">Structural induction
+example robot grid</h1>
+<div class="center">
+<p><img src="../../resources/images/robot-grid.png" style="width:3in"
+alt="image" /></p>
+</div>
+<p><span><strong>Theorem</strong></span>: A robot on an infinite
+2-dimensional integer grid starts at <span
+class="math inline">\((0,0)\)</span> and at each step moves to
+diagonally adjacent grid point. This robot can / cannot
+<span>(<span><em>circle one</em></span>)</span> reach <span
+class="math inline">\((1,0)\)</span>.</p>
+<p><span><strong>Definition</strong></span> The set of positions the
+robot can visit <span class="math inline">\(Pos\)</span> is defined by:
+<span class="math display">\[\begin{array}{ll}
+    \textrm{Basis Step: } &amp; (0,0) \in Pos \\
+    \textrm{Recursive Step: } &amp; \textrm{If } (x,y) \in Pos \textrm{,
+then } \\
+    &amp;\phantom{(x+1, y+1), (x+1, y-1), (x-1, y-1), (x-1, y+1)}
+\textrm{ are also in } Pos
+\end{array}\]</span></p>
+<p><span><em>Example elements of <span
+class="math inline">\(Pos\)</span> are</em></span>:</p>
+<p><span><strong>Lemma</strong></span>: <span
+class="math inline">\(\forall (x,y) \in Pos~~( x+y \textrm{ is an even
+integer}~)\)</span></p>
+<p><span><em>Why are we calling this a lemma?</em></span></p>
+<p>Proof of theorem using lemma: To show is <span
+class="math inline">\((1,0) \notin Pos\)</span>. Rewriting the lemma to
+explicitly restrict the domain of the universal, we have <span
+class="math inline">\(\forall (x,y) ~(~ (x,y) \in Pos~~  \to ~~(x+y
+\textrm{ is an even integer})~)\)</span>. Since the universal is true,
+<span class="math inline">\((~ (1,0) \in Pos~~ \to ~~(1+0 \textrm{ is an
+even integer})~)\)</span> is a true statement. Evaluating the conclusion
+of this conditional statement: By definition of long division, since
+<span class="math inline">\(1 = 0 \cdot 2 + 1\)</span> (where <span
+class="math inline">\(0 \in \mathbb{Z}\)</span> and <span
+class="math inline">\(1 \in \mathbb{Z}\)</span> and <span
+class="math inline">\(0 \leq 1 &lt; 2\)</span> mean that <span
+class="math inline">\(0\)</span> is the quotient and <span
+class="math inline">\(1\)</span> is the remainder), <span
+class="math inline">\(1 ~\textrm{\bf mod}~ 2 = 1\)</span> which is not
+<span class="math inline">\(0\)</span> so the conclusion is false. A
+true conditional with a false conclusion must have a false hypothesis:
+<span class="math inline">\((1,0) \notin Pos\)</span>, QED. <span
+class="math inline">\(\square\)</span></p>
+<p>Proof of lemma by structural induction:</p>
+<p><span><strong>Basis Step</strong></span>:</p>
+<p><span><strong>Recursive Step</strong></span>: Consider arbitrary
+<span class="math inline">\((x,y) \in Pos\)</span>. To show is: <span
+class="math display">\[(x+y \text{ is an even integer}) \to (\text{sum
+of coordinates of next position is even integer})\]</span> Assume
+<span><strong>as the induction hypothesis, IH</strong></span> that:</p>
+<h1 class="unnumbered"
+id="structural-induction-example-sum-of-powers">Structural induction
+example sum of powers</h1>
+<p>The set <span class="math inline">\(\mathbb{N}\)</span> is
+recursively defined. Therefore, the function <span
+class="math inline">\(sumPow: \mathbb{N} \to \mathbb{N}\)</span> which
+computes, for input <span class="math inline">\(i\)</span>, the sum of
+the nonnegative powers of <span class="math inline">\(2\)</span> up to
+and including exponent <span class="math inline">\(i\)</span> is defined
+recursively by</p>
+<p><span class="math display">\[\begin{aligned}
+{2}
+    \text{Basis step:  } \qquad &amp; sumPow(0) = 1 &amp;\\
+    \text{Recursive step:  } &amp; \text{If } x \in \mathbb{N} \text{,
+then } &amp;sumPow(x+1) = sumPow(x) + 2^{x+1}
+\end{aligned}\]</span></p>
+<p><span class="math inline">\(sumPow(0) =\)</span></p>
+<p><span class="math inline">\(sumPow(1) =\)</span></p>
+<p><span class="math inline">\(sumPow(2) =\)</span></p>
+<p>Fill in the blanks in the following proof of <span
+class="math display">\[\forall n \in \mathbb{N}~(sumPow(n) = 2^{n+1} -
+1)\]</span></p>
+<p><span><strong>Proof</strong></span>: Since <span
+class="math inline">\(\mathbb{N}\)</span> is recursively defined, we
+proceed by <u></u>.</p>
+<p><span><strong>Basis case</strong></span>: We need to show that
+<u></u>. Evaluating each side: <span class="math inline">\(LHS =
+sumPow(0) = 1\)</span> by the basis case in the recursive definition of
+<span class="math inline">\(sumPow\)</span>; <span
+class="math inline">\(RHS = 2^{0+1} - 1 = 2^1 - 1 = 2-1 = 1\)</span>.
+Since <span class="math inline">\(1=1\)</span>, the equality holds.</p>
+<p><span><strong>Recursive case</strong></span>: Consider arbitrary
+natural number <span class="math inline">\(n\)</span> and assume, as the
+<u></u> that <span class="math inline">\(sumPow(n) = 2^{n+1} -
+1\)</span>. We need to show that <u></u>. Evaluating each side: <span
+class="math display">\[LHS = sumPow(n+1) \overset{\text{rec def}}{=}
+sumPow(n)  + 2^{n+1}\overset{\text{IH}}{=} (2^{n+1} - 1) +
+2^{n+1}.\]</span> <span class="math display">\[RHS = 2^{(n+1)+1}- 1
+\overset{\text{exponent rules}}{=} 2 \cdot 2^{n+1} -1  = \left(2^{n+1} +
+2^{n+1} \right) - 1
+\overset{\text{regrouping}}{=}  (2^{n+1} - 1) + 2^{n+1}\]</span> Thus,
+<span class="math inline">\(LHS = RHS\)</span>. The structural induction
+is complete and we have proved the universal generalization. <span
+class="math inline">\(\square\)</span></p>
+<h1 class="unnumbered" id="proof-strategy-mathematical-induction">Proof
+strategy mathematical induction</h1>
 <h1 class="unnumbered"
 id="tautology-contradiction-contingency-examples">Tautology
 contradiction contingency examples</h1>

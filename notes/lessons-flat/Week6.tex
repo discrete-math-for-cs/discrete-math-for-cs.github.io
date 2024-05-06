@@ -1,0 +1,890 @@
+\documentclass[12pt, oneside]{article}
+
+\usepackage[letterpaper, scale=0.89, centering]{geometry}
+\usepackage{fancyhdr}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\rfoot{\href{https://creativecommons.org/licenses/by-nc-sa/2.0/}{CC BY-NC-SA 2.0} Version \today~(\thepage)}
+
+\usepackage{amssymb,amsmath,pifont,amsfonts,comment,enumerate,enumitem}
+\usepackage{currfile,xstring,hyperref,tabularx,graphicx,wasysym}
+\usepackage[labelformat=empty]{caption}
+\usepackage{xcolor}
+\usepackage{multicol,multirow,array,listings,tabularx,lastpage,textcomp,booktabs}
+
+\lstnewenvironment{algorithm}[1][] {   
+    \lstset{ mathescape=true,
+        frame=tB,
+        numbers=left, 
+        numberstyle=\tiny,
+        basicstyle=\rmfamily\scriptsize, 
+        keywordstyle=\color{black}\bfseries,
+        keywords={,procedure, div, for, to, input, output, return, datatype, function, in, if, else, foreach, while, begin, end, }
+        numbers=left,
+        xleftmargin=.04\textwidth,
+        #1
+    }
+}
+{}
+\lstnewenvironment{java}[1][]
+{   
+    \lstset{
+        language=java,
+        mathescape=true,
+        frame=tB,
+        numbers=left, 
+        numberstyle=\tiny,
+        basicstyle=\ttfamily\scriptsize, 
+        keywordstyle=\color{black}\bfseries,
+        keywords={, int, double, for, return, if, else, while, }
+        numbers=left,
+        xleftmargin=.04\textwidth,
+        #1
+    }
+}
+{}
+
+\newcommand\abs[1]{\lvert~#1~\rvert}
+\newcommand{\st}{\mid}
+
+\newcommand{\A}[0]{\texttt{A}}
+\newcommand{\C}[0]{\texttt{C}}
+\newcommand{\G}[0]{\texttt{G}}
+\newcommand{\U}[0]{\texttt{U}}
+
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+
+ 
+\begin{document}
+\begin{flushright}
+    \StrBefore{\currfilename}{.}
+\end{flushright} 
+\subsection*{Week 6 at a glance}
+
+\subsubsection*{We will be learning and practicing to:}
+\begin{itemize}
+
+\item Clearly and unambiguously communicate computational ideas using appropriate formalism. Translate across levels of abstraction.
+\begin{itemize}
+   \item Translating between symbolic and English versions of statements using precise mathematical language
+    \item Using appropriate signpost words to improve readability of proofs, including 'arbitrary' and 'assume'
+\end{itemize}
+
+\item Know, select and apply appropriate computing knowledge and problem-solving techniques. Reason about computation and systems. Use mathematical techniques to solve problems. Determine appropriate conceptual tools to apply to new situations. Know when tools do not apply and try different approaches. Critically analyze and evaluate candidate solutions.
+\begin{itemize}
+    \item Judging logical equivalence of compound propositions using symbolic manipulation with known equivalences, including DeMorgan's Law
+    \item Writing the converse, contrapositive, and inverse of a given conditional statement
+    \item Determining what evidence is required to establish that a quantified statement is true or false
+    \item Evaluating quantified statements about finite and infinite domains
+\end{itemize}
+
+\item Apply proof strategies, including direct proofs and proofs by contradiction, and determine whether a proposed argument is valid or not.
+\begin{itemize}
+    \item Identifying the proof strategies used in a given proof
+    \item Identifying which proof strategies are applicable to prove a given compound proposition based on its logical structure
+    \item Carrying out a given proof strategy to prove a given statement
+    \item Carrying out a universal generalization argument to prove that a universal statement is true
+    \item Using proofs as knowledge discovery tools to decide whether a statement is true or false
+\end{itemize}
+\end{itemize}
+
+\subsubsection*{TODO:}
+\begin{list}
+   {\itemsep2pt}
+   \item Project due this week: May 7, 2024. 
+   \item Review quiz based on class material each day (due Friday May 10, 2024).
+\end{list}
+
+\newpage
+
+\section*{Week 6 Monday: Proofs for properties of sets and numbers}
+
+
+To prove that one set is a subset of another, e.g. to show $A \subseteq B$:
+
+\vspace{50pt}
+
+To prove that two sets are equal, e.g. to show $A = B$:
+
+\vspace{50pt}
+ 
+
+Let $W =  \mathcal{P}(  \{ 1,2,3,4,5\} )$
+
+Example elements in $W$ are:
+\vspace{20pt}
+
+
+{\bf Prove} or {\bf  disprove}:  $\forall  A \in W\,  \forall B \in W\,  \left( A \subseteq B
+~\to ~ \mathcal{P}(A) \subseteq \mathcal{P}(B) \right)$
+
+\vfill
+\vfill
+\vfill
+
+{\bf Prove} or {\bf  disprove}:  $\forall  A \in W\,  \forall B \in W\,  \left( \mathcal{P}(A)  =\mathcal{P}(B)
+~\to ~ A = B \right)$
+
+\vfill
+\vfill
+
+{\bf Prove} or {\bf  disprove}:  $\forall  A \in W\,  \forall B \in W\, \forall C  \in W\,  \left( A\cup B  = A \cup  C
+~\to ~ B = C \right)$
+
+\vfill
+\vfill 
+\subsection*{Facts about numbers}
+
+
+We now have propositional and predicate logic that can help us express 
+statements about any domain. We will develop proof strategies to 
+craft valid argument for proving that such statements are true or disproving
+them (by showing they are false). We will practice these strategies with 
+statements about sets and numbers, both because they are familiar and because they
+can be used to build cryptographic systems. Then we will apply proof strategies
+more broadly to prove statements about data structures and machine learning 
+applications. 
+
+\begin{enumerate}
+    \item Addition and multiplication of real 
+    numbers are each commutative and associative. 
+    \vspace{25pt}
+    \item The product of two positive numbers is positive, of 
+    two negative numbers is positive, and of a positive and a negative number is negative.
+    \vspace{25pt}
+    \item The sum of two integers, the product of two integers, and the 
+    difference between two integers are each integers.
+    \vspace{25pt}
+    \item For every integer $x$ there is no integer strictly between $x$ and $x+1$, 
+    \vspace{25pt}
+    \item When $x, y$ are positive integers, $xy \geq x$ and $xy \geq y$.
+    \vspace{25pt}
+\end{enumerate}
+ \newpage
+\subsection*{Factoring}
+
+
+{\bf Definition}: When $a$ and $b$ are integers and $a$ is nonzero, 
+{\bf $a$ divides $b$} means there is an integer $c$ such that $b = ac$ . 
+
+
+Symbolically, $F(~(a,b)~) = \phantom{\exists c\in \mathbb{Z}~(b=ac)}$
+and is  a predicate over the domain \underline{\phantom{$\mathbb{Z}^{\neq 0} \times \mathbb{Z}$}}
+
+
+Other (synonymous) ways to say that $F(~(a,b)~)$ is true: 
+\begin{center}
+$a$ is a {\bf factor} of $b$
+\qquad 
+$a$ is a {\bf divisor} of $b$
+\qquad  $b$ is a {\bf multiple} of $a$
+\qquad
+$a | b$
+\end{center}
+
+When $a$ is a positive integer and $b$ is any integer, $a | b$
+exactly when $b \textbf{ mod } a = 0$
+
+When $a$ is a positive integer and $b$ is any integer, $a | b$
+exactly $b = a \cdot (b \textbf{ div } a)$ 
+
+{\it Translate these quantified statements by matching to English statement on right.}
+
+\begin{multicols}{2}
+$\exists a\in \mathbb{Z}^{\neq 0} ~(~F(~(a,a)~)~)$
+
+$\exists a\in \mathbb{Z}^{\neq 0} ~(~\lnot F(~(a,a)~)~)$
+
+$\forall a\in \mathbb{Z}^{\neq 0} ~(~F(~(a,a)~)~)$
+
+$\forall a\in \mathbb{Z}^{\neq 0} ~(~\lnot F(~(a,a)~)~)$
+
+
+Every nonzero integer is a factor of itself.
+
+No nonzero integer is a factor of itself.
+
+At least one nonzero integer is a factor of itself.
+
+Some nonzero integer is not a factor of itself.
+\end{multicols} 
+
+{\bf Claim}: Every nonzero integer is a factor of itself.
+
+{\bf Proof}: 
+
+
+\vspace{150pt}
+
+
+{\bf Prove} or {\bf Disprove}: There is a nonzero integer that does not divide its square.
+
+
+
+\vspace{150pt}
+
+{\bf Prove} or {\bf Disprove}: Every positive factor of a positive integer is less than or equal to it.
+
+\vspace{150pt}
+ 
+
+{\bf Claim}: Every nonzero integer is a factor of itself and 
+every nonzero integer divides its square.
+
+\vspace{100pt}
+ 
+
+{\bf Definition}: an integer $n$ is {\bf even} means that there is an integer $a$ such that $n = 2a$; 
+an integer $n$ is {\bf odd} means that there is an integer $a$ such that $n = 2a+1$.  Equivalently, 
+an integer $n$ is {\bf even} means $n ~\textbf{ mod }~2 = 0$; an integer $n$ is {\bf odd} means $n ~\textbf{ mod }~2 = 1$.  
+Also, an integer is even if and only if it is not odd.
+ 
+
+{\bf Definition}:  An integer $p$ greater than $1$ is called {\bf prime} means 
+the only positive factors of 
+$p$ are $1$ and $p$. A positive integer that is greater than $1$ and is not prime 
+is called composite. 
+
+{\it Extra examples}: Use the definition to prove that $1$ is not prime, $2$ is prime, $3$
+is prime, $4$ is not prime, $5$ is prime, $6$ is not prime, and $7$ is prime.
+
+
+{\bf True or False}: The statement ``There are three consecutive positive integers that are prime."
+
+{\it Hint}: These numbers would be of the form $p, p+1, p+2$ (where $p$ is a positive integer).
+
+{\bf Proof}: We need to show \underline{\phantom{$\exists p \in \mathbb{Z}^+ ~(~Pr(p) \land Pr(p+1) \land Pr(p+2)~)$}}
+
+\vspace{200pt}
+
+{\bf True or False}: The statement ``There are three consecutive odd positive integers that are prime."
+
+{\it Hint}: These numbers would be of the form $p, p+2, p+4$ (where $p$ is an odd positive integer).
+
+{\bf Proof}: We need to show \underline{\phantom{$\exists p \in \mathbb{Z}^+ ~(~(p \textbf{ mod } 2 = 1 \land Pr(p) \land Pr(p+2) \land Pr(p+4)~)$}}
+
+\vspace{200pt}
+ \newpage
+
+
+\section*{Week 6 Wednesday: Structural Induction}
+
+
+{\it Recall the definitions}: The set of RNA strands $S$ is defined (recursively) by:
+\[
+\begin{array}{ll}
+\textrm{Basis Step: } & \A \in S, \C \in S, \U \in S, \G \in S \\
+\textrm{Recursive Step: } & \textrm{If } s \in S\textrm{ and }b \in B \textrm{, then }sb \in S
+\end{array}
+\]
+where $sb$ is string concatenation.
+
+The function \textit{rnalen} that computes the length of RNA strands in $S$ is defined recursively by:
+\[
+\begin{array}{llll}
+& & \textit{rnalen} : S & \to \mathbb{Z}^+ \\
+\textrm{Basis Step:} & \textrm{If } b \in B\textrm{ then } & \textit{rnalen}(b) & = 1 \\
+\textrm{Recursive Step:} & \textrm{If } s \in S\textrm{ and }b \in B\textrm{, then  } & \textit{rnalen}(sb) & = 1 + \textit{rnalen}(s)
+\end{array}
+\]
+
+The function \textit{basecount} that computes the number of a given base 
+$b$ appearing in a RNA strand $s$ is defined recursively by:
+\[
+\begin{array}{llll}
+& & \textit{basecount} : S \times B & \to \mathbb{N} \\
+\textrm{Basis Step:} &  \textrm{If } b_1 \in B, b_2 \in B & \textit{basecount}(~(b_1, b_2)~) & =
+        \begin{cases}
+            1 & \textrm{when } b_1 = b_2 \\
+            0 & \textrm{when } b_1 \neq b_2 \\
+        \end{cases} \\
+\textrm{Recursive Step:} & \textrm{If } s \in S, b_1 \in B, b_2 \in B &\textit{basecount}(~(s b_1, b_2)~) & =
+        \begin{cases}
+            1 + \textit{basecount}(~(s, b_2)~) & \textrm{when } b_1 = b_2 \\
+            \textit{basecount}(~(s, b_2)~) & \textrm{when } b_1 \neq b_2 \\
+        \end{cases}
+\end{array}
+\] 
+At this point, we've seen the proof strategies
+\begin{multicols}{2}
+    \begin{itemize}
+        \item A {\bf counterexample} to prove that  $\forall x P(x)$ is {\bf false}.
+        \item  A {\bf witness} to prove that  $\exists x P(x)$ is {\bf true}.
+        \item {\bf Proof of universal by exhaustion} to prove that $\forall x \, P(x)$
+    is true when $P$ has a finite domain
+        \item  {\bf Proof by universal generalization} to prove that $\forall x \, P(x)$
+    is true using an arbitrary element of the domain.
+        \item To  prove  that $\exists x P(x)$ is {\bf false}, write the universal statement that is 
+        logically equivalent to its negation and then prove it true using universal generalization.
+        \item To prove that $p \land q$ is true, have two subgoals: 
+        subgoal (1) prove $p$ is  true; and, subgoal (2) prove $q$ is true. To prove that $p \land q$ is false, it's enough to prove that $p$ is false.
+     To prove that $p \land q$ is false, it's enough to prove that $q$ is false.
+        \item Proof of conditional by {\bf direct proof}
+        \item Proof of conditional by {\bf contrapositive proof}
+        \item Proof of disjuction using equivalent conditional: To prove that the 
+        disjunction $p \lor q$ is true, we can rewrite it equivalently as $\lnot p \to q$ and
+        then use direct proof or contrapositive proof.
+        \item {\bf Proof by cases}.
+    \end{itemize}
+\end{multicols}
+\newpage
+
+
+Which proof strategies could be used to prove each of the following statements?
+
+{\it Hint: first translate the statements to English and identify the main logical structure.}
+
+$\forall s \in S~(~rnalen(s) > 0~)$
+
+\vspace{100pt}
+
+$\forall b \in B~\exists s \in S~(~basecount(~(s,b)~)~ > 0~)$
+
+\vspace{100pt}
+
+$\forall s \in S ~\exists b\in B ~(~basecount(~(s,b)~) > 0~)$
+
+\vspace{100pt}
+
+$\exists s \in S \, (\textit{rnalen(s)} = \textit{basecount}(~(s, \A)~)$
+
+\vspace{100pt}
+
+$\forall s \in S \, (\textit{rnalen(s)} \geq \textit{basecount}(~(s, \A)~))$
+
+\vspace{100pt}
+
+ \newpage
+
+
+{\bf Claim} $\forall s \in S ~(~rnalen(s) > 0~)$
+
+{\bf Proof}: Let $s$ be an arbitrary RNA strand. By the recursive definition of $S$,
+either $s \in B$ or there is some strand $s_0$ and some base $b$ such that $s = s_0 b$.
+We will show that the inequality holds for both cases.
+
+{$\phantom{Basis}$} {\bf Case}: Assume $s \in B$. We need to show $rnalen(s) > 0$. 
+By the basis step in the definition of $rnalen$,
+$$rnalen(s) = 1$$
+which is greater than $0$, as required.
+
+{$\phantom{Recursive}$} {\bf Case}: Assume there is some strand $s_0$ and some base $b$ 
+such that $s = s_0 b$. We will show {\it (the stronger claim)} that 
+\[
+    \forall u \in S ~\forall b \in B ~( ~\textit{rnalen}(u) >0  \to 
+    \textit{rnalen}(ub) >0 ~)
+\]
+Consider an arbitrary RNA strand $u$ and an arbitrary base $b$, and assume towards a
+direct proof,$~~{\phantom{ this is the induction hypothesis}}~~$ that
+\[
+    rnalen(u) > 0
+\]
+We need to show that $rnalen(ub) > 0$.
+\[
+    rnalen(ub) = 1 + rnalen (u) > 1 + 0 = 1 > 0
+\]
+as required. 
+
+\fbox{\parbox{\textwidth}{{\bf Proof by Structural Induction} 
+To prove a universal quantification over a recursively defined set:
+\begin{itemize}
+    \item[] {\bf Basis Step}:  Show the statement holds for elements specified in the basis step of the definition.
+    \item[]  {\bf Recursive Step}:  Show that if the statement is true for each of the elements used to construct
+    new elements in the recursive step of the definition, the result holds for these new elements.
+    \end{itemize}
+}}
+     \newpage
+
+
+{\bf Claim} $\forall s \in S \, (\textit{rnalen(s)} \geq \textit{basecount}(~(s, \A)~))$:
+
+{\bf Proof}: We proceed by structural induction on the recursively defined set $S$.
+
+{\bf Basis  Case}: We need to prove that 
+the inequality holds for each element in the basis step of the recursive
+definition of $S$. 
+Need to show 
+\begin{align*}
+          &(~ rnalen(\A) \geq basecount(~(\A, \A)~)~) \land (~ rnalen(\C) \geq basecount(~(\C, \A)~)~) \\
+    \land & (~ rnalen(\U) \geq basecount(~(\U, \A)~)~) \land (~ rnalen(\G) \geq basecount(~(\G, \A)~)~)
+\end{align*}
+We calculate, using the definitions of $rnalen$ and $basecount$:
+
+\vspace{100pt}
+
+{\bf Recursive Case}: We will prove that 
+\[
+    \forall u \in S ~\forall b \in B ~( ~rnalen(u) \geq basecount(~(u, \A)~) \to 
+    rnalen(ub) \geq basecount(~(ub, \A)~)
+\]
+
+Consider arbitrary RNA strand $u$ and arbitrary base $b$. Assume, as the {\bf induction hypothesis},
+that $rnalen(u) \geq basecount(~(u,\A)~)$. We need to show that $rnalen(ub) \geq basecount(~(ub, \A)~)$.
+
+Using the recursive step in the definition of the function $rnalen$:
+\[
+    rnalen(ub) = 1 + rnalen(u)
+\]
+The recursive step in the definition of the function $basecount$ has two cases. We notice that 
+$b = \A \lor b \neq \A$ and we proceed by cases.
+
+{\it Case i.} Assume $b = \A$.
+
+Using the first case in the recursive step in the definition of the function $basecount$:
+\[
+    basecount(~(ub, \A)~) = 1 + basecount(~(u,\A)~)
+\]
+By the {\bf induction hypothesis}, we know that $basecount(~(u,\A)~) \leq rnalen(u)$ so:
+\[
+    basecount(~(ub, \A)~) = 1 + basecount(~(u,\A)~) \leq 1 + rnalen(u) = rnalen (ub)
+\]
+and, thus, $basecount(~(ub,\A)~) \leq rnalen(ub)$, as required.
+
+{\it Case ii.} Assume $b \neq \A$. 
+
+Using the second case in the recursive step in the definition of the function $basecount$:
+\[
+    basecount(~(ub, \A)~) = basecount(~(u,\A)~)
+\]
+By the {\bf induction hypothesis}, we know that $basecount(~(u,\A)~) \leq rnalen(u)$ so:
+\[
+    basecount(~(ub, \A)~) = basecount(~(u,\A)~) \leq rnalen(u) < 1 + rnalen(u) = rnalen (ub)
+\]
+and, thus, $basecount(~(ub,\A)~) \leq rnalen(ub)$, as required.
+ \newpage
+
+\section*{Week 6 Friday: Structural and Mathematical Induction}
+
+
+To organize our proofs, it's useful to highlight which claims are most important for 
+our overall goals.
+We use some terminology to describe different roles statements can have.
+
+{\bf Theorem}: Statement that can be shown to be true, usually an important one.
+
+Less important theorems can be called {\bf proposition}, {\bf fact}, {\bf result}, {\bf claim}.
+
+{\bf Lemma}: A less important theorem that is useful in proving a theorem.
+ 
+{\bf Corollary}: A theorem that can be proved directly after another one has been proved, 
+without needing a lot of extra work.
+
+{\bf Invariant}: A theorem that describes a property that is true about an algorithm or 
+system no matter what inputs are used.
+
+
+
+
+ 
+
+\begin{center}
+    \includegraphics[width=3in]{../../resources/images/robot-grid.png}
+\end{center}
+    
+{\bf Theorem}: A robot on an infinite 2-dimensional integer grid starts at $(0,0)$ and at each step moves
+to diagonally adjacent grid point. This robot can / cannot {\footnotesize({\it circle one})} reach $(1,0)$.
+
+
+{\bf Definition} The set of positions the robot can visit  $Pos$ is defined by:
+\[
+\begin{array}{ll}
+    \textrm{Basis Step: } & (0,0) \in Pos \\
+    \textrm{Recursive Step: } & \textrm{If } (x,y) \in Pos \textrm{, then } \\
+    &\phantom{(x+1, y+1), (x+1, y-1), (x-1, y-1), (x-1, y+1)} \textrm{ are also in } Pos
+\end{array}
+\]
+
+{\it Example elements of $Pos$ are}:
+\vspace{20pt}
+
+{\bf Lemma}: $\forall (x,y) \in Pos~~( x+y \textrm{ is an even integer}~)$
+
+{\it Why are we calling this a lemma?}
+
+
+Proof of theorem using lemma: To show is $(1,0) \notin Pos$. Rewriting the lemma to explicitly 
+restrict the domain of the universal, 
+we have $\forall (x,y) ~(~ (x,y) \in Pos~~  \to ~~(x+y \textrm{ is an even integer})~)$.  Since
+the universal is true, 
+$ (~ (1,0) \in Pos~~ \to ~~(1+0 \textrm{ is an even integer})~)$ is a true statement.
+Evaluating the conclusion of this conditional statement: 
+By definition of long division, since $1 = 0 \cdot 2 + 1$ (where $0 \in \mathbb{Z}$ and 
+$1 \in \mathbb{Z}$ and $0 \leq 1 < 2$ mean that $0$ is the quotient and $1$ is the remainder), $1 ~\textrm{\bf mod}~ 2 = 1$ which is not $0$ 
+so the conclusion is false.  A true conditional with a false conclusion must have a false hypothesis: $(1,0) \notin Pos$, QED. $\square$
+
+\vspace{20pt}
+
+Proof of lemma by structural induction:
+
+{\bf Basis Step}:
+
+\vspace{100pt}
+
+
+{\bf Recursive Step}:  Consider arbitrary $(x,y) \in Pos$.  To show is:
+\[
+(x+y \text{ is an even integer}) \to (\text{sum of coordinates of next position is even integer})
+\]
+Assume {\bf as the induction hypothesis, IH} that: 
+
+
+\vspace{400pt} \newpage
+
+
+The set $\mathbb{N}$ is recursively defined.
+Therefore, the function $sumPow: \mathbb{N} \to \mathbb{N}$
+which computes, for input $i$, the sum of the nonnegative powers of $2$
+up to and including exponent $i$ is defined
+recursively by
+
+\begin{alignat*}{2}
+    \text{Basis step:  } \qquad & sumPow(0) = 1 &\\
+    \text{Recursive step:  } & \text{If } x \in \mathbb{N} \text{, then } &sumPow(x+1) = sumPow(x) + 2^{x+1}
+\end{alignat*}
+
+$sumPow(0) =$
+
+\vspace{20pt}
+
+$sumPow(1) =$
+
+\vspace{20pt}
+
+$sumPow(2) =$
+
+\vspace{20pt}
+
+
+Fill in the blanks in the following proof of 
+\[
+    \forall n \in \mathbb{N}~(sumPow(n) = 2^{n+1} - 1)
+\]
+
+{\bf Proof}: Since $\mathbb{N}$ is recursively defined, we proceed by \underline{\phantom{structural induction \hspace{0.3in}}}.
+
+{\bf Basis case}: We need to show that \underline{\phantom{$sumPow(0) = 2^{0+1} - 1$ \hspace{0.2in}}}.
+Evaluating each side: $LHS = sumPow(0) = 1$ by the basis case in the recursive definition
+of $sumPow$; $RHS = 2^{0+1} - 1 = 2^1 - 1 = 2-1 = 1$. Since $1=1$, the equality holds.
+
+{\bf Recursive case}: Consider arbitrary natural number $n$ and assume, as the 
+\underline{\phantom{Induction Hypothesis (IH)}} that $sumPow(n) = 2^{n+1} - 1$. We need to show that
+\underline{\phantom{$sumPow(n+1) = 2^{(n+1) + 1} - 1$}}.  Evaluating each side: 
+\[
+LHS = sumPow(n+1) \overset{\text{rec def}}{=} sumPow(n)  + 2^{n+1}\overset{\text{IH}}{=} (2^{n+1} - 1) + 2^{n+1}.
+\]
+\[
+RHS = 2^{(n+1)+1}- 1 \overset{\text{exponent rules}}{=} 2 \cdot 2^{n+1} -1  = \left(2^{n+1} + 2^{n+1} \right) - 1
+\overset{\text{regrouping}}{=}  (2^{n+1} - 1) + 2^{n+1} 
+\]
+Thus, $LHS = RHS$. The structural induction is complete and we have proved the universal generalization.
+$\square$
+
+ \vfill
+
+
+\fbox{\parbox{\textwidth}{
+
+{\bf Proof by Mathematical Induction}
+
+To prove a universal quantification over the set of all integers greater than
+or  equal to some  base integer $b$,
+
+\vspace{-10pt}
+
+\begin{itemize}
+\item[] {\bf Basis Step}:  Show the property holds for $b$. 
+\item[]  {\bf Recursive Step}:  Consider an arbitrary integer $n$ greater than or  equal to  $b$, assume
+    (as the {\bf induction hypothesis})  that the property holds  for $n$, and use  this and
+    other facts to  prove that  the property holds for $n+1$.
+\end{itemize}
+
+}} \newpage
+
+
+\subsection*{Review Quiz}
+\begin{enumerate}
+\item Set properties
+\begin{enumerate}
+    \item \hspace{1in}\\ 
+
+Let $W =  \mathcal{P}(\{1,2,3,4,5\})$.
+The statement $$\forall A \in W~ \forall B\in W~ \forall  C  \in W~  ( A \cup B =  A \cup C ~\to~  B = C) $$ is false.
+Which of the following  choices for  $A, B, C$ could  
+be used to  give a counterexample to this claim?
+(Select all and only that  apply.)
+\begin{enumerate}
+    \item $A = \{ 1, 2, 3 \}, B = \{ 1, 2\}, C= \{1, 3\}$
+    \item $A = \{ 1, 2, 3 \}, B = \{ 2\}, C= \{2\}$
+    \item $A = \{ \emptyset, 1, 2, 3 \}, B = \{ 1, 2\}, C= \{1, 3\}$
+    \item $A = \{ 1, 2, 3 \}, B = \{ 1, 2\}, C= \{1, 4\}$
+    \item $A = \{ 1, 2 \}, B = \{ 2, 3\}, C= \{1, 3\}$
+    \item $A = \{ 1,2 \}, B =  \{ 1,3\}, C =  \{ 1,3\}$
+\end{enumerate}     \item \hspace{1in}\\ 
+
+Let $W =  \mathcal{P}(\{1,2,3,4,5\})$.
+Consider the  statement
+$$\forall A \in W~ \forall B\in W~  \big( ( \mathcal{P}(A) = \mathcal{P}(B) )~\to~ (A = B) \big) $$
+
+This statement is true. A proof of this statement starts with universal generalization, c
+onsidering
+arbitrary $A$ and $B$ in $W$. At this point, it remains to prove that 
+$( \mathcal{P}(A) = \mathcal{P}(B) )~\to~ (A = B)$
+is true about these arbitrary elements.  There are two ways to proceed: 
+
+\begin{itemize}
+\item[] First approach: By direct proof, in which we assume the hypothesis of the 
+conditional and work to show that the conclusion follows.
+\item[] Second approach: By proving the contrapositive version of the conditional instead, in which we
+assume the negation of the conclusion and work to show that the negation of hypothesis follows.
+\end{itemize} 
+
+\begin{enumerate}
+    \item First approach, assumption.
+    \item First approach, ``need to show".
+    \item Second approach, assumption.
+    \item Second approach, ``need to show".
+\end{enumerate}
+
+Pick an option from below for the assumption and ``need to show" in each approach.
+
+
+\begin{multicols}{2}
+\begin{enumerate}[label=(\roman*)]
+\item $\forall X ( X \subseteq A \leftrightarrow X \subseteq B)$
+\item $\exists X ( X \subseteq A \leftrightarrow X \subseteq B)$
+\item $\forall X ( X \subseteq A \oplus X \subseteq B)$
+\item $\exists X ( X \subseteq A \oplus X \subseteq B)$
+\item $\forall x ( x \in A \leftrightarrow x \in B)$
+\item $\exists x ( x \in A \leftrightarrow x \in B)$
+\item $\forall x ( x \in A \oplus x \in B)$
+\item $\exists x ( x \in A \oplus x \in B)$
+\end{enumerate}
+\end{multicols}     \item \hspace{1in}\\ 
+
+For each of the following English statements, select
+the correct translation, or select None.
+
+{\it Challenge: determine which of the statements are true and which 
+are false.}
+
+\begin{enumerate}
+\item Every set is a subset of itself.
+
+\item Every set is an element of itself.
+
+\item Some set is an element of all sets.
+
+\item Some set is a subset of all sets.
+\end{enumerate}
+
+\begin{enumerate}
+\item[i.] $\forall X ~\exists Y ~(X \in Y)$
+\item[ii.] $\exists X ~\forall Y ~(X \in Y)$
+\item[iii.] $\forall X ~\exists Y ~(X \subseteq Y)$
+\item[iv.] $\exists X ~\forall Y ~(X \subseteq Y)$
+\item[v.] $\forall X ~(X \in X)$
+\item[vi.] $\forall X ~(X \subseteq X)$ 
+\end{enumerate} \end{enumerate}
+\item Number properties\begin{enumerate}
+    \item \hspace{1in}\\ 
+
+Recall the predicate  $F(~(a,b)~)  = ``a \text{ is a factor of } b"$ over  
+the domain $\mathbb{Z}^{\neq 0} \times \mathbb{Z}$ we worked with 
+in class. Consider the following quantified
+statements
+\begin{multicols}{2}
+\begin{enumerate}[label=(\roman*)]
+\item $\forall x \in \mathbb{Z} ~(F(~(1,x)~))$
+\item $\forall x \in \mathbb{Z}^{\neq 0} ~(F(~(x,1)~))$
+\item $\exists x \in \mathbb{Z} ~(F(~(1,x)~))$
+\item $\exists x \in \mathbb{Z}^{\neq 0} ~(F(~(x,1)~))$
+\item $\forall x \in \mathbb{Z}^{\neq 0} ~\exists y \in \mathbb{Z} ~(F(~(x,y)~))$
+\item $\exists x \in \mathbb{Z}^{\neq 0} ~\forall y \in \mathbb{Z} ~(F(~(x,y)~))$
+\item $\forall y \in \mathbb{Z} ~\exists x \in \mathbb{Z}^{\neq 0} ~(F(~(x,y)~))$
+\item $\exists y \in \mathbb{Z} ~\forall x \in \mathbb{Z}^{\neq 0} ~(F(~(x,y)~))$
+\end{enumerate}
+\end{multicols}
+\begin{enumerate}
+\item Select the statement whose translation is
+\begin{quote}
+``The number $1$ is  a factor of every integer."
+\end{quote}
+or write NONE if none of (i)-(viii) work.
+
+\item Select the statement whose translation is
+\begin{quote}
+``Every integer has at least one nonzero factor."
+\end{quote}
+or write NONE if none of (i)-(viii) work.
+
+\item Select the statement whose translation is
+\begin{quote}
+``There is an integer of which
+all nonzero integers are a factor."
+\end{quote}
+or write NONE if none of (i)-(viii) work.
+
+\item For each  statement (i)-(viii), determine
+if  it is true or  false.
+\end{enumerate}     \item \hspace{1in}\\ 
+
+Which of the following formalizes the definition of the predicate
+$Pr(x)$ over the set of integers, and evaluates to $T$ exactly when 
+$x$ is prime. (Select all and only correct options.)
+
+\begin{enumerate}
+    \item $\forall a \in \mathbb{Z}^{\neq 0}~( ~(x > 1 \land a >0) \to F(~(a,x)~))$
+    \item $\lnot \exists a \in \mathbb{Z}^{\neq 0} ~(x > 1 \land (a=1 \lor a=x) \land F(~(a,x)~))$
+    \item $(x > 1) \land \forall a \in \mathbb{Z}^{\neq 0}~( ~(~ a>0 \land F(~(a,x)~)~) \to (a=1 \lor a=x)~)$
+    \item $(x > 1) \land \forall a \in \mathbb{Z}^{\neq 0}~( ~(~ a>1 \land \lnot (a=x) ~) \to \lnot F(~(a,x)~)~)$
+\end{enumerate} \end{enumerate}
+\item Structural induction
+\begin{enumerate}
+    \item 
+
+Recall the definitions of the functions $rnalen$ and $basecount$ from class.
+
+\begin{enumerate}
+    \item Select all and only options that give a witness for the existential quantification
+    $$\exists s \in S ~(~rnalen(s) = basecount(~(s,\U)~)~)$$
+    \begin{enumerate}
+    \item $\A$
+    \item $\U\U$
+    \item $\C\U$
+    \item $(\U, 1)$
+    \item None of the above.
+    \end{enumerate}
+    
+    \item Select all and only options that give a counterexample for the universal quantification
+    $$\forall s \in S ~(~rnalen(s) > basecount(~(s,\G)~)~)$$
+    \begin{enumerate}
+    \item $\U$
+    \item $\G\G$
+    \item $\A\G$
+    \item $\C\U\G$
+    \item None of the above.
+    \end{enumerate}
+    
+    \item Select all and only the true statements
+    \begin{enumerate}
+    \item $\forall s \in S ~\exists b \in B ~\left(~rnalen(s) = basecount(~(s,b)~)~ \right)$
+    \item $\exists s \in S ~\forall b \in B ~\left(~rnalen(s) = basecount(~(s,b)~)~ \right)$
+    \item \begin{align*} \forall s_1 \in S~\forall s_2 \in S ~&\forall b \in B ~\big( ~\big( rnalen(s_1) = basecount(~(s_1,b)~) \\
+    &\land rnalen(s_2) = basecount(~(s_2,b)~) \land rnalen(s_1) = rnalen(s_2) \big) \to s_1 = s_2  \big)\end{align*}
+    \item None of the above.
+    \end{enumerate}
+    
+\end{enumerate}     \item \hspace{1in}\\ 
+
+Recall the set $Pos$ defined by the recursive definition
+\[
+\begin{array}{ll}
+    \textrm{Basis Step: } & (0,0) \in Pos\\
+     \textrm{Recursive Step: } & \textrm{If } (x,y) \in Pos \textrm{ then } 
+     (x+1, y+1) \in Pos \textrm{ and } (x+1, y-1) \in Pos \textrm{ and }\\ 
+     & (x-1,y-1) \in Pos 
+     \textrm{ and } (x-1, y+1) \in Pos
+\end{array}
+\]
+\begin{enumerate}
+\item Select all and only the ordered pairs below that are elements of $Pos$
+\begin{enumerate}
+\item $(0,0)$
+\item $(4,0)$
+\item $(1,1)$
+\item $(1.5,2.5)$
+\item $(0, -2)$
+\end{enumerate}
+\item What is another description of the set $Pos$ ? (Select all and only the true descriptions.)
+\begin{enumerate}
+\item $\mathbb{Z} \times \mathbb{Z}$
+\item $\{ (n,n) ~|~ n \in \mathbb{Z} \}$
+\item $\{ (a,b) \in \mathbb{Z} \times \mathbb{Z} ~|~ (a+b) \textbf{ mod } 2 =0 \}$
+\end{enumerate}
+\end{enumerate} \end{enumerate}
+\item Mathematical induction
+\begin{enumerate}
+    \item \hspace{1in}\\ 
+
+Select all and only the true statements below about the relationship between
+structural induction and mathematical induction.
+\begin{enumerate}
+    \item Both structural induction and mathematical induction are proof strategies that 
+    may be useful when proving universal claims about recursively defined sets.
+    \item Mathematical induction is a special case of structural induction, for the case when 
+    the domain of quantification is $\{ n \in \mathbb{Z} \mid n \geq b\}$ for some integer $b$.
+    \item Universal claims about the set of all integers may be proved using structural induction
+    but not using mathematical induction.
+\end{enumerate}     \item \hspace{1in}\\ 
+
+Consider the following function definitions
+\[
+    2^n: \mathbb{N} \to \mathbb{N} \text{ given by } 2^0 = 1 ~~\text{ and }~~
+    2^{n+1} = 2 \cdot 2^n  
+\]
+\[
+    n!: \mathbb{N} \to \mathbb{N} \text{ given by } 0! = 1 ~~\text{ and }~~
+    (n+1)! = (n+1) n!
+\]
+\begin{enumerate}
+\item Select all and only true statements below: 
+    \begin{enumerate}
+        \item $2^0 < 0!$
+        \item $2^1 < 1!$
+        \item $2^2 < 2!$
+        \item $2^3 < 3!$
+        \item $2^4 < 4!$
+        \item $2^5 < 5!$
+        \item $2^6 < 6!$
+        \item $2^7 < 7!$
+    \end{enumerate}
+
+\item Fill in the blanks in the following proof.
+
+{\bf Claim}: For all integers $n$ greater than or equal to $4$, $2^n < n!$ \\
+
+{\bf Proof}: We proceed by mathematical induction on the set of integers greater than or equal to $4$.
+
+{\bf Basis step}: Using the \underline{\hspace{0.2in}BLANK 1\hspace{0.2in}}, 
+\[
+    2^4 = 2 \cdot 2^3 = 2 \cdot 2 \cdot 2^2 = 2 \cdot 2 \cdot 2 \cdot 2^1 =
+    2 \cdot 2 \cdot 2 \cdot 2 \cdot 2^0 =
+    2 \cdot 2 \cdot 2 \cdot 2 \cdot 1 = 16 
+\]
+and
+\[
+    4! = 4 \cdot 3! = 4 \cdot 3 \cdot 2! 
+    = 4 \cdot 3 \cdot 2 \cdot 1! = 4 \cdot 3 \cdot 2 \cdot 1 \cdot 0!
+    = 4 \cdot 3 \cdot 2 \cdot 1 \cdot 1 = 24
+\]
+Since $16 < 24$, we have proved that $2^4 < 4!$~, as required.\\
+
+{\bf Recursive step}: Consider an arbitrary integer $k$ that 
+is greater than or equal to $4$
+and assume as the \underline{\hspace{0.2in}BLANK 2\hspace{0.2in}}, 
+that $2^k < k!$~. We want to show that $2^{k+1} < (k+1)!$~.
+\begin{align*}
+    2^{k+1} &= 2 \cdot 2^{k} \qquad \text{by }\underline{\hspace{0.2in}BLANK 3\hspace{0.2in}}\\
+        &< 2 \cdot k! \qquad \text{by }\underline{\hspace{0.2in}BLANK 4\hspace{0.2in}}\\
+        &< k \cdot k! \qquad \text{by }\underline{\hspace{0.2in}BLANK 5\hspace{0.2in}}\\
+        &< (k+1) \cdot k!  \qquad \text{by }\underline{\hspace{0.2in}BLANK 6\hspace{0.2in}}\\
+        &= (k+1)!  \qquad \text{by }\underline{\hspace{0.2in}BLANK 7\hspace{0.2in}}\\
+\end{align*}
+as required.
+
+\begin{enumerate}
+    \item properties of addition, multiplication, and $<$ for real numbers
+    \item definitions of the functions $2^n$ and $n!$
+    \item definition of $k$
+    \item induction hypothesis
+\end{enumerate}
+\end{enumerate} \end{enumerate}
+\item Midquarter feedback
+\end{enumerate}
+
+\end{document}
