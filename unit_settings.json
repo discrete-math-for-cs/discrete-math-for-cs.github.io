@@ -90,7 +90,7 @@
         "header": "Week 4",
         "outcomes": "Predicate Logic",
         "CalendarInfo": " Dates: 4/22/24 - 4/26/24. Monday's CSE 20 class will be on Zoom  https://ucsd.zoom.us/j/98743879344. Wednesday and Friday's classes will be back in-person in WLH 2001.",
-        "ExpandInCalendar": true,
+        "ExpandInCalendar": false,
         "content": [
             {
                 "name": "Notes",
@@ -122,7 +122,7 @@
         "header": "Week 5",
         "outcomes": "Proof Strategies",
         "CalendarInfo": " Dates: 4/29/24 - 5/3/24.  Test 1 in class  this week, Friday May 3 1pm-1:50pm WLH 2001.  The test covers material in Weeks 1 through 4 and Monday of Week 5. To study for the exam, we recommend reviewing class notes (e.g. annotations linked on the class website, podcast, supplementary video from the class website), reviewing homework (and its posted sample solutions), and in particular *working examples* (extra examples in lecture notes, review quizzes, discussion examples) and getting feedback (office hours and Piazza)",
-        "ExpandInCalendar": true,
+        "ExpandInCalendar": false,
         "content": [
             {
                 "name": "Notes",
@@ -165,7 +165,7 @@
         "header": "Week 6",
         "outcomes": "Proofs, Recursion, and Induction",
         "CalendarInfo": " Dates: 5/6/24-5/10/24",
-        "ExpandInCalendar": false,
+        "ExpandInCalendar": true,
         "content": [
             {
                 "name": "Notes",
@@ -187,7 +187,7 @@
         "Due Dates": [
             {
                 "name": "project-CSE20S24",
-                "due": "5/7/24 at 5pm (no penalty late submission until 8am next day)"
+                "due": "5/8/24 at 5pm (no penalty late submission until 8am next day)"
             },
             {
                 "name": "Review Quiz",

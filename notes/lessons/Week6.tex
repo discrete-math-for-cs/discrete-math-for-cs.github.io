@@ -1,0 +1,138 @@
+\input{../../resources/lesson-head.tex}
+
+\subsection*{Week 6 at a glance}
+
+\subsubsection*{We will be learning and practicing to:}
+%data types
+%proof signposts
+%using proofs to evaluate
+%universal generalization
+%applying proof strategy
+%logical structure to proof strategy
+%identifying proof strategy in proof
+\begin{itemize}
+
+\item Clearly and unambiguously communicate computational ideas using appropriate formalism. Translate across levels of abstraction.
+\begin{itemize}
+   \item Translating between symbolic and English versions of statements using precise mathematical language
+    \item Using appropriate signpost words to improve readability of proofs, including 'arbitrary' and 'assume'
+\end{itemize}
+
+\item Know, select and apply appropriate computing knowledge and problem-solving techniques. Reason about computation and systems. Use mathematical techniques to solve problems. Determine appropriate conceptual tools to apply to new situations. Know when tools do not apply and try different approaches. Critically analyze and evaluate candidate solutions.
+\begin{itemize}
+    \item Judging logical equivalence of compound propositions using symbolic manipulation with known equivalences, including DeMorgan's Law
+    \item Writing the converse, contrapositive, and inverse of a given conditional statement
+    \item Determining what evidence is required to establish that a quantified statement is true or false
+    \item Evaluating quantified statements about finite and infinite domains
+\end{itemize}
+
+\item Apply proof strategies, including direct proofs and proofs by contradiction, and determine whether a proposed argument is valid or not.
+\begin{itemize}
+    \item Identifying the proof strategies used in a given proof
+    \item Identifying which proof strategies are applicable to prove a given compound proposition based on its logical structure
+    \item Carrying out a given proof strategy to prove a given statement
+    \item Carrying out a universal generalization argument to prove that a universal statement is true
+    \item Using proofs as knowledge discovery tools to decide whether a statement is true or false
+\end{itemize}
+\end{itemize}
+
+\subsubsection*{TODO:}
+\begin{list}
+   {\itemsep2pt}
+   \item Project due this week: May 7, 2024. 
+   \item Review quiz based on class material each day (due Friday May 10, 2024).
+\end{list}
+
+\newpage
+
+\section*{Week 6 Monday: Proofs for properties of sets and numbers}
+%% Review sets and proof strategies by starting with this example:
+\input{../activity-snippets/sets-proof-strategies.tex}
+\input{../activity-snippets/sets-basic-proofs-operations.tex}
+
+\subsection*{Facts about numbers}
+\input{../activity-snippets/proof-strategies-road-map.tex}
+\input{../activity-snippets/numbers-facts.tex}
+\newpage
+\subsection*{Factoring}
+\input{../activity-snippets/factoring-definition.tex}
+\input{../activity-snippets/factoring-translation-examples.tex}
+\input{../activity-snippets/factoring-basic-claims.tex}
+\input{../activity-snippets/factoring-basic-claims-continued.tex}
+\input{../activity-snippets/factoring-even-odd.tex}
+\input{../activity-snippets/prime-number-definition.tex}
+\input{../activity-snippets/primes-basic-claims.tex}
+\newpage
+
+
+\section*{Week 6 Wednesday: Structural Induction}
+\input{../activity-snippets/rna-rnalen-basecount-definitions.tex}
+
+At this point, we've seen the proof strategies
+\begin{multicols}{2}
+    \begin{itemize}
+        \item A {\bf counterexample} to prove that  $\forall x P(x)$ is {\bf false}.
+        \item  A {\bf witness} to prove that  $\exists x P(x)$ is {\bf true}.
+        \item {\bf Proof of universal by exhaustion} to prove that $\forall x \, P(x)$
+    is true when $P$ has a finite domain
+        \item  {\bf Proof by universal generalization} to prove that $\forall x \, P(x)$
+    is true using an arbitrary element of the domain.
+        \item To  prove  that $\exists x P(x)$ is {\bf false}, write the universal statement that is 
+        logically equivalent to its negation and then prove it true using universal generalization.
+        \item To prove that $p \land q$ is true, have two subgoals: 
+        subgoal (1) prove $p$ is  true; and, subgoal (2) prove $q$ is true. To prove that $p \land q$ is false, it's enough to prove that $p$ is false.
+     To prove that $p \land q$ is false, it's enough to prove that $q$ is false.
+        \item Proof of conditional by {\bf direct proof}
+        \item Proof of conditional by {\bf contrapositive proof}
+        \item Proof of disjuction using equivalent conditional: To prove that the 
+        disjunction $p \lor q$ is true, we can rewrite it equivalently as $\lnot p \to q$ and
+        then use direct proof or contrapositive proof.
+        \item {\bf Proof by cases}.
+    \end{itemize}
+\end{multicols}
+\newpage
+\input{../activity-snippets/alternating-quantifiers-proofs-rna-examples.tex}
+\newpage
+\input{../activity-snippets/structural-induction-motivating-example-rna.tex}
+\input{../activity-snippets/proof-strategies-structural-induction.tex}
+\newpage
+\input{../activity-snippets/structural-induction-example-rnalen-basecount.tex}
+\newpage
+
+\section*{Week 6 Friday: Structural and Mathematical Induction}
+\input{../activity-snippets/proofs-signposting-kinds-of-claims.tex}
+\input{../activity-snippets/structural-induction-example-robot-grid.tex}
+\newpage
+\input{../activity-snippets/structural-induction-example-sum-of-powers.tex}
+\vfill
+\input{../activity-snippets/proof-strategy-mathematical-induction.tex}
+\newpage
+
+
+\subsection*{Review Quiz}
+\begin{enumerate}
+\item Set properties
+\begin{enumerate}
+    \item \hspace{1in}\\ \input{../activity-snippets/quiz-sets-claims.tex}
+    \item \hspace{1in}\\ \input{../activity-snippets/quiz-sets-proof-strategies.tex}
+    \item \hspace{1in}\\ \input{../activity-snippets/quiz-sets-claims-subset-equality.tex}
+\end{enumerate}
+\item Number properties\begin{enumerate}
+    \item \hspace{1in}\\ \input{../activity-snippets/quiz-factoring-quantifiers.tex}
+    \item \hspace{1in}\\ \input{../activity-snippets/quiz-prime-formalizing-definition.tex}
+\end{enumerate}
+\item Structural induction
+\begin{enumerate}
+    \item \input{../activity-snippets/quiz-basecount-rnalen-induction.tex}
+    \item \hspace{1in}\\ \input{../activity-snippets/quiz-robot-grid.tex}
+\end{enumerate}
+\item Mathematical induction
+\begin{enumerate}
+    \item \hspace{1in}\\ \input{../activity-snippets/quiz-comparing-structural-mathematical-induction.tex}
+    \item \hspace{1in}\\ \input{../activity-snippets/quiz-exponential-factorial.tex}
+\end{enumerate}
+\item Midquarter feedback
+%% Put midquarter feedback in Review quiz for Week 6%% TODO
+\end{enumerate}
+
+\end{document}
