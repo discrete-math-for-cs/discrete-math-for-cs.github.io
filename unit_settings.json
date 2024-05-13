@@ -165,7 +165,7 @@
         "header": "Week 6",
         "outcomes": "Proofs, Recursion, and Induction",
         "CalendarInfo": " Dates: 5/6/24-5/10/24",
-        "ExpandInCalendar": true,
+        "ExpandInCalendar": false,
         "content": [
             {
                 "name": "Notes",
@@ -201,7 +201,7 @@
         "header": "Week 7",
         "outcomes": "More recursion and induction",
         "CalendarInfo": " Dates: 5/13/24-5/17/24",
-        "ExpandInCalendar": false,
+        "ExpandInCalendar": true,
         "content": [
             {
                 "name": "Notes",
