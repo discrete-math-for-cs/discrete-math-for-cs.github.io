@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>induction-flavors</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<div class="flushright">
+
+</div>
+<h1 class="unnumbered"
+id="structural-induction-example-robot-grid">Structural induction
+example robot grid</h1>
+<div class="center">
+<p><img src="../../resources/images/robot-grid.png" style="width:3in"
+alt="image" /></p>
+</div>
+<p><span><strong>Theorem</strong></span>: A robot on an infinite
+2-dimensional integer grid starts at <span
+class="math inline">\((0,0)\)</span> and at each step moves to
+diagonally adjacent grid point. This robot can / cannot
+<span>(<span><em>circle one</em></span>)</span> reach <span
+class="math inline">\((1,0)\)</span>.</p>
+<p><span><strong>Definition</strong></span> The set of positions the
+robot can visit <span class="math inline">\(Pos\)</span> is defined by:
+<span class="math display">\[\begin{array}{ll}
+    \textrm{Basis Step: } &amp; (0,0) \in Pos \\
+    \textrm{Recursive Step: } &amp; \textrm{If } (x,y) \in Pos \textrm{,
+then } \\
+    &amp;\phantom{(x+1, y+1), (x+1, y-1), (x-1, y-1), (x-1, y+1)}
+\textrm{ are also in } Pos
+\end{array}\]</span></p>
+<p><span><em>Example elements of <span
+class="math inline">\(Pos\)</span> are</em></span>:</p>
+<p><span><strong>Lemma</strong></span>: <span
+class="math inline">\(\forall (x,y) \in Pos~~( x+y \textrm{ is an even
+integer}~)\)</span></p>
+<p><span><em>Why are we calling this a lemma?</em></span></p>
+<p>Proof of theorem using lemma: To show is <span
+class="math inline">\((1,0) \notin Pos\)</span>. Rewriting the lemma to
+explicitly restrict the domain of the universal, we have <span
+class="math inline">\(\forall (x,y) ~(~ (x,y) \in Pos~~  \to ~~(x+y
+\textrm{ is an even integer})~)\)</span>. Since the universal is true,
+<span class="math inline">\((~ (1,0) \in Pos~~ \to ~~(1+0 \textrm{ is an
+even integer})~)\)</span> is a true statement. Evaluating the conclusion
+of this conditional statement: By definition of long division, since
+<span class="math inline">\(1 = 0 \cdot 2 + 1\)</span> (where <span
+class="math inline">\(0 \in \mathbb{Z}\)</span> and <span
+class="math inline">\(1 \in \mathbb{Z}\)</span> and <span
+class="math inline">\(0 \leq 1 &lt; 2\)</span> mean that <span
+class="math inline">\(0\)</span> is the quotient and <span
+class="math inline">\(1\)</span> is the remainder), <span
+class="math inline">\(1 ~\textrm{\bf mod}~ 2 = 1\)</span> which is not
+<span class="math inline">\(0\)</span> so the conclusion is false. A
+true conditional with a false conclusion must have a false hypothesis:
+<span class="math inline">\((1,0) \notin Pos\)</span>, QED. <span
+class="math inline">\(\square\)</span></p>
+<p>Proof of lemma by structural induction:</p>
+<p><span><strong>Basis Step</strong></span>:</p>
+<p><span><strong>Recursive Step</strong></span>: Consider arbitrary
+<span class="math inline">\((x,y) \in Pos\)</span>. To show is: <span
+class="math display">\[(x+y \text{ is an even integer}) \to (\text{sum
+of coordinates of next position is even integer})\]</span> Assume
+<span><strong>as the induction hypothesis, IH</strong></span> that:</p>
+<h1 class="unnumbered" id="fundamental-theorem-proof">Fundamental
+theorem proof</h1>
+<p><span><strong>Theorem</strong></span>: Every positive integer
+<span><em>greater than 1</em></span> is a product of (one or more)
+primes.</p>
+<p><span><strong>Before we prove, let’s try some
+examples</strong></span>:</p>
+<p><span class="math inline">\(20 =\)</span></p>
+<p><span class="math inline">\(100 =\)</span></p>
+<p><span class="math inline">\(5 =\)</span></p>
+<p><span><strong>Proof by strong induction</strong></span>, with <span
+class="math inline">\(b=2\)</span> and <span
+class="math inline">\(j=0\)</span>.</p>
+<p><span><strong>Basis step</strong></span>: WTS property is true about
+<span class="math inline">\(2\)</span>.</p>
+<p>Since <span class="math inline">\(2\)</span> is itself prime, it is
+already written as a product of (one) prime.</p>
+<p><span><strong>Recursive step</strong></span>: Consider an arbitrary
+integer <span class="math inline">\(n \geq 2\)</span>. Assume (as the
+strong induction hypothesis, IH) that the property is true about each of
+<span class="math inline">\(2, \ldots, n\)</span>. WTS that the property
+is true about <span class="math inline">\(n+1\)</span>: We want to show
+that <span class="math inline">\(n+1\)</span> can be written as a
+product of primes. Notice that <span class="math inline">\(n+1\)</span>
+is itself prime or it is composite.</p>
+<p><span><em>Case 1</em></span>: assume <span
+class="math inline">\(n+1\)</span> is prime and then immediately it is
+written as a product of (one) prime so we are done.</p>
+<p><span><em>Case 2</em></span>: assume that <span
+class="math inline">\(n+1\)</span> is composite so there are integers
+<span class="math inline">\(x\)</span> and <span
+class="math inline">\(y\)</span> where <span class="math inline">\(n+1 =
+xy\)</span> and each of them is between <span
+class="math inline">\(2\)</span> and <span
+class="math inline">\(n\)</span> (inclusive). Therefore, the induction
+hypothesis applies to each of <span class="math inline">\(x\)</span> and
+<span class="math inline">\(y\)</span> so each of these factors of <span
+class="math inline">\(n+1\)</span> can be written as a product of
+primes. Multiplying these products together, we get a product of primes
+that gives <span class="math inline">\(n+1\)</span>, as required.</p>
+<p>Since both cases give the necessary conclusion, the proof by cases
+for the recursive step is complete.</p>
+<h1 class="unnumbered"
+id="strong-induction-making-change-proof-idea">Strong induction making
+change proof idea</h1>
+<p>Suppose we had postage stamps worth <span
+class="math inline">\(5\)</span> cents and <span
+class="math inline">\(3\)</span> cents. Which number of cents can we
+form using these stamps? In other words, which postage can we pay?</p>
+<p><span class="math inline">\(11\)</span>?</p>
+<p><span class="math inline">\(15\)</span>?</p>
+<p><span class="math inline">\(4\)</span>?</p>
+<p><span class="math display">\[\begin{aligned}
+    &amp;CanPay(0) \land \lnot CanPay(1) \land \lnot CanPay(2) \land \\
+    &amp;CanPay(3) \land \lnot CanPay(4) \land CanPay(5) \land CanPay(6)
+\\
+    &amp;\lnot CanPay(7) \land \forall n \in \mathbb{Z}^{\geq 8}
+CanPay(n)
+\end{aligned}\]</span></p>
+<p>where the predicate <span class="math inline">\(CanPay\)</span> with
+domain <span class="math inline">\(\mathbb{N}\)</span> is <span
+class="math display">\[CanPay(n) = \exists x \in \mathbb{N} \exists y
+\in \mathbb{N}  ( 5x+3y = n)\]</span></p>
+<p><span><strong>Proof</strong></span> (idea): First, explicitly give
+witnesses or general arguments for postages between <span
+class="math inline">\(0\)</span> and <span
+class="math inline">\(7\)</span>. To prove the universal claim, we can
+use mathematical induction or strong induction.</p>
+<p><span><em>Approach 1, mathematical induction</em></span>: if we have
+stamps that add up to <span class="math inline">\(n\)</span> cents, need
+to use them (and others) to give <span
+class="math inline">\(n+1\)</span> cents. How do we get <span
+class="math inline">\(1\)</span> cent with just <span
+class="math inline">\(3\)</span>-cent and <span
+class="math inline">\(5\)</span>-cent stamps?</p>
+<p>Either <u>take away a <span class="math inline">\(5\)</span>-cent
+stamps and add two <span class="math inline">\(3\)</span>-cent
+stamps</u>,</p>
+<p>or <u>take away three <span class="math inline">\(3\)</span>-cent
+stamps and add two <span class="math inline">\(5\)</span>-cent
+stamps</u>.</p>
+<p>The details of this proof by mathematical induction are making sure
+we have enough stamps to use one of these approaches.</p>
+<p><span><em>Approach 2, strong induction</em></span>: assuming we know
+how to make postage for <span><strong>all</strong></span> smaller values
+(greater than or equal to <span class="math inline">\(8\)</span>), when
+we need to make <span class="math inline">\(n+1\)</span> cents, <u>add
+one <span class="math inline">\(3\)</span> cent stamp to however we make
+<span class="math inline">\((n+1) - 3\)</span> cents</u>.</p>
+<p>The details of this proof by strong induction are making sure we stay
+in the domain of the universal when applying the induction
+hypothesis.</p>
+<h1 class="unnumbered" id="strong-induction-nim">Strong induction
+nim</h1>
+<p>Consider the following game: two players start with two (equal) piles
+of jellybeans in front of them. They take turns removing any positive
+integer number of jellybeans at a time from one of two piles in front of
+them in turns.</p>
+<p>The player who removes the last jellybean wins the game.</p>
+<p>Which player (if any) has a strategy to guarantee to win the
+game?</p>
+<p>Try out some games, starting with <span
+class="math inline">\(1\)</span> jellybean in each pile, then <span
+class="math inline">\(2\)</span> jellybeans in each pile, then <span
+class="math inline">\(3\)</span> jellybeans in each pile. Who wins in
+each game?</p>
+<p>Notice that reasoning about the strategy for the <span
+class="math inline">\(1\)</span> jellybean game is easier than about the
+strategy for the <span class="math inline">\(2\)</span> jellybean
+game.</p>
+<p><span><em>Formulate a winning strategy by working to transform the
+game to a simpler one we know we can win.</em></span></p>
+<p><span><em>Player 2’s Strategy</em></span>: Take the same number of
+jellybeans that Player 1 did, but from the opposite pile.</p>
+<p><span><em>Why is this a good idea</em></span>: If Player 2 plays this
+strategy, at the next turn Player 1 faces a game with the same setup as
+the original, just with fewer jellybeans in the two piles. Then Player 2
+can keep playing this strategy to win.</p>
+<p><span><strong>Claim</strong></span>: Player 2’s strategy guarantees
+they will win the game.</p>
+<p><span><strong>Proof</strong></span>: By strong induction, we will
+prove that for all positive integers <span
+class="math inline">\(n\)</span>, Player 2’s strategy guarantees a win
+in the game that starts with <span class="math inline">\(n\)</span>
+jellybeans in each pile.</p>
+<p><span><strong>Basis step</strong></span>: WTS Player 2’s strategy
+guarantees a win when each pile starts with <span
+class="math inline">\(1\)</span> jellybean.</p>
+<p>In this case, Player 1 has to take the jellybean from one of the
+piles (because they can’t take from both piles at once). Following the
+strategy, Player 2 takes the jellybean from the other pile, and wins
+because this is the last jellybean.</p>
+<p><span><strong>Recursive step</strong></span>: Let <span
+class="math inline">\(n\)</span> be a positive integer. As the strong
+induction hypothesis, assume that Player 2’s strategy guarantees a win
+in the games where there are <span class="math inline">\(1, 2, \ldots,
+n\)</span> many jellybeans in each pile at the start of the game.</p>
+<p>WTS that Player 2’s strategy guarantees a win in the game where there
+are <span class="math inline">\(n+1\)</span> in the jellybeans in each
+pile at the start of the game.</p>
+<p>In this game, the first move has Player 1 take some number, call it
+<span class="math inline">\(c\)</span> (where <span
+class="math inline">\(1 \leq c \leq n+1\)</span>), of jellybeans from
+one of the piles. Playing according to their strategy, Player 2 then
+takes the same number of jellybeans from the other pile.</p>
+<p>Notice that <span class="math inline">\((c = n+1) \lor (c \leq
+n)\)</span>.</p>
+<p><span><em>Case 1</em></span>: Assume <span class="math inline">\(c =
+n+1\)</span>, then in their first move, Player 2 wins because they take
+all of the second pile, which includes the last jellybean.</p>
+<p><span><em>Case 2</em></span>: Assume <span class="math inline">\(c
+\leq n\)</span>. Then after Player 2’s first move, the two piles have an
+equal number of jellybeans. The number of jellybeans in each pile is
+<span class="math display">\[(n+1) - c\]</span> and, since <span
+class="math inline">\(1 \leq c \leq n\)</span>, this number is between
+<span class="math inline">\(1\)</span> and <span
+class="math inline">\(n\)</span>. Thus, at this stage of the game, the
+game appears identical to a new game where the two piles have an equal
+number of jellybeans between <span class="math inline">\(1\)</span> and
+<span class="math inline">\(n\)</span>. Thus, the strong induction
+hypothesis applies, and Player 2’s strategy guarantees they win.</p>
+</body>
+</html>

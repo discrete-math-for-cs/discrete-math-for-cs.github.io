@@ -924,60 +924,6 @@ extra work.</p>
 property that is true about an algorithm or system no matter what inputs
 are used.</p>
 <h1 class="unnumbered"
-id="structural-induction-example-robot-grid">Structural induction
-example robot grid</h1>
-<div class="center">
-<p><img src="../../resources/images/robot-grid.png" style="width:3in"
-alt="image" /></p>
-</div>
-<p><span><strong>Theorem</strong></span>: A robot on an infinite
-2-dimensional integer grid starts at <span
-class="math inline">\((0,0)\)</span> and at each step moves to
-diagonally adjacent grid point. This robot can / cannot
-<span>(<span><em>circle one</em></span>)</span> reach <span
-class="math inline">\((1,0)\)</span>.</p>
-<p><span><strong>Definition</strong></span> The set of positions the
-robot can visit <span class="math inline">\(Pos\)</span> is defined by:
-<span class="math display">\[\begin{array}{ll}
-    \textrm{Basis Step: } &amp; (0,0) \in Pos \\
-    \textrm{Recursive Step: } &amp; \textrm{If } (x,y) \in Pos \textrm{,
-then } \\
-    &amp;\phantom{(x+1, y+1), (x+1, y-1), (x-1, y-1), (x-1, y+1)}
-\textrm{ are also in } Pos
-\end{array}\]</span></p>
-<p><span><em>Example elements of <span
-class="math inline">\(Pos\)</span> are</em></span>:</p>
-<p><span><strong>Lemma</strong></span>: <span
-class="math inline">\(\forall (x,y) \in Pos~~( x+y \textrm{ is an even
-integer}~)\)</span></p>
-<p><span><em>Why are we calling this a lemma?</em></span></p>
-<p>Proof of theorem using lemma: To show is <span
-class="math inline">\((1,0) \notin Pos\)</span>. Rewriting the lemma to
-explicitly restrict the domain of the universal, we have <span
-class="math inline">\(\forall (x,y) ~(~ (x,y) \in Pos~~  \to ~~(x+y
-\textrm{ is an even integer})~)\)</span>. Since the universal is true,
-<span class="math inline">\((~ (1,0) \in Pos~~ \to ~~(1+0 \textrm{ is an
-even integer})~)\)</span> is a true statement. Evaluating the conclusion
-of this conditional statement: By definition of long division, since
-<span class="math inline">\(1 = 0 \cdot 2 + 1\)</span> (where <span
-class="math inline">\(0 \in \mathbb{Z}\)</span> and <span
-class="math inline">\(1 \in \mathbb{Z}\)</span> and <span
-class="math inline">\(0 \leq 1 &lt; 2\)</span> mean that <span
-class="math inline">\(0\)</span> is the quotient and <span
-class="math inline">\(1\)</span> is the remainder), <span
-class="math inline">\(1 ~\textrm{\bf mod}~ 2 = 1\)</span> which is not
-<span class="math inline">\(0\)</span> so the conclusion is false. A
-true conditional with a false conclusion must have a false hypothesis:
-<span class="math inline">\((1,0) \notin Pos\)</span>, QED. <span
-class="math inline">\(\square\)</span></p>
-<p>Proof of lemma by structural induction:</p>
-<p><span><strong>Basis Step</strong></span>:</p>
-<p><span><strong>Recursive Step</strong></span>: Consider arbitrary
-<span class="math inline">\((x,y) \in Pos\)</span>. To show is: <span
-class="math display">\[(x+y \text{ is an even integer}) \to (\text{sum
-of coordinates of next position is even integer})\]</span> Assume
-<span><strong>as the induction hypothesis, IH</strong></span> that:</p>
-<h1 class="unnumbered"
 id="structural-induction-example-sum-of-powers">Structural induction
 example sum of powers</h1>
 <p>The set <span class="math inline">\(\mathbb{N}\)</span> is
@@ -1023,6 +969,319 @@ is complete and we have proved the universal generalization. <span
 class="math inline">\(\square\)</span></p>
 <h1 class="unnumbered" id="proof-strategy-mathematical-induction">Proof
 strategy mathematical induction</h1>
+<h1 class="unnumbered" id="induction-dominos">Induction dominos</h1>
+<div class="center">
+<p><img src="../../resources/images/Domino_Cascade.jpeg"
+style="width:2in" alt="image" /></p>
+<p><span>Wikimedia commons<br />
+<a
+href="https://creativecommons.org/licenses/by/2.0/legalcode">https://creativecommons.org/licenses/by/2.0/legalcode</a>
+</span></p>
+</div>
+<h1 class="unnumbered"
+id="proof-strategy-mathematical-induction-1">Proof strategy mathematical
+induction</h1>
+<h1 class="unnumbered" id="proof-strategy-strong-induction">Proof
+strategy strong induction</h1>
+<h1 class="unnumbered" id="binary-expansions-exist-proof">Binary
+expansions exist proof</h1>
+<p><span><strong>Theorem</strong></span>: Every positive integer is a
+sum of (one or more) distinct powers of <span
+class="math inline">\(2\)</span>. <span><em>Binary expansions
+exist!</em></span></p>
+<p>Recall the definition for binary expansion:</p>
+<p><span><strong>Definition</strong></span> For <span
+class="math inline">\(n\)</span> a positive integer, the
+<span><strong>binary expansion of <span
+class="math inline">\(n\)</span></strong></span> is <span
+class="math display">\[(a_{k-1} \cdots a_1 a_0)_b\]</span> where <span
+class="math inline">\(k\)</span> is a positive integer, <span
+class="math inline">\(a_0, a_1, \ldots, a_{k-1}\)</span> are each <span
+class="math inline">\(0\)</span> or <span
+class="math inline">\(1\)</span>, <span class="math inline">\(a_{k-1}
+\neq  0\)</span>, and <span class="math display">\[n =  \sum_{i=0}^{k-1}
+a_{i} b^{i}\]</span></p>
+<p>The idea in the “Least significant first" algorithm for computing
+binary expansions is that the binary expansion of
+<span><em>half</em></span> a number becomes <span><em>part</em></span>
+of the binary expansion of the number of itself. We can use this idea in
+a proof by strong induction that binary expansions exist for all
+positive integers <span class="math inline">\(n\)</span>.</p>
+<p><span><strong>Proof by strong induction</strong></span>, with <span
+class="math inline">\(b=1\)</span> and <span
+class="math inline">\(j=0\)</span>.</p>
+<p><span><strong>Basis step</strong></span>: WTS property is true about
+<span class="math inline">\(1\)</span>.</p>
+<p><span><strong>Recursive step</strong></span>: Consider an arbitrary
+integer <span class="math inline">\(n \geq 1\)</span>.</p>
+<p>Assume (as the strong induction hypothesis, IH) that the property is
+true about each of <span class="math inline">\(1, \ldots,
+n\)</span>.</p>
+<p>WTS that the property is true about <span
+class="math inline">\(n+1\)</span>.</p>
+<p><span><em>Idea</em></span>: We will apply the IH to <span
+class="math inline">\((n+1) \textbf{ div } 2\)</span>.</p>
+<p><span><em>Why is this ok?</em></span></p>
+<p><span><em>Why is this helpful?</em></span></p>
+<p>By the IH, we can write <span class="math inline">\((n+1) \textbf{
+div } 2\)</span> as a sum of powers of <span
+class="math inline">\(2\)</span>. In other words, there are values <span
+class="math inline">\(a_{k-1}, \ldots, a_0\)</span> such that each <span
+class="math inline">\(a_i\)</span> is <span
+class="math inline">\(0\)</span> or <span
+class="math inline">\(1\)</span>, <span class="math inline">\(a_{k-1} =
+1\)</span>, and <span class="math display">\[\sum_{i=0}^{k-1} a_i 2^i =
+(n+1) \textbf{ div } 2\]</span> Define the collection of coefficients
+<span class="math display">\[c_{j} =
+   \begin{cases}
+        a_{j-1} \qquad&amp;\text{if $1 \leq j \leq k$}\\
+        (n+1) \textbf{ mod } 2 &amp;\text{if $j = 0$}
+   \end{cases}\]</span> Calculating: <span
+class="math display">\[\begin{aligned}
+{2}
+    \sum_{j=0}^k c_j 2^j &amp;= c_0 + \sum_{j=1}^k c_j 2^j
+    = c_0 + \sum_{i=0}^{k-1} c_{i+1} 2^{i+1} &amp;\qquad
+&amp;\text{re-indexing the summation}\\
+    &amp;= c_0 + 2 \cdot \sum_{i=0}^{k-1} c_{i+1}2^i &amp;\qquad
+&amp;\text{factoring out a $2$ from each term in the sum}\\
+    &amp;= c_0 + 2 \cdot \sum_{i=0}^{k-1} a_{i} 2^i &amp;\qquad
+&amp;\text{by definition of $c_{i+1}$}\\
+    &amp;= c_0 + 2 \left(~(n+1) \textbf{ div } 2 ~\right) &amp;\qquad
+&amp;\text{by IH} \\
+    &amp;= \left(~ (n+1) \textbf{ mod } 2 ~\right ) + 2 \left(~(n+1)
+\textbf{ div } 2 ~\right) &amp;\qquad &amp;\text{by definition of $c_0$}
+\\
+    &amp;= n+1 &amp;\qquad&amp;\text{by definition of long division}
+\end{aligned}\]</span></p>
+<p>Thus, <span class="math inline">\(n+1\)</span> can be expressed as a
+sum of powers of <span class="math inline">\(2\)</span>, as
+required.</p>
+<h1 class="unnumbered" id="linked-lists-definition">Linked lists
+definition</h1>
+<p><span><strong>Definition</strong></span> The set of linked lists of
+natural numbers <span class="math inline">\(L\)</span> is defined
+recursively by <span class="math display">\[\begin{array}{ll}
+    \textrm{Basis Step: } &amp; [] \in L \\
+    \textrm{Recursive Step: } &amp; \textrm{If } l \in L\textrm{ and }n
+\in \mathbb{N} \textrm{, then } (n, l) \in L
+\end{array}\]</span></p>
+<h1 class="unnumbered" id="linked-lists-examples">Linked lists
+examples</h1>
+<p>Visually:</p>
+<p>Example: the list with two nodes whose first node has <span
+class="math inline">\(20\)</span> and whose second node has <span
+class="math inline">\(42\)</span></p>
+<h1 class="unnumbered" id="linked-list-length-definition">Linked list
+length definition</h1>
+<p><span><strong>Definition</strong></span>: The length of a linked list
+of natural numbers <span class="math inline">\(L\)</span>, <span
+class="math inline">\(length: L \to \mathbb{N}\)</span> is defined by
+<span class="math display">\[\begin{array}{llll}
+\textrm{Basis Step:} &amp;  &amp; length(~[]~) &amp;= 0 \\
+\textrm{Recursive Step:} &amp; \textrm{If } l \in L\textrm{ and }n \in
+\mathbb{N}\textrm{, then  } &amp; length(~(n, l)~)  &amp;= 1+ length(l)
+\end{array}\]</span></p>
+<h1 class="unnumbered" id="linked-lists-prepend-definition">Linked lists
+prepend definition</h1>
+<p><span><strong>Definition</strong></span>: The function <span
+class="math inline">\(prepend : L \times \mathbb{N} \to L\)</span> that
+adds an element at the front of a linked list is defined by <span
+class="math display">\[\phantom{prepend(~(l, n)~) = (n, l)}\]</span></p>
+<h1 class="unnumbered" id="linked-list-append-definition">Linked list
+append definition</h1>
+<p><span><strong>Definition</strong></span> The function <span
+class="math inline">\(append : L \times \mathbb{N} \to L\)</span> that
+adds an element at the end of a linked list is defined by <span
+class="math display">\[\begin{array}{llll}
+\textrm{Basis Step:} &amp; \textrm{If } m \in \mathbb{N}\textrm{ then }
+&amp; \phantom{append(~([], m)~)} &amp; \phantom{= (m, []) }\\
+\textrm{Recursive Step:} &amp; \textrm{If } l \in L\textrm{ and }n \in
+\mathbb{N}\textrm{ and }m \in \mathbb{N}\textrm{, then  } &amp;
+\phantom{append(~(~(n, l), m~)~) } &amp;\phantom{= (n, append(~(l,
+m)~)~)}
+\end{array}\]</span></p>
+<h1 class="unnumbered" id="linked-list-append-length-claim-proof">Linked
+list append length claim proof</h1>
+<p><span><strong>Claim</strong></span>: <span
+class="math inline">\(\forall l \in L ~ (~length(~append(~(l, 100)~)~)
+&gt; length(l)~)\)</span></p>
+<p><span><strong>Proof:</strong></span> By structural induction on <span
+class="math inline">\(L\)</span>, we have two cases:</p>
+<p><span><strong>Basis Step</strong></span></p>
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1. <strong>To Show</strong> <span
+class="math inline">\(length(~append(~([], 100)~)~) &gt;
+length(~[]~)\)</span></td>
+<td style="text-align: left;">Because <span
+class="math inline">\([]\)</span> is the only element defined in the
+basis step of <span class="math inline">\(L\)</span>, we only need to
+prove that the property holds for <span
+class="math inline">\([]\)</span>.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2. <strong>To Show</strong> <span
+class="math inline">\(length(~(100,[])~) &gt; length(~[]~)\)</span></td>
+<td style="text-align: left;">By basis step in definition of <span
+class="math inline">\(append\)</span>.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3. <strong>To Show</strong> <span
+class="math inline">\((1 +length(~[]~)) &gt; length(~[]~)\)</span></td>
+<td style="text-align: left;">By recursive step in definition of <span
+class="math inline">\(length\)</span>.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">4. <strong>To Show</strong> <span
+class="math inline">\(1+0 &gt; 0\)</span></td>
+<td style="text-align: left;">By basis step in definition of <span
+class="math inline">\(length\)</span>.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5. <span
+class="math inline">\(T\)</span></td>
+<td style="text-align: left;">By properties of integers</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">QED</td>
+<td style="text-align: left;">Because we got to <span
+class="math inline">\(T\)</span> only by rewriting <strong>To
+Show</strong> to equivalent statements, using well-defined proof
+techniques, and applying definitions.</td>
+</tr>
+</tbody>
+</table>
+<p><span><strong>Recursive Step</strong></span></p>
+<p>Consider an arbitrary: <span class="math inline">\(l&#39; \in
+L\)</span>, <span class="math inline">\(n \in \mathbb{N}\)</span>, and
+we assume as the <span><strong>induction hypothesis</strong></span>
+that: <span class="math display">\[length(~append(~(l&#39;, 100~)~)~)
+&gt; length(l&#39;)\]</span> Our goal is to show that <span
+class="math inline">\(length(~append( ~(~(n,l&#39;), 100~)~)~) &gt;
+length(~(n,l&#39;)~)\)</span> is also true. We start by working with one
+side of the candidate inequality: <span
+class="math display">\[\begin{aligned}
+LHS &amp;= length(~append( ~(~ (n,l&#39;), 100~)~)~) \\
+&amp;= length(~(n, append(~(l&#39;, 100)~)~ )~) \qquad \text{by the
+recursive definition of $append$}\\
+&amp;= 1 + length(~ append(~(l&#39;, 100)~) ~) \qquad \text{by the
+recursive definition of $length$}\\
+&amp;&gt; 1+ length(l&#39;)  \qquad \text{by the induction hypothesis}\\
+&amp;= length( (n,l&#39;) )  \qquad \text{by the recursive definition of
+$length$}\\
+&amp;= RHS
+\end{aligned}\]</span></p>
+<h1 class="unnumbered" id="linked-list-example-each-length">Linked list
+example each length</h1>
+<p>Prove or disprove: <span class="math inline">\(\forall n \in
+\mathbb{N} ~\exists l \in L ~(~length(l) = n~)\)</span></p>
+<h1 class="unnumbered" id="proof-strategy-proof-by-contradiction">Proof
+strategy proof by contradiction</h1>
+<h1 class="unnumbered" id="rational-numbers-definition">Rational numbers
+definition</h1>
+<p>The <span><strong>set of rational numbers</strong></span>, <span
+class="math inline">\(\mathbb{Q}\)</span> is defined as <span
+class="math display">\[\left\{ \frac{p}{q} \mid p \in \mathbb{Z}  \text{
+and  } q  \in \mathbb{Z} \text{ and } q \neq  0 \right\}
+\text{~~~~or, equivalently,~~~~}
+\{ x  \in  \mathbb{R} \mid \exists p \in \mathbb{Z}  \exists q \in
+\mathbb{Z}^+ ( p =  x \cdot q) \}\]</span></p>
+<p><span><em>Extra practice</em></span>: Use the definition of set
+equality to prove that the definitions above give the same set.</p>
+<h1 class="unnumbered" id="proof-by-contradiction-irrational">Proof by
+contradiction irrational</h1>
+<p><span><strong>Goal</strong></span>: The square root of <span
+class="math inline">\(2\)</span> is not a rational number. In other
+words: <span class="math inline">\(\neg \exists x \in \mathbb{Q} ( x^2
+-  2 = 0)\)</span></p>
+<p><span><strong>Attempted proof</strong></span>: The definition of the
+set of rational numbers is the collection of fractions <span
+class="math inline">\(p/q\)</span> where <span
+class="math inline">\(p\)</span> is an integer and <span
+class="math inline">\(q\)</span> is a nonzero integer. Looking for a
+<span><strong>witness</strong></span> <span
+class="math inline">\(p\)</span> and <span
+class="math inline">\(q\)</span>, we can write the square root of <span
+class="math inline">\(2\)</span> as the fraction <span
+class="math inline">\(\sqrt{2 }/1\)</span>, where <span
+class="math inline">\(1\)</span> is a nonzero integer. Since the
+numerator is not in the domain, this witness is not allowed, and we have
+shown that the square root of <span class="math inline">\(2\)</span> is
+not a fraction of integers (with nonzero denominator). Thus, the square
+root of <span class="math inline">\(2\)</span> is not rational.</p>
+<p><span><em>The problem in the above attempted proof is
+that</em></span> <u></u></p>
+<p><span><strong>Lemma 1:</strong></span> For every two integers <span
+class="math inline">\(a\)</span> and <span
+class="math inline">\(b\)</span>, not both zero, with <span
+class="math inline">\(gcd(~(a,b)~) = 1\)</span>, it is not the case that
+both <span class="math inline">\(a\)</span> is even and <span
+class="math inline">\(b\)</span> is even.</p>
+<p><span><strong>Lemma 2:</strong></span> For every integer <span
+class="math inline">\(x\)</span>, <span class="math inline">\(x\)</span>
+is even if and only if <span class="math inline">\(x^2\)</span> is
+even.</p>
+<p><span><strong>Proof</strong></span>: Towards a proof by
+contradiction, we will define a statement <span
+class="math inline">\(r\)</span> such that <span
+class="math inline">\(\sqrt{2} \in \mathbb{Q} \to (r \land \lnot
+r)\)</span>.</p>
+<p>Assume that <span class="math inline">\(\sqrt{2} \in
+\mathbb{Q}\)</span>. Namely, there are positive integers <span
+class="math inline">\(p, q\)</span> such that <span
+class="math display">\[\sqrt{2} = \frac{p}{q}\]</span> Let <span
+class="math inline">\(a= \frac{p}{gcd( ~(p,q)~)}\)</span>, <span
+class="math inline">\(b = \frac{q}{gcd(~(p,q)~)}\)</span>, then <span
+class="math display">\[\sqrt{2} = \frac{a}{b} \qquad \text{and} \qquad
+gcd(~(a,b)~) = 1\]</span></p>
+<p>By Lemma 1, <span class="math inline">\(a\)</span> and <span
+class="math inline">\(b\)</span> are not both even. We define <span
+class="math inline">\(r\)</span> to be the statement “<span
+class="math inline">\(a\)</span> is even and <span
+class="math inline">\(b\)</span> is even”, and we have proved <span
+class="math inline">\(\lnot r\)</span>.</p>
+<p>Squaring both sides and clearing denominator: <span
+class="math inline">\(2b^2 = a^2\)</span>.</p>
+<p>By definition of even, since <span class="math inline">\(b^2\)</span>
+is an integer<span class="math inline">\(, a^2\)</span> is even.</p>
+<p>By Lemma 2, this guarantees that <span
+class="math inline">\(a\)</span> is even too. So, by definition of even,
+there is some integer (call it <span class="math inline">\(c\)</span>),
+such that <span class="math inline">\(a = 2c\)</span>.</p>
+<p>Plugging into the equation: <span class="math display">\[2b^2 = a^2 =
+(2c)^2 = 4c^2\]</span> and dividing both sides by <span
+class="math inline">\(2\)</span> <span class="math display">\[b^2 =
+2c^2\]</span> and since <span class="math inline">\(c^2\)</span> is an
+integer, <span class="math inline">\(b^2\)</span> is even. By Lemma 2,
+<span class="math inline">\(b\)</span> is even too. Thus, <span
+class="math inline">\(a\)</span> is even and <span
+class="math inline">\(b\)</span> is even and we have proved <span
+class="math inline">\(r\)</span>.</p>
+<p>In other words, assuming that <span class="math inline">\(\sqrt{2}
+\in \mathbb{Q}\)</span> guarantees <span class="math inline">\(r \land
+\lnot r\)</span>, which is impossible, so <span
+class="math inline">\(\sqrt{2} \notin \mathbb{Q}\)</span>. QED</p>
 <h1 class="unnumbered"
 id="tautology-contradiction-contingency-examples">Tautology
 contradiction contingency examples</h1>

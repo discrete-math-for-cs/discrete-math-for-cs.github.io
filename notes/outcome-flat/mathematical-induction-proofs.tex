@@ -1,0 +1,123 @@
+\documentclass[12pt, oneside]{article}
+
+\usepackage[letterpaper, scale=0.89, centering]{geometry}
+\usepackage{fancyhdr}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\rfoot{\href{https://creativecommons.org/licenses/by-nc-sa/2.0/}{CC BY-NC-SA 2.0} Version \today~(\thepage)}
+
+\usepackage{amssymb,amsmath,pifont,amsfonts,comment,enumerate,enumitem}
+\usepackage{currfile,xstring,hyperref,tabularx,graphicx,wasysym}
+\usepackage[labelformat=empty]{caption}
+\usepackage{xcolor}
+\usepackage{multicol,multirow,array,listings,tabularx,lastpage,textcomp,booktabs}
+
+\lstnewenvironment{algorithm}[1][] {   
+    \lstset{ mathescape=true,
+        frame=tB,
+        numbers=left, 
+        numberstyle=\tiny,
+        basicstyle=\rmfamily\scriptsize, 
+        keywordstyle=\color{black}\bfseries,
+        keywords={,procedure, div, for, to, input, output, return, datatype, function, in, if, else, foreach, while, begin, end, }
+        numbers=left,
+        xleftmargin=.04\textwidth,
+        #1
+    }
+}
+{}
+\lstnewenvironment{java}[1][]
+{   
+    \lstset{
+        language=java,
+        mathescape=true,
+        frame=tB,
+        numbers=left, 
+        numberstyle=\tiny,
+        basicstyle=\ttfamily\scriptsize, 
+        keywordstyle=\color{black}\bfseries,
+        keywords={, int, double, for, return, if, else, while, }
+        numbers=left,
+        xleftmargin=.04\textwidth,
+        #1
+    }
+}
+{}
+
+\newcommand\abs[1]{\lvert~#1~\rvert}
+\newcommand{\st}{\mid}
+
+\newcommand{\A}[0]{\texttt{A}}
+\newcommand{\C}[0]{\texttt{C}}
+\newcommand{\G}[0]{\texttt{G}}
+\newcommand{\U}[0]{\texttt{U}}
+
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+
+ 
+\begin{document}
+\begin{flushright}
+    \StrBefore{\currfilename}{.}
+\end{flushright} \section*{Strong induction making change proof idea}
+
+
+Suppose we had postage stamps worth $5$ cents and $3$ cents.
+Which number of cents can we form using these stamps?
+In other words, which postage can we pay?
+
+$11$? 
+
+$15$? 
+
+
+$4$?
+
+
+
+\begin{align*}
+    &CanPay(0) \land \lnot CanPay(1) \land \lnot CanPay(2) \land \\
+    &CanPay(3) \land \lnot CanPay(4) \land CanPay(5) \land CanPay(6) \\
+    &\lnot CanPay(7) \land \forall n \in \mathbb{Z}^{\geq 8} CanPay(n)
+\end{align*}
+
+where the predicate $CanPay$ with domain $\mathbb{N}$ is
+\[
+    CanPay(n) = \exists x \in \mathbb{N} \exists y \in \mathbb{N}  ( 5x+3y = n)
+\]
+
+
+{\bf Proof} (idea): First, explicitly give witnesses or general arguments
+for postages between $0$ and $7$. 
+To prove the universal claim, we can use mathematical induction or strong induction.
+
+{\it Approach 1, mathematical induction}: if we have
+stamps that add up to $n$ cents, need to use them (and others)
+to give $n+1$ cents. How do we get $1$ cent with just $3$-cent
+and $5$-cent stamps?
+
+\vspace{-10pt}
+Either \underline{take away a $5$-cent stamps and add two $3$-cent stamps},
+
+\vspace{-10pt}
+or \underline{take away three $3$-cent stamps and add two $5$-cent stamps}.
+
+\vspace{-10pt}
+The details of this proof by mathematical induction
+are making sure we have enough 
+stamps to use one of these approaches.
+
+{\it Approach 2, strong induction}: assuming we know how to make postage
+for {\bf all} smaller values (greater than or equal to $8$), when
+we need to make $n+1$ cents, \underline{add one $3$ cent stamp to 
+however we make $(n+1) - 3$ cents}.
+
+\vspace{-10pt}
+The details of this proof by strong induction are making sure we 
+stay in the domain of the universal when applying the induction hypothesis.
+ \vfill
+\end{document}

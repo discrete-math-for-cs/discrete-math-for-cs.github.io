@@ -1,0 +1,125 @@
+\input{../../resources/lesson-head.tex}
+
+\subsection*{Week 7 at a glance}
+
+\subsubsection*{We will be learning and practicing to:}
+%data types
+%proof signposts
+%using proofs to evaluate
+%universal generalization
+%applying proof strategy
+%logical structure to proof strategy
+%identifying proof strategy in proof
+\begin{itemize}
+
+\item Clearly and unambiguously communicate computational ideas using appropriate formalism. Translate across levels of abstraction.
+\begin{itemize}
+   \item Translating between symbolic and English versions of statements using precise mathematical language
+    \item Using appropriate signpost words to improve readability of proofs, including 'arbitrary' and 'assume'
+\end{itemize}
+
+\item Know, select and apply appropriate computing knowledge and problem-solving techniques. Reason about computation and systems. Use mathematical techniques to solve problems. Determine appropriate conceptual tools to apply to new situations. Know when tools do not apply and try different approaches. Critically analyze and evaluate candidate solutions.
+\begin{itemize}
+    \item Judging logical equivalence of compound propositions using symbolic manipulation with known equivalences, including DeMorgan's Law
+    \item Writing the converse, contrapositive, and inverse of a given conditional statement
+    \item Determining what evidence is required to establish that a quantified statement is true or false
+    \item Evaluating quantified statements about finite and infinite domains
+\end{itemize}
+
+\item Apply proof strategies, including direct proofs and proofs by contradiction, and determine whether a proposed argument is valid or not.
+\begin{itemize}
+    \item Identifying the proof strategies used in a given proof
+    \item Identifying which proof strategies are applicable to prove a given compound proposition based on its logical structure
+    \item Carrying out a given proof strategy to prove a given statement
+    \item Carrying out a universal generalization argument to prove that a universal statement is true
+    \item Using proofs as knowledge discovery tools to decide whether a statement is true or false
+\end{itemize}
+\end{itemize}
+
+\subsubsection*{TODO:}
+\begin{list}
+   {\itemsep2pt}
+   \item Homework assignment 4 (due Tuesday May 14, 2024)
+   \item Review quiz based on class material each day (due Friday May 17, 2024).
+   \item Homework assignment 5 (due Tuesday May 21, 2024)
+\end{list}
+
+\newpage
+
+\section*{Week 7 Monday: Mathematical and Strong Induction}
+\subsection*{Visualizing induction}
+\input{../activity-snippets/induction-dominos.tex}
+\input{../activity-snippets/proof-strategy-mathematical-induction.tex}
+\input{../activity-snippets/proof-strategy-strong-induction.tex}
+\input{../activity-snippets/binary-expansions-exist-proof.tex}
+
+\subsubsection*{Representing positive integers with primes}
+\input{../activity-snippets/fundamental-theorem-proof.tex}
+\subsubsection*{Sending old-fashioned mail with postage stamps}
+\input{../activity-snippets/strong-induction-making-change-proof-idea.tex}
+\newpage
+\subsubsection*{Finding a winning strategy for a game}
+\input{../activity-snippets/strong-induction-nim.tex}
+\newpage
+
+\section*{Week 7 Wednesday: Recursive Data Structures}
+\input{../activity-snippets/linked-lists-definition.tex}
+\input{../activity-snippets/linked-lists-examples.tex}
+\input{../activity-snippets/linked-list-length-definition.tex}
+\vspace{50pt}
+\input{../activity-snippets/linked-lists-prepend-definition.tex}
+\vspace{50pt}
+\input{../activity-snippets/linked-list-append-definition.tex}
+\vspace{50pt}
+\newpage
+\input{../activity-snippets/linked-list-append-length-claim-proof.tex}
+\newpage
+\input{../activity-snippets/linked-list-example-each-length.tex}
+\newpage
+
+\section*{Week 7 Friday: Proof by Contradiction}
+\input{../activity-snippets/proof-strategy-proof-by-contradiction.tex}
+\subsection*{Least and greatest}
+\input{../activity-snippets/least-greatest-proofs.tex}
+
+\input{../activity-snippets/gcd-definition.tex}
+\input{../activity-snippets/gcd-examples.tex}
+\input{../activity-snippets/gcd-basic-claims.tex}
+\input{../activity-snippets/gcd-lemma-relatively-prime.tex}
+
+\newpage
+\subsection*{Sets of numbers}
+
+We've seen multiple representations of the set of positive integers
+(using base expansions and using prime factorization). Now we're 
+going to expand our attention to other sets of numbers as well.
+\input{../activity-snippets/rational-numbers-definition.tex}
+\input{../activity-snippets/sets-numbers-subsets.tex}
+\input{../activity-snippets/proof-by-contradiction-irrational.tex}
+
+
+\newpage
+
+\subsection*{Review Quiz}
+\begin{enumerate}
+    \item Mathematical and strong induction for properties of numbers
+    \begin{enumerate}
+        \item \hspace{1in} \\ \input{../activity-snippets/quiz-binary-expansions-exist-invalid-proof.tex}
+        \item \hspace{1in} \\ \input{../activity-snippets/quiz-making-change-proof-two-ways.tex}
+    \end{enumerate}
+    \item Winning strategy. \input{../activity-snippets/quiz-nim.tex}
+    \item Linked lists. \input{../activity-snippets/quiz-linked-list-definitions.tex}
+    \item Primes and divisors
+    \begin{enumerate}
+        \item \hspace{1in}\\ \input{../activity-snippets/quiz-prime-factorization.tex}
+        \item \hspace{1in}\\ \input{../activity-snippets/quiz-no-greatest-prime.tex}
+        \item \hspace{1in}\\ \input{../activity-snippets/quiz-calculating-gcd.tex}
+    \end{enumerate}
+    \item Proof strategies
+    \begin{enumerate}
+        \item \hspace{1in}\\ \input{../activity-snippets/quiz-choosing-proof-strategy.tex}
+        \item \hspace{1in}\\ \input{../activity-snippets/quiz-odd-even-proofs.tex}
+    \end{enumerate}
+\end{enumerate}
+
+\end{document}
