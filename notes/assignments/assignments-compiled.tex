@@ -877,6 +877,254 @@ $$\forall s \in S~ \forall b \in B ~( basecount( ~(s,b)~) > 0)$$
 
 \newpage
 
+\title{hw5-proofs-and-induction}
+\date{Due: 5/21/24 at 5pm (no penalty late submission until 8am next morning)}
+
+\maketitle
+\thispagestyle{fancy}
+
+{\bf In this assignment}, you will work with recursively defined sets and functions and prove 
+properties about them, practicing induction and other proof strategies.
+
+{\bf Relevant class material}: Weeks 5,6,7.
+
+You will submit this assignment via Gradescope
+(\href{https://www.gradescope.com}{https://www.gradescope.com}) 
+in the assignment called ``hw5-proofs-and-induction''.
+
+\instructions
+
+In your proofs and disproofs of statements below, justify each  step
+by reference to  a component of the  following proof  strategies
+we  have discussed so far, and/or to relevant definitions and calculations.
+
+\vspace{-10pt}
+
+\begin{itemize}
+    \item A counterexample can be used to prove that  $\forall x P(x)$ is {\bf false}.
+    \item  A witness can be used  to  prove that  $\exists x P(x)$ is {\bf true}.
+    \item {\bf Proof of universal by exhaustion}: To prove that $\forall x \, P(x)$
+is true when $P$ has a finite domain, evaluate the predicate at {\bf each} domain element to confirm that it is always T.
+    \item  {\bf Proof by universal generalization}: To prove that $\forall x \, P(x)$
+is true, we can take an arbitrary element $e$ from the domain and show that $P(e)$ is true, without making any assumptions about $e$ other than that it comes from the domain.
+    \item To  prove  that $\exists x P(x)$ is {\bf false}, write the universal statement that is logically equivalent to its negation and then prove it true using universal generalization.
+    \item {\bf Strategies for conjunction}: To prove that $p \land q$ is true, have two subgoals: subgoal (1) prove $p$ 
+is  true; and, subgoal (2) prove $q$ is true. To prove that $p \land q$ is false, it's enough to prove that $p$ is false.
+ To prove that $p \land q$ is false, it's enough to prove that $q$ is false.
+    \item {\bf Proof of Conditional by Direct Proof}: To prove that the implication $p \to q$ is true, we can assume $p$ is true and use that assumption to show $q$ is true.
+    \item {\bf Proof of Conditional by Contrapositive Proof}: To prove that the implication $p \to q$ is true, we can assume $\neg q$ is true and use that assumption to show $\neg p$ is true.
+    \item {\bf Proof by Cases}: To prove $q$ when we know $p_1 \lor p_2$, show that $p_1 \to q$ and $p_2 \to q$.
+    \item
+    {\bf Proof by Structural Induction}: To prove that $\forall x \in X \, P(x)$ where $X$ is a recursively defined set, prove two cases:
+        
+        \begin{tabularx}{\textwidth}{l X}
+        Basis Step: & Show the statement holds for elements specified in the basis step of the definition. \\
+        Recursive Step: & Show that if the statement is true for each of the elements used to construct
+    new elements in the recursive step of the definition, the result holds for these new elements.
+    \end{tabularx}
+    
+    \item {\bf Proof by Mathematical Induction}: To prove a universal quantification over the set of  all integers greater than  or  equal to some base integer $b$:
+    
+    \begin{tabularx}{\textwidth}{l X}
+        Basis Step: & Show the statement holds for $b$. \\
+        Recursive Step: & Consider an arbitrary integer $n$ greater than or  equal to  $b$, assume
+        (as the {\bf induction hypothesis})  that the property holds  for $n$, and use  this and
+        other facts to  prove that  the property holds for $n+1$.
+    \end{tabularx}
+    
+    \item {\bf Proof by Strong Induction} To prove that a universal quantification over the set of all integers greater than or equal to some  base integer $b$ holds,  pick a  fixed nonnegative integer  $j$ and then: \hfill 
+    
+    \begin{tabularx}{\textwidth}{l X}
+        Basis Step: & Show the statement holds for $b$, $b+1$, \ldots, $b+j$. \\
+        Recursive Step: & Consider an arbitrary integer $n$ greater than or  equal to  $b+j$, assume
+        (as the {\bf strong  induction hypothesis})  that the property holds  for {\bf each of} $b$, $b+1$, \ldots, $n$, 	
+        and use  this and
+        other facts to  prove that  the property holds for $n+1$.
+    \end{tabularx}
+
+    \item {\bf Proof by Contradiction} 
+
+    To prove that a statement $p$ is true, pick another statement $r$ and once we show
+    that $\neg p  \to (r \wedge  \neg r)$ then  we can conclude that  $p$ is  true.
+    
+    {\it Informally} The statement we care about can't possibly be false, so it must be true.
+\end{itemize}
+
+
+{\bf Assigned questions}
+
+\begin{enumerate}[labelindent=0pt, leftmargin=0pt]
+    \item Mathematical and strong induction for properties of numbers.
+
+    \begin{enumerate}
+    \item \gradeCompleteFirst    Consider each of the following statements and attempted proofs below. Pretend you are the TA/tutor for CSE 20 and grade each of these attempts. 
+    In particular, you should give each one a score out of $5$ points and justify your decisions with {\bf specific}, 
+    {\bf actionable}, and {\bf justified} feedback;
+    your explanations should be convincing but brief.
+    Here is the rubric\footnote{According to the Merriam Webster definition, a {\bf rubric} is ``a guide listing specific criteria for grading or scoring academic papers, projects, or tests''. For CSE 20, you can see the rubrics 
+    we use to grade assignments and exams on Gradescope: next to your submission for each question you will
+    find the rubric items and associated point values. The highlighted items are the ones we select
+    to describe your work; these correspond to the score assigned for the question.} you should use: 
+    \begin{description}
+    \item[5 points] Induction proof includes correctly executed base case
+     and recursive step (with induction hypothesis, IH, clearly and correctly defined and used). Uses clear and correct calculations and references to definitions in both steps, including using the IH, to conclude both.
+    \item[4 points] Induction proof includes base case and recursive step (with induction hypothesis clearly and mostly correctly defined and used),
+    where base case attempted but incomplete OR, incorrect base element chosen but valid proof made for chosen
+    element, OR induction hypothesis incorrectly stated but correctly used.
+    \item[3 points] Any one of the following: (1) Induction proof with correctly executed base case 
+    and recursive step that demonstrates
+    connection between induction hypothesis and property being true for $n+1$, some missing or 
+    incorrect logical glue; (2) Induction proof with missing base case and correctly executed recursive step.
+    \item[2 points] Any one of the following: (1) Induction proof includes attempts at correct steps of an 
+    induction proof (base case, recursive  step), with significant logical gaps and/or errors; (2) correctly executed base case 
+    with missing / incorrect recursive step,
+    \item[1 point] Demonstrates knowledge of proof techniques (e.g.\ attempts some proof type other than 
+    induction, but uses some proof technique correctly) and/or structure of induction argument.
+    \end{description}
+    
+    \begin{enumerate}
+\item Statement: ``the sum of the first 
+$n$ positive odd integers is $n^2$"
+
+{\bf Attempted Proof: }
+\begin{quote}
+
+Base Case: $n = 1$\\
+First odd number is $1$; $1^2 = 1$. True.\\
+$(n + 1)^2 = n^2 + 2n + 1$\\
+$n^2$ is the sum of the first $n$ odd numbers, and $2n + 1$ is the next odd number in the sequence, therefore $(n + 1)^2 =$ the sum of the first $n + 1$ odd numbers.
+\end{quote}
+
+
+\item Statement: ``For every nonnegative integer $n$, $3 | n$." (Recall that the $\mid$ symbol is used to mean ``divides'' or ``is a factor of''.)
+
+{\bf Attempted Proof: }
+  \begin{quote}
+   Attempted Proof: We proceed by strong mathematical induction.
+
+{\it Basis step:} Indeed, $3 | 0$ because there is an integer, namely $0$ such that $0 = 3\cdot 0$.
+
+
+{\it Induction step:} Let $k$ be arbitrary.  Assume, as the strong induction hypothesis, 
+    that for all nonnegative integers $j$ with $0 \leq j \leq k$, that $3 | j$.  Write $k+1 = m + n$, where
+    $m,n$ are integers less than $k+1$.  By the induction hypothesis, $3 | m$ and $3 | n$.  That is, there
+    are integers $a,b$ such that $m = 3a$ and $n=3b$.  Therefore, $k+1 = (3a) + (3b) = 3 (a+b)$.
+    We can choose $a + b$, where we know $a + b \in \mathbb{Z}$, to show that $3 | (k+1)$, as
+     required.
+     \end{quote}
+
+    \end{enumerate}
+
+    \item \gradeComplete Decide whether each statement above is true or false, 
+    give correct and complete induction proofs for the true statement(s) and disprove 
+    by counterexample for the false statement(s).
+    \end{enumerate}
+
+    \item \gradeCorrect Games and induction.  The game of Nim-Var is a two-player game (which is a variant of Nim).
+    At the start of the game, there are two piles, each containing $n$ 
+    jelly beans
+    ($n$ is a positive integer).  On a player's turn, that player picks one 
+    of the two piles and does {\bf one} of the following: either
+    \begin{itemize}
+    \item removes some positive number of jelly beans from that pile, {\bf or}
+    \item moves some positive number of jelly beans (that is less than the
+    current total number of jelly beans in the pile) from that pile to the other.  
+    {\it Note: if there is only one jelly bean left in a pile, the player cannot move
+    this jelly bean to the other pile.}
+    \end{itemize}
+    The player to take the last jelly bean wins.  
+    Use strong induction to prove that the second player always has a winning strategy in Nim-Move.
+    A complete and correct solution will first identify what the strategy is, and then prove that 
+    following this strategy will lead the second player to win the game (no matter what the first 
+    player chooses to do at each turn).
+    
+    
+    
+    \item Linked Lists. Recall the recursive definition of the set of linked lists of 
+    natural numbers (from class)
+    \[
+    \begin{array}{ll}
+        \textrm{Basis Step: } & [] \in L \\
+        \textrm{Recursive Step: } & \textrm{If } l \in L\textrm{ and }n \in \mathbb{N} \textrm{, then } (n, l) \in L
+    \end{array}
+    \]
+    and the definitions of the function which gives the length of a linked list of natural numbers 
+    $length: L \to \mathbb{N}$
+        \[
+        \begin{array}{llll}
+            \textrm{Basis Step:} &  & length(~[]~) &= 0 \\
+            \textrm{Recursive Step:} & \textrm{If } l \in L\textrm{ and }n \in \mathbb{N}\textrm{, then  } & length(~(n, l)~)  &= 1+ length(l)
+        \end{array}
+    \]
+    the function $append : L \times \mathbb{N} \to L$ that 
+    adds an element at the end of a linked list
+    \[
+        \begin{array}{llll}
+        \textrm{Basis Step:} & \textrm{If } m \in \mathbb{N}\textrm{ then } & append(~([], m)~) & = (m, [])\\
+        \textrm{Recursive Step:} & \textrm{If } l \in L\textrm{ and }n \in \mathbb{N}\textrm{ and }m \in \mathbb{N}\textrm{, then  } & append(~(~(n, l), m~)~)  &= (n, append(~(l, m)~)~)
+        \end{array}
+    \]
+    and the function $prepend : L \times \mathbb{N} \to L$ that adds an element at the 
+    front of a linked list 
+    \[
+    prepend(~(l, n)~) = (n, l)
+    \]
+
+    \rule{0.5\textwidth}{.4pt}
+    
+    {\it Sample response that can be used as reference for the detail expected 
+    in your answer:} 
+    To evaluate the result of $length(~(4,(2,(7,[])))~)$ we calculate: 
+    \begin{align*}
+        length(~(4,(2,(7,[])))~) &= 1 + length ( ~(2,(7,[]))~) \\
+        & \qquad \qquad \text{using recursive step of definition of $length$, with $n=4, l=(2,(7,[]))$} \\
+        &= 1 + 1 + length ( ~(7,[])~) \\
+        & \qquad \qquad \text{using recursive step of definition of $length$, with $n=2, l=(7,[])$} \\
+        &= 1 + 1 + 1+ length ( ~[]~) \\
+        & \qquad \qquad \text{using recursive step of definition of $length$, with $n=7, l=[]$} \\
+        &= 1 + 1 + 1 + 0\\
+        & \qquad \qquad \text{using basis step of definition of $length$, since input to $length$ is $[]$} \\
+    \end{align*}
+    \rule{0.5\textwidth}{.4pt}
+    
+
+    In this question, we'll consider the combination of these functions with a new function, one 
+    that removes the element at the front of the list (if there is any). We define $remove: L \to L$
+    by
+    \[
+        \begin{array}{ll}
+            \textrm{Basis Step: } & remove([]) = [] \\
+            \textrm{Recursive Step: } & \textrm{If } l \in L\textrm{ and }n \in \mathbb{N} \textrm{, then } remove(~(n, l)~) = l
+        \end{array}        
+    \]
+    \begin{enumerate}
+        \item\gradeCorrect What is the result of $remove(~append(~(prepend~(~(~(10,[]), 5~)~), 20)~)~)$? 
+        For full credit, include all intermediate steps with brief justifications for each.
+        \item\gradeCorrect Prove the statement
+        \[
+            \forall l \in L \left(~ remove( prepend(~(l,0)~)) = l ~\right) 
+        \]
+        \item\gradeCorrect Disprove the statement
+        \[
+            \forall l \in L \left(~ remove( append(~(l,0)~)) = l ~\right) 
+        \]
+    \end{enumerate}
+
+    \item Primes, divisors, and proof strategies. For each statement below, identify the {\bf main logical structure or connective} of the 
+    statement, list the proof strategies that could be used to prove and to disprove a statement with that structure, 
+    then identify whether the statement is true or false and justify with a proof of the statement or its negation. 
+    ({\it Graded for correctness of identification of logical structure and proof strategies and evaluation of statement (is it true or false?) 
+    and fair effort completeness of the proof}) 
+        \begin{enumerate}
+            \item The quotient of any even number with any nonzero even number is even.
+            \item There are two odd numbers (not necessarily distinct) whose sum is even.
+            \item The greatest common divisor of 5 and 23 is 1 and the greatest common divisior of 7 and 19 is 1.
+            \item There are two positive integers greater than 20 that have the same greatest common division with 20.
+        \end{enumerate}
+    \end{enumerate}
+
+\newpage
+
 \setlength{\parindent}{0em}
 \setlength{\parskip}{0em}
 
