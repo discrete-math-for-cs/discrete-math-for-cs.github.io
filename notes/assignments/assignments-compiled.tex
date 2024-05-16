@@ -1015,7 +1015,9 @@ $n^2$ is the sum of the first $n$ odd numbers, and $2n + 1$ is the next odd numb
 
     \end{enumerate}
 
-    \item \gradeComplete Give correct and complete induction proofs for each of the statements above.
+    \item \gradeComplete Decide whether each statement above is true or false, 
+    give correct and complete induction proofs for the true statement(s) and disprove 
+    by counterexample for the false statement(s).
     \end{enumerate}
 
     \item \gradeCorrect Games and induction.  The game of Nim-Var is a two-player game (which is a variant of Nim).
@@ -1113,6 +1115,37 @@ $n^2$ is the sum of the first $n$ odd numbers, and $2n + 1$ is the next odd numb
     then identify whether the statement is true or false and justify with a proof of the statement or its negation. 
     ({\it Graded for correctness of identification of logical structure and proof strategies and evaluation of statement (is it true or false?) 
     and fair effort completeness of the proof}) 
+
+
+    \rule{0.5\textwidth}{.4pt}
+    
+    {\it Sample response that can be used as reference for the detail expected 
+    in your answer:} 
+
+    Consider the statement: There is a greatest negative integer.
+
+    The main logical structure for this statement is that it is an {\bf existential} statement, as we can 
+    see by translating it to symbols: 
+    \[
+        \exists g \in \mathbb{Z}^{-} \forall x \in \mathbb{Z}^{-} ( g \geq x)
+    \]
+    To prove an existential statement, the main proof strategy we could use is to find a witness. 
+    Proof by cases and proof by contradiction could also be used, because 
+    both can be used to prove any statement (no matter its logical structure).
+
+    To disprove an existential statement, we would need to prove its negation, which (using DeMorgan's Laws) can be 
+    written as a universal statement. Therefore, to disprove this statement the strategies we could use are 
+    universal generalization or structural induction (because $\mathbb{Z}^{-}$ is a recursively defined set) or 
+    proof by cases or proof by contradiction. Notice that proof by exhaustion is not possible because the domain is not finite.
+
+    The statement is true, as we can see from the witness $g = -1$, since it is in the domain $\mathbb{Z}^{-}$ and when we evaluate
+    \[
+        \forall x \in \mathbb{Z}^{-} ( -1 \geq x)
+    \]
+    we can proceed by universal generalization and take an arbitrary negative integer $x$, which by definition means $x < 0$, 
+    and since $x$ is an integer, guarantees $x \leq -1 = g$, as required.
+    \rule{0.5\textwidth}{.4pt}
+
         \begin{enumerate}
             \item The quotient of any even number with any nonzero even number is even.
             \item There are two odd numbers (not necessarily distinct) whose sum is even.
