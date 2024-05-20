@@ -282,13 +282,12 @@
         ],
         "Due Dates": [
             {
-                "name": "Test 2",
-                "due": "5/31/24 in class"
+                "name": "test2practice-CSE20S24",
+                "due": "Test 2 is Friday of Week 9"
             },
             {
-                "name": "Review Quiz",
-                "link": "https://gradescope.com",
-                "due": "5/31/24 at 5pm"
+                "name": "Test 2",
+                "due": "5/31/24 in class"
             }
         ]
     },

@@ -40,6 +40,12 @@
       "Information": "This is a group optional assignment"
    },
    {
+      "name": "test2practice-CSE20S24",
+      "addExtensions": true,
+      "Information": "Test 2 is in class  this week, Friday May 31, 1pm-1:50pm WLH 2001.  The test covers material in Weeks 5 through 8. To study for the exam, we recommend reviewing class notes (e.g. annotations linked on the class website, podcast, supplementary video from the class website), reviewing homework (and its posted sample solutions), and in particular *working examples* (extra examples in lecture notes, review quizzes, discussion examples) and getting feedback (office hours and Piazza). This collection of practice questions may also be helpful, but is not meant to represent the actual length or format of the test.",
+      "solutionsFile": "test2practice-CSE20S24-sample-sol.pdf"
+   },
+   {
       "name": "project-CSE20S24",
       "addExtensions": true,
       "Information": "This is an Individual Assignment"
