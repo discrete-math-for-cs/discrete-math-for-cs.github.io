@@ -175,6 +175,239 @@
 <div class="flushright">
 
 </div>
+<h1 class="unnumbered" id="cardinality-rationals-reals">Cardinality
+rationals reals</h1>
+<p><span><strong>Comparing <span
+class="math inline">\(\mathbb{Q}\)</span> and <span
+class="math inline">\(\mathbb{R}\)</span></strong></span></p>
+<p>Both <span class="math inline">\(\mathbb{Q}\)</span> and <span
+class="math inline">\(\mathbb{R}\)</span> have no greatest element.</p>
+<p>Both <span class="math inline">\(\mathbb{Q}\)</span> and <span
+class="math inline">\(\mathbb{R}\)</span> have no least element.</p>
+<p>The quantified statement <span class="math display">\[\forall x
+\forall y (x &lt; y \to \exists z ( x &lt; z &lt; y) )\]</span> is true
+about both <span class="math inline">\(\mathbb{Q}\)</span> and <span
+class="math inline">\(\mathbb{R}\)</span>.</p>
+<p>Both <span class="math inline">\(\mathbb{Q}\)</span> and <span
+class="math inline">\(\mathbb{R}\)</span> are infinite. But, <span
+class="math inline">\(\mathbb{Q}\)</span> is countably infinite whereas
+<span class="math inline">\(\mathbb{R}\)</span> is uncountable.<br />
+<span><strong>The set of real numbers</strong></span></p>
+<p><span class="math inline">\(\mathbb{Z} \subsetneq \mathbb{Q}
+\subsetneq \mathbb{R}\)</span></p>
+<p><span><strong>Order axioms</strong></span> (Rosen Appendix 1):</p>
+<div class="center">
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Reflexivity</td>
+<td style="text-align: left;"><span class="math inline">\(\forall a
+\in  \mathbb{R} (a \leq a)\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Antisymmetry</td>
+<td style="text-align: left;"><span class="math inline">\(\forall a
+\in  \mathbb{R}~\forall b \in \mathbb{R}~(~(a \leq b~ \wedge ~b \leq a)
+\to (a=b)~)\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Transitivity</td>
+<td style="text-align: left;"><span class="math inline">\(\forall a
+\in  \mathbb{R}~\forall b \in \mathbb{R}~\forall c \in \mathbb{R}~
+(~(a \leq b \wedge b \leq c) ~\to  ~(a \leq c)~)\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Trichotomy</td>
+<td style="text-align: left;"><span class="math inline">\(\forall a \in
+\mathbb{R}~\forall b \in \mathbb{R}~ ( ~(a=b ~\vee~ b &gt; a ~\vee~
+a  &lt; b)\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><span><strong>Completeness axioms</strong></span> (Rosen Appendix
+1):</p>
+<div class="center">
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Least upper bound</td>
+<td style="text-align: left;">Every nonempty set of real numbers that is
+bounded above has a least upper bound</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Nested intervals</td>
+<td style="text-align: left;">For each sequence of intervals <span
+class="math inline">\([a_n , b_n]\)</span> where, for each <span
+class="math inline">\(n\)</span>, <span class="math inline">\(a_n &lt;
+a_{n+1} &lt; b_{n+1} &lt; b_n\)</span>, there is at least one real
+number <span class="math inline">\(x\)</span> such that, for all <span
+class="math inline">\(n\)</span>, <span class="math inline">\(a_n \leq x
+\leq b_n\)</span>.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Each real number <span
+class="math inline">\(r  \in  \mathbb{R}\)</span> is described by a
+function to give better and better approximations <span
+class="math display">\[x_r: \mathbb{Z}^+ \to
+\{0,1\}  \qquad  \text{where  $x_r(n ) =  n^{th} $ bit in  binary
+expansion of $r$}\]</span></p>
+<div class="center">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span
+class="math inline">\(r\)</span></th>
+<th style="text-align: center;">Binary expansion</th>
+<th style="text-align: left;"><span
+class="math inline">\(x_r\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(0.1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0.00011001
+\ldots\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(x_{0.1}(n) =
+\begin{cases} 0&amp;\text{if $n &gt; 1$ and $(n~\text{\bf mod}~4) =2$}
+\\
+0&amp;\text{if $n=1$ or if $n &gt; 1$ and $(n~\text{\bf mod}~4) =3$}
+\\1&amp;\text{if $n &gt; 1$ and $(n~\text{\bf mod}~4) =0$} \\
+1&amp;\text{if $n &gt; 1$ and $(n~\text{\bf mod}~4) =1$}
+\end{cases}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\sqrt{2} - 1
+= 0.4142135 \ldots\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0.01101010\ldots\)</span></td>
+<td style="text-align: left;">Use linear approximations (tangent lines
+from calculus) to get algorithm for bounding error of successive
+operations. Define <span
+class="math inline">\(x_{\sqrt{2}-1}(n)\)</span> to be <span
+class="math inline">\(n^{th}\)</span> bit in approximation that has
+error less than <span class="math inline">\(2^{-(n+1)}\)</span>.</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><span><strong>Claim</strong></span>: <span
+class="math inline">\(\{  r \in \mathbb{R} ~\mid~ 0 \leq r ~\wedge~ r
+\leq 1 \}\)</span> is uncountable.</p>
+<p><span><em>Approach 1</em></span>: Mimic proof that <span
+class="math inline">\(\mathcal{P}(\mathbb{Z}^+)\)</span> is
+uncountable.</p>
+<p><span><strong>Proof</strong></span>: By definition of countable,
+since <span class="math inline">\(\{  r \in \mathbb{R} ~\mid~ 0 \leq r
+~\wedge~ r \leq 1 \}\)</span> is not finite, <span><strong>to
+show</strong></span> is <span class="math inline">\(|\mathbb{N}|
+\neq  |\{  r \in \mathbb{R} ~\mid~ 0 \leq r ~\wedge~ r \leq 1
+\}|\)</span> .</p>
+<p><span><strong>To show</strong></span> is <span
+class="math inline">\(\forall f : \mathbb{Z}^+ \to \{  r \in \mathbb{R}
+~\mid~ 0 \leq r ~\wedge~ r \leq 1 \}  ~~(f \text{ is not a
+bijection})~~\)</span>. Towards a proof by universal generalization,
+consider an arbitrary function <span
+class="math inline">\(f:  \mathbb{Z}^+ \to \{  r \in \mathbb{R} ~\mid~ 0
+\leq r ~\wedge~ r \leq 1 \}\)</span>. <span><strong>To
+show</strong></span>: <span class="math inline">\(f\)</span> is not a
+bijection. It’s enough to show that <span
+class="math inline">\(f\)</span> is not onto. Rewriting using the
+definition of onto, <span><strong>to show</strong></span>: <span
+class="math display">\[\exists x \in \{  r \in \mathbb{R} ~\mid~ 0 \leq
+r ~\wedge~ r \leq 1 \} ~\forall a \in \mathbb{N}  ~(~f(a)
+\neq  x~)\]</span> In search of a witness, define the following real
+number by defining its binary expansion <span class="math display">\[d_f
+= 0.b_1 b_2 b_3 \cdots\]</span> where <span class="math inline">\(b_i =
+1-b_{ii}\)</span> where <span class="math inline">\(b_{jk}\)</span> is
+the coefficient of <span class="math inline">\(2^{-k}\)</span> in the
+binary expansion of <span class="math inline">\(f(j)\)</span>. Since<a
+href="#fn1" class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a> <span class="math inline">\(d_f \neq
+f(a)\)</span> for any positive integer <span
+class="math inline">\(a\)</span>, <span class="math inline">\(f\)</span>
+is not onto.</p>
+<p><span><em>Approach 2</em></span>: Nested closed interval property</p>
+<p><span><strong>To show</strong></span> <span class="math inline">\(f:
+\mathbb{N} \to \{  r \in \mathbb{R} ~\mid~ 0  \leq r ~\wedge~ r \leq 1
+\}\)</span> is not onto. <span><strong>Strategy</strong></span>: Build a
+sequence of nested closed intervals that each avoid some <span
+class="math inline">\(f(n)\)</span>. Then the real number that is in all
+of the intervals can’t be <span class="math inline">\(f(n)\)</span> for
+any <span class="math inline">\(n\)</span>. Hence, <span
+class="math inline">\(f\)</span> is not onto.</p>
+<p>Consider the function <span class="math inline">\(f: \mathbb{N} \to
+\{  r \in \mathbb{R} ~\mid~ 0 \leq r ~\wedge~ r \leq 1 \}\)</span> with
+<span class="math inline">\(f(n) = \frac{1+\sin(n)}{2}\)</span></p>
+<div class="center">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span
+class="math inline">\(n\)</span></th>
+<th style="text-align: left;"><span
+class="math inline">\(f(n)\)</span></th>
+<th style="text-align: left;">Interval that avoids <span
+class="math inline">\(f(n)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(0.5\)</span></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(0.920735\ldots\)</span></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(2\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(0.954649\ldots\)</span></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(3\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(0.570560\ldots\)</span></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(4\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(0.121599\ldots\)</span></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">⋮</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</div>
 <h1 class="unnumbered" id="least-greatest-proofs">Least greatest
 proofs</h1>
 <p>For a set of numbers <span class="math inline">\(X\)</span>, how do
@@ -607,5 +840,14 @@ single vertial line <span class="math inline">\(|\)</span> used as part
 of set builder definitions to represent “such that”. Again, this is (one
 of the many reasons) why is it very important to declare the data-type
 of variables before we use them.</p>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>There’s a subtle imprecision in this part of the proof
+as presented, but it can be fixed.<a href="#fnref1"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
 </body>
 </html>

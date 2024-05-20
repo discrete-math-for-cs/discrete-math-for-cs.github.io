@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>functions-for-cardinality</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<div class="flushright">
+
+</div>
+<h1 class="unnumbered"
+id="cardinality-rationale-for-functions">Cardinality rationale for
+functions</h1>
+<p><span><strong>Key idea for cardinality</strong></span>: Counting
+distinct elements is a way of labelling elements with natural numbers.
+This is a function! In general, functions let us associate elements of
+one set with those of another. If the association is
+“<span><em>good</em></span>", we get a correspondence between the
+elements of the subsets which can relate the sizes of the sets.</p>
+<h1 class="unnumbered" id="musical-chairs-analogy">Musical chairs
+analogy</h1>
+<p><span><em>Analogy</em></span>: Musical chairs</p>
+<div class="multicols">
+<p><span>2</span> <img src="../../resources/images/musicalchairs.png"
+style="width:1.8in" alt="image" /></p>
+<p>People try to sit down when the music stops</p>
+<p>Person  sits in Chair 1, Person  sits in Chair 2,</p>
+<p>Person  is left standing!</p>
+</div>
+<p>What does this say about the number of chairs and the number of
+people?</p>
+<h1 class="unnumbered" id="injective-functions-visually">Injective
+functions visually</h1>
+<p>Informally, a function being one-to-one means “no duplicate
+images”.</p>
+<h1 class="unnumbered"
+id="cardinality-lower-bound-definition">Cardinality lower bound
+definition</h1>
+<p><span><strong>Definition</strong></span>: For nonempty sets <span
+class="math inline">\(A, B\)</span>, we say that <span><strong>the
+cardinality of <span class="math inline">\(A\)</span> is no bigger than
+the cardinality of <span
+class="math inline">\(B\)</span></strong></span>, and write <span
+class="math inline">\(|A| \leq |B|\)</span>, to mean there is a
+one-to-one function with domain <span class="math inline">\(A\)</span>
+and codomain <span class="math inline">\(B\)</span>. Also, we define
+<span class="math inline">\(|\emptyset| \leq |B|\)</span> for all sets
+<span class="math inline">\(B\)</span>.</p>
+<h1 class="unnumbered"
+id="injective-cardinality-musical-chairs">Injective cardinality musical
+chairs</h1>
+<p><span><em>In the analogy</em></span>: The function <span
+class="math inline">\(sitter: \{ Chair1, Chair2\} \to \{ Person\sun,
+Person\smiley, Person\frownie \}\)</span> given by <span
+class="math inline">\(sitter(Chair1) = Person\sun\)</span>, <span
+class="math inline">\(sitter(Chair2) = Person\smiley\)</span>, is
+one-to-one and witnesses that <span class="math display">\[| \{ Chair1,
+Chair2\} | \leq |\{ Person\sun, Person\smiley, Person\frownie
+\}|\]</span></p>
+<h1 class="unnumbered"
+id="cardinality-upper-bound-definition">Cardinality upper bound
+definition</h1>
+<p><span><strong>Definition</strong></span>: For nonempty sets <span
+class="math inline">\(A, B\)</span>, we say that <span><strong>the
+cardinality of <span class="math inline">\(A\)</span> is no smaller than
+the cardinality of <span
+class="math inline">\(B\)</span></strong></span>, and write <span
+class="math inline">\(|A| \geq |B|\)</span>, to mean there is an onto
+function with domain <span class="math inline">\(A\)</span> and codomain
+<span class="math inline">\(B\)</span>. Also, we define <span
+class="math inline">\(|A| \geq |\emptyset|\)</span> for all sets <span
+class="math inline">\(A\)</span>.</p>
+<h1 class="unnumbered"
+id="surjective-cardinality-musical-chairs">Surjective cardinality
+musical chairs</h1>
+<p><span><em>In the analogy</em></span>: The function <span
+class="math inline">\(triedToSit: \{ Person\sun, Person\smiley,
+Person\frownie \} \to  \{ Chair1, Chair2\}\)</span> given by <span
+class="math inline">\(triedToSit(Person\sun) = Chair1\)</span>, <span
+class="math inline">\(triedToSit(Person\smiley) = Chair2\)</span>, <span
+class="math inline">\(triedToSit(Person\frownie) = Chair2\)</span>, is
+onto and witnesses that <span class="math display">\[|\{ Person\sun,
+Person\smiley, Person\frownie \}| \geq | \{ Chair1, Chair2\}
+|\]</span></p>
+<h1 class="unnumbered" id="cardinality-properties">Cardinality
+properties</h1>
+<p><span><strong>Properties of cardinality</strong></span> <span
+class="math display">\[\begin{aligned}
+&amp;\forall A ~ (~  |A| = |A| ~)\\
+&amp;\forall A ~ \forall B ~(~ |A| = |B|  ~\to ~ |B| = |A|~)\\
+&amp;\forall A ~ \forall B ~ \forall C~ (~ (|A| = |B| ~\wedge~ |B| =
+|C|) ~\to ~ |A| = |C|~)
+\end{aligned}\]</span></p>
+<p><span><em>Extra practice with proofs:</em></span> Use the definitions
+of bijections to prove these properties.</p>
+<h1 class="unnumbered" id="cardinality-power-sets">Cardinality power
+sets</h1>
+<p><span><em>Recall</em></span>: When <span
+class="math inline">\(U\)</span> is a set, <span
+class="math inline">\(\mathcal{P}(U) = \{ X \mid X \subseteq
+U\}\)</span></p>
+<p><span><em>Key idea</em></span>: For finite sets, the power set of a
+set has strictly greater size than the set itself. Does this extend to
+infinite sets?</p>
+<p><span><strong>Definition</strong></span>: For two sets <span
+class="math inline">\(A, B\)</span>, we use the notation <span
+class="math inline">\(|A| &lt; |B|\)</span> to denote <span
+class="math inline">\((~|A| \leq |B| ~) \land \lnot (~|A| =
+|B|)\)</span>.</p>
+<p><span class="math display">\[\begin{aligned}
+{4}
+    &amp;\emptyset = \{ \} \qquad &amp;&amp;\mathcal{P}(\emptyset) = \{
+\emptyset \} \qquad &amp;&amp;|\emptyset| &lt; |\mathcal{P}(\emptyset)|
+\\
+    &amp;\{1 \} \qquad &amp;&amp;\mathcal{P}(\{1\}) = \{ \emptyset,
+\{1\} \} \qquad &amp;&amp;|\{1\}| &lt; |\mathcal{P}(\{1\})| \\
+    &amp;\{1,2 \} \qquad &amp;&amp;\mathcal{P}(\{1,2\}) = \{ \emptyset,
+\{1\}, \{2\}, \{1,2\} \} \qquad &amp;&amp;|\{1,2\}| &lt;
+|\mathcal{P}(\{1,2\})| \\
+\end{aligned}\]</span></p>
+<p><span><strong><span class="math inline">\(\mathbb{N}\)</span> and its
+power set</strong></span></p>
+<p>Example elements of <span
+class="math inline">\(\mathbb{N}\)</span></p>
+<p>Example elements of <span
+class="math inline">\(\mathcal{P}(\mathbb{N})\)</span></p>
+<p><span><strong>Claim</strong></span>: <span class="math inline">\(|
+\mathbb{N} | \leq |\mathcal{P} ( \mathbb{N} ) |\)</span></p>
+<p><span><strong>Claim</strong></span>: There is an uncountable set.
+Example: <span
+class="math inline">\(\underline{\phantom{~~~\mathcal{P}(\mathbb{N})~~~}}\)</span></p>
+<p><span><strong>Proof</strong></span>: By definition of countable,
+since <span
+class="math inline">\(\underline{\phantom{~~~\mathcal{P}(\mathbb{N})~~~}}\)</span>
+is not finite, <span><strong>to show</strong></span> is <span
+class="math inline">\(|\mathbb{N}|
+\neq  |\mathcal{P}(\mathbb{N})|\)</span> .</p>
+<p>Rewriting using the definition of cardinality, <span><strong>to
+show</strong></span> is</p>
+<p>Towards a proof by universal generalization, consider an arbitrary
+function <span class="math inline">\(f:  \mathbb{N}
+\to\mathcal{P}(\mathbb{N})\)</span>.</p>
+<p><span><strong>To show</strong></span>: <span
+class="math inline">\(f\)</span> is not a bijection. It’s enough to show
+that <span class="math inline">\(f\)</span> is not onto.</p>
+<p>Rewriting using the definition of onto, <span><strong>to
+show</strong></span>: <span class="math display">\[\neg  \forall  B
+\in  \mathcal{P}(\mathbb{N}) ~\exists a \in \mathbb{N}  ~(~f(a)
+=  B~)\]</span> . By logical equivalence, we can write this as an
+existential statement: <span
+class="math display">\[\underline{\phantom{\qquad\qquad\exists B
+\in  \mathcal{P}(\mathbb{N}) ~\forall a \in \mathbb{N}  ~(~f(a)
+\neq  B~)\qquad\qquad}}\]</span> In search of a witness, define the
+following collection of nonnegative integers: <span
+class="math display">\[D_f = \{ n \in \mathbb{N}  ~\mid~  n \notin
+f(n)  \}\]</span> . By definition of power set, since all elements of
+<span class="math inline">\(D_f\)</span> are in <span
+class="math inline">\(\mathbb{N}\)</span>, <span
+class="math inline">\(D_f \in \mathcal{P}(\mathbb{N})\)</span>. It’s
+enough to prove the following Lemma:</p>
+<p><span><strong>Lemma</strong></span>: <span
+class="math inline">\(\forall a \in \mathbb{N}  ~(~f(a)
+\neq  D_f~)\)</span>.</p>
+<p><span><strong>Proof of lemma</strong></span>:<br />
+</p>
+<p>By the Lemma, we have proved that <span
+class="math inline">\(f\)</span> is not onto, and since <span
+class="math inline">\(f\)</span> was arbitrary, there are no onto
+functions from <span class="math inline">\(\mathbb{N}\)</span> to <span
+class="math inline">\(\mathcal{P}(\mathbb{N})\)</span>. QED</p>
+<p><span><strong>Where does <span class="math inline">\(D_f\)</span>
+come from?</strong></span> The idea is to build a set that would
+“disagree" with each of the images of <span
+class="math inline">\(f\)</span> about some element.</p>
+<div class="center">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(n \in
+\mathbb{N}\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(f(n) =
+X_n\)</span></th>
+<th style="text-align: center;">Is <span class="math inline">\(0   \in
+X_n\)</span>?</th>
+<th style="text-align: center;">Is <span class="math inline">\(1 \in
+X_n\)</span>?</th>
+<th style="text-align: center;">Is <span class="math inline">\(2 \in
+X_n\)</span>?</th>
+<th style="text-align: center;">Is <span class="math inline">\(3 \in
+X_n\)</span>?</th>
+<th style="text-align: center;">Is <span class="math inline">\(4 \in
+X_n\)</span>?</th>
+<th style="text-align: center;">…</th>
+<th style="text-align: center;">Is <span class="math inline">\(n \in
+D_f\)</span>?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(f(0) =
+X_0\)</span></td>
+<td style="text-align: center;"><span><strong>Y / N</strong></span></td>
+<td style="text-align: center;">Y / N</td>
+<td style="text-align: center;">Y / N</td>
+<td style="text-align: center;">Y / N</td>
+<td style="text-align: center;">Y / N</td>
+<td style="text-align: center;">…</td>
+<td style="text-align: center;"><span><strong>N / Y</strong>
+</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(f(1) =
+X_1\)</span></td>
+<td style="text-align: center;">Y / N</td>
+<td style="text-align: center;"><span><strong>Y / N</strong></span></td>
+<td style="text-align: center;">Y / N</td>
+<td style="text-align: center;">Y / N</td>
+<td style="text-align: center;">Y / N</td>
+<td style="text-align: center;">…</td>
+<td style="text-align: center;"><span><strong>N / Y</strong>
+</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(f(2) =
+X_2\)</span></td>
+<td style="text-align: center;">Y / N</td>
+<td style="text-align: center;">Y / N</td>
+<td style="text-align: center;"><span><strong>Y / N</strong></span></td>
+<td style="text-align: center;">Y / N</td>
+<td style="text-align: center;">Y / N</td>
+<td style="text-align: center;">…</td>
+<td style="text-align: center;"><span><strong>N / Y</strong>
+</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(3\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(f(3) =
+X_3\)</span></td>
+<td style="text-align: center;">Y / N</td>
+<td style="text-align: center;">Y / N</td>
+<td style="text-align: center;">Y / N</td>
+<td style="text-align: center;"><span><strong>Y / N</strong></span></td>
+<td style="text-align: center;">Y / N</td>
+<td style="text-align: center;">…</td>
+<td style="text-align: center;"><span><strong>N / Y</strong>
+</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(4\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(f(4) =
+X_4\)</span></td>
+<td style="text-align: center;">Y / N</td>
+<td style="text-align: center;">Y / N</td>
+<td style="text-align: center;">Y / N</td>
+<td style="text-align: center;">Y / N</td>
+<td style="text-align: center;"><span><strong>Y / N</strong></span></td>
+<td style="text-align: center;">…</td>
+<td style="text-align: center;"><span><strong>N / Y</strong>
+</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">⋮</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1 class="unnumbered" id="cardinality-rationals-reals">Cardinality
+rationals reals</h1>
+<p><span><strong>Comparing <span
+class="math inline">\(\mathbb{Q}\)</span> and <span
+class="math inline">\(\mathbb{R}\)</span></strong></span></p>
+<p>Both <span class="math inline">\(\mathbb{Q}\)</span> and <span
+class="math inline">\(\mathbb{R}\)</span> have no greatest element.</p>
+<p>Both <span class="math inline">\(\mathbb{Q}\)</span> and <span
+class="math inline">\(\mathbb{R}\)</span> have no least element.</p>
+<p>The quantified statement <span class="math display">\[\forall x
+\forall y (x &lt; y \to \exists z ( x &lt; z &lt; y) )\]</span> is true
+about both <span class="math inline">\(\mathbb{Q}\)</span> and <span
+class="math inline">\(\mathbb{R}\)</span>.</p>
+<p>Both <span class="math inline">\(\mathbb{Q}\)</span> and <span
+class="math inline">\(\mathbb{R}\)</span> are infinite. But, <span
+class="math inline">\(\mathbb{Q}\)</span> is countably infinite whereas
+<span class="math inline">\(\mathbb{R}\)</span> is uncountable.<br />
+<span><strong>The set of real numbers</strong></span></p>
+<p><span class="math inline">\(\mathbb{Z} \subsetneq \mathbb{Q}
+\subsetneq \mathbb{R}\)</span></p>
+<p><span><strong>Order axioms</strong></span> (Rosen Appendix 1):</p>
+<div class="center">
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Reflexivity</td>
+<td style="text-align: left;"><span class="math inline">\(\forall a
+\in  \mathbb{R} (a \leq a)\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Antisymmetry</td>
+<td style="text-align: left;"><span class="math inline">\(\forall a
+\in  \mathbb{R}~\forall b \in \mathbb{R}~(~(a \leq b~ \wedge ~b \leq a)
+\to (a=b)~)\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Transitivity</td>
+<td style="text-align: left;"><span class="math inline">\(\forall a
+\in  \mathbb{R}~\forall b \in \mathbb{R}~\forall c \in \mathbb{R}~
+(~(a \leq b \wedge b \leq c) ~\to  ~(a \leq c)~)\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Trichotomy</td>
+<td style="text-align: left;"><span class="math inline">\(\forall a \in
+\mathbb{R}~\forall b \in \mathbb{R}~ ( ~(a=b ~\vee~ b &gt; a ~\vee~
+a  &lt; b)\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><span><strong>Completeness axioms</strong></span> (Rosen Appendix
+1):</p>
+<div class="center">
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Least upper bound</td>
+<td style="text-align: left;">Every nonempty set of real numbers that is
+bounded above has a least upper bound</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Nested intervals</td>
+<td style="text-align: left;">For each sequence of intervals <span
+class="math inline">\([a_n , b_n]\)</span> where, for each <span
+class="math inline">\(n\)</span>, <span class="math inline">\(a_n &lt;
+a_{n+1} &lt; b_{n+1} &lt; b_n\)</span>, there is at least one real
+number <span class="math inline">\(x\)</span> such that, for all <span
+class="math inline">\(n\)</span>, <span class="math inline">\(a_n \leq x
+\leq b_n\)</span>.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Each real number <span
+class="math inline">\(r  \in  \mathbb{R}\)</span> is described by a
+function to give better and better approximations <span
+class="math display">\[x_r: \mathbb{Z}^+ \to
+\{0,1\}  \qquad  \text{where  $x_r(n ) =  n^{th} $ bit in  binary
+expansion of $r$}\]</span></p>
+<div class="center">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span
+class="math inline">\(r\)</span></th>
+<th style="text-align: center;">Binary expansion</th>
+<th style="text-align: left;"><span
+class="math inline">\(x_r\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(0.1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0.00011001
+\ldots\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(x_{0.1}(n) =
+\begin{cases} 0&amp;\text{if $n &gt; 1$ and $(n~\text{\bf mod}~4) =2$}
+\\
+0&amp;\text{if $n=1$ or if $n &gt; 1$ and $(n~\text{\bf mod}~4) =3$}
+\\1&amp;\text{if $n &gt; 1$ and $(n~\text{\bf mod}~4) =0$} \\
+1&amp;\text{if $n &gt; 1$ and $(n~\text{\bf mod}~4) =1$}
+\end{cases}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\sqrt{2} - 1
+= 0.4142135 \ldots\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0.01101010\ldots\)</span></td>
+<td style="text-align: left;">Use linear approximations (tangent lines
+from calculus) to get algorithm for bounding error of successive
+operations. Define <span
+class="math inline">\(x_{\sqrt{2}-1}(n)\)</span> to be <span
+class="math inline">\(n^{th}\)</span> bit in approximation that has
+error less than <span class="math inline">\(2^{-(n+1)}\)</span>.</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><span><strong>Claim</strong></span>: <span
+class="math inline">\(\{  r \in \mathbb{R} ~\mid~ 0 \leq r ~\wedge~ r
+\leq 1 \}\)</span> is uncountable.</p>
+<p><span><em>Approach 1</em></span>: Mimic proof that <span
+class="math inline">\(\mathcal{P}(\mathbb{Z}^+)\)</span> is
+uncountable.</p>
+<p><span><strong>Proof</strong></span>: By definition of countable,
+since <span class="math inline">\(\{  r \in \mathbb{R} ~\mid~ 0 \leq r
+~\wedge~ r \leq 1 \}\)</span> is not finite, <span><strong>to
+show</strong></span> is <span class="math inline">\(|\mathbb{N}|
+\neq  |\{  r \in \mathbb{R} ~\mid~ 0 \leq r ~\wedge~ r \leq 1
+\}|\)</span> .</p>
+<p><span><strong>To show</strong></span> is <span
+class="math inline">\(\forall f : \mathbb{Z}^+ \to \{  r \in \mathbb{R}
+~\mid~ 0 \leq r ~\wedge~ r \leq 1 \}  ~~(f \text{ is not a
+bijection})~~\)</span>. Towards a proof by universal generalization,
+consider an arbitrary function <span
+class="math inline">\(f:  \mathbb{Z}^+ \to \{  r \in \mathbb{R} ~\mid~ 0
+\leq r ~\wedge~ r \leq 1 \}\)</span>. <span><strong>To
+show</strong></span>: <span class="math inline">\(f\)</span> is not a
+bijection. It’s enough to show that <span
+class="math inline">\(f\)</span> is not onto. Rewriting using the
+definition of onto, <span><strong>to show</strong></span>: <span
+class="math display">\[\exists x \in \{  r \in \mathbb{R} ~\mid~ 0 \leq
+r ~\wedge~ r \leq 1 \} ~\forall a \in \mathbb{N}  ~(~f(a)
+\neq  x~)\]</span> In search of a witness, define the following real
+number by defining its binary expansion <span class="math display">\[d_f
+= 0.b_1 b_2 b_3 \cdots\]</span> where <span class="math inline">\(b_i =
+1-b_{ii}\)</span> where <span class="math inline">\(b_{jk}\)</span> is
+the coefficient of <span class="math inline">\(2^{-k}\)</span> in the
+binary expansion of <span class="math inline">\(f(j)\)</span>. Since<a
+href="#fn1" class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a> <span class="math inline">\(d_f \neq
+f(a)\)</span> for any positive integer <span
+class="math inline">\(a\)</span>, <span class="math inline">\(f\)</span>
+is not onto.</p>
+<p><span><em>Approach 2</em></span>: Nested closed interval property</p>
+<p><span><strong>To show</strong></span> <span class="math inline">\(f:
+\mathbb{N} \to \{  r \in \mathbb{R} ~\mid~ 0  \leq r ~\wedge~ r \leq 1
+\}\)</span> is not onto. <span><strong>Strategy</strong></span>: Build a
+sequence of nested closed intervals that each avoid some <span
+class="math inline">\(f(n)\)</span>. Then the real number that is in all
+of the intervals can’t be <span class="math inline">\(f(n)\)</span> for
+any <span class="math inline">\(n\)</span>. Hence, <span
+class="math inline">\(f\)</span> is not onto.</p>
+<p>Consider the function <span class="math inline">\(f: \mathbb{N} \to
+\{  r \in \mathbb{R} ~\mid~ 0 \leq r ~\wedge~ r \leq 1 \}\)</span> with
+<span class="math inline">\(f(n) = \frac{1+\sin(n)}{2}\)</span></p>
+<div class="center">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span
+class="math inline">\(n\)</span></th>
+<th style="text-align: left;"><span
+class="math inline">\(f(n)\)</span></th>
+<th style="text-align: left;">Interval that avoids <span
+class="math inline">\(f(n)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(0.5\)</span></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(0.920735\ldots\)</span></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(2\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(0.954649\ldots\)</span></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(3\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(0.570560\ldots\)</span></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(4\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(0.121599\ldots\)</span></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">⋮</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>There’s a subtle imprecision in this part of the proof
+as presented, but it can be fixed.<a href="#fnref1"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+</body>
+</html>

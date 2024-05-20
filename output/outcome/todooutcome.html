@@ -175,6 +175,235 @@
 <div class="flushright">
 
 </div>
+<h1 class="unnumbered" id="cardinality-caution">Cardinality caution</h1>
+<p><span><em>Caution</em></span>: we use familiar symbols to define
+cardinality, like <span class="math inline">\(| \phantom{\cdots} | \leq
+| \phantom{\cdots} |\)</span> and <span class="math inline">\(|
+\phantom{\cdots} | \geq | \phantom{\cdots} |\)</span> and <span
+class="math inline">\(| \phantom{\cdots} | = | \phantom{\cdots}
+|\)</span>, but the meaning of these symbols depends on context. We’ve
+seen that vertical lines can mean absolute value (for real numbers),
+divisibility (for integers), and now sizes (for sets).</p>
+<p>Now we see that <span class="math inline">\(\leq\)</span> and <span
+class="math inline">\(\geq\)</span> can mean comparing numbers or
+comparing sizes of sets. When the sets being compared are finite, the
+definitions of <span class="math inline">\(|A| \leq |B|\)</span>
+agree.</p>
+<p>But, properties of numbers cannot be assumed when comparing
+cardinalities of infinite sets.</p>
+<p>In a nutshell: cardinality of sets is defined via functions. This
+definition agrees with the usual notion of “size” for finite sets.</p>
+<h1 class="unnumbered" id="cantor-schroder-bernstein-theorem">Cantor
+schroder bernstein theorem</h1>
+<p><span><strong>Cantor-Schroder-Bernstein Theorem</strong></span>: For
+all nonempty sets, <span class="math display">\[|A| = |B| \qquad\text{if
+and only if} \qquad (|A| \leq |B| ~\text{and}~ |B| \leq |A|)
+\qquad\text{if and only if} \qquad (|A| \geq |B| ~\text{and}~ |B| \geq
+|A|)\]</span></p>
+<p>To prove <span class="math inline">\(|A| = |B|\)</span>, we can do
+any <span><strong>one</strong></span> of the following</p>
+<ul>
+<li><p>Prove there exists a bijection <span class="math inline">\(f:  A
+\to B\)</span>;</p></li>
+<li><p>Prove there exists a bijection <span class="math inline">\(f:
+B  \to  A\)</span>;</p></li>
+<li><p>Prove there exists two functions <span class="math inline">\(f_1:
+A \to B\)</span>, <span class="math inline">\(f_2: B \to  A\)</span>
+where each of <span class="math inline">\(f_1, f_2\)</span> is
+one-to-one.</p></li>
+<li><p>Prove there exists two functions <span class="math inline">\(f_1:
+A \to B\)</span>, <span class="math inline">\(f_2: B \to  A\)</span>
+where each of <span class="math inline">\(f_1, f_2\)</span> is
+onto.</p></li>
+</ul>
+<h1 class="unnumbered" id="countably-infinite-definition">Countably
+infinite definition</h1>
+<p><span><strong>Definition</strong></span>: A set <span
+class="math inline">\(A\)</span> is <span><strong>countably
+infinite</strong></span> means it is the same size as <span
+class="math inline">\(\mathbb{N}\)</span>.</p>
+<h1 class="unnumbered"
+id="countably-infinite-examples-sets-of-numbers">Countably infinite
+examples sets of numbers</h1>
+<p><span><strong>Natural numbers</strong></span> <span
+class="math inline">\(\mathbb{N}\)</span> <span><em>List</em></span>:
+<span class="math inline">\(0~~1~~2~~3~~4~~5~~6~~7~~8~~9~~10
+\ldots\)</span></p>
+<p><span class="math inline">\(identity: \mathbb{N} \to
+\mathbb{N}\)</span> with <span class="math inline">\(identity(n) =
+n\)</span></p>
+<p><span><em>Claim</em></span>: <span
+class="math inline">\(identity\)</span> is a bijection.
+<span><em>Proof</em></span>: Ex.
+<span><strong>Corollary</strong></span>: <span class="math inline">\(|
+\mathbb{N} | = |\mathbb{N}|~\)</span></p>
+<p><span><strong>Positive integers</strong></span> <span
+class="math inline">\(\mathbb{Z}^+\)</span> <span><em>List</em></span>:
+<span
+class="math inline">\(1~~2~~3~~4~~5~~6~~7~~8~~9~~10~~11\ldots\)</span></p>
+<p><span class="math inline">\(positives: \mathbb{N} \to
+\mathbb{Z}^+\)</span> with <span class="math inline">\(positives(n) =
+n+1\)</span></p>
+<p><span><em>Claim</em></span>: <span
+class="math inline">\(positives\)</span> is a bijection.
+<span><em>Proof</em></span>: Ex.<span><strong>Corollary</strong></span>:
+<span class="math inline">\(| \mathbb{N} | = |\mathbb{Z}^+|\)</span></p>
+<p><span><strong>Negative integers <span
+class="math inline">\(\mathbb{Z}^-\)</span></strong></span><span><em>List</em></span>:
+<span class="math inline">\(-1\)</span> <span
+class="math inline">\(-2\)</span> <span
+class="math inline">\(-3\)</span> <span
+class="math inline">\(-4\)</span> <span
+class="math inline">\(-5\)</span> <span
+class="math inline">\(-6\)</span> <span
+class="math inline">\(-7\)</span> <span
+class="math inline">\(-8\)</span> <span
+class="math inline">\(-9\)</span> <span
+class="math inline">\(-10\)</span> <span
+class="math inline">\(-11\)</span>…</p>
+<p><span class="math inline">\(negatives: \mathbb{N} \to
+\mathbb{Z}^-\)</span> with <span class="math inline">\(negatives(n) =
+-n-1\)</span></p>
+<p><span><em>Claim</em></span>: <span
+class="math inline">\(negatives\)</span> is a bijection.
+<span><strong>Corollary</strong></span>: <span class="math inline">\(|
+\mathbb{N} | = |\mathbb{Z}^-|\)</span></p>
+<p><span><em>Proof</em></span>: We need to show it is a well-defined
+function that is one-to-one and onto.</p>
+<ul>
+<li><p>Well-defined?</p>
+<p>Consider an arbitrary element of the domain, <span
+class="math inline">\(n \in \mathbb{N}\)</span>. We need to show it maps
+to exactly one element of <span
+class="math inline">\(\mathbb{Z}^-\)</span>.</p></li>
+<li><p>One-to-one?</p>
+<p>Consider arbitrary elements of the domain <span
+class="math inline">\(a, b \in \mathbb{N}\)</span>. We need to show that
+<span class="math display">\[\left(~negatives(a) = negatives(b) ~\right)
+\to (a=b)\]</span></p></li>
+<li><p>Onto?</p>
+<p>Consider arbitrary element of the codomain <span
+class="math inline">\(b \in \mathbb{Z}^-\)</span>. We need witness in
+<span class="math inline">\(\mathbb{N}\)</span> that maps to <span
+class="math inline">\(b\)</span>.</p></li>
+</ul>
+<p><span><strong>Integers</strong></span> <span
+class="math inline">\(\mathbb{Z}\)</span> <span><em>List</em></span>:
+<span
+class="math inline">\(0~-1~~1~-2~~2~-3~~3~-4~~4~-5~~5\)</span>…</p>
+<p><span class="math inline">\(f: \mathbb{Z} \to \mathbb{N}\)</span>
+with <span class="math inline">\(f(x) = \begin{cases}2x &amp;\text{if $x
+\geq 0$} \\-2x-1 &amp;\text{if $x &lt; 0$} \end{cases}\)</span></p>
+<p><span><em>Claim</em></span>: <span class="math inline">\(f\)</span>
+is a bijection. <span><em>Proof</em></span>:
+Ex.<span><strong>Corollary</strong></span>: <span
+class="math inline">\(| \mathbb{Z} | = |\mathbb{N}|\)</span></p>
+<h1 class="unnumbered"
+id="countably-infinite-examples-other-sets">Countably infinite examples
+other sets</h1>
+<p><span><strong>More examples of countably infinite
+sets</strong></span></p>
+<p><span><strong>Claim</strong></span>: <span
+class="math inline">\(S\)</span> is countably infinite</p>
+<p><span><em>Similarly: The set of all strings over a specific alphabet
+is countably infinite.</em></span></p>
+<div class="center">
+<p>Bijection using alphabetical-ish ordering (first order by length,
+then alphabetically among strings of same length) of strands</p>
+</div>
+<p><span><strong>Claim</strong></span>: <span
+class="math inline">\(L\)</span> is countably infinite</p>
+<div class="multicols">
+<p><span>2</span> <span class="math display">\[\begin{aligned}
+    &amp;list: \mathbb{N} \to L \\
+    &amp;list(n) = (n, []) \\
+    &amp;
+\end{aligned}\]</span></p>
+<p><span class="math display">\[\begin{aligned}
+    &amp;toNum: L \to \mathbb{N} \\
+    &amp;toNum([]) = 0 \\
+    &amp;toNum( ~(n,l)~) = 2^n 3^{toNum}(l) \qquad \text{for $n \in
+\mathbb{N}$, $l \in L$}
+\end{aligned}\]</span></p>
+</div>
+<p><span><strong>Claim</strong></span>: <span
+class="math inline">\(|\mathbb{Z}^+| = |\mathbb{Q}|\)</span></p>
+<p>One-to-one function from <span
+class="math inline">\(\mathbb{Z}^+\)</span> to <span
+class="math inline">\(\mathbb{Q}\)</span> is <span
+class="math inline">\(f_1: \mathbb{Z} \to \mathbb{Q}\)</span> with <span
+class="math inline">\(f_1(n) = n\)</span> for all <span
+class="math inline">\(n \in \mathbb{N}\)</span>.</p>
+<p><span class="math display">\[\begin{aligned}
+    &amp;f_2: \mathbb{Q} \to \mathbb{Z} \times \mathbb{Z} \\
+    &amp;f_2(x) = \begin{cases}
+        (0,1) &amp; \text{if $x = 0$} \\
+        (p,q) &amp; \text{if $x = \frac{p}{q}$,}\\
+                &amp; \text{$gcd(p,q) = 1$, $q &gt; 0$}
+    \end{cases}
+\end{aligned}\]</span></p>
+<div class="multicols">
+<p><span>2</span> <span class="math display">\[\begin{aligned}
+    &amp;f_3: \mathbb{Z} \times \mathbb{Z} \to \mathbb{Z}^+ \times
+\mathbb{Z}^+ \\
+    &amp;f_3(~(x,y)~) = \begin{cases}
+        (2x+2, 2y+2) &amp; \text{if $x \geq 0, y \geq 0$} \\
+        (-2x-1, 2y+2) &amp; \text{if $x &lt; 0, y \geq 0$} \\
+        (2x+2, -2y+1) &amp; \text{if $x \geq 0, y &lt; 0$} \\
+        (-2x-1, -2y-1) &amp; \text{if $x &lt; 0, y &lt; 0$} \\
+    \end{cases}
+\end{aligned}\]</span></p>
+<p><span class="math display">\[\begin{aligned}
+    &amp;f_4: \mathbb{Z}^+ \times \mathbb{Z}^+ \to \mathbb{Z}^+ \\
+    &amp;f_4(~(x,y)~) = 2^x 3^y \qquad \text{for $x,y \in \mathbb{Z}^+$}
+\end{aligned}\]</span></p>
+</div>
+<h1 class="unnumbered" id="cardinality-categories">Cardinality
+categories</h1>
+<p>A set <span class="math inline">\(A\)</span> is
+<span><strong>finite</strong></span> means it is empty or it is the same
+size as <span class="math inline">\(\{ 1, \ldots, n \}\)</span> for some
+<span class="math inline">\(n \in \mathbb{N}\)</span>.</p>
+<p>A set <span class="math inline">\(A\)</span> is
+<span><strong>countably infinite</strong></span> means it is the same
+size as <span class="math inline">\(\mathbb{N}\)</span>.
+<span><em>Notice: all countably infinite sets are the same size as each
+other.</em></span></p>
+<p>A set <span class="math inline">\(A\)</span> is
+<span><strong>countable</strong></span> means it is either finite or
+countably infinite.</p>
+<p>A set <span class="math inline">\(A\)</span> is
+<span><strong>uncountable</strong></span> means it is not countable.</p>
+<h1 class="unnumbered" id="cardinality-countability-lemmas">Cardinality
+countability lemmas</h1>
+<p><span><strong>Lemmas about countable and uncountable
+sets</strong></span></p>
+<p><span><strong>Lemma</strong></span>: If <span
+class="math inline">\(A\)</span> is a subset of a countable set, then
+it’s countable.</p>
+<p><span><strong>Lemma</strong></span>: If <span
+class="math inline">\(A\)</span> is a superset of an uncountable set,
+then it’s uncountable.</p>
+<p><span><strong>Lemma</strong></span>: If <span
+class="math inline">\(A\)</span> and <span
+class="math inline">\(B\)</span> are countable sets, then <span
+class="math inline">\(A \cup B\)</span> is countable and <span
+class="math inline">\(A \cap B\)</span> is countable.</p>
+<p><span><strong>Lemma</strong></span>: If <span
+class="math inline">\(A\)</span> and <span
+class="math inline">\(B\)</span> are countable sets, then <span
+class="math inline">\(A \times B\)</span> is countable.</p>
+<p><span><em>Generalize pairing ideas from <span
+class="math inline">\(\mathbb{Z}^+ \times \mathbb{Z}^+\)</span> to <span
+class="math inline">\(\mathbb{Z}^+\)</span></em></span></p>
+<p><span><strong>Lemma</strong></span>: If <span
+class="math inline">\(A\)</span> is a subset of <span
+class="math inline">\(B\)</span> , to show that <span
+class="math inline">\(|A| = |B|\)</span>, it’s enough to give one-to-one
+function from <span class="math inline">\(B\)</span> to <span
+class="math inline">\(A\)</span> or an onto function from <span
+class="math inline">\(A\)</span> to <span
+class="math inline">\(B\)</span>.</p>
 <h1 class="unnumbered" id="cartesian-product-definition">Cartesian
 product definition</h1>
 <p><span><strong>Definition</strong></span>: The <span><strong>Cartesian

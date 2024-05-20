@@ -447,6 +447,56 @@
 		</script></div></div><div class="box outcome"  id="box8"><button type="button" class="collapsible"
 			"> 
 <h2 style= "line-height:20px;"> <i id="sideBtn8" class='bx bx-caret-right'></i> 
+			Test2Practice Cse20S24</h2> </button> <div class="boxContent" style="display: none;"> <hr> <p> Test 2 is in class  this week, Friday May 31, 1pm-1:50pm WLH 2001.  The test covers material in Weeks 5 through 8. To study for the exam, we recommend reviewing class notes (e.g. annotations linked on the class website, podcast, supplementary video from the class website), reviewing homework (and its posted sample solutions), and in particular *working examples* (extra examples in lecture notes, review quizzes, discussion examples) and getting feedback (office hours and Piazza). This collection of practice questions may also be helpful, but is not meant to represent the actual length or format of the test.</p> <p> Due: Test 2 is Friday of Week 9</p> <p> <a tabindex = "2" class="button PDF" aria-label="Download PDF" 
+		href=../output/assignments/test2practice-CSE20S24.pdf download>PDF</a> <a tabindex = "2" style= "display: inline-block;" class="button LaTeX" aria-label="Download .LaTeX" 
+			href=../notes/assignments-flat/test2practice-CSE20S24.tex download>LaTeX</a>  <a tabindex = "2" style= "display: inline-block;" class="button HTML" aria-label="Open HTML file of Document in New Tab" 
+			href= ../output/assignments/test2practice-CSE20S24.html target="HTML">Raw HTML</a><br> <label>Sample solutions<input type="checkbox" id="toggle-8">
+				<span class="slider round"></span>
+				<script>
+					annotated8 = false;
+					document.getElementById("toggle-8").onclick = function() {
+						if(annotated8  == false) {
+							console.log("false to true");
+							annotated8  = true;
+							annotations(true, "../output/assignments/test2practice-CSE20S24.pdf","../files/test2practice-CSE20S24-sample-sol.pdf", "test2practice-CSE20S24")
+						}
+						else {
+							console.log("true to false");
+							annotated8  = false;
+							annotations(false, "../output/assignments/test2practice-CSE20S24.pdf","../files/test2practice-CSE20S24-sample-sol.pdf", "test2practice-CSE20S24")
+						}
+					}
+
+					
+				</script></label>
+			 <br> <iframe class="PDFjs" id="test2practice-CSE20S24" src="web/viewer.html?file=../../output/assignments/test2practice-CSE20S24.pdf" 
+		title="webviewer" frameborder="0" width="100%" height="600"></iframe> <script>
+			 toggle = document.querySelector('.toggle input')
+
+			toggle.addEventListener('click', () => {
+    		 onOff = toggle.parentNode.querySelector('.onoff8')
+    		onOff.textContent = toggle.checked ? 'ON' : 'OFF'
+			})
+			
+			function annotations(notes, annotated,id) {
+				var doc;
+				var drive;
+				 toggle = document.querySelector('.toggle input')
+				//0 value means annotations are off 
+				if (toggle.checked) {
+					doc = "web/viewer.html?file=../"+notes
+				} 
+
+				//1 value turns annotations on
+				else {
+					doc = "web/viewer.html?file=../" +annotated
+				}
+				
+                document.getElementById(id).src = doc;
+			}
+		</script></div></div><div class="box outcome"  id="box9"><button type="button" class="collapsible"
+			"> 
+<h2 style= "line-height:20px;"> <i id="sideBtn9" class='bx bx-caret-right'></i> 
 			Project Cse20S24</h2> </button> <div class="boxContent" style="display: none;"> <hr> <p> This is an Individual Assignment</p> <p> Due: 5/8/24 at 5pm (no penalty late submission until 8am next day) - Extended by 24 hours</p> <p> <a tabindex = "2" class="button PDF" aria-label="Download PDF" 
 		href=../output/assignments/project-CSE20S24.pdf download>PDF</a> <a tabindex = "2" style= "display: inline-block;" class="button LaTeX" aria-label="Download .LaTeX" 
 			href=../notes/assignments-flat/project-CSE20S24.tex download>LaTeX</a>  <a tabindex = "2" style= "display: inline-block;" class="button HTML" aria-label="Open HTML file of Document in New Tab" 
@@ -455,7 +505,7 @@
 			 toggle = document.querySelector('.toggle input')
 
 			toggle.addEventListener('click', () => {
-    		 onOff = toggle.parentNode.querySelector('.onoff8')
+    		 onOff = toggle.parentNode.querySelector('.onoff9')
     		onOff.textContent = toggle.checked ? 'ON' : 'OFF'
 			})
 			

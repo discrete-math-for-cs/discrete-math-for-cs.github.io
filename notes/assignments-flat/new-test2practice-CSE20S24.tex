@@ -1,0 +1,1031 @@
+\documentclass[12pt, oneside]{article}
+
+\usepackage[letterpaper, scale=0.8, centering]{geometry}
+\usepackage{fancyhdr}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\rfoot{{\footnotesize Copyright Mia Minnes, 2024, Version \today~(\thepage)}}
+
+\usepackage{titlesec}
+
+\author{CSE20S24}
+
+\newcommand{\instructions}{{\bf For all HW assignments:} 
+These homework assignments may be done individually or in groups of up to 3 students.
+Please ensure your name(s) and PID(s)
+are clearly visible on the first page of your homework
+submission, start each question on a new page, and upload the PDF to Gradescope.
+If you're working in a group, {\it submit only one submission per group}: one partner uploads the
+submission through their Gradescope account and then adds the other group member(s) to the Gradescope submission
+by selecting their name(s) in the ``Add Group Members'' dialog box. You will need to re-add your group member(s)
+every time you resubmit a new version of your assignment.
+
+Each homework question will be graded either for
+{\bf correctness} (including clear and precise explanations and justifications of all answers) or
+{\bf fair effort completeness}. You may collaborate on ``graded for correctness''
+questions only with CSE 20 students in your group; if your
+ group has questions about a problem, you may ask in drop-in help hours or post a private
+post (visible only to the Instructors) on Piazza.  
+ For ``graded for completeness''
+ questions: collaboration is allowed with any CSE 20 students this quarter; 
+ if your group has questions about a problem, you may ask in drop-in 
+ help hours or post a public post on Piazza.
+
+All submitted homework for this class must be typed. 
+You can use a word processing editor if you like (Microsoft Word, Open Office, Notepad, Vim, Google Docs, etc.) 
+but you might find it useful to take this opportunity to learn LaTeX. 
+LaTeX is a markup language used widely in computer science and mathematics. 
+The homework assignments are typed using LaTeX and you can use the source files 
+as templates for typesetting your solutions.
+
+{\bf Integrity reminders}
+\begin{itemize}
+\item Problems should be solved together, not divided up between the partners. The homework is
+designed to give you practice with the main concepts and techniques of the course, 
+while getting to know and learn from your classmates.
+\item You may not collaborate on homework questions graded for correctness with anyone other than your group members.
+You may ask questions about the homework in office hours (of the instructor, TAs, and/or tutors) and 
+on Piazza (as private notes viewable only to the Instructors).  
+You \emph{cannot} use any online resources about the course content other than the class material 
+from this quarter -- this is primarily to ensure that we all use consistent notation and
+definitions (aligned with the textbook) and also to protect the learning experience you will have when
+the `aha' moments of solving the problem authentically happen.
+\item Do not share written solutions or partial solutions for homework with 
+other students in the class who are not in your group. Doing so would dilute their learning 
+experience and detract from their success in the class.
+\end{itemize}
+
+}
+
+\newcommand{\gradeCorrect}{({\it Graded for correctness}) }
+\newcommand{\gradeCorrectFirst}{\gradeCorrect\footnote{This means your solution 
+will be evaluated not only on the correctness of your answers, but on your ability
+to present your ideas clearly and logically. You should explain how you 
+arrived at your conclusions, using
+mathematically sound reasoning. Whether you use formal proof techniques or 
+write a more informal argument
+for why something is true, your answers should always be well-supported. 
+Your goal should be to convince the
+reader that your results and methods are sound.} }
+\newcommand{\gradeComplete}{({\it Graded for completeness}) }
+\newcommand{\gradeCompleteFirst}{\gradeComplete\footnote{This means you will 
+get full credit so long as your submission demonstrates honest effort to 
+answer the question. You will not be penalized for incorrect answers. 
+To demonstrate your honest effort in answering the question, we 
+expect you to include your attempt to answer *each* part of the question. 
+If you get stuck with your attempt, you can still demonstrate 
+your effort by explaining where you got stuck and what 
+you did to try to get unstuck.} }
+
+
+
+\usepackage{amssymb,amsmath,pifont,amsfonts,comment,enumerate,enumitem}
+\usepackage{currfile,xstring,hyperref,tabularx,graphicx,wasysym}
+\usepackage[labelformat=empty]{caption}
+\usepackage{xcolor}
+\usepackage{multicol,multirow,array,listings,tabularx,lastpage,textcomp,booktabs}
+
+\lstnewenvironment{algorithm}[1][] {   
+    \lstset{ mathescape=true,
+        frame=tB,
+        numbers=left, 
+        numberstyle=\tiny,
+        basicstyle=\rmfamily\scriptsize, 
+        keywordstyle=\color{black}\bfseries,
+        keywords={,procedure, div, for, to, input, output, return, datatype, function, in, if, else, foreach, while, begin, end, }
+        numbers=left,
+        xleftmargin=.04\textwidth,
+        #1
+    }
+}
+{}
+\lstnewenvironment{java}[1][]
+{   
+    \lstset{
+        language=java,
+        mathescape=true,
+        frame=tB,
+        numbers=left, 
+        numberstyle=\tiny,
+        basicstyle=\ttfamily\scriptsize, 
+        keywordstyle=\color{black}\bfseries,
+        keywords={, int, double, for, return, if, else, while, }
+        numbers=left,
+        xleftmargin=.04\textwidth,
+        #1
+    }
+}
+{}
+
+\newcommand\abs[1]{\lvert~#1~\rvert}
+\newcommand{\st}{\mid}
+
+\newcommand{\A}[0]{\texttt{A}}
+\newcommand{\C}[0]{\texttt{C}}
+\newcommand{\G}[0]{\texttt{G}}
+\newcommand{\U}[0]{\texttt{U}}
+
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+
+  
+
+
+\renewcommand{\baselinestretch}{1}
+
+
+
+
+
+
+\newif \ifsolution
+\solutiontrue
+\solutionfalse
+
+\newcommand{\soltwo}[1]{\medskip\fbox{\begin{minipage}{6.5in}{#1}\end{minipage}}\medskip}
+
+\begin{document}
+\begin{center}
+{\Large
+CSE 20 Spring 2024\\ 
+Practice for Test 2 \ifsolution{\qquad Solutions}\fi}
+\end{center}
+
+\thispagestyle{empty}
+
+\ifsolution{}
+\else{}
+Below are the instructions that will be on the first page of the test package:
+
+\begin{center}
+  \begin{minipage}[t]{7in}
+  \rule{\linewidth}{2pt}
+  \textbf{INSTRUCTIONS --- READ THIS NOW}
+  \begin{itemize}
+  
+  \setlength{\itemsep}{0.025in}
+  
+  \item  Write your name, PID, current seat number, exam time, 
+  and the academic integrity pledge in the indicated space above and 
+  on the designated  {\bf answer sheet}.
+  We will check for {\bf all} of this identifying information before grading.
+  Write your answers in the specified areas, or your work will not be graded. 
+  
+  \item We will not be answering questions about the exam during the exam period. 
+  If any bugs are found in the exam after the exam period, the affected question part(s) will be addressed.
+  
+  \item  You may use one 8.5"x11", doublesided sheet of notes that you create and bring to the exam room, but no other books, notes, or aids.
+  
+  \item You may not speak to any other student in the exam room while the exam 
+  is in progress (including after you hand in your own exam).  You may not share
+  {\bf any information} about the exam with anyone who has not taken it.
+  
+  \item Turn off and put away all cellphones, calculators, and other electronic devices.
+  You may not access any electronic device during the exam period. If you need to leave 
+  the room during the exam period, you must leave all electronic devices with an exam proctor.
+  
+  \item  To receive full credit, your answers must
+  be written neatly, legibly, and sufficiently darkly to scan well in the indicated answer box. Your solution will be evaluated both for correctness and clarity.
+  Read the instructions for each part carefully to determine what is required for full credit.
+  This test has $??$ problems worth a total of $??$ points.
+  
+  \item This exam is {\bf 45 minutes} long. Read all the problems first before you start 
+  working on any of them, so you can manage your time wisely.
+  
+  \item Please stay seated until the end of the exam period.
+  We will collect all exams and note sheets at the {\bf end} of the exam period, to minimize disruption 
+  for students who wish to use the full time for the exam. Please show your ID to a proctor when 
+  asked.
+  
+  
+  \end{itemize}
+  \end{minipage} \hfill
+  \end{center}
+  \newpage
+\fi
+
+\begin{description}
+
+  \item[1. Predicates and Quantifiers] 
+  Express each of the following statements symbolically using quantifiers, variables, propositional connectives, 
+  and predicates (make sure to define the domain and the meaning of any predicates 
+  you introduce). Then, express its negation as a logically equivalent compound 
+  proposition without a $\neg$ in front.  Decide whether the statement or its negation is true,
+  and prove it.
+  
+  \begin{enumerate}
+  \item[(a)] If $m$ is an integer, $m^2 + m +1$ is odd.
+  
+  \ifsolution
+  \soltwo{
+  Define the predicate $D(x)$ to mean ``$x$ is odd" with domain $\mathbb{Z}$.
+  
+  
+  The sentence is then $\forall m \in \mathbb{Z} ( D(m^2 + m + 1))$.
+  
+  Its negation is $\neg \forall m \in \mathbb{Z} ( D(m^2 + m + 1)) \equiv \exists m ( \neg D(m^2 + m + 1))$.
+  
+  The original statement is true.
+  
+  {\bf  Proof} Towards universal generalization, let $m$ be an arbitrary integer.  
+  By   definition of odd, {\bf to show}: 
+  there is an integer $k$ such 
+  that $m^2 + m + 1 = 2k + 1$. Factoring the LHS, $m^2 + m + 1 = m(m+1) + 1$.  
+  We proceed  in proof by cases, since $m$ is either even or odd.
+  \begin{itemize}
+  \item Case 1  {\bf to  show}: $(m$ is even $) \to  D(m^2+m+1)$.  In a direct proof of the conditional, 
+   assume $m$ is even and choose $c$ be an integer such that $m = 2c$. 
+   {\bf To show}: there is an integer such that $m^2+m+1$  is twice  that integer plus $1$.
+  To find a witness  for this existential, we substitute  $m=2c$ and calculate, $m(m+1) = 2c(2c+1) = 2( 2c^2 + c) $.
+  Since $2c^2 +c \in \mathbb{Z}$ (by properties of integer addition and multiplication), 
+  it is the witness we need, because $2(2c^2+c) +1 =  2c(2c+1) +1 = m(m+1)+1 =  m^2+m+1$.
+  \item Case 2 {\bf  to  show}: $(m$ is odd $) \to  D(m^2+m+1)$.  In a direct proof of the conditional, 
+   assume $m$ is odd and choose $c$ be an integer such that $m = 2c+1$. 
+   {\bf To show}: there is an integer such that $m^2+m+1$  is twice  that integer plus $1$.
+  To find a witness  for this existential, we substitute  $m=2c+1$ and calculate, $m(m+1) = (2c+1)(2c+2) = 2( 2c+1)(c+1) $.
+  Since $(2c+1)(c+1)\in \mathbb{Z}$ (by properties of integer addition and multiplication), 
+  it is the witness we need, because $2(2c+1)(c+1)  + 1=  m(m+1) + 1=  m^2+m+1$.
+  \end{itemize}
+  
+  {\it Alternate proof} Let $m$ be an integer.  WTS that $m^2+m+1 \mod 2 = 1$. 
+  Case 1: $m \mod 2 = 0$.  Then by modular arithmetic (Corollary 2 on page 242), 
+  \begin{align*}
+  (m^2 + m + 1) \mod 2 &= \left( (m \mod 2 ) (m \mod 2) + (m \mod 2) + 1 \right) \mod 2 \\
+  & = (0 \cdot 0 + 0 +1 ) \mod 2 = 1
+  \end{align*}
+  as required.  Case 2: $m \mod 2 = 1$.  Then 
+  by modular arithmetic (Corollary 2 on page 242), 
+  \begin{align*}
+  (m^2 + m + 1) \mod 2 &= \left( (m \mod 2 ) (m \mod 2) + (m \mod 2) + 1 \right) \mod 2 \\
+  & = (1 \cdot 1 + 1 +1 ) \mod 2 = 3 \mod 2 = 1
+  \end{align*}
+  as required.
+  }
+  \else{}
+  \fi
+  
+  \item[(b)] For all integers $n$ greater than $5$, $2^n-1$ is not prime.
+  
+  \ifsolution
+  \soltwo{
+  
+  Define the predicate: $P(x)$ to mean ``$x$ is prime" with domain: $\mathbb{Z}$. 
+  
+  The sentence translates to $\forall n ( n > 5 \to \neg P(2^n - 1) )$.
+  
+  Its negation is 
+  $\neg \forall n  \in \mathbb{Z} ( n > 5 \to \neg P(2^n - 1) ) \equiv \exists n \in  \mathbb{Z} (n > 5 \wedge P(2^n -1))$.
+  
+  The negation is true: to prove it, we need a  witness integer greater than  $5$ where 
+  $2^n-1$ is prime.  Consider $n=7$,  an integer so  in the domain.  Calculating, $2^7 -1 =128-1 =127$.   This is a prime
+  number because all integers greater than $1$ and less than $\sqrt{127}$  (namely   $2, 3, 4, 5, 6, 7, 8, 9, 10, 11$)
+  are not factors of $127$.
+  }
+  \else{}
+  \fi
+  
+  
+  \item[(c)] If $n$ and $m$ are even integers, then $n - m$ is even.
+  
+  \ifsolution
+  \soltwo{
+  Define the predicate $E(x)$ to mean 	``$x$ is even" with domain $\mathbb{Z}$.  Note: this 
+  predicate could be expressed symbolically as $\exists k \in  \mathbb{Z} (x=2k)$.
+  
+  The sentence translates to  $\forall x \in \mathbb{Z} ~\forall y \in \mathbb{Z}~( ( E(x) \wedge E(y) ) \to E(x-y) )$.
+  
+  Its negation is $$\neg \forall x \in \mathbb{Z} ~\forall y \in \mathbb{Z}~( ( E(x) \wedge E(y) ) \to E(x-y) ) 
+  \equiv \exists x\in \mathbb{Z} \exists y \in \mathbb{Z} ( E(x) \wedge E(y) \wedge \neg E(x-y))$$
+  
+  The original statement is true: Towards universal generalization let $x,y$ be arbitrary integers and
+  to show is $( E(x) \wedge E(y) ) \to E(x-y)$. Assume, towards
+  a direct proof of the conditional that $x$ and $y$ are both even. We WTS that $x-y$ is even.  By definition of even, 
+  there are integers $j, h$ such that $x=2j$ and $y=2h$.  Then $x-y = (2j) - (2h) = 2(j-h)$.
+  Choosing the  witness $k=j-h$ (an integer), we have proved that $x - y$ is even.
+  }
+  \else{}
+  \fi
+  \end{enumerate}
+  
+  
+  \item[2. Proof strategies] Prove each of the following claims.
+  Use only basic definitions and general proof strategies in your proofs; 
+  do not use any results proved in class / the textbook as lemmas. You may use basic 
+  properties of real numbers that we stated (without proof) in class, e.g. that the difference of two
+  integers is an integer.
+  \begin{enumerate}
+  \item[(a)] The difference of any rational number and any irrational number is irrational.
+  
+  \ifsolution
+  \soltwo{
+  {\bf Proof}: Symbolically, to show is:
+  \[
+  \forall x \in \mathbb{R} \forall y \in \mathbb{R}  (  (x \in \mathbb{Q}  \land  y  \notin \mathbb{Q}) \to  (x-y  \notin  \mathbb{Q}))
+  \]
+  . Towards universal  generalization,  let $x,y$ be arbitrary  real numbers.
+  Proceed in a  proof by  contradiction with  
+  \[
+  p  = (x \in \mathbb{Q}  \land  y  \notin \mathbb{Q}) \to  (x-y  \notin  \mathbb{Q})  \qquad
+  r = y  \in  \mathbb{Q}
+  \]
+  . To show: $\neg p \to (r  \land \neg  r)$.  
+  Assume $\neg p$, that is  $x \in \mathbb{Q}  \land  y  \notin \mathbb{Q} \land  x-y  \in  \mathbb{Q}$.  
+  To show: $r \land \neg r$. By definition of conjunction,  each conjunct  is  true  and  $y  \notin \mathbb{Q}$  being true means 
+  $\neg (y \in  \mathbb{Q}$ is  true.  Thus,  $\neg  r$ is true, and  to  show is:  $r$.
+  By definition of $\mathbb{Q}$, there are integers $a,b,p, q$ with $b \neq 0$ and $q \neq 0$ such that $x = \frac{a}{b}, x-y = \frac{p}{q}$.  Then 
+  \[
+  y = x- (x-y) = \frac{a}{b} - \frac{p}{q} = \frac{aq - bp}{bq}.
+  \]
+  By  properties of integer multiplication and subtraction, $aq-bp \in \mathbb{Z}$
+  and $bq\in \mathbb{Z}$, and since $b,q$ are both nonzero $bq \neq 0$.  Thus, by definition
+  of $\mathbb{Q}$, $y \in \mathbb{Q}$, namely,  $r$.
+  Thus, we proved $\neg p \to  (r \land  \neg r)$  and so 
+  we conclude that $p$ holds.
+  
+  }
+  \else{}
+  \fi
+  
+  \item[(b)] If $a, b, c$ are integers and $a^2 + b^2 = c^2$, then at least one of $a$ and $b$ is even.
+  
+  \ifsolution
+  \soltwo{
+  We prove two helper claims (lemmas) before the proof.
+  
+  {\bf Lemma 1}: For any integer $x$, if $x^2$ is even , then so is $x$.
+  
+  {\it Proof of Lemma 1}:  Let $x$ be an arbitrary integer and assume (towards proof by contrapositive)
+  that $x$ is not even (hence, odd).  WTS that $x^2$ is also not even.
+  By assumption, $x = 2k+1$ for some integer $k$.  Squaring: 
+  $x^2 = 4k^2+4k+1 = 2(2k^2+2k) + 1$, and by properties of integer addition
+  and multiplication $2k^2 + 2k \in \mathbb{Z}$, so $x^2$ is odd, hence not even. \\
+  
+  
+  {\bf Lemma 2}: For any odd integer $x$, $x^2~\text{\bf mod}~4 = 1$.
+  
+  {\it Proof of Lemma 2}: Let $x$ be an arbitrary odd integer.  By definition, this means there 
+  is an integer, call it $k$, such that $x = 2k+1$.  Squaring: $x^2 = 4k^2 + 4k + 1 = 4( k^2 + k) + 1$.
+  Since $k^2 + k \in \mathbb{Z}$, $x^2~\text{\bf mod}~4 = 1$.\\
+  
+  
+  {\bf Proof}: Let $a,b,c$ be arbitrary integers.  To show: $a^2 +  b^2 = c^2  \to (E(a) \vee E(b) )$.
+  Towards a contradiction, consider
+  \[
+  p  =   ( a^2 +  b^2 = c^2)  \to (E(a) \vee E(b) ) \qquad  r= (c^2~\text{\bf mod}~4 = 0)
+  \]
+  To show:  $\neg p \to  (r \land \neg r)$.  Assume $\neg p$, that is 
+  $a^2 + b^2 =c^2$ and $a$ and $b$ are both not even.  
+  By properties of even/odd, $a$ and $b$ are both odd.  Thus, by Lemma 2,
+  $a^2~\text{\bf mod}~4 = b^2 ~\text{\bf mod}~4 = 1$.  By modular arithmetic,
+  $c^2 ~\text{\bf mod}~4 = (a^2  + b^2)~\text{\bf mod}~4 = (1 + 1) ~\text{\bf mod}~4 = 2$.
+  Since $2 \neq 0$,  this proves $\neg r$.  To show:  $r$.
+  Since $c^2~\text{\bf mod}~4 =  2$, there is an integer, call it $q$, such that $c^2 = 4q + 2 = 2(2q+1)$. Thus,
+  $c^2$ is even.  Therefore, applying Lemma 1, $c$ is even.
+  By definition, this gives an integer $k$ such that $c = 2k$.  Thus, $c^2 = 4k^2 = 4k^2  +0$
+  so $c^2~\text{\bf mod}~4 = 0$, namely $r$. Thus, we proved $\neg p \to  (r \land  \neg r)$  and so 
+  we conclude that $p$ holds.
+  }
+  \else{}
+  \fi
+  
+  \item[(c)] For any integer $n$, $n^2 + 5$ is not divisible by $4$.
+  
+  \ifsolution
+  \soltwo{
+  Let $n$ be an arbitrary integer.  Towards proof by cases, notice that 
+  $(n~\text{\bf mod}~4 = 0) \lor (n~\text{\bf mod}~4 = 1) \lor (n~\text{\bf mod}~4 = 2) \lor (n~\text{\bf mod}~4 = 3)$
+  \begin{itemize}
+  \item {\bf Case 1 to show}: $(n~\text{\bf mod}~4 = 0) \to (n^2 + 5 \text{ is not divisible by } 4)$.  
+  Assume $(n~\text{\bf mod}~4 = 0)$. Then, by modular arithmetic,
+  \[
+  (n^2 + 5)~\text{\bf mod}~4 = ((n~\text{\bf mod}~4)^2 + 5~\text{\bf mod}~4)~\text{\bf mod}~ 4= ( 0^2 + 1)~\text{\bf mod}~4 = 1~\text{\bf mod}~4.
+  \]
+  Since $(n^2 +5) ~\text{\bf mod}~4 \neq 0$, $n^2 + 5$ is not divisible by $4$, as required.
+  \item {\bf Case 2 to show}: $(n~\text{\bf mod}~4 = 1) \to (n^2 + 5 \text{ is not divisible by } 4)$.  
+  Assume $(n~\text{\bf mod}~4 = 1)$. Then, by modular arithmetic,
+  \[
+  (n^2 + 5)~\text{\bf mod}~4 = ((n~\text{\bf mod}~4)^2 + 5~\text{\bf mod}~4)~\text{\bf mod}~ 4= ( 1^2 + 1)~\text{\bf mod}~4 = 2~\text{\bf mod}~4.
+  \]
+  Since $(n^2 +5) ~\text{\bf mod}~4 \neq 0$, $n^2 + 5$ is not divisible by $4$, as required.
+  \item {\bf Case 3 to show}: $(n~\text{\bf mod}~4 = 2) \to (n^2 + 5 \text{ is not divisible by } 4)$.  
+  Assume $(n~\text{\bf mod}~4 = 2)$. Then, by modular arithmetic,
+  \[
+  (n^2 + 5)~\text{\bf mod}~4 = ((n~\text{\bf mod}~4)^2 + 5~\text{\bf mod}~4)~\text{\bf mod}~ 4= ( 2^2 + 1)~\text{\bf mod}~4 = 5~\text{\bf mod}~4 = 1
+  \]
+  Since $(n^2 +5) ~\text{\bf mod}~4 \neq 0$, $n^2 + 5$ is not divisible by $4$, as required.
+  \item {\bf Case 4 to show}: $(n~\text{\bf mod}~4 = 3) \to (n^2 + 5 \text{ is not divisible by } 4)$.  
+  \[
+  (n^2 + 5)~\text{\bf mod}~4 = ((n~\text{\bf mod}~4)^2 + 5~\text{\bf mod}~4)~\text{\bf mod}~ 4= ( 3^2 + 1)~\text{\bf mod}~4 = 10~\text{\bf mod}~4 = 2
+  \]
+  Since $(n^2 +5) ~\text{\bf mod}~4 \neq 0$, $n^2 + 5$ is not divisible by $4$, as required.
+  \end{itemize}
+  The proof by cases  is now complete for the arbitrary integer $n$.
+  }
+  \else{}
+  \fi
+  \item[(d)] For all positive integers $a,b,c$, if $a \not | bc$ then $a \not | b$. {\scriptsize (The notation
+  $a \not | b$ means ``a does not divide b'').}
+  
+  \ifsolution
+  \soltwo{
+  Let $a,b,c$ be arbitrary  positive integers.  Assume, towards a proof by contrapositive, that 
+  $a |b$.  To show: $a | bc$.  By definition of divisibility, there is an integer $k$ such that
+  \[
+  b = ak.
+  \]
+  Multiplying both sides by $c$,
+  \[
+  bc = (ak) c = a (kc).
+  \]
+  By properties of integer multiplication, $kc \in \mathbb{Z}$ and so it witnesses 
+  $a | bc$, as required.
+  }
+  \else{}
+  \fi
+  
+  \end{enumerate}
+  
+  {\bf Bonus}: Watch the video \url{https://www.youtube.com/watch?v=MhJN9sByRS0} and write
+  down the statement and one or both of the proofs described using the notation, definitions, and 
+  proof strategies from CSE 20. 
+
+  \item[3. Sets]  Prove or disprove each of the following statements.
+  \begin{enumerate}
+  \item[(a)]  For all sets $A$ and $B$, $\mathcal{P}(A) \cup \mathcal{P}(B) = \mathcal{P}(A \cup B)$.
+  
+  \ifsolution
+  \soltwo{
+  False.  A counterexample would be $A = \{1\}, B = \{2\}$.  Then 
+  \[
+  \mathcal{P}(A) \cup \mathcal{P}(B) = \{ \emptyset, \{1\} \} \cup \{ \emptyset , \{2\} \} = 
+  \{ \emptyset, \{1\}, \{2\} \}
+  \]
+  but
+  \[
+  \mathcal{P}(A \cup B) = \mathcal{P}(\{1,2\}) = \{ \emptyset, \{1\}, \{2\}, \{1,2\} \}.
+  \]
+  These sets are not equal because they disagree about membership of $\{1,2\}$.
+  }
+  \else{}
+  \fi
+  
+  \item[(b)] For all sets $A$ and $B$, $\mathcal{P}(A) \cap \mathcal{P}(B) = \mathcal{P}(A \cap B)$.
+  
+  \ifsolution
+  \soltwo{
+  True.  Proof: let $A, B$ be arbitrary sets.  We WTS that 
+  $\mathcal{P}(A) \cap \mathcal{P}(B) \subseteq \mathcal{P}(A \cap B)$
+  and $\mathcal{P}(A \cap B) \subseteq \mathcal{P}(A) \cap \mathcal{P}(B)$.
+  \begin{itemize}
+  \item[(c)] For the first subset inclusion, consider arbitrary $X \in \mathcal{P}(A) \cap \mathcal{P}(B)$.
+  By definition of intersection, $X\in \mathcal{P}(A)$ and $X \in \mathcal{P}(B)$.
+  By definition of power set, this means that $X \subseteq A$ and $X \subseteq B$.
+  WTS that $X \subseteq A \cap B$: let $x \in X$.  Since $X \subseteq A$, $x \in A$.
+  Since $X \subseteq B$, $x \in B$.  Thus, $x \in A$ and $x \in B$ so $x \in A \cap B$.
+  Since $x$ was arbitrary, $\forall x ( x \in X \to x \in A \cap B)$ so $X \subseteq A \cap B$.
+  Therefore, by definition of power set $X \in \mathcal{P}(A \cap B)$, as required.
+  
+  \item[(d)] For the second subset inclusion, consider arbitrary $X \in \mathcal{P}(A \cap B)$.  
+  By definition of power set, $X \subseteq (A \cap B)$.  WTS that $X \subseteq A$ and 
+  $X \subseteq B$.  Let $x \in X$.  Then by definition of subsets, $x \in A \cap B$. 
+  By definition of intersection, $x \in A$ and $x \in B$.  Thus $X \subseteq A$ and 
+  $X \subseteq B$ and so by definition of power set, $X \in \mathcal{P}(A)$
+  and $X \in \mathcal{P}(B)$.  By definition of intersection, $X \in \mathcal{P}(A) \cap 
+  \mathcal{P}(B)$, 
+  as required.
+  \end{itemize}
+  }
+  \else{}
+  \fi
+  
+  \item[(e)] For any sets $A, B, C, D$,  if the Cartesian products $A\times B$
+  and $C \times D$ are disjoint then either $A$ and $C$ are disjoint 
+  or $B$ and $D$ are disjoint (or both).
+  
+  \ifsolution
+  \soltwo{
+  True.  Proof:  Let $A, B, C, D$ be arbitrary sets.  Towards a proof by contrapositive, 
+  we assume that $A \cap C \neq \emptyset$ and $B \cap D \neq \emptyset$ and 
+  WTS that $(A \times B) \cap (C \times D) \neq \emptyset$. Since $A \cap C \neq \emptyset$,
+  let $x \in A \cap C $.  Since $B \cap D \neq \emptyset$, let $y \in B \cap D$.  
+  Let's consider $(x,y)$.  By definition of intersection, since $x \in A \cap  C$
+  and $y \in B \cap D$, $x \in A$ and $y \in B$.  Thus, by definition of Cartesian product,
+  $(x,y) \in A \times B$.   Similarly, $(x,y) \in C \times D$.  Thus, by definition of intersection, 
+  $(x,y) \in (A \times B) \cap (C \times D)$.  In particular, this means that 
+  $(A \times B) \cap (C \times D) \neq \emptyset$, as required.
+  }
+  \else{}
+  \fi
+  
+  \item[(f)] There are sets $A, B$ such that $A \in B$ and $A \subseteq B$.
+  
+  
+  \ifsolution
+  \soltwo{
+  True.  Proof:  Consider the example $A = \{ 1, 2 \} $ and $B = \{ 1, 2, \{1,2\} \}$. 
+  Then $A \in B$ because it ($\{1,2\}$) shows up in the list of elements of $B$.
+  Moreover, since each of the elements of $A$ (the numbers $1$ and $2$) are also
+  elements of $B$ (they each show up in $B$'s list of elements), $A$ is a subset of $B$.
+  }
+  \else{}
+  \fi
+  
+  
+  \item[(g)] For all sets $A, B, C$: $A \cap B = \emptyset$ and $B \cap C = \emptyset$
+  if and only if  $(A \cap B) \cap C = \emptyset$.
+  
+  \ifsolution
+  \soltwo{
+  False. Proof:  Consider the counterexample $A = \{ 1, 2 \} $ and $B = \{ 2,3\}$ and
+  $C = \{ 3\}$.  Then it is not the case that ``$A \cap B = \emptyset$ and $B \cap C = \emptyset$"
+  because $A \cap B = \{ 2\}$.  However, it is the case that $(A \cap B) \cap C = \emptyset$
+  because
+  \[
+  (A \cap B) \cap C = (\{1,2 \} \cap \{ 2,3\} ) \cap \{3\} = \{2\} \cap \{3\} = \emptyset.
+  \]
+  The biconditional statement is false because one of its arguments is false while the
+  other is true.
+  }
+  \else{}
+  \fi
+  
+  
+  \end{enumerate}
+  
+  
+  \item[4. Induction and Recursion] 
+  
+  Prove the following statements:
+  
+  \begin{enumerate}
+  
+  \item[(a)] $\forall s \in S \, (~rnalen(s) = basecount(s,\A) + basecount(s,\C) + basecount(s,\U) + basecount(s,\G)~)$ where $S$ RNA strands and the functions $rnalen$ and $basecount$ are define recursively as: 
+  \hspace{-1in}
+  \[
+  \begin{array}{llll}
+  & & \textit{rnalen} : S & \to \mathbb{Z}^+ \\
+  \textrm{Basis Step:} & \textrm{If } b \in B\textrm{ then } & \textit{rnalen}(b) & = 1 \\
+  \textrm{Recursive Step:} & \textrm{If } s \in S\textrm{ and }b \in B\textrm{, then  } & \textit{rnalen}(sb) & = 1 + \textit{rnalen}(s)
+  \end{array}
+  \]
+  \[
+  \begin{array}{llll}
+  & & \textit{basecount} : S \times B & \to \mathbb{N} \\
+  \textrm{Basis Step:} &  \textrm{If } b_1 \in B, b_2 \in B & \textit{basecount}(b_1, b_2) & =
+          \begin{cases}
+              1 & \textrm{when } b_1 = b_2 \\
+              0 & \textrm{when } b_1 \neq b_2 \\
+          \end{cases} \\
+  \textrm{Recursive Step:} & \textrm{If } s \in S, b_1 \in B, b_2 \in B &\textit{basecount}(s b_1, b_2) & =
+          \begin{cases}
+              1 + \textit{basecount}(s, b_2) & \\
+              \qquad \textrm{when } b_1 = b_2 &\\
+              \textit{basecount}(s, b_2) & \\
+              \qquad \textrm{when } b_1 \neq b_2 &\\
+          \end{cases}
+  \end{array}
+  \]
+  
+  \ifsolution
+  \soltwo{
+  We proceed by structural induction:
+  \begin{itemize}
+  \item Basis step: We consider the four cases of $b \in \{ \A, \C, \U, \G \}$, in each to 
+  show is that $rnalen(b) = basecount(b,\A) + basecount(b,\C) + basecount(b,\U) + basecount(b,\G)$.
+  \[
+  rnalen(\A) = 1 \qquad\text{by the basis step in the recursive definition of $rnalen$}
+  \]
+  \[
+  basecount(\A,\A) + basecount(\A,\C) + basecount(\A,\U) + basecount(\A,\G) = 1 + 0 + 0 + 0 = 1
+  \]
+  by the basis step in the recursive definition of $basecount$, where the first term is the case where 
+  $b_1 = b_2 = \A$ and the other three terms are the case where $b_1 \neq b_2$. Thus, 
+  $rnalen(\A)  = 1 = basecount(\A,\A) + basecount(\A,\C) + basecount(\A,\U) + basecount(\A,\G)$.
+  
+  Similarly, 
+  \[
+  rnalen(\C) = 1 \qquad\text{by the basis step in the recursive definition of $rnalen$}
+  \]
+  \[
+  basecount(\C,\A) + basecount(\C,\C) + basecount(\C,\U) + basecount(\C,\G) = 0 + 1 + 0 + 0 = 1
+  \]
+  by the basis step in the recursive definition of $basecount$, where the second term is the case where 
+  $b_1 = b_2 = \C$ and the other three terms are the case where $b_1 \neq b_2$. Thus, 
+  $rnalen(\C)  = 1 = basecount(\C,\A) + basecount(\C,\C) + basecount(\C,\U) + basecount(\C,\G)$; 
+  \[
+  rnalen(\U) = 1 \qquad\text{by the basis step in the recursive definition of $rnalen$}
+  \]
+  \[
+  basecount(\U,\A) + basecount(\U,\C) + basecount(\U,\U) + basecount(\U,\G) = 0 + 0 + 1+ 0 = 1
+  \]
+  by the basis step in the recursive definition of $basecount$, where the third term is the case where 
+  $b_1 = b_2 = \U$ and the other three terms are the case where $b_1 \neq b_2$. Thus, 
+  $rnalen(\U)  = 1 = basecount(\U,\A) + basecount(\U,\C) + basecount(\U,\U) + basecount(\U,\G)$; 
+  \[
+  rnalen(\G) = 1 \qquad\text{by the basis step in the recursive definition of $rnalen$}
+  \]
+  \[
+  basecount(\G,\A) + basecount(\G,\C) + basecount(\G,\U) + basecount(\G,\G) = 0 + 0 + 0 +1= 1
+  \]
+  by the basis step in the recursive definition of $basecount$, where the last term is the case where 
+  $b_1 = b_2 = \G$ and the other three terms are the case where $b_1 \neq b_2$. Thus, 
+  $rnalen(\G)  = 1 = basecount(\G,\A) + basecount(\G,\C) + basecount(\G,\U) + basecount(\G,\G)$.
+  The basis step is now complete.
+  \item Recursive step: Consider an arbitrary strand $s$ and an arbitrary base $b$.  
+  Assume, as the {\bf induction hypothesis} that 
+  \[
+  rnalen(s) = basecount(s,\A) + basecount(s,\C) + basecount(s,\U) + basecount(s,\G)
+  \]
+  (continued next page)
+  \end{itemize}
+  }
+  
+  \fi
+  \ifsolution
+  \soltwo{
+  
+  \begin{itemize}
+  \item (Recursive step, continued).  
+  We need to show that 
+  \[
+  rnalen(sb) = basecount(sb,\A) + basecount(sb,\C) + basecount(sb,\U) + basecount(sb,\G)
+  \]
+  
+  We consider the four cases of $b \in \{ \A, \C, \U, \G \}$. In each case, the LHS of the to show is
+  \[
+  rnalen(sb) = 1 + rnalen(s) \qquad\text{by the recursive step in the  definition of $rnalen$}
+  \]
+  For the RHS, when $b = \A$:
+  \begin{align*}
+  RHS = &basecount(s\A,\A) + basecount(s\A,\C) + basecount(s\A,\U) + basecount(s\A,\G) \\
+  = &(1 + basecount(s,\A)) + basecount(s,\C) +basecount(s,\U) + basecount(s,\G) \\
+  = &1 + ( basecount(s,\A)) + basecount(s,\C) +basecount(s,\U) + basecount(s,\G) ) \\
+  = &1 + rnalen(s)  \qquad \text{by the induction hypothesis}
+  \end{align*}
+  (where the first equation listed is by the recursive step in the definition of basecount, the first term 
+  from the case $b_1 = b_2 = \A$  and the rest of the terms from the case $b_1 \neq b_2)$).
+  Thus, 
+  $LHS = rnalen(s\A)  = 1+ rnalen(s) = RHS$.
+  
+  Similarly, when $b = \C$:
+  \begin{align*}
+  RHS = &basecount(s\C,\A) + basecount(s\C,\C) + basecount(s\C,\U) + basecount(s\C,\G) \\
+  = &basecount(s,\A) + ( 1+ basecount(s,\C) ) +basecount(s,\U) + basecount(s,\G) \\
+  = &1 + rnalen(s)  \qquad \text{by the induction hypothesis}
+  \end{align*}
+  (where the first equation listed is by the recursive step in the definition of basecount, the second term 
+  from the case $b_1 = b_2 = \C$  and the rest of the terms from the case $b_1 \neq b_2)$).
+  Thus, 
+  $LHS = rnalen(s\C)  = 1+ rnalen(s) = RHS$. When $b = \U$:
+  \begin{align*}
+  RHS = &basecount(s\U,\A) + basecount(s\U,\C) + basecount(s\U,\U) + basecount(s\U,\G) \\
+  = &basecount(s,\A) + basecount(s,\C) + ( 1 + basecount(s,\U)) + basecount(s,\G) \\
+  = &1 + rnalen(s)  \qquad \text{by the induction hypothesis}
+  \end{align*}
+  (where the first equation listed is by the recursive step in the definition of basecount, the third term 
+  from the case $b_1 = b_2 = \U$  and the rest of the terms from the case $b_1 \neq b_2)$).
+  Thus, 
+  $LHS = rnalen(s\U)  = 1+ rnalen(s) = RHS$. Finally, for $b = \G$:
+  \begin{align*}
+  RHS = &basecount(s\G,\A) + basecount(s\G,\C) + basecount(s\G,\U) + basecount(s\G,\G) \\
+  = &basecount(s,\A) + basecount(s,\C)  + basecount(s,\U) + ( 1+ basecount(s,\G) )\\
+  = &1 + rnalen(s)  \qquad \text{by the induction hypothesis}
+  \end{align*}
+  (where the first equation listed is by the recursive step in the definition of basecount, the last term 
+  from the case $b_1 = b_2 = \G$  and the rest of the terms from the case $b_1 \neq b_2)$).
+  Thus, 
+  $LHS = rnalen(s\G)  = 1+ rnalen(s) = RHS$.
+  
+  \end{itemize}
+  
+  Since the basis step and recursive steps are complete, we have proved that the equation holds
+  for all RNA strands.
+  }
+\fi
+
+\item[(b)] $\forall l_1 \in L \, \forall l_2 \in L \, (\textit{sum}(\textit{concat}(l_1, l_2)) = \textit{sum}(l_1) + \textit{sum}(l_2))$, where the function $\textit{concat}$ is defined as:
+\[
+\begin{array}{llll}
+& & \textit{concat} : L \times L & \to L \\
+\textrm{Basis Step:} & \textrm{If } l \in L & \textit{concat}([], l) & = l \\
+\textrm{Recursive Step:} & \textrm{If } l, l' \in L\textrm{ and }n \in \mathbb{N}\textrm{, then  } & \textit{concat}((n, l), l') & = (n, \textit{concat}(l, l'))
+\end{array}
+\]
+and the function $\textit{sum} : L \to \mathbb{N}$ that sums all the elements of a list and is defined by:
+\[
+\begin{array}{llll}
+& & \textit{sum} : L & \to \mathbb{N} \\
+\textrm{Basis Step:} & & \textit{sum}([]) & = 0 \\
+\textrm{Recursive Step:} & \textrm{If } l \in L, n \in \mathbb{N} & \textit{sum}((n, l)) & = n + \textit{sum}(l)
+\end{array}
+\]
+
+\ifsolution
+\soltwo{
+We proceed by structural induction on $l_1$ by definition of $L$.
+\begin{itemize}
+\item Basis step: To show is that $\forall l_2 \in L \, (\textit{sum}(\textit{concat}([], l_2)) = \textit{sum}([]) + \textit{sum}(l_2))$. We proceed by universal generalization and let $l_2$ be an arbitrary element of $L$. By definition of \textit{concat}, we can rewrite the To Show as $\textit{sum}(l_2) = \textit{sum}([]) + \textit{sum}(l_2)$. By definition of \textit{sum}, we can rewrite the right-hand side as $0 + \textit{sum}(l_2)$. This shows that our goal can be rewritten to $\textit{sum}(l_2) = \textit{sum}(l_2)$, which is true.
+\item Recursive step: To show is that $\forall l_2 \in L \, (\textit{sum}(\textit{concat}((n, l_1'), l_2)) = \textit{sum}((n, l_1')) + \textit{sum}(l_2))$, where $n \in \mathbb{N}$ and $l_1' \in L$. We assume as the inductive hypothesis that $\forall l_2 \in L \, (\textit{sum}(\textit{concat}(l_1', l_2)) = \textit{sum}(l_1') + \textit{sum}(l_2))$.
+
+We proceed by universal generalization and assume that $l_2$ is an arbitrary element of $L$. Applying the definition of \textit{concat}, we can rewrite To Show as $$\textit{sum}((n, \textit{concat}(l_1', l_2))) = \textit{sum}((n, l_1')) + \textit{sum}(l_2)$$. We can further apply the definition of \textit{sum} on both sides to rewrite To Show as: $$n + \textit{sum}(\textit{concat}(l_1', l_2))) = n + \textit{sum}(l_1') + \textit{sum}(l_2)$$. By the rules of arithmetic on $+$, this is true when $$\textit{sum}(\textit{concat}(l_1', l_2))) = \textit{sum}(l_1') + \textit{sum}(l_2)$$. Since $l_2 \in L$, we can apply the inductive hypothesis, whose body exactly matches this goal.
+
+\end{itemize}
+}
+\fi
+
+\end{enumerate}
+
+
+\item[5. Induction and Recursion] 
+At time 0, a particle resides at the point 0 on the real line.  
+Within 1 second, it divides into 2 particles that fly in opposite directions and 
+stop at distance 1 from the original particle. Within the next second, 
+each of these particles again divides into 2 particles flying in opposite directions 
+and stopping at distance 1 from the point of division, and so on. 
+Whenever particles meet they annihilate (leaving nothing behind). 
+How many particles will there be at time $2^{11} -1$? 
+You do not need to justify your answer. 
+Hint: Derive a formula for the number/ locations of particles at time $2^n-1$ for arbitrary 
+positive integer n, prove the formula using induction, and apply it when $n=11$.
+
+\ifsolution
+\soltwo{\qquad  {\bf $2^{11}$ particles}  \qquad
+
+  Proof: We will prove by mathematical induction that, 
+
+  \begin{quote}
+    For each positive integer $n$, a particle that 
+    started at time $0$ in position $0$ has the 
+    property that between time $0$ and time $2^n-1$, 
+    it and all of its descendants have stayed in the 
+    interval $[-2^n+1, 2^n-1]$ and at time $2^n-1$, its descendants are located exactly
+    on each odd location in $[-2^{n}+1,2^n-1]$ (inclusive).
+  \end{quote}
+  
+  {\it How to use this lemma?} 
+  Substituting $n = 11$, this lemma says that at time $2^{11}-1$, the
+  descendants of the original particle are located at odd each location in 
+  the interval $[-2^{11}+1, 2^{11}-1]$ (inclusive).  Therefore, the number of 
+  particles at this time is the number of odd integers in the interval.
+  There are $\lceil \frac{2^{11}-1}{2} \rceil = \frac{2^{11}}{2} = 2^{10}$ many 
+  such negative odd integers, 
+  and $\lceil \frac{2^{11}-1}{2} \rceil =\frac{2^{11}}{2} = 2^{10}$   
+  many such positive odd integers, so a total 
+  of $2^{10}+2^{10} = 2^{11}$ particles.\\
+  
+  To prove the lemma, we proceed by mathematical induction.
+
+  \begin{itemize}
+    \item {\bf Basis step} For $n=1$, we WTS that between time $0$ and
+      time $2^1-1$, the particle and all its descendants have stayed in the interval
+      $[-2^1+1, 2^1-1]$, and at time $2^1-1$, there are particles at each odd location
+      this interval.  Plugging in $n=1$, we see that the interval is $[-1,1]$ and we WTS that 
+      at time $1$ there are particles exactly at the endpoints of this interval (these are 
+      the odd locations).  Applying the definition of the process, at time $1$, the original 
+      particle divides into two and the two new particles reach distance $1$ from the original.
+      This means that the only locations at which particles resided in this interval are
+      $0,-1,1$ (all within the required interval) and that at time $1$, the particles
+      are at $-1$ and $1$, as required.
+  \end{itemize}  
+  (continued next page)
+  }
+\fi
+\ifsolution {
+\newpage
+\soltwo{
+  \begin{itemize}
+  \item {\bf Induction step} Let $k$ be an arbitrary positive integer.  Assume,
+    as the {\bf Induction Hypothesis (IH)}, that
+    \begin{quote}
+      between time $0$ and time $2^k-1$, 
+      the particle and all of its descendants have stayed in the region on the number 
+      line $[-2^k+1, 2^k-1]$ and at time $2^k-1$, its descendants are located exactly
+      on each odd location in $[-2^{k}+1,2^k-1]$ (inclusive).
+    \end{quote}
+  
+    We WTS that
+    \begin{quote}
+      between time $0$ and time $2^{k+1}-1$, 
+      the particle and all of its descendants have stayed in the region on the number 
+      line $[-2^{k+1}+1, 2^{k+1}-1]$ and at time $2^{k+1}-1$, 
+      its descendants are located exactly
+      on each odd location in $[-2^{k+1}+1,2^{k+1}-1]$ (inclusive).
+    \end{quote}
+    We'll consider the progress of the experiment through time.  At time step
+    $2^k$, one unit of time has elapsed since the situation described in the IH.
+    By the setup of the experiment, during this unit of time, each particle splits into
+    two and these travel one unit in each axis direction.  Since (by the IH) 
+    at time $2^k-1$, there are particles
+    at each odd location in the interval $[-2^{k}+1,2^k-1]$, each of these particles
+    are two units apart.  Thus, the particles originating from successive
+    odd locations in time $2^{k}-1$ will meet and annihilate at time $2^k$. 
+    The only particles that will remain at time $2^k$ are (1) the particle that originates
+    at time $2^k-1$ from location $-2^k +1$ and goes left and (2) the particle that 
+    originates at time $2^k-1$ from location $2^k-1$ and goes right.  Thus, 
+    at $2^k$ there are two particles, one at $-2^k$ and the other at $2^k$.
+    For definiteness, let's call the particle at position $-2^k$, $p_L$, and the one
+    at position $2^k$, $p_R$.    Recalibrating the experiment with position $2^k$ as
+    the new ``origin" and particle $p_R$ as our original particle, the IH guarantees that 
+    between the current time ($2^k$) and $2^k-1$ steps in the future, $p_R$ will
+    divide into particles such that all of its descendants 
+    will stay in the interval $[\text{``origin"}-2^{k}+1, \text{``origin"}+2^{k}-1]$ 
+    and  its descendants will end up exactly
+    on each odd location in $[\text{``origin"}-2^{k}+1, \text{``origin"}+2^{k}-1]$
+    (inclusive).  That is, at time $2^k+2^k-1 = 2^{k+1}-1$, the process 
+    starting $p_R$ will have generated particles at all odd locations
+    in $[0, 2^{k+1}-1]$.  Symmetrically, the IH guarantees that at time $2^{k+1}-1$,
+    all descendants of the particle $p_L$  will be at the odd locations in
+    $[-2^{k+1}+1, 0]$, and will never have gone beyond that interval at any time 
+    since 
+    time $2^{k}-1$.  Since the intervals in which the descendants of $p_L$ and 
+    $p_R$ land between these timestamps only overlap at $0$, the particles
+    generated by these two experiments never collide and so the two 
+    experiments run independently.  Thus, at time $2^{k+1}-1$, there
+    are $2^k + 2^k = 2^{k+1}$ many particles, occupying each odd location in the interval
+    $[-2^{k+1}+1, 0] \cup [0, 2^{k+1}-1] = [-2^{k+1}+1, 2^{k+1}-1]$, and 
+    these particles (and their predecessors) have not left this interval at any point 
+    up to this time step.  In particular, this means that the lemma is proved.
+  \end{itemize} }}
+\else{}
+\fi
+
+\item[6. Induction and Recursion] 
+Prove that every positive integer has a base $3$ expansion. {\it Hint: use strong induction.}
+
+\ifsolution
+\soltwo{
+By definition of base expansion, we need to prove that for every positive integer $n$, 
+there is a positive integer $k$ and nonnegative integers $a_0, a_1, \ldots, a_{k-1}$ 
+such that each $a_i \in \{0,1,2\}$, $a_{k-1} \neq  0$, and
+\[
+n = \sum_{i=0}^{k-1} a_i 3^i
+\]
+We proceed by strong induction on $n \geq 0$.
+\begin{itemize}
+\item Basis steps (using the terminology for strong induction: we choose $b=1, j=1$): For the positive integer $1$, we have witnesses
+$k=1, a_0 = 1$ and since $1 \in \{0,1,2\}$, $1 \neq 0$, and $1 = \sum_{i=0}^0 a_i 3^i$, the claim
+is proved. For the positive integer $2$, we have witnesses
+$k=1, a_0 = 2$ and since $2 \in \{0,1,2\}$, $2 \neq 0$, and $2 = \sum_{i=0}^0 a_i 3^i$, the claim
+is proved.
+\item Recursive step: Consider an arbitrary positive integer $n$ greater than or equal to $2$. 
+Assume, as the strong induction induction hypothesis that each positive number less than or equal to $n$ 
+has a base $3$ expansion. We need to show that $n+1$ has a base $3$ expansion. To build the required
+witnesses, consider the integer $c = (n+1) \textbf{ div } 3$. By properties of integers, since $n+1 \geq 3$
+(because $n \geq 2$), $1 \leq c \leq n$.  Thus, the strong induction hypothesis applies to $c$ and there
+is a positive integer $k_c$ and nonnegative integers $x_0, x_1, \ldots, x_{k_c-1}$ 
+such that each $x_i \in \{0,1,2\}$, $x_{k_c-1} \neq  0$, and
+\[
+c = \sum_{i=0}^{k_c-1} x_i 3^i
+\]
+Define $k = k_c + 1$, $a_i = x_{i-1}$ for each $i$ from $1$ to $k$, and $a_0 = (n+1) \textbf{ mod } 3$.
+Then $k$ is positive (because $k_c$ is), each $a_i \in \{0,1,2\}$ (because all the $x_i$ are in this
+set, and the remainder upon division by $3$ of any positive integer is also in this set), $a_{k-1} =
+a_{k_c+1 - 1} = x_{k_c-1} \neq 0$ (by choice of $k$ and definition of $x_i$s). It remains to prove that the 
+sum gives the right value: 
+\begin{align*}
+\sum_{i=0}^{k-1} a_i 3^i &= \left( \sum_{i=1}^{k-1} a_i 3^i \right) + a_0 3^0
+=  3 \left( \sum_{i=1}^{(k_c+1)-1} x_{i-1} 3^{i-1} \right) + a_0 3^0
+= 3 \left( \sum_{j=0}^{k_c - 1} x_j 3^j \right) + a_0\\
+&= 3 c + a_0 = 3 ( (n+1) \textbf{ div } 3) + ( (n+1) \textbf{ mod } 3 ) = n+1
+\end{align*}
+as required.
+\end{itemize}
+Since the existence of base $3$ expansions was proved for all positive integers (for $1, 2$ in
+the basis cases, and all integers greater than or equal to $3$ in the recursive step), the proof
+by strong induction 
+is complete.
+}
+\else{}
+\fi
+
+
+
+\item[7. Functions \& Cardinalities of sets] Prove each of the following claims.
+\begin{enumerate}
+
+\item[(a)] For the ``function" $f: \mathbb{Z} \to \{0, 1, 2, 3 \}$ given by $f(x) = x~\text{\bf mod}~5$, it is not the case that every element of the domain maps to exactly one element of the codomain (that is, it is not a well-defined function).
+
+
+\ifsolution
+\soltwo{
+This function is not well defined because $f(4)$ is not in the codomain
+even though $4$ is in the domain: 
+$f(4) =4~\text{\bf mod}~5 = 4 \notin \{0,1,2,3\}$.
+}
+\else{}
+\fi
+
+\item[(b)] The ``function" $f: \mathcal{P}( \mathbb{Z}^+) \to \mathbb{Z}$ given by 
+\[
+f(A) = \text{the maximum element in 
+A}
+\] is not well-defined.
+
+\ifsolution
+\soltwo{
+This function is not well defined because $f(\mathbb{Z}^+)$ is not well-defined
+even though $\mathbb{Z}^+$ is in the domain: 
+the set $\mathbb{Z}^+$ doesn't have a maximum element.
+}
+\else{}
+\fi
+
+\item[(c)] There is a one-to-one function with domain $\{a,b,c\}$ and codomain $\mathbb{R}$.
+
+\ifsolution
+\soltwo{
+Define the function $f:\{a,b,c\} \to  \mathbb{R}$ 
+by the piecewise definition
+\begin{align*}
+f(a) &= 1, f(b) = 2, f(c) = 3
+\end{align*}
+This function is well-defined because it maps every domain element to a unique output, and
+all outputs are in the specified codomain.  Moreover, it is one-to-one: each of the three
+distinct domain elements have different images from one another.
+}
+\else{}
+\fi
+
+\item[(d)] There is an onto function with domain $R$ and codomain $\{ \pi, \frac{1}{17} \}$, where $R$ is the set of 
+user ratings in a database with 5 movies.
+
+\ifsolution
+\soltwo{
+Define the function $f: R \to \{\pi, \frac{1}{17} \}$ 
+by the piecewise definition
+\begin{align*}
+f(w) &=  \begin{cases}
+\pi \qquad \text{if $w = (0,0,0,0,0)$} \\
+\frac{1}{17} \qquad \text{otherwise}
+\end{cases}
+\end{align*}
+This function is well-defined because it maps every ratings $5$-tuple to a unique output, and
+all outputs are in the specified codomain.  Moreover, it is onto: we need to confirm
+that each element in the codomain has a preimage. Consider, for example
+\[
+f( (0,0,0,0,0) ) = \pi \qquad f( (1,1,1,1,1) ) = \frac{1}{17}.
+\]
+}
+\else{}
+\fi
+
+
+
+\item[(e)] The Cartesian product $\mathbb{Z}^+ \times \{ a,b,c \}$ is countable.
+
+\ifsolution
+\soltwo{
+We rewrite
+\[
+\mathbb{Z}^+ \times \{ a,b,c \} = \left( \mathbb{Z}^+ \times\{a\} \right) \cup \left( \mathbb{Z}^+ \times\{b\} \right)
+\cup \left( \mathbb{Z}^+ \times \{c\} \right) 
+\]
+Using the function $f: \mathbb{Z}^+ \to \mathbb{Z}^+ \times\{a\}$ given by $f(n) = (n,a)$, 
+we can prove that $\mathbb{Z}^+ \times\{a\}$ is countably infinite.  Similarly, 
+$\mathbb{Z}^+ \times\{b\}$  and $\mathbb{Z}^+ \times\{c\}$ are countably infinite.
+By Theorem 1 on page 174 in the book, $ \left( \mathbb{Z}^+ \times\{a\} \right) \cup \left( \mathbb{Z}^+ \times\{b\} 
+\right)$ is countable because it is the union of
+two countably infinite (hence countable) sets.  
+Applying this theorem again when taking the union of this resulting set
+with the set $\left( \mathbb{Z}^+ \times\{c\} \right)$, we see that the set is countable.
+}
+\else{}
+\fi
+
+\item[(f)] The interval of real numbers $\{x \in \mathbb{R}  ~\mid~ 5  \leq x \leq 8\}$ is uncountable.  {\it Hint: you may use
+the fact that the unit interval $\{  x \in \mathbb{R} ~\mid~ 0  \leq x \leq  1\}$ is uncountable.}
+
+\ifsolution
+{\soltwo{
+For brevity, we use the interval notation  $[5,8] = \{x \in \mathbb{R}  ~\mid~ 5  \leq x \leq 8\}$
+and  $[0,1] = \{  x \in \mathbb{R} ~\mid~ 0  \leq x \leq  1\}$.
+Define the function $f: [0,1] \to [5,8]$ by $f(x) = 5 + 3x$.  Then $f$ is a bijection: 
+\begin{itemize}
+\item Well-defined? for each $x$ in $[0,1]$, $0 \leq x \leq 1$ so $0 \leq 3x \leq 3$
+and $5 \leq 5 + 3x \leq 8$.  Thus, $f(x) \in [5,8]$, as required.
+\item Invertible? Consider the function $g:[5,8] \to[0,1]$ defined by $g(x) = \frac{x-5}{3}$.
+WTS that for each $x \in [0,1]$, $g(f(x)) = x$ and for each $x \in [5,8]$, $f(g(x)) = x$.
+Let $x \in [0,1]$.  Then 
+\[
+g(f(x)) = g( 5+3x) = \frac{(5+3x) - 5}{3} = \frac{3x}{3} = x,
+\]
+as required.  Similarly, let $x \in[5,8]$.  Then
+\[
+f(g(x)) = f ( \frac{x-5}{3}) = 5 + 3 \cdot \frac{x-5}{3} = 5 + (x-5) = x,
+\]
+as required.  Thus, $f$ is invertible (with inverse $g$) and so is a bijection.
+\end{itemize}
+}
+}
+\else{}
+\fi
+
+\end{enumerate}
+
+\end{description}
+
+\end{document}
