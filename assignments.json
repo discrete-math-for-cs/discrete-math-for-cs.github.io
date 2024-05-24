@@ -32,7 +32,8 @@
    {
       "name": "hw5-proofs-and-induction-CSE20S24",
       "addExtensions": true,
-      "Information": "This is a group optional assignment"
+      "Information": "This is a group optional assignment",
+      "solutionsFile": "hw5-sample-sol-proofs-and-induction-CSE20S24.pdf"
    },
    {
       "name": "hw6-proof-cardinality-relations-CSE20S24",
