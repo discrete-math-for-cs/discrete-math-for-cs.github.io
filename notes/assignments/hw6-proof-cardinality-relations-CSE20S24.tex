@@ -1,0 +1,253 @@
+\input{../../resources/assignment-head.tex}
+
+\title{hw6-proofs-cardinality-relations}
+\date{Due: 6/6/24 at 5pm (no penalty late submission until 8am next morning)}
+\begin{document}
+\maketitle
+\thispagestyle{fancy}
+
+{\bf In this assignment}, you will work with binary relations and prove 
+properties about them, practicing proof strategies and applications.
+
+{\bf Relevant class material}: Weeks 9,10.
+
+You will submit this assignment via Gradescope
+(\href{https://www.gradescope.com}{https://www.gradescope.com}) 
+in the assignment called ``hw6-proofs-cardinality-relations''.
+
+\instructions
+
+In your proofs and disproofs of statements below, justify each  step
+by reference to  a component of the  following proof  strategies
+we  have discussed so far, and/or to relevant definitions and calculations.
+
+\vspace{-10pt}
+
+\begin{itemize}
+    \item A counterexample can be used to prove that  $\forall x P(x)$ is {\bf false}.
+    \item  A witness can be used  to  prove that  $\exists x P(x)$ is {\bf true}.
+    \item {\bf Proof of universal by exhaustion}: To prove that $\forall x \, P(x)$
+is true when $P$ has a finite domain, evaluate the predicate at {\bf each} domain element to confirm that it is always T.
+    \item  {\bf Proof by universal generalization}: To prove that $\forall x \, P(x)$
+is true, we can take an arbitrary element $e$ from the domain and show that $P(e)$ is true, without making any assumptions about $e$ other than that it comes from the domain.
+    \item To  prove  that $\exists x P(x)$ is {\bf false}, write the universal statement that is logically equivalent to its negation and then prove it true using universal generalization.
+    \item {\bf Strategies for conjunction}: To prove that $p \land q$ is true, have two subgoals: subgoal (1) prove $p$ 
+is  true; and, subgoal (2) prove $q$ is true. To prove that $p \land q$ is false, it's enough to prove that $p$ is false.
+ To prove that $p \land q$ is false, it's enough to prove that $q$ is false.
+    \item {\bf Proof of Conditional by Direct Proof}: To prove that the implication $p \to q$ is true, we can assume $p$ is true and use that assumption to show $q$ is true.
+    \item {\bf Proof of Conditional by Contrapositive Proof}: To prove that the implication $p \to q$ is true, we can assume $\neg q$ is true and use that assumption to show $\neg p$ is true.
+    \item {\bf Proof by Cases}: To prove $q$ when we know $p_1 \lor p_2$, show that $p_1 \to q$ and $p_2 \to q$.
+    \item
+    {\bf Proof by Structural Induction}: To prove that $\forall x \in X \, P(x)$ where $X$ is a recursively defined set, prove two cases:
+        
+        \begin{tabularx}{\textwidth}{l X}
+        Basis Step: & Show the statement holds for elements specified in the basis step of the definition. \\
+        Recursive Step: & Show that if the statement is true for each of the elements used to construct
+    new elements in the recursive step of the definition, the result holds for these new elements.
+    \end{tabularx}
+    
+    \item {\bf Proof by Mathematical Induction}: To prove a universal quantification over the set of  all integers greater than  or  equal to some base integer $b$:
+    
+    \begin{tabularx}{\textwidth}{l X}
+        Basis Step: & Show the statement holds for $b$. \\
+        Recursive Step: & Consider an arbitrary integer $n$ greater than or  equal to  $b$, assume
+        (as the {\bf induction hypothesis})  that the property holds  for $n$, and use  this and
+        other facts to  prove that  the property holds for $n+1$.
+    \end{tabularx}
+    
+    \item {\bf Proof by Strong Induction} To prove that a universal quantification over the set of all integers greater than or equal to some  base integer $b$ holds,  pick a  fixed nonnegative integer  $j$ and then: \hfill 
+    
+    \begin{tabularx}{\textwidth}{l X}
+        Basis Step: & Show the statement holds for $b$, $b+1$, \ldots, $b+j$. \\
+        Recursive Step: & Consider an arbitrary integer $n$ greater than or  equal to  $b+j$, assume
+        (as the {\bf strong  induction hypothesis})  that the property holds  for {\bf each of} $b$, $b+1$, \ldots, $n$, 	
+        and use  this and
+        other facts to  prove that  the property holds for $n+1$.
+    \end{tabularx}
+
+    \item {\bf Proof by Contradiction} 
+
+    To prove that a statement $p$ is true, pick another statement $r$ and once we show
+    that $\neg p  \to (r \wedge  \neg r)$ then  we can conclude that  $p$ is  true.
+    
+    {\it Informally} The statement we care about can't possibly be false, so it must be true.
+\end{itemize}
+
+
+{\bf Assigned questions}
+
+\begin{enumerate}[labelindent=0pt, leftmargin=0pt]
+    \item Binary relations. In the review quiz, we considered the binary relation on 
+    $\mathbb{Z}^+$ defined by 
+    \[\{(a,b) \mid \exists c \in \mathbb{Z}(b = ac)\}
+    \]
+    Let's call that relation $R_1$.
+    Consider the following other binary relations on $\mathbb{Z}^{+}$:
+    \[
+    R_2 = \{ (a,b) \in \mathbb{Z}^+ \times \mathbb{Z}^+ \mid gcd (~ (a,b) ~) = 1\}    
+    \]
+    \[
+    R_3 = \{ (a,b) \in \mathbb{Z}^+ \times \mathbb{Z}^+ \mid a+b \leq 2024 \}    
+    \]
+
+
+    \rule{0.5\textwidth}{.4pt}
+    
+    {\it Sample response that can be used as reference for the detail expected 
+    in your answer:} 
+    To prove that $R_1$ is not symmetric we need to find a counterexample 
+    to 
+    \[
+        \forall x \in \mathbb{Z}^+ \forall y \in \mathbb{Z}^+ \left(~(x,y) \in R_1 \to (y,x) \in R_1 ~\right)
+    \]
+    Consider $x = 2$ and $y=4$. Then $(x,y) \in R_1$ because $\exists c \in \mathbb{Z} ( y = xc )$ is witnessed
+    by the integer $c = 2$, since $4 = 2 \cdot 2$. However, $\exists c  \in \mathbb{Z} ( x = yc )$ is not
+    true: to prove this, we consider an arbitrary integer $c$ and consider the two 
+    (exhaustive) cases $c \geq 1$ and $c < 1$. 
+    In case 1,
+    assume $c \geq 1$, and then $yc = 4c \geq 4 > 3$ so $yc \neq 2 = x$. In case 2, assume $c < 1$ so $c \leq 0$,
+    and then $yc = 4c \leq 0$ so is not equal to $2$, which is $x$. Thus, we've found positive integers 
+    $x$ and $y$ where $(x,y) \in R_1$ and $(y,x) \notin R_1$ so $R_1$ is not symmetric.
+
+    \rule{0.5\textwidth}{.4pt}
+    
+
+
+    \begin{enumerate}
+        \item\gradeCompleteFirst Give example positive integers that are related
+        according to each of these three relations. In other words, give 
+        example values $(a_1, b_1)$, $(a_2, b_2)$, and $(a_3, b_3)$ such that
+        $(a_i, b_i) \in R_i$ for each $i =1,2,3$.
+        \item\gradeCorrectFirst Prove that $R_2$ is not transitive.
+        \item\gradeCorrect Prove that $R_3$ is not reflexive.
+        \item\gradeCorrect Prove that $R_2$ is symmetric. 
+        \item\gradeCorrect Prove that $R_3$ is not anti-symmetric.
+        \item\gradeComplete Give an example relation on $\mathbb{Z}^+$ that is both symmetric and anti-symmetric.
+        Briefly justify your example.
+        \end{enumerate}
+    
+
+    \item Equivalence relations.  Recall that we say $a$ is {\bf congruent to} $b$ \textbf{mod} $n$ 
+    means $(a, b) \in R_{(\textbf{mod } n)}$, that is $(a \textbf{ mod } n = b \textbf{ mod } n)$.
+    A common notation is to write this as $a \equiv b (\textbf{mod } n)$.
+    
+    A {\bf modular inverse} of an integer $x$ relative to modulus $n$ (where $n$ 
+    is a positive number and $x$ is an integer between $0$ and $n-1$, inclusive) 
+    is defined to be an integer $y$ between $0$ and $n-1$ (inclusive) such that 
+    $xy \equiv 1 (\textbf{mod } n)$.
+    \begin{enumerate}
+        \item\gradeComplete Fill in the multiplication table below so that each  cell in 
+        row labelled $a$ and column labelled $b$ is an integer $p$ in the set $\{0, 1, 2, 3, 4\}$
+        satisfying $ab \equiv p ({\textbf{mod } 5})$.
+        Then, use this multiplication table to find the {\bf modular inverse}
+        of each number in $\{0,1,2,3,4\}$ or to explain why it does not exist.
+
+        \begin{center}
+            \begin{tabular}{|c||c|c|c|c|c|}
+                \hline
+                  & 0 & 1 & 2 & 3 & 4 \\
+                  \hline \hline
+                0 & 0 & 0 & 0 & 0 & 0 \\
+                \hline
+                1 & 0 & ~ & ~ & ~ & ~ \\
+                \hline
+                2 & 0 & ~ & ~ & ~ & ~ \\
+                \hline
+                3 & 0 & ~ & ~ & ~ & ~ \\
+                \hline
+                4 & 0 & ~ & ~ & ~ & ~ \\
+                \hline
+            \end{tabular}
+        \end{center}
+
+        \item\gradeCorrect Find an example $n$ and integer $x$ between $1$ and $n-1$ (inclusive)
+        so that there is no modular inverse of $x$ relative to $n$. Justify your example by 
+        exhausting through all the possible values of $y$ between $0$ and $n-1$ and showing that 
+        none of them have $xy \equiv 1 (\textbf{mod } n)$.  {\it Note: $0$ does not have a modular 
+        inverse relative to $n$. In this question, you're looking for a value of $n$ where some nonzero 
+        number also doesn't have a modular inverse relative to $n$.}
+    \end{enumerate}
+    
+
+
+    \item\gradeCorrect Partial orders. Recall the recursive definition of the set of linked lists of 
+    natural numbers (from class)
+    \[
+    \begin{array}{ll}
+        \textrm{Basis Step: } & [] \in L \\
+        \textrm{Recursive Step: } & \textrm{If } l \in L\textrm{ and }n \in \mathbb{N} \textrm{, then } (n, l) \in L
+    \end{array}
+    \]
+    and the definition of the function which gives the length of a linked list of natural numbers 
+    $length: L \to \mathbb{N}$
+        \[
+        \begin{array}{llll}
+            \textrm{Basis Step:} &  & length(~[]~) &= 0 \\
+            \textrm{Recursive Step:} & \textrm{If } l \in L\textrm{ and }n \in \mathbb{N}\textrm{, then  } & length(~(n, l)~)  &= 1+ length(l)
+        \end{array}
+         \]
+     
+    For this question, we'll restrict our attention to just linked lists with data in the set $\{0,1\}$
+    which have length $0$, $1$, or $2$. Let's call this restricted set of lists $L'$.
+    
+    {\it Note}: $L'$ has $7$ distinct elements.
+
+    Define two different partial orders with domain $L'$. For each of the partial orders, you  can specify its definition by
+    listing the set of ordered pairs with roster method, giving a set builder
+    definition, giving a recursive definition, or using a clear and precise English description of which lists are related to one another.
+    Then, draw the Hasse diagram for each of the two partial orders you defined.
+
+
+    \item Equivalence classes and partitions. 
+    Recall that 
+    in a movie recommendation system, each 
+    user's ratings of movies is represented as a $n$-tuple (with the positive integer $n$ 
+    being the number of movies in the database), and each component of 
+    the $n$-tuple is an element of the collection $\{-1,0,1\}$. Assume there are five movies in the database, 
+    so that each user's ratings
+    can be represented as a $5$-tuple. We call $Rt_5$ the set of all ratings $5$-tuples.
+    Consider the binary relation on the  set of all 
+    $5$-tuples where each  component of the $5$-tuple is an element of the collection $\{-1,0,1\}$:
+    \[
+        G = \{ (u,v) \in Rt_5 \times Rt_5 \mid \text{the number of $1$s in $u$ is the same as the number of $1$s in $v$} \}
+    \]
+    This is an equivalence relation (you do not need to prove this).
+
+    Recall that the {\bf equivalence class} of an element $x \in X$ for an equivalence relation $\sim$ on the set $X$ 
+    is the set $\{s \in X | (x, s) \in \sim \}$. We write this as $[x]_\sim$.
+    
+    \begin{enumerate}
+        \item\gradeCorrect Find a ratings $5$-tuple $v$ such that $[v]_{G} = \{v \}$. Justify your choice of $v$.
+        \item\gradeComplete Find distinct ratings $5$-tuples $u_1, u_2$ ($u_1 \neq u_2$) whose equivalence classes $[u_1]_{G}$ and $[u_2]_{G}$ have the same size.
+        \item\gradeComplete Find distinct ratings $5$-tuples $w_1, w_2$ ($w_1 \neq w_2$) whose equivalence classes $[w_1]_{G}$ and $[w_2]_{G}$ have different sizes.
+    \end{enumerate}
+
+
+    \item Modular exponentiation.
+    Imagine you are playing the role of Alice in the Diffie Hellman key agreement (exchange) protocol.  
+    You and Bob have agreed to use the prime $p = 7$ and its primitive root $a = 3$.
+    Your secret integer is $k_1 = 3$.
+        
+        \begin{enumerate}
+        \item  ({\it Graded for fair effort completeness}\footnote{This means 
+        you will get full credit so long as your submission demonstrates honest 
+        effort to answer the question. You will not be penalized for incorrect answers.}) 
+        Calculate the number you send to Bob, 
+        $a^{k_1} \textrm{\bf ~mod~} p$.  Use the modular exponentiation algorithm
+        for the calculation. Include a trace of the algorithm in your solution.
+
+        \input{../activity-snippets/modular-exponentiation-algorithm.tex}
+        
+        \item  ({\it Graded for fair effort completeness}) Bob sends you the number $5$. Compute  your shared key, $\left(a^{k_2}\right)^{k_1}  
+        \textrm{\bf ~mod~} p$.
+        Hint: $a^{k_2} \textrm{\bf ~mod~} p$ is what Bob sent you.  Include all relevant calculations, annotated with explanations, 
+        for full credit.
+        
+        
+        \item ({\it Graded for fair effort completeness}) What are some possible values for Bob's secret integer?  What 
+        algorithm are you using to compute them?
+        \end{enumerate}
+
+
+    \end{enumerate}
+\end{document}
