@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Week10</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<div class="flushright">
+
+</div>
+<h2 class="unnumbered" id="week-10-at-a-glance">Week 10 at a glance</h2>
+<h3 class="unnumbered" id="we-will-be-learning-and-practicing-to">We
+will be learning and practicing to:</h3>
+<ul>
+<li><p>Clearly and unambiguously communicate computational ideas using
+appropriate formalism. Translate across levels of abstraction.</p>
+<ul>
+<li><p>Defining functions, predicates, and binary relations using
+multiple representations</p></li>
+<li><p>Determining whether a given binary relation is symmetric,
+antisymmetric, reflexive, and/or transitive</p></li>
+<li><p>Determining whether a given binary relation is an equivalence
+relation and/or a partial order</p></li>
+<li><p>Drawing graph representations of relations and functions e.g.
+Hasse diagram and partition diagram</p></li>
+</ul></li>
+<li><p>Know, select and apply appropriate computing knowledge and
+problem-solving techniques. Reason about computation and systems. Use
+mathematical techniques to solve problems. Determine appropriate
+conceptual tools to apply to new situations. Know when tools do not
+apply and try different approaches. Critically analyze and evaluate
+candidate solutions.</p>
+<ul>
+<li><p>Using the definitions of the div and mod operators on
+integers</p></li>
+<li><p>Using divisibility and primality predicates</p></li>
+<li><p>Applying the definition of congruence modulo n and modular
+arithmetic</p></li>
+</ul></li>
+<li><p>Apply proof strategies, including direct proofs and proofs by
+contradiction, and determine whether a proposed argument is valid or
+not.</p>
+<ul>
+<li><p>Using proofs as knowledge discovery tools to decide whether a
+statement is true or false</p></li>
+</ul></li>
+</ul>
+<h3 class="unnumbered" id="todo">TODO:</h3>
+<div class="list">
+<p>Homework assignment 6 (due Thursday June 6, 2024).</p>
+<p>Review for Final exam. The test is scheduled for Thursday June 13
+11:30a-2:29pm, location TBA (see Schedule of Classes).</p>
+</div>
+<h1 class="unnumbered"
+id="week-10-monday-equivalence-relations-and-partial-orders">Week 10
+Monday: Equivalence Relations and Partial Orders</h1>
+<h2 class="unnumbered" id="definitions-and-representations">Definitions
+and representations</h2>
+<p>A relation is an <span><strong>equivalence relation</strong></span>
+means it is reflexive, symmetric, and transitive.</p>
+<p>A relation is a <span><strong>partial ordering</strong></span> (or
+partial order) means it is reflexive, antisymmetric, and transitive.</p>
+<p>For a partial ordering, its <span><strong>Hasse
+diagram</strong></span> is a graph representing the relationship between
+elements in the ordering. The nodes (vertices) of the graph are the
+elements of the domain of the binary relation. The edges do not have
+arrow heads. The directionality of the partial order is indicated by the
+arrangements of the notes. The nodes are arranged so that nodes
+connected to nodes above them by edges indicate that the relation holds
+between the lower node and the higher node. Moreover, the diagram omits
+self-loops and omits edges that are guaranteed by transitivity.</p>
+<p>Draw the Hasse diagram of the partial order on the set <span
+class="math inline">\(\{a,b,c,d,e,f,g\}\)</span> defined as <span
+class="math display">\[\begin{aligned}
+    \{  &amp;(a,a), (b,b), (c,c), (d,d), (e,e), (f,f), (g,g), \\
+        &amp;(a,c), (a,d), (d,g), (a,g), (b,f), (b,e), (e,g), (b,g) \}
+\end{aligned}\]</span></p>
+<h2 class="unnumbered" id="exploring-equivalence-relations">Exploring
+equivalence relations</h2>
+<p>A <span><strong>partition</strong></span> of a set <span
+class="math inline">\(A\)</span> is a set of non-empty, disjoint subsets
+<span class="math inline">\(A_1, A_2, \cdots, A_n\)</span> such that
+<span class="math display">\[A = \bigcup_{i=1}^{n} A_i = \{ x \mid
+\exists i (x \in A_i) \}\]</span></p>
+<p>An <span><strong>equivalence class</strong></span> of an element
+<span class="math inline">\(a \in A\)</span> with respect to an
+equivalence relation <span class="math inline">\(R\)</span> on the set
+<span class="math inline">\(A\)</span> is the set <span
+class="math display">\[\{s \in A \mid (a, s) \in R \}\]</span> We write
+<span class="math inline">\([a]_R\)</span> for this set, which is the
+equivalence class of <span class="math inline">\(a\)</span> with respect
+to <span class="math inline">\(R\)</span>.
+<span><strong>Fact</strong></span>: When <span
+class="math inline">\(R\)</span> is an equivalence relation on a
+nonempty set <span class="math inline">\(A\)</span>, the collection of
+equivalence classes of <span class="math inline">\(R\)</span> is a
+partition of <span class="math inline">\(A\)</span>.</p>
+<p>Also, given a partition <span class="math inline">\(P\)</span> of
+<span class="math inline">\(A\)</span>, the relation <span
+class="math inline">\(R_P\)</span> on <span
+class="math inline">\(A\)</span> given by <span
+class="math display">\[R_P = \{ (x,y) \in A \times A ~|~ \text{$x$ and
+$y$ are in the same part of the partition $P$}\}\]</span> is an
+equivalence relation on <span class="math inline">\(A\)</span>.</p>
+<p><span><em>Recall</em></span>: We say <span
+class="math inline">\(a\)</span> is <span><strong>congruent
+to</strong></span> <span class="math inline">\(b\)</span>
+<strong>mod</strong> <span class="math inline">\(n\)</span> means <span
+class="math inline">\((a, b) \in R_{(\textbf{mod } n)}\)</span>. A
+common notation is to write this as <span class="math inline">\(a \equiv
+b (\textbf{mod } n)\)</span>.</p>
+<p>We can partition the set of integers using equivalence classes of
+<span class="math inline">\(R_{(\textbf{mod } 4)}\)</span></p>
+<p><span class="math display">\[\begin{aligned}
+_{R_{(\textbf{mod } 4)}} &amp;= \phantom{ \{ x \in \mathbb{Z} \mid x
+\equiv 0 ((\textbf{mod } 4)) \}
+    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = 0 \textbf{ mod } 4 =
+0 \} = \{ 4c \mid c \in \mathbb{Z}\} }\\
+    [1]_{R_{(\textbf{mod } 4)}} &amp;= \phantom{ \{ x \in \mathbb{Z}
+\mid x \equiv 1 ((\textbf{mod } 4)) \}
+    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = 1 \textbf{ mod } 4 =
+1 \} = \{ 4c+1 \mid c \in \mathbb{Z}\} }\\
+    [2]_{R_{(\textbf{mod } 4)}} &amp;= \phantom{ \{ x \in \mathbb{Z}
+\mid x \equiv 2 ((\textbf{mod } 4)) \}
+    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = 2 \textbf{ mod } 4 =
+0 \} = \{ 4c+2 \mid c \in \mathbb{Z}\} }\\
+    [3]_{R_{(\textbf{mod } 4)}} &amp;= \phantom{ \{ x \in \mathbb{Z}
+\mid x \equiv 3 ((\textbf{mod } 4)) \}
+    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = 3 \textbf{ mod } 4 =
+3 \} = \{ 4c+3 \mid c \in \mathbb{Z}\} }\\
+    [4]_{R_{(\textbf{mod } 4)}} &amp;= \phantom{ \{ x \in \mathbb{Z}
+\mid x \equiv 4 ((\textbf{mod } 4)) \}
+    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = 4 \textbf{ mod } 4 =
+0 \} = \{ 4c \mid c \in \mathbb{Z}\} }\\
+    [5]_{R_{(\textbf{mod } 4)}} &amp;= \phantom{ \{ x \in \mathbb{Z}
+\mid x \equiv 5 ((\textbf{mod } 4)) \}
+    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = 5 \textbf{ mod } 4 =
+1 \} = \{ 4c+1 \mid c \in \mathbb{Z}\} }\\
+    [-1]_{R_{(\textbf{mod } 4)}} &amp;= \phantom{ \{ x \in \mathbb{Z}
+\mid x \equiv -1 ((\textbf{mod } 4)) \}
+    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = -1 \textbf{ mod } 4
+= 3 \} = \{ 4c+3 \mid c \in \mathbb{Z}\} }
+\end{aligned}\]</span> <span class="math display">\[\mathbb{Z}
+=  [0]_{R_{(\textbf{mod } 4)}}~ \cup ~[1]_{R_{(\textbf{mod } 4)}}
+~\cup~[2]_{R_{(\textbf{mod } 4)}}~\cup~
+[3]_{R_{(\textbf{mod } 4)}}\]</span></p>
+<p>Integers are useful because they can be used to encode other objects
+and have multiple representations. However, infinite sets are sometimes
+expensive to work with computationally. Reducing our attention to a
+<span><em>partition of the integers</em></span> based on congrunce mod
+<span class="math inline">\(n\)</span>, where each part is represented
+by a (not too large) integer gives a useful compromise where many
+algebraic properties of the integers are preserved, and we also get the
+benefits of a finite domain. Moreover, modular arithmetic is well-suited
+to model any cyclic behavior.</p>
+<p><span><strong>Lemma</strong></span>: For <span
+class="math inline">\(a, b \in \mathbb{Z}\)</span> and positive integer
+<span class="math inline">\(n\)</span>, <span
+class="math inline">\((a,b) \in R_{(\textbf{mod } n)}\)</span> if and
+only if <span class="math inline">\(n | a-b\)</span>.</p>
+<p><span><strong>Proof</strong></span>:</p>
+<p><span><strong>Modular arithmetic</strong></span>:</p>
+<p><span><strong>Lemma</strong></span>: For <span
+class="math inline">\(a, b, c, d \in \mathbb{Z}\)</span> and positive
+integer <span class="math inline">\(n\)</span>, if <span
+class="math inline">\(a \equiv b ~(\textbf{ mod } n)\)</span> and <span
+class="math inline">\(c \equiv d ~(\textbf{ mod } n)\)</span> then <span
+class="math inline">\(a+c \equiv b+d ~(\textbf{ mod } n)\)</span> and
+<span class="math inline">\(ac \equiv bd ~(\textbf{ mod } n)\)</span>.
+<span><strong>Informally</strong></span>: can bring mod “inside" and do
+it first, for addition and for multiplication.</p>
+<p><span class="math inline">\((102 + 48) \textbf{ mod } 10 =
+\underline{\phantom{\hspace{3in}}}\)</span></p>
+<p><span class="math inline">\((7 \cdot 10) \textbf{ mod } 5 =
+\underline{\phantom{\hspace{3.3in}}}\)</span></p>
+<p><span class="math inline">\((2^5) \textbf{ mod } 3
+=  \underline{\phantom{\hspace{3.45in}}}\)</span></p>
+<p><span><strong>Application: Cycling</strong></span></p>
+<p>How many minutes past the hour are we at? <span><em>Model
+with</em></span> <span class="math inline">\(+15 \textbf{ mod }
+60\)</span></p>
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span><strong>Time:</strong></span></td>
+<td style="text-align: center;">12:00pm</td>
+<td style="text-align: center;">12:15pm</td>
+<td style="text-align: center;">12:30pm</td>
+<td style="text-align: center;">12:45pm</td>
+<td style="text-align: center;">1:00pm</td>
+<td style="text-align: center;">1:15pm</td>
+<td style="text-align: center;">1:30pm</td>
+<td style="text-align: center;">1:45pm</td>
+<td style="text-align: center;">2:00pm</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span><strong>“Minutes
+past":</strong></span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(15\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(30\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(45\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(15\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(30\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(45\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<p>Replace each English letter by a letter that’s fifteen ahead of it in
+the alphabet <span><em>Model with</em></span> <span
+class="math inline">\(+15 \textbf{ mod } 26\)</span></p>
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span><strong>Original
+index:</strong></span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(2\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(3\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(4\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(5\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(6\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(7\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(8\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(9\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(10\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(11\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(12\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(13\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(14\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(15\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(16\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(17\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(18\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(19\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(20\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(21\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(22\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(23\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(24\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(25\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span><strong>Original
+letter:</strong></span></td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">D</td>
+<td style="text-align: center;">E</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">G</td>
+<td style="text-align: center;">H</td>
+<td style="text-align: center;">I</td>
+<td style="text-align: center;">J</td>
+<td style="text-align: center;">K</td>
+<td style="text-align: center;">L</td>
+<td style="text-align: center;">M</td>
+<td style="text-align: center;">N</td>
+<td style="text-align: center;">O</td>
+<td style="text-align: center;">P</td>
+<td style="text-align: center;">Q</td>
+<td style="text-align: center;">R</td>
+<td style="text-align: center;">S</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">U</td>
+<td style="text-align: center;">V</td>
+<td style="text-align: center;">W</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">Y</td>
+<td style="text-align: center;">Z</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span><strong>Shifted
+letter</strong></span>:</td>
+<td style="text-align: center;">P</td>
+<td style="text-align: center;">Q</td>
+<td style="text-align: center;">R</td>
+<td style="text-align: center;">S</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">U</td>
+<td style="text-align: center;">V</td>
+<td style="text-align: center;">W</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">Y</td>
+<td style="text-align: center;">Z</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">D</td>
+<td style="text-align: center;">E</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">G</td>
+<td style="text-align: center;">H</td>
+<td style="text-align: center;">I</td>
+<td style="text-align: center;">J</td>
+<td style="text-align: center;">K</td>
+<td style="text-align: center;">L</td>
+<td style="text-align: center;">M</td>
+<td style="text-align: center;">N</td>
+<td style="text-align: center;">O</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span><strong>Shifted
+index:</strong></span></td>
+<td style="text-align: center;"><span
+class="math inline">\(15\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(16\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(17\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(18\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(19\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(20\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(21\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(22\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(23\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(24\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(25\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(2\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(3\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(4\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(5\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(6\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(7\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(8\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(9\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(10\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(11\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(12\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(13\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(14\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><span><strong>Application: Cryptography</strong></span></p>
+<p><span><strong>Definition</strong></span>: Let <span
+class="math inline">\(a\)</span> be a positive integer and <span
+class="math inline">\(p\)</span> be a large<a href="#fn1"
+class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>
+prime number, both known to everyone. Let <span
+class="math inline">\(k_1\)</span> be a secret large number known only
+to person <span class="math inline">\(P_1\)</span> (Alice) and <span
+class="math inline">\(k_2\)</span> be a secret large number known only
+to person <span class="math inline">\(P_2\)</span> (Bob). Let the
+<span><strong>Diffie-Helman shared key</strong></span> for <span
+class="math inline">\(a, p, k_1, k_2\)</span> be <span
+class="math inline">\((a^{k_1\cdot k_2} \textbf{ mod } p)\)</span>.</p>
+<p><span><strong>Idea</strong></span>: <span
+class="math inline">\(P_1\)</span> can quickly compute the Diffie-Helman
+shared key knowing only <span class="math inline">\(a, p, k_1\)</span>
+and the result of <span class="math inline">\(a^{k_2} \textbf{ mod }
+p\)</span> (that is, <span class="math inline">\(P_1\)</span> can
+compute the shared key without knowing <span
+class="math inline">\(k_2\)</span>, only <span
+class="math inline">\(a^{k_2} \textbf{ mod } p\)</span>). Similarly,
+<span class="math inline">\(P_2\)</span> can quickly compute the
+Diffie-Helman shared key knowing only <span class="math inline">\(a, p,
+k_2\)</span> and the result of <span class="math inline">\(a^{k_1}
+\textbf{ mod } p\)</span> (that is, <span
+class="math inline">\(P_2\)</span> can compute the shared key without
+knowing <span class="math inline">\(k_1\)</span>, only <span
+class="math inline">\(a^{k_1} \textbf{ mod } p\)</span>). But, any
+person <span class="math inline">\(P_3\)</span> who knows neither <span
+class="math inline">\(k_1\)</span> nor <span
+class="math inline">\(k_2\)</span> (but may know any and all of the
+other values) cannot compute the shared secret efficiently.</p>
+<p><span><strong>Key property for *shared* secret</strong></span>: <span
+class="math display">\[\forall a \in \mathbb{Z} \, \forall b \in
+\mathbb{Z} \, \forall g \in \mathbb{Z}^+ \,
+    \forall n \in \mathbb{Z}^+ ((g^a \textbf{ mod } n)^b, (g^b \textbf{
+mod } n)^a) \in R_{(\textbf{mod } n)}\]</span></p>
+<p><span><strong>Key property for shared *secret*</strong></span>:</p>
+<p>There are efficient algorithms to calculate the result of modular
+exponentiation but there are no (known) efficient algorithms to
+calculate discrete logarithm.</p>
+<h1 class="unnumbered" id="week-10-wednesday-applications">Week 10
+Wednesday: Applications</h1>
+<p><span><em>Recall:</em></span></p>
+<p>A relation is an <span><strong>equivalence relation</strong></span>
+means it is reflexive, symmetric, and transitive.</p>
+<p>An <span><strong>equivalence class</strong></span> of an element
+<span class="math inline">\(a \in A\)</span> with respect to an
+equivalence relation <span class="math inline">\(R\)</span> on the set
+<span class="math inline">\(A\)</span> is the set <span
+class="math display">\[\{s \in A \mid (a, s) \in R \}\]</span> We write
+<span class="math inline">\([a]_R\)</span> for this set, which is the
+equivalence class of <span class="math inline">\(a\)</span> with respect
+to <span class="math inline">\(R\)</span>.</p>
+<p>A <span><strong>partition</strong></span> of a set <span
+class="math inline">\(A\)</span> is a set of non-empty, disjoint subsets
+<span class="math inline">\(A_1, A_2, \cdots, A_n\)</span> such that
+<span class="math display">\[A = \bigcup_{i=1}^{n} A_i = \{ x \mid
+\exists i (x \in A_i) \}\]</span></p>
+<p><span><strong>Claim</strong></span>: For each <span
+class="math inline">\(a \in U\)</span>, <span
+class="math inline">\([a]_{E}  \neq  \emptyset\)</span>.</p>
+<p><span><strong>Proof</strong></span>: Towards a <span
+class="math inline">\(\underline{\phantom{\hspace{1.3in}}}\)</span>
+consider an arbitrary element <span class="math inline">\(a\)</span> in
+<span class="math inline">\(U\)</span>. We will work to show that <span
+class="math inline">\([a]_E \neq \emptyset\)</span>, namely that <span
+class="math inline">\(\exists x \in [a]_E\)</span>. By definition of
+equivalence classes, we can rewrite this goal as <span
+class="math display">\[\exists x \in U ~( ~(a,x) \in E~)\]</span>
+Towards a <span
+class="math inline">\(\underline{\phantom{\hspace{1.3in}}}\)</span>,
+consider <span class="math inline">\(x = a\)</span>, an element of <span
+class="math inline">\(U\)</span> by definition. By <span
+class="math inline">\(\underline{\phantom{\hspace{1.3in}}}\)</span> of
+<span class="math inline">\(E\)</span>, we know that <span
+class="math inline">\((a,a) \in E\)</span> and thus the existential
+quantification has been proved.<br />
+<span><strong>Claim</strong></span>: For each <span
+class="math inline">\(a \in U\)</span>, there is some <span
+class="math inline">\(b \in U\)</span> such that <span
+class="math inline">\(a \in [b]_{E}\)</span>.</p>
+<p>Towards a <span
+class="math inline">\(\underline{\phantom{\hspace{1.3in}}}\)</span>
+consider an arbitrary element <span class="math inline">\(a\)</span> in
+<span class="math inline">\(U\)</span>. By definition of equivalence
+classes, we can rewrite the goal as <span class="math display">\[\exists
+b \in U ~( ~(b,a) \in E~)\]</span> Towards a <span
+class="math inline">\(\underline{\phantom{\hspace{1.3in}}}\)</span>,
+consider <span class="math inline">\(b = a\)</span>, an element of <span
+class="math inline">\(U\)</span> by definition. By <span
+class="math inline">\(\underline{\phantom{\hspace{1.3in}}}\)</span> of
+<span class="math inline">\(E\)</span>, we know that <span
+class="math inline">\((a,a) \in E\)</span> and thus the existential
+quantification has been proved.<br />
+<span><strong>Claim</strong></span>: For each <span
+class="math inline">\(a,b  \in U\)</span> , <span
+class="math inline">\((~(a,b)  \in  E ~\to ~ [a]_{E}  =
+[b]_{E}~)\)</span> and <span class="math inline">\((~(a,b)  \notin  E
+~\to ~ [a]_{E} \cap[b]_{E} = \emptyset~)\)</span></p>
+<p><span><strong>Corollary</strong></span>: Given an equivalence
+relation <span class="math inline">\(E\)</span> on set <span
+class="math inline">\(U\)</span>, <span class="math inline">\(\{ [x]_{E}
+\mid x \in U  \}\)</span> is a partition of <span
+class="math inline">\(U\)</span>.</p>
+<p>Last time, we saw that partitions associated to equivalence relations
+were useful in the context of modular arithmetic. Today we’ll look at a
+different application.</p>
+<p>Recall that in a movie recommendation system, each user’s ratings of
+movies is represented as a <span class="math inline">\(n\)</span>-tuple
+(with the positive integer <span class="math inline">\(n\)</span> being
+the number of movies in the database), and each component of the <span
+class="math inline">\(n\)</span>-tuple is an element of the collection
+<span class="math inline">\(\{-1,0,1\}\)</span>.</p>
+<p>We call <span class="math inline">\(Rt_5\)</span> the set of all
+ratings <span class="math inline">\(5\)</span>-tuples.</p>
+<p>Define <span class="math inline">\(d: Rt_5 \times Rt_5 \to
+\mathbb{N}\)</span> by <span class="math display">\[d (~(~ (x_1, x_2,
+x_3, x_4, x_5), (y_1, y_2, y_3, y_4, y_5) ~) ~) = \sum_{i=1}^5 |x_i -
+y_i|\]</span></p>
+<p>Consider the following binary relations on <span
+class="math inline">\(Rt_5\)</span>. <span
+class="math display">\[E_{proj} =  \{ ( ~(x_1, x_2, x_3, x_4, x_5),
+(y_1, y_2, y_3, y_4, y_5)~) \in
+         Rt_5 \times Rt_5 ~\mid~(x_1 = y_1) \land  (x_2 = y_2) \land
+(x_3 = y_3) \}\]</span></p>
+<p>Example ordered pair in <span
+class="math inline">\(E_{proj}\)</span>:</p>
+<p>Reflexive? Symmetric? Transitive? Antisymmetric?</p>
+<p><span class="math display">\[E_{dist} =  \{ (u,v) \in Rt_5 \times
+Rt_5 ~\mid~ d( ~(u,v)~ ) \leq 2 \}\]</span> Example ordered pair in
+<span class="math inline">\(E_{dist}\)</span>:</p>
+<p>Reflexive? Symmetric? Transitive? Antisymmetric?</p>
+<p><span class="math display">\[E_{circ} =  \{ (u,v) \in Rt_5 \times
+Rt_5 ~\mid~ d(~ ( ~(0,0,0,0,0)~, u)~ ) =  d( ~(~(0,0,0,0,0),v~)~)
+\}\]</span> Example ordered pair in <span
+class="math inline">\(E_{circ}\)</span>:</p>
+<p>Reflexive? Symmetric? Transitive? Antisymmetric?</p>
+<p>The partition of <span class="math inline">\(Rt_5\)</span> defined by
+<span class="math inline">\(\underline{\phantom{E_{proj}}}\)</span>
+is</p>
+<p>The partition of <span class="math inline">\(Rt_5\)</span> defined by
+<span class="math inline">\(E = \underline{\phantom{E_{circ}}}\)</span>
+is</p>
+<p><span class="math inline">\(\begin{aligned}
+    \{ ~~  &amp; \\
+    &amp;[ ~(0,0,0,0,0)~ ]_E   \\
+    &amp;, [ ~(0,0,0,0,1)~ ]_E \\
+    &amp;, [ ~(0,0,0,1,1)~ ]_E \\
+    &amp;, [ ~(0,0,1,1,1)~ ]_E \\
+    &amp;, [ ~(0,1,1,1,1)~ ]_E \\
+    &amp;, [ ~(1,1,1,1,1)~ ]_E \\
+    \qquad\}  &amp; \\
+\end{aligned}\)</span></p>
+<p>How many elements are in each part of the partition?</p>
+<p><span><strong>Scenario</strong></span>: Good morning! You’re a user
+experience engineer at Netflix. A product goal is to design customized
+home pages for groups of users who have similar interests. Your manager
+tasks you with designing an algorithm for producing a clustering of
+users based on their movie interests, so that customized homepages can
+be engineered for each group.</p>
+<p>Your idea: equivalence relations!</p>
+<p><span class="math display">\[E_{id} = \{ ( ~(x_1, x_2, x_3, x_4,
+x_5), (x_1, x_2, x_3, x_4, x_5)~) \mid
+    (x_1, x_2, x_3, x_4, x_5) \in Rt_5  \}\]</span></p>
+<p><span><em>Describe how each homepage should be designed
+…</em></span></p>
+<p><span class="math display">\[E_{proj} =  \{ ( ~(x_1, x_2, x_3, x_4,
+x_5), (y_1, y_2, y_3, y_4, y_5)~) \in
+         Rt_5 \times Rt_5 ~\mid~(x_1 = y_1) \land  (x_2 = y_2) \land
+(x_3 = y_3) \}\]</span></p>
+<p><span><em>Describe how each homepage should be designed
+…</em></span></p>
+<p><span class="math display">\[E_{circ} =  \{ (u,v) \in Rt_5 \times
+Rt_5 ~\mid~ d(~ ( ~(0,0,0,0,0)~, u)~ ) =  d( ~(~(0,0,0,0,0),v~)~)
+\}\]</span></p>
+<p><span><em>Describe how each homepage should be designed
+…</em></span></p>
+<h1 class="unnumbered" id="week-10-friday-review-and-advice">Week 10
+Friday: Review and Advice</h1>
+<p>Convert <span class="math inline">\((2A)_{16}\)</span> to</p>
+<ul>
+<li><p>binary (base <u></u>)</p></li>
+<li><p>decimal (base <u></u>)</p></li>
+<li><p>octal (base <u></u>)</p></li>
+<li><p>ternary (base <u></u>)</p></li>
+</ul>
+<p>The bases of RNA strands are elements of the set <span
+class="math inline">\(B = \{\texttt{A}, \texttt{C}, \texttt{G},
+\texttt{U}\}\)</span>. The set of RNA strands <span
+class="math inline">\(S\)</span> is defined (recursively) by: <span
+class="math display">\[\begin{array}{ll}
+\textrm{Basis Step: } &amp; \texttt{A}\in S, \texttt{C}\in S,
+\texttt{U}\in S, \texttt{G}\in S \\
+\textrm{Recursive Step: } &amp; \textrm{If } s \in S\textrm{ and }b \in
+B \textrm{, then }sb \in S
+\end{array}\]</span> where <span class="math inline">\(sb\)</span> is
+string concatenation.</p>
+<p>Each of the sets below is described using set builder notation.
+Rewrite them using the roster method.</p>
+<ul>
+<li><p><span class="math inline">\(\{s \in S ~|~ \text{the leftmost base
+in $s$ is the same as the rightmost base in $s$ and
+$s$ has length $3$} \}\)</span></p></li>
+<li><p><span class="math inline">\(\{s \in S ~|~ \text{there are twice
+as many $\texttt{A}$s as $\texttt{C}$s in $s$ and $s$ has length $1$}
+\}\)</span></p></li>
+</ul>
+<p>Certain sequences of bases serve important biological functions in
+translating RNA to proteins. The following recursive definition gives a
+special set of RNA strands: The set of RNA strands <span
+class="math inline">\(\hat{S}\)</span> is defined (recursively) by</p>
+<p><span class="math display">\[\begin{aligned}
+{2}
+\text{Basis step:} &amp; &amp; \texttt{A}\texttt{U}\texttt{G}\in
+\hat{S}\\
+\text{Recursive step:} &amp; \qquad&amp; \text{If } s \in \hat{S} \text{
+and } x \in R \text{, then } sx\in \hat{S}\\
+\end{aligned}\]</span> where <span class="math inline">\(R = \{
+\texttt{U}\texttt{U}\texttt{U}, \texttt{C}\texttt{U}\texttt{C},
+\texttt{A}\texttt{U}\texttt{C}, \texttt{A}\texttt{U}\texttt{G},
+\texttt{G}\texttt{U}\texttt{U}, \texttt{C}\texttt{C}\texttt{U},
+\texttt{G}\texttt{C}\texttt{U}, \texttt{U}\texttt{G}\texttt{G},
+\texttt{G}\texttt{G}\texttt{A}\}\)</span>.</p>
+<p>Each of the sets below is described using set builder notation.
+Rewrite them using the roster method.</p>
+<ul>
+<li><p><span class="math inline">\(\{s \in \hat{S} ~|~ s \text{ has
+length less than or equal to $5$} \}\)</span></p></li>
+<li><p><span class="math inline">\(\{s \in S ~|~ \text{there are twice
+as many $\texttt{C}$s as $\texttt{A}$s in $s$ and $s$ has length $6$}
+\}\)</span></p></li>
+</ul>
+<p>Let <span class="math inline">\(W = \mathcal{P}( \{
+1,2,3,4,5\})\)</span>. Consider the statement <span
+class="math display">\[\forall A \in W~ \forall B \in W ~ \forall C \in
+W~ ((A \cap B = A \cap C) \to (B=C) )\]</span> Translate the statement
+to English. Negate the statement and translate this negation to English.
+Decide whether the original statement or its negation is true and
+justify your decision.</p>
+<p>The set of linked lists of natural numbers <span
+class="math inline">\(L\)</span> is defined by <span
+class="math display">\[\begin{aligned}
+{2}
+\text{Basis step:} &amp; &amp;[] \in L \\
+\text{Recursive step:} &amp; \qquad&amp; \text{If } l \in L \text{ and }
+n \in \mathbb{N} \text{, then } (n,l) \in L\\
+\end{aligned}\]</span> The function <span class="math inline">\(length:
+L \to \mathbb{N}\)</span> that computes the length of a list is <span
+class="math display">\[\begin{aligned}
+{2}
+\text{Basis step:} &amp; &amp;length([]) = 0\\
+\text{Recursive step:} &amp; \qquad&amp; \text{If $l \in L$ and $n \in
+\mathbb{N}$, then } length( ( n,l) ) = 1 + length(l)\\
+\end{aligned}\]</span></p>
+<p>Prove or disprove: the function <span
+class="math inline">\(length\)</span> is onto.</p>
+<p>Prove or disprove: the function <span
+class="math inline">\(length\)</span> is one-to-one.</p>
+<p>Suppose <span class="math inline">\(A\)</span> and <span
+class="math inline">\(B\)</span> are sets and <span
+class="math inline">\(A \subseteq B\)</span>:</p>
+<p><span><strong>True or False</strong></span>? If <span
+class="math inline">\(A\)</span> is infinite then <span
+class="math inline">\(B\)</span> is finite.</p>
+<p><span><strong>True or False</strong></span>? If <span
+class="math inline">\(A\)</span> is countable then <span
+class="math inline">\(B\)</span> is countable.</p>
+<p><span><strong>True or False</strong></span>? If <span
+class="math inline">\(B\)</span> is infinite then <span
+class="math inline">\(A\)</span> is finite.</p>
+<p><span><strong>True or False</strong></span>? If <span
+class="math inline">\(B\)</span> is uncountable then <span
+class="math inline">\(A\)</span> is countable.</p>
+<p>Compute the last digit of <span
+class="math display">\[(42)^{2024}\]</span></p>
+<p><span><em>Extra</em></span> Describe the pattern that helps you
+perform this computation and prove it using mathematical induction.</p>
+<h1 class="unnumbered" id="looking-forward">Looking forward</h1>
+<h2 class="unnumbered"
+id="tips-for-future-classes-from-the-cse-20-tas-and-tutors">Tips for
+future classes from the CSE 20 TAs and tutors</h2>
+<ul>
+<li><p>In class</p>
+<ul>
+<li><p>Go to class</p></li>
+<li><p>There’s usually a space for skateboards/longboards/eboards to go
+at the front or rear of the lecture hall</p></li>
+<li><p>If you have a flask water bottle please ensure that its secured
+during a lecture and it cannot fall - putting on the floor often leads
+to it falling since people sometimes cross your seats.</p></li>
+<li><p>Take notes - it’s much faster and more effective to note-take in
+class than watch recordings after, particularly if you do so
+longhand</p></li>
+<li><p>Resist the urge to sit in the back. You will be able to focus
+much better sitting near the front, where there are fewer screens in
+front of you to distract from the lecture content</p></li>
+<li><p>If you bring your laptop to class to take notes / access class
+materials, sit towards the back of the room to minimize distractions for
+people sitting behind you!</p></li>
+<li><p>Don’t be afraid to talk to the people next to you during group
+discussions. Odds are they’re as nervous as you are, and you can all
+benefit from sharing your thoughts and understanding of the
+material</p></li>
+<li><p>Certain classes will podcast the lectures, just like Zoom
+archives lecture recordings, at podcast.ucsd.edu . If they aren’t
+podcasted, and you want to record lectures, ask your professor for
+consent first</p></li>
+</ul></li>
+<li><p>Office hours, tutor hours, and the CSE building</p>
+<ul>
+<li><p>Office hours are a good place to hang out and get work done while
+being able to ask questions as they come up</p></li>
+<li><p>Get to know the CSE building: CSE B260, basement labs, office
+hours rooms</p></li>
+</ul></li>
+<li><p>Libraries and on-campus resources</p>
+<ul>
+<li><p>Look up what library floors are for what, how to book rooms: East
+wing of Geisel is open 24/7 (they might ask to see an ID if you stay
+late), East Wing of Geisel has chess boards and jigsaw puzzles, study
+pods on the 8th floor, free computers/wifi</p></li>
+<li><p>Know Biomed exists and is usually less crowded</p></li>
+<li><p>Most libraries allow you to borrow whiteboards and markers (also
+laptops, tablets, microphones, and other cool stuff) for 24
+hours</p></li>
+<li><p>Take advantage of Dine with a prof / Coffee with a prof program.
+It’s legit free food / coffee once per quarter.</p></li>
+<li><p>When planning out your daily schedule, think about where classes
+are, how much time will they take, are their places to eat nearby and
+how you can schedule social time with friends to nearby areas</p></li>
+<li><p>Take into account the distances between classes if they are back
+to back</p></li>
+</ul></li>
+<li><p>Final exams</p>
+<ul>
+<li><p>Don’t forget your university card during exams. Physical version
+is best for ID checks.</p></li>
+<li><p>Look up seating assignments for exams and go early to make sure
+you’re in the right place (check the exits to make sure you’re reading
+it the right way)</p></li>
+<li><p>Know where your exam is being held (find it on a map at least a
+day beforehand). Finals are often in strange places that take a while to
+find</p></li>
+</ul></li>
+</ul>
+<h1 class="unnumbered" id="review-quiz">Review Quiz</h1>
+<ol>
+<li><p>Binary relations.</p>
+<ol>
+<li><p><br />
+</p>
+<p>Assume there are five movies in the database, so that each user’s
+ratings can be represented as a <span
+class="math inline">\(5\)</span>-tuple. We call <span
+class="math inline">\(Rt_5\)</span> the set of all ratings <span
+class="math inline">\(5\)</span>-tuples. Consider the binary relation on
+the set of all <span class="math inline">\(5\)</span>-tuples where each
+component of the <span class="math inline">\(5\)</span>-tuple is an
+element of the collection <span
+class="math inline">\(\{-1,0,1\}\)</span> <span
+class="math display">\[G_1 =  \{  (u,v)  \mid
+\text{the ratings of users $u$  and  $v$  agree about the first
+movie in the database} \}\]</span> <span class="math display">\[G_2
+=  \{  (u,v)  \mid
+\text{the ratings of users $u$  and  $v$  agree about at least two
+movies} \}\]</span></p>
+<ol>
+<li><p><span><strong>True</strong></span> or
+<span><strong>False</strong></span>: The relation <span
+class="math inline">\(G_1\)</span> holds of <span
+class="math inline">\(u=(1,1,1,1,1)\)</span> and <span
+class="math inline">\(v=(-1,-1,-1,-1,-1)\)</span></p></li>
+<li><p><span><strong>True</strong></span> or
+<span><strong>False</strong></span>: The relation <span
+class="math inline">\(G_2\)</span> holds of <span
+class="math inline">\(u=(1,0,1,0,-1)\)</span> and <span
+class="math inline">\(v=(-1,0,1,-1,-1)\)</span></p></li>
+<li><p><span><strong>True</strong></span> or
+<span><strong>False</strong></span>: <span
+class="math inline">\(G_1\)</span> is reflexive; namely, <span
+class="math inline">\(\forall u  ~(~(u,u) \in G_1~)\)</span></p></li>
+<li><p><span><strong>True</strong></span> or
+<span><strong>False</strong></span>: <span
+class="math inline">\(G_1\)</span> is symmetric; namely, <span
+class="math inline">\(\forall u ~\forall  v ~(~(u,v) \in G_1 \to  (v,u)
+\in G_1~)\)</span></p></li>
+<li><p><span><strong>True</strong></span> or
+<span><strong>False</strong></span>: <span
+class="math inline">\(G_1\)</span> is transitive; namely, <span
+class="math inline">\(\forall u ~\forall  v  ~\forall w (~\left( (u,v)
+\in G_1 \wedge (v,w)\in G_1\right) \to  (u,w) \in
+G_1~)\)</span></p></li>
+<li><p><span><strong>True</strong></span> or
+<span><strong>False</strong></span>: <span
+class="math inline">\(G_2\)</span> is reflexive; namely, <span
+class="math inline">\(\forall u   ~(~(u,u) \in G_2~)\)</span></p></li>
+<li><p><span><strong>True</strong></span> or
+<span><strong>False</strong></span>: <span
+class="math inline">\(G_2\)</span> is symmetric; namely, <span
+class="math inline">\(\forall u ~\forall  v  ~(~(u,v)\in G_2 \to  (v,u)
+\in G_2~)\)</span></p></li>
+<li><p><span><strong>True</strong></span> or
+<span><strong>False</strong></span>: <span
+class="math inline">\(G_2\)</span> is transitive; namely, <span
+class="math inline">\(\forall u~\forall  v  ~\forall w (~\left( (u,v)
+\in G_2 \wedge (v,w)\in G_2\right) \to  (u,w) \in
+G_2~)\)</span></p></li>
+</ol></li>
+<li><p><br />
+</p>
+<p>Consider the binary relation on <span
+class="math inline">\(\mathbb{Z}^+\)</span> defined by <span
+class="math inline">\(\{(a,b) ~|~ \exists c \in \mathbb{Z} ( b =
+ac)\}\)</span>. Select all and only the properties that this binary
+relation has.</p>
+<ol>
+<li><p>It is reflexive.</p></li>
+<li><p>It is symmetric.</p></li>
+<li><p>It is transitive.</p></li>
+<li><p>It is antisymmetric.</p></li>
+</ol></li>
+</ol></li>
+<li><p>Equivalence relations.</p>
+<ol>
+<li><p><br />
+</p>
+<p>Recall that the binary relation <span
+class="math inline">\(EQ_{\mathbb{R}}\)</span> on <span
+class="math inline">\(\mathcal{P}(\mathbb{R})\)</span> is <span
+class="math display">\[\{ (X_1, X_2 ) \in\mathcal{P}(\mathbb{R})  \times
+\mathcal{P}(\mathbb{R}) ~|~ |X_1| = |X_2| \}\]</span> and <span
+class="math inline">\(R_{(\textbf{mod } n)}\)</span> is the set of all
+pairs of integers <span class="math inline">\((a, b)\)</span> such that
+<span class="math inline">\((a \textbf{ mod } n = b \textbf{ mod }
+n)\)</span>.</p>
+<p>Select all and only the correct items.</p>
+<ol>
+<li><p><span class="math inline">\((\mathbb{Z}, \mathbb{R}) \in
+EQ_{\mathbb{R}}\)</span></p></li>
+<li><p><span class="math inline">\((0,1) \in
+EQ_{\mathbb{R}}\)</span></p></li>
+<li><p><span class="math inline">\((\emptyset, \emptyset) \in
+EQ_{\mathbb{R}}\)</span></p></li>
+<li><p><span class="math inline">\((-1,1) \in R_{(\textbf{mod }
+2)}\)</span></p></li>
+<li><p><span class="math inline">\((1,-1) \in R_{(\textbf{mod }
+3)}\)</span></p></li>
+<li><p><span class="math inline">\((4, 16, 0) \in R_{\textbf{(mod }
+4)}\)</span></p></li>
+</ol></li>
+<li><p><br />
+</p>
+<p>Fill in the blanks in the following proof that, for any equivalence
+relation <span class="math inline">\(R\)</span> on a set <span
+class="math inline">\(A\)</span>, <span class="math display">\[\forall a
+\in A ~\forall b \in A~\left( (a,b) \in R \leftrightarrow [a]_R\cap
+[b]_R \neq \emptyset \right)\]</span></p>
+<p><span><strong>Proof</strong></span>: Towards a
+<strong>(a)</strong><span
+class="math inline">\(\underline{\phantom{\hspace{1.3in}}}\)</span>,
+consider arbitrary elements <span class="math inline">\(a\)</span>,
+<span class="math inline">\(b\)</span> in <span
+class="math inline">\(A\)</span>. We will prove the biconditional
+statement by proving each direction of the conditional in turn.</p>
+<p><span><strong>Goal 1</strong></span>: we need to show <span
+class="math inline">\((a,b) \in R \to [a]_R\cap [b]_R \neq
+\emptyset\)</span> <span><em>Proof of Goal 1</em></span>: Assume towards
+a <strong>(b)</strong><span
+class="math inline">\(\underline{\phantom{\hspace{1.3in}}}\)</span> that
+<span class="math inline">\((a,b) \in R\)</span>. We will work to show
+that <span class="math inline">\([a]_R\cap [b]_R \neq
+\emptyset\)</span>. Namely, we need an element that is in both
+equivalence classes, that is, we need to prove the existential claim
+<span class="math inline">\(\exists x \in A ~(x \in [a]_{R} \land x \in
+[b]_{R})\)</span>. Towards a <strong>(c)</strong><span
+class="math inline">\(\underline{\phantom{\hspace{1.3in}}}\)</span>,
+consider <span class="math inline">\(x = b\)</span>, an element of <span
+class="math inline">\(A\)</span> by definition. By
+<strong>(d)</strong><span
+class="math inline">\(\underline{\phantom{\hspace{1.3in}}}\)</span> of
+<span class="math inline">\(R\)</span>, we know that <span
+class="math inline">\((b,b) \in R\)</span> and thus, <span
+class="math inline">\(b \in [b]_{R}\)</span>. By assumption in this
+proof, we have that <span class="math inline">\((a,b) \in R\)</span>,
+and so by definition of equivalence classes, <span
+class="math inline">\(b \in [a]_R\)</span>. Thus, we have proved both
+conjuncts and this part of the proof is complete.</p>
+<p><span><strong>Goal 2</strong></span>: we need to show <span
+class="math inline">\([a]_R\cap [b]_R \neq \emptyset \to (a,b) \in
+R\)</span> <span><em>Proof of Goal 2</em></span>: Assume towards a
+<strong>(e)</strong><span
+class="math inline">\(\underline{\phantom{\hspace{1.3in}}}\)</span> that
+<span class="math inline">\([a]_R\cap [b]_R \neq \emptyset\)</span>. We
+will work to show that <span class="math inline">\((a,b) \in R\)</span>.
+By our assumption, the existential claim <span
+class="math inline">\(\exists x \in A ~(x \in [a]_{R} \land x \in
+[b]_{R})\)</span> is true. Call <span class="math inline">\(w\)</span> a
+witness; thus, <span class="math inline">\(w \in [a]_R\)</span> and
+<span class="math inline">\(w \in [b]_R\)</span>. By definition of
+equivalence classes, <span class="math inline">\(w \in [a]_R\)</span>
+means <span class="math inline">\((a,w) \in R\)</span> and <span
+class="math inline">\(w \in [b]_R\)</span> means <span
+class="math inline">\((b,w) \in R\)</span>. By <strong>(f)</strong><span
+class="math inline">\(\underline{\phantom{\hspace{1.3in}}}\)</span> of
+<span class="math inline">\(R\)</span>, <span
+class="math inline">\((w,b) \in R\)</span>. By <strong>(g)</strong><span
+class="math inline">\(\underline{\phantom{\hspace{1.3in}}}\)</span> of
+<span class="math inline">\(R\)</span>, since <span
+class="math inline">\((a,w) \in R\)</span> and <span
+class="math inline">\((w,b) \in R\)</span>, we have that <span
+class="math inline">\((a,b) \in R\)</span>, as required for this part of
+the proof.</p>
+<p>Consider the following expressions as options to fill in the two
+proofs above. Give your answer as one of the numbers below for each
+blank a-c. You may use some numbers for more than one blank, but each
+letter only uses one of the expressions below.</p>
+<div class="multicols">
+<p><span>2</span></p>
+<ol>
+<li><p>exhaustive proof</p></li>
+<li><p>proof by universal generalization</p></li>
+<li><p>proof of existential using a witness</p></li>
+<li><p>proof by cases</p></li>
+<li><p>direct proof</p></li>
+<li><p>proof by contrapositive</p></li>
+<li><p>proof by contradiction</p></li>
+<li><p>reflexivity</p></li>
+<li><p>symmetry</p></li>
+<li><p>transitivity</p></li>
+</ol>
+</div></li>
+</ol></li>
+<li><p>Partial orders.<br />
+</p>
+<ol>
+<li><p>Consider the partial order on the set <span
+class="math inline">\(\mathcal{P}(\{1,2,3\})\)</span> given by the
+binary relation <span class="math inline">\(\{ (X,Y) ~|~X \subseteq Y
+\}\)</span></p>
+<ol>
+<li><p>How many nodes are in the Hasse diagram of this partial
+order?</p></li>
+<li><p>How many edges are in the Hasse diagram of this partial
+order?</p></li>
+</ol></li>
+<li><p>Consider the binary relation on <span
+class="math inline">\(\{1,2,4,5,10,20\}\)</span> defined by <span
+class="math inline">\(\{(a,b) ~|~ \exists c \in \mathbb{Z} ( b =
+ac)\}\)</span>.</p>
+<ol>
+<li><p>How many nodes are in the Hasse diagram of this partial
+order?</p></li>
+<li><p>How many edges are in the Hasse diagram of this partial
+order?</p></li>
+</ol></li>
+</ol></li>
+<li><p>Equivalence classes and partitions.</p>
+<ol>
+<li><p><br />
+</p>
+<p>Select all and only the correct statements about an equivalence
+relation <span class="math inline">\(E\)</span> on a set <span
+class="math inline">\(U\)</span>:</p>
+<ol>
+<li><p><span class="math inline">\(E \in U \times U\)</span></p></li>
+<li><p><span class="math inline">\(E = U \times U\)</span></p></li>
+<li><p><span class="math inline">\(E \subseteq U \times
+U\)</span></p></li>
+<li><p><span class="math inline">\(\forall x \in U ~([x]_E \in
+U)\)</span></p></li>
+<li><p><span class="math inline">\(\forall x \in U ~([x]_E \subseteq
+U)\)</span></p></li>
+<li><p><span class="math inline">\(\forall x \in U ~([x]_E \in
+\mathcal{P}(U))\)</span></p></li>
+<li><p><span class="math inline">\(\forall x \in U ~([x]_E \subseteq
+\mathcal{P}(U))\)</span></p></li>
+</ol></li>
+<li><p>Select all and only the partitions of <span
+class="math inline">\(\{1,2,3,4,5\}\)</span> from the sets below.</p>
+<ol>
+<li><p><span class="math inline">\(\{1,2,3,4,5\}\)</span></p></li>
+<li><p><span class="math inline">\(\{\{1,2,3,4,5\}\}\)</span></p></li>
+<li><p><span
+class="math inline">\(\{\{1\},\{2\},\{3\},\{4\},\{5\}\}\)</span></p></li>
+<li><p><span class="math inline">\(\{ \{1\}, \{2,3\}, \{4\}
+\}\)</span></p></li>
+<li><p><span class="math inline">\(\{ \{\emptyset, 1, 2\},
+\{3,4,5\}\}\)</span></p></li>
+</ol></li>
+</ol></li>
+<li><p>Modular exponentiation.<br />
+</p>
+<p>Modular exponentiation is required to carry out the Diffie-Helman
+protocol for computing a shared secret over an unsecure channel.</p>
+<p>Consider the following algorithm for fast exponentiation (based on
+binary expansion of the exponent).</p>
+<div class="algorithm">
+<p>procedure <span
+class="math inline">\(modular~exponentiation\)</span>(<span
+class="math inline">\(b\)</span>: integer; <span class="math inline">\(n
+= (a_{k-1}a_{k-2} \ldots a_1 a_0)_2\)</span>, <span
+class="math inline">\(m\)</span>: positive integers) <span
+class="math inline">\(x\)</span> := <span
+class="math inline">\(1\)</span> <span
+class="math inline">\(power\)</span> := <span
+class="math inline">\(b\)</span> mod <span
+class="math inline">\(m\)</span> for <span
+class="math inline">\(i\)</span>:= <span
+class="math inline">\(0\)</span> to <span
+class="math inline">\(k-1\)</span> if <span class="math inline">\(a_i =
+1\)</span> then <span class="math inline">\(x\)</span>:= <span
+class="math inline">\((x \cdot power)\)</span> mod <span
+class="math inline">\(m\)</span> <span
+class="math inline">\(power\)</span> := <span
+class="math inline">\((power \cdot power)\)</span> mod <span
+class="math inline">\(m\)</span> return <span
+class="math inline">\(x\)</span> <span
+class="math inline">\(\{x~\textrm{equals}~b^n \textbf{ mod }
+m\}\)</span></p>
+</div>
+<ol>
+<li><p>If we wanted to calculate <span class="math inline">\(3^8
+\textbf{ mod } 7\)</span> using the modular exponentation algorithm
+above, what are the values of the parameters <span
+class="math inline">\(b\)</span>, <span
+class="math inline">\(n\)</span>, and <span
+class="math inline">\(m\)</span>? (Write these values in usual,
+decimal-like, mathematical notation.)</p></li>
+<li><p>Give the output of the <span
+class="math inline">\(modular~exponentiation\)</span> algorithm with
+these parameters, i.e. calculate <span class="math inline">\(3^8
+\textbf{ mod } 7\)</span>. (Write these values in usual, decimal-like,
+mathematical notation.)</p></li>
+</ol></li>
+</ol>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>We leave the definition of “large” vague here, but think
+hundreds of digits for practical applications. In practice, we also need
+a particular relationship between <span class="math inline">\(a\)</span>
+and <span class="math inline">\(p\)</span> to hold, which we leave out
+here.<a href="#fnref1" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+</body>
+</html>

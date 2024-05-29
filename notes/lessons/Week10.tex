@@ -1,0 +1,177 @@
+\input{../../resources/lesson-head.tex}
+
+\subsection*{Week 10 at a glance}
+
+\subsubsection*{We will be learning and practicing to:}
+%classify cardinality
+%important sets
+%function and relation definitions
+%functions for cardinality
+%div and mod
+%divisibility and primes
+%congruence mod n
+%binary relations properties
+%special binary relations
+%graph representations of relations
+\begin{itemize}
+
+\item Clearly and unambiguously communicate computational ideas using appropriate formalism. Translate across levels of abstraction.
+\begin{itemize}
+    \item Defining functions, predicates, and binary relations using multiple representations
+    \item Determining whether a given binary relation is symmetric, antisymmetric, reflexive, and/or transitive
+    \item Determining whether a given binary relation is an equivalence relation and/or a partial order
+    \item Drawing graph representations of relations and functions e.g. Hasse diagram and partition diagram
+\end{itemize}
+
+\item Know, select and apply appropriate computing knowledge and problem-solving techniques. Reason about computation and systems. Use mathematical techniques to solve problems. Determine appropriate conceptual tools to apply to new situations. Know when tools do not apply and try different approaches. Critically analyze and evaluate candidate solutions.
+\begin{itemize}
+    \item Using the definitions of the div and mod operators on integers
+    \item Using divisibility and primality predicates
+    \item Applying the definition of congruence modulo n and modular arithmetic
+\end{itemize}
+
+\item Apply proof strategies, including direct proofs and proofs by contradiction, and determine whether a proposed argument is valid or not.
+\begin{itemize}
+    \item Using proofs as knowledge discovery tools to decide whether a statement is true or false
+\end{itemize}
+\end{itemize}
+
+\subsubsection*{TODO:}
+\begin{list}
+   {\itemsep2pt}
+   \item Homework assignment 6 (due Thursday June 6, 2024).
+   \item Review for Final exam. The test is scheduled for Thursday June 13 11:30a-2:29pm, location TBA (see Schedule of Classes).
+\end{list}
+
+\newpage
+\section*{Week 10 Monday: Equivalence Relations and Partial Orders}
+\subsection*{Definitions and representations}
+\input{../activity-snippets/equivalence-relation-definition.tex}
+\input{../activity-snippets/partial-order-definition.tex}
+\input{../activity-snippets/hasse-diagram-definition.tex}
+\vfill
+\input{../activity-snippets/hasse-diagram-example.tex}
+\vfill
+\newpage
+\subsection*{Exploring equivalence relations}
+\input{../activity-snippets/partition-definition.tex}
+\input{../activity-snippets/equivalence-class-definition.tex}
+\input{../activity-snippets/partitions-equivalence-classes.tex}
+\vfill
+\input{../activity-snippets/congruence-classes-mod-four.tex}
+\vfill
+\newpage
+\input{../activity-snippets/modular-arithmetic-motivation.tex}
+\input{../activity-snippets/congruence-mod-n-lemma.tex}
+\vfill
+\input{../activity-snippets/modular-arithmetic.tex}
+\vfill
+\newpage
+\input{../activity-snippets/modular-arithmetic-cycling-examples.tex}
+\vfill
+\newpage
+\input{../activity-snippets/diffie-helman.tex}
+\newpage
+\section*{Week 10 Wednesday: Applications}
+
+\input{../activity-snippets/equivalence-relations-partitions.tex}
+
+Last time, we saw that partitions associated to equivalence relations
+were useful in the context of modular arithmetic.
+Today we'll look at a different application.
+\input{../activity-snippets/equivalence-relations-examples-ratings.tex}
+\input{../activity-snippets/netflix-clustering-scenario.tex}
+
+
+\newpage
+\section*{Week 10 Friday: Review and Advice}
+\input{../activity-snippets/base-expansion-final-review.tex}
+\newpage
+\input{../activity-snippets/set-construction-final-review.tex}
+\newpage
+\input{../activity-snippets/set-operations-final-review.tex}
+\newpage
+\input{../activity-snippets/function-properties-final-review.tex}
+\newpage
+\input{../activity-snippets/cardinality-final-review.tex}
+\newpage
+\input{../activity-snippets/modular-arithmetic-final-review.tex}
+\newpage
+
+
+\section*{Looking forward}
+
+\subsection*{Tips for future classes from the CSE 20 TAs and tutors}
+\begin{itemize}
+\item In class
+\begin{itemize}
+\item Go to class
+%\item Show up to class early because sometimes seats get taken/ the classroom gets full and then you have to sit on the floor
+\item There's usually a space for skateboards/longboards/eboards to go at the front or rear of the lecture hall 
+\item If you have a flask water bottle please ensure that its secured during a lecture and it cannot fall - putting on the floor often leads to it falling since people sometimes cross your seats.
+\item Take notes - it's much faster and more effective to note-take in class than watch recordings after, particularly if you do so longhand
+\item Resist the urge to sit in the back. You will be able to focus much better sitting near the front, where there are fewer screens in front of you to distract from the lecture content
+\item If you bring your laptop to class to take notes / access class materials, sit towards the back of the room to minimize distractions for people sitting behind you!
+%\item On zoom it's easy to just type a question out in chat, it might be a little more awkward to do so in person, but it is definitely worth it. Don't feel like you should already know what's being covered
+%\item Always check you have your iclicker\footnote{iclickers are used in many classes to encourage active participation in class. They're remotes that allow you to respond to multiple choice questions and the instructor can show a histogram of responses in real time.} on you. Just keep it in your backpack permanently. That way you can never forget it. 
+\item Don't be afraid to talk to the people next to you during group discussions. Odds are they're as nervous as you are, and you can all benefit from sharing your thoughts and understanding of the material 
+\item Certain classes will podcast the lectures, just like Zoom archives lecture recordings, at podcast.ucsd.edu . If they aren't podcasted, and you want to record lectures, ask your professor for consent first
+\end{itemize}
+\item Office hours, tutor hours, and the CSE building
+\begin{itemize}
+\item Office hours are a good place to hang out and get work done while being able to ask questions as they come up 
+%\item Office hour attendance is typically much busier in person (and confined to the space in the room)
+\item Get to know the CSE building: CSE B260, basement labs, office hours rooms
+%\item Know how to get in to the building after-hours
+\end{itemize}
+\item Libraries and on-campus resources
+\begin{itemize}
+\item Look up what library floors are for what, how to book rooms: East wing of Geisel is open 24/7 (they might ask to see an ID if you stay late), East Wing of Geisel has chess boards and jigsaw puzzles, study pods on the 8th floor, 
+free computers/wifi
+\item Know Biomed exists and is usually less crowded
+\item Most libraries allow you to borrow whiteboards and markers (also laptops, tablets, microphones, and other cool stuff) for 24 hours
+\item Take advantage of Dine with a prof / Coffee with a prof program. It's legit free food / coffee once per quarter. 
+\item When planning out your daily schedule, think about where classes are, how much time will they take, are their places to eat nearby and how you can schedule social time with friends to nearby areas 
+\item Take into account the distances between classes if they are back to back
+\end{itemize} 
+\newpage
+\item Final exams
+\begin{itemize}
+%\item What are 8am finals? Basically in-person exams are different
+\item Don't forget your university card during exams. Physical version is best for ID checks.
+%\item Some classes required blue books for exams (what they are, where to get them) 
+\item Look up seating assignments for exams and go early to make sure you're in the right place (check the exits to make sure you're reading it the right way) 
+\item Know where your exam is being held (find it on a map at least a day beforehand). Finals are often in strange places that take a while to find 
+\end{itemize}
+\end{itemize}
+
+\newpage
+\section*{Review Quiz}
+\begin{enumerate}
+    \item Binary relations. 
+        \begin{enumerate}
+            \item \hspace{1in}\\ \input{../activity-snippets/quiz-binary-relation-ratings.tex}
+            \item \hspace{1in}\\ \input{../activity-snippets/quiz-binary-relation-divisibility.tex}
+        \end{enumerate}
+    \item Equivalence relations. 
+        \begin{enumerate}
+            \item \hspace{1in}\\ \input{../activity-snippets/quiz-binary-relation-same-size.tex} 
+            \item \hspace{1in}\\ \input{../activity-snippets/quiz-equivalence-relation-properties-proof.tex}
+        \end{enumerate}
+    \item Partial orders. \hspace{1in}\\ \input{../activity-snippets/quiz-partial-order-hasse.tex}
+    \item Equivalence classes and partitions. 
+        \begin{enumerate}
+            \item \hspace{1in}\\ \input{../activity-snippets/quiz-equivalence-class-types.tex}
+            \item Select all and only the partitions of $\{1,2,3,4,5\}$ from the sets below.
+            \begin{enumerate}
+            \item $\{1,2,3,4,5\}$
+            \item $\{\{1,2,3,4,5\}\}$
+            \item $\{\{1\},\{2\},\{3\},\{4\},\{5\}\}$
+            \item $\{ \{1\}, \{2,3\}, \{4\} \}$
+            \item $\{ \{\emptyset, 1, 2\}, \{3,4,5\}\}$
+            \end{enumerate}
+        \end{enumerate}
+    \item Modular exponentiation. \hspace{1in}\\ \input{../activity-snippets/quiz-modular-exponentiation.tex}
+%    \item \hspace{1in}\\ \input{../activity-snippets/quiz-clustering-ratings.tex} 
+\end{enumerate}
+\end{document}

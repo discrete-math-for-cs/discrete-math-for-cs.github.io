@@ -1,0 +1,264 @@
+\documentclass[12pt, oneside]{article}
+
+\usepackage[letterpaper, scale=0.89, centering]{geometry}
+\usepackage{fancyhdr}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\rfoot{\href{https://creativecommons.org/licenses/by-nc-sa/2.0/}{CC BY-NC-SA 2.0} Version \today~(\thepage)}
+
+\usepackage{amssymb,amsmath,pifont,amsfonts,comment,enumerate,enumitem}
+\usepackage{currfile,xstring,hyperref,tabularx,graphicx,wasysym}
+\usepackage[labelformat=empty]{caption}
+\usepackage{xcolor}
+\usepackage{multicol,multirow,array,listings,tabularx,lastpage,textcomp,booktabs}
+
+\lstnewenvironment{algorithm}[1][] {   
+    \lstset{ mathescape=true,
+        frame=tB,
+        numbers=left, 
+        numberstyle=\tiny,
+        basicstyle=\rmfamily\scriptsize, 
+        keywordstyle=\color{black}\bfseries,
+        keywords={,procedure, div, for, to, input, output, return, datatype, function, in, if, else, foreach, while, begin, end, }
+        numbers=left,
+        xleftmargin=.04\textwidth,
+        #1
+    }
+}
+{}
+\lstnewenvironment{java}[1][]
+{   
+    \lstset{
+        language=java,
+        mathescape=true,
+        frame=tB,
+        numbers=left, 
+        numberstyle=\tiny,
+        basicstyle=\ttfamily\scriptsize, 
+        keywordstyle=\color{black}\bfseries,
+        keywords={, int, double, for, return, if, else, while, }
+        numbers=left,
+        xleftmargin=.04\textwidth,
+        #1
+    }
+}
+{}
+
+\newcommand\abs[1]{\lvert~#1~\rvert}
+\newcommand{\st}{\mid}
+
+\newcommand{\A}[0]{\texttt{A}}
+\newcommand{\C}[0]{\texttt{C}}
+\newcommand{\G}[0]{\texttt{G}}
+\newcommand{\U}[0]{\texttt{U}}
+
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+
+ 
+\begin{document}
+\begin{flushright}
+    \StrBefore{\currfilename}{.}
+\end{flushright} 
+\subsection*{Week 9 at a glance}
+
+\subsubsection*{We will be learning and practicing to:}
+\begin{itemize}
+
+\item Clearly and unambiguously communicate computational ideas using appropriate formalism. Translate across levels of abstraction.
+\begin{itemize}
+    \item Defining important sets of numbers, e.g. set of integers, set of rational numbers
+    \item Classifying sets into: finite sets, countably infinite sets, uncountable sets
+    \item Defining functions, predicates, and binary relations using multiple representations
+    \item Determining whether a given binary relation is symmetric, antisymmetric, reflexive, and/or transitive
+    \item Determining whether a given binary relation is an equivalence relation and/or a partial order
+\end{itemize}
+
+\item Know, select and apply appropriate computing knowledge and problem-solving techniques. Reason about computation and systems. Use mathematical techniques to solve problems. Determine appropriate conceptual tools to apply to new situations. Know when tools do not apply and try different approaches. Critically analyze and evaluate candidate solutions.
+\begin{itemize}
+    \item Using the definitions of the div and mod operators on integers
+    \item Using divisibility and primality predicates
+    \item Applying the definition of congruence modulo n and modular arithmetic
+\end{itemize}
+
+\item Apply proof strategies, including direct proofs and proofs by contradiction, and determine whether a proposed argument is valid or not.
+\begin{itemize}
+    \item Using proofs as knowledge discovery tools to decide whether a statement is true or false
+\end{itemize}
+\end{itemize}
+
+\subsubsection*{TODO:}
+\begin{list}
+   {\itemsep2pt}
+   \item Review for Test 2. The test is in class on Friday May 31, 2024.
+   \item Homework assignment 6 (due Thursday June 6, 2024).
+\end{list}
+
+\newpage
+\section*{Week 9 Monday: No class in observance of Memorial Day}
+\section*{Week 9 Wednesday: Binary relations}
+
+\subsection*{Cardinality of sets: recap}
+
+
+
+The set of positive integers $\mathbb{Z}^{+}$ is countably infinite.
+
+The set of integers $\mathbb{Z}$ is countably infinite and is a proper superset of $\mathbb{Z}^{+}$. 
+In fact, the set difference 
+$$\mathbb{Z} \setminus \mathbb{Z}^{+} = \{ x \in \mathbb{Z} \mid x \notin \mathbb{Z}^+\} 
+= \{ x \in \mathbb{Z} \mid x \leq 0 \}$$ is countably infinite.
+
+The set of rationals 
+$\mathbb{Q} = \left\{ \frac{p}{q} \mid p \in \mathbb{Z}  \text{ and  } 
+q  \in \mathbb{Z} \text{ and } q \neq  0 \right\}$ is countably infinite.
+
+
+The set of real numbers $\mathbb{R}$ is uncountable. In fact, the closed 
+interval $\{x \in \mathbb{R} ~|~ 0 \leq x \leq 1\}$, 
+any other nonempty closed interval of real numbers whose endpoints are 
+unequal, as well as the related intervals that exclude one or both of the endpoints are
+each uncountable.
+The set of {\bf irrational} numbers $\overline{\mathbb{Q}} = \mathbb{R} - \mathbb{Q}
+= \{ x \in \mathbb{R} \mid x \notin \mathbb{Q} \}$ is uncountable.
+
+\vfill
+
+We can classify any set as 
+\begin{itemize}
+\item {\bf Finite} size. Fact: For each positive number $n$, for any sets $X$ and $Y$ each 
+size $n$, there is a bijection between $X$ and $Y$.
+\item {\bf Countably Infinite}. Fact: for any countably infinite sets $X$ and $Y$, there is a bijection
+between $X$ and $Y$.
+\item {\bf Uncountable}. Examples: $\mathcal{P}(\mathbb{N})$, the power set of any infinite set, 
+the set of real numbers, any nonempty interval of real numbers. Fact: there are (many) examples 
+of uncountable sets that do not have a bijection between them.
+\end{itemize} \newpage
+\subsection*{Binary relations}
+
+
+{\bf Definition}: When $A$ and $B$ are sets, we say any subset of $A \times B$ is a {\bf binary relation}. 
+A relation $R$ can also be represented as
+
+\begin{itemize}
+\item A function $f_{TF} : A \times B \to \{T, F\}$
+where, for $a \in A$ and $b \in B$, $f_{TF}(~(a,b)~) = 
+\begin{cases} 
+    T \qquad&\text{when } (a,b) \in R \\
+    F \qquad&\text{when } (a,b) \notin R
+\end{cases}$
+\item A function $f_{\mathcal{P}} : A   \to \mathcal{P}(B)$ where, for $a \in A$, 
+$f_{\mathcal{P}}( a ) = \{ b \in B ~|~ (a,b) \in R \}$
+\end{itemize}
+
+When $A$ is a set, we say any subset of $A \times A$ is a (binary) {\bf relation} on $A$.
+
+ \vfill
+
+
+For relation $R$ on a set $A$, we can represent this relation as a
+{\bf graph}: a collection of nodes (vertices) and edges (arrows). The 
+nodes of the graph are the elements of $A$ and 
+there is an edge from $a$ to $b$ exactly when $(a,b) \in R$.
+ \vfill
+\newpage
+
+
+{\it Example}: For $A = \mathcal{P}(\mathbb{R})$, we can define the relation $EQ_{\mathbb{R}}$ on $A$ as 
+\[
+\{ (X_1, X_2 ) \in\mathcal{P}(\mathbb{R})  \times \mathcal{P}(\mathbb{R}) ~|~ |X_1| = |X_2| \}
+\]
+
+\vfill
+
+{\it Example}: Let $R_{(\textbf{mod } n)}$ be the set of all pairs of integers $(a, b)$ such that $(a \textbf{ mod } n = b \textbf{ mod } n)$.
+Then $a$ is {\bf congruent to} $b$ \textbf{mod} $n$ means $(a, b) \in R_{(\textbf{mod } n)}$. A common notation is to write this as $a \equiv b (\textbf{mod } n)$.
+
+
+$R_{(\textbf{mod } n)}$ is a relation on the set $\underline{\phantom{\mathbb{Z}}\hspace{20em}}$
+
+
+Some example elements of $R_{(\textbf{mod } 4)}$ are: 
+
+\vfill \newpage
+\subsection*{Properties of binary relations}
+
+
+A relation $R$ on a set $A$ is called {\bf reflexive} 
+means $(a, a) \in R$ for every element $a \in A$. 
+ 
+
+{\it Informally}, every element is related to itself.
+
+{\it Graphically}, there are self-loops (edge from a node back to itself) at 
+every node. \vfill
+
+
+A relation $R$ on a set $A$ is called {\bf symmetric} means 
+$(b, a) \in R$ whenever $(a, b) \in R$, for all $a, b \in A$. 
+ 
+
+{\it Informally}, order doesn't matter for this relation.
+
+{\it Graphically}, every edge has a paired ``backwards'' edge so we might
+as well drop the arrows and think of edges as undirected. \vfill
+
+
+A relation $R$ on a set $A$ is called {\bf transitive} means 
+whenever $(a, b) \in R$ and $(b, c) \in R$, then $(a, c) \in R$, for all $a, b, c \in A$.
+ 
+
+{\it Informally}, chains of relations collapse.
+
+{\it Graphically}, there's a shortcut between any endpoints of a chain of 
+edges. \vfill
+
+
+A relation $R$ on a set $A$ is called {\bf antisymmetric} means 
+$\forall a \in A ~\forall b \in A~\left(~\left( ~(a,b) \in R \land (b,a) \in R ~\right) \to a=b~\right)$
+ 
+
+{\it Informally}, the relation has directionality.
+
+{\it Graphically}, can organize the nodes of the graph so that 
+all non-self loop edges go up. \vfill
+\newpage
+
+
+
+When the domain is $\{ a,b,c,d,e,f,g,h\}$ define a relation that is {\bf not reflexive} and 
+is {\bf not symmetric} and is {\bf not transitive}.
+
+\vfill
+
+When the domain is $\{ a,b,c,d,e,f,g,h\}$ define a relation that is {\bf not reflexive} but 
+is {\bf symmetric} and is {\bf transitive}.
+
+\vfill
+
+When the domain is $\{ a,b,c,d,e,f,g,h\}$ define a relation that is {\bf symmetric} and
+is {\bf antisymmetric}.
+
+\vfill
+
+Is the relation $EQ_{\mathbb{R}}$ reflexive? symmetric? transitive? antisymmetric?
+
+\vfill
+
+Is the relation $R_{(\textbf{mod } 4)}$ reflexive? symmetric? transitive? antisymmetric?
+
+\vfill
+%
+ \vfill
+
+{\it Summary}: binary relations can be useful for organizing elements in a domain. 
+Some binary relations have special properties that make them act like some familiar relations.
+Equivalence relations (reflexive, symmetric, transitive binary relations) ``act like'' equals.
+Partial orders (reflexive, antisymmetric, transitive binary relations) ``act like'' less than or equals to.
+
+
+\end{document}
