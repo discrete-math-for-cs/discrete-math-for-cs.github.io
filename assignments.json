@@ -38,7 +38,8 @@
    {
       "name": "hw6-proofs-cardinality-relations-CSE20S24",
       "addExtensions": true,
-      "Information": "This is a group optional assignment"
+      "Information": "This is a group optional assignment",
+      "solutionsFile": "hw6-solutions-proofs-cardinality-relations-CSE20S24.pdf"
    },
    {
       "name": "test2practice-CSE20S24",
