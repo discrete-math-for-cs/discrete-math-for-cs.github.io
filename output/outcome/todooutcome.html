@@ -166,7 +166,6 @@
       vertical-align: middle;
     }
   </style>
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
   type="text/javascript"></script>
@@ -1465,7 +1464,7 @@ class="math inline">\(L\)</span>, we have two cases:</p>
 <p><span><strong>Basis Step</strong></span></p>
 <table>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;">1. <strong>To Show</strong> <span
 class="math inline">\(length(~append(~([], 100)~)~) &gt;
 length(~[]~)\)</span></td>
@@ -1475,50 +1474,50 @@ basis step of <span class="math inline">\(L\)</span>, we only need to
 prove that the property holds for <span
 class="math inline">\([]\)</span>.</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;">2. <strong>To Show</strong> <span
 class="math inline">\(length(~(100,[])~) &gt; length(~[]~)\)</span></td>
 <td style="text-align: left;">By basis step in definition of <span
 class="math inline">\(append\)</span>.</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;">3. <strong>To Show</strong> <span
 class="math inline">\((1 +length(~[]~)) &gt; length(~[]~)\)</span></td>
 <td style="text-align: left;">By recursive step in definition of <span
 class="math inline">\(length\)</span>.</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;">4. <strong>To Show</strong> <span
 class="math inline">\(1+0 &gt; 0\)</span></td>
 <td style="text-align: left;">By basis step in definition of <span
 class="math inline">\(length\)</span>.</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;">5. <span
 class="math inline">\(T\)</span></td>
 <td style="text-align: left;">By properties of integers</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;">QED</td>
 <td style="text-align: left;">Because we got to <span
 class="math inline">\(T\)</span> only by rewriting <strong>To
@@ -1673,7 +1672,7 @@ b^{i}\]</span></p>
 <div class="center">
 <table>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: center;">Decimal</td>
 <td style="text-align: center;">Binary</td>
 <td style="text-align: center;">Binary fixed-width <span
@@ -1683,7 +1682,7 @@ class="math inline">\(7\)</span></td>
 <td style="text-align: center;">Binary fixed-width <span
 class="math inline">\(4\)</span></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"><span
 class="math inline">\(b=10\)</span></td>
 <td style="text-align: center;"><span
@@ -1698,14 +1697,14 @@ class="math inline">\(b=2\)</span>, <span class="math inline">\(w
 class="math inline">\(b=2\)</span>, <span class="math inline">\(w
 =  4\)</span></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"><span
 class="math inline">\((20)_{10}\)</span></td>
 <td style="text-align: center;"></td>
@@ -1713,7 +1712,7 @@ class="math inline">\((20)_{10}\)</span></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1746,73 +1745,73 @@ b^{-j} + b^{-w&#39;}\]</span></p>
 <div class="center">
 <table>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"><span
 class="math inline">\(3.75\)</span> in fixed-width binary,</td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;">integer part width <span
 class="math inline">\(2\)</span>,</td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;">fractional part width <span
 class="math inline">\(8\)</span></td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"><span class="math inline">\(0.1\)</span>
 in fixed-width binary,</td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;">integer part width <span
 class="math inline">\(2\)</span>,</td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;">fractional part width <span
 class="math inline">\(8\)</span></td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 </tr>
@@ -1831,7 +1830,7 @@ representation <span class="math inline">\(w\)</span>, <span
 class="math inline">\(w &gt;1\)</span>.</p>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: center;"></th>
 <th style="text-align: center;"></th>
 <th style="text-align: left;">To represent a positive integer <span
@@ -1841,13 +1840,13 @@ class="math inline">\(-n\)</span></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;">&amp; <span class="math inline">\([
 0a_{w-2} \cdots a_0]_{s,w}\)</span>, where <span class="math inline">\(n
@@ -1887,7 +1886,7 @@ class="math inline">\(0\)</span></strong></span>:</p>
 What about <span class="math inline">\(0\)</span>?</p>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: center;"></th>
 <th style="text-align: center;"></th>
 <th style="text-align: left;">To represent a
@@ -1899,13 +1898,13 @@ class="math inline">\(-n\)</span></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: center;"></td>
 <td style="text-align: center;">&amp; <span class="math inline">\([
 0a_{w-2} \cdots a_0]_{s,w}\)</span>, where <span class="math inline">\(n
@@ -2049,7 +2048,7 @@ with</em></span> <span class="math inline">\(+15 \textbf{ mod }
 60\)</span></p>
 <table>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><span><strong>Time:</strong></span></td>
 <td style="text-align: center;">12:00pm</td>
 <td style="text-align: center;">12:15pm</td>
@@ -2063,7 +2062,7 @@ with</em></span> <span class="math inline">\(+15 \textbf{ mod }
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><span><strong>“Minutes
 past":</strong></span></td>
 <td style="text-align: center;"><span
@@ -2094,7 +2093,7 @@ the alphabet <span><em>Model with</em></span> <span
 class="math inline">\(+15 \textbf{ mod } 26\)</span></p>
 <table>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><span><strong>Original
 index:</strong></span></td>
 <td style="text-align: center;"><span
@@ -2150,7 +2149,7 @@ class="math inline">\(24\)</span></td>
 <td style="text-align: center;"><span
 class="math inline">\(25\)</span></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><span><strong>Original
 letter:</strong></span></td>
 <td style="text-align: center;">A</td>
@@ -2180,7 +2179,7 @@ letter:</strong></span></td>
 <td style="text-align: center;">Y</td>
 <td style="text-align: center;">Z</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><span><strong>Shifted
 letter</strong></span>:</td>
 <td style="text-align: center;">P</td>
@@ -2210,7 +2209,7 @@ letter</strong></span>:</td>
 <td style="text-align: center;">N</td>
 <td style="text-align: center;">O</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><span><strong>Shifted
 index:</strong></span></td>
 <td style="text-align: center;"><span
