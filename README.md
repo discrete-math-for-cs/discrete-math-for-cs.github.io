@@ -38,3 +38,5 @@
         Description (str): description of the third tier outcome
         filename (str): pdf file which displays compiled snippets in which third tier outcome is featured 
             (format - do not include .pdf file extension)
+
+Steps for archiving: (1) Create new repository in archive-theory-cs organization or archive-discrete-math-for-cs organization, name this repository TERMYEAR-theory-cs.github.io or TERMYEAR-discrete-math-for-cs.github.io (2) Copy over all files from current repo to this new repo. Make sure to include .gitignore file and .github folder. (3) Move all solutions files from files/.. to notes/archive/... (4) Add notes/archive/* and grades/* to .gitignore (5) Commit and push to GitHub (6) Configure Pages on GitHub: In repo, Settings --> Pages --> Build and deployment --> Source: Deploy from a branch --> Branch --> "published" . Then click "Save". 
