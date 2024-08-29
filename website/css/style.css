@@ -2,6 +2,12 @@
 /* Google Font Link */
 /*@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&display=swap'); */
 
+:root {
+    --maincolor:  #182B49;
+    --deprecated: #B6B1A9; /*copy this value to maincolor when deprecate */
+    --dark-blue: #182B49; /*copy this value to maincolor when active */
+}
+
 .topnav {
     overflow: hidden;
     background-color: #182B49;
@@ -21,13 +27,13 @@
   
 .topnav a:hover {
     background-color: #00C6D7;
-    color: #182B49;
+    color: var(--maincolor);
 }
   
 .topnav a.active {
     font-weight: bolder;
     color: white;
-    text-shadow: 1px 1px #182B49;
+    text-shadow: 1px 1px var(--maincolor);
 }
   
 .topnav-right {
@@ -52,7 +58,7 @@ h1 {
     font-weight: bolder;
     font-size: 300%;
     line-height: normal;
-    color: #182B49;
+    color: var(--maincolor);
 }
 
 h2 {
@@ -60,14 +66,14 @@ h2 {
     font-weight: bold;
     font-size: 200%;
     line-height: 45px;
-    color: #182B49;
+    color: var(--maincolor);
 }
 
 h3 {
     font-family: 'Atkinson Hyperlegible', sans-serif;
     font-weight: bold;
     font-size: 150%;
-    color: #182B49;
+    color: var(--maincolor);
 }
 
 h4 {
@@ -75,7 +81,11 @@ h4 {
     font-weight: bold;
     font-style: italic;
     font-size: 150%;
-    color: #182B49;
+    color: var(--maincolor);
+}
+
+h5 {
+    color: var(--maincolor);
 }
 
 .column dl{
@@ -166,7 +176,7 @@ table.cinereousTable thead {
 table.cinereousTable thead th {
     font-size: 15px;
     font-weight: bold;
-    color: #182B49;
+    color: var(--maincolor);
     text-align: center;
 }
 
@@ -212,6 +222,7 @@ table.cinereousTable thead th {
 
 p {
     font-size: 140%;
+    color: var(--maincolor);
 }
 
 ul {
@@ -219,11 +230,13 @@ ul {
      font-size: 140%;
      margin-left: 2%;
      text-decoration: none;
+     color: var(--maincolor);
  }
 
- li {
+li {
     margin-bottom: 5px;
     text-decoration: none;
+    color: var(--maincolor);
 }
 
 .PDFjs{
@@ -423,6 +436,7 @@ label {
 
 dl{
     font-size: 140%;
+    color: var(--maincolor);
 }
 dd{
     margin-left: 30px;
