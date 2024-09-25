@@ -1236,7 +1236,300 @@ class="math inline">\(120 = 2 \cdot 60\)</span></p></li>
 </ol></li>
 </ol></li>
 </ol></li>
-<li><p>Proof strategies</p></li>
+<li><p>Proof strategies</p>
+<ol>
+<li><p><br />
+</p>
+<p>Select all and only the situations in which the given proof strategy
+would be available.</p>
+<ol>
+<li><p>When might it be appropriate to use induction?</p>
+<ol>
+<li><p>To prove that an existential claim over the set of integers is
+true.</p></li>
+<li><p>To prove that a universal claim over the real numbers is
+true.</p></li>
+<li><p>To prove that a conditional claim is true.</p></li>
+<li><p>None of the above.</p></li>
+</ol></li>
+<li><p>When might it be appropriate to use proof by contradiction?</p>
+<ol>
+<li><p>To prove that an existential claim over the set of integers is
+true.</p></li>
+<li><p>To prove that a universal claim over the real numbers is
+true.</p></li>
+<li><p>To prove that a conditional claim is true.</p></li>
+<li><p>None of the above.</p></li>
+</ol></li>
+</ol></li>
+<li><p><br />
+</p>
+<p><span><em>Goals for this question: recognize that we can prove the
+same statement in different ways. Trace proofs and justify why they are
+valid.</em></span></p>
+<p>Below are two proofs of the same statement: fill in the blanks with
+the expressions below.</p>
+<p><span><strong>Claimed statement</strong></span>:
+<strong>(a)</strong><span
+class="math inline">\(\underline{\phantom{\hspace{1.3in}}}\)</span></p>
+<blockquote>
+<p><span><strong>Proof 1</strong></span>: Using De Morgan’s law for
+quantifiers, we can rewrite this statement as a universal of the
+negation of the body of the statement. Towards a proof by universal
+generalization, let <span class="math inline">\(x\)</span> be an
+arbitrary element of <span class="math inline">\(\mathbb{Z}\)</span>.
+Then we need to show that <span
+class="math display">\[\textbf{(b)}\underline{\phantom{\hspace{1.3in}}}\]</span></p>
+<p>We proceed by contradiction to show that <span
+class="math display">\[(x \textrm{ is odd} \land x^2 \textrm{ is even})
+\to \textbf{(c)}\underline{\phantom{\hspace{1.3in}}}\]</span> We assume
+by direct proof that <span class="math inline">\((x \textrm{ is odd}
+\land x^2 \textrm{ is even})\)</span>. Then, <span
+class="math inline">\((x^2 \textrm{ is even})\)</span> follows directly
+from this assumption, so by definition of conjunction, we must show that
+<span class="math inline">\((x^2 \textrm{ is not even})\)</span> to
+complete the proof. From the assumption, we have that <span
+class="math inline">\((x \textrm{ is odd})\)</span>. Applying the
+definition of odd, <span class="math inline">\(x = 2k + 1\)</span> for
+some <span class="math inline">\(k \in \mathbb{Z}\)</span>. Then <span
+class="math inline">\(x^2 = 4k^2 + 4k + 1\)</span>. We can rewrite the
+right hand side to <span class="math inline">\(2(2k^2 + 2k) +
+1\)</span>. This shows that <span class="math inline">\(x^2\)</span> is
+odd by the definition of odd, since choosing <span
+class="math inline">\(j = 2k^2 + 2k\)</span> gives us <span
+class="math inline">\(j \in \mathbb{Z}\)</span> with <span
+class="math inline">\(x^2 = 2j + 1\)</span>. Since a number is either
+even or odd and not both, and <span class="math inline">\(x^2\)</span>
+is odd, then it must not be even. This concludes the proof, as we have
+assumed the negation of the original statement and deduced a
+contradiction from this assumption.</p>
+</blockquote>
+<blockquote>
+<p><span><strong>Proof 2</strong></span>:</p>
+<table>
+<tbody>
+<tr>
+<td style="text-align: left;"><p>1.</p>
+<table>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>To Show</strong> <span
+class="math inline">\(\forall x \in \mathbb{Z} \neg (x \textrm{ is odd}
+\land x^2 \textrm{ is even})\)</span></td>
+</tr>
+</tbody>
+</table></td>
+<td style="text-align: left;">Rewriting statement using De Morgan’s law
+for quantifiers</td>
+</tr>
+<tr>
+<td style="text-align: left;"><p>2.</p>
+<table>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Choose arbitrary</strong> <span
+class="math inline">\(x \in\mathbb{Z}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>To Show</strong>
+<strong>(d)</strong><span
+class="math inline">\(\underline{\phantom{\hspace{1.3in}}}\)</span></td>
+</tr>
+</tbody>
+</table></td>
+<td style="text-align: left;">By <strong>(e)</strong><span
+class="math inline">\(\underline{\phantom{\hspace{1.3in}}}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><p>3.</p>
+<table>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>To Show</strong> <span
+class="math inline">\(x \textrm{ is odd} \to \neg  (x^2 \textrm{ is
+even})\)</span></td>
+</tr>
+</tbody>
+</table></td>
+<td style="text-align: left;">Rewrite previous <span><strong>To
+Show</strong></span> using logical equivalence</td>
+</tr>
+<tr>
+<td style="text-align: left;"><p>4.</p>
+<table>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Assume</strong> <span
+class="math inline">\(x \textrm{ is odd}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>To Show</strong> <span
+class="math inline">\(\neg  (x^2 \textrm{ is even})\)</span></td>
+</tr>
+</tbody>
+</table></td>
+<td style="text-align: left;">By <strong>(f)</strong><span
+class="math inline">\(\underline{\phantom{\hspace{1.3in}}}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><p>5.</p>
+<table>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>To Show</strong> <span
+class="math inline">\(x^2 \textrm{ is odd}\)</span></td>
+</tr>
+</tbody>
+</table></td>
+<td style="text-align: left;">Rewrite previous <span><strong>To
+Show</strong></span> using definition of even, odd</td>
+</tr>
+<tr>
+<td style="text-align: left;"><p>6.</p>
+<table>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Use the witness</strong> <span
+class="math inline">\(k\)</span>, an integer,</td>
+</tr>
+<tr>
+<td style="text-align: left;">where <span class="math inline">\(x =
+2k+1\)</span></td>
+</tr>
+</tbody>
+</table></td>
+<td style="text-align: left;">By existential definition of <span
+class="math inline">\(x\)</span> being odd</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><p>7.</p>
+<table>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Choose the witness</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="math inline">\(j = 2k^2 +
+2k\)</span>, an integer</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>To Show</strong> <span
+class="math inline">\(x^2 = 2j+1\)</span></td>
+</tr>
+</tbody>
+</table></td>
+<td style="text-align: left;">Show this new <span><strong>To
+Show</strong></span> is true to prove the existential definition of
+<span class="math inline">\(x^2\)</span> being odd</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><p>8.</p>
+<table>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>To Show</strong> <span
+class="math inline">\((2k+1)^2  = 2j+1\)</span></td>
+</tr>
+</tbody>
+</table></td>
+<td style="text-align: left;">Rewrite previous <span><strong>To
+Show</strong></span> using definition of <span
+class="math inline">\(k\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><p>9.</p>
+<table>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>To Show</strong> <span
+class="math inline">\((2k+1)^2  = 2(2k^2 + 2k) + 1\)</span></td>
+</tr>
+</tbody>
+</table></td>
+<td style="text-align: left;">Rewrite previous <span><strong>To
+Show</strong></span> using definition of <span
+class="math inline">\(j\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><p>10.</p>
+<table>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>To Show</strong> <span
+class="math inline">\(T\)</span></td>
+</tr>
+</tbody>
+</table></td>
+<td style="text-align: left;">By algebra: multiplying out the LHS;
+factoring the RHS</td>
+</tr>
+<tr>
+<td style="text-align: left;">QED</td>
+<td style="text-align: left;">Because we got to <span
+class="math inline">\(T\)</span> only by rewriting <strong>To
+Show</strong> to equivalent statements, using valid proof techniques and
+definitions.</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p>Consider the following expressions as options to fill in the two
+proofs above. Give your answer as one of the numbers below for each
+blank a-c. You may use some numbers for more than one blank, but each
+letter only uses one of the expressions below.</p>
+<div class="multicols">
+<p><span>2</span></p>
+<ol>
+<li><p><span class="math inline">\(\exists x \in \mathbb{Z} \, (x
+\textrm{ is odd} \land x^2 \textrm{ is even})\)</span></p></li>
+<li><p><span class="math inline">\(\neg \exists x \in \mathbb{Z} \, (x
+\textrm{ is odd} \land x^2 \textrm{ is even})\)</span></p></li>
+<li><p><span class="math inline">\(\exists x \in \mathbb{Z} \, (x
+\textrm{ is odd} \land x \textrm{ is even})\)</span></p></li>
+<li><p><span class="math inline">\(\neg \exists x \in \mathbb{Z} \, (x
+\textrm{ is odd} \land x \textrm{ is even})\)</span></p></li>
+<li><p><span class="math inline">\(\exists x \in \mathbb{Z} \, (x^2
+\textrm{ is odd} \land x^2 \textrm{ is even})\)</span></p></li>
+<li><p><span class="math inline">\(\neg \exists x \in \mathbb{Z} \, (x^2
+\textrm{ is odd} \land x^2 \textrm{ is even})\)</span></p></li>
+<li><p><span class="math inline">\((x^2 \textrm{ is even} \land x^2
+\textrm{ is not even})\)</span></p></li>
+<li><p><span class="math inline">\(\neg (x \textrm{ is odd} \land  x^2
+\textrm{ is even})\)</span></p></li>
+<li><p><span class="math inline">\((x \textrm{ is odd} \land  x^2
+\textrm{ is even})\)</span></p></li>
+<li><p><span class="math inline">\((x \textrm{ is odd} \land  x \textrm{
+is not odd})\)</span></p></li>
+<li><p><span class="math inline">\(\neg (x \textrm{ is odd} \land  x
+\textrm{ is not odd})\)</span></p></li>
+<li><p><span class="math inline">\(x^2 \textrm{ is
+even}\)</span></p></li>
+<li><p><span class="math inline">\(x^2 \textrm{ is
+odd}\)</span></p></li>
+<li><p>universal generalization</p></li>
+<li><p>proof by cases</p></li>
+<li><p>direct proof</p></li>
+<li><p>proof by contraposition</p></li>
+<li><p>proof by contradiction</p></li>
+</ol>
+</div></li>
+</ol></li>
 </ol>
 </body>
 </html>
