@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>classify-cardinality</title>
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     html {
       color: #1a1a1a;
       background-color: #fdfdfd;
@@ -107,8 +110,8 @@
      overflow: visible;
     }
     hr {
-      background-color: #1a1a1a;
       border: none;
+      border-top: 1px solid #1a1a1a;
       height: 1px;
       margin: 1em 0;
     }
@@ -262,7 +265,7 @@ class="math inline">\(A, B\)</span>, we use the notation <span
 class="math inline">\(|A| &lt; |B|\)</span> to denote <span
 class="math inline">\((~|A| \leq |B| ~) \land \lnot (~|A| =
 |B|)\)</span>.</p>
-<p><span class="math display">\[\begin{aligned}
+<p><span class="math display">\[\begin{alignat*}
 {4}
     &amp;\emptyset = \{ \} \qquad &amp;&amp;\mathcal{P}(\emptyset) = \{
 \emptyset \} \qquad &amp;&amp;|\emptyset| &lt; |\mathcal{P}(\emptyset)|
@@ -272,7 +275,7 @@ class="math inline">\((~|A| \leq |B| ~) \land \lnot (~|A| =
     &amp;\{1,2 \} \qquad &amp;&amp;\mathcal{P}(\{1,2\}) = \{ \emptyset,
 \{1\}, \{2\}, \{1,2\} \} \qquad &amp;&amp;|\{1,2\}| &lt;
 |\mathcal{P}(\{1,2\})| \\
-\end{aligned}\]</span></p>
+\end{alignat*}\]</span></p>
 <p><span><strong><span class="math inline">\(\mathbb{N}\)</span> and its
 power set</strong></span></p>
 <p>Example elements of <span

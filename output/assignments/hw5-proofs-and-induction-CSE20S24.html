@@ -7,6 +7,9 @@
   <meta name="author" content="CSE20S24" />
   <title>hw5-proofs-and-induction</title>
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     html {
       color: #1a1a1a;
       background-color: #fdfdfd;
@@ -108,8 +111,8 @@
      overflow: visible;
     }
     hr {
-      background-color: #1a1a1a;
       border: none;
+      border-top: 1px solid #1a1a1a;
       height: 1px;
       margin: 1em 0;
     }
@@ -526,7 +529,7 @@ class="math display">\[prepend(~(l, n)~) = (n, l)\]</span></p>
 <p><span><em>Sample response that can be used as reference for the
 detail expected in your answer:</em></span> To evaluate the result of
 <span class="math inline">\(length(~(4,(2,(7,[])))~)\)</span> we
-calculate: <span class="math display">\[\begin{aligned}
+calculate: <span class="math display">\[\begin{align*}
         length(~(4,(2,(7,[])))~) &amp;= 1 + length ( ~(2,(7,[]))~) \\
         &amp; \qquad \qquad \text{using recursive step of definition of
 $length$, with $n=4, l=(2,(7,[]))$} \\
@@ -540,7 +543,7 @@ $length$, with $n=7, l=[]$} \\
         &amp; \qquad \qquad \text{using basis step of definition of
 $length$, since input to $length$ is $[]$} \\
     
-\end{aligned}\]</span></p>
+\end{align*}\]</span></p>
 <hr />
 <p>In this question, we’ll consider the combination of these functions
 with a new function, one that removes the element at the front of the

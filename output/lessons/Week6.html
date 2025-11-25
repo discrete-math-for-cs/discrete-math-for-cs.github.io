@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>Week6</title>
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     html {
       color: #1a1a1a;
       background-color: #fdfdfd;
@@ -107,8 +110,8 @@
      overflow: visible;
     }
     hr {
-      background-color: #1a1a1a;
       border: none;
+      border-top: 1px solid #1a1a1a;
       height: 1px;
       margin: 1em 0;
     }
@@ -511,14 +514,14 @@ class="math inline">\(S\)</span>.</p>
 <p><span><strong>Basis Case</strong></span>: We need to prove that the
 inequality holds for each element in the basis step of the recursive
 definition of <span class="math inline">\(S\)</span>. Need to show <span
-class="math display">\[\begin{aligned}
+class="math display">\[\begin{align*}
           &amp;(~ rnalen(\texttt{A}) \geq basecount(~(\texttt{A},
 \texttt{A})~)~) \land (~ rnalen(\texttt{C}) \geq basecount(~(\texttt{C},
 \texttt{A})~)~) \\
     \land &amp; (~ rnalen(\texttt{U}) \geq basecount(~(\texttt{U},
 \texttt{A})~)~) \land (~ rnalen(\texttt{G}) \geq basecount(~(\texttt{G},
 \texttt{A})~)~)
-\end{aligned}\]</span> We calculate, using the definitions of <span
+\end{align*}\]</span> We calculate, using the definitions of <span
 class="math inline">\(rnalen\)</span> and <span
 class="math inline">\(basecount\)</span>:</p>
 <p><span><strong>Recursive Case</strong></span>: We will prove that
@@ -644,12 +647,12 @@ computes, for input <span class="math inline">\(i\)</span>, the sum of
 the nonnegative powers of <span class="math inline">\(2\)</span> up to
 and including exponent <span class="math inline">\(i\)</span> is defined
 recursively by</p>
-<p><span class="math display">\[\begin{aligned}
+<p><span class="math display">\[\begin{alignat*}
 {2}
     \text{Basis step:  } \qquad &amp; sumPow(0) = 1 &amp;\\
     \text{Recursive step:  } &amp; \text{If } x \in \mathbb{N} \text{,
 then } &amp;sumPow(x+1) = sumPow(x) + 2^{x+1}
-\end{aligned}\]</span></p>
+\end{alignat*}\]</span></p>
 <p><span class="math inline">\(sumPow(0) =\)</span></p>
 <p><span class="math inline">\(sumPow(1) =\)</span></p>
 <p><span class="math inline">\(sumPow(2) =\)</span></p>
@@ -889,12 +892,12 @@ class="math inline">\(\texttt{C}\texttt{U}\texttt{G}\)</span></p></li>
 ~\left(~rnalen(s) = basecount(~(s,b)~)~ \right)\)</span></p></li>
 <li><p><span class="math inline">\(\exists s \in S ~\forall b \in B
 ~\left(~rnalen(s) = basecount(~(s,b)~)~ \right)\)</span></p></li>
-<li><p><span class="math display">\[\begin{aligned}
+<li><p><span class="math display">\[\begin{align*}
 \forall s_1 \in S~\forall s_2 \in S ~&amp;\forall b \in B ~\big( ~\big(
 rnalen(s_1) = basecount(~(s_1,b)~) \\
     &amp;\land rnalen(s_2) = basecount(~(s_2,b)~) \land rnalen(s_1) =
 rnalen(s_2) \big) \to s_1 = s_2  \big)
-\end{aligned}\]</span></p></li>
+\end{align*}\]</span></p></li>
 <li><p>None of the above.</p></li>
 </ol></li>
 </ol></li>
@@ -994,7 +997,7 @@ integer <span class="math inline">\(k\)</span> that is greater than or
 equal to <span class="math inline">\(4\)</span> and assume as the
 <u>BLANK 2</u>, that <span class="math inline">\(2^k &lt; k!\)</span> .
 We want to show that <span class="math inline">\(2^{k+1} &lt;
-(k+1)!\)</span> . <span class="math display">\[\begin{aligned}
+(k+1)!\)</span> . <span class="math display">\[\begin{align*}
     2^{k+1} &amp;= 2 \cdot 2^{k} \qquad \text{by
 }\underline{\hspace{0.2in}BLANK 3\hspace{0.2in}}\\
         &amp;&lt; 2 \cdot k! \qquad \text{by
@@ -1005,7 +1008,7 @@ We want to show that <span class="math inline">\(2^{k+1} &lt;
 }\underline{\hspace{0.2in}BLANK 6\hspace{0.2in}}\\
         &amp;= (k+1)!  \qquad \text{by }\underline{\hspace{0.2in}BLANK
 7\hspace{0.2in}}\\
-\end{aligned}\]</span> as required.</p>
+\end{align*}\]</span> as required.</p>
 <ol>
 <li><p>properties of addition, multiplication, and <span
 class="math inline">\(&lt;\)</span> for real numbers</p></li>

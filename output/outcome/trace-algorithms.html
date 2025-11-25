@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>trace-algorithms</title>
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     html {
       color: #1a1a1a;
       background-color: #fdfdfd;
@@ -107,8 +110,8 @@
      overflow: visible;
     }
     hr {
-      background-color: #1a1a1a;
       border: none;
+      border-top: 1px solid #1a1a1a;
       height: 1px;
       margin: 1em 0;
     }
@@ -560,10 +563,10 @@ expansion of } n \}\)</span></p>
 <p><span><strong>Least significant first</strong></span>: Start with
 right-most coefficient of expansion (lowest value)</p>
 <p>Idea: <span>(when <span class="math inline">\(k &gt;
-1\)</span>)</span> <span class="math display">\[\begin{aligned}
+1\)</span>)</span> <span class="math display">\[\begin{align*}
       n &amp;= a_{k-1} b^{k-1} + \cdots + a_1 b + a_0 \\
         &amp;= b ( a_{k-1} b^{k-2} + \cdots + a_1) + a_0
-\end{aligned}\]</span> so <span class="math inline">\(a_0 = n \textbf{
+\end{align*}\]</span> so <span class="math inline">\(a_0 = n \textbf{
 mod } b\)</span> and <span class="math inline">\(a_{k-1} b^{k-2} +
 \cdots + a_1 = n \textbf{ div } b\)</span>.</p>
 <div class="algorithm">

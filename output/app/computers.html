@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>computers</title>
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     html {
       color: #1a1a1a;
       background-color: #fdfdfd;
@@ -107,8 +110,8 @@
      overflow: visible;
     }
     hr {
-      background-color: #1a1a1a;
       border: none;
+      border-top: 1px solid #1a1a1a;
       height: 1px;
       margin: 1em 0;
     }
@@ -182,36 +185,36 @@ dropping the carry from the leftmost column so the result is the same
 width as the summands. <span><em>Does this give the right value for the
 sum?</em></span></p>
 <div class="multicols">
-<p><span>2</span> <span class="math display">\[\begin{aligned}
+<p><span>2</span> <span class="math display">\[\begin{align*}
    &amp; [0~ 1~ 0~ 1]_{s,4}\\
 + &amp;  [1~ 1~ 0~ 1]_{s,4}\\
 &amp;\overline{\phantom{[0~0~1~0]_{s,4}}}\\
-\end{aligned}\]</span></p>
-<p><span class="math display">\[\begin{aligned}
+\end{align*}\]</span></p>
+<p><span class="math display">\[\begin{align*}
    &amp; [0~ 1~ 0~ 1]_{2c,4}\\
 + &amp;  [1~ 0~ 1~ 1]_{2c,4}\\
 &amp;\overline{\phantom{[0~0~0~0]_{2c,4}}}\\
-\end{aligned}\]</span></p>
+\end{align*}\]</span></p>
 </div>
 <div class="multicols">
-<p><span>3</span> <span class="math display">\[\begin{aligned}
+<p><span>3</span> <span class="math display">\[\begin{align*}
       &amp; (1~ 1~ 0~ 1~ 0~ 0)_{2,6}\\
    + &amp; (0~ 0~ 0~ 1~ 0~ 1)_{2,6}\\
    &amp;\overline{\phantom{(1~1~1~0~0~1)_{2,6}}}\\
    
-\end{aligned}\]</span></p>
-<p><span class="math display">\[\begin{aligned}
+\end{align*}\]</span></p>
+<p><span class="math display">\[\begin{align*}
       &amp; [1~ 1~ 0~ 1~ 0~ 0]_{s,6}\\
    + &amp; [0~ 0~ 0~ 1~ 0~ 1]_{s,6}\\
    &amp;\overline{\phantom{(1~1~1~0~0~1)_2}}\\
    
-\end{aligned}\]</span></p>
-<p><span class="math display">\[\begin{aligned}
+\end{align*}\]</span></p>
+<p><span class="math display">\[\begin{align*}
       &amp; [1~ 1~ 0~ 1~ 0~ 0]_{2c,6}\\
    + &amp; [0~ 0~ 0~ 1~ 0~ 1]_{2c,6}\\
    &amp;\overline{\phantom{(1~1~1~0~0~1)_2}}\\
    
-\end{aligned}\]</span></p>
+\end{align*}\]</span></p>
 </div>
 <h1 class="unnumbered" id="circuits-basics">Circuits basics</h1>
 <p>In a <span><strong>combinatorial circuit</strong></span> (also known

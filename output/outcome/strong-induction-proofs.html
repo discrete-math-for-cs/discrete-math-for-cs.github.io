@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>strong-induction-proofs</title>
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     html {
       color: #1a1a1a;
       background-color: #fdfdfd;
@@ -107,8 +110,8 @@
      overflow: visible;
     }
     hr {
-      background-color: #1a1a1a;
       border: none;
+      border-top: 1px solid #1a1a1a;
       height: 1px;
       margin: 1em 0;
     }
@@ -184,13 +187,13 @@ form using these stamps? In other words, which postage can we pay?</p>
 <p><span class="math inline">\(11\)</span>?</p>
 <p><span class="math inline">\(15\)</span>?</p>
 <p><span class="math inline">\(4\)</span>?</p>
-<p><span class="math display">\[\begin{aligned}
+<p><span class="math display">\[\begin{align*}
     &amp;CanPay(0) \land \lnot CanPay(1) \land \lnot CanPay(2) \land \\
     &amp;CanPay(3) \land \lnot CanPay(4) \land CanPay(5) \land CanPay(6)
 \\
     &amp;\lnot CanPay(7) \land \forall n \in \mathbb{Z}^{\geq 8}
 CanPay(n)
-\end{aligned}\]</span></p>
+\end{align*}\]</span></p>
 <p>where the predicate <span class="math inline">\(CanPay\)</span> with
 domain <span class="math inline">\(\mathbb{N}\)</span> is <span
 class="math display">\[CanPay(n) = \exists x \in \mathbb{N} \exists y

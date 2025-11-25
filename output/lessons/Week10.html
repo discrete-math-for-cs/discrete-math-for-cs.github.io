@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>Week10</title>
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     html {
       color: #1a1a1a;
       background-color: #fdfdfd;
@@ -107,8 +110,8 @@
      overflow: visible;
     }
     hr {
-      background-color: #1a1a1a;
       border: none;
+      border-top: 1px solid #1a1a1a;
       height: 1px;
       margin: 1em 0;
     }
@@ -239,10 +242,10 @@ between the lower node and the higher node. Moreover, the diagram omits
 self-loops and omits edges that are guaranteed by transitivity.</p>
 <p>Draw the Hasse diagram of the partial order on the set <span
 class="math inline">\(\{a,b,c,d,e,f,g\}\)</span> defined as <span
-class="math display">\[\begin{aligned}
+class="math display">\[\begin{align*}
     \{  &amp;(a,a), (b,b), (c,c), (d,d), (e,e), (f,f), (g,g), \\
         &amp;(a,c), (a,d), (d,g), (a,g), (b,f), (b,e), (e,g), (b,g) \}
-\end{aligned}\]</span></p>
+\end{align*}\]</span></p>
 <h2 class="unnumbered" id="exploring-equivalence-relations">Exploring
 equivalence relations</h2>
 <p>A <span><strong>partition</strong></span> of a set <span
@@ -279,7 +282,7 @@ common notation is to write this as <span class="math inline">\(a \equiv
 b (\textbf{mod } n)\)</span>.</p>
 <p>We can partition the set of integers using equivalence classes of
 <span class="math inline">\(R_{(\textbf{mod } 4)}\)</span></p>
-<p><span class="math display">\[\begin{aligned}
+<p><span class="math display">\[\begin{align*}
     [0]_{R_{(\textbf{mod } 4)}} &amp;= \phantom{ \{ x \in \mathbb{Z}
 \mid x \equiv 0 ((\textbf{mod } 4)) \}
     = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = 0 \textbf{ mod } 4 =
@@ -308,7 +311,7 @@ b (\textbf{mod } n)\)</span>.</p>
 \mid x \equiv -1 ((\textbf{mod } 4)) \}
     = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = -1 \textbf{ mod } 4
 = 3 \} = \{ 4c+3 \mid c \in \mathbb{Z}\} }
-\end{aligned}\]</span> <span class="math display">\[\mathbb{Z}
+\end{align*}\]</span> <span class="math display">\[\mathbb{Z}
 =  [0]_{R_{(\textbf{mod } 4)}}~ \cup ~[1]_{R_{(\textbf{mod } 4)}}
 ~\cup~[2]_{R_{(\textbf{mod } 4)}}~\cup~
 [3]_{R_{(\textbf{mod } 4)}}\]</span></p>
@@ -780,13 +783,13 @@ as many $\texttt{A}$s as $\texttt{C}$s in $s$ and $s$ has length $1$}
 translating RNA to proteins. The following recursive definition gives a
 special set of RNA strands: The set of RNA strands <span
 class="math inline">\(\hat{S}\)</span> is defined (recursively) by</p>
-<p><span class="math display">\[\begin{aligned}
+<p><span class="math display">\[\begin{alignat*}
 {2}
 \text{Basis step:} &amp; &amp; \texttt{A}\texttt{U}\texttt{G}\in
 \hat{S}\\
 \text{Recursive step:} &amp; \qquad&amp; \text{If } s \in \hat{S} \text{
 and } x \in R \text{, then } sx\in \hat{S}\\
-\end{aligned}\]</span> where <span class="math inline">\(R = \{
+\end{alignat*}\]</span> where <span class="math inline">\(R = \{
 \texttt{U}\texttt{U}\texttt{U}, \texttt{C}\texttt{U}\texttt{C},
 \texttt{A}\texttt{U}\texttt{C}, \texttt{A}\texttt{U}\texttt{G},
 \texttt{G}\texttt{U}\texttt{U}, \texttt{C}\texttt{C}\texttt{U},
@@ -810,19 +813,19 @@ Decide whether the original statement or its negation is true and
 justify your decision.</p>
 <p>The set of linked lists of natural numbers <span
 class="math inline">\(L\)</span> is defined by <span
-class="math display">\[\begin{aligned}
+class="math display">\[\begin{alignat*}
 {2}
 \text{Basis step:} &amp; &amp;[] \in L \\
 \text{Recursive step:} &amp; \qquad&amp; \text{If } l \in L \text{ and }
 n \in \mathbb{N} \text{, then } (n,l) \in L\\
-\end{aligned}\]</span> The function <span class="math inline">\(length:
+\end{alignat*}\]</span> The function <span class="math inline">\(length:
 L \to \mathbb{N}\)</span> that computes the length of a list is <span
-class="math display">\[\begin{aligned}
+class="math display">\[\begin{alignat*}
 {2}
 \text{Basis step:} &amp; &amp;length([]) = 0\\
 \text{Recursive step:} &amp; \qquad&amp; \text{If $l \in L$ and $n \in
 \mathbb{N}$, then } length( ( n,l) ) = 1 + length(l)\\
-\end{aligned}\]</span></p>
+\end{alignat*}\]</span></p>
 <p>Prove or disprove: the function <span
 class="math inline">\(length\)</span> is onto.</p>
 <p>Prove or disprove: the function <span

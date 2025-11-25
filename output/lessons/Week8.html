@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>Week8</title>
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     html {
       color: #1a1a1a;
       background-color: #fdfdfd;
@@ -107,8 +110,8 @@
      overflow: visible;
     }
     hr {
-      background-color: #1a1a1a;
       border: none;
+      border-top: 1px solid #1a1a1a;
       height: 1px;
       margin: 1em 0;
     }
@@ -345,14 +348,14 @@ id="week-8-wednesday-and-friday-finite-countably-infinite-and-uncountable-sets">
 sets</h1>
 <h2 class="unnumbered" id="cardinality-of-sets">Cardinality of sets</h2>
 <p>For nonempty sets <span class="math inline">\(A, B\)</span> we say
-<span class="math display">\[\begin{aligned}
+<span class="math display">\[\begin{align*}
 |A| \leq |B| &amp;\text{ means there is a one-to-one function with
 domain $A$, codomain $B$} \\
 |A| \geq |B| &amp;\text{ means there is an onto function with domain
 $A$, codomain $B$} \\
 |A| = |B| &amp;\text{ means there is a bijection with domain $A$,
 codomain $B$}
-\end{aligned}\]</span></p>
+\end{align*}\]</span></p>
 <p>For all sets <span class="math inline">\(A\)</span>, we say <span
 class="math inline">\(|A| = |\emptyset|\)</span>, <span
 class="math inline">\(|\emptyset| = |A|\)</span> if and only if <span
@@ -375,12 +378,12 @@ cardinalities of infinite sets.</p>
 <p>In a nutshell: cardinality of sets is defined via functions. This
 definition agrees with the usual notion of “size” for finite sets.</p>
 <p><span><strong>Properties of cardinality</strong></span> <span
-class="math display">\[\begin{aligned}
+class="math display">\[\begin{align*}
 &amp;\forall A ~ (~  |A| = |A| ~)\\
 &amp;\forall A ~ \forall B ~(~ |A| = |B|  ~\to ~ |B| = |A|~)\\
 &amp;\forall A ~ \forall B ~ \forall C~ (~ (|A| = |B| ~\wedge~ |B| =
 |C|) ~\to ~ |A| = |C|~)
-\end{aligned}\]</span></p>
+\end{align*}\]</span></p>
 <p><span><em>Extra practice with proofs:</em></span> Use the definitions
 of bijections to prove these properties.</p>
 <p><span><strong>Cantor-Schroder-Bernstein Theorem</strong></span>: For
@@ -494,17 +497,17 @@ then alphabetically among strings of same length) of strands</p>
 <p><span><strong>Claim</strong></span>: <span
 class="math inline">\(L\)</span> is countably infinite</p>
 <div class="multicols">
-<p><span>2</span> <span class="math display">\[\begin{aligned}
+<p><span>2</span> <span class="math display">\[\begin{align*}
     &amp;list: \mathbb{N} \to L \\
     &amp;list(n) = (n, []) \\
     &amp;
-\end{aligned}\]</span></p>
-<p><span class="math display">\[\begin{aligned}
+\end{align*}\]</span></p>
+<p><span class="math display">\[\begin{align*}
     &amp;toNum: L \to \mathbb{N} \\
     &amp;toNum([]) = 0 \\
     &amp;toNum( ~(n,l)~) = 2^n 3^{toNum}(l) \qquad \text{for $n \in
 \mathbb{N}$, $l \in L$}
-\end{aligned}\]</span></p>
+\end{align*}\]</span></p>
 </div>
 <p><span><strong>Claim</strong></span>: <span
 class="math inline">\(|\mathbb{Z}^+| = |\mathbb{Q}|\)</span></p>
@@ -514,16 +517,16 @@ class="math inline">\(\mathbb{Q}\)</span> is <span
 class="math inline">\(f_1: \mathbb{Z} \to \mathbb{Q}\)</span> with <span
 class="math inline">\(f_1(n) = n\)</span> for all <span
 class="math inline">\(n \in \mathbb{N}\)</span>.</p>
-<p><span class="math display">\[\begin{aligned}
+<p><span class="math display">\[\begin{align*}
     &amp;f_2: \mathbb{Q} \to \mathbb{Z} \times \mathbb{Z} \\
     &amp;f_2(x) = \begin{cases}
         (0,1) &amp; \text{if $x = 0$} \\
         (p,q) &amp; \text{if $x = \frac{p}{q}$,}\\
                 &amp; \text{$gcd(p,q) = 1$, $q &gt; 0$}
     \end{cases}
-\end{aligned}\]</span></p>
+\end{align*}\]</span></p>
 <div class="multicols">
-<p><span>2</span> <span class="math display">\[\begin{aligned}
+<p><span>2</span> <span class="math display">\[\begin{align*}
     &amp;f_3: \mathbb{Z} \times \mathbb{Z} \to \mathbb{Z}^+ \times
 \mathbb{Z}^+ \\
     &amp;f_3(~(x,y)~) = \begin{cases}
@@ -532,11 +535,11 @@ class="math inline">\(n \in \mathbb{N}\)</span>.</p>
         (2x+2, -2y+1) &amp; \text{if $x \geq 0, y &lt; 0$} \\
         (-2x-1, -2y-1) &amp; \text{if $x &lt; 0, y &lt; 0$} \\
     \end{cases}
-\end{aligned}\]</span></p>
-<p><span class="math display">\[\begin{aligned}
+\end{align*}\]</span></p>
+<p><span class="math display">\[\begin{align*}
     &amp;f_4: \mathbb{Z}^+ \times \mathbb{Z}^+ \to \mathbb{Z}^+ \\
     &amp;f_4(~(x,y)~) = 2^x 3^y \qquad \text{for $x,y \in \mathbb{Z}^+$}
-\end{aligned}\]</span></p>
+\end{align*}\]</span></p>
 </div>
 <h2 class="unnumbered" id="cardinality-categories">Cardinality
 categories</h2>
@@ -596,7 +599,7 @@ class="math inline">\(A, B\)</span>, we use the notation <span
 class="math inline">\(|A| &lt; |B|\)</span> to denote <span
 class="math inline">\((~|A| \leq |B| ~) \land \lnot (~|A| =
 |B|)\)</span>.</p>
-<p><span class="math display">\[\begin{aligned}
+<p><span class="math display">\[\begin{alignat*}
 {4}
     &amp;\emptyset = \{ \} \qquad &amp;&amp;\mathcal{P}(\emptyset) = \{
 \emptyset \} \qquad &amp;&amp;|\emptyset| &lt; |\mathcal{P}(\emptyset)|
@@ -606,7 +609,7 @@ class="math inline">\((~|A| \leq |B| ~) \land \lnot (~|A| =
     &amp;\{1,2 \} \qquad &amp;&amp;\mathcal{P}(\{1,2\}) = \{ \emptyset,
 \{1\}, \{2\}, \{1,2\} \} \qquad &amp;&amp;|\{1,2\}| &lt;
 |\mathcal{P}(\{1,2\})| \\
-\end{aligned}\]</span></p>
+\end{alignat*}\]</span></p>
 <p><span><strong><span class="math inline">\(\mathbb{N}\)</span> and its
 power set</strong></span></p>
 <p>Example elements of <span

@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>data-types</title>
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     html {
       color: #1a1a1a;
       background-color: #fdfdfd;
@@ -107,8 +110,8 @@
      overflow: visible;
     }
     hr {
-      background-color: #1a1a1a;
       border: none;
+      border-top: 1px solid #1a1a1a;
       height: 1px;
       margin: 1em 0;
     }
@@ -290,21 +293,21 @@ class="math inline">\(S\)</span></td>
 <td style="text-align: center;"><span
 class="math inline">\(\mathbb{Z}^+\)</span></td>
 <td style="text-align: left;"><span><span
-class="math display">\[\begin{aligned}
+class="math display">\[\begin{align*}
     &amp;\textrm{Basis Step:} \\
     &amp;\textrm{If } b \in B\textrm{ then } \textit{rnalen}(b) = 1 \\
     &amp;\textrm{Recursive Step:}\\
     &amp;\textrm{If } s \in S\textrm{ and } b \in B\textrm{, then  }\\
     &amp;\textit{rnalen}(sb) = 1 + \textit{rnalen}(s)
     
-\end{aligned}\]</span></span></td>
+\end{align*}\]</span></span></td>
 <td style="text-align: left;"><span><span
-class="math display">\[\begin{aligned}
+class="math display">\[\begin{align*}
         rnalen(\texttt{A}\texttt{C}) &amp;\overset{\text{rec step}}{=} 1
 +rnalen(\texttt{A}) \\
         &amp;\overset{\text{basis step}}{=} 1 + 1 = 2
     
-\end{aligned}\]</span></span></td>
+\end{align*}\]</span></span></td>
 </tr>
 <tr>
 <td style="text-align: left;"><span
@@ -314,7 +317,7 @@ B\)</span></td>
 <td style="text-align: center;"><span
 class="math inline">\(\mathbb{N}\)</span></td>
 <td style="text-align: left;"><span><span
-class="math display">\[\begin{aligned}
+class="math display">\[\begin{align*}
     &amp;\textrm{Basis Step:} \\
     &amp;\textrm{If } b_1 \in B, b_2 \in B \textrm{ then} \\
     &amp;basecount(~(b_1, b_2)~) = \\
@@ -332,12 +335,12 @@ b_2 \\
 \\
     \end{cases}
     
-\end{aligned}\]</span></span></td>
+\end{align*}\]</span></span></td>
 <td style="text-align: left;"><span><span
-class="math display">\[\begin{aligned}
+class="math display">\[\begin{align*}
         basecount(~(\texttt{A}\texttt{C}\texttt{U}, \texttt{C})~) =
     
-\end{aligned}\]</span></span></td>
+\end{align*}\]</span></span></td>
 </tr>
 <tr>
 <td style="text-align: left;">“<span class="math inline">\(2\)</span> to
@@ -347,12 +350,12 @@ class="math inline">\(\mathbb{N}\)</span></td>
 <td style="text-align: center;"><span
 class="math inline">\(\mathbb{N}\)</span></td>
 <td style="text-align: left;"><span><span
-class="math display">\[\begin{aligned}
+class="math display">\[\begin{align*}
 &amp;\textrm{Basis Step:} \\
 &amp;2^0= 1 \\
 &amp;\textrm{Recursive Step:}\\
 &amp;\textrm{If } n \in \mathbb{N}, 2^{n+1} = \phantom{2 \cdot 2^n}
-\end{aligned}\]</span></span></td>
+\end{align*}\]</span></span></td>
 <td style="text-align: left;"></td>
 </tr>
 <tr>
@@ -363,12 +366,12 @@ the power of <span class="math inline">\(i\)</span>”</td>
 <td style="text-align: center;"><span
 class="math inline">\(\mathbb{N}\)</span></td>
 <td style="text-align: left;"><span><span
-class="math display">\[\begin{aligned}
+class="math display">\[\begin{align*}
 &amp;\textrm{Basis Step:} \\
 &amp;b^0 = 1 \\
 &amp;\textrm{Recursive Step:}\\
 &amp;\textrm{If } i \in \mathbb{N}, b^{i+1} = b \cdot b^i
-\end{aligned}\]</span></span></td>
+\end{align*}\]</span></span></td>
 <td style="text-align: left;"></td>
 </tr>
 </tbody>
@@ -444,7 +447,7 @@ style="text-align: left;"><span><strong>Examples</strong></span>:</td>
 <td style="text-align: left;">(add additional examples from class)</td>
 </tr>
 <tr>
-<td style="text-align: left;"><span><strong>set</strong></span>
+<td style="text-align: left;"><span><strong>set</strong></span><br />
 unordered collection of elements</td>
 <td style="text-align: left;"><span class="math inline">\(7 \in \{43, 7,
 9 \}\)</span> <span class="math inline">\(2 \notin \{43, 7, 9
@@ -462,9 +465,9 @@ of all elements</em></span></td>
 </tr>
 <tr>
 <td style="text-align: left;"><span><strong><span
-class="math inline">\(n\)</span>-tuple</strong></span> ordered sequence
-of elements with <span class="math inline">\(n\)</span> “slots" (<span
-class="math inline">\(n &gt;0\)</span>)</td>
+class="math inline">\(n\)</span>-tuple</strong></span><br />
+ordered sequence of elements with <span class="math inline">\(n\)</span>
+“slots" (<span class="math inline">\(n &gt;0\)</span>)</td>
 <td style="text-align: left;"></td>
 </tr>
 <tr>
@@ -479,7 +482,7 @@ equal</em></span></td>
 <td style="text-align: left;"></td>
 </tr>
 <tr>
-<td style="text-align: left;"><span><strong>string</strong></span>
+<td style="text-align: left;"><span><strong>string</strong></span><br />
 ordered finite sequence of elements each from specified set (called the
 alphabet over which the string is defined)</td>
 <td style="text-align: left;"></td>

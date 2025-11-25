@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>Week7</title>
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     html {
       color: #1a1a1a;
       background-color: #fdfdfd;
@@ -107,8 +110,8 @@
      overflow: visible;
     }
     hr {
-      background-color: #1a1a1a;
       border: none;
+      border-top: 1px solid #1a1a1a;
       height: 1px;
       margin: 1em 0;
     }
@@ -290,7 +293,7 @@ class="math inline">\(1\)</span>, <span class="math inline">\(a_{k-1} =
         a_{j-1} \qquad&amp;\text{if $1 \leq j \leq k$}\\
         (n+1) \textbf{ mod } 2 &amp;\text{if $j = 0$}
    \end{cases}\]</span> Calculating: <span
-class="math display">\[\begin{aligned}
+class="math display">\[\begin{alignat*}
 {2}
     \sum_{j=0}^k c_j 2^j &amp;= c_0 + \sum_{j=1}^k c_j 2^j
     = c_0 + \sum_{i=0}^{k-1} c_{i+1} 2^{i+1} &amp;\qquad
@@ -305,7 +308,7 @@ class="math display">\[\begin{aligned}
 \textbf{ div } 2 ~\right) &amp;\qquad &amp;\text{by definition of $c_0$}
 \\
     &amp;= n+1 &amp;\qquad&amp;\text{by definition of long division}
-\end{aligned}\]</span></p>
+\end{alignat*}\]</span></p>
 <p>Thus, <span class="math inline">\(n+1\)</span> can be expressed as a
 sum of powers of <span class="math inline">\(2\)</span>, as
 required.</p>
@@ -362,13 +365,13 @@ form using these stamps? In other words, which postage can we pay?</p>
 <p><span class="math inline">\(11\)</span>?</p>
 <p><span class="math inline">\(15\)</span>?</p>
 <p><span class="math inline">\(4\)</span>?</p>
-<p><span class="math display">\[\begin{aligned}
+<p><span class="math display">\[\begin{align*}
     &amp;CanPay(0) \land \lnot CanPay(1) \land \lnot CanPay(2) \land \\
     &amp;CanPay(3) \land \lnot CanPay(4) \land CanPay(5) \land CanPay(6)
 \\
     &amp;\lnot CanPay(7) \land \forall n \in \mathbb{Z}^{\geq 8}
 CanPay(n)
-\end{aligned}\]</span></p>
+\end{align*}\]</span></p>
 <p>where the predicate <span class="math inline">\(CanPay\)</span> with
 domain <span class="math inline">\(\mathbb{N}\)</span> is <span
 class="math display">\[CanPay(n) = \exists x \in \mathbb{N} \exists y
@@ -588,7 +591,7 @@ that: <span class="math display">\[length(~append(~(l&#39;, 100~)~)~)
 class="math inline">\(length(~append( ~(~(n,l&#39;), 100~)~)~) &gt;
 length(~(n,l&#39;)~)\)</span> is also true. We start by working with one
 side of the candidate inequality: <span
-class="math display">\[\begin{aligned}
+class="math display">\[\begin{align*}
 LHS &amp;= length(~append( ~(~ (n,l&#39;), 100~)~)~) \\
 &amp;= length(~(n, append(~(l&#39;, 100)~)~ )~) \qquad \text{by the
 recursive definition of $append$}\\
@@ -598,7 +601,7 @@ recursive definition of $length$}\\
 &amp;= length( (n,l&#39;) )  \qquad \text{by the recursive definition of
 $length$}\\
 &amp;= RHS
-\end{aligned}\]</span></p>
+\end{align*}\]</span></p>
 <p>Prove or disprove: <span class="math inline">\(\forall n \in
 \mathbb{N} ~\exists l \in L ~(~length(l) = n~)\)</span></p>
 <h1 class="unnumbered" id="week-7-friday-proof-by-contradiction">Week 7
@@ -849,12 +852,12 @@ class="math inline">\(n\)</span>). Define <span
 class="math inline">\(x&#39; = x-1\)</span> and <span
 class="math inline">\(y&#39;=y+2\)</span> (both in <span
 class="math inline">\(\mathbb{N}\)</span> by case assumption).</p>
-<p>Calculating: <span class="math display">\[\begin{aligned}
+<p>Calculating: <span class="math display">\[\begin{align*}
 5x&#39; +  3y&#39; &amp;\overset{\text{by def}}{=}  5(x-1) +  3(y+2)  =
 5x -  5 +3y +   6  \\
 &amp;\overset{\text{rearranging}} = (5x+3y) -5  + 6\\
 &amp; \overset{\text{IH}}{=} n-5+6 =  n+1
-\end{aligned}\]</span></p>
+\end{align*}\]</span></p>
 <p><span><em>Case 2</em></span>: Assume <span class="math inline">\(x =
 0\)</span>. Therefore <span class="math inline">\(n  = 3y\)</span>, so
 since <span class="math inline">\(n \geq 8\)</span>, <span
@@ -862,12 +865,12 @@ class="math inline">\(y \geq 3\)</span>. Define <span
 class="math inline">\(x&#39; = 2\)</span> and <span
 class="math inline">\(y&#39;=y-3\)</span> (both in <span
 class="math inline">\(\mathbb{N}\)</span> by case assumption).
-Calculating: <span class="math display">\[\begin{aligned}
+Calculating: <span class="math display">\[\begin{align*}
 5x&#39; +  3y&#39; &amp;\overset{\text{by def}}{=}  5(2) +  3(y-3)  =
 10  +3y -9  \\
 &amp;\overset{\text{rearranging}} = 3y +10 -9 \\
 &amp;\overset{\text{IH and case}}{=} n+10-9 =  n+1
-\end{aligned}\]</span></p>
+\end{align*}\]</span></p>
 <p>Since the goal has been proved from each case, the proof by cases is
 complete and we have proved the recursive step. <span
 class="math inline">\(\square\)</span><br />

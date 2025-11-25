@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>Week4</title>
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     html {
       color: #1a1a1a;
       background-color: #fdfdfd;
@@ -107,8 +110,8 @@
      overflow: visible;
     }
     hr {
-      background-color: #1a1a1a;
       border: none;
+      border-top: 1px solid #1a1a1a;
       height: 1px;
       margin: 1em 0;
     }
@@ -667,26 +670,26 @@ propositions.</p>
 <div class="multicols">
 <p><span>2</span> “A sufficient condition for the warranty to be good is
 that you bought the computer less than a year ago" <span
-class="math display">\[\begin{aligned}
+class="math display">\[\begin{align*}
 w &amp;\text{ is  ``the warranty is good&quot;} \\
 b &amp;\text{ is  ``you bought the computer less than a year ago&quot;}
 \\
-\end{aligned}\]</span></p>
+\end{align*}\]</span></p>
 </div>
 <div class="multicols">
 <p><span>2</span> “Whenever the message was sent from an unknown system,
-it is scanned for viruses." <span class="math display">\[\begin{aligned}
+it is scanned for viruses." <span class="math display">\[\begin{align*}
 s &amp;\text{ is  ``The message is scanned for viruses&quot;} \\
 u &amp;\text{ is  ``The message was sent from an unknown system&quot;}
 \\
-\end{aligned}\]</span></p>
+\end{align*}\]</span></p>
 </div>
 <div class="multicols">
 <p><span>2</span> “I will complete my to-do list only if I put a
-reminder in my calendar" <span class="math display">\[\begin{aligned}
+reminder in my calendar" <span class="math display">\[\begin{align*}
 d &amp;\text{ is  ``I will complete my to-do list&quot;} \\
 c &amp;\text{ is  ``I put a reminder in my calendar&quot;} \\
-\end{aligned}\]</span></p>
+\end{align*}\]</span></p>
 </div>
 <p><span><strong>Definition</strong></span>: A collection of compound
 propositions is called <span><strong>consistent</strong></span> if there
@@ -1104,15 +1107,15 @@ connectivity is unreliable"; <span class="math inline">\(D =\)</span>
 <div class="multicols">
 <p><span>3</span></p>
 <ol>
-<li><p><span class="math display">\[\begin{aligned}
+<li><p><span class="math display">\[\begin{align*}
 &amp;\neg M \to  N  \\ &amp; \neg D \to M \\ &amp; D \to N
-\end{aligned}\]</span></p></li>
-<li><p><span class="math display">\[\begin{aligned}
+\end{align*}\]</span></p></li>
+<li><p><span class="math display">\[\begin{align*}
 &amp;M \to  \neg N  \\ &amp; \neg D \wedge M \\ &amp; N \to D
-\end{aligned}\]</span></p></li>
-<li><p><span class="math display">\[\begin{aligned}
+\end{align*}\]</span></p></li>
+<li><p><span class="math display">\[\begin{align*}
 &amp;M \to  N  \\ &amp;  M \to \neg D \\ &amp; \neg  N \to \neg D
-\end{aligned}\]</span></p></li>
+\end{align*}\]</span></p></li>
 </ol>
 </div></li>
 <li><p>Specification: Whether you think you can, or you think you can’t
@@ -1123,15 +1126,15 @@ can"; <span class="math inline">\(C =\)</span> “you can".</p>
 <div class="multicols">
 <p><span>3</span></p>
 <ol>
-<li><p><span class="math display">\[\begin{aligned}
+<li><p><span class="math display">\[\begin{align*}
 &amp;T \to C \\&amp;  \neg T \to \neg C
-\end{aligned}\]</span></p></li>
-<li><p><span class="math display">\[\begin{aligned}
+\end{align*}\]</span></p></li>
+<li><p><span class="math display">\[\begin{align*}
 &amp;T \wedge C \\  &amp; \neg  T \wedge \neg C
-\end{aligned}\]</span></p></li>
-<li><p><span class="math display">\[\begin{aligned}
+\end{align*}\]</span></p></li>
+<li><p><span class="math display">\[\begin{align*}
 &amp;T \to \neg T  \\ &amp; C  \to \neg  C
-\end{aligned}\]</span></p></li>
+\end{align*}\]</span></p></li>
 </ol>
 </div></li>
 <li><p>Specification: A secure password must be private and complicated.
@@ -1147,18 +1150,18 @@ password is written down".</p>
 <div class="multicols">
 <p><span>3</span></p>
 <ol>
-<li><p><span class="math display">\[\begin{aligned}
+<li><p><span class="math display">\[\begin{align*}
 &amp;\neg (P \wedge C) \to \neg  S  \\ &amp; C \to H  \\ &amp; W \wedge
 H \\ &amp; W \to  \neg P \\ &amp; S
-\end{aligned}\]</span></p></li>
-<li><p><span class="math display">\[\begin{aligned}
+\end{align*}\]</span></p></li>
+<li><p><span class="math display">\[\begin{align*}
 &amp;(P \wedge  C)  \to S  \\ &amp;  C \to H\\ &amp; W  \to  H \\  &amp;
 W \to P \\ &amp; S
-\end{aligned}\]</span></p></li>
-<li><p><span class="math display">\[\begin{aligned}
+\end{align*}\]</span></p></li>
+<li><p><span class="math display">\[\begin{align*}
 &amp; S  \to (P \wedge C)  \\ &amp;  C \to H\\ &amp; H  \to  W \\  &amp;
 W \to \neg P \\ &amp; S
-\end{aligned}\]</span></p></li>
+\end{align*}\]</span></p></li>
 </ol>
 </div></li>
 </ol></li>
