@@ -1,55 +1,50 @@
 [
    {
-      "name": "hw1-definitions-and-notation-CSE20S24",
+      "name": "hw1-definitions-and-notation-CSE20W26",
       "addExtensions": true,
       "Information": "This is a group optional assignment",
-      "solutionsFile": "hw1-sample-solutions-definitions-and-notation-CSE20S24.pdf"
+      "solutionsFile": "hw1-sample-solutions-definitions-and-notation-CSE20W26.pdf"
    },
    {
-      "name": "hw2-numbers-CSE20S24",
+      "name": "hw2-numbers-CSE20W26",
       "addExtensions": true,
       "Information": "This is a group optional assignment",
-      "solutionsFile": "hw2-solutions-CSE20S24.pdf"
+      "solutionsFile": "hw2-solutions-CSE20W26.pdf"
    },
    {
-      "name": "hw3-circuits-and-logic-CSE20S24",
+      "name": "hw3-circuits-and-logic-CSE20W26",
       "addExtensions": true,
       "Information": "This is a group optional assignment",
-      "solutionsFile": "hw3-solutionsCSE20S24.pdf"
+      "solutionsFile": "hw3-solutionsCSE20W26.pdf"
    },
    {
-      "name": "test1practice-CSE20S24",
+      "name": "test1practice-CSE20W26",
       "addExtensions": true,
-      "Information": "Test 1 is in class  this week, Friday May 3, 1pm-1:50pm WLH 2001.  The test covers material in Weeks 1 through 4 and Monday of Week 5. To study for the exam, we recommend reviewing class notes (e.g. annotations linked on the class website, podcast, supplementary video from the class website), reviewing homework (and its posted sample solutions), and in particular *working examples* (extra examples in lecture notes, review quizzes, discussion examples) and getting feedback (office hours and Piazza). This collection of practice questions may also be helpful, but is not meant to represent the actual length or format of the test.",
-      "solutionsFile": "test1practice-CSE20S24-sample-sol.pdf"
+      "Information": "Test 1 in CBTF this week.  The test covers material in Weeks 1 through Week 5.  To study for the exam, we recommend reviewing class notes (e.g. annotations linked on the class website, supplementary video from the class website), reviewing homework (and its posted sample solutions), and in particular *working examples* (extra examples in lecture notes, review quizzes, discussion examples) and getting feedback (office hours and Piazza). This collection of practice questions may also be helpful, but is not meant to represent the actual length or format of the test.",
+      "solutionsFile": "test1practice-CSE20W26-sample-sol.pdf"
    },
    {
-      "name": "hw4-proofs-and-sets-CSE20S24",
-      "addExtensions": true,
-      "Information": "This is a group optional assignment",
-      "solutionsFile": "hw4-solutionsCSE20S24.pdf"
-   },
-   {
-      "name": "hw5-proofs-and-induction-CSE20S24",
+      "name": "hw4-proofs-and-sets-CSE20W26",
       "addExtensions": true,
       "Information": "This is a group optional assignment",
-      "solutionsFile": "hw5-sample-sol-proofs-and-induction-CSE20S24.pdf"
+      "solutionsFile": "hw4-solutionsCSE20W26.pdf"
    },
    {
-      "name": "hw6-proofs-cardinality-relations-CSE20S24",
+      "name": "hw5-proofs-and-induction-CSE20W26",
       "addExtensions": true,
       "Information": "This is a group optional assignment",
-      "solutionsFile": "hw6-solutions-proofs-cardinality-relations-CSE20S24.pdf"
+      "solutionsFile": "hw5-sample-sol-proofs-and-induction-CSE20W26.pdf"
    },
    {
-      "name": "test2practice-CSE20S24",
+      "name": "hw6-proofs-cardinality-relations-CSE20W26",
       "addExtensions": true,
-      "Information": "Test 2 is in class  this week, Friday May 31, 1pm-1:50pm WLH 2001.  The test covers material in Weeks 5 through 8. To study for the exam, we recommend reviewing class notes (e.g. annotations linked on the class website, podcast, supplementary video from the class website), reviewing homework (and its posted sample solutions), and in particular *working examples* (extra examples in lecture notes, review quizzes, discussion examples) and getting feedback (office hours and Piazza). This collection of practice questions may also be helpful, but is not meant to represent the actual length or format of the test.",
-      "solutionsFile": "test2practice-CSE20S24-sample-sol.pdf"
+      "Information": "This is a group optional assignment",
+      "solutionsFile": "hw6-solutions-proofs-cardinality-relations-CSE20W26.pdf"
    },
    {
-      "name": "project-CSE20S24",
+      "name": "test2practice-CSE20W26",
       "addExtensions": true,
-      "Information": "This is an Individual Assignment"
+      "Information": "Test 2 in CBTF this week.  The test covers material in Weeks 5 through Week 9.  To study for the exam, we recommend reviewing class notes (e.g. annotations linked on the class website, supplementary video from the class website), reviewing homework (and its posted sample solutions), and in particular *working examples* (extra examples in lecture notes, review quizzes, discussion examples) and getting feedback (office hours and Piazza). This collection of practice questions may also be helpful, but is not meant to represent the actual length or format of the test.",
+      "solutionsFile": "test2practice-CSE20W26-sample-sol.pdf"
    }
 ]
