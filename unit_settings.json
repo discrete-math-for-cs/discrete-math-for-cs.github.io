@@ -2,16 +2,12 @@
     {
         "header": "Week 1",
         "outcomes": "Introduction and data types",
-        "CalendarInfo": " Dates: 4/1/24 - 4/7/24<br> Welcome! Please take our pre-class survey on <a href=\"https://canvas.ucsd.edu/\" target=\"_blank\">Canvas</a>. See you Monday 1pm in Warren Lecture Hall 2001. Notes for class are linked below: we recommend attending class in person each day (if you can). We'll be working directly on quiz and homework questions in many classes to help you get started with problem solving. Discussion sections will include a review of the lecture material for the week and example problems. They are scheduled for Wednesdays at 5pm in YORK 2722. Tests will be taken in class twice during the quarter.",
-        "ExpandInCalendar": false,
+        "CalendarInfo": " Dates: 01/05/26 - 01/11/26<br> Welcome! Please take our pre-class survey on <a href=\"https://canvas.ucsd.edu/\" target=\"_blank\">Canvas</a>. See you Monday 1pm in CENTER HALL 115. Notes for class are linked below: we recommend attending class in person each day (if you can). We'll be working directly on quiz and homework questions in many classes to help you get started with problem solving. Discussion sections will include a review of the lecture material for the week and example problems. They are scheduled for Mondays at 5pm in CENTER HALL 115.",
+        "ExpandInCalendar": true,
         "content": [
             {
                 "name": "Notes",
                 "source": "Week1.tex"
-            }, 
-            {
-                "name": "Lecture and Discussion podcast",
-                "source": "<p>See <a href=\"https://podcast.ucsd.edu/\">videos on podcast.ucsd.edu</a></p>"
             },
             {
                 "name": "Lecture Hall",
@@ -22,19 +18,23 @@
                 "source": "https://www.youtube.com/embed/2KbOaCLS-cQ"
             }
         ],
-
         "Due Dates": [
             {
+                "name": "Canvas #FinAid Quiz",
+                "link": "https://canvas.ucsd.edu/",
+                "due": "01/11/26"
+            },
+            {
                 "name": "Review Quiz",
-                "link": "https://gradescope.com",
-                "due": "4/5/24 at 5pm"
+                "link": "https://us.prairielearn.com/pl/",
+                "due": "01/11/26"
             }
         ]
-    }, 
+    },
     {
         "header": "Week 2",
         "outcomes": "Number representations",
-        "CalendarInfo": " Dates: 4/8/24-4/12/24",
+        "CalendarInfo": " Dates: 01/12/26-01/16/26",
         "ExpandInCalendar": false,
         "content": [
             {
@@ -49,19 +49,19 @@
         "Due Dates": [
             {
                 "name": "hw1-definitions-and-notation-CSE20S24",
-                "due": "4/9/24 at 5pm (no penalty late submission until 8am next morning)"
+                "due": "01/13/26 at 5pm (no penalty late submission until 8am next morning)"
             },
             {
                 "name": "Review Quiz",
-                "link": "https://gradescope.com",
-                "due": "4/12/24 at 5pm"
+                "link": "https://us.prairielearn.com/pl/",
+                "due": "01/16/26"
             }
         ]
-    }, 
+    },
     {
         "header": "Week 3",
         "outcomes": "Circuits and Propositional Logic",
-        "CalendarInfo": " Dates: 4/15/24-4/19/24",
+        "CalendarInfo": " Dates: 01/19/26-01/23/26.  No class on Monday January 19 in observance of Martin Luther King Jr. Day.",
         "ExpandInCalendar": false,
         "content": [
             {
@@ -76,20 +76,19 @@
         "Due Dates": [
             {
                 "name": "hw2-numbers-CSE20S24",
-                "due": "4/16/24 at 5pm (no penalty late submission until 8am next morning)"
+                "due": "01/20/26 at 5pm (no penalty late submission until 8am next morning)"
             },
             {
                 "name": "Review Quiz",
-                "link": "https://gradescope.com",
-                "due": "4/19/24 at 5pm"
+                "link": "https://us.prairielearn.com/pl/",
+                "due": "01/23/26"
             }
         ]
     },
-
     {
         "header": "Week 4",
         "outcomes": "Predicate Logic",
-        "CalendarInfo": " Dates: 4/22/24 - 4/26/24. Monday's CSE 20 class will be on Zoom  https://ucsd.zoom.us/j/98743879344. Wednesday and Friday's classes will be back in-person in WLH 2001.",
+        "CalendarInfo": " Dates: 01/26/26 - 01/30/26.",
         "ExpandInCalendar": false,
         "content": [
             {
@@ -108,20 +107,19 @@
         "Due Dates": [
             {
                 "name": "hw3-circuits-and-logic-CSE20S24",
-                "due": "4/23/24 at 5pm (no penalty late submission until 8am next morning)"
+                "due": "01/27/26 at 5pm (no penalty late submission until 8am next morning)"
             },
             {
                 "name": "Review Quiz",
-                "link": "https://gradescope.com",
-                "due": "4/26/24 at 5pm"
+                "link": "https://us.prairielearn.com/pl/",
+                "due": "01/30/26"
             }
         ]
     },
-
     {
         "header": "Week 5",
         "outcomes": "Proof Strategies",
-        "CalendarInfo": " Dates: 4/29/24 - 5/3/24.  Test 1 in class  this week, Friday May 3 1pm-1:50pm WLH 2001.  The test covers material in Weeks 1 through 4 and Monday of Week 5. To study for the exam, we recommend reviewing class notes (e.g. annotations linked on the class website, podcast, supplementary video from the class website), reviewing homework (and its posted sample solutions), and in particular *working examples* (extra examples in lecture notes, review quizzes, discussion examples) and getting feedback (office hours and Piazza)",
+        "CalendarInfo": " Dates: 02/02/26 - 02/06/26.   Test 1 in CBTF this week.  The test covers material in Weeks 1 through Week 5.  To study for the exam, we recommend reviewing class notes (e.g. annotations linked on the class website, supplementary video from the class website), reviewing homework (and its posted sample solutions), and in particular *working examples* (extra examples in lecture notes, review quizzes, discussion examples) and getting feedback (office hours and Piazza).",
         "ExpandInCalendar": false,
         "content": [
             {
@@ -149,22 +147,22 @@
                 "source": "https://youtu.be/zgUXEiPw9fw"
             }
         ],
-
         "Due Dates": [
             {
                 "name": "test1practice-CSE20S24",
-                "due": "Test 1 is Friday of Week 5"
+                "due": "Test 1 Testing window: 02/02/26 - 02/06/26. Sign up in advance at the CBTF."
             },
             {
-                "name": "Test 1",
-                "due": "5/3/24 in class"
+                "name": "Review Quiz",
+                "link": "https://us.prairielearn.com/pl/",
+                "due": "02/06/26"
             }
         ]
     },
     {
         "header": "Week 6",
         "outcomes": "Proofs, Recursion, and Induction",
-        "CalendarInfo": " Dates: 5/6/24-5/10/24",
+        "CalendarInfo": " Dates: 02/09/26-02/13/26",
         "ExpandInCalendar": false,
         "content": [
             {
@@ -186,21 +184,16 @@
         ],
         "Due Dates": [
             {
-                "name": "project-CSE20S24",
-                "due": "5/8/24 at 5pm (no penalty late submission until 8am next day) - Extended by 24 hours"
-            },
-            {
                 "name": "Review Quiz",
-                "link": "https://gradescope.com",
-                "due": "5/10/24 at 5pm"
+                "link": "https://us.prairielearn.com/pl/",
+                "due": "02/13/26"
             }
         ]
     },
-
     {
         "header": "Week 7",
-        "outcomes": "More recursion and induction",
-        "CalendarInfo": " Dates: 5/13/24-5/17/24",
+        "outcomes": "More recursion and induction. No class on Monday February 17 in observance of Presidents Day.",
+        "CalendarInfo": " Dates: 02/16/26-02/20/26",
         "ExpandInCalendar": false,
         "content": [
             {
@@ -211,20 +204,19 @@
         "Due Dates": [
             {
                 "name": "hw4-proofs-and-sets-CSE20S24",
-                "due": "5/14/24 at 5pm (no penalty late submission until 8am next morning)"
+                "due": "02/17/26 at 5pm (no penalty late submission until 8am next morning)"
             },
             {
                 "name": "Review Quiz",
-                "link": "https://gradescope.com",
-                "due": "5/17/24 at 5pm"
+                "link": "https://us.prairielearn.com/pl/",
+                "due": "02/20/26"
             }
         ]
     },
-    
     {
         "header": "Week 8",
-        "outcomes": "Functions and Cardinality",
-        "CalendarInfo": " Dates: 5/20/24-5/24/24",
+        "outcomes": "Functions and Cardinality.",
+        "CalendarInfo": " Dates: 02/23/26-02/27/26",
         "ExpandInCalendar": false,
         "content": [
             {
@@ -247,20 +239,19 @@
         "Due Dates": [
             {
                 "name": "hw5-proofs-and-induction-CSE20S24",
-                "due": "5/21/24 at 5pm (no penalty late submission until 8am next morning)"
+                "due": "02/24/26 at 5pm (no penalty late submission until 8am next morning)"
             },
             {
                 "name": "Review Quiz",
-                "link": "https://gradescope.com",
-                "due": "5/24/24 at 5pm"
+                "link": "https://us.prairielearn.com/pl/",
+                "due": "02/27/26"
             }
         ]
     },
-
     {
         "header": "Week 9",
         "outcomes": "Relations and Modular Arithmetic",
-        "CalendarInfo": " Dates: 5/27/24-5/31/24. No class on Monday (in observance of Memorial Day). Test 2 in class section this week, Friday May 31 1pm-1:50pm WLH 2001.  The test covers material in Weeks 5 through 8. To study for the exam, we recommend reviewing class notes (e.g. annotations linked on the class website, podcast, supplementary video from the class website), reviewing homework (and its posted sample solutions), and in particular *working examples* (extra examples in lecture notes, review quizzes, discussion examples) and getting feedback (office hours and Piazza)",
+        "CalendarInfo": " Dates: 03/02/26-03/06/26.   Test 2 in CBTF this week.  The test covers material in Weeks 5 through Week 9.  To study for the exam, we recommend reviewing class notes (e.g. annotations linked on the class website, supplementary video from the class website), reviewing homework (and its posted sample solutions), and in particular *working examples* (extra examples in lecture notes, review quizzes, discussion examples) and getting feedback (office hours and Piazza).",
         "ExpandInCalendar": false,
         "content": [
             {
@@ -283,19 +274,20 @@
         "Due Dates": [
             {
                 "name": "test2practice-CSE20S24",
-                "due": "Test 2 is Friday of Week 9"
+                "due": "Test 2 Testing window: 03/02/26 - 03/06/26. Sign up in advance at the CBTF."
             },
             {
-                "name": "Test 2",
-                "due": "5/31/24 in class"
+                "name": "Student Evaluations of Teaching",
+                "link": "https://academicaffairs.ucsd.edu/Modules/Evals",
+                "due": "03/14/26 at 8am"
             }
         ]
     },
     {
         "header": "Week 10",
         "outcomes": "Relations and Clustering",
-        "CalendarInfo": " Dates: 6/3/24-6/7/24",
-        "ExpandInCalendar": true,
+        "CalendarInfo": " Dates: 03/09/26-03/13/26",
+        "ExpandInCalendar": false,
         "content": [
             {
                 "name": "Notes",
@@ -305,33 +297,31 @@
         "Due Dates": [
             {
                 "name": "hw6-proofs-cardinality-relations-CSE20S24",
-                "due": "6/6/24 at 5pm (no penalty late submission until 8am next morning)"
+                "due": "03/12/26 at 5pm (no penalty late submission until 8am next morning)"
             },
             {
                 "name": "Review Quiz",
-                "link": "https://gradescope.com",
-                "due": "6/7/24 at 5pm"
+                "link": "https://us.prairielearn.com/pl/",
+                "due": "03/13/26"
             }
         ]
     },
     {
         "header": "Finals week",
         "outcomes": "Final exam",
-        "CalendarInfo":  "Dates: Final exam 6/13/24 11:30am",
-        "ExpandInCalendar": true,
+        "CalendarInfo": "Dates: Final exam 03/20/26 11:30am",
+        "ExpandInCalendar": false,
         "content": [
             {
                 "name": "Final exam details",
-                "source": "<p>Assigned seats for the final exam will be posted on Canvas.<br><br>The Final Exam has two parts, the first corresponding to the material covered for Week 5's Test 1 and the second corresponding to the material covered for Week 9's Test 2. Each part has 4 questions and is scored out of 50 points.<br><br>You will have 70 minutes to complete each part and you can choose to take zero, one, or both of the parts.<br><br>We will distribute Part 1 at at the start of the final exam period. You may bring in one note sheet for Part 1. When we collect Part 1 exams, we will collect all note sheets and paper used during Part 1.<br><br>We will distribute Part 2 halfway through the final exam period. You may bring in one note sheet for Part 2. If you plan to take Part 1 and Part 2, make sure your note sheets are separate since we will collect Part 1's note sheet before distributing Part 2. If you plan to take Part 2 and not Part 1, please wait (quietly, to minimize disruption to those taking Part 1) outside the REC gym until we finish collecting all Part 1 exams and call you in. When we collect Part 2 exams, we will collect all note sheets and paper used during Part 2.<br><br>The grade recorded for you for Test 1 will be max (Grade on Week 5's Test 1, Grade on Part 1 of Final). The grade recorded for you for Test 2 will be max (Grade on Week 9's Test 2, Grade on Part 2 of Final).</p>"
+                "source": "<p>Assigned seats for the final exam will be posted on Canvas.<br><br>More details on the final exam will be announced.</p>"
             }
         ],
         "Due Dates": [
             {
                 "name": "Final exam",
-                "due": "Wednesday 6/13/24 at 11:30am"
+                "due": "Wednesday 03/20/26 at 11:30am"
             }
         ]
     }
-
-
 ]

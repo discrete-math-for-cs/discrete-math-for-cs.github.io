@@ -21,3 +21,4 @@ notes/archive/*
 /notes/archive
 /notes/archive
 grades/*.csv
+grades-archive/*
