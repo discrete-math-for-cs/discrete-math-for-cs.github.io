@@ -3520,92 +3520,6 @@ class="math inline">\(F\)</span></td>
 </tbody>
 </table>
 </div>
-<h1 class="unnumbered" id="algorithm-definition">Algorithm
-definition</h1>
-<p>Algorithms can be expressed in English or in more formalized
-descriptions like pseudocode or fully executable programs.</p>
-<p>Sometimes, we can define algorithms whose output matches the rule for
-a function we already care about. Consider the (integer) logarithm
-function <span class="math display">\[logb  : \{b \in \mathbb{Z} \mid b
-&gt;1 \}  \times \mathbb{Z}^+ ~~\to~~ \mathbb{N}\]</span> defined by
-<span class="math display">\[logb (~ (b,n)~) =  \text{greatest integer }
-y \text{ so that } b^y  \text{ is less than or equal to } n\]</span></p>
-<div class="algorithm">
-<p>procedure <span class="math inline">\(logb\)</span>(<span
-class="math inline">\(b\)</span>,<span class="math inline">\(n\)</span>:
-positive integers with <span class="math inline">\(b &gt; 1\)</span>)
-<span class="math inline">\(i\)</span> := <span
-class="math inline">\(0\)</span> while <span
-class="math inline">\(n\)</span> &gt; <span
-class="math inline">\(b-1\)</span> <span
-class="math inline">\(i\)</span> := <span class="math inline">\(i +
-1\)</span> <span class="math inline">\(n\)</span> := <span
-class="math inline">\(n\)</span> div <span
-class="math inline">\(b\)</span> return <span
-class="math inline">\(i\)</span> <span class="math inline">\(\{
-i\)</span> holds the integer part of the base <span
-class="math inline">\(b\)</span> logarithm of <span
-class="math inline">\(n\}\)</span></p>
-</div>
-<p>Trace this algorithm with inputs <span
-class="math inline">\(b=3\)</span> and <span
-class="math inline">\(n=17\)</span></p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;"></th>
-<th style="text-align: center;"><span
-class="math inline">\(b\)</span></th>
-<th style="text-align: center;"><span
-class="math inline">\(n\)</span></th>
-<th style="text-align: center;"><span
-class="math inline">\(i\)</span></th>
-<th style="text-align: center;"><span class="math inline">\(n &gt;
-b-1\)</span>?</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;">Initial value</td>
-<td style="text-align: center;"> <span
-class="math inline">\(3\)</span> </td>
-<td style="text-align: center;"><span
-class="math inline">\(17\)</span></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr>
-<td style="text-align: left;">After 1 iteration</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr>
-<td style="text-align: left;">After 2 iterations</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr>
-<td style="text-align: left;">After 3 iterations</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-</tbody>
-</table>
-<p>Compare: does the output match the rule for the (integer) logarithm
-function?</p>
 <h1 class="unnumbered" id="fixed-width-definition">Fixed width
 definition</h1>
 <p><span><strong>Definition</strong></span> For <span
@@ -3947,9 +3861,8 @@ class="math inline">\(w=7\)</span>:</td>
 <h1 class="unnumbered" id="calculating-2s-complement">Calculating 2s
 complement</h1>
 <p>For positive integer <span class="math inline">\(n\)</span>, to
-represent <span class="math inline">\(-n\)</span> in <span
-class="math inline">\(2\)</span>s complement with width <span
-class="math inline">\(w\)</span>,</p>
+represent <span class="math inline">\(-n\)</span> in 2s complement with
+width <span class="math inline">\(w\)</span>,</p>
 <ul>
 <li><p>Calculate <span class="math inline">\(2^{w-1} - n\)</span>,
 convert result to binary fixed-width <span
