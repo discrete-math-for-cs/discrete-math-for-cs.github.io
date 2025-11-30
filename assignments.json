@@ -36,15 +36,21 @@
       "solutionsFile": "hw5-sample-sol-proofs-and-induction-CSE20W26.pdf"
    },
    {
-      "name": "hw6-proofs-cardinality-relations-CSE20W26",
+      "name": "hw6-proofs-cardinality-CSE20W26",
       "addExtensions": true,
       "Information": "This is a group optional assignment",
-      "solutionsFile": "hw6-solutions-proofs-cardinality-relations-CSE20W26.pdf"
+      "solutionsFile": "hw6-solutions-proofs-cardinality-CSE20W26.pdf"
    },
    {
       "name": "test2practice-CSE20W26",
       "addExtensions": true,
       "Information": "Test 2 in CBTF this week.  The test covers material in Weeks 5 through Week 9.  To study for the exam, we recommend reviewing class notes (e.g. annotations linked on the class website, supplementary video from the class website), reviewing homework (and its posted sample solutions), and in particular *working examples* (extra examples in lecture notes, review quizzes, discussion examples) and getting feedback (office hours and Piazza). This collection of practice questions may also be helpful, but is not meant to represent the actual length or format of the test.",
       "solutionsFile": "test2practice-CSE20W26-sample-sol.pdf"
+   },
+   {
+      "name": "hw7-relations-CSE20W26",
+      "addExtensions": true,
+      "Information": "This is a group optional assignment",
+      "solutionsFile": "hw7-solutions-relations-CSE20W26.pdf"
    }
 ]
