@@ -10,7 +10,7 @@
 
 .topnav {
     overflow: hidden;
-    background-color: #182B49;
+    background-color: var(--maincolor);
     position: fixed;
     width: 100%;
     z-index: 6;
@@ -186,7 +186,7 @@ table.cinereousTable thead th {
     z-index: 1;
     top: 20px;
     left: 10px;
-    background-color: #182B49;
+    background-color: var(--dark-blue);
     font-weight: bold;
     overflow-x: hidden;
     padding: 8px 0;

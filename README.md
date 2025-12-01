@@ -10,6 +10,7 @@
  website-settings.json: contains Global Class Name, Course Offering Name, Feedback, Copyright Year, Copyright Name, and IncludeUngroupedSnippets keys.
 
     Global Class Name (str): this name is the generic title of the class (i.e. Discrete Math for CS)
+    ** TO ARCHIVE: Set Global Class Name to "DEPRECATED TERM YEAR Class Name"
 
     Course Offering Name (str): this name is specific to a certain university/term, used on unit and calendar overview sidebar menus 
 
