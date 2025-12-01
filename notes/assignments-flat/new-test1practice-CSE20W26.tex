@@ -47,7 +47,8 @@ as templates for typesetting your solutions.
 \item Problems should be solved together, not divided up between the partners. The homework is
 designed to give you practice with the main concepts and techniques of the course, 
 while getting to know and learn from your classmates.
-\item You may not collaborate on homework questions graded for correctness with anyone other than your group members.
+\item On the ``graded for correctness"
+questions, you may only collaborate with CSE 20 students in your group.
 You may ask questions about the homework in office hours (of the instructor, TAs, and/or tutors) and 
 on Piazza (as private notes viewable only to the Instructors).  
 You \emph{cannot} use any online resources about the course content other than the class material 
@@ -813,10 +814,10 @@ $\neg Q(x)$  evaluates to  True.  The witness is $2$, since the third row in the
 
 \item[8. Evaluating predicates, Evaluating nested predicates]  Recall that $S$ is defined as the set of all RNA strands, 
 where each strand is a nonempty string made of the bases in 
- $B = \{\A,\U,\G,\C\}$. Recall the definition of the following predicates: $F_{\A}$ with domain $S$ is defined recursively by: 
+ $B = \{\A,\U,\G,\C\}$. Recall the definition of the following predicates: $L_{\A}$ with domain $S$ is defined recursively by: 
 \begin{itemize}
-\item[]Basis step: $F_{\A}(\A) = T$, $F_{\A}(\C) = F_{\A}(\G) = F_{\A}(\U) = F$
-\item[]Recursive step: If $s \in S$ and $b \in B$, then $F_{\A}(sb) = F_{\A}(s)$
+\item[]Basis step: $L_{\A}(\A) = T$, $L_{\A}(\C) = L_{\A}(\G) = L_{\A}(\U) = F$
+\item[]Recursive step: If $s \in S$ and $b \in B$, then $L_{\A}(sb) = L_{\A}(s)$
 \end{itemize}
 
 $P_{\A\U\C}$ with domain $S$ is defined as the predicate whose truth set
