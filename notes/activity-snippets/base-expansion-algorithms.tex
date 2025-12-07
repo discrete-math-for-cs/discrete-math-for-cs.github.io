@@ -12,7 +12,7 @@ units determined by base.
 
 
 \begin{algorithm}[caption={Calculating base $b$ expansion, from left}]
-procedure $\textit{baseb1}$($n, b$: positive integers with $b > 1$)
+procedure $\textit{basebmost}$($n, b$: positive integers with $b > 1$)
 $v$ := $n$
 $k$ := $1 + $ output of $logb$ algorithm with inputs $b$ and $n$
 for $i$ := $1$ to $k$
@@ -39,13 +39,13 @@ return $(a_{k-1}, \ldots, a_0) \{(a_{k-1} \ldots a_0)_b~\textrm{ is the base } b
 %\end{minipage}
 %\columnbreak
 \begin{algorithm}[caption={Calculating base $b$ expansion, from right}]
-procedure $\textit{baseb2}$($n, b$: positive integers with $b > 1$)
-$q$ := $n$
+procedure $\textit{basebleast}$($n, b$: positive integers with $b > 1$)
 $k$ := $0$
+$q$ := $n$
 while $q  \neq 0$
   $a_{k}$ := $q$ mod $b$
-  $q$ := $q$ div $b$
   $k$ := $k+1$
+  $q$ := $q$ div $b$
 return $(a_{k-1}, \ldots, a_0) \{(a_{k-1} \ldots a_0)_b~\textrm{ is the base } b \textrm{ expansion of } n \}$
 \end{algorithm}
 %\end{multicols}
