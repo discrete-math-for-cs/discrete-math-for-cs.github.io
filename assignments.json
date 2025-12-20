@@ -3,7 +3,7 @@
       "name": "hw1-definitions-and-notation-CSE20W26",
       "addExtensions": true,
       "Information": "This is a group optional assignment",
-      "solutionsFile": "hw1-sample-solutions-definitions-and-notation-CSE20W26.pdf"
+      "solutionsFile": "hw1-solutions-CSE20W26.pdf"
    },
    {
       "name": "hw2-numbers-CSE20W26",
@@ -15,42 +15,24 @@
       "name": "hw3-circuits-and-logic-CSE20W26",
       "addExtensions": true,
       "Information": "This is a group optional assignment",
-      "solutionsFile": "hw3-solutionsCSE20W26.pdf"
+      "solutionsFile": "hw3-solutions-CSE20W26.pdf"
    },
    {
-      "name": "test1practice-CSE20W26",
-      "addExtensions": true,
-      "Information": "Test 1 in CBTF this week.  The test covers material in Weeks 1 through Week 5.  To study for the exam, we recommend reviewing class notes (e.g. annotations linked on the class website, supplementary video from the class website), reviewing homework (and its posted sample solutions), and in particular *working examples* (extra examples in lecture notes, review quizzes, discussion examples) and getting feedback (office hours and Piazza). This collection of practice questions may also be helpful, but is not meant to represent the actual length or format of the test.",
-      "solutionsFile": "test1practice-CSE20W26-sample-sol.pdf"
-   },
-   {
-      "name": "hw4-proofs-and-sets-CSE20W26",
+      "name": "hw4-proofs-sets-recursion-CSE20W26",
       "addExtensions": true,
       "Information": "This is a group optional assignment",
-      "solutionsFile": "hw4-solutionsCSE20W26.pdf"
+      "solutionsFile": "hw4-solutions-CSE20W26.pdf"
    },
    {
-      "name": "hw5-proofs-and-induction-CSE20W26",
+      "name": "hw5-functions-cardinality-relations-CSE20W26",
       "addExtensions": true,
       "Information": "This is a group optional assignment",
-      "solutionsFile": "hw5-sample-sol-proofs-and-induction-CSE20W26.pdf"
+      "solutionsFile": "hw5-solutions-CSE20W26.pdf"
    },
    {
-      "name": "hw6-proofs-cardinality-CSE20W26",
+      "name": "finalpractice-CSE20W26",
       "addExtensions": true,
-      "Information": "This is a group optional assignment",
-      "solutionsFile": "hw6-solutions-proofs-cardinality-CSE20W26.pdf"
-   },
-   {
-      "name": "test2practice-CSE20W26",
-      "addExtensions": true,
-      "Information": "Test 2 in CBTF this week.  The test covers material in Weeks 5 through Week 9.  To study for the exam, we recommend reviewing class notes (e.g. annotations linked on the class website, supplementary video from the class website), reviewing homework (and its posted sample solutions), and in particular *working examples* (extra examples in lecture notes, review quizzes, discussion examples) and getting feedback (office hours and Piazza). This collection of practice questions may also be helpful, but is not meant to represent the actual length or format of the test.",
-      "solutionsFile": "test2practice-CSE20W26-sample-sol.pdf"
-   },
-   {
-      "name": "hw7-relations-CSE20W26",
-      "addExtensions": true,
-      "Information": "This is a group optional assignment",
-      "solutionsFile": "hw7-solutions-relations-CSE20W26.pdf"
+      "Information": "Final exam is during exam week, at the time and location posted in the Schedule of Classes. To study for the exam, we recommend reviewing class notes (e.g. annotations linked on the class website, supplementary video from the class website), reviewing homework (and its posted sample solutions), and in particular *working examples* (extra examples in lecture notes, review quizzes, discussion examples) and getting feedback (office hours and Piazza). This collection of practice questions may also be helpful, but is not meant to represent the actual length or format of the test.",
+      "solutionsFile": "finalpractice-CSE20W26-sample-sol.pdf"
    }
 ]

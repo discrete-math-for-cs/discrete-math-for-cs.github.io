@@ -43,12 +43,14 @@
 \solutionfalse
 
 \newcommand{\sol}[1]{\medskip\fbox{\begin{minipage}{5.5in}{#1}\end{minipage}}\medskip}
+%\newcommand{\soltwo}[1]{\medskip\fbox{\begin{minipage}{6.5in}{#1}\end{minipage}}\medskip}
+
 
 \begin{document}
 \begin{center}
 {\Large
 CSE 20 Winter 2026\\ 
-Practice for Test 1 \ifsolution{\qquad Solutions}\fi}
+Exam Practice \ifsolution{\qquad Solutions}\fi}
 \end{center}
 
 \thispagestyle{empty}
@@ -792,73 +794,7 @@ false and therefor the conditional will be true.
 \end{enumerate}
 
 
-
-\end{description}
-
-
-
-\newpage%\documentclass{article}
-
-
-%\usepackage{amsfonts,amssymb,amsmath,amsthm,color,comment,enumerate, graphicx,euscript,hyperref}
-%\usepackage[makeroom]{cancel}
-%\usepackage{paralist,listings}
-
-%\setlength{\evensidemargin}{0in}
-%\setlength{\oddsidemargin}{0in}
-%\setlength{\textwidth}{6.6in}
-%\setlength{\textheight}{8.8in}
-%\setlength{\topmargin}{0in}
-%\setlength{\footskip}{0.45in}
-\renewcommand{\baselinestretch}{1}
-%\newlength{\saveparindent}
-%\setlength{\saveparindent}{\parindent}
-
-% % NOTE(joe): This environment is credit @pnpo (https://tex.stackexchange.com/a/218450)
-% \lstnewenvironment{algorithm}[1][] %defines the algorithm listing environment
-% {   
-%     \lstset{ %this is the stype
-%         mathescape=true,
-%         frame=tB,
-%         numbers=left, 
-%         numberstyle=\tiny,
-%         basicstyle=\rmfamily\scriptsize, 
-%         keywordstyle=\color{black}\bfseries,
-%         keywords={,procedure, div, mod, for, to, input, output, return, datatype, function, in, if, else, foreach, while, begin, end, } %add the keywords you want, or load a language as Rubens explains in his comment above.
-%         numbers=left,
-%         xleftmargin=.04\textwidth,
-%         #1 % this is to add specific settings to an usage of this environment (for instnce, the caption and referable label)
-%     }
-% }
-% {}
-
-% \newcommand{\A}[0]{\texttt{A}}
-% \newcommand{\U}[0]{\texttt{U}}
-% \newcommand{\G}[0]{\texttt{G}}
-% \newcommand{\C}[0]{\texttt{C}}
-
-\newif \ifsolution
-\solutiontrue
-\solutionfalse
-
-\newcommand{\soltwo}[1]{\medskip\fbox{\begin{minipage}{6.5in}{#1}\end{minipage}}\medskip}
-
-
-\begin{center}
-{\Large
-CSE 20 Winter 2026\\ 
-Practice for Test 2 \ifsolution{\qquad Solutions}\fi}
-\end{center}
-
-\thispagestyle{empty}
-
-\ifsolution{}
-\else{}
-\fi
-
-\begin{description}
-
-  \item[1. Predicates and Quantifiers] 
+  \item[9. Predicates and Quantifiers] 
   Express each of the following statements symbolically using quantifiers, variables, propositional connectives, 
   and predicates (make sure to define the domain and the meaning of any predicates 
   you introduce). Then, express its negation as a logically equivalent compound 
@@ -960,7 +896,7 @@ Practice for Test 2 \ifsolution{\qquad Solutions}\fi}
   \end{enumerate}
   
   
-  \item[2. Proof strategies] Prove each of the following claims.
+  \item[10. Proof strategies] Prove each of the following claims.
   Use only basic definitions and general proof strategies in your proofs; 
   do not use any results proved in class / the textbook as lemmas. You may use basic 
   properties of real numbers that we stated (without proof) in class, e.g. that the difference of two
@@ -1101,7 +1037,7 @@ Practice for Test 2 \ifsolution{\qquad Solutions}\fi}
   down the statement and one or both of the proofs described using the notation, definitions, and 
   proof strategies from CSE 20. 
 
-  \item[3. Sets]  Prove or disprove each of the following statements.
+  \item[11. Sets]  Prove or disprove each of the following statements.
   \begin{enumerate}
   \item[(a)]  For all sets $A$ and $B$, $\mathcal{P}(A) \cup \mathcal{P}(B) = \mathcal{P}(A \cup B)$.
   
@@ -1205,7 +1141,7 @@ Practice for Test 2 \ifsolution{\qquad Solutions}\fi}
   \end{enumerate}
   
   
-  \item[4. Induction and Recursion] 
+  \item[12. Induction and Recursion] 
   
   Prove the following statements:
   
@@ -1388,7 +1324,7 @@ We proceed by universal generalization and assume that $l_2$ is an arbitrary ele
 \end{enumerate}
 
 
-\item[5. Induction and Recursion] 
+\item[13. Induction and Recursion] 
 At time 0, a particle resides at the point 0 on the real line.  
 Within 1 second, it divides into 2 particles that fly in opposite directions and 
 stop at distance 1 from the original particle. Within the next second, 
@@ -1501,7 +1437,7 @@ positive integer n, prove the formula using induction, and apply it when $n=11$.
 \else{}
 \fi
 
-\item[6. Induction and Recursion] 
+\item[14. Induction and Recursion] 
 Prove that every positive integer has a base $3$ expansion. {\it Hint: use strong induction.}
 
 \ifsolution
@@ -1552,7 +1488,7 @@ is complete.
 
 
 
-\item[7. Functions \& Cardinalities of sets] Prove each of the following claims.
+\item[15. Functions \& Cardinalities of sets] Prove each of the following claims.
 \begin{enumerate}
 
 \item[(a)] For the ``function" $f: \mathbb{Z} \to \{0, 1, 2, 3 \}$ given by $f(x) = x~\text{\bf mod}~5$, it is not the case that every element of the domain maps to exactly one element of the codomain (that is, it is not a well-defined function).
@@ -1675,6 +1611,7 @@ as required.  Thus, $f$ is invertible (with inverse $g$) and so is a bijection.
 \end{enumerate}
 
 \end{description}
+
 
 
 

@@ -35,28 +35,24 @@
             {
                 "name": "Notes",
                 "source": "Week2.tex"
-            },
-            {
-                "name": "Discussion Notes",
-                "source": "cse20sp24_week2discussion.pdf"
             }
         ],
         "Due Dates": [
             {
-                "name": "hw1-definitions-and-notation-CSE20W26",
-                "due": "01/15/26 at 5pm (no penalty late submission until 8am next morning)"
-            },
-            {
                 "name": "Review Quiz",
                 "link": "https://us.prairielearn.com/pl/",
                 "due": "01/12/26"
+            },
+            {
+                "name": "hw1-definitions-and-notation-CSE20W26",
+                "due": "01/15/26 at 5pm (late submission until 8am next morning)"
             }
         ]
     },
     {
         "header": "Week 3",
         "outcomes": "Circuits and Propositional Logic",
-        "CalendarInfo": " Dates: 01/19/26-01/23/26.  No class on Monday January 19 in observance of Martin Luther King Jr. Day.",
+        "CalendarInfo": " Dates: 01/19/26-01/23/26.  No class on Monday 01/19/2026 in observance of Martin Luther King Jr. Day.",
         "ExpandInCalendar": false,
         "content": [
             {
@@ -70,13 +66,9 @@
         ],
         "Due Dates": [
             {
-                "name": "hw2-numbers-CSE20W26",
-                "due": "01/20/26 at 5pm (no penalty late submission until 8am next morning)"
-            },
-            {
                 "name": "Review Quiz",
                 "link": "https://us.prairielearn.com/pl/",
-                "due": "01/23/26"
+                "due": "01/19/26"
             }
         ]
     },
@@ -91,23 +83,19 @@
                 "source": "Week4.tex"
             },
             {
-                "name": "Discussion Notes",
-                "source": "cse20sp24_week4discussion.pdf"
-            },
-            {
                 "name": "(Video) Example translation to predicate logic",
                 "source": "https://youtu.be/cw2nbPM0aX4"
             }
         ],
         "Due Dates": [
             {
-                "name": "hw3-circuits-and-logic-CSE20W26",
-                "due": "01/27/26 at 5pm (no penalty late submission until 8am next morning)"
-            },
-            {
                 "name": "Review Quiz",
                 "link": "https://us.prairielearn.com/pl/",
-                "due": "01/30/26"
+                "due": "01/26/26"
+            },
+            {
+                "name": "hw2-numbers-CSE20W26",
+                "due": "01/29/26 at 5pm (late submission until 8am next morning)"
             }
         ]
     },
@@ -144,7 +132,8 @@
         ],
         "Due Dates": [
             {
-                "name": "test1practice-CSE20W26",
+                "name": "Test 1 Attempt 1",
+                "link": "https://prairietest.com",
                 "due": "Test 1 Testing window: 02/02/26 - 02/06/26. Sign up in advance at the CBTF."
             },
             {
@@ -181,7 +170,11 @@
             {
                 "name": "Review Quiz",
                 "link": "https://us.prairielearn.com/pl/",
-                "due": "02/13/26"
+                "due": "02/9/26"
+            },
+            {
+                "name": "hw3-circuits-and-logic-CSE20W26",
+                "due": "02/12/26 at 5pm (late submission until 8am next morning)"
             }
         ]
     },
@@ -198,13 +191,9 @@
         ],
         "Due Dates": [
             {
-                "name": "hw4-proofs-and-sets-CSE20W26",
-                "due": "02/17/26 at 5pm (no penalty late submission until 8am next morning)"
-            },
-            {
                 "name": "Review Quiz",
                 "link": "https://us.prairielearn.com/pl/",
-                "due": "02/20/26"
+                "due": "02/16/26"
             }
         ]
     },
@@ -233,13 +222,13 @@
         ],
         "Due Dates": [
             {
-                "name": "hw5-proofs-and-induction-CSE20W26",
-                "due": "02/24/26 at 5pm (no penalty late submission until 8am next morning)"
-            },
-            {
                 "name": "Review Quiz",
                 "link": "https://us.prairielearn.com/pl/",
-                "due": "02/27/26"
+                "due": "02/23/26"
+            },
+                        {
+                "name": "hw4-proofs-sets-recursion-CSE20W26",
+                "due": "02/26/26 at 5pm (late submission until 8am next morning)"
             }
         ]
     },
@@ -268,7 +257,8 @@
         ],
         "Due Dates": [
             {
-                "name": "Second attempt testing windows",
+                "name": "Test 2 Attempt 1",
+                "link": "https://prairietest.com",
                 "due": "Second attempt testing windows for Test 1 and Test 2: 03/09/26 - 03/13/26. Sign up in advance at the CBTF."
             },
             {
@@ -291,13 +281,18 @@
         ],
         "Due Dates": [
             {
-                "name": "hw6-proofs-cardinality-CSE20W26",
-                "due": "03/12/26 at 5pm (no penalty late submission until 8am next morning)"
+                "name": "CBTF Attempt 2 tests",
+                "link": "https://prairietest.com",
+                "due": "Second attempt testing windows for Test 1 and Test 2: 03/09/26 - 03/13/26. Sign up in advance at the CBTF."
             },
             {
                 "name": "Review Quiz",
                 "link": "https://us.prairielearn.com/pl/",
-                "due": "03/13/26"
+                "due": "03/09/26"
+            },
+            {
+                "name": "hw5-functions-cardinality-relations-CSE20W26",
+                "due": "03/12/26 at 5pm (late submission until 8am next morning)"
             }
         ]
     },
