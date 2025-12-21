@@ -63,7 +63,336 @@
 \begin{document}
 \begin{flushright}
     \StrBefore{\currfilename}{.}
-\end{flushright} \section*{Why represent numbers}
+\end{flushright} \section*{Quantification definition}
+
+
+The {\bf universal quantification} of predicate $P(x)$ over
+domain $U$ is the statement ``$P(x)$ for all values of $x$ in the domain $U$''
+and is written $\forall x P(x)$ or $\forall x \in U ~P(x)$. 
+When the domain is finite, universal quantification over the domain 
+is equivalent to iterated {\it conjunction} (ands).
+
+The {\bf existential quantification} of predicate $P(x)$ 
+over domain $U$ is the statement ``There exists an element $x$ 
+in the domain $U$ such that $P(x)$'' and is written $\exists x P(x)$
+for $\exists x \in U ~P(x)$. 
+When the domain is finite, existential quantification over the domain 
+is equivalent to iterated {\it disjunction} (ors).
+
+An element for which $P(x) = F$ is called a {\bf counterexample} of $\forall x P(x)$.
+
+An element for which $P(x) = T$ is called a {\bf witness} of $\exists x P(x)$.
+ \vfill
+\section*{Quantification logical equivalence}
+
+
+Statements involving predicates and quantifiers are {\bf logically equivalent} 
+means they have the same truth value no matter which predicates (domains and functions) 
+are substituted in. 
+
+{\bf Quantifier version of De Morgan's laws}: 
+$\boxed{\neg \forall x P(x) ~\equiv~ \exists x \left( \neg P(x) \right)}$
+\qquad
+\qquad
+$\boxed{\neg \exists x Q(x) ~\equiv~ \forall x \left( \neg Q(x) \right)}$
+ \vfill
+\section*{Quantification examples finite domain}
+
+
+Examples of quantifications using $V(x), N(x), Mystery(x)$:
+
+{\bf True} or {\bf False}: $\exists x~ (~V(x) \land N(x)~)$
+
+\vfill
+
+{\bf True} or {\bf False}: $\forall x~ (~V(x) \to N(x)~)$
+
+\vfill
+
+{\bf True} or {\bf False}: $\exists x~ (~N(x) \leftrightarrow Mystery(x)~)$
+
+\vfill
+
+Rewrite $\lnot \forall x~(~V(x) \oplus Mystery(x)~)$ into a logical equivalent statement.
+
+\vspace{50pt}
+
+
+Notice that these are examples where the predicates have {\it finite} domain.
+How would we evaluate quantifications where the domain may be infinite?
+
+\vfill
+
+ \vfill
+\section*{Rna rnalen basecount definitions}
+
+
+{\it Recall the definitions}: The set of RNA strands $S$ is defined (recursively) by:
+\[
+\begin{array}{ll}
+\textrm{Basis Step: } & \A \in S, \C \in S, \U \in S, \G \in S \\
+\textrm{Recursive Step: } & \textrm{If } s \in S\textrm{ and }b \in B \textrm{, then }sb \in S
+\end{array}
+\]
+where $sb$ is string concatenation.
+
+The function \textit{rnalen} that computes the length of RNA strands in $S$ is defined recursively by:
+\[
+\begin{array}{llll}
+& & \textit{rnalen} : S & \to \mathbb{Z}^+ \\
+\textrm{Basis Step:} & \textrm{If } b \in B\textrm{ then } & \textit{rnalen}(b) & = 1 \\
+\textrm{Recursive Step:} & \textrm{If } s \in S\textrm{ and }b \in B\textrm{, then  } & \textit{rnalen}(sb) & = 1 + \textit{rnalen}(s)
+\end{array}
+\]
+
+The function \textit{basecount} that computes the number of a given base 
+$b$ appearing in a RNA strand $s$ is defined recursively by:
+\[
+\begin{array}{llll}
+& & \textit{basecount} : S \times B & \to \mathbb{N} \\
+\textrm{Basis Step:} &  \textrm{If } b_1 \in B, b_2 \in B & \textit{basecount}(~(b_1, b_2)~) & =
+        \begin{cases}
+            1 & \textrm{when } b_1 = b_2 \\
+            0 & \textrm{when } b_1 \neq b_2 \\
+        \end{cases} \\
+\textrm{Recursive Step:} & \textrm{If } s \in S, b_1 \in B, b_2 \in B &\textit{basecount}(~(s b_1, b_2)~) & =
+        \begin{cases}
+            1 + \textit{basecount}(~(s, b_2)~) & \textrm{when } b_1 = b_2 \\
+            \textit{basecount}(~(s, b_2)~) & \textrm{when } b_1 \neq b_2 \\
+        \end{cases}
+\end{array}
+\] \vfill
+\section*{Predicates example rnalen basecount}
+
+
+{\bf Using functions to define predicates}:
+
+\fbox{\parbox{\textwidth}{
+$L$ with domain $S \times \mathbb{Z}^+$ is defined by, for $s \in S$ and $n \in \mathbb{Z}^+$,
+\[
+L( ~(s, n)~) = \begin{cases}
+T &\qquad\text{if $rnalen(s) = n$}\\
+F &\qquad\text{otherwise}\\
+\end{cases}
+\]
+In other words, $L(~(s,n)~)$ means $rnalen(s) = n$
+}}
+
+\vfill
+
+\fbox{\parbox{\textwidth}{
+$BC$ with domain $S \times B \times \mathbb{N}$ is defined by, 
+for $s \in S$ and $b \in B$ and $n \in \mathbb{N}$,
+\[
+BC(~(s, b, n)~) = \begin{cases}
+T &\qquad\text{if $basecount(~(s,b)~) = n$}\\
+F &\qquad\text{otherwise}\\
+\end{cases}
+\]
+In other words, $BC(~(s,b,n)~)$ means $basecount(~(s,b)~) = n$
+}}
+
+
+\vfill
+
+
+Example where $L$ evaluates to $T$: $\underline{\phantom{(\A, 1)\hspace{1in}}}$  Why?
+
+\vfill
+
+
+Example where $BC$ evaluates to $T$: $\underline{\phantom{(\A, \A1)\hspace{1in}}}$  Why?
+
+\vfill
+
+
+Example where $L$ evaluates to $F$: $\underline{\phantom{(\A, 2)\hspace{1in}}}$ Why?
+
+\vfill
+
+
+Example where $BC$ evaluates to $F$: $\underline{\phantom{(\A, \C, 1)\hspace{1in}}}$ Why? 
+
+\vfill
+
+
+\fbox{\parbox{\textwidth}{
+\[\exists t ~BC(t) \qquad \qquad 
+\exists (s,b,n) \in S \times B \times \mathbb{N}~ (basecount(~(s,b)~) = n)\]
+
+In English: \phantom{There exists an ordered $3$-tuple 
+at which the predicate $BC$ evaluates to $T$.}
+
+\vspace{30pt}
+
+Witness that proves this existential quantification is true:\phantom{$(\G\G, \G, 2)$ or $(\G\A\U\G, \G, 2)$)}
+}}
+
+\fbox{\parbox{\textwidth}{
+\[\forall t ~BC(t) \qquad \qquad 
+\forall(s,b,n) \in S \times B \times \mathbb{N} ~(basecount(~(s,b)~) = n)\]
+
+In English:\phantom{For all ordered $3$-tuples
+the predicate $BC$ evaluates to $T$.}
+
+\vspace{30pt}
+
+Counterexample that proves this universal quantification is false: \phantom{$(\G\G, \A, 2)$ or $(\G\A\U\G, \G, 3)$)}
+}}
+ \vfill
+\section*{Predicates projecting example rna basecount}
+
+
+{\bf New predicates from old}
+\begin{enumerate}
+\item Define the {\bf new} predicate with domain $S \times B$ and rule
+\[
+basecount(~(s,b)~) = 3
+\]
+Example domain element where predicate is $T$: \phantom{$(\A\U\A\A, \A)$}\\
+
+\vfill
+
+\item Define the {\bf new} predicate with domain $S \times \mathbb{N}$ and rule
+\[
+basecount(~(s,\A)~) = n
+\]
+Example domain element where predicate is $T$: \phantom{$(\A\U\A,2)$}\\
+
+\vfill
+
+
+\item Define the {\bf new} predicate with domain $S \times B$ and rule
+\[
+\exists n \in \mathbb{N} ~(basecount(~(s,b)~) = n)
+\]
+Example domain element where predicate is $T$: \phantom{$(\A\U\A,\A)$}\\
+
+\vfill
+
+
+\item Define the {\bf new} predicate with domain $S$ and rule
+\[
+\forall b \in B ~(basecount(~(s,b)~) = 1)
+\]
+Example domain element where predicate is $T$: \phantom{$\A\C\G\U$}\\
+
+\vfill
+
+
+\end{enumerate} \vfill
+\section*{Nested quantifiers}
+
+
+{\bf Nested quantifiers}
+
+\fbox{\parbox{\textwidth}{
+\[
+    \forall s \in S ~\forall b \in B ~\forall n \in \mathbb{N} ~(basecount(~(s,b)~) = n)
+\]
+
+In English: \phantom{There exists an ordered $3$-tuple 
+at which the predicate $BC$ evaluates to $T$.}
+
+\vspace{30pt}
+
+Counterexample that proves this universal quantification is false:
+\phantom{$(\G\G, \G, 3)$ or $(\G\A\U\G, \G, 2)$)}
+
+\vspace{30pt}
+
+}}
+
+\vfill
+
+\fbox{\parbox{\textwidth}{
+\[
+    ~\forall n \in \mathbb{N} ~\forall s \in S ~\forall b \in B  ~(basecount(~(s,b)~) = n)
+\]
+
+In English: \phantom{There exists an ordered $3$-tuple 
+at which the predicate $BC$ evaluates to $T$.}
+
+\vspace{30pt}
+
+Counterexample that proves this universal quantification is false:
+\phantom{$(\G\G, \G, 3)$ or $(\G\A\U\G, \G, 2)$)}
+
+\vspace{30pt}
+
+}}
+
+\vfill \vfill
+\section*{Alternating quantifiers strategies rna examples}
+
+
+{\bf Alternating nested quantifiers}
+
+\fbox{\parbox{\textwidth}{
+$$\forall s \in S ~\exists b\in B ~(~basecount(~(s,b)~) = 3~)$$
+
+In English: For each RNA strand there is a base that occurs 3 times in this strand.\\
+
+Write the negation and use De Morgan's law to find a 
+logically equivalent version where the negation is applied only to the 
+$BC$ predicate (not next to a quantifier).
+
+\vspace{60pt}
+
+
+Is the original statement {\bf True} or {\bf False}?
+
+}}
+
+\vfill
+
+\fbox{\parbox{\textwidth}{
+
+$$\exists s \in S ~\forall b \in B ~\exists n \in \mathbb{N} ~(~basecount(~(s,b)~) = n~)$$
+
+In English: There is an RNA strand so that for each base there is some nonnegative
+integer that counts the number of occurrences of that base in this strand.\\
+
+Write the negation and use De Morgan's law to find a 
+logically equivalent version where the negation is applied only to the 
+$BC$ predicate (not next to a quantifier).
+
+\vspace{60pt}
+
+
+Is the original statement {\bf True} or {\bf False}?
+
+}}
+
+\vfill
+ \vfill
+\section*{Tautology contradiction contingency examples}
+
+
+Label each of the following as a tautology, contradiction, or contingency.
+
+$p \land p$
+
+\vfill
+
+$p \oplus p$
+
+\vfill
+
+$p \lor p$
+
+\vfill
+
+$p \lor \lnot p$
+
+\vfill
+
+$p \land \lnot p$
+
+\vfill
+
+ \vfill
+\section*{Why represent numbers}
 
 
 Modeling uses data-types that are encoded in a computer.

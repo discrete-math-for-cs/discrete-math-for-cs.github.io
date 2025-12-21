@@ -1,0 +1,249 @@
+\documentclass[12pt, oneside]{article}
+
+\usepackage[letterpaper, scale=0.89, centering]{geometry}
+\usepackage{fancyhdr}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\rfoot{\href{https://creativecommons.org/licenses/by-nc-sa/2.0/}{CC BY-NC-SA 2.0} Version \today~(\thepage)}
+
+\usepackage{amssymb,amsmath,pifont,amsfonts,comment,enumerate,enumitem}
+\usepackage{currfile,xstring,hyperref,tabularx,graphicx,wasysym}
+\usepackage[labelformat=empty]{caption}
+\usepackage{xcolor}
+\usepackage{multicol,multirow,array,listings,tabularx,lastpage,textcomp,booktabs}
+
+\lstnewenvironment{algorithm}[1][] {   
+    \lstset{ mathescape=true,
+        frame=tB,
+        numbers=left, 
+        numberstyle=\tiny,
+        basicstyle=\rmfamily\scriptsize, 
+        keywordstyle=\color{black}\bfseries,
+        keywords={,procedure, div, for, to, input, output, return, datatype, function, in, if, else, foreach, while, begin, end, }
+        numbers=left,
+        xleftmargin=.04\textwidth,
+        #1
+    }
+}
+{}
+\lstnewenvironment{java}[1][]
+{   
+    \lstset{
+        language=java,
+        mathescape=true,
+        frame=tB,
+        numbers=left, 
+        numberstyle=\tiny,
+        basicstyle=\ttfamily\scriptsize, 
+        keywordstyle=\color{black}\bfseries,
+        keywords={, int, double, for, return, if, else, while, }
+        numbers=left,
+        xleftmargin=.04\textwidth,
+        #1
+    }
+}
+{}
+
+\newcommand\abs[1]{\lvert~#1~\rvert}
+\newcommand{\st}{\mid}
+
+\newcommand{\A}[0]{\texttt{A}}
+\newcommand{\C}[0]{\texttt{C}}
+\newcommand{\G}[0]{\texttt{G}}
+\newcommand{\U}[0]{\texttt{U}}
+
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+
+ 
+\begin{document}
+\begin{flushright}
+    \StrBefore{\currfilename}{.}
+\end{flushright} \section*{Logical operators full truth table}
+
+
+\begin{center}
+    \begin{tabular}{cc||c|c|c|c|c}
+    \multicolumn{2}{c||}{Input}  & \multicolumn{5}{c}{Output} \\
+     & & Conjunction &  Exclusive or & Disjunction  &  Conditional & Biconditional  \\
+    $p$ & $q$ & $p \wedge q$ &  $p  \oplus  q$ & $p \vee  q$ & $p \to q$ & $p \leftrightarrow q$\\
+    \hline
+    $T$ & $T$ & $T$ & $F$ & $T$ & $T$& $T$\\
+    $T$ & $F$ & $F$ & $T$ & $T$ & $F$& $F$\\
+    $F$ & $T$ & $F$ & $T$ & $T$ & $T$& $F$\\
+    $F$ & $F$ & $F$ & $F$ & $F$ & $T$& $T$\\
+    \hline
+    && ``$p$ and $q$'' & ``$p$ xor $q$'' & ``$p$ or $q$'' & ``if $p$ then $q$'' & ``$p$ if and only if $q$''
+    \end{tabular}
+\end{center}
+     \vfill
+\section*{Hypothesis conclusion}
+
+
+The only way to make  the conditional statement $p \to q$ false is to \underline{\phantom{\hspace{3in}}}\\
+
+\begin{tabular}{llll}
+The {\bf  hypothesis}  of $p \to q$ is  &\underline{\phantom{\hspace{1in}}} &
+The {\bf  antecedent}  of $p \to q$ is  &\underline{\phantom{\hspace{1in}}} \\
+&&&  \\
+The {\bf  conclusion}  of $p \to q$ is & \underline{\phantom{\hspace{1in}}}&
+The {\bf  consequent}  of $p \to q$ is & \underline{\phantom{\hspace{1in}}}\\
+&&&  \\
+\end{tabular}
+ \vfill
+\section*{Compound propositions recursive definition}
+
+
+We can use a recursive definition to describe all 
+compound propositions that use propositional variables 
+from a specified collection.  Here's the definition
+for all compound propositions whose propositional variables 
+are in $\{p, q\}$.
+
+\[
+\begin{array}{ll}
+\textrm{Basis Step: } & p \textrm{ and } q \textrm{ are each a compound proposition} \\
+\textrm{Recursive Step: } & \textrm{If } x \textrm{ is a compound proposition then so is } (\lnot x) 
+\textrm{ and if } \\
+& x \textrm{ and } y \textrm{ are both compound propositions then so is each of }\\
+&(x \land y), (x \oplus y), (x \lor y), (x \to y), (x \leftrightarrow y)
+\end{array}
+\] \vfill
+\section*{Compound propositions precedence}
+
+
+Order of operations (Precedence) for logical operators: 
+
+Negation, then conjunction / disjunction, then conditional / biconditionals.
+
+Example: $\lnot p \lor \lnot q$ means $(\lnot p) \lor (\lnot q)$.
+ \vfill
+\section*{Consistency example}
+
+
+{\bf Consistency}: 
+\begin{quote}
+Whenever the system software is being upgraded, users cannot access the file system. 
+If users can access the file system, then they can save new files. 
+If users cannot save new files, then the system software is not being upgraded.
+\end{quote}
+
+\begin{enumerate}
+\item Translate to symbolic compound propositions
+\vfill
+\item Look for some truth assignment to the propositional variables for which all the compound propositions output $T$
+\vfill
+\end{enumerate} \vfill
+\section*{Logical operators}
+
+
+{\bf Logical operators} aka propositional connectives
+
+\begin{tabular}{lccccp{4in}}
+{\bf Conjunction} & AND & $\land$ &\verb|\land| & 2 inputs & Evaluates to $T$ exactly when {\bf both} inputs are $T$\\
+{\bf Exclusive or} & XOR & $\oplus$ &\verb|\oplus| & 2 inputs & Evaluates to $T$ exactly when {\bf exactly one} of inputs is $T$\\
+{\bf Disjunction} & OR & $\lor$ &\verb|\lor| & 2 inputs & Evaluates to $T$ exactly when {\bf at least one} of inputs is $T$\\
+{\bf Negation} & NOT & $\lnot$ &\verb|\lnot| & 1 input & Evaluates to $T$ exactly when its input is $F$\\
+\end{tabular} \vfill
+\section*{Logical operators truth tables}
+
+
+Truth tables: Input-output tables where we use $T$ for $1$ and $F$ for $0$.
+
+\begin{center}
+\begin{tabular}{cc||c|c|c}
+\multicolumn{2}{c||}{Input}  & \multicolumn{3}{c}{Output} \\
+& & {\bf Conjunction} &  {\bf Exclusive or} & {\bf Disjunction} \\
+$p$ & $q$ & $p \land q$ &  $p  \oplus  q$ & $p \lor  q$ \\
+\hline
+$T$ & $T$ & $T$ & $F$ & $T$\\
+$T$ & $F$ & $F$ & $T$ & $T$\\
+$F$ & $T$ & $F$ & $T$ & $T$\\
+$F$ & $F$ & $F$ & $F$ & $F$\\
+\hline
+& & \includegraphics[width=0.5in]{resources/images/xANDy.png}
+&  \includegraphics[width=0.5in]{resources/images/xXORy.png}
+&  \includegraphics[width=0.5in]{resources/images/xORy.png}
+\end{tabular}
+\qquad \qquad\qquad
+\begin{tabular}{c||c}
+Input & Output \\
+& {\bf Negation} \\
+$p$ & $\lnot p$ \\
+\hline
+$T$ & $F$ \\
+$F$ & $T$\\
+\hline & \includegraphics[width=0.5in]{resources/images/NOTx.png}
+\end{tabular}
+\end{center}
+ \vfill
+\section*{Logical operators example truth table}
+
+
+\begin{center}
+    \begin{tabular}{ccc||p{3in}|c|c}
+    \multicolumn{3}{c||}{Input}  & \multicolumn{3}{c}{Output} \\
+    $p$ & $q$ & $r$  &  &  $(p \land q) \oplus (~ ( p \oplus q) \land r~)$ & $(p \land q) \vee (~ ( p \oplus q) \land r~)$ \\
+    \hline
+    $T$ & $T$  & $T$ &   && \\
+    $T$ & $T$  & $F$ &   && \\
+    $T$ & $F$  & $T$ &   && \\
+    $T$ & $F$  & $F$ &   && \\
+    $F$ & $T$  & $T$ &   && \\
+    $F$ & $T$  & $F$ &   && \\
+    $F$ & $F$  & $T$ &   && \\
+    $F$ & $F$  & $F$ &   && \\
+    \end{tabular}
+\end{center}
+    \vfill \vfill
+\section*{Truth table to compound proposition}
+
+
+Given a truth table, how do we find an expression
+using the input variables and logical operators that has the 
+output values specified in this table?
+
+{\it Application}: design a circuit given a desired input-output relationship.
+
+\begin{center}
+\begin{tabular}{cc||cc}
+\multicolumn{2}{c||}{Input}  &\multicolumn{2}{c}{Output}\\
+$p$ & $q$& $mystery_1$ & $mystery_2$\\
+\hline
+$T$ & $T$  & $T$ & $F$\\
+$T$ & $F$  & $T$ & $F$\\
+$F$ & $T$  & $F$ & $F$\\
+$F$ & $F$  & $T$ & $T$\\
+\end{tabular}
+\end{center}
+
+
+Expressions that have output $mystery_1$ are
+
+\vspace{100pt}
+
+Expressions that have output $mystery_2$ are
+
+\vspace{100pt}
+
+{\it Idea}: To develop an algorithm for translating truth tables to expressions, 
+define a convenient {\bf normal form} for expressions. \vfill
+\section*{Compound proposition definitions}
+
+
+{\bf Proposition}: Declarative sentence that is true or false (not both).
+
+{\bf Propositional variable}: Variable that represents a proposition.
+
+{\bf Compound proposition}: New proposition formed from existing propositions (potentially) using logical operators.
+{\it Note}: A propositional variable is one example of a compound proposition.
+
+{\bf Truth table}: Table with one row for each of the possible combinations of truth values of the input and 
+    an additional column that shows the truth value of the result of the operation corresponding to a particular row.
+    
+ \vfill
+\end{document}
