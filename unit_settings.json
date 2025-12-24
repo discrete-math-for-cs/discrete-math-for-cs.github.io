@@ -137,6 +137,11 @@
                 "due": "Test 1 Testing window: 02/02/26 - 02/06/26. Sign up in advance at the CBTF."
             },
             {
+                "name": "Midquarter feedback",
+                "link": "https://canvas.ucsd.edu/courses/71479/quizzes/235976",
+                "due": "Opens week 5 on Canvas."
+            },
+            {
                 "name": "Review Quiz",
                 "link": "https://us.prairielearn.com/pl/",
                 "due": "02/06/26"
