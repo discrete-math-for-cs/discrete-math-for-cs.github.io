@@ -30,7 +30,7 @@
         "header": "Week 2",
         "outcomes": "Number representations",
         "CalendarInfo": " Dates: 01/12/26-01/16/26",
-        "ExpandInCalendar": true,
+        "ExpandInCalendar": false,
         "content": [
             {
                 "name": "Notes",
@@ -57,7 +57,7 @@
         "header": "Week 3",
         "outcomes": "Circuits and Propositional Logic",
         "CalendarInfo": " Dates: 01/19/26-01/23/26.  No class on Monday 01/19/2026 in observance of Martin Luther King Jr. Day.",
-        "ExpandInCalendar": false,
+        "ExpandInCalendar": true,
         "content": [
             {
                 "name": "Notes",
