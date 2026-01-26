@@ -57,7 +57,7 @@
         "header": "Week 3",
         "outcomes": "Circuits and Propositional Logic",
         "CalendarInfo": " Dates: 01/19/26-01/23/26.  No class on Monday 01/19/2026 in observance of Martin Luther King Jr. Day.",
-        "ExpandInCalendar": true,
+        "ExpandInCalendar": false,
         "content": [
             {
                 "name": "Notes",
@@ -80,7 +80,7 @@
         "header": "Week 4",
         "outcomes": "Predicate Logic",
         "CalendarInfo": " Dates: 01/26/26 - 01/30/26.",
-        "ExpandInCalendar": false,
+        "ExpandInCalendar": true,
         "content": [
             {
                 "name": "Notes",
