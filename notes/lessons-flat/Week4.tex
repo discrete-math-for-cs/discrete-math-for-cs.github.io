@@ -92,16 +92,50 @@
 
 \end{itemize}
 
+\vfill
+
+
 \subsubsection*{TODO:}
 \begin{list}
    {\itemsep2pt}
-   \item Review quiz based on class material each day (due Friday April 26, 2024)
-   \item Start reviewing for Test 1, in class next week on Friday May 3, 2024.
+    \item Schedule your Test 1 Attempt 1, Test 2 Attempt 1 times at PrairieTest (http://us.prairietest.com)   
+    \begin{itemize}
+    \item You must present a physical university-issued or government-issued ID. Copies, photos, or digital IDs are not accepted, and students without verifiable ID will not be permitted to test. 
+    \item Pockets must be empty upon entry. Students may bring only their ID and a pen or pencil into the testing center. 
+    \end{itemize}
+
+    \item Review quizzes based on Week 2 and Week 3 class material (due Monday 01/26/2026)
+    \item Homework 2 due on Gradescope https://www.gradescope.com/ (Thursday 01/29/2026)
+   \item Start reviewing for Test 1: {\bf Test1 Attempt 1 is next week}. The test covers material in Weeks 1 through Week 5, corresponding to RQ1, RQ2, RQ3, and RQ4. To study for the exam, we recommend reviewing class notes (e.g. annotations linked on the class website, supplementary videos from the class website) and working multiple variants of review quiz questions. You could also find that reviewing homework (and its posted sample solutions)and extra examples (in lecture notes and discussion examples) and getting feedback (office hours and Piazza) is helpful.
 \end{list}
 
 \newpage
 
-\section*{Week 4 Monday: Conditionals and Logical Equivalence}
+\section*{Week 4 Monday: Logical Equivalence and Conditionals}
+
+
+{\bf (Some) logical equivalences}
+
+{\it Can replace $p$ and $q$ with any compound proposition}
+
+\begin{tabular}{llp{3in}}
+$\lnot ( \lnot p) \equiv p$ & & {\bf Double negation}\\
+&& \\
+&& \\
+$p \lor q \equiv q \lor p$ & $p \land q \equiv q \land p$ & {\bf Commutativity} Ordering of terms\\
+&& \\
+&& \\
+$(p \lor q) \lor r  \equiv p \lor (q \lor r)$ & $(p \land q) \land r  \equiv p \land (q \land r)$ & {\bf Associativity} Grouping of terms\\
+&& \\
+&& \\
+$p \land F \equiv F$ \qquad $p \lor T \equiv T$ & $p \land T \equiv p$ \qquad $p \lor F \equiv p$ & {\bf Domination} aka 
+short circuit evaluation\\
+&& \\
+&& \\
+$\lnot (p \land q) \equiv \lnot p \lor \lnot q$ & $\lnot (p \lor q) \equiv \lnot p \land\lnot q$  & {\bf DeMorgan's Laws}\\
+&& \\
+\end{tabular}
+ \newpage
 
 
 \begin{center}
@@ -165,27 +199,6 @@ Example: $\lnot p \lor \lnot q$ means $(\lnot p) \lor (\lnot q)$.
 
 
 {\bf (Some) logical equivalences}
-
-{\it Can replace $p$ and $q$ with any compound proposition}
-
-\begin{tabular}{llp{3in}}
-$\lnot ( \lnot p) \equiv p$ & & {\bf Double negation}\\
-&& \\
-&& \\
-$p \lor q \equiv q \lor p$ & $p \land q \equiv q \land p$ & {\bf Commutativity} Ordering of terms\\
-&& \\
-&& \\
-$(p \lor q) \lor r  \equiv p \lor (q \lor r)$ & $(p \land q) \land r  \equiv p \land (q \land r)$ & {\bf Associativity} Grouping of terms\\
-&& \\
-&& \\
-$p \land F \equiv F$ \qquad $p \lor T \equiv T$ & $p \land T \equiv p$ \qquad $p \lor F \equiv p$ & {\bf Domination} aka 
-short circuit evaluation\\
-&& \\
-&& \\
-$\lnot (p \land q) \equiv \lnot p \lor \lnot q$ & $\lnot (p \lor q) \equiv \lnot p \land\lnot q$  & {\bf DeMorgan's Laws}\\
-&& \\
-\end{tabular}
-\vfill
 
 \begin{tabular}{llp{3in}}
 $p \to q \equiv \lnot p \lor q$ & & \\
@@ -262,7 +275,6 @@ $p \to q$ is not logically equivalent to $q \to p$ because \underline{\phantom{\
     \item $q$ whenever $p$.
     \item $p$ implies $q$.
     \item $q$ follows from $p$.
-    \item $p$ is sufficient for $q$.
     \item $q$ is necessary for $p$.
     \item $p$ only if $q$.
 \end{itemize}
@@ -277,6 +289,9 @@ $p \to q$ is not logically equivalent to $q \to p$ because \underline{\phantom{\
     \item If $p$ then $q$, and conversely.
     \item $p$ is necessary and sufficient for $q$.
 \end{itemize} \newpage
+
+
+\section*{Week 4 Wednesday: Translation, Predicates, and Quantifiers}
 
 
 {\bf Translation}: Express each of the following sentences as compound propositions, using
@@ -333,9 +348,6 @@ If users cannot save new files, then the system software is not being upgraded.
 \item Look for some truth assignment to the propositional variables for which all the compound propositions output $T$
 \vfill
 \end{enumerate} \newpage
-
-
-\section*{Week 4 Wednesday: Predicates and Quantifiers}
 
 
 {\bf  Definition}: A  {\bf predicate}  is  a function from a given set (domain) to $\{T,F\}$.
@@ -449,6 +461,8 @@ How would we evaluate quantifications where the domain may be infinite?
 
  \vfill
 \newpage
+
+\section*{Week 4 Friday: Evaluating Nested Quantifiers}
 
 
 {\it Recall the definitions}: The set of RNA strands $S$ is defined (recursively) by:
@@ -586,8 +600,6 @@ the predicate $BC$ evaluates to $T$.}
 Counterexample that proves this universal quantification is false: \phantom{$(\G\G, \A, 2)$ or $(\G\A\U\G, \G, 3)$)}
 }}
  \newpage
-
-\section*{Week 4 Friday: Evaluating Nested Quantifiers}
 
 
 {\bf New predicates from old}

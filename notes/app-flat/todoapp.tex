@@ -63,7 +63,32 @@
 \begin{document}
 \begin{flushright}
     \StrBefore{\currfilename}{.}
-\end{flushright} \section*{Logical operators full truth table}
+\end{flushright} \section*{Logical equivalence identities andornotxor}
+
+
+{\bf (Some) logical equivalences}
+
+{\it Can replace $p$ and $q$ with any compound proposition}
+
+\begin{tabular}{llp{3in}}
+$\lnot ( \lnot p) \equiv p$ & & {\bf Double negation}\\
+&& \\
+&& \\
+$p \lor q \equiv q \lor p$ & $p \land q \equiv q \land p$ & {\bf Commutativity} Ordering of terms\\
+&& \\
+&& \\
+$(p \lor q) \lor r  \equiv p \lor (q \lor r)$ & $(p \land q) \land r  \equiv p \land (q \land r)$ & {\bf Associativity} Grouping of terms\\
+&& \\
+&& \\
+$p \land F \equiv F$ \qquad $p \lor T \equiv T$ & $p \land T \equiv p$ \qquad $p \lor F \equiv p$ & {\bf Domination} aka 
+short circuit evaluation\\
+&& \\
+&& \\
+$\lnot (p \land q) \equiv \lnot p \lor \lnot q$ & $\lnot (p \lor q) \equiv \lnot p \land\lnot q$  & {\bf DeMorgan's Laws}\\
+&& \\
+\end{tabular}
+ \vfill
+\section*{Logical operators full truth table}
 
 
 \begin{center}
@@ -131,31 +156,10 @@ Negation, then conjunction / disjunction, then conditional / biconditionals.
 
 Example: $\lnot p \lor \lnot q$ means $(\lnot p) \lor (\lnot q)$.
  \vfill
-\section*{Logical equivalence identities}
+\section*{Logical equivalence identities ififf}
 
 
 {\bf (Some) logical equivalences}
-
-{\it Can replace $p$ and $q$ with any compound proposition}
-
-\begin{tabular}{llp{3in}}
-$\lnot ( \lnot p) \equiv p$ & & {\bf Double negation}\\
-&& \\
-&& \\
-$p \lor q \equiv q \lor p$ & $p \land q \equiv q \land p$ & {\bf Commutativity} Ordering of terms\\
-&& \\
-&& \\
-$(p \lor q) \lor r  \equiv p \lor (q \lor r)$ & $(p \land q) \land r  \equiv p \land (q \land r)$ & {\bf Associativity} Grouping of terms\\
-&& \\
-&& \\
-$p \land F \equiv F$ \qquad $p \lor T \equiv T$ & $p \land T \equiv p$ \qquad $p \lor F \equiv p$ & {\bf Domination} aka 
-short circuit evaluation\\
-&& \\
-&& \\
-$\lnot (p \land q) \equiv \lnot p \lor \lnot q$ & $\lnot (p \lor q) \equiv \lnot p \land\lnot q$  & {\bf DeMorgan's Laws}\\
-&& \\
-\end{tabular}
-\vfill
 
 \begin{tabular}{llp{3in}}
 $p \to q \equiv \lnot p \lor q$ & & \\
@@ -233,7 +237,6 @@ $p \to q$ is not logically equivalent to $q \to p$ because \underline{\phantom{\
     \item $q$ whenever $p$.
     \item $p$ implies $q$.
     \item $q$ follows from $p$.
-    \item $p$ is sufficient for $q$.
     \item $q$ is necessary for $p$.
     \item $p$ only if $q$.
 \end{itemize}
