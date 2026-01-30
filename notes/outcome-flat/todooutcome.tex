@@ -63,343 +63,7 @@
 \begin{document}
 \begin{flushright}
     \StrBefore{\currfilename}{.}
-\end{flushright} \section*{Cartesian product definition}
-
-
-{\bf Definition}: The {\bf Cartesian product} of the sets $A$ and $B$, 
-$A \times B$, is the set of all ordered pairs $(a, b)$, where $a \in A$ and $b \in B$. 
-That is: $A \times B = \{(a, b) \mid (a \in A) \land (b \in B)\}$.
-The Cartesian product of the sets $A_1, A_2, \ldots ,A_n$, denoted by 
-$A_1 \times A_2 \times \cdots \times A_n$, is the
-set of ordered n-tuples $(a_1, a_2,...,a_n)$, where $a_i$ belongs to 
-$A_i$ for $i = 1, 2,\ldots,n$. That is,
-\[
-    A_1 \times A_2 \times \cdots \times A_n = \{(a_1, a_2,\ldots,a_n) \mid a_i \in A_i \textrm{ for } i = 1, 2,\ldots,n\}
-\] \vfill
-\section*{Rna mutation insertion deletion example}
-
-
-Trace the pseudocode to find the output of $\textit{mutation}(~ (\A\U\C, 3, \G) ~)$
-
-\vspace{50pt}
-
-Fill in the blanks so that $\textit{insertion}(~(\A\U\C, \underline{\phantom{3}}, \underline{\phantom{\G}})~) = \A\U\C\G$
-
-\vspace{50pt}
-
-Fill in the blanks so that $\textit{deletion}(~(\underline{\phantom{\G\G}}, \underline{\phantom{1}})~) =  \G$
-
-\vspace{50pt}
- \vfill
-\section*{Rna rnalen basecount definitions}
-
-
-{\it Recall the definitions}: The set of RNA strands $S$ is defined (recursively) by:
-\[
-\begin{array}{ll}
-\textrm{Basis Step: } & \A \in S, \C \in S, \U \in S, \G \in S \\
-\textrm{Recursive Step: } & \textrm{If } s \in S\textrm{ and }b \in B \textrm{, then }sb \in S
-\end{array}
-\]
-where $sb$ is string concatenation.
-
-The function \textit{rnalen} that computes the length of RNA strands in $S$ is defined recursively by:
-\[
-\begin{array}{llll}
-& & \textit{rnalen} : S & \to \mathbb{Z}^+ \\
-\textrm{Basis Step:} & \textrm{If } b \in B\textrm{ then } & \textit{rnalen}(b) & = 1 \\
-\textrm{Recursive Step:} & \textrm{If } s \in S\textrm{ and }b \in B\textrm{, then  } & \textit{rnalen}(sb) & = 1 + \textit{rnalen}(s)
-\end{array}
-\]
-
-The function \textit{basecount} that computes the number of a given base 
-$b$ appearing in a RNA strand $s$ is defined recursively by:
-\[
-\begin{array}{llll}
-& & \textit{basecount} : S \times B & \to \mathbb{N} \\
-\textrm{Basis Step:} &  \textrm{If } b_1 \in B, b_2 \in B & \textit{basecount}(~(b_1, b_2)~) & =
-        \begin{cases}
-            1 & \textrm{when } b_1 = b_2 \\
-            0 & \textrm{when } b_1 \neq b_2 \\
-        \end{cases} \\
-\textrm{Recursive Step:} & \textrm{If } s \in S, b_1 \in B, b_2 \in B &\textit{basecount}(~(s b_1, b_2)~) & =
-        \begin{cases}
-            1 + \textit{basecount}(~(s, b_2)~) & \textrm{when } b_1 = b_2 \\
-            \textit{basecount}(~(s, b_2)~) & \textrm{when } b_1 \neq b_2 \\
-        \end{cases}
-\end{array}
-\] \vfill
-\section*{Alternating quantifiers order rna examples}
-
-
-{\bf Alternating nested quantifiers}
-
-
-
-$$\forall s \in S ~\exists n \in \mathbb{N} ~(~basecount(~(s,\U)~) = n~)$$
-
-In English: For each strand, there is a nonnnegative integer that counts the number of occurrences of $\U$ in that 
-strand.\\
-
-$$\exists n \in \mathbb{N} ~\forall s \in S ~(~basecount(~(s,\U)~) = n~)$$
-
-In English: There is a nonnnegative integer that counts the number of occurrences of $\U$ in every 
-strand.\\
-
-\vfill
-
-Are these statements true or false?
-
-\newpage
-
-$$\forall s \in S ~\exists b\in B ~(~basecount(~(s,b)~) = 3~)$$
-
-In English: For each RNA strand there is a base that occurs 3 times in this strand.\\
-
-Write the negation and use De Morgan's law to find a 
-logically equivalent version where the negation is applied only to the 
-$BC$ predicate (not next to a quantifier).
-
-\vspace{60pt}
-
-
-Is the original statement {\bf True} or {\bf False}?
-
-\vfill
- \vfill
-\section*{Proof strategies quantification finite domain}
-
-
-When a predicate $P(x)$ is over a {\bf finite} domain:
-\begin{itemize}
-\item To show that $\forall x  P(x)$ is true: check that $P(x)$ evaluates to $T$ at each domain element by evaluating over and over. 
-This is called ``Proof of universal by {\bf exhaustion}".
-\item To show that $\forall x  P(x)$ is false: find a {\bf counterexample}, a domain element where $P(x)$~evaluates~to~$F$.
-\item To show that $\exists x  P(x)$ is true: find a {\bf witness}, a domain element where $P(x)$ evaluates to $T$.
-\item To show that $\exists x  P(x)$ is false: check that $P(x)$ evaluates to $F$ at each domain element by evaluating over and over.
-DeMorgan's Law gives that $\lnot \exists x P(x) ~~\equiv~~ \forall x \lnot P(x)$ so this amounts to a proof of universal by exhaustion.
-\end{itemize} \vfill
-\section*{Proof strategy universal generalization}
-
-
-\fbox{\parbox{\linewidth}{
-
-{\bf New! Proof by universal generalization}: To prove that $\forall x \, P(x)$
-is true, we can take an arbitrary element $e$ from the domain of 
-quantification and show that $P(e)$ is true, without making any assumptions about $e$ 
-other than that it comes from the domain.
-
-
-An {\bf arbitrary} element of a set or domain is a fixed but unknown element from that set. 
-}}
- \vfill
-\section*{Proof strategies conditionals}
-
-
-\fbox{\parbox{\linewidth}{
-
-{\bf New! Proof of conditional by direct proof}: To prove that the conditional statement $p \to q$ is true, 
-we can assume $p$ is true and use that assumption to show $q$ is true.
-}}
-
-\fbox{\parbox{\linewidth}{
-
-{\bf New! Proof of conditional by contrapositive proof}: To prove that the implication $p \to q$ is true, 
-we can assume $q$ is false and use that assumption to show $p$ is also false.
-}}
-
-\fbox{\parbox{\linewidth}{
-
-{\bf New! Proof of disjuction using equivalent conditional}: To prove that the 
-disjunction $p \lor q$ is true, we can rewrite it equivalently as $\lnot p \to q$ and
-then use direct proof or contrapositive proof.
-}} \vfill
-\section*{Proof strategies proof by cases}
-
-
-\fbox{\parbox{\linewidth}{{\bf New! Proof by Cases}: To prove $q$, we can 
-work by cases by first describing all possible cases we might be in
-and then showing that each one guarantees $q$.
-Formally, if we know that $p_1 \lor p_2$ is true, 
-and we can show that $(p_1 \to q)$ is true and we can show that $(p_2 \to q)$, 
-then we can conclude $q$ is true.
-}} \vfill
-\section*{Proof strategies ands}
-
-
-\fbox{\parbox{\linewidth}{
-{\bf New! Proof of conjunctions with subgoals}:
-To show that $p \land q$ is true, we have two subgoals: subgoal (1) prove $p$ 
-is  true; and, subgoal (2) prove $q$ is true.
-
-\vspace{1em}
-
- To show that $p \land q$ is false, it's enough to prove that $\lnot p$.
- 
- To show that $p \land q$ is false, it's enough to prove that $\lnot q$.
-}} \vfill
-\section*{Sets proof strategies}
-
-
-To prove that one set is a subset of another, e.g. to show $A \subseteq B$:
-
-\vspace{50pt}
-
-To prove that two sets are equal, e.g. to show $A = B$:
-
-\vspace{50pt}
- \vfill
-\section*{Sets equality example}
-
-
-Example: $\{ 43, 7, 9 \} = \{ 7, 43, 9, 7\}$
-
-\vspace{50pt}
- \vfill
-\section*{Sets basic proofs}
-
-
-{\bf Prove} or {\bf  disprove}: $\{ \A,  \C,  \U,  \G\} \subseteq \{ \A\A, \A\C, \A\U, \A\G \}$ 
-
-\vspace{150pt}
-
-{\bf Prove} or {\bf  disprove}: For some set $B$, $\emptyset \in B$.
-
-\vspace{150pt}
-
-{\bf Prove} or {\bf  disprove}: For every set $B$, $\emptyset \in B$.
-
-\vspace{150pt}
-
-{\bf Prove} or {\bf  disprove}: The empty set is a subset of every set.
-
-\vspace{150pt}
-
-{\bf Prove} or {\bf  disprove}: The empty set is a proper subset of every set.
-
-\vspace{150pt}
-
-{\bf Prove} or {\bf  disprove}: $\{ 4, 6 \} \subseteq \{ n \mid  \exists c \in \mathbb{Z} ( n = 4c) \} $
-
-\vspace{150pt}
-
-{\bf Prove} or {\bf  disprove}: $\{ 4, 6 \} \subseteq \{ n ~\textbf{mod}~10 \mid  \exists c \in \mathbb{Z} ( n = 4c) \} $
-
-\vspace{150pt}
-
- \vfill
-\section*{Proofs signposting}
-
-
-\fbox{\parbox{\textwidth}{
-
-\vspace{10pt}
-
-Consider \ldots, an {\bf arbitrary} \ldots.
-{\bf Assume} \ldots, we {\bf want to show} that \ldots. Which is what was needed,
-so the proof is complete $\square$.
-
-\vspace{20pt} {\it or, in other words:} \vspace{20pt}
-
-Let \ldots be an {\bf arbitrary} \ldots. {\bf Assume} \ldots, {\bf WTS} that \ldots {\bf QED}.
-
-\vspace{10pt}
-
-}} \vfill
-\section*{Set operations union intersection powerset}
-
-
-{\bf Cartesian product}: When $A$ and  $B$ are sets, 
-\[
-    A \times  B = \{ (a,b) \mid a \in A  \wedge b  \in B \}
-\]
-
-Example: $\{43, 9\} \times  \{9, \mathbb{Z}\}  = $
-    
-Example: $\mathbb{Z} \times \emptyset  = $
-
-{\bf Union}: When $A$ and  $B$ are sets,
-\[
-    A \cup  B = \{ x \mid x \in A  \vee x \in B \}
-\]    
-    
-Example: $\{43, 9\} \cup \{9, \mathbb{Z}\}  = $
-
-Example: $\mathbb{Z} \cup \emptyset  = $ 
-
-{\bf Intersection}: When $A$ and  $B$ are sets,
-\[
-    A \cap  B = \{ x \mid x \in A  \wedge x \in B \}
-\]    
-Example: $\{43, 9\} \cap \{9,\mathbb{Z}\}  = $
-
-Example: $\mathbb{Z} \cap \emptyset  = $
-
-
-{\bf Set  difference}: When $A$ and  $B$ are sets,
-
-\[
-    A -  B = \{ x \mid x \in A  \wedge x \notin B \}
-\]
-
-Example: $\{43, 9\} - \{9, \mathbb{Z}\}  = $
-
-Example: $\mathbb{Z} - \emptyset  = $
-
-    
-{\bf Disjoint sets}: sets $A$ and  $B$ are disjoint means $A \cap  B  = \emptyset$
-
-Example: $\{43, 9\}, \{9, \mathbb{Z}\}$ are not  disjoint 
-
-Example: The sets $\mathbb{Z}$ and $\emptyset$ are disjoint
-
-    
-
-{\bf Power set}: When $U$ is a set, $\mathcal{P}(U) = \{ X \mid X \subseteq U\}$
-
-Example: $\mathcal{P}(\{43, 9\}) = $
-
-Example: $\mathcal{P}(\emptyset) = $
- \vfill
-\section*{Sets proof strategies}
-
-
-To prove that one set is a subset of another, e.g. to show $A \subseteq B$:
-
-\vspace{50pt}
-
-To prove that two sets are equal, e.g. to show $A = B$:
-
-\vspace{50pt}
- \vfill
-\section*{Sets basic proofs operations}
-
-
-Let $W =  \mathcal{P}(  \{ 1,2,3,4,5\} )$
-
-Example elements in $W$ are:
-\vspace{20pt}
-
-
-{\bf Prove} or {\bf  disprove}:  $\forall  A \in W\,  \forall B \in W\,  \left( A \subseteq B
-~\to ~ \mathcal{P}(A) \subseteq \mathcal{P}(B) \right)$
-
-\vfill
-\vfill
-\vfill
-
-{\bf Prove} or {\bf  disprove}:  $\forall  A \in W\,  \forall B \in W\,  \left( \mathcal{P}(A)  =\mathcal{P}(B)
-~\to ~ A = B \right)$
-
-\vfill
-\vfill
-
-{\bf Prove} or {\bf  disprove}:  $\forall  A \in W\,  \forall B \in W\, \forall C  \in W\,  \left( A\cup B  = A \cup  C
-~\to ~ B = C \right)$
-
-\vfill
-\vfill \vfill
-\section*{Quantification definition}
+\end{flushright} \section*{Quantification definition}
 
 
 The {\bf universal quantification} of predicate $P(x)$ over
@@ -414,6 +78,10 @@ in the domain $U$ such that $P(x)$'' and is written $\exists x P(x)$
 for $\exists x \in U ~P(x)$. 
 When the domain is finite, existential quantification over the domain 
 is equivalent to iterated {\it disjunction} (ors).
+
+An element for which $P(x) = F$ is called a {\bf counterexample} of $\forall x P(x)$.
+
+An element for which $P(x) = T$ is called a {\bf witness} of $\exists x P(x)$.
  \vfill
 \section*{Quantification logical equivalence}
 
@@ -428,19 +96,10 @@ $\boxed{\neg \forall x P(x) ~\equiv~ \exists x \left( \neg P(x) \right)}$
 \qquad
 $\boxed{\neg \exists x Q(x) ~\equiv~ \forall x \left( \neg Q(x) \right)}$
  \vfill
-\section*{Quantification witness counterexample}
-
-
-An element for which $P(x) = F$ is called a {\bf counterexample} of $\forall x P(x)$. When there is a counterexample in the domain of predicate $P$,  $\forall x P(x)$ is false.
-
-
-An element for which $P(x) = T$ is called a {\bf witness} of $\exists x P(x)$. When there is a witness in the domain of predicate $P$, then $\exists x P(x)$ is true.
- \vfill
 \section*{Quantification examples finite domain}
 
 
 Examples of quantifications using $V(x), N(x), Mystery(x)$:
-
 
 
 {\bf True} or {\bf False}: $\exists x~ (~V(x) \lor N(x)~)$
@@ -453,7 +112,7 @@ Examples of quantifications using $V(x), N(x), Mystery(x)$:
 \vfill
 
 
-{\bf True} or {\bf False}: $\exists x~ (~\lnot V(x) \land \lnot N(x)~)$
+{\bf True} or {\bf False}: $\exists x~ (~V(x) \land N(x)~)$
 
 \vfill
 
@@ -517,8 +176,9 @@ $b$ appearing in a RNA strand $s$ is defined recursively by:
 \section*{Predicates example rnalen basecount}
 
 
+{\bf Using functions to define predicates}:
 
-
+\fbox{\parbox{\textwidth}{
 $L$ with domain $S \times \mathbb{Z}^+$ is defined by, for $s \in S$ and $n \in \mathbb{Z}^+$,
 \[
 L( ~(s, n)~) = \begin{cases}
@@ -527,10 +187,11 @@ F &\qquad\text{otherwise}\\
 \end{cases}
 \]
 In other words, $L(~(s,n)~)$ means $rnalen(s) = n$
-
+}}
 
 \vfill
 
+\fbox{\parbox{\textwidth}{
 $BC$ with domain $S \times B \times \mathbb{N}$ is defined by, 
 for $s \in S$ and $b \in B$ and $n \in \mathbb{N}$,
 \[
@@ -540,6 +201,7 @@ F &\qquad\text{otherwise}\\
 \end{cases}
 \]
 In other words, $BC(~(s,b,n)~)$ means $basecount(~(s,b)~) = n$
+}}
 
 
 \vfill
@@ -564,6 +226,8 @@ Example where $BC$ evaluates to $F$: $\underline{\phantom{(\A, \C, 1)\hspace{1in
 
 \vfill
 
+
+\fbox{\parbox{\textwidth}{
 \[\exists t ~BC(t) \qquad \qquad 
 \exists (s,b,n) \in S \times B \times \mathbb{N}~ (basecount(~(s,b)~) = n)\]
 
@@ -573,8 +237,9 @@ at which the predicate $BC$ evaluates to $T$.}
 \vspace{30pt}
 
 Witness that proves this existential quantification is true:\phantom{$(\G\G, \G, 2)$ or $(\G\A\U\G, \G, 2)$)}
+}}
 
-
+\fbox{\parbox{\textwidth}{
 \[\forall t ~BC(t) \qquad \qquad 
 \forall(s,b,n) \in S \times B \times \mathbb{N} ~(basecount(~(s,b)~) = n)\]
 
@@ -584,11 +249,12 @@ the predicate $BC$ evaluates to $T$.}
 \vspace{30pt}
 
 Counterexample that proves this universal quantification is false: \phantom{$(\G\G, \A, 2)$ or $(\G\A\U\G, \G, 3)$)}
+}}
  \vfill
 \section*{Predicates projecting example rna basecount}
 
 
-{\bf New predicates from old}: Consider several different predicates that are related to $BC$: 
+{\bf New predicates from old}
 \begin{enumerate}
 \item Define the {\bf new} predicate with domain $S \times B$ and rule
 \[
@@ -631,6 +297,7 @@ Example domain element where predicate is $T$: \phantom{$\A\C\G\U$}\\
 
 {\bf Nested quantifiers}
 
+\fbox{\parbox{\textwidth}{
 \[
     \forall s \in S ~\forall b \in B ~\forall n \in \mathbb{N} ~(basecount(~(s,b)~) = n)
 \]
@@ -645,10 +312,11 @@ Counterexample that proves this universal quantification is false:
 
 \vspace{30pt}
 
-
+}}
 
 \vfill
 
+\fbox{\parbox{\textwidth}{
 \[
     ~\forall n \in \mathbb{N} ~\forall s \in S ~\forall b \in B  ~(basecount(~(s,b)~) = n)
 \]
@@ -663,7 +331,7 @@ Counterexample that proves this universal quantification is false:
 
 \vspace{30pt}
 
-
+}}
 
 \vfill \vfill
 \section*{Alternating quantifiers strategies rna examples}
@@ -671,6 +339,7 @@ Counterexample that proves this universal quantification is false:
 
 {\bf Alternating nested quantifiers}
 
+\fbox{\parbox{\textwidth}{
 $$\forall s \in S ~\exists b\in B ~(~basecount(~(s,b)~) = 3~)$$
 
 In English: For each RNA strand there is a base that occurs 3 times in this strand.\\
@@ -684,11 +353,11 @@ $BC$ predicate (not next to a quantifier).
 
 Is the original statement {\bf True} or {\bf False}?
 
-
+}}
 
 \vfill
 
-
+\fbox{\parbox{\textwidth}{
 
 $$\exists s \in S ~\forall b \in B ~\exists n \in \mathbb{N} ~(~basecount(~(s,b)~) = n~)$$
 
@@ -704,418 +373,10 @@ $BC$ predicate (not next to a quantifier).
 
 Is the original statement {\bf True} or {\bf False}?
 
-
+}}
 
 \vfill
  \vfill
-\section*{Proof strategies road map}
-
-
-We now have propositional and predicate logic that can help us express 
-statements about any domain. We will develop proof strategies to 
-craft valid argument for proving that such statements are true or disproving
-them (by showing they are false). We will practice these strategies with 
-statements about sets and numbers, both because they are familiar and because they
-can be used to build cryptographic systems. Then we will apply proof strategies
-more broadly to prove statements about data structures and machine learning 
-applications. \vfill
-\section*{Numbers facts}
-
-
-\begin{enumerate}
-    \item Addition and multiplication of real 
-    numbers are each commutative and associative. 
-    \vspace{25pt}
-    \item The product of two positive numbers is positive, of 
-    two negative numbers is positive, and of a positive and a negative number is negative.
-    \vspace{25pt}
-    \item The sum of two integers, the product of two integers, and the 
-    difference between two integers are each integers.
-    \vspace{25pt}
-    \item For every integer $x$ there is no integer strictly between $x$ and $x+1$, 
-    \vspace{25pt}
-    \item When $x, y$ are positive integers, $xy \geq x$ and $xy \geq y$.
-    \vspace{25pt}
-\end{enumerate}
- \vfill
-\section*{Factoring definition}
-
-
-{\bf Definition}: When $a$ and $b$ are integers and $a$ is nonzero, 
-{\bf $a$ divides $b$} means there is an integer $c$ such that $b = ac$ . 
-
-
-Symbolically, $F(~(a,b)~) = \phantom{\exists c\in \mathbb{Z}~(b=ac)}$
-and is  a predicate over the domain \underline{\phantom{$\mathbb{Z}^{\neq 0} \times \mathbb{Z}$}}
-
-
-Other (synonymous) ways to say that $F(~(a,b)~)$ is true: 
-\begin{center}
-$a$ is a {\bf factor} of $b$
-\qquad 
-$a$ is a {\bf divisor} of $b$
-\qquad  $b$ is a {\bf multiple} of $a$
-\qquad
-$a | b$
-\end{center}
-
-When $a$ is a positive integer and $b$ is any integer, $a | b$
-exactly when $b \textbf{ mod } a = 0$
-
-When $a$ is a positive integer and $b$ is any integer, $a | b$
-exactly when $b = a \cdot (b \textbf{ div } a)$ \vfill
-\section*{Factoring translation examples}
-
-
-{\it Translate these quantified statements by matching to English statement on right.}
-
-\begin{multicols}{2}
-$\exists a\in \mathbb{Z}^{\neq 0} ~(~F(~(a,a)~)~)$
-
-$\exists a\in \mathbb{Z}^{\neq 0} ~(~\lnot F(~(a,a)~)~)$
-
-$\forall a\in \mathbb{Z}^{\neq 0} ~(~F(~(a,a)~)~)$
-
-$\forall a\in \mathbb{Z}^{\neq 0} ~(~\lnot F(~(a,a)~)~)$
-
-
-Every nonzero integer is a factor of itself.
-
-No nonzero integer is a factor of itself.
-
-At least one nonzero integer is a factor of itself.
-
-Some nonzero integer is not a factor of itself.
-\end{multicols} \vfill
-\section*{Factoring basic claims}
-
-
-{\bf Claim}: Every nonzero integer is a factor of itself.
-
-{\bf Proof}: 
-
-
-\vspace{150pt}
-
-
-{\bf Prove} or {\bf Disprove}: There is a nonzero integer that does not divide its square.
-
-
-
-\vspace{150pt}
-
-{\bf Prove} or {\bf Disprove}: Every positive factor of a positive integer is less than or equal to it.
-
-\vspace{150pt}
- \vfill
-\section*{Factoring basic claims continued}
-
-
-{\bf Claim}: Every nonzero integer is a factor of itself and 
-every nonzero integer divides its square.
-
-\vspace{100pt}
- \vfill
-\section*{Factoring even odd}
-
-
-{\bf Definition}: an integer $n$ is {\bf even} means that there is an integer $a$ such that $n = 2a$; 
-an integer $n$ is {\bf odd} means that there is an integer $a$ such that $n = 2a+1$.  Equivalently, 
-an integer $n$ is {\bf even} means $n ~\textbf{ mod }~2 = 0$; an integer $n$ is {\bf odd} means $n ~\textbf{ mod }~2 = 1$.  
-Also, an integer is even if and only if it is not odd.
- \vfill
-\section*{Prime number definition}
-
-
-{\bf Definition}:  An integer $p$ greater than $1$ is called {\bf prime} means 
-the only positive factors of 
-$p$ are $1$ and $p$. A positive integer that is greater than $1$ and is not prime 
-is called composite. \vfill
-\section*{Primes basic claims}
-
-
-{\it Extra examples}: Use the definition to prove that $1$ is not prime, $2$ is prime, $3$
-is prime, $4$ is not prime, $5$ is prime, $6$ is not prime, and $7$ is prime.
-
-
-{\bf True or False}: The statement ``There are three consecutive positive integers that are prime."
-
-{\it Hint}: These numbers would be of the form $p, p+1, p+2$ (where $p$ is a positive integer).
-
-{\bf Proof}: We need to show \underline{\phantom{$\exists p \in \mathbb{Z}^+ ~(~Pr(p) \land Pr(p+1) \land Pr(p+2)~)$}}
-
-\vspace{200pt}
-
-{\bf True or False}: The statement ``There are three consecutive odd positive integers that are prime."
-
-{\it Hint}: These numbers would be of the form $p, p+2, p+4$ (where $p$ is an odd positive integer).
-
-{\bf Proof}: We need to show \underline{\phantom{$\exists p \in \mathbb{Z}^+ ~(~(p \textbf{ mod } 2 = 1 \land Pr(p) \land Pr(p+2) \land Pr(p+4)~)$}}
-
-\vspace{200pt}
- \vfill
-\section*{Rna rnalen basecount definitions}
-
-
-{\it Recall the definitions}: The set of RNA strands $S$ is defined (recursively) by:
-\[
-\begin{array}{ll}
-\textrm{Basis Step: } & \A \in S, \C \in S, \U \in S, \G \in S \\
-\textrm{Recursive Step: } & \textrm{If } s \in S\textrm{ and }b \in B \textrm{, then }sb \in S
-\end{array}
-\]
-where $sb$ is string concatenation.
-
-The function \textit{rnalen} that computes the length of RNA strands in $S$ is defined recursively by:
-\[
-\begin{array}{llll}
-& & \textit{rnalen} : S & \to \mathbb{Z}^+ \\
-\textrm{Basis Step:} & \textrm{If } b \in B\textrm{ then } & \textit{rnalen}(b) & = 1 \\
-\textrm{Recursive Step:} & \textrm{If } s \in S\textrm{ and }b \in B\textrm{, then  } & \textit{rnalen}(sb) & = 1 + \textit{rnalen}(s)
-\end{array}
-\]
-
-The function \textit{basecount} that computes the number of a given base 
-$b$ appearing in a RNA strand $s$ is defined recursively by:
-\[
-\begin{array}{llll}
-& & \textit{basecount} : S \times B & \to \mathbb{N} \\
-\textrm{Basis Step:} &  \textrm{If } b_1 \in B, b_2 \in B & \textit{basecount}(~(b_1, b_2)~) & =
-        \begin{cases}
-            1 & \textrm{when } b_1 = b_2 \\
-            0 & \textrm{when } b_1 \neq b_2 \\
-        \end{cases} \\
-\textrm{Recursive Step:} & \textrm{If } s \in S, b_1 \in B, b_2 \in B &\textit{basecount}(~(s b_1, b_2)~) & =
-        \begin{cases}
-            1 + \textit{basecount}(~(s, b_2)~) & \textrm{when } b_1 = b_2 \\
-            \textit{basecount}(~(s, b_2)~) & \textrm{when } b_1 \neq b_2 \\
-        \end{cases}
-\end{array}
-\] \vfill
-\section*{Alternating quantifiers proofs rna examples}
-
-
-Which proof strategies could be used to prove each of the following statements?
-
-{\it Hint: first translate the statements to English and identify the main logical structure.}
-
-$\forall s \in S~(~rnalen(s) > 0~)$
-
-\vspace{100pt}
-
-$\forall b \in B~\exists s \in S~(~basecount(~(s,b)~)~ > 0~)$
-
-\vspace{100pt}
-
-$\forall s \in S ~\exists b\in B ~(~basecount(~(s,b)~) > 0~)$
-
-\vspace{100pt}
-
-$\exists s \in S \, (\textit{rnalen(s)} = \textit{basecount}(~(s, \A)~)$
-
-\vspace{100pt}
-
-$\forall s \in S \, (\textit{rnalen(s)} \geq \textit{basecount}(~(s, \A)~))$
-
-\vspace{100pt}
-
- \vfill
-\section*{Structural induction motivating example rna}
-
-
-{\bf Claim} $\forall s \in S ~(~rnalen(s) > 0~)$
-
-{\bf Proof}: Let $s$ be an arbitrary RNA strand. By the recursive definition of $S$,
-either $s \in B$ or there is some strand $s_0$ and some base $b$ such that $s = s_0 b$.
-We will show that the inequality holds for both cases.
-
-{$\phantom{Basis}$} {\bf Case}: Assume $s \in B$. We need to show $rnalen(s) > 0$. 
-By the basis step in the definition of $rnalen$,
-$$rnalen(s) = 1$$
-which is greater than $0$, as required.
-
-{$\phantom{Recursive}$} {\bf Case}: Assume there is some strand $s_0$ and some base $b$ 
-such that $s = s_0 b$. We will show {\it (the stronger claim)} that 
-\[
-    \forall u \in S ~\forall b \in B ~( ~\textit{rnalen}(u) >0  \to 
-    \textit{rnalen}(ub) >0 ~)
-\]
-Consider an arbitrary RNA strand $u$ and an arbitrary base $b$, and assume towards a
-direct proof,$~~{\phantom{ this is the induction hypothesis}}~~$ that
-\[
-    rnalen(u) > 0
-\]
-We need to show that $rnalen(ub) > 0$.
-\[
-    rnalen(ub) = 1 + rnalen (u) > 1 + 0 = 1 > 0
-\]
-as required. \vfill
-\section*{Proof strategies structural induction}
-
-
-\fbox{\parbox{\textwidth}{{\bf Proof by Structural Induction} 
-To prove a universal quantification over a recursively defined set:
-\begin{itemize}
-    \item[] {\bf Basis Step}:  Show the statement holds for elements specified in the basis step of the definition.
-    \item[]  {\bf Recursive Step}:  Show that if the statement is true for each of the elements used to construct
-    new elements in the recursive step of the definition, the result holds for these new elements.
-    \end{itemize}
-}}
-     \vfill
-\section*{Structural induction example rnalen basecount}
-
-
-{\bf Claim} $\forall s \in S \, (\textit{rnalen(s)} \geq \textit{basecount}(~(s, \A)~))$:
-
-{\bf Proof}: We proceed by structural induction on the recursively defined set $S$.
-
-{\bf Basis  Case}: We need to prove that 
-the inequality holds for each element in the basis step of the recursive
-definition of $S$. 
-Need to show 
-\begin{align*}
-          &(~ rnalen(\A) \geq basecount(~(\A, \A)~)~) \land (~ rnalen(\C) \geq basecount(~(\C, \A)~)~) \\
-    \land & (~ rnalen(\U) \geq basecount(~(\U, \A)~)~) \land (~ rnalen(\G) \geq basecount(~(\G, \A)~)~)
-\end{align*}
-We calculate, using the definitions of $rnalen$ and $basecount$:
-
-\vspace{100pt}
-
-{\bf Recursive Case}: We will prove that 
-\[
-    \forall u \in S ~\forall b \in B ~( ~rnalen(u) \geq basecount(~(u, \A)~) \to 
-    rnalen(ub) \geq basecount(~(ub, \A)~)
-\]
-
-Consider arbitrary RNA strand $u$ and arbitrary base $b$. Assume, as the {\bf induction hypothesis},
-that $rnalen(u) \geq basecount(~(u,\A)~)$. We need to show that $rnalen(ub) \geq basecount(~(ub, \A)~)$.
-
-Using the recursive step in the definition of the function $rnalen$:
-\[
-    rnalen(ub) = 1 + rnalen(u)
-\]
-The recursive step in the definition of the function $basecount$ has two cases. We notice that 
-$b = \A \lor b \neq \A$ and we proceed by cases.
-
-{\it Case i.} Assume $b = \A$.
-
-Using the first case in the recursive step in the definition of the function $basecount$:
-\[
-    basecount(~(ub, \A)~) = 1 + basecount(~(u,\A)~)
-\]
-By the {\bf induction hypothesis}, we know that $basecount(~(u,\A)~) \leq rnalen(u)$ so:
-\[
-    basecount(~(ub, \A)~) = 1 + basecount(~(u,\A)~) \leq 1 + rnalen(u) = rnalen (ub)
-\]
-and, thus, $basecount(~(ub,\A)~) \leq rnalen(ub)$, as required.
-
-{\it Case ii.} Assume $b \neq \A$. 
-
-Using the second case in the recursive step in the definition of the function $basecount$:
-\[
-    basecount(~(ub, \A)~) = basecount(~(u,\A)~)
-\]
-By the {\bf induction hypothesis}, we know that $basecount(~(u,\A)~) \leq rnalen(u)$ so:
-\[
-    basecount(~(ub, \A)~) = basecount(~(u,\A)~) \leq rnalen(u) < 1 + rnalen(u) = rnalen (ub)
-\]
-and, thus, $basecount(~(ub,\A)~) \leq rnalen(ub)$, as required.
- \vfill
-\section*{Proofs signposting kinds of claims}
-
-
-To organize our proofs, it's useful to highlight which claims are most important for 
-our overall goals.
-We use some terminology to describe different roles statements can have.
-
-{\bf Theorem}: Statement that can be shown to be true, usually an important one.
-
-Less important theorems can be called {\bf proposition}, {\bf fact}, {\bf result}, {\bf claim}.
-
-{\bf Lemma}: A less important theorem that is useful in proving a theorem.
- 
-{\bf Corollary}: A theorem that can be proved directly after another one has been proved, 
-without needing a lot of extra work.
-
-{\bf Invariant}: A theorem that describes a property that is true about an algorithm or 
-system no matter what inputs are used.
-
-
-
-
- \vfill
-\section*{Structural induction example sum of powers}
-
-
-The set $\mathbb{N}$ is recursively defined.
-Therefore, the function $sumPow: \mathbb{N} \to \mathbb{N}$
-which computes, for input $i$, the sum of the nonnegative powers of $2$
-up to and including exponent $i$ is defined
-recursively by
-
-\begin{alignat*}{2}
-    \text{Basis step:  } \qquad & sumPow(0) = 1 &\\
-    \text{Recursive step:  } & \text{If } x \in \mathbb{N} \text{, then } &sumPow(x+1) = sumPow(x) + 2^{x+1}
-\end{alignat*}
-
-$sumPow(0) =$
-
-\vspace{20pt}
-
-$sumPow(1) =$
-
-\vspace{20pt}
-
-$sumPow(2) =$
-
-\vspace{20pt}
-
-
-Fill in the blanks in the following proof of 
-\[
-    \forall n \in \mathbb{N}~(sumPow(n) = 2^{n+1} - 1)
-\]
-
-{\bf Proof}: Since $\mathbb{N}$ is recursively defined, we proceed by \underline{\phantom{structural induction \hspace{0.3in}}}.
-
-{\bf Basis case}: We need to show that \underline{\phantom{$sumPow(0) = 2^{0+1} - 1$ \hspace{0.2in}}}.
-Evaluating each side: $LHS = sumPow(0) = 1$ by the basis case in the recursive definition
-of $sumPow$; $RHS = 2^{0+1} - 1 = 2^1 - 1 = 2-1 = 1$. Since $1=1$, the equality holds.
-
-{\bf Recursive case}: Consider arbitrary natural number $n$ and assume, as the 
-\underline{\phantom{Induction Hypothesis (IH)}} that $sumPow(n) = 2^{n+1} - 1$. We need to show that
-\underline{\phantom{$sumPow(n+1) = 2^{(n+1) + 1} - 1$}}.  Evaluating each side: 
-\[
-LHS = sumPow(n+1) \overset{\text{rec def}}{=} sumPow(n)  + 2^{n+1}\overset{\text{IH}}{=} (2^{n+1} - 1) + 2^{n+1}.
-\]
-\[
-RHS = 2^{(n+1)+1}- 1 \overset{\text{exponent rules}}{=} 2 \cdot 2^{n+1} -1  = \left(2^{n+1} + 2^{n+1} \right) - 1
-\overset{\text{regrouping}}{=}  (2^{n+1} - 1) + 2^{n+1} 
-\]
-Thus, $LHS = RHS$. The structural induction is complete and we have proved the universal generalization.
-$\square$
-
- \vfill
-\section*{Proof strategy mathematical induction}
-
-
-\fbox{\parbox{\textwidth}{
-
-{\bf Proof by Mathematical Induction}
-
-To prove a universal quantification over the set of all integers greater than
-or  equal to some  base integer $b$,
-
-\vspace{-10pt}
-
-\begin{itemize}
-\item[] {\bf Basis Step}:  Show the property holds for $b$. 
-\item[]  {\bf Recursive Step}:  Consider an arbitrary integer $n$ greater than or  equal to  $b$, assume
-    (as the {\bf induction hypothesis})  that the property holds  for $n$, and use  this and
-    other facts to  prove that  the property holds for $n+1$.
-\end{itemize}
-
-}} \vfill
 \section*{Tautology contradiction contingency examples}
 
 

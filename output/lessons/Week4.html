@@ -747,8 +747,6 @@ each domain element. The rule assigning truth values to domain elements
 can be specified using a formula, English description, in a table (if
 the domain is finite), or recursively (if the domain is recursively
 defined).</p>
-<p>Note: Since logical operations are functions, they can be part of the
-definitions of predicates.</p>
 <div class="center">
 <table>
 <tbody>
@@ -893,6 +891,12 @@ class="math inline">\(\exists x P(x)\)</span> for <span
 class="math inline">\(\exists x \in U ~P(x)\)</span>. When the domain is
 finite, existential quantification over the domain is equivalent to
 iterated <span><em>disjunction</em></span> (ors).</p>
+<p>An element for which <span class="math inline">\(P(x) = F\)</span> is
+called a <span><strong>counterexample</strong></span> of <span
+class="math inline">\(\forall x P(x)\)</span>.</p>
+<p>An element for which <span class="math inline">\(P(x) = T\)</span> is
+called a <span><strong>witness</strong></span> of <span
+class="math inline">\(\exists x P(x)\)</span>.</p>
 <p>Statements involving predicates and quantifiers are
 <span><strong>logically equivalent</strong></span> means they have the
 same truth value no matter which predicates (domains and functions) are
@@ -902,17 +906,6 @@ substituted in.</p>
 x \left( \neg P(x) \right)}\)</span> <span
 class="math inline">\(\boxed{\neg \exists x Q(x) ~\equiv~ \forall x
 \left( \neg Q(x) \right)}\)</span></p>
-<p>An element for which <span class="math inline">\(P(x) = F\)</span> is
-called a <span><strong>counterexample</strong></span> of <span
-class="math inline">\(\forall x P(x)\)</span>. When there is a
-counterexample in the domain of predicate <span
-class="math inline">\(P\)</span>, <span class="math inline">\(\forall x
-P(x)\)</span> is false.</p>
-<p>An element for which <span class="math inline">\(P(x) = T\)</span> is
-called a <span><strong>witness</strong></span> of <span
-class="math inline">\(\exists x P(x)\)</span>. When there is a witness
-in the domain of predicate <span class="math inline">\(P\)</span>, then
-<span class="math inline">\(\exists x P(x)\)</span> is true.</p>
 <p>Examples of quantifications using <span class="math inline">\(V(x),
 N(x), Mystery(x)\)</span>:</p>
 <p><span><strong>True</strong></span> or
@@ -923,7 +916,7 @@ x~ (~V(x) \lor N(x)~)\)</span></p>
 x~ (~V(x) \lor N(x)~)\)</span></p>
 <p><span><strong>True</strong></span> or
 <span><strong>False</strong></span>: <span class="math inline">\(\exists
-x~ (~\lnot V(x) \land \lnot N(x)~)\)</span></p>
+x~ (~V(x) \land N(x)~)\)</span></p>
 <p><span><strong>True</strong></span> or
 <span><strong>False</strong></span>: <span class="math inline">\(\forall
 x~ (~V(x) \to N(x)~)\)</span></p>
@@ -980,6 +973,10 @@ b_2 \\
 <p><span><strong>Example predicates on <span
 class="math inline">\(S\)</span>, the set of RNA strands (an infinite
 set)</strong></span></p>
+<p><span class="math inline">\(H: S \to \{T, F\}\)</span> where <span
+class="math inline">\(H(s) = T\)</span> for all <span
+class="math inline">\(s\)</span>.</p>
+<p>Truth set of <span class="math inline">\(H\)</span> is <u></u></p>
 <p><span class="math inline">\(L_{\texttt{A}}: S \to \{T, F\}\)</span>
 defined recursively by:</p>
 <p>  Basis step: <span class="math inline">\(L_{\texttt{A}}(\texttt{A})
@@ -993,39 +990,8 @@ L_{\texttt{A}}(s)\)</span>.</p>
 evaluates to <span class="math inline">\(T\)</span> is <u></u></p>
 <p>Example where <span class="math inline">\(L_{\texttt{A}}\)</span>
 evaluates to <span class="math inline">\(F\)</span> is <u></u></p>
-<p><span class="math inline">\(H: S \to \{T, F\}\)</span> where <span
-class="math inline">\(H(s) = T\)</span> for all <span
-class="math inline">\(s\)</span>.</p>
-<p>Truth set of <span class="math inline">\(H\)</span> is <u></u></p>
-<p><span><strong>Notation</strong></span>: for a predicate <span
-class="math inline">\(P\)</span> with domain <span
-class="math inline">\(X_1 \times \cdots \times X_n\)</span> and a <span
-class="math inline">\(n\)</span>-tuple <span class="math inline">\((x_1,
-\ldots, x_n)\)</span> with each <span class="math inline">\(x_i \in
-X\)</span>, we can write <span class="math inline">\(P(x_1, \ldots,
-x_n)\)</span> to mean <span class="math inline">\(P( ~(x_1, \ldots,
-x_n)~)\)</span>.</p>
-<p><span class="math inline">\(L\)</span> with domain <span
-class="math inline">\(S \times \mathbb{Z}^+\)</span> is defined by, for
-<span class="math inline">\(s \in S\)</span> and <span
-class="math inline">\(n \in \mathbb{Z}^+\)</span>, <span
-class="math display">\[L( ~(s, n)~) = \begin{cases}
-T &amp;\qquad\text{if $rnalen(s) = n$}\\
-F &amp;\qquad\text{otherwise}\\
-\end{cases}\]</span> In other words, <span
-class="math inline">\(L(~(s,n)~)\)</span> means <span
-class="math inline">\(rnalen(s) = n\)</span></p>
-<p><span class="math inline">\(BC\)</span> with domain <span
-class="math inline">\(S \times B \times \mathbb{N}\)</span> is defined
-by, for <span class="math inline">\(s \in S\)</span> and <span
-class="math inline">\(b \in B\)</span> and <span class="math inline">\(n
-\in \mathbb{N}\)</span>, <span class="math display">\[BC(~(s, b, n)~) =
-\begin{cases}
-T &amp;\qquad\text{if $basecount(~(s,b)~) = n$}\\
-F &amp;\qquad\text{otherwise}\\
-\end{cases}\]</span> In other words, <span
-class="math inline">\(BC(~(s,b,n)~)\)</span> means <span
-class="math inline">\(basecount(~(s,b)~) = n\)</span></p>
+<p><span><strong>Using functions to define
+predicates</strong></span>:</p>
 <p>Example where <span class="math inline">\(L\)</span> evaluates to
 <span class="math inline">\(T\)</span>: <span
 class="math inline">\(\underline{\phantom{(\texttt{A},
@@ -1042,20 +1008,7 @@ class="math inline">\(\underline{\phantom{(\texttt{A},
 <span class="math inline">\(F\)</span>: <span
 class="math inline">\(\underline{\phantom{(\texttt{A}, \texttt{C},
 1)\hspace{1in}}}\)</span> Why?</p>
-<p><span class="math display">\[\exists t ~BC(t) \qquad \qquad
-\exists (s,b,n) \in S \times B \times \mathbb{N}~ (basecount(~(s,b)~) =
-n)\]</span></p>
-<p>In English:</p>
-<p>Witness that proves this existential quantification is true:</p>
-<p><span class="math display">\[\forall t ~BC(t) \qquad \qquad
-\forall(s,b,n) \in S \times B \times \mathbb{N} ~(basecount(~(s,b)~) =
-n)\]</span></p>
-<p>In English:</p>
-<p>Counterexample that proves this universal quantification is
-false:</p>
-<p><span><strong>New predicates from old</strong></span>: Consider
-several different predicates that are related to <span
-class="math inline">\(BC\)</span>:</p>
+<p><span><strong>New predicates from old</strong></span></p>
 <ol>
 <li><p>Define the <span><strong>new</strong></span> predicate with
 domain <span class="math inline">\(S \times B\)</span> and rule <span
@@ -1081,38 +1034,15 @@ class="math display">\[\forall b \in B ~(basecount(~(s,b)~) =
 class="math inline">\(T\)</span>:<br />
 </p></li>
 </ol>
+<p><span><strong>Notation</strong></span>: for a predicate <span
+class="math inline">\(P\)</span> with domain <span
+class="math inline">\(X_1 \times \cdots \times X_n\)</span> and a <span
+class="math inline">\(n\)</span>-tuple <span class="math inline">\((x_1,
+\ldots, x_n)\)</span> with each <span class="math inline">\(x_i \in
+X\)</span>, we can write <span class="math inline">\(P(x_1, \ldots,
+x_n)\)</span> to mean <span class="math inline">\(P( ~(x_1, \ldots,
+x_n)~)\)</span>.</p>
 <p><span><strong>Nested quantifiers</strong></span></p>
-<p><span class="math display">\[\forall s \in S ~\forall b \in B
-~\forall n \in \mathbb{N} ~(basecount(~(s,b)~) = n)\]</span></p>
-<p>In English:</p>
-<p>Counterexample that proves this universal quantification is
-false:</p>
-<p><span class="math display">\[~\forall n \in \mathbb{N} ~\forall s \in
-S ~\forall b \in B  ~(basecount(~(s,b)~) = n)\]</span></p>
-<p>In English:</p>
-<p>Counterexample that proves this universal quantification is
-false:</p>
 <p><span><strong>Alternating nested quantifiers</strong></span></p>
-<p><span class="math display">\[\forall s \in S ~\exists b\in B
-~(~basecount(~(s,b)~) = 3~)\]</span></p>
-<p>In English: For each RNA strand there is a base that occurs 3 times
-in this strand.<br />
-Write the negation and use De Morgan’s law to find a logically
-equivalent version where the negation is applied only to the <span
-class="math inline">\(BC\)</span> predicate (not next to a
-quantifier).</p>
-<p>Is the original statement <span><strong>True</strong></span> or
-<span><strong>False</strong></span>?</p>
-<p><span class="math display">\[\exists s \in S ~\forall b \in B
-~\exists n \in \mathbb{N} ~(~basecount(~(s,b)~) = n~)\]</span></p>
-<p>In English: There is an RNA strand so that for each base there is
-some nonnegative integer that counts the number of occurrences of that
-base in this strand.<br />
-Write the negation and use De Morgan’s law to find a logically
-equivalent version where the negation is applied only to the <span
-class="math inline">\(BC\)</span> predicate (not next to a
-quantifier).</p>
-<p>Is the original statement <span><strong>True</strong></span> or
-<span><strong>False</strong></span>?</p>
 </body>
 </html>
