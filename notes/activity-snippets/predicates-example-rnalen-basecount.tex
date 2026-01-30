@@ -1,9 +1,9 @@
-%! app: TODOapp
+%! app: Bioinformatics
 %! outcome: TODOoutcome
 
-{\bf Using functions to define predicates}:
+%{\bf Using functions to define predicates}:
 
-\fbox{\parbox{\textwidth}{
+%\fbox{\parbox{\textwidth}{
 $L$ with domain $S \times \mathbb{Z}^+$ is defined by, for $s \in S$ and $n \in \mathbb{Z}^+$,
 \[
 L( ~(s, n)~) = \begin{cases}
@@ -12,11 +12,11 @@ F &\qquad\text{otherwise}\\
 \end{cases}
 \]
 In other words, $L(~(s,n)~)$ means $rnalen(s) = n$
-}}
+%}}
 
 \vfill
 
-\fbox{\parbox{\textwidth}{
+%\fbox{\parbox{\textwidth}{
 $BC$ with domain $S \times B \times \mathbb{N}$ is defined by, 
 for $s \in S$ and $b \in B$ and $n \in \mathbb{N}$,
 \[
@@ -26,8 +26,7 @@ F &\qquad\text{otherwise}\\
 \end{cases}
 \]
 In other words, $BC(~(s,b,n)~)$ means $basecount(~(s,b)~) = n$
-}}
-
+%}}
 
 \vfill
 
@@ -51,8 +50,7 @@ Example where $BC$ evaluates to $F$: $\underline{\phantom{(\A, \C, 1)\hspace{1in
 
 \vfill
 
-
-\fbox{\parbox{\textwidth}{
+%\fbox{\parbox{\textwidth}{
 \[\exists t ~BC(t) \qquad \qquad 
 \exists (s,b,n) \in S \times B \times \mathbb{N}~ (basecount(~(s,b)~) = n)\]
 
@@ -63,9 +61,9 @@ at which the predicate $BC$ evaluates to $T$.}
 \vspace{30pt}
 
 Witness that proves this existential quantification is true:\phantom{$(\G\G, \G, 2)$ or $(\G\A\U\G, \G, 2)$)}
-}}
+%}}
 
-\fbox{\parbox{\textwidth}{
+%\fbox{\parbox{\textwidth}{
 \[\forall t ~BC(t) \qquad \qquad 
 \forall(s,b,n) \in S \times B \times \mathbb{N} ~(basecount(~(s,b)~) = n)\]
 
@@ -76,4 +74,4 @@ the predicate $BC$ evaluates to $T$.}
 \vspace{30pt}
 
 Counterexample that proves this universal quantification is false: \phantom{$(\G\G, \A, 2)$ or $(\G\A\U\G, \G, 3)$)}
-}}
+%}}
