@@ -63,12 +63,151 @@
 \begin{document}
 \begin{flushright}
     \StrBefore{\currfilename}{.}
-\end{flushright} \section*{Alternating quantifiers strategies rna examples}
+\end{flushright} \section*{Algorithm redundancy}
+
+
+Real-life representations are often prone to corruption.  Biological codes, like RNA, 
+may mutate naturally\footnote{Mutations of specific RNA codons have been linked to many disorders and cancers.}
+and during measurement; cosmic radiation and other ambient noise 
+can flip bits in computer storage\footnote{This RadioLab podcast episode
+goes into more detail on bit flips: \url{https://www.wnycstudios.org/story/bit-flip}}. 
+One way to recover from corrupted data is to introduce or exploit redundancy. 
+
+Consider the following algorithm to introduce redundancy in a string of $0$s and $1$s.
+\begin{algorithm}[caption={Create redundancy by repeating each bit three times}]
+procedure $\textit{redun3}$($a_{k-1} \cdots a_0$: a nonempty bitstring)
+for $i$ := $0$ to $k-1$
+  $c_{3i}$ := $a_i$
+  $c_{3i+1}$ := $a_i$
+  $c_{3i+2}$ := $a_i$
+return $c_{3k-1} \cdots c_0$
+\end{algorithm}
+
+\begin{algorithm}[caption={Decode sequence of bits using majority rule on consecutive three bit sequences}]
+procedure $\textit{decode3}$($c_{3k-1} \cdots c_0$: a nonempty bitstring whose length is an integer multiple of $3$)
+for $i$ := $0$ to $k-1$
+  if exactly two or three of $c_{3i}, c_{3i+1}, c_{3i+2}$ are set to $1$
+    $a_i$ := 1
+  else 
+    $a_i$ := 0
+return $a_{k-1} \cdots a_0$
+\end{algorithm}
+
+Give a recursive definition of the set of outputs of the $redun3$ procedure, $Out$,
+
+\phantom{{\bf Basis step}: $000 \in Out$ and $111 \in Out$\\ {\bf Recursive step}: If $x \in Out$ then $x000 \in Out$ and $x111 \in Out$ (where $x000$ and $x111$ are the results of string concatenation).}
+
+
+Consider the message $m = 0001$ so that the sender calculates $redun3(m) = redun3(0001) = 000000000111$.
+
+Introduce $\underline{\phantom{~~4~~}} $
+errors into the message so that the signal received by the 
+receiver is $\underline{\phantom{010100010101}}$
+but the receiver is still able to decode the original message.
+
+
+{\it Challenge: what is the biggest number of errors you can introduce?} 
+
+Building a circuit for lines 3-6 in $decode$ procedure: given three input bits, we need to determine whether the
+majority is a $0$ or a $1$.
+
+\begin{center}
+\begin{multicols}{2}\begin{tabular}{ccc|c}
+$c_{3i}$ & $c_{3i+1}$ & $c_{3i+2}$ & $a_i$ \\
+\hline
+$1$ & $1$ & $1$ & $\phantom{1}$ \\
+$1$ & $1$ & $0$ & $\phantom{1}$ \\
+$1$ & $0$ & $1$ & $\phantom{1}$ \\
+$1$ & $0$ & $0$ & $\phantom{0}$ \\
+$0$ & $1$ & $1$ & $\phantom{1}$ \\
+$0$ & $1$ & $0$ & $\phantom{0}$ \\
+$0$ & $0$ & $1$ & $\phantom{0}$ \\
+$0$ & $0$ & $0$ & $\phantom{0}$ \\\\
+\end{tabular}
+\columnbreak
+
+Circuit 
+\end{multicols}
+\end{center} \vfill
+\section*{Algorithm rna mutation insertion deletion}
+
+
+Recall that $S$ is defined as the set of all RNA strands, nonempty strings made of the bases in 
+$B = \{\A,\U,\G,\C\}$. 
+We define the functions 
+\[
+  \textit{mutation}: S \times \mathbb{Z}^+ \times B \to S
+\qquad \qquad
+  \textit{insertion}: S \times \mathbb{Z}^+ \times B \to S
+\]
+\[
+  \textit{deletion}: \{ s\in S \mid rnalen(s) > 1\} \times \mathbb{Z}^+ \to S
+  \qquad \qquad \textrm{with rules}
+\]
+
+\begin{algorithm}
+procedure $\textit{mutation}$($b_1\cdots b_n$: $\textrm{a RNA strand}$, $k$: $\textrm{a  positive integer}$, $b$: $\textrm{an  element of } B$)
+for $i$ := $1$ to $n$
+  if $i$ = $k$
+    $c_i$ := $b$
+  else
+    $c_i$ := $b_i$
+return $c_1\cdots c_n$ $\{ \textrm{The return value is a RNA strand made of the } c_i \textrm{ values}\}$
+\end{algorithm}
+
+\begin{algorithm}
+procedure $\textit{insertion}$($b_1\cdots b_n$: $\textrm{a RNA strand}$, $k$: $\textrm{a  positive integer}$, $b$: $\textrm{an  element of } B$)
+if $k > n$
+  for $i$ := $1$ to $n$
+    $c_i$ := $b_i$
+  $c_{n+1}$ := $b$
+else 
+  for $i$ := $1$ to $k-1$
+    $c_i$ := $b_i$
+  $c_k$ := $b$
+  for $i$ := $k+1$ to $n+1$
+    $c_i$ := $b_{i-1}$
+return $c_1\cdots c_{n+1}$ $\{ \textrm{The return value is a RNA strand made of the } c_i \textrm{ values}\}$
+\end{algorithm}
+
+\begin{algorithm}
+procedure $\textit{deletion}$($b_1\cdots b_n$: $\textrm{a RNA strand with } n>1$, $k$: $\textrm{a  positive integer}$)
+if $k > n$
+  $m$ := $n$
+  for $i$ := $1$ to $n$
+    $c_i$ := $b_i$
+else
+  $m$ := $n-1$
+  for $i$ := $1$ to $k-1$ 
+    $c_i$ := $b_i$
+  for $i$ := $k$ to $n-1$
+    $c_i$ := $b_{i+1}$
+return $c_1\cdots c_m$ $\{ \textrm{The return value is a RNA strand made of the } c_i \textrm{ values}\}$
+\end{algorithm}
+ \vfill
+\section*{Alternating quantifiers order rna examples}
 
 
 {\bf Alternating nested quantifiers}
 
-\fbox{\parbox{\textwidth}{
+
+
+$$\forall s \in S ~\exists n \in \mathbb{N} ~(~basecount(~(s,\U)~) = n~)$$
+
+In English: For each strand, there is a nonnnegative integer that counts the number of occurrences of $\U$ in that 
+strand.\\
+
+$$\exists n \in \mathbb{N} ~\forall s \in S ~(~basecount(~(s,\U)~) = n~)$$
+
+In English: There is a nonnnegative integer that counts the number of occurrences of $\U$ in every 
+strand.\\
+
+\vfill
+
+Are these statements true or false?
+
+\newpage
+
 $$\forall s \in S ~\exists b\in B ~(~basecount(~(s,b)~) = 3~)$$
 
 In English: For each RNA strand there is a base that occurs 3 times in this strand.\\
@@ -82,11 +221,129 @@ $BC$ predicate (not next to a quantifier).
 
 Is the original statement {\bf True} or {\bf False}?
 
-}}
+\vfill
+ \vfill
+\section*{Predicate rna example}
+
+
+{\bf Example predicates on $S$, the set of RNA strands (an infinite set)}
+
+
+$L_{\A}: S \to \{T, F\}$  defined recursively by: 
+
+~~Basis step: $L_{\A}(\A) = T$, $L_{\A}(\C) = L_{\A}(\G) = L_{\A}(\U) = F$
+
+~~Recursive step: If $s \in S$ and $b \in B$, then $L_{\A}(sb) = L_{\A}(s)$.
+
+Example where $L_{\A}$ evaluates to $T$ is \underline{\phantom{$\A\C\G$~\hspace{1in}}}
 
 \vfill
 
-\fbox{\parbox{\textwidth}{
+Example where $L_{\A}$ evaluates to $F$ is \underline{\phantom{$\U\A\C\U$\hspace{1in}}}
+
+\vfill
+
+
+$H: S \to \{T, F\}$ where $H(s) = T$ for all $s$.
+
+Truth set of $H$ is \underline{\phantom{$S$\hspace{1in}}}
+
+\vfill
+ \vfill
+\section*{Predicates example rnalen basecount}
+
+
+
+
+$L$ with domain $S \times \mathbb{Z}^+$ is defined by, for $s \in S$ and $n \in \mathbb{Z}^+$,
+\[
+L( ~(s, n)~) = \begin{cases}
+T &\qquad\text{if $rnalen(s) = n$}\\
+F &\qquad\text{otherwise}\\
+\end{cases}
+\]
+In other words, $L(~(s,n)~)$ means $rnalen(s) = n$
+
+
+\vfill
+
+$BC$ with domain $S \times B \times \mathbb{N}$ is defined by, 
+for $s \in S$ and $b \in B$ and $n \in \mathbb{N}$,
+\[
+BC(~(s, b, n)~) = \begin{cases}
+T &\qquad\text{if $basecount(~(s,b)~) = n$}\\
+F &\qquad\text{otherwise}\\
+\end{cases}
+\]
+In other words, $BC(~(s,b,n)~)$ means $basecount(~(s,b)~) = n$
+
+
+\vfill
+
+
+Example where $L$ evaluates to $T$: $\underline{\phantom{(\A, 1)\hspace{1in}}}$  Why?
+
+\vfill
+
+
+Example where $BC$ evaluates to $T$: $\underline{\phantom{(\A, \A1)\hspace{1in}}}$  Why?
+
+\vfill
+
+
+Example where $L$ evaluates to $F$: $\underline{\phantom{(\A, 2)\hspace{1in}}}$ Why?
+
+\vfill
+
+
+Example where $BC$ evaluates to $F$: $\underline{\phantom{(\A, \C, 1)\hspace{1in}}}$ Why? 
+
+\vfill
+
+\[\exists t ~BC(t) \qquad \qquad 
+\exists (s,b,n) \in S \times B \times \mathbb{N}~ (basecount(~(s,b)~) = n)\]
+
+In English: \phantom{There exists an ordered $3$-tuple 
+at which the predicate $BC$ evaluates to $T$.}
+
+\vspace{30pt}
+
+Witness that proves this existential quantification is true:\phantom{$(\G\G, \G, 2)$ or $(\G\A\U\G, \G, 2)$)}
+
+
+\[\forall t ~BC(t) \qquad \qquad 
+\forall(s,b,n) \in S \times B \times \mathbb{N} ~(basecount(~(s,b)~) = n)\]
+
+In English:\phantom{For all ordered $3$-tuples
+the predicate $BC$ evaluates to $T$.}
+
+\vspace{30pt}
+
+Counterexample that proves this universal quantification is false: \phantom{$(\G\G, \A, 2)$ or $(\G\A\U\G, \G, 3)$)}
+ \vfill
+\section*{Alternating quantifiers strategies rna examples}
+
+
+{\bf Alternating nested quantifiers}
+
+$$\forall s \in S ~\exists b\in B ~(~basecount(~(s,b)~) = 3~)$$
+
+In English: For each RNA strand there is a base that occurs 3 times in this strand.\\
+
+Write the negation and use De Morgan's law to find a 
+logically equivalent version where the negation is applied only to the 
+$BC$ predicate (not next to a quantifier).
+
+\vspace{60pt}
+
+
+Is the original statement {\bf True} or {\bf False}?
+
+
+
+\vfill
+
+
 
 $$\exists s \in S ~\forall b \in B ~\exists n \in \mathbb{N} ~(~basecount(~(s,b)~) = n~)$$
 
@@ -102,9 +359,37 @@ $BC$ predicate (not next to a quantifier).
 
 Is the original statement {\bf True} or {\bf False}?
 
-}}
+
 
 \vfill
+ \vfill
+\section*{Alternating quantifiers proofs rna examples}
+
+
+Which proof strategies could be used to prove each of the following statements?
+
+{\it Hint: first translate the statements to English and identify the main logical structure.}
+
+$\forall s \in S~(~rnalen(s) > 0~)$
+
+\vspace{100pt}
+
+$\forall b \in B~\exists s \in S~(~basecount(~(s,b)~)~ > 0~)$
+
+\vspace{100pt}
+
+$\forall s \in S ~\exists b\in B ~(~basecount(~(s,b)~) > 0~)$
+
+\vspace{100pt}
+
+$\exists s \in S \, (\textit{rnalen(s)} = \textit{basecount}(~(s, \A)~)$
+
+\vspace{100pt}
+
+$\forall s \in S \, (\textit{rnalen(s)} \geq \textit{basecount}(~(s, \A)~))$
+
+\vspace{100pt}
+
  \vfill
 \section*{Defining functions more examples}
 
