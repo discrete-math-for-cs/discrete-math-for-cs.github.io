@@ -361,17 +361,6 @@ Example: $\mathcal{P}(\{43, 9\}) = $
 
 Example: $\mathcal{P}(\emptyset) = $
  \vfill
-\section*{Sets proof strategies}
-
-
-To prove that one set is a subset of another, e.g. to show $A \subseteq B$:
-
-\vspace{50pt}
-
-To prove that two sets are equal, e.g. to show $A = B$:
-
-\vspace{50pt}
- \vfill
 \section*{Sets basic proofs operations}
 
 
@@ -795,27 +784,24 @@ Some nonzero integer is not a factor of itself.
 {\bf Proof}: 
 
 
-\vspace{150pt}
-
+\vfill
 
 {\bf Prove} or {\bf Disprove}: There is a nonzero integer that does not divide its square.
 
 
 
-\vspace{150pt}
+\vfill
 
 {\bf Prove} or {\bf Disprove}: Every positive factor of a positive integer is less than or equal to it.
 
-\vspace{150pt}
- \vfill
+\vfill \vfill
 \section*{Factoring basic claims continued}
 
 
 {\bf Claim}: Every nonzero integer is a factor of itself and 
 every nonzero integer divides its square.
 
-\vspace{100pt}
- \vfill
+\vfill \vfill
 \section*{Factoring even odd}
 
 
@@ -899,26 +885,30 @@ Which proof strategies could be used to prove each of the following statements?
 
 {\it Hint: first translate the statements to English and identify the main logical structure.}
 
-$\forall s \in S~(~rnalen(s) > 0~)$
-
-\vspace{100pt}
 
 $\forall b \in B~\exists s \in S~(~basecount(~(s,b)~)~ > 0~)$
 
-\vspace{100pt}
+\vfill
 
-$\forall s \in S ~\exists b\in B ~(~basecount(~(s,b)~) > 0~)$
+$\exists s \in S~\forall b \in B~(~basecount(~(s,b)~)~ > 0~)$
 
-\vspace{100pt}
+\vfill
 
 $\exists s \in S \, (\textit{rnalen(s)} = \textit{basecount}(~(s, \A)~)$
 
-\vspace{100pt}
+\vfill
+
+$\forall s \in S ~\exists b\in B ~(~basecount(~(s,b)~) > 0~)$
+
+\vfill
 
 $\forall s \in S \, (\textit{rnalen(s)} \geq \textit{basecount}(~(s, \A)~))$
 
-\vspace{100pt}
+\vfill
 
+$\forall s \in S~(~rnalen(s) > 0~)$
+
+\vfill
  \vfill
 \section*{Structural induction motivating example rna}
 
@@ -1044,6 +1034,26 @@ system no matter what inputs are used.
 
 
  \vfill
+\section*{Proof strategy mathematical induction}
+
+
+\fbox{\parbox{\textwidth}{
+
+{\bf Proof by Mathematical Induction}
+
+To prove a universal quantification over the set of all integers greater than
+or  equal to some  base integer $b$,
+
+\vspace{-10pt}
+
+\begin{itemize}
+\item[] {\bf Basis Step}:  Show the property holds for $b$. 
+\item[]  {\bf Recursive Step}:  Consider an arbitrary integer $n$ greater than or  equal to  $b$, assume
+    (as the {\bf induction hypothesis})  that the property holds  for $n$, and use  this and
+    other facts to  prove that  the property holds for $n+1$.
+\end{itemize}
+
+}} \vfill
 \section*{Structural induction example sum of powers}
 
 
@@ -1096,26 +1106,101 @@ Thus, $LHS = RHS$. The structural induction is complete and we have proved the u
 $\square$
 
  \vfill
-\section*{Proof strategy mathematical induction}
+\section*{Proof strategy strong induction}
 
 
 \fbox{\parbox{\textwidth}{
 
-{\bf Proof by Mathematical Induction}
+{\bf Proof by Strong Induction}
 
-To prove a universal quantification over the set of all integers greater than
-or  equal to some  base integer $b$,
+To prove that a universal quantification over the set of all integers greater than or equal to some  base integer $b$ holds,  pick a  fixed nonnegative integer  $j$ and then: \hfill 
 
-\vspace{-10pt}
-
-\begin{itemize}
-\item[] {\bf Basis Step}:  Show the property holds for $b$. 
-\item[]  {\bf Recursive Step}:  Consider an arbitrary integer $n$ greater than or  equal to  $b$, assume
-    (as the {\bf induction hypothesis})  that the property holds  for $n$, and use  this and
+\begin{tabularx}{\textwidth}{lX}
+    {\bf Basis Step}: & Show the statement holds for $b$, $b+1$, \ldots, $b+j$. \\
+    {\bf Recursive Step}: & Consider an arbitrary integer $n$ greater than or  equal to $b+j$, assume
+    (as the {\bf strong  induction hypothesis})  that the property holds  for {\bf each of} $b$, $b+1$, \ldots, $n$, 	
+    and use  this and
     other facts to  prove that  the property holds for $n+1$.
-\end{itemize}
+\end{tabularx}
+}} 
+ \vfill
+\section*{Binary expansions exist proof}
 
-}} \vfill
+
+{\bf Theorem}: Every positive integer is a sum of (one or more) distinct powers of $2$.
+{\it Binary expansions exist!}
+
+
+
+
+The idea in the ``Least significant first" algorithm 
+for computing binary expansions is that the binary
+expansion of {\it half} a number becomes {\it part} of the binary expansion of 
+the number of itself. We can use this 
+idea in a proof by strong induction that binary expansions exist for all 
+positive integers $n$.
+
+
+{\bf Proof by strong induction}, with $b=1$ and $j=0$. We need to prove
+that for each positive integer $n$, there is 
+a positive integer $k$ and coefficients $a_0, \ldots, a_{k-1}$ 
+where each $a_i$ is $0$ or $1$ and $a_{k-1} \neq 0$, and 
+\[
+n = \sum_{i=1}^{k-1} a_i 2^i
+\]
+
+
+
+{\bf Basis step}:  WTS property is true about  $1$.
+
+\phantom{Choose $a_0 = 1$, then $(a_0)_2 = 1 \cdot 2^0 = 1$.}
+\vspace{80pt}
+
+
+{\bf Recursive step}: Consider an arbitrary integer $n \geq 1$.
+
+Assume (as the strong induction hypothesis, IH) that the property is true about  each of $1, \ldots, n$.  
+
+WTS that the property is true about $n+1$.
+
+{\it Idea}: We will apply the IH to $(n+1) \textbf{ div } 2$.
+
+{\it Why is this ok?}
+
+\phantom{Notice that $(n+1) \textbf{ div } 2$ is greater than or equal to 
+$1$ and less than or equal to $n$ because $n \geq 1$.}
+
+\vfill
+\newpage
+{\it Why is this helpful?}
+
+By the IH, we can write $(n+1) \textbf{ div } 2$ as 
+a sum of powers of $2$. In other words, 
+there are values $a_{k-1}, \ldots, a_0$ such that each $a_i$ is $0$ or $1$, $a_{k-1} = 1$, 
+and
+\[
+    \sum_{i=0}^{k-1} a_i 2^i = (n+1) \textbf{ div } 2   
+\]
+Define the collection of coefficients
+\[
+   c_{j} = 
+   \begin{cases}
+        a_{j-1} \qquad&\text{if $1 \leq j \leq k$}\\
+        (n+1) \textbf{ mod } 2 &\text{if $j = 0$}
+   \end{cases}
+\]
+Calculating: 
+\begin{alignat*}{2}
+    \sum_{j=0}^k c_j 2^j &= c_0 + \sum_{j=1}^k c_j 2^j 
+    = c_0 + \sum_{i=0}^{k-1} c_{i+1} 2^{i+1} &\qquad &\text{re-indexing the summation}\\
+    &= c_0 + 2 \cdot \sum_{i=0}^{k-1} c_{i+1}2^i &\qquad &\text{factoring out a $2$ from each term in the sum}\\
+    &= c_0 + 2 \cdot \sum_{i=0}^{k-1} a_{i} 2^i &\qquad &\text{by definition of $c_{i+1}$}\\
+    &= c_0 + 2 \left(~(n+1) \textbf{ div } 2 ~\right) &\qquad &\text{by IH} \\
+    &= \left(~ (n+1) \textbf{ mod } 2 ~\right ) + 2 \left(~(n+1) \textbf{ div } 2 ~\right) &\qquad &\text{by definition of $c_0$} \\
+    &= n+1 &\qquad&\text{by definition of long division}
+\end{alignat*}
+
+Thus, $n+1$ can be expressed as a sum of powers of $2$, as required. \vfill
 \section*{Tautology contradiction contingency examples}
 
 

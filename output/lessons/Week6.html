@@ -187,7 +187,7 @@ appropriate formalism. Translate across levels of abstraction.</p>
 <li><p>Translating between symbolic and English versions of statements
 using precise mathematical language</p></li>
 <li><p>Using appropriate signpost words to improve readability of
-proofs, including ’arbitrary’ and ’assume’</p></li>
+proofs, including ‘arbitrary’ and ‘assume’</p></li>
 </ul></li>
 <li><p>Know, select and apply appropriate computing knowledge and
 problem-solving techniques. Reason about computation and systems. Use
@@ -230,6 +230,10 @@ and what isn’t. <a href="https://canvas.ucsd.edu/courses/71479/quizzes"
 class="uri">https://canvas.ucsd.edu/courses/71479/quizzes</a></p>
 <p>Homework 3 due on Gradescope https://www.gradescope.com/ (Thursday
 02/12/2026)</p>
+<p>Review quiz based on Week 6 class material (due Monday
+02/16/2026)</p>
+<p>No class Monday of Week 7 (02/16/2026) in observance of UCSD
+holiday.</p>
 </div>
 <h1 class="unnumbered"
 id="week-6-monday-proofs-for-properties-of-sets-and-numbers">Week 6
@@ -359,47 +363,9 @@ three consecutive odd positive integers that are prime."</p>
 class="math inline">\(p, p+2, p+4\)</span> (where <span
 class="math inline">\(p\)</span> is an odd positive integer).</p>
 <p><span><strong>Proof</strong></span>: We need to show <u></u></p>
-<h1 class="unnumbered" id="week-6-wednesday-structural-induction">Week 6
-Wednesday: Structural Induction</h1>
-<p><span><em>Recall the definitions</em></span>: The set of RNA strands
-<span class="math inline">\(S\)</span> is defined (recursively) by:
-<span class="math display">\[\begin{array}{ll}
-\textrm{Basis Step: } &amp; \texttt{A}\in S, \texttt{C}\in S,
-\texttt{U}\in S, \texttt{G}\in S \\
-\textrm{Recursive Step: } &amp; \textrm{If } s \in S\textrm{ and }b \in
-B \textrm{, then }sb \in S
-\end{array}\]</span> where <span class="math inline">\(sb\)</span> is
-string concatenation.</p>
-<p>The function <em>rnalen</em> that computes the length of RNA strands
-in <span class="math inline">\(S\)</span> is defined recursively by:
-<span class="math display">\[\begin{array}{llll}
-&amp; &amp; \textit{rnalen} : S &amp; \to \mathbb{Z}^+ \\
-\textrm{Basis Step:} &amp; \textrm{If } b \in B\textrm{ then } &amp;
-\textit{rnalen}(b) &amp; = 1 \\
-\textrm{Recursive Step:} &amp; \textrm{If } s \in S\textrm{ and }b \in
-B\textrm{, then  } &amp; \textit{rnalen}(sb) &amp; = 1 +
-\textit{rnalen}(s)
-\end{array}\]</span></p>
-<p>The function <em>basecount</em> that computes the number of a given
-base <span class="math inline">\(b\)</span> appearing in a RNA strand
-<span class="math inline">\(s\)</span> is defined recursively by: <span
-class="math display">\[\begin{array}{llll}
-&amp; &amp; \textit{basecount} : S \times B &amp; \to \mathbb{N} \\
-\textrm{Basis Step:} &amp;  \textrm{If } b_1 \in B, b_2 \in B &amp;
-\textit{basecount}(~(b_1, b_2)~) &amp; =
-        \begin{cases}
-            1 &amp; \textrm{when } b_1 = b_2 \\
-            0 &amp; \textrm{when } b_1 \neq b_2 \\
-        \end{cases} \\
-\textrm{Recursive Step:} &amp; \textrm{If } s \in S, b_1 \in B, b_2 \in
-B &amp;\textit{basecount}(~(s b_1, b_2)~) &amp; =
-        \begin{cases}
-            1 + \textit{basecount}(~(s, b_2)~) &amp; \textrm{when } b_1
-= b_2 \\
-            \textit{basecount}(~(s, b_2)~) &amp; \textrm{when } b_1 \neq
-b_2 \\
-        \end{cases}
-\end{array}\]</span></p>
+<h1 class="unnumbered"
+id="pre-class-reading-for-week-6-wednesday">Pre-class reading for Week 6
+Wednesday</h1>
 <p>At this point, we’ve seen the proof strategies</p>
 <div class="multicols">
 <p><span>2</span></p>
@@ -441,20 +407,63 @@ proof.</p></li>
 <li><p><span><strong>Proof by cases</strong></span>.</p></li>
 </ul>
 </div>
+<p><span><em>Recall the definitions</em></span>: The set of RNA strands
+<span class="math inline">\(S\)</span> is defined (recursively) by:
+<span class="math display">\[\begin{array}{ll}
+\textrm{Basis Step: } &amp; \texttt{A}\in S, \texttt{C}\in S,
+\texttt{U}\in S, \texttt{G}\in S \\
+\textrm{Recursive Step: } &amp; \textrm{If } s \in S\textrm{ and }b \in
+B \textrm{, then }sb \in S
+\end{array}\]</span> where <span class="math inline">\(sb\)</span> is
+string concatenation.</p>
+<p>The function <em>rnalen</em> that computes the length of RNA strands
+in <span class="math inline">\(S\)</span> is defined recursively by:
+<span class="math display">\[\begin{array}{llll}
+&amp; &amp; \textit{rnalen} : S &amp; \to \mathbb{Z}^+ \\
+\textrm{Basis Step:} &amp; \textrm{If } b \in B\textrm{ then } &amp;
+\textit{rnalen}(b) &amp; = 1 \\
+\textrm{Recursive Step:} &amp; \textrm{If } s \in S\textrm{ and }b \in
+B\textrm{, then  } &amp; \textit{rnalen}(sb) &amp; = 1 +
+\textit{rnalen}(s)
+\end{array}\]</span></p>
+<p>The function <em>basecount</em> that computes the number of a given
+base <span class="math inline">\(b\)</span> appearing in a RNA strand
+<span class="math inline">\(s\)</span> is defined recursively by: <span
+class="math display">\[\begin{array}{llll}
+&amp; &amp; \textit{basecount} : S \times B &amp; \to \mathbb{N} \\
+\textrm{Basis Step:} &amp;  \textrm{If } b_1 \in B, b_2 \in B &amp;
+\textit{basecount}(~(b_1, b_2)~) &amp; =
+        \begin{cases}
+            1 &amp; \textrm{when } b_1 = b_2 \\
+            0 &amp; \textrm{when } b_1 \neq b_2 \\
+        \end{cases} \\
+\textrm{Recursive Step:} &amp; \textrm{If } s \in S, b_1 \in B, b_2 \in
+B &amp;\textit{basecount}(~(s b_1, b_2)~) &amp; =
+        \begin{cases}
+            1 + \textit{basecount}(~(s, b_2)~) &amp; \textrm{when } b_1
+= b_2 \\
+            \textit{basecount}(~(s, b_2)~) &amp; \textrm{when } b_1 \neq
+b_2 \\
+        \end{cases}
+\end{array}\]</span></p>
 <p>Which proof strategies could be used to prove each of the following
 statements?</p>
 <p><span><em>Hint: first translate the statements to English and
 identify the main logical structure.</em></span></p>
-<p><span class="math inline">\(\forall s \in S~(~rnalen(s) &gt;
-0~)\)</span></p>
 <p><span class="math inline">\(\forall b \in B~\exists s \in
 S~(~basecount(~(s,b)~)~ &gt; 0~)\)</span></p>
-<p><span class="math inline">\(\forall s \in S ~\exists b\in B
-~(~basecount(~(s,b)~) &gt; 0~)\)</span></p>
+<p><span class="math inline">\(\exists s \in S~\forall b \in
+B~(~basecount(~(s,b)~)~ &gt; 0~)\)</span></p>
 <p><span class="math inline">\(\exists s \in S \, (\textit{rnalen(s)} =
 \textit{basecount}(~(s, \texttt{A})~)\)</span></p>
+<p><span class="math inline">\(\forall s \in S ~\exists b\in B
+~(~basecount(~(s,b)~) &gt; 0~)\)</span></p>
 <p><span class="math inline">\(\forall s \in S \, (\textit{rnalen(s)}
 \geq \textit{basecount}(~(s, \texttt{A})~))\)</span></p>
+<p><span class="math inline">\(\forall s \in S~(~rnalen(s) &gt;
+0~)\)</span></p>
+<h1 class="unnumbered" id="week-6-wednesday-structural-induction">Week 6
+Wednesday: Structural Induction</h1>
 <p><span><strong>Claim</strong></span> <span
 class="math inline">\(\forall s \in S ~(~rnalen(s) &gt; 0~)\)</span></p>
 <p><span><strong>Proof</strong></span>: Let <span
@@ -550,9 +559,6 @@ rnalen(u)\)</span> so: <span class="math display">\[basecount(~(ub,
 rnalen(u) = rnalen (ub)\]</span> and, thus, <span
 class="math inline">\(basecount(~(ub,\texttt{A})~) \leq
 rnalen(ub)\)</span>, as required.</p>
-<h1 class="unnumbered"
-id="week-6-friday-structural-and-mathematical-induction">Week 6 Friday:
-Structural and Mathematical Induction</h1>
 <p>To organize our proofs, it’s useful to highlight which claims are
 most important for our overall goals. We use some terminology to
 describe different roles statements can have.</p>
@@ -622,6 +628,9 @@ class="math inline">\(\square\)</span></p>
 class="math display">\[(x+y \text{ is an even integer}) \to (\text{sum
 of coordinates of next position is even integer})\]</span> Assume
 <span><strong>as the induction hypothesis, IH</strong></span> that:</p>
+<h1 class="unnumbered"
+id="week-6-friday-mathematical-and-strong-induction">Week 6 Friday:
+Mathematical and Strong Induction</h1>
 <p>The set <span class="math inline">\(\mathbb{N}\)</span> is
 recursively defined. Therefore, the function <span
 class="math inline">\(sumPow: \mathbb{N} \to \mathbb{N}\)</span> which
@@ -663,5 +672,165 @@ sumPow(n)  + 2^{n+1}\overset{\text{IH}}{=} (2^{n+1} - 1) +
 <span class="math inline">\(LHS = RHS\)</span>. The structural induction
 is complete and we have proved the universal generalization. <span
 class="math inline">\(\square\)</span></p>
+<p><span><strong>Theorem</strong></span>: Every positive integer is a
+sum of (one or more) distinct powers of <span
+class="math inline">\(2\)</span>. <span><em>Binary expansions
+exist!</em></span></p>
+<p>The idea in the “Least significant first" algorithm for computing
+binary expansions is that the binary expansion of
+<span><em>half</em></span> a number becomes <span><em>part</em></span>
+of the binary expansion of the number of itself. We can use this idea in
+a proof by strong induction that binary expansions exist for all
+positive integers <span class="math inline">\(n\)</span>.</p>
+<p><span><strong>Proof by strong induction</strong></span>, with <span
+class="math inline">\(b=1\)</span> and <span
+class="math inline">\(j=0\)</span>. We need to prove that for each
+positive integer <span class="math inline">\(n\)</span>, there is a
+positive integer <span class="math inline">\(k\)</span> and coefficients
+<span class="math inline">\(a_0, \ldots, a_{k-1}\)</span> where each
+<span class="math inline">\(a_i\)</span> is <span
+class="math inline">\(0\)</span> or <span
+class="math inline">\(1\)</span> and <span class="math inline">\(a_{k-1}
+\neq 0\)</span>, and <span class="math display">\[n = \sum_{i=1}^{k-1}
+a_i 2^i\]</span></p>
+<p><span><strong>Basis step</strong></span>: WTS property is true about
+<span class="math inline">\(1\)</span>.</p>
+<p><span><strong>Recursive step</strong></span>: Consider an arbitrary
+integer <span class="math inline">\(n \geq 1\)</span>.</p>
+<p>Assume (as the strong induction hypothesis, IH) that the property is
+true about each of <span class="math inline">\(1, \ldots,
+n\)</span>.</p>
+<p>WTS that the property is true about <span
+class="math inline">\(n+1\)</span>.</p>
+<p><span><em>Idea</em></span>: We will apply the IH to <span
+class="math inline">\((n+1) \textbf{ div } 2\)</span>.</p>
+<p><span><em>Why is this ok?</em></span></p>
+<p><span><em>Why is this helpful?</em></span></p>
+<p>By the IH, we can write <span class="math inline">\((n+1) \textbf{
+div } 2\)</span> as a sum of powers of <span
+class="math inline">\(2\)</span>. In other words, there are values <span
+class="math inline">\(a_{k-1}, \ldots, a_0\)</span> such that each <span
+class="math inline">\(a_i\)</span> is <span
+class="math inline">\(0\)</span> or <span
+class="math inline">\(1\)</span>, <span class="math inline">\(a_{k-1} =
+1\)</span>, and <span class="math display">\[\sum_{i=0}^{k-1} a_i 2^i =
+(n+1) \textbf{ div } 2\]</span> Define the collection of coefficients
+<span class="math display">\[c_{j} =
+   \begin{cases}
+        a_{j-1} \qquad&amp;\text{if $1 \leq j \leq k$}\\
+        (n+1) \textbf{ mod } 2 &amp;\text{if $j = 0$}
+   \end{cases}\]</span> Calculating: <span
+class="math display">\[\begin{alignat*}
+{2}
+    \sum_{j=0}^k c_j 2^j &amp;= c_0 + \sum_{j=1}^k c_j 2^j
+    = c_0 + \sum_{i=0}^{k-1} c_{i+1} 2^{i+1} &amp;\qquad
+&amp;\text{re-indexing the summation}\\
+    &amp;= c_0 + 2 \cdot \sum_{i=0}^{k-1} c_{i+1}2^i &amp;\qquad
+&amp;\text{factoring out a $2$ from each term in the sum}\\
+    &amp;= c_0 + 2 \cdot \sum_{i=0}^{k-1} a_{i} 2^i &amp;\qquad
+&amp;\text{by definition of $c_{i+1}$}\\
+    &amp;= c_0 + 2 \left(~(n+1) \textbf{ div } 2 ~\right) &amp;\qquad
+&amp;\text{by IH} \\
+    &amp;= \left(~ (n+1) \textbf{ mod } 2 ~\right ) + 2 \left(~(n+1)
+\textbf{ div } 2 ~\right) &amp;\qquad &amp;\text{by definition of $c_0$}
+\\
+    &amp;= n+1 &amp;\qquad&amp;\text{by definition of long division}
+\end{alignat*}\]</span></p>
+<p>Thus, <span class="math inline">\(n+1\)</span> can be expressed as a
+sum of powers of <span class="math inline">\(2\)</span>, as
+required.</p>
+<h3 class="unnumbered"
+id="representing-positive-integers-with-primes">Representing positive
+integers with primes</h3>
+<p><span><strong>Theorem</strong></span>: Every positive integer
+<span><em>greater than 1</em></span> is a product of (one or more)
+primes.</p>
+<p><span><strong>Before we prove, let’s try some
+examples</strong></span>:</p>
+<p><span class="math inline">\(20 =\)</span></p>
+<p><span class="math inline">\(100 =\)</span></p>
+<p><span class="math inline">\(5 =\)</span></p>
+<p><span><strong>Proof by strong induction</strong></span>, with <span
+class="math inline">\(b=2\)</span> and <span
+class="math inline">\(j=0\)</span>.</p>
+<p><span><strong>Basis step</strong></span>: WTS property is true about
+<span class="math inline">\(2\)</span>.</p>
+<p>Since <span class="math inline">\(2\)</span> is itself prime, it is
+already written as a product of (one) prime.</p>
+<p><span><strong>Recursive step</strong></span>: Consider an arbitrary
+integer <span class="math inline">\(n \geq 2\)</span>. Assume (as the
+strong induction hypothesis, IH) that the property is true about each of
+<span class="math inline">\(2, \ldots, n\)</span>. WTS that the property
+is true about <span class="math inline">\(n+1\)</span>: We want to show
+that <span class="math inline">\(n+1\)</span> can be written as a
+product of primes. Notice that <span class="math inline">\(n+1\)</span>
+is itself prime or it is composite.</p>
+<p><span><em>Case 1</em></span>: assume <span
+class="math inline">\(n+1\)</span> is prime and then immediately it is
+written as a product of (one) prime so we are done.</p>
+<p><span><em>Case 2</em></span>: assume that <span
+class="math inline">\(n+1\)</span> is composite so there are integers
+<span class="math inline">\(x\)</span> and <span
+class="math inline">\(y\)</span> where <span class="math inline">\(n+1 =
+xy\)</span> and each of them is between <span
+class="math inline">\(2\)</span> and <span
+class="math inline">\(n\)</span> (inclusive). Therefore, the induction
+hypothesis applies to each of <span class="math inline">\(x\)</span> and
+<span class="math inline">\(y\)</span> so each of these factors of <span
+class="math inline">\(n+1\)</span> can be written as a product of
+primes. Multiplying these products together, we get a product of primes
+that gives <span class="math inline">\(n+1\)</span>, as required.</p>
+<p>Since both cases give the necessary conclusion, the proof by cases
+for the recursive step is complete.</p>
+<h3 class="unnumbered"
+id="sending-old-fashioned-mail-with-postage-stamps">Sending
+old-fashioned mail with postage stamps</h3>
+<p>Suppose we had postage stamps worth <span
+class="math inline">\(5\)</span> cents and <span
+class="math inline">\(3\)</span> cents. Which number of cents can we
+form using these stamps? In other words, which postage can we pay?</p>
+<p><span class="math inline">\(11\)</span>?</p>
+<p><span class="math inline">\(15\)</span>?</p>
+<p><span class="math inline">\(4\)</span>?</p>
+<p><span class="math display">\[\begin{align*}
+    &amp;CanPay(0) \land \lnot CanPay(1) \land \lnot CanPay(2) \land \\
+    &amp;CanPay(3) \land \lnot CanPay(4) \land CanPay(5) \land CanPay(6)
+\\
+    &amp;\lnot CanPay(7) \land \forall n \in \mathbb{Z}^{\geq 8}
+CanPay(n)
+\end{align*}\]</span></p>
+<p>where the predicate <span class="math inline">\(CanPay\)</span> with
+domain <span class="math inline">\(\mathbb{N}\)</span> is <span
+class="math display">\[CanPay(n) = \exists x \in \mathbb{N} \exists y
+\in \mathbb{N}  ( 5x+3y = n)\]</span></p>
+<p><span><strong>Proof</strong></span> (idea): First, explicitly give
+witnesses or general arguments for postages between <span
+class="math inline">\(0\)</span> and <span
+class="math inline">\(7\)</span>. To prove the universal claim, we can
+use mathematical induction or strong induction.</p>
+<p><span><em>Approach 1, mathematical induction</em></span>: if we have
+stamps that add up to <span class="math inline">\(n\)</span> cents, need
+to use them (and others) to give <span
+class="math inline">\(n+1\)</span> cents. How do we get <span
+class="math inline">\(1\)</span> cent with just <span
+class="math inline">\(3\)</span>-cent and <span
+class="math inline">\(5\)</span>-cent stamps?</p>
+<p>Either <u>take away a <span class="math inline">\(5\)</span>-cent
+stamps and add two <span class="math inline">\(3\)</span>-cent
+stamps</u>,</p>
+<p>or <u>take away three <span class="math inline">\(3\)</span>-cent
+stamps and add two <span class="math inline">\(5\)</span>-cent
+stamps</u>.</p>
+<p>The details of this proof by mathematical induction are making sure
+we have enough stamps to use one of these approaches.</p>
+<p><span><em>Approach 2, strong induction</em></span>: assuming we know
+how to make postage for <span><strong>all</strong></span> smaller values
+(greater than or equal to <span class="math inline">\(8\)</span>), when
+we need to make <span class="math inline">\(n+1\)</span> cents, <u>add
+one <span class="math inline">\(3\)</span> cent stamp to however we make
+<span class="math inline">\((n+1) - 3\)</span> cents</u>.</p>
+<p>The details of this proof by strong induction are making sure we stay
+in the domain of the universal when applying the induction
+hypothesis.</p>
 </body>
 </html>

@@ -86,6 +86,7 @@ to diagonally adjacent grid point. This robot can / cannot {\footnotesize({\it c
 {\it Example elements of $Pos$ are}:
 \vspace{20pt}
 
+\newpage
 {\bf Lemma}: $\forall (x,y) \in Pos~~( x+y \textrm{ is an even integer}~)$
 
 {\it Why are we calling this a lemma?}
@@ -118,4 +119,99 @@ Assume {\bf as the induction hypothesis, IH} that:
 
 
 \vspace{400pt} \vfill
+\section*{Fundamental theorem proof}
+
+
+{\bf Theorem}: Every positive integer {\it greater than 1} is a product of (one or more) primes.
+
+{\bf Before we prove, let's try some examples}:
+
+$20 = $
+
+$100 = $
+
+$5 = $
+
+
+{\bf Proof by strong induction}, with $b=2$ and $j=0$.
+
+{\bf Basis step}:  WTS property is true about  $2$.
+
+Since $2$ is itself prime,
+it is already written as a product of (one) prime.
+
+
+{\bf Recursive step}: Consider an arbitrary integer $n \geq 2$.
+Assume (as the strong induction hypothesis, IH) that the property is true about  each of $2, \ldots, n$.  
+WTS that the property is true about  $n+1$: We want to show that $n+1$ can be written 
+as a product of primes.  Notice that $n+1$ is itself prime or it is composite.
+
+{\it Case 1}: assume $n+1$ is prime and then immediately it is written as a product
+of (one) prime so we are done.  
+
+{\it Case 2}: assume that $n+1$ is composite
+so there are integers $x$ and $y$ where $n+1 = xy$ and each of them is between $2$ and $n$
+(inclusive).  Therefore, the induction hypothesis applies to each of $x$ and $y$ so each 
+of these factors of $n+1$ can be written as a product of primes.  Multiplying these products together, 
+we get a product of primes that gives $n+1$, as required. 
+
+Since both cases give the necessary
+conclusion, the proof by cases for the recursive step is complete. \vfill
+\section*{Strong induction making change proof idea}
+
+
+Suppose we had postage stamps worth $5$ cents and $3$ cents.
+Which number of cents can we form using these stamps?
+In other words, which postage can we pay?
+
+$11$? 
+
+$15$? 
+
+
+$4$?
+
+
+
+\begin{align*}
+    &CanPay(0) \land \lnot CanPay(1) \land \lnot CanPay(2) \land \\
+    &CanPay(3) \land \lnot CanPay(4) \land CanPay(5) \land CanPay(6) \\
+    &\lnot CanPay(7) \land \forall n \in \mathbb{Z}^{\geq 8} CanPay(n)
+\end{align*}
+
+where the predicate $CanPay$ with domain $\mathbb{N}$ is
+\[
+    CanPay(n) = \exists x \in \mathbb{N} \exists y \in \mathbb{N}  ( 5x+3y = n)
+\]
+
+
+{\bf Proof} (idea): First, explicitly give witnesses or general arguments
+for postages between $0$ and $7$. 
+To prove the universal claim, we can use mathematical induction or strong induction.
+
+{\it Approach 1, mathematical induction}: if we have
+stamps that add up to $n$ cents, need to use them (and others)
+to give $n+1$ cents. How do we get $1$ cent with just $3$-cent
+and $5$-cent stamps?
+
+\vspace{-10pt}
+Either \underline{take away a $5$-cent stamps and add two $3$-cent stamps},
+
+\vspace{-10pt}
+or \underline{take away three $3$-cent stamps and add two $5$-cent stamps}.
+
+\vspace{-10pt}
+The details of this proof by mathematical induction
+are making sure we have enough 
+stamps to use one of these approaches.
+
+{\it Approach 2, strong induction}: assuming we know how to make postage
+for {\bf all} smaller values (greater than or equal to $8$), when
+we need to make $n+1$ cents, \underline{add one $3$ cent stamp to 
+however we make $(n+1) - 3$ cents}.
+
+\vspace{-10pt}
+The details of this proof by strong induction are making sure we 
+stay in the domain of the universal when applying the induction hypothesis.
+ \vfill
 \end{document}

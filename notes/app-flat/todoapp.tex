@@ -343,17 +343,6 @@ Example: $\mathcal{P}(\{43, 9\}) = $
 
 Example: $\mathcal{P}(\emptyset) = $
  \vfill
-\section*{Sets proof strategies}
-
-
-To prove that one set is a subset of another, e.g. to show $A \subseteq B$:
-
-\vspace{50pt}
-
-To prove that two sets are equal, e.g. to show $A = B$:
-
-\vspace{50pt}
- \vfill
 \section*{Sets basic proofs operations}
 
 
@@ -966,27 +955,24 @@ Some nonzero integer is not a factor of itself.
 {\bf Proof}: 
 
 
-\vspace{150pt}
-
+\vfill
 
 {\bf Prove} or {\bf Disprove}: There is a nonzero integer that does not divide its square.
 
 
 
-\vspace{150pt}
+\vfill
 
 {\bf Prove} or {\bf Disprove}: Every positive factor of a positive integer is less than or equal to it.
 
-\vspace{150pt}
- \vfill
+\vfill \vfill
 \section*{Factoring basic claims continued}
 
 
 {\bf Claim}: Every nonzero integer is a factor of itself and 
 every nonzero integer divides its square.
 
-\vspace{100pt}
- \vfill
+\vfill \vfill
 \section*{Factoring even odd}
 
 
@@ -1210,6 +1196,7 @@ to diagonally adjacent grid point. This robot can / cannot {\footnotesize({\it c
 {\it Example elements of $Pos$ are}:
 \vspace{20pt}
 
+\newpage
 {\bf Lemma}: $\forall (x,y) \in Pos~~( x+y \textrm{ is an even integer}~)$
 
 {\it Why are we calling this a lemma?}
@@ -1242,6 +1229,26 @@ Assume {\bf as the induction hypothesis, IH} that:
 
 
 \vspace{400pt} \vfill
+\section*{Proof strategy mathematical induction}
+
+
+\fbox{\parbox{\textwidth}{
+
+{\bf Proof by Mathematical Induction}
+
+To prove a universal quantification over the set of all integers greater than
+or  equal to some  base integer $b$,
+
+\vspace{-10pt}
+
+\begin{itemize}
+\item[] {\bf Basis Step}:  Show the property holds for $b$. 
+\item[]  {\bf Recursive Step}:  Consider an arbitrary integer $n$ greater than or  equal to  $b$, assume
+    (as the {\bf induction hypothesis})  that the property holds  for $n$, and use  this and
+    other facts to  prove that  the property holds for $n+1$.
+\end{itemize}
+
+}} \vfill
 \section*{Structural induction example sum of powers}
 
 
@@ -1294,26 +1301,196 @@ Thus, $LHS = RHS$. The structural induction is complete and we have proved the u
 $\square$
 
  \vfill
-\section*{Proof strategy mathematical induction}
+\section*{Proof strategy strong induction}
 
 
 \fbox{\parbox{\textwidth}{
 
-{\bf Proof by Mathematical Induction}
+{\bf Proof by Strong Induction}
 
-To prove a universal quantification over the set of all integers greater than
-or  equal to some  base integer $b$,
+To prove that a universal quantification over the set of all integers greater than or equal to some  base integer $b$ holds,  pick a  fixed nonnegative integer  $j$ and then: \hfill 
+
+\begin{tabularx}{\textwidth}{lX}
+    {\bf Basis Step}: & Show the statement holds for $b$, $b+1$, \ldots, $b+j$. \\
+    {\bf Recursive Step}: & Consider an arbitrary integer $n$ greater than or  equal to $b+j$, assume
+    (as the {\bf strong  induction hypothesis})  that the property holds  for {\bf each of} $b$, $b+1$, \ldots, $n$, 	
+    and use  this and
+    other facts to  prove that  the property holds for $n+1$.
+\end{tabularx}
+}} 
+ \vfill
+\section*{Binary expansions exist proof}
+
+
+{\bf Theorem}: Every positive integer is a sum of (one or more) distinct powers of $2$.
+{\it Binary expansions exist!}
+
+
+
+
+The idea in the ``Least significant first" algorithm 
+for computing binary expansions is that the binary
+expansion of {\it half} a number becomes {\it part} of the binary expansion of 
+the number of itself. We can use this 
+idea in a proof by strong induction that binary expansions exist for all 
+positive integers $n$.
+
+
+{\bf Proof by strong induction}, with $b=1$ and $j=0$. We need to prove
+that for each positive integer $n$, there is 
+a positive integer $k$ and coefficients $a_0, \ldots, a_{k-1}$ 
+where each $a_i$ is $0$ or $1$ and $a_{k-1} \neq 0$, and 
+\[
+n = \sum_{i=1}^{k-1} a_i 2^i
+\]
+
+
+
+{\bf Basis step}:  WTS property is true about  $1$.
+
+\phantom{Choose $a_0 = 1$, then $(a_0)_2 = 1 \cdot 2^0 = 1$.}
+\vspace{80pt}
+
+
+{\bf Recursive step}: Consider an arbitrary integer $n \geq 1$.
+
+Assume (as the strong induction hypothesis, IH) that the property is true about  each of $1, \ldots, n$.  
+
+WTS that the property is true about $n+1$.
+
+{\it Idea}: We will apply the IH to $(n+1) \textbf{ div } 2$.
+
+{\it Why is this ok?}
+
+\phantom{Notice that $(n+1) \textbf{ div } 2$ is greater than or equal to 
+$1$ and less than or equal to $n$ because $n \geq 1$.}
+
+\vfill
+\newpage
+{\it Why is this helpful?}
+
+By the IH, we can write $(n+1) \textbf{ div } 2$ as 
+a sum of powers of $2$. In other words, 
+there are values $a_{k-1}, \ldots, a_0$ such that each $a_i$ is $0$ or $1$, $a_{k-1} = 1$, 
+and
+\[
+    \sum_{i=0}^{k-1} a_i 2^i = (n+1) \textbf{ div } 2   
+\]
+Define the collection of coefficients
+\[
+   c_{j} = 
+   \begin{cases}
+        a_{j-1} \qquad&\text{if $1 \leq j \leq k$}\\
+        (n+1) \textbf{ mod } 2 &\text{if $j = 0$}
+   \end{cases}
+\]
+Calculating: 
+\begin{alignat*}{2}
+    \sum_{j=0}^k c_j 2^j &= c_0 + \sum_{j=1}^k c_j 2^j 
+    = c_0 + \sum_{i=0}^{k-1} c_{i+1} 2^{i+1} &\qquad &\text{re-indexing the summation}\\
+    &= c_0 + 2 \cdot \sum_{i=0}^{k-1} c_{i+1}2^i &\qquad &\text{factoring out a $2$ from each term in the sum}\\
+    &= c_0 + 2 \cdot \sum_{i=0}^{k-1} a_{i} 2^i &\qquad &\text{by definition of $c_{i+1}$}\\
+    &= c_0 + 2 \left(~(n+1) \textbf{ div } 2 ~\right) &\qquad &\text{by IH} \\
+    &= \left(~ (n+1) \textbf{ mod } 2 ~\right ) + 2 \left(~(n+1) \textbf{ div } 2 ~\right) &\qquad &\text{by definition of $c_0$} \\
+    &= n+1 &\qquad&\text{by definition of long division}
+\end{alignat*}
+
+Thus, $n+1$ can be expressed as a sum of powers of $2$, as required. \vfill
+\section*{Fundamental theorem proof}
+
+
+{\bf Theorem}: Every positive integer {\it greater than 1} is a product of (one or more) primes.
+
+{\bf Before we prove, let's try some examples}:
+
+$20 = $
+
+$100 = $
+
+$5 = $
+
+
+{\bf Proof by strong induction}, with $b=2$ and $j=0$.
+
+{\bf Basis step}:  WTS property is true about  $2$.
+
+Since $2$ is itself prime,
+it is already written as a product of (one) prime.
+
+
+{\bf Recursive step}: Consider an arbitrary integer $n \geq 2$.
+Assume (as the strong induction hypothesis, IH) that the property is true about  each of $2, \ldots, n$.  
+WTS that the property is true about  $n+1$: We want to show that $n+1$ can be written 
+as a product of primes.  Notice that $n+1$ is itself prime or it is composite.
+
+{\it Case 1}: assume $n+1$ is prime and then immediately it is written as a product
+of (one) prime so we are done.  
+
+{\it Case 2}: assume that $n+1$ is composite
+so there are integers $x$ and $y$ where $n+1 = xy$ and each of them is between $2$ and $n$
+(inclusive).  Therefore, the induction hypothesis applies to each of $x$ and $y$ so each 
+of these factors of $n+1$ can be written as a product of primes.  Multiplying these products together, 
+we get a product of primes that gives $n+1$, as required. 
+
+Since both cases give the necessary
+conclusion, the proof by cases for the recursive step is complete. \vfill
+\section*{Strong induction making change proof idea}
+
+
+Suppose we had postage stamps worth $5$ cents and $3$ cents.
+Which number of cents can we form using these stamps?
+In other words, which postage can we pay?
+
+$11$? 
+
+$15$? 
+
+
+$4$?
+
+
+
+\begin{align*}
+    &CanPay(0) \land \lnot CanPay(1) \land \lnot CanPay(2) \land \\
+    &CanPay(3) \land \lnot CanPay(4) \land CanPay(5) \land CanPay(6) \\
+    &\lnot CanPay(7) \land \forall n \in \mathbb{Z}^{\geq 8} CanPay(n)
+\end{align*}
+
+where the predicate $CanPay$ with domain $\mathbb{N}$ is
+\[
+    CanPay(n) = \exists x \in \mathbb{N} \exists y \in \mathbb{N}  ( 5x+3y = n)
+\]
+
+
+{\bf Proof} (idea): First, explicitly give witnesses or general arguments
+for postages between $0$ and $7$. 
+To prove the universal claim, we can use mathematical induction or strong induction.
+
+{\it Approach 1, mathematical induction}: if we have
+stamps that add up to $n$ cents, need to use them (and others)
+to give $n+1$ cents. How do we get $1$ cent with just $3$-cent
+and $5$-cent stamps?
 
 \vspace{-10pt}
+Either \underline{take away a $5$-cent stamps and add two $3$-cent stamps},
 
-\begin{itemize}
-\item[] {\bf Basis Step}:  Show the property holds for $b$. 
-\item[]  {\bf Recursive Step}:  Consider an arbitrary integer $n$ greater than or  equal to  $b$, assume
-    (as the {\bf induction hypothesis})  that the property holds  for $n$, and use  this and
-    other facts to  prove that  the property holds for $n+1$.
-\end{itemize}
+\vspace{-10pt}
+or \underline{take away three $3$-cent stamps and add two $5$-cent stamps}.
 
-}} \vfill
+\vspace{-10pt}
+The details of this proof by mathematical induction
+are making sure we have enough 
+stamps to use one of these approaches.
+
+{\it Approach 2, strong induction}: assuming we know how to make postage
+for {\bf all} smaller values (greater than or equal to $8$), when
+we need to make $n+1$ cents, \underline{add one $3$ cent stamp to 
+however we make $(n+1) - 3$ cents}.
+
+\vspace{-10pt}
+The details of this proof by strong induction are making sure we 
+stay in the domain of the universal when applying the induction hypothesis.
+ \vfill
 \section*{Compound proposition definitions}
 
 

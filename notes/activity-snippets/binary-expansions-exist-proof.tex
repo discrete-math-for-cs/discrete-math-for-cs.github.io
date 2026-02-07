@@ -4,9 +4,8 @@
 {\bf Theorem}: Every positive integer is a sum of (one or more) distinct powers of $2$.
 {\it Binary expansions exist!}
 
-Recall the definition for binary expansion:
-
-\input{../activity-snippets/base-expansion-binary.tex}
+%Recall the definition for binary expansion:
+%\input{../activity-snippets/base-expansion-binary.tex}
 
 
 The idea in the ``Least significant first" algorithm 
@@ -17,7 +16,14 @@ idea in a proof by strong induction that binary expansions exist for all
 positive integers $n$.
 
 
-{\bf Proof by strong induction}, with $b=1$ and $j=0$.
+{\bf Proof by strong induction}, with $b=1$ and $j=0$. We need to prove
+that for each positive integer $n$, there is 
+a positive integer $k$ and coefficients $a_0, \ldots, a_{k-1}$ 
+where each $a_i$ is $0$ or $1$ and $a_{k-1} \neq 0$, and 
+\[
+n = \sum_{i=1}^{k-1} a_i 2^i
+\]
+
 
 
 {\bf Basis step}:  WTS property is true about  $1$.
@@ -38,8 +44,9 @@ WTS that the property is true about $n+1$.
 
 \phantom{Notice that $(n+1) \textbf{ div } 2$ is greater than or equal to 
 $1$ and less than or equal to $n$ because $n \geq 1$.}
-\vspace{100pt}
 
+\vfill
+\newpage
 {\it Why is this helpful?}
 
 By the IH, we can write $(n+1) \textbf{ div } 2$ as 

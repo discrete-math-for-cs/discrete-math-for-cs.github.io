@@ -406,12 +406,6 @@ U\}\)</span></p>
 =\)</span></p>
 <p>Example: <span class="math inline">\(\mathcal{P}(\emptyset)
 =\)</span></p>
-<h1 class="unnumbered" id="sets-proof-strategies-1">Sets proof
-strategies</h1>
-<p>To prove that one set is a subset of another, e.g. to show <span
-class="math inline">\(A \subseteq B\)</span>:</p>
-<p>To prove that two sets are equal, e.g. to show <span
-class="math inline">\(A = B\)</span>:</p>
 <h1 class="unnumbered" id="sets-basic-proofs-operations">Sets basic
 proofs operations</h1>
 <p>Let <span class="math inline">\(W =  \mathcal{P}(  \{ 1,2,3,4,5\}
@@ -851,16 +845,18 @@ proofs rna examples</h1>
 statements?</p>
 <p><span><em>Hint: first translate the statements to English and
 identify the main logical structure.</em></span></p>
-<p><span class="math inline">\(\forall s \in S~(~rnalen(s) &gt;
-0~)\)</span></p>
 <p><span class="math inline">\(\forall b \in B~\exists s \in
 S~(~basecount(~(s,b)~)~ &gt; 0~)\)</span></p>
-<p><span class="math inline">\(\forall s \in S ~\exists b\in B
-~(~basecount(~(s,b)~) &gt; 0~)\)</span></p>
+<p><span class="math inline">\(\exists s \in S~\forall b \in
+B~(~basecount(~(s,b)~)~ &gt; 0~)\)</span></p>
 <p><span class="math inline">\(\exists s \in S \, (\textit{rnalen(s)} =
 \textit{basecount}(~(s, \texttt{A})~)\)</span></p>
+<p><span class="math inline">\(\forall s \in S ~\exists b\in B
+~(~basecount(~(s,b)~) &gt; 0~)\)</span></p>
 <p><span class="math inline">\(\forall s \in S \, (\textit{rnalen(s)}
 \geq \textit{basecount}(~(s, \texttt{A})~))\)</span></p>
+<p><span class="math inline">\(\forall s \in S~(~rnalen(s) &gt;
+0~)\)</span></p>
 <h1 class="unnumbered"
 id="structural-induction-motivating-example-rna">Structural induction
 motivating example rna</h1>
@@ -984,6 +980,8 @@ extra work.</p>
 <p><span><strong>Invariant</strong></span>: A theorem that describes a
 property that is true about an algorithm or system no matter what inputs
 are used.</p>
+<h1 class="unnumbered" id="proof-strategy-mathematical-induction">Proof
+strategy mathematical induction</h1>
 <h1 class="unnumbered"
 id="structural-induction-example-sum-of-powers">Structural induction
 example sum of powers</h1>
@@ -1028,8 +1026,77 @@ sumPow(n)  + 2^{n+1}\overset{\text{IH}}{=} (2^{n+1} - 1) +
 <span class="math inline">\(LHS = RHS\)</span>. The structural induction
 is complete and we have proved the universal generalization. <span
 class="math inline">\(\square\)</span></p>
-<h1 class="unnumbered" id="proof-strategy-mathematical-induction">Proof
-strategy mathematical induction</h1>
+<h1 class="unnumbered" id="proof-strategy-strong-induction">Proof
+strategy strong induction</h1>
+<h1 class="unnumbered" id="binary-expansions-exist-proof">Binary
+expansions exist proof</h1>
+<p><span><strong>Theorem</strong></span>: Every positive integer is a
+sum of (one or more) distinct powers of <span
+class="math inline">\(2\)</span>. <span><em>Binary expansions
+exist!</em></span></p>
+<p>The idea in the “Least significant first" algorithm for computing
+binary expansions is that the binary expansion of
+<span><em>half</em></span> a number becomes <span><em>part</em></span>
+of the binary expansion of the number of itself. We can use this idea in
+a proof by strong induction that binary expansions exist for all
+positive integers <span class="math inline">\(n\)</span>.</p>
+<p><span><strong>Proof by strong induction</strong></span>, with <span
+class="math inline">\(b=1\)</span> and <span
+class="math inline">\(j=0\)</span>. We need to prove that for each
+positive integer <span class="math inline">\(n\)</span>, there is a
+positive integer <span class="math inline">\(k\)</span> and coefficients
+<span class="math inline">\(a_0, \ldots, a_{k-1}\)</span> where each
+<span class="math inline">\(a_i\)</span> is <span
+class="math inline">\(0\)</span> or <span
+class="math inline">\(1\)</span> and <span class="math inline">\(a_{k-1}
+\neq 0\)</span>, and <span class="math display">\[n = \sum_{i=1}^{k-1}
+a_i 2^i\]</span></p>
+<p><span><strong>Basis step</strong></span>: WTS property is true about
+<span class="math inline">\(1\)</span>.</p>
+<p><span><strong>Recursive step</strong></span>: Consider an arbitrary
+integer <span class="math inline">\(n \geq 1\)</span>.</p>
+<p>Assume (as the strong induction hypothesis, IH) that the property is
+true about each of <span class="math inline">\(1, \ldots,
+n\)</span>.</p>
+<p>WTS that the property is true about <span
+class="math inline">\(n+1\)</span>.</p>
+<p><span><em>Idea</em></span>: We will apply the IH to <span
+class="math inline">\((n+1) \textbf{ div } 2\)</span>.</p>
+<p><span><em>Why is this ok?</em></span></p>
+<p><span><em>Why is this helpful?</em></span></p>
+<p>By the IH, we can write <span class="math inline">\((n+1) \textbf{
+div } 2\)</span> as a sum of powers of <span
+class="math inline">\(2\)</span>. In other words, there are values <span
+class="math inline">\(a_{k-1}, \ldots, a_0\)</span> such that each <span
+class="math inline">\(a_i\)</span> is <span
+class="math inline">\(0\)</span> or <span
+class="math inline">\(1\)</span>, <span class="math inline">\(a_{k-1} =
+1\)</span>, and <span class="math display">\[\sum_{i=0}^{k-1} a_i 2^i =
+(n+1) \textbf{ div } 2\]</span> Define the collection of coefficients
+<span class="math display">\[c_{j} =
+   \begin{cases}
+        a_{j-1} \qquad&amp;\text{if $1 \leq j \leq k$}\\
+        (n+1) \textbf{ mod } 2 &amp;\text{if $j = 0$}
+   \end{cases}\]</span> Calculating: <span
+class="math display">\[\begin{alignat*}
+{2}
+    \sum_{j=0}^k c_j 2^j &amp;= c_0 + \sum_{j=1}^k c_j 2^j
+    = c_0 + \sum_{i=0}^{k-1} c_{i+1} 2^{i+1} &amp;\qquad
+&amp;\text{re-indexing the summation}\\
+    &amp;= c_0 + 2 \cdot \sum_{i=0}^{k-1} c_{i+1}2^i &amp;\qquad
+&amp;\text{factoring out a $2$ from each term in the sum}\\
+    &amp;= c_0 + 2 \cdot \sum_{i=0}^{k-1} a_{i} 2^i &amp;\qquad
+&amp;\text{by definition of $c_{i+1}$}\\
+    &amp;= c_0 + 2 \left(~(n+1) \textbf{ div } 2 ~\right) &amp;\qquad
+&amp;\text{by IH} \\
+    &amp;= \left(~ (n+1) \textbf{ mod } 2 ~\right ) + 2 \left(~(n+1)
+\textbf{ div } 2 ~\right) &amp;\qquad &amp;\text{by definition of $c_0$}
+\\
+    &amp;= n+1 &amp;\qquad&amp;\text{by definition of long division}
+\end{alignat*}\]</span></p>
+<p>Thus, <span class="math inline">\(n+1\)</span> can be expressed as a
+sum of powers of <span class="math inline">\(2\)</span>, as
+required.</p>
 <h1 class="unnumbered"
 id="tautology-contradiction-contingency-examples">Tautology
 contradiction contingency examples</h1>

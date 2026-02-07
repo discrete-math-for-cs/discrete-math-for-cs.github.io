@@ -574,16 +574,18 @@ proofs rna examples</h1>
 statements?</p>
 <p><span><em>Hint: first translate the statements to English and
 identify the main logical structure.</em></span></p>
-<p><span class="math inline">\(\forall s \in S~(~rnalen(s) &gt;
-0~)\)</span></p>
 <p><span class="math inline">\(\forall b \in B~\exists s \in
 S~(~basecount(~(s,b)~)~ &gt; 0~)\)</span></p>
-<p><span class="math inline">\(\forall s \in S ~\exists b\in B
-~(~basecount(~(s,b)~) &gt; 0~)\)</span></p>
+<p><span class="math inline">\(\exists s \in S~\forall b \in
+B~(~basecount(~(s,b)~)~ &gt; 0~)\)</span></p>
 <p><span class="math inline">\(\exists s \in S \, (\textit{rnalen(s)} =
 \textit{basecount}(~(s, \texttt{A})~)\)</span></p>
+<p><span class="math inline">\(\forall s \in S ~\exists b\in B
+~(~basecount(~(s,b)~) &gt; 0~)\)</span></p>
 <p><span class="math inline">\(\forall s \in S \, (\textit{rnalen(s)}
 \geq \textit{basecount}(~(s, \texttt{A})~))\)</span></p>
+<p><span class="math inline">\(\forall s \in S~(~rnalen(s) &gt;
+0~)\)</span></p>
 <h1 class="unnumbered" id="defining-functions-more-examples">Defining
 functions more examples</h1>
 <p>Let’s practice with functions related to some of our applications so
