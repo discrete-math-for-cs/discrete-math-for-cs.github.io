@@ -1,0 +1,492 @@
+\documentclass[12pt, oneside]{article}
+
+\usepackage[letterpaper, scale=0.89, centering]{geometry}
+\usepackage{fancyhdr}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\rfoot{\href{https://creativecommons.org/licenses/by-nc-sa/2.0/}{CC BY-NC-SA 2.0} Version \today~(\thepage)}
+
+\usepackage{amssymb,amsmath,pifont,amsfonts,comment,enumerate,enumitem}
+\usepackage{currfile,xstring,hyperref,tabularx,graphicx,wasysym}
+\usepackage[labelformat=empty]{caption}
+\usepackage{xcolor}
+\usepackage{multicol,multirow,array,listings,tabularx,lastpage,textcomp,booktabs}
+
+\lstnewenvironment{algorithm}[1][] {   
+    \lstset{ mathescape=true,
+        frame=tB,
+        numbers=left, 
+        numberstyle=\tiny,
+        basicstyle=\rmfamily\scriptsize, 
+        keywordstyle=\color{black}\bfseries,
+        keywords={,procedure, div, for, to, input, output, return, datatype, function, in, if, else, foreach, while, begin, end, }
+        numbers=left,
+        xleftmargin=.04\textwidth,
+        #1
+    }
+}
+{}
+\lstnewenvironment{java}[1][]
+{   
+    \lstset{
+        language=java,
+        mathescape=true,
+        frame=tB,
+        numbers=left, 
+        numberstyle=\tiny,
+        basicstyle=\ttfamily\scriptsize, 
+        keywordstyle=\color{black}\bfseries,
+        keywords={, int, double, for, return, if, else, while, }
+        numbers=left,
+        xleftmargin=.04\textwidth,
+        #1
+    }
+}
+{}
+
+\newcommand\abs[1]{\lvert~#1~\rvert}
+\newcommand{\st}{\mid}
+
+\newcommand{\A}[0]{\texttt{A}}
+\newcommand{\C}[0]{\texttt{C}}
+\newcommand{\G}[0]{\texttt{G}}
+\newcommand{\U}[0]{\texttt{U}}
+
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+
+ 
+\begin{document}
+\begin{flushright}
+    \StrBefore{\currfilename}{.}
+\end{flushright} 
+\subsection*{Week 7 at a glance}
+
+\subsubsection*{We will be learning and practicing to:}
+\begin{itemize}
+
+\item Clearly and unambiguously communicate computational ideas using appropriate formalism. Translate across levels of abstraction.
+\begin{itemize}
+   \item Translating between symbolic and English versions of statements using precise mathematical language
+    \item Using appropriate signpost words to improve readability of proofs, including `arbitrary' and `assume'
+\end{itemize}
+
+\item Know, select and apply appropriate computing knowledge and problem-solving techniques. Reason about computation and systems. Use mathematical techniques to solve problems. Determine appropriate conceptual tools to apply to new situations. Know when tools do not apply and try different approaches. Critically analyze and evaluate candidate solutions.
+\begin{itemize}
+    \item Judging logical equivalence of compound propositions using symbolic manipulation with known equivalences, including DeMorgan's Law
+    \item Writing the converse, contrapositive, and inverse of a given conditional statement
+    \item Determining what evidence is required to establish that a quantified statement is true or false
+    \item Evaluating quantified statements about finite and infinite domains
+\end{itemize}
+
+\item Apply proof strategies, including direct proofs and proofs by contradiction, and determine whether a proposed argument is valid or not.
+\begin{itemize}
+    \item Identifying the proof strategies used in a given proof
+    \item Identifying which proof strategies are applicable to prove a given compound proposition based on its logical structure
+    \item Carrying out a given proof strategy to prove a given statement
+    \item Carrying out a universal generalization argument to prove that a universal statement is true
+    \item Using proofs as knowledge discovery tools to decide whether a statement is true or false
+\end{itemize}
+\end{itemize}
+
+\subsubsection*{TODO:}
+\begin{list}
+   {\itemsep2pt}
+    \item No class Monday of Week 7 (02/16/2026) in observance of UCSD holiday.
+    \item Review quiz based on Week 6 class material (due Monday 02/16/2026)
+    \item Midquarter feedback: please let us know what's working well for you and what isn't.  \url{https://canvas.ucsd.edu/courses/71479/quizzes}
+    \item Review quiz based on Week 7 class material (due Monday 02/23/2026)
+
+\end{list}
+
+\newpage
+
+\section*{Week 7 Wednesday: Recursive Data Structures}
+
+\subsubsection*{Finding a winning strategy for a game}
+
+
+Consider the following game: two players start with 
+two (equal) piles of jellybeans in front of them.
+They take turns removing any positive integer number
+of jellybeans at a time from one of two piles in 
+front of them in turns.
+
+The player who removes the last jellybean wins the game.
+
+Which player (if any) has a strategy to guarantee
+to win the game?
+
+
+Try out some games, starting with $1$ jellybean in each pile,
+then $2$ jellybeans in each pile, then $3$ jellybeans in each pile.
+Who wins in each game?
+
+\vspace{200pt}
+
+
+Notice that reasoning about the strategy for the $1$ jellybean 
+game is easier than about the strategy for the $2$ jellybean game.
+
+{\it Formulate a winning strategy by working to 
+transform the game to a simpler one we know we can win.}
+
+\newpage
+
+{\it Player 2's Strategy}: Take the same number of jellybeans that Player 1 did, 
+but from the opposite pile. 
+
+
+{\it Why is this a good idea}: If Player 2 plays this strategy, at the next turn
+Player 1 faces a game with the same setup as the original, just with fewer
+jellybeans in the two piles. Then Player 2 can keep playing this strategy to win.
+
+{\bf Claim}: Player 2's strategy guarantees they will win the game.
+
+{\bf Proof}: By strong induction, we will prove that for all positive 
+integers $n$, Player 2's strategy guarantees a win in the game that starts with 
+$n$ jellybeans in each pile.
+
+{\bf Basis step}: WTS Player 2's strategy guarantees a win 
+when each pile starts with $1$ jellybean.
+
+In this case, Player 1 has to take the jellybean from one of the piles
+(because they can't take from both piles at once).
+Following the strategy, Player 2 takes the jellybean from the 
+other pile, and wins because this is the last jellybean.
+
+{\bf Recursive step}: Let $n$ be a positive integer. 
+As the strong induction hypothesis, assume that
+Player 2's strategy guarantees a win in the games 
+where there are $1, 2, \ldots, n$ many jellybeans in each 
+pile at the start of the game.
+
+WTS that Player 2's strategy guarantees a win in the game where
+there are $n+1$ in the jellybeans in each pile at the start of the game.
+
+In this game, the first move has Player 1 take 
+some number, call it $c$ (where $1 \leq c \leq n+1$),
+of jellybeans from one of the piles. 
+Playing according to their strategy, Player 2 then 
+takes the same number of jellybeans from  the other pile.
+
+Notice that $(c = n+1) \lor (c \leq n)$.
+
+{\it Case 1}: Assume $c = n+1$, then in their first move, 
+Player 2 wins because they take all of the second pile, which 
+includes the last jellybean.
+
+{\it Case 2}: Assume $c \leq n$. Then after Player 2's first move,
+the two piles have an equal number of jellybeans. The number
+of jellybeans in each pile is 
+\[
+    (n+1) - c
+\]
+and, since $1 \leq c \leq n$, this number is between $1$ and $n$.
+Thus, at this stage of the game, the game appears identical to a new 
+game where the two piles have an equal number of jellybeans between $1$
+and $n$. Thus, the strong induction hypothesis applies, and Player 2's
+strategy guarantees they win.
+
+ \newpage
+
+
+{\bf Definition} The set of linked lists of natural numbers $L$ is defined recursively by
+\[
+\begin{array}{ll}
+    \textrm{Basis Step: } & [] \in L \\
+    \textrm{Recursive Step: } & \textrm{If } l \in L\textrm{ and }n \in \mathbb{N} \textrm{, then } (n, l) \in L
+\end{array}
+\] 
+
+Visually:
+
+\vspace{50pt}
+
+Example: the list with two nodes whose first node has $20$ and whose second node
+has $42$
+
+\vspace{50pt} 
+
+{\bf Definition}: The length of a linked list of natural numbers $L$, $length: L \to \mathbb{N}$ is defined by
+\[
+\begin{array}{llll}
+\textrm{Basis Step:} &  & length(~[]~) &= 0 \\
+\textrm{Recursive Step:} & \textrm{If } l \in L\textrm{ and }n \in \mathbb{N}\textrm{, then  } & length(~(n, l)~)  &= 1+ length(l)
+\end{array}
+\]
+ \vspace{50pt}
+
+
+{\bf Definition}: The function $prepend : L \times \mathbb{N} \to L$ that adds an element at the 
+front of a linked list is defined by
+\[
+\phantom{prepend(~(l, n)~) = (n, l)}
+\]
+ \vspace{50pt}
+
+
+{\bf Definition} The function $append : L \times \mathbb{N} \to L$ that 
+adds an element at the end of a linked list is defined by
+\[
+\begin{array}{llll}
+\textrm{Basis Step:} & \textrm{If } m \in \mathbb{N}\textrm{ then } & \phantom{append(~([], m)~)} & \phantom{= (m, []) }\\
+\textrm{Recursive Step:} & \textrm{If } l \in L\textrm{ and }n \in \mathbb{N}\textrm{ and }m \in \mathbb{N}\textrm{, then  } & \phantom{append(~(~(n, l), m~)~) } &\phantom{= (n, append(~(l, m)~)~)}
+\end{array}
+\] \vspace{50pt}
+\newpage
+
+
+{\bf Claim}: $\forall l \in L ~ (~length(~append(~(l, 100)~)~) > length(l)~)$
+
+{\bf Proof:} By structural induction on $L$, we have two cases:
+
+{\bf Basis Step}
+
+    \begin{tabular}{l p{3.5in}}
+     1. \textbf{To Show} $length(~append(~([], 100)~)~) > length(~[]~)$
+    & Because $[]$ is the only element defined in the basis step of $L$, 
+    we only need to prove that the property holds for $[]$.\\
+    &  \\
+     2. \textbf{To Show} $length(~(100,[])~) > length(~[]~)$
+    &  By basis step in definition of $append$.\\
+    &  \\
+     3. \textbf{To Show} $(1 +length(~[]~)) > length(~[]~)$
+    &  By recursive step in definition of $length$.\\
+    &  \\    
+     4. \textbf{To Show} $1+0 > 0$
+    &  By basis step in definition of $length$.\\
+    &  \\    
+    5. $T$
+    & By properties of integers \\
+    &  \\    
+    QED & Because we got to $T$ only by rewriting \textbf{To Show} to equivalent statements, using well-defined proof techniques, and applying definitions. \\
+    \end{tabular}
+
+{\bf Recursive Step}
+
+Consider an arbitrary: $l' \in L$, $n \in \mathbb{N}$, and we  assume
+as the {\bf induction hypothesis} that:
+\[
+length(~append(~(l', 100~)~)~) > length(l')
+\]
+Our goal is to show that $length(~append( ~(~(n,l'), 100~)~)~) > length(~(n,l')~)$ is also true. 
+We start by working with
+one side of the candidate inequality:
+\begin{align*}
+LHS &= length(~append( ~(~ (n,l'), 100~)~)~) \\
+&= length(~(n, append(~(l', 100)~)~ )~) \qquad \text{by the recursive definition of $append$}\\
+&= 1 + length(~ append(~(l', 100)~) ~) \qquad \text{by the recursive definition of $length$}\\
+&> 1+ length(l')  \qquad \text{by the induction hypothesis}\\
+&= length( (n,l') )  \qquad \text{by the recursive definition of $length$}\\
+&= RHS 
+\end{align*} \newpage
+
+
+Prove or disprove: $\forall n \in \mathbb{N} ~\exists l \in L ~(~length(l) = n~)$
+
+\vspace{300pt} \newpage
+
+\section*{Week 7 Friday: Proof by Contradiction}
+
+
+\fbox{\parbox{\textwidth}{
+
+{\bf New! Proof by Contradiction} 
+
+To prove that a statement $p$ is true, pick another statement $r$ and once we show
+that $\neg p  \to (r \wedge  \neg r)$ then  we can conclude that  $p$ is  true.
+
+{\it Informally} The statement we care about can't possibly be false, so it must be true.
+}} 
+
+ \subsection*{Least and greatest}
+
+
+For a set of numbers $X$, how do you formalize ``there is a greatest $X$'' 
+or ``there is a least $X$''?
+
+\vspace{30pt}
+
+{\bf Prove} or {\bf  disprove}:  There is a least prime number.
+
+\vspace{100pt}
+
+{\bf Prove} or {\bf  disprove}: There is a greatest integer. 
+
+{\it Approach 1, De Morgan's and universal generalization}: 
+
+\vspace{100pt}
+
+{\it Approach 2, proof by contradiction}: 
+
+\vspace{200pt}
+
+{\it Extra examples}: 
+Prove or disprove that $\mathbb{N}$,  $\mathbb{Q}$ each have a
+least and a greatest element. 
+ 
+
+
+{\bf Definition}: {\bf Greatest common divisor} Let $a$ and $b$ be integers, not both zero. The largest integer $d$ such that 
+$d$ is a  factor of $a$ and $d$ is a factor of  $b$ is called the greatest common divisor of $a$ and $b$ 
+and is denoted by $gcd(~(a, b)~)$. 
+
+Why do we restrict to the situation where $a$ and $b$ are not both zero?
+
+\vspace{50pt}
+
+
+Calculate $gcd(~(10,15)~)$
+
+\vspace{50pt}
+
+Calculate $gcd(~(10,20)~)$
+
+\vspace{50pt} 
+
+{\bf Claim}: For any integers $a,b$ (not both zero), $gcd(~(a,b)~) \geq 1$.
+
+{\bf Proof}: {\it Show that $1$ is a common factor of any two integers, so since the gcd 
+is the greatest common factor it is greater than or equal to any common factor.}
+
+\vspace{150pt}
+
+{\bf Claim}: For any positive integers $a,b$, $gcd(~(a,b)~) \leq a$ and $gcd( ~(a,b)~) \leq b$.
+
+{\bf Proof} {\it Using the definition of gcd and the fact that factors of a positive integer
+are less than or equal to that integer.}
+
+\vspace{150pt}
+
+{\bf Claim}: For any positive integers $a,b$, if $a$ divides $b$ then $gcd(~(a,b)~) = a$.
+
+{\bf Proof} {\it Using previous claim and definition of gcd.}
+
+\vspace{150pt}
+
+
+{\bf Claim}: For any positive integers $a,b,c$, if there is some integer $q$ such that $a = bq + c$,
+\[
+    gcd(~(a,b)~) = gcd (~(b,c)~)
+\]
+{\bf Proof} {\it Prove that any common divisor of $a,b$ divides $c$ and that any common 
+divisor of $b,c$ divides $a$.}
+
+\vspace{150pt}
+ 
+
+{\bf Lemma}: For any integers $p, q$ (not both zero), 
+$gcd \left(~ \left(~\frac{p}{gcd(~(p,q)~)}, \frac{q}{gcd(~(p,q)~)} ~\right) ~\right) = 1$ .
+In other words, can reduce to relatively prime integers by dividing by gcd.
+
+{\bf Proof}:
+
+Let $x$ be arbitrary positive integer and assume that $x$ is a 
+factor of each of $\frac{p}{gcd(~(p,q)~)}$ and $\frac{q}{gcd(~(p,q)~)}$. 
+This gives integers $\alpha$, $\beta$ such that 
+\[
+    \alpha x = \frac{p}{gcd(~(p,q)~)} \qquad \qquad \beta x = \frac{q}{gcd(~(p,q)~)}
+\]
+Multiplying both sides by the denominator in the RHS: 
+\[
+    \alpha x \cdot gcd(~(p,q)~)= p \qquad \qquad \beta x \cdot gcd(~(p,q)~)= q
+\]
+In other words, $x \cdot gcd(~(p,q)~)$ is a common divisor of $p, q$. By definition of $gcd$, this means
+\[
+    x \cdot gcd (~(p,q)~) \leq gcd (~(p,q)~)
+\]
+and since $gcd(~(p,q)~)$ is positive, this means, $x \leq 1$.
+\vspace{350pt}
+ 
+\newpage
+\subsection*{Sets of numbers}
+
+We've seen multiple representations of the set of positive integers
+(using base expansions and using prime factorization). Now we're 
+going to expand our attention to other sets of numbers as well.
+
+
+The {\bf set  of rational numbers}, $\mathbb{Q}$  is defined as 
+\[
+\left\{ \frac{p}{q} \mid p \in \mathbb{Z}  \text{ and  } q  \in \mathbb{Z} \text{ and } q \neq  0 \right\}
+\text{~~~~or, equivalently,~~~~}
+\{ x  \in  \mathbb{R} \mid \exists p \in \mathbb{Z}  \exists q \in \mathbb{Z}^+ ( p =  x \cdot q) \}
+\]
+
+{\it Extra practice}: Use the definition of set equality to prove that the definitions above  give the same set.
+
+ 
+
+We have the following subset relationships between sets of numbers:
+
+\[
+    \mathbb{Z}^{+} \subsetneq \mathbb{N} \subsetneq \mathbb{Z} \subsetneq \mathbb{Q} \subsetneq \mathbb{R}
+\]
+
+
+Which of the proper subset inclusions above can you prove?
+
+\vspace{50pt} 
+
+{\bf Goal}:  The square root of $2$ is not a rational number.  In other words: $\neg \exists x \in \mathbb{Q} ( x^2 -  2 = 0)$
+
+{\bf Attempted proof}: The definition of the set of rational numbers is the collection of fractions $p/q$ where $p$ is an integer and $q$ is a nonzero integer. Looking for a {\bf witness} $p$ and $q$, we can write the square root of $2$ as the fraction 
+$\sqrt{2 }/1$, where $1$ is a nonzero integer. Since the numerator is not in the domain, this witness is not allowed, and we have shown that the square root of $2$ is not a fraction of integers (with nonzero denominator). Thus, the square root of $2$ is not rational.
+
+
+{\it The problem in the above attempted proof is that} \underline{\phantom{it only considers one candidate witness
+and does not prove that no witnesses exist.}}
+
+
+{\bf Lemma 1:} For every two integers $a$ and  $b$, not both zero, with  $gcd(~(a,b)~) = 1$, it is not the case that both $a$
+is  even and $b$ is even.
+
+
+{\bf Lemma 2:} For every integer  $x$, $x$ is  even if and only if $x^2$  is even.
+
+
+{\bf Proof}: Towards a proof by contradiction, we will define a statement 
+$r$ such that $\sqrt{2} \in \mathbb{Q} \to (r \land \lnot r)$. 
+
+Assume that $\sqrt{2} \in \mathbb{Q}$. Namely, there are positive integers
+$p, q$ such that 
+\[
+    \sqrt{2} = \frac{p}{q}
+\]
+Let $a= \frac{p}{gcd( ~(p,q)~)}$, $b = \frac{q}{gcd(~(p,q)~)}$, then 
+\[
+    \sqrt{2} = \frac{a}{b} \qquad \text{and} \qquad gcd(~(a,b)~) = 1
+\]
+
+By Lemma 1, $a$ and $b$ are not both even. We define $r$ to be the 
+statement ``$a$ is even and $b$ is even'', and we have proved $\lnot r$.
+
+Squaring both sides and clearing denominator: $2b^2 = a^2$.
+
+By definition of even, since $b^2$ is an integer$, a^2$ is even.
+
+By Lemma 2, this guarantees that $a$ is even too. So, by 
+definition of even, there is some integer (call it $c$), such that $a = 2c$.
+
+Plugging into the equation:
+\[
+    2b^2 = a^2 = (2c)^2 = 4c^2
+\]
+and dividing both sides by $2$
+\[
+    b^2 = 2c^2
+\]
+and since $c^2$ is an integer, $b^2$ is even. By Lemma 2, $b$ is even too.
+Thus, $a$ is even and $b$ is even and we have proved $r$. 
+
+In other words, assuming that $\sqrt{2} \in \mathbb{Q}$ guarantees $r \land \lnot r$, 
+which is impossible, so $\sqrt{2} \notin \mathbb{Q}$. QED
+
+ 
+
+\end{document}

@@ -1792,6 +1792,394 @@ one <span class="math inline">\(3\)</span> cent stamp to however we make
 <p>The details of this proof by strong induction are making sure we stay
 in the domain of the universal when applying the induction
 hypothesis.</p>
+<h1 class="unnumbered" id="strong-induction-nim">Strong induction
+nim</h1>
+<p>Consider the following game: two players start with two (equal) piles
+of jellybeans in front of them. They take turns removing any positive
+integer number of jellybeans at a time from one of two piles in front of
+them in turns.</p>
+<p>The player who removes the last jellybean wins the game.</p>
+<p>Which player (if any) has a strategy to guarantee to win the
+game?</p>
+<p>Try out some games, starting with <span
+class="math inline">\(1\)</span> jellybean in each pile, then <span
+class="math inline">\(2\)</span> jellybeans in each pile, then <span
+class="math inline">\(3\)</span> jellybeans in each pile. Who wins in
+each game?</p>
+<p>Notice that reasoning about the strategy for the <span
+class="math inline">\(1\)</span> jellybean game is easier than about the
+strategy for the <span class="math inline">\(2\)</span> jellybean
+game.</p>
+<p><span><em>Formulate a winning strategy by working to transform the
+game to a simpler one we know we can win.</em></span></p>
+<p><span><em>Player 2’s Strategy</em></span>: Take the same number of
+jellybeans that Player 1 did, but from the opposite pile.</p>
+<p><span><em>Why is this a good idea</em></span>: If Player 2 plays this
+strategy, at the next turn Player 1 faces a game with the same setup as
+the original, just with fewer jellybeans in the two piles. Then Player 2
+can keep playing this strategy to win.</p>
+<p><span><strong>Claim</strong></span>: Player 2’s strategy guarantees
+they will win the game.</p>
+<p><span><strong>Proof</strong></span>: By strong induction, we will
+prove that for all positive integers <span
+class="math inline">\(n\)</span>, Player 2’s strategy guarantees a win
+in the game that starts with <span class="math inline">\(n\)</span>
+jellybeans in each pile.</p>
+<p><span><strong>Basis step</strong></span>: WTS Player 2’s strategy
+guarantees a win when each pile starts with <span
+class="math inline">\(1\)</span> jellybean.</p>
+<p>In this case, Player 1 has to take the jellybean from one of the
+piles (because they can’t take from both piles at once). Following the
+strategy, Player 2 takes the jellybean from the other pile, and wins
+because this is the last jellybean.</p>
+<p><span><strong>Recursive step</strong></span>: Let <span
+class="math inline">\(n\)</span> be a positive integer. As the strong
+induction hypothesis, assume that Player 2’s strategy guarantees a win
+in the games where there are <span class="math inline">\(1, 2, \ldots,
+n\)</span> many jellybeans in each pile at the start of the game.</p>
+<p>WTS that Player 2’s strategy guarantees a win in the game where there
+are <span class="math inline">\(n+1\)</span> in the jellybeans in each
+pile at the start of the game.</p>
+<p>In this game, the first move has Player 1 take some number, call it
+<span class="math inline">\(c\)</span> (where <span
+class="math inline">\(1 \leq c \leq n+1\)</span>), of jellybeans from
+one of the piles. Playing according to their strategy, Player 2 then
+takes the same number of jellybeans from the other pile.</p>
+<p>Notice that <span class="math inline">\((c = n+1) \lor (c \leq
+n)\)</span>.</p>
+<p><span><em>Case 1</em></span>: Assume <span class="math inline">\(c =
+n+1\)</span>, then in their first move, Player 2 wins because they take
+all of the second pile, which includes the last jellybean.</p>
+<p><span><em>Case 2</em></span>: Assume <span class="math inline">\(c
+\leq n\)</span>. Then after Player 2’s first move, the two piles have an
+equal number of jellybeans. The number of jellybeans in each pile is
+<span class="math display">\[(n+1) - c\]</span> and, since <span
+class="math inline">\(1 \leq c \leq n\)</span>, this number is between
+<span class="math inline">\(1\)</span> and <span
+class="math inline">\(n\)</span>. Thus, at this stage of the game, the
+game appears identical to a new game where the two piles have an equal
+number of jellybeans between <span class="math inline">\(1\)</span> and
+<span class="math inline">\(n\)</span>. Thus, the strong induction
+hypothesis applies, and Player 2’s strategy guarantees they win.</p>
+<h1 class="unnumbered" id="linked-lists-definition">Linked lists
+definition</h1>
+<p><span><strong>Definition</strong></span> The set of linked lists of
+natural numbers <span class="math inline">\(L\)</span> is defined
+recursively by <span class="math display">\[\begin{array}{ll}
+    \textrm{Basis Step: } &amp; [] \in L \\
+    \textrm{Recursive Step: } &amp; \textrm{If } l \in L\textrm{ and }n
+\in \mathbb{N} \textrm{, then } (n, l) \in L
+\end{array}\]</span></p>
+<h1 class="unnumbered" id="linked-lists-examples">Linked lists
+examples</h1>
+<p>Visually:</p>
+<p>Example: the list with two nodes whose first node has <span
+class="math inline">\(20\)</span> and whose second node has <span
+class="math inline">\(42\)</span></p>
+<h1 class="unnumbered" id="linked-list-length-definition">Linked list
+length definition</h1>
+<p><span><strong>Definition</strong></span>: The length of a linked list
+of natural numbers <span class="math inline">\(L\)</span>, <span
+class="math inline">\(length: L \to \mathbb{N}\)</span> is defined by
+<span class="math display">\[\begin{array}{llll}
+\textrm{Basis Step:} &amp;  &amp; length(~[]~) &amp;= 0 \\
+\textrm{Recursive Step:} &amp; \textrm{If } l \in L\textrm{ and }n \in
+\mathbb{N}\textrm{, then  } &amp; length(~(n, l)~)  &amp;= 1+ length(l)
+\end{array}\]</span></p>
+<h1 class="unnumbered" id="linked-lists-prepend-definition">Linked lists
+prepend definition</h1>
+<p><span><strong>Definition</strong></span>: The function <span
+class="math inline">\(prepend : L \times \mathbb{N} \to L\)</span> that
+adds an element at the front of a linked list is defined by <span
+class="math display">\[\phantom{prepend(~(l, n)~) = (n, l)}\]</span></p>
+<h1 class="unnumbered" id="linked-list-append-definition">Linked list
+append definition</h1>
+<p><span><strong>Definition</strong></span> The function <span
+class="math inline">\(append : L \times \mathbb{N} \to L\)</span> that
+adds an element at the end of a linked list is defined by <span
+class="math display">\[\begin{array}{llll}
+\textrm{Basis Step:} &amp; \textrm{If } m \in \mathbb{N}\textrm{ then }
+&amp; \phantom{append(~([], m)~)} &amp; \phantom{= (m, []) }\\
+\textrm{Recursive Step:} &amp; \textrm{If } l \in L\textrm{ and }n \in
+\mathbb{N}\textrm{ and }m \in \mathbb{N}\textrm{, then  } &amp;
+\phantom{append(~(~(n, l), m~)~) } &amp;\phantom{= (n, append(~(l,
+m)~)~)}
+\end{array}\]</span></p>
+<h1 class="unnumbered" id="linked-list-append-length-claim-proof">Linked
+list append length claim proof</h1>
+<p><span><strong>Claim</strong></span>: <span
+class="math inline">\(\forall l \in L ~ (~length(~append(~(l, 100)~)~)
+&gt; length(l)~)\)</span></p>
+<p><span><strong>Proof:</strong></span> By structural induction on <span
+class="math inline">\(L\)</span>, we have two cases:</p>
+<p><span><strong>Basis Step</strong></span></p>
+<table>
+<tbody>
+<tr>
+<td style="text-align: left;">1. <strong>To Show</strong> <span
+class="math inline">\(length(~append(~([], 100)~)~) &gt;
+length(~[]~)\)</span></td>
+<td style="text-align: left;">Because <span
+class="math inline">\([]\)</span> is the only element defined in the
+basis step of <span class="math inline">\(L\)</span>, we only need to
+prove that the property holds for <span
+class="math inline">\([]\)</span>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">2. <strong>To Show</strong> <span
+class="math inline">\(length(~(100,[])~) &gt; length(~[]~)\)</span></td>
+<td style="text-align: left;">By basis step in definition of <span
+class="math inline">\(append\)</span>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">3. <strong>To Show</strong> <span
+class="math inline">\((1 +length(~[]~)) &gt; length(~[]~)\)</span></td>
+<td style="text-align: left;">By recursive step in definition of <span
+class="math inline">\(length\)</span>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">4. <strong>To Show</strong> <span
+class="math inline">\(1+0 &gt; 0\)</span></td>
+<td style="text-align: left;">By basis step in definition of <span
+class="math inline">\(length\)</span>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">5. <span
+class="math inline">\(T\)</span></td>
+<td style="text-align: left;">By properties of integers</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">QED</td>
+<td style="text-align: left;">Because we got to <span
+class="math inline">\(T\)</span> only by rewriting <strong>To
+Show</strong> to equivalent statements, using well-defined proof
+techniques, and applying definitions.</td>
+</tr>
+</tbody>
+</table>
+<p><span><strong>Recursive Step</strong></span></p>
+<p>Consider an arbitrary: <span class="math inline">\(l&#39; \in
+L\)</span>, <span class="math inline">\(n \in \mathbb{N}\)</span>, and
+we assume as the <span><strong>induction hypothesis</strong></span>
+that: <span class="math display">\[length(~append(~(l&#39;, 100~)~)~)
+&gt; length(l&#39;)\]</span> Our goal is to show that <span
+class="math inline">\(length(~append( ~(~(n,l&#39;), 100~)~)~) &gt;
+length(~(n,l&#39;)~)\)</span> is also true. We start by working with one
+side of the candidate inequality: <span
+class="math display">\[\begin{align*}
+LHS &amp;= length(~append( ~(~ (n,l&#39;), 100~)~)~) \\
+&amp;= length(~(n, append(~(l&#39;, 100)~)~ )~) \qquad \text{by the
+recursive definition of $append$}\\
+&amp;= 1 + length(~ append(~(l&#39;, 100)~) ~) \qquad \text{by the
+recursive definition of $length$}\\
+&amp;&gt; 1+ length(l&#39;)  \qquad \text{by the induction hypothesis}\\
+&amp;= length( (n,l&#39;) )  \qquad \text{by the recursive definition of
+$length$}\\
+&amp;= RHS
+\end{align*}\]</span></p>
+<h1 class="unnumbered" id="linked-list-example-each-length">Linked list
+example each length</h1>
+<p>Prove or disprove: <span class="math inline">\(\forall n \in
+\mathbb{N} ~\exists l \in L ~(~length(l) = n~)\)</span></p>
+<h1 class="unnumbered" id="proof-strategy-proof-by-contradiction">Proof
+strategy proof by contradiction</h1>
+<h1 class="unnumbered" id="least-greatest-proofs">Least greatest
+proofs</h1>
+<p>For a set of numbers <span class="math inline">\(X\)</span>, how do
+you formalize “there is a greatest <span
+class="math inline">\(X\)</span>” or “there is a least <span
+class="math inline">\(X\)</span>”?</p>
+<p><span><strong>Prove</strong></span> or
+<span><strong>disprove</strong></span>: There is a least prime
+number.</p>
+<p><span><strong>Prove</strong></span> or
+<span><strong>disprove</strong></span>: There is a greatest integer.</p>
+<p><span><em>Approach 1, De Morgan’s and universal
+generalization</em></span>:</p>
+<p><span><em>Approach 2, proof by contradiction</em></span>:</p>
+<p><span><em>Extra examples</em></span>: Prove or disprove that <span
+class="math inline">\(\mathbb{N}\)</span>, <span
+class="math inline">\(\mathbb{Q}\)</span> each have a least and a
+greatest element.</p>
+<h1 class="unnumbered" id="gcd-definition">Gcd definition</h1>
+<p><span><strong>Definition</strong></span>: <span><strong>Greatest
+common divisor</strong></span> Let <span
+class="math inline">\(a\)</span> and <span
+class="math inline">\(b\)</span> be integers, not both zero. The largest
+integer <span class="math inline">\(d\)</span> such that <span
+class="math inline">\(d\)</span> is a factor of <span
+class="math inline">\(a\)</span> and <span
+class="math inline">\(d\)</span> is a factor of <span
+class="math inline">\(b\)</span> is called the greatest common divisor
+of <span class="math inline">\(a\)</span> and <span
+class="math inline">\(b\)</span> and is denoted by <span
+class="math inline">\(gcd(~(a, b)~)\)</span>.</p>
+<h1 class="unnumbered" id="gcd-examples">Gcd examples</h1>
+<p>Why do we restrict to the situation where <span
+class="math inline">\(a\)</span> and <span
+class="math inline">\(b\)</span> are not both zero?</p>
+<p>Calculate <span class="math inline">\(gcd(~(10,15)~)\)</span></p>
+<p>Calculate <span class="math inline">\(gcd(~(10,20)~)\)</span></p>
+<h1 class="unnumbered" id="gcd-basic-claims">Gcd basic claims</h1>
+<p><span><strong>Claim</strong></span>: For any integers <span
+class="math inline">\(a,b\)</span> (not both zero), <span
+class="math inline">\(gcd(~(a,b)~) \geq 1\)</span>.</p>
+<p><span><strong>Proof</strong></span>: <span><em>Show that <span
+class="math inline">\(1\)</span> is a common factor of any two integers,
+so since the gcd is the greatest common factor it is greater than or
+equal to any common factor.</em></span></p>
+<p><span><strong>Claim</strong></span>: For any positive integers <span
+class="math inline">\(a,b\)</span>, <span
+class="math inline">\(gcd(~(a,b)~) \leq a\)</span> and <span
+class="math inline">\(gcd( ~(a,b)~) \leq b\)</span>.</p>
+<p><span><strong>Proof</strong></span> <span><em>Using the definition of
+gcd and the fact that factors of a positive integer are less than or
+equal to that integer.</em></span></p>
+<p><span><strong>Claim</strong></span>: For any positive integers <span
+class="math inline">\(a,b\)</span>, if <span
+class="math inline">\(a\)</span> divides <span
+class="math inline">\(b\)</span> then <span
+class="math inline">\(gcd(~(a,b)~) = a\)</span>.</p>
+<p><span><strong>Proof</strong></span> <span><em>Using previous claim
+and definition of gcd.</em></span></p>
+<p><span><strong>Claim</strong></span>: For any positive integers <span
+class="math inline">\(a,b,c\)</span>, if there is some integer <span
+class="math inline">\(q\)</span> such that <span class="math inline">\(a
+= bq + c\)</span>, <span class="math display">\[gcd(~(a,b)~) = gcd
+(~(b,c)~)\]</span> <span><strong>Proof</strong></span> <span><em>Prove
+that any common divisor of <span class="math inline">\(a,b\)</span>
+divides <span class="math inline">\(c\)</span> and that any common
+divisor of <span class="math inline">\(b,c\)</span> divides <span
+class="math inline">\(a\)</span>.</em></span></p>
+<h1 class="unnumbered" id="gcd-lemma-relatively-prime">Gcd lemma
+relatively prime</h1>
+<p><span><strong>Lemma</strong></span>: For any integers <span
+class="math inline">\(p, q\)</span> (not both zero), <span
+class="math inline">\(gcd \left(~ \left(~\frac{p}{gcd(~(p,q)~)},
+\frac{q}{gcd(~(p,q)~)} ~\right) ~\right) = 1\)</span> . In other words,
+can reduce to relatively prime integers by dividing by gcd.</p>
+<p><span><strong>Proof</strong></span>:</p>
+<p>Let <span class="math inline">\(x\)</span> be arbitrary positive
+integer and assume that <span class="math inline">\(x\)</span> is a
+factor of each of <span
+class="math inline">\(\frac{p}{gcd(~(p,q)~)}\)</span> and <span
+class="math inline">\(\frac{q}{gcd(~(p,q)~)}\)</span>. This gives
+integers <span class="math inline">\(\alpha\)</span>, <span
+class="math inline">\(\beta\)</span> such that <span
+class="math display">\[\alpha x = \frac{p}{gcd(~(p,q)~)} \qquad \qquad
+\beta x = \frac{q}{gcd(~(p,q)~)}\]</span> Multiplying both sides by the
+denominator in the RHS: <span class="math display">\[\alpha x \cdot
+gcd(~(p,q)~)= p \qquad \qquad \beta x \cdot gcd(~(p,q)~)= q\]</span> In
+other words, <span class="math inline">\(x \cdot gcd(~(p,q)~)\)</span>
+is a common divisor of <span class="math inline">\(p, q\)</span>. By
+definition of <span class="math inline">\(gcd\)</span>, this means <span
+class="math display">\[x \cdot gcd (~(p,q)~) \leq gcd (~(p,q)~)\]</span>
+and since <span class="math inline">\(gcd(~(p,q)~)\)</span> is positive,
+this means, <span class="math inline">\(x \leq 1\)</span>.</p>
+<h1 class="unnumbered" id="rational-numbers-definition">Rational numbers
+definition</h1>
+<p>The <span><strong>set of rational numbers</strong></span>, <span
+class="math inline">\(\mathbb{Q}\)</span> is defined as <span
+class="math display">\[\left\{ \frac{p}{q} \mid p \in \mathbb{Z}  \text{
+and  } q  \in \mathbb{Z} \text{ and } q \neq  0 \right\}
+\text{~~~~or, equivalently,~~~~}
+\{ x  \in  \mathbb{R} \mid \exists p \in \mathbb{Z}  \exists q \in
+\mathbb{Z}^+ ( p =  x \cdot q) \}\]</span></p>
+<p><span><em>Extra practice</em></span>: Use the definition of set
+equality to prove that the definitions above give the same set.</p>
+<h1 class="unnumbered" id="proof-by-contradiction-irrational">Proof by
+contradiction irrational</h1>
+<p><span><strong>Goal</strong></span>: The square root of <span
+class="math inline">\(2\)</span> is not a rational number. In other
+words: <span class="math inline">\(\neg \exists x \in \mathbb{Q} ( x^2
+-  2 = 0)\)</span></p>
+<p><span><strong>Attempted proof</strong></span>: The definition of the
+set of rational numbers is the collection of fractions <span
+class="math inline">\(p/q\)</span> where <span
+class="math inline">\(p\)</span> is an integer and <span
+class="math inline">\(q\)</span> is a nonzero integer. Looking for a
+<span><strong>witness</strong></span> <span
+class="math inline">\(p\)</span> and <span
+class="math inline">\(q\)</span>, we can write the square root of <span
+class="math inline">\(2\)</span> as the fraction <span
+class="math inline">\(\sqrt{2 }/1\)</span>, where <span
+class="math inline">\(1\)</span> is a nonzero integer. Since the
+numerator is not in the domain, this witness is not allowed, and we have
+shown that the square root of <span class="math inline">\(2\)</span> is
+not a fraction of integers (with nonzero denominator). Thus, the square
+root of <span class="math inline">\(2\)</span> is not rational.</p>
+<p><span><em>The problem in the above attempted proof is
+that</em></span> <u></u></p>
+<p><span><strong>Lemma 1:</strong></span> For every two integers <span
+class="math inline">\(a\)</span> and <span
+class="math inline">\(b\)</span>, not both zero, with <span
+class="math inline">\(gcd(~(a,b)~) = 1\)</span>, it is not the case that
+both <span class="math inline">\(a\)</span> is even and <span
+class="math inline">\(b\)</span> is even.</p>
+<p><span><strong>Lemma 2:</strong></span> For every integer <span
+class="math inline">\(x\)</span>, <span class="math inline">\(x\)</span>
+is even if and only if <span class="math inline">\(x^2\)</span> is
+even.</p>
+<p><span><strong>Proof</strong></span>: Towards a proof by
+contradiction, we will define a statement <span
+class="math inline">\(r\)</span> such that <span
+class="math inline">\(\sqrt{2} \in \mathbb{Q} \to (r \land \lnot
+r)\)</span>.</p>
+<p>Assume that <span class="math inline">\(\sqrt{2} \in
+\mathbb{Q}\)</span>. Namely, there are positive integers <span
+class="math inline">\(p, q\)</span> such that <span
+class="math display">\[\sqrt{2} = \frac{p}{q}\]</span> Let <span
+class="math inline">\(a= \frac{p}{gcd( ~(p,q)~)}\)</span>, <span
+class="math inline">\(b = \frac{q}{gcd(~(p,q)~)}\)</span>, then <span
+class="math display">\[\sqrt{2} = \frac{a}{b} \qquad \text{and} \qquad
+gcd(~(a,b)~) = 1\]</span></p>
+<p>By Lemma 1, <span class="math inline">\(a\)</span> and <span
+class="math inline">\(b\)</span> are not both even. We define <span
+class="math inline">\(r\)</span> to be the statement “<span
+class="math inline">\(a\)</span> is even and <span
+class="math inline">\(b\)</span> is even”, and we have proved <span
+class="math inline">\(\lnot r\)</span>.</p>
+<p>Squaring both sides and clearing denominator: <span
+class="math inline">\(2b^2 = a^2\)</span>.</p>
+<p>By definition of even, since <span class="math inline">\(b^2\)</span>
+is an integer<span class="math inline">\(, a^2\)</span> is even.</p>
+<p>By Lemma 2, this guarantees that <span
+class="math inline">\(a\)</span> is even too. So, by definition of even,
+there is some integer (call it <span class="math inline">\(c\)</span>),
+such that <span class="math inline">\(a = 2c\)</span>.</p>
+<p>Plugging into the equation: <span class="math display">\[2b^2 = a^2 =
+(2c)^2 = 4c^2\]</span> and dividing both sides by <span
+class="math inline">\(2\)</span> <span class="math display">\[b^2 =
+2c^2\]</span> and since <span class="math inline">\(c^2\)</span> is an
+integer, <span class="math inline">\(b^2\)</span> is even. By Lemma 2,
+<span class="math inline">\(b\)</span> is even too. Thus, <span
+class="math inline">\(a\)</span> is even and <span
+class="math inline">\(b\)</span> is even and we have proved <span
+class="math inline">\(r\)</span>.</p>
+<p>In other words, assuming that <span class="math inline">\(\sqrt{2}
+\in \mathbb{Q}\)</span> guarantees <span class="math inline">\(r \land
+\lnot r\)</span>, which is impossible, so <span
+class="math inline">\(\sqrt{2} \notin \mathbb{Q}\)</span>. QED</p>
 <h1 class="unnumbered" id="compound-proposition-definitions">Compound
 proposition definitions</h1>
 <p><span><strong>Proposition</strong></span>: Declarative sentence that

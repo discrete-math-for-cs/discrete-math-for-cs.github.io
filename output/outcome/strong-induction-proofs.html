@@ -227,5 +227,74 @@ one <span class="math inline">\(3\)</span> cent stamp to however we make
 <p>The details of this proof by strong induction are making sure we stay
 in the domain of the universal when applying the induction
 hypothesis.</p>
+<h1 class="unnumbered" id="strong-induction-nim">Strong induction
+nim</h1>
+<p>Consider the following game: two players start with two (equal) piles
+of jellybeans in front of them. They take turns removing any positive
+integer number of jellybeans at a time from one of two piles in front of
+them in turns.</p>
+<p>The player who removes the last jellybean wins the game.</p>
+<p>Which player (if any) has a strategy to guarantee to win the
+game?</p>
+<p>Try out some games, starting with <span
+class="math inline">\(1\)</span> jellybean in each pile, then <span
+class="math inline">\(2\)</span> jellybeans in each pile, then <span
+class="math inline">\(3\)</span> jellybeans in each pile. Who wins in
+each game?</p>
+<p>Notice that reasoning about the strategy for the <span
+class="math inline">\(1\)</span> jellybean game is easier than about the
+strategy for the <span class="math inline">\(2\)</span> jellybean
+game.</p>
+<p><span><em>Formulate a winning strategy by working to transform the
+game to a simpler one we know we can win.</em></span></p>
+<p><span><em>Player 2’s Strategy</em></span>: Take the same number of
+jellybeans that Player 1 did, but from the opposite pile.</p>
+<p><span><em>Why is this a good idea</em></span>: If Player 2 plays this
+strategy, at the next turn Player 1 faces a game with the same setup as
+the original, just with fewer jellybeans in the two piles. Then Player 2
+can keep playing this strategy to win.</p>
+<p><span><strong>Claim</strong></span>: Player 2’s strategy guarantees
+they will win the game.</p>
+<p><span><strong>Proof</strong></span>: By strong induction, we will
+prove that for all positive integers <span
+class="math inline">\(n\)</span>, Player 2’s strategy guarantees a win
+in the game that starts with <span class="math inline">\(n\)</span>
+jellybeans in each pile.</p>
+<p><span><strong>Basis step</strong></span>: WTS Player 2’s strategy
+guarantees a win when each pile starts with <span
+class="math inline">\(1\)</span> jellybean.</p>
+<p>In this case, Player 1 has to take the jellybean from one of the
+piles (because they can’t take from both piles at once). Following the
+strategy, Player 2 takes the jellybean from the other pile, and wins
+because this is the last jellybean.</p>
+<p><span><strong>Recursive step</strong></span>: Let <span
+class="math inline">\(n\)</span> be a positive integer. As the strong
+induction hypothesis, assume that Player 2’s strategy guarantees a win
+in the games where there are <span class="math inline">\(1, 2, \ldots,
+n\)</span> many jellybeans in each pile at the start of the game.</p>
+<p>WTS that Player 2’s strategy guarantees a win in the game where there
+are <span class="math inline">\(n+1\)</span> in the jellybeans in each
+pile at the start of the game.</p>
+<p>In this game, the first move has Player 1 take some number, call it
+<span class="math inline">\(c\)</span> (where <span
+class="math inline">\(1 \leq c \leq n+1\)</span>), of jellybeans from
+one of the piles. Playing according to their strategy, Player 2 then
+takes the same number of jellybeans from the other pile.</p>
+<p>Notice that <span class="math inline">\((c = n+1) \lor (c \leq
+n)\)</span>.</p>
+<p><span><em>Case 1</em></span>: Assume <span class="math inline">\(c =
+n+1\)</span>, then in their first move, Player 2 wins because they take
+all of the second pile, which includes the last jellybean.</p>
+<p><span><em>Case 2</em></span>: Assume <span class="math inline">\(c
+\leq n\)</span>. Then after Player 2’s first move, the two piles have an
+equal number of jellybeans. The number of jellybeans in each pile is
+<span class="math display">\[(n+1) - c\]</span> and, since <span
+class="math inline">\(1 \leq c \leq n\)</span>, this number is between
+<span class="math inline">\(1\)</span> and <span
+class="math inline">\(n\)</span>. Thus, at this stage of the game, the
+game appears identical to a new game where the two piles have an equal
+number of jellybeans between <span class="math inline">\(1\)</span> and
+<span class="math inline">\(n\)</span>. Thus, the strong induction
+hypothesis applies, and Player 2’s strategy guarantees they win.</p>
 </body>
 </html>
