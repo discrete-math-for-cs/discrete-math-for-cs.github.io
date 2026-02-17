@@ -156,7 +156,7 @@
         "header": "Week 6",
         "outcomes": "Proofs, Recursion, and Induction",
         "CalendarInfo": " Dates: 02/09/26-02/13/26",
-        "ExpandInCalendar": true,
+        "ExpandInCalendar": false,
         "content": [
             {
                 "name": "Notes",
@@ -191,7 +191,7 @@
         "header": "Week 7",
         "outcomes": "More recursion and induction",
         "CalendarInfo": " Dates: 02/16/26-02/20/26. No class on Monday February 16 in observance of Presidents Day.",
-        "ExpandInCalendar": false,
+        "ExpandInCalendar": true,
         "content": [
             {
                 "name": "Notes",
