@@ -63,7 +63,219 @@
 \begin{document}
 \begin{flushright}
     \StrBefore{\currfilename}{.}
-\end{flushright} \section*{Cartesian product definition}
+\end{flushright} \section*{Cardinality caution}
+
+
+{\it Caution}: we use 
+familiar symbols to define cardinality, like
+$| \phantom{\cdots} | \leq | \phantom{\cdots} |$
+and 
+$| \phantom{\cdots} | \geq | \phantom{\cdots} |$
+and 
+$| \phantom{\cdots} | = | \phantom{\cdots} |$, 
+but the meaning of these symbols depends on context.
+We've seen that vertical lines can mean absolute
+value (for real numbers), divisibility (for integers), 
+and now sizes (for sets). 
+
+Now we see that $\leq$ and $\geq$ can mean comparing
+numbers or comparing sizes of sets. When the sets being 
+compared are finite, the definitions 
+of $|A| \leq |B|$ agree. 
+
+But, properties of numbers cannot be assumed when comparing
+cardinalities of infinite sets.
+
+In a nutshell: cardinality of sets is defined via functions.
+This definition agrees with the usual notion of ``size'' for 
+finite sets. \vfill
+\section*{Cantor schroder bernstein theorem}
+
+
+{\bf Cantor-Schroder-Bernstein Theorem}: For all nonempty sets,
+\[
+|A| = |B| \qquad\text{if and only if} \qquad (|A| \leq |B| ~\text{and}~ |B| \leq |A|)
+\qquad\text{if and only if} \qquad (|A| \geq |B| ~\text{and}~ |B| \geq |A|)
+\]
+
+To prove $|A| = |B|$,  we can do any {\bf one} of the following
+
+\begin{itemize}\setlength{\itemsep}{-5pt}
+\item Prove there exists  a bijection $f:  A \to B$;
+\item Prove there exists a  bijection  $f: B  \to  A$;
+\item Prove there exists two functions $f_1: A \to B$, $f_2: B \to  A$ where each of $f_1, f_2$ is one-to-one.
+\item Prove there exists two functions $f_1: A \to B$, $f_2: B \to  A$ where each of $f_1, f_2$ is onto.
+\end{itemize} \vfill
+\section*{Countably infinite definition}
+
+
+{\bf Definition}: A set $A$ is {\bf countably infinite} means it is the 
+same size as $\mathbb{N}$.
+
+ \vfill
+\section*{Countably infinite examples sets of numbers}
+
+
+{\bf Natural numbers} $\mathbb{N}$ \hfill {\it List}:  $0~~1~~2~~3~~4~~5~~6~~7~~8~~9~~10 \ldots$
+
+$identity: \mathbb{N} \to \mathbb{N}$ with $identity(n) = n$
+
+{\it Claim}: $identity$ is a bijection. {\it Proof}: Ex. \hfill {\bf Corollary}: $ | \mathbb{N} | = |\mathbb{N}|~$
+
+{\bf Positive integers} $\mathbb{Z}^+$ \hfill {\it List}:  $1~~2~~3~~4~~5~~6~~7~~8~~9~~10~~11\ldots$
+
+$positives: \mathbb{N} \to \mathbb{Z}^+$ with $positives(n) = n+1$
+
+{\it Claim}: $positives$ is a bijection.  {\it Proof}: Ex.\hfill {\bf Corollary}: $ | \mathbb{N} | = |\mathbb{Z}^+|$
+
+{\bf Negative integers $\mathbb{Z}^-$}\hfill  {\it List}: $-1$~$-2$~$-3$~$-4$~$-5$~$-6$~$-7$~$-8$~$-9$~$-10$~$-11$\ldots
+
+$negatives: \mathbb{N} \to \mathbb{Z}^-$ with $negatives(n) = -n-1$
+
+{\it Claim}: $negatives$ is a bijection. \hfill {\bf Corollary}: $ | \mathbb{N} | = |\mathbb{Z}^-|$
+
+{\it Proof}: We need to show it is a well-defined function that is one-to-one and onto.
+
+\begin{itemize}
+\item Well-defined? 
+
+Consider an arbitrary element of the domain, $n \in \mathbb{N}$. We need to show it maps to exactly one element of $\mathbb{Z}^-$.
+
+\vfill
+
+\item One-to-one?
+
+
+Consider arbitrary elements of the domain $a, b \in \mathbb{N}$. We need to show that 
+$$\left(~negatives(a) = negatives(b) ~\right) \to (a=b)$$
+
+\vfill
+
+\item Onto?
+
+Consider arbitrary element of the codomain $b \in \mathbb{Z}^-$. We need witness in $\mathbb{N}$ that maps to $b$.
+
+\vfill
+\end{itemize}
+
+{\bf Integers} $\mathbb{Z}$ \hfill {\it List}:  $0~-1~~1~-2~~2~-3~~3~-4~~4~-5~~5$\ldots
+
+$f: \mathbb{Z} \to \mathbb{N}$ with $f(x) = \begin{cases}2x &\text{if $x \geq 0$} \\-2x-1 &\text{if $x < 0$} \end{cases}$
+
+{\it Claim}: $f$ is a bijection.  {\it Proof}: Ex.\hfill {\bf Corollary}: $ | \mathbb{Z} | = |\mathbb{N}|$
+\newpage
+
+
+ \vfill
+\section*{Countably infinite examples other sets}
+
+
+{\bf More examples of countably infinite sets}
+
+{\bf Claim}: $S$ is countably infinite
+
+{\it Similarly: The set of all strings over a specific alphabet is countably infinite.}
+\begin{center}
+Bijection using alphabetical-ish ordering
+(first order by length, then alphabetically among strings of same length) 
+of strands
+\end{center}
+
+\vspace{50pt}
+
+
+{\bf Claim}: $L$ is countably infinite
+
+\begin{multicols}{2}
+\begin{align*}
+    &list: \mathbb{N} \to L \\
+    &list(n) = (n, []) \\
+    &
+\end{align*}
+
+\begin{align*}
+    &toNum: L \to \mathbb{N} \\
+    &toNum([]) = 0 \\
+    &toNum( ~(n,l)~) = 2^n 3^{toNum}(l) \qquad \text{for $n \in \mathbb{N}$, $l \in L$}
+\end{align*}
+\end{multicols}
+\vspace{30pt}
+
+{\bf Claim}: $|\mathbb{Z}^+| = |\mathbb{Q}|$ 
+
+One-to-one function from $\mathbb{Z}^+$ to $\mathbb{Q}$
+is $f_1: \mathbb{Z} \to \mathbb{Q}$ with $f_1(n) = n$ for all 
+$n \in \mathbb{N}$.
+
+\vspace{30pt}
+
+
+\begin{align*}
+    &f_2: \mathbb{Q} \to \mathbb{Z} \times \mathbb{Z} \\
+    &f_2(x) = \begin{cases}
+        (0,1) & \text{if $x = 0$} \\
+        (p,q) & \text{if $x = \frac{p}{q}$,}\\
+                & \text{$gcd(p,q) = 1$, $q > 0$}
+    \end{cases}
+\end{align*}
+\begin{multicols}{2}
+\begin{align*}
+    &f_3: \mathbb{Z} \times \mathbb{Z} \to \mathbb{Z}^+ \times \mathbb{Z}^+ \\
+    &f_3(~(x,y)~) = \begin{cases}
+        (2x+2, 2y+2) & \text{if $x \geq 0, y \geq 0$} \\
+        (-2x-1, 2y+2) & \text{if $x < 0, y \geq 0$} \\
+        (2x+2, -2y+1) & \text{if $x \geq 0, y < 0$} \\
+        (-2x-1, -2y-1) & \text{if $x < 0, y < 0$} \\
+    \end{cases}
+\end{align*}
+
+\begin{align*}
+    &f_4: \mathbb{Z}^+ \times \mathbb{Z}^+ \to \mathbb{Z}^+ \\
+    &f_4(~(x,y)~) = 2^x 3^y \qquad \text{for $x,y \in \mathbb{Z}^+$}
+\end{align*}
+\end{multicols} \vfill
+\section*{Cardinality categories}
+
+
+A set $A$ is {\bf finite} means it is empty or it is the same size as $\{ 1, \ldots, n \}$ for some $n \in \mathbb{N}$.
+
+A set $A$ is {\bf countably infinite} means it is the same size as $\mathbb{N}$. {\it Notice: 
+all countably infinite sets are the same size as each other.}
+
+A set $A$ is {\bf countable} means it is either finite or countably infinite.
+
+A set $A$ is {\bf uncountable} means it is not countable. \vfill
+\section*{Cardinality countability lemmas}
+
+
+{\bf Lemmas about countable and uncountable sets}
+
+{\bf Lemma}: If $A$ is a subset of a countable set, then it's countable.
+
+\vspace{80pt}
+
+{\bf Lemma}: If $A$ is a superset of an uncountable set, then it's uncountable.
+
+\vspace{80pt}
+
+{\bf Lemma}: If $A$ and $B$ are countable sets, then $A \cup B$ is countable
+and $A \cap B$ is countable.
+
+\vspace{80pt}
+
+{\bf Lemma}: If $A$ and $B$ are countable sets, then $A \times B$ is countable.
+
+{\it Generalize pairing ideas from $\mathbb{Z}^+ \times \mathbb{Z}^+$ to $\mathbb{Z}^+$}
+
+\vspace{50pt}
+
+{\bf Lemma}: If $A$ is a subset of $B$ , to show that $|A| = |B|$, 
+it's enough to give one-to-one function from $B$ to $A$ or an onto function 
+from $A$ to $B$.
+
+\vspace{80pt}
+ \vfill
+\section*{Cartesian product definition}
 
 
 {\bf Definition}: The {\bf Cartesian product} of the sets $A$ and $B$, 
