@@ -196,7 +196,7 @@ of strands
 \begin{align*}
     &toNum: L \to \mathbb{N} \\
     &toNum([]) = 0 \\
-    &toNum( ~(n,l)~) = 2^n 3^{toNum}(l) \qquad \text{for $n \in \mathbb{N}$, $l \in L$}
+    &toNum( ~(n,l)~) = 2^n 3^{toNum(l)} \qquad \text{for $n \in \mathbb{N}$, $l \in L$}
 \end{align*}
 \end{multicols}
 \vspace{30pt}
@@ -204,7 +204,7 @@ of strands
 {\bf Claim}: $|\mathbb{Z}^+| = |\mathbb{Q}|$ 
 
 One-to-one function from $\mathbb{Z}^+$ to $\mathbb{Q}$
-is $f_1: \mathbb{Z} \to \mathbb{Q}$ with $f_1(n) = n$ for all 
+is $f_1: \mathbb{Z}^+ \to \mathbb{Q}$ with $f_1(n) = n$ for all 
 $n \in \mathbb{N}$.
 
 \vspace{30pt}
