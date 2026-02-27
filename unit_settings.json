@@ -191,7 +191,7 @@
         "header": "Week 7",
         "outcomes": "More recursion and induction",
         "CalendarInfo": " Dates: 02/16/26-02/20/26. No class on Monday February 16 in observance of Presidents Day.",
-        "ExpandInCalendar": true,
+        "ExpandInCalendar": false,
         "content": [
             {
                 "name": "Notes",
@@ -210,7 +210,7 @@
         "header": "Week 8",
         "outcomes": "Functions and Cardinality",
         "CalendarInfo": " Dates: 02/23/26-02/27/26",
-        "ExpandInCalendar": false,
+        "ExpandInCalendar": true,
         "content": [
             {
                 "name": "Notes",
@@ -235,16 +235,16 @@
                 "link": "https://us.prairielearn.com/pl/",
                 "due": "02/23/26"
             },
-                        {
+            {
                 "name": "hw4-proofs-sets-recursion-CSE20W26",
-                "due": "02/26/26 at 5pm (late submission until 8am next morning)"
+                "due": "02/26/26 at 5pm (late submission until 8am next morning"
             }
         ]
     },
     {
         "header": "Week 9",
         "outcomes": "Relations and Modular Arithmetic",
-        "CalendarInfo": " Dates: 03/02/26-03/06/26.   Test 2 in CBTF this week.  The test covers material in Weeks 5 through Week 9.  To study for the exam, we recommend reviewing class notes (e.g. annotations linked on the class website, supplementary video from the class website), reviewing homework (and its posted sample solutions), and in particular *working examples* (extra examples in lecture notes, review quizzes, discussion examples) and getting feedback (office hours and Piazza).",
+        "CalendarInfo": "Dates: 03/02/26-03/06/26.   Test 2 in CBTF this week.  The test covers material in Weeks 5 through Week 9.  To study for the exam, we recommend reviewing class notes (e.g. annotations linked on the class website, supplementary video from the class website), reviewing homework (and its posted sample solutions), and in particular *working examples* (extra examples in lecture notes, review quizzes, discussion examples) and getting feedback (office hours and Piazza).",
         "ExpandInCalendar": false,
         "content": [
             {
@@ -308,15 +308,19 @@
     {
         "header": "Finals week",
         "outcomes": "Final exam",
-        "CalendarInfo": "Dates: Final exam 03/20/26 11:30am",
+        "CalendarInfo": "Dates: Final exam 03/20/26 11:30am in person on campus",
         "ExpandInCalendar": false,
         "content": [
             {
                 "name": "Final exam details",
-                "source": "<p>Assigned seats for the final exam will be posted on Canvas.<br><br>More details on the final exam will be announced.</p>"
+                "source": "<p>Assigned seats for the final exam will be posted on Canvas.<br><br>The final exam is in person and synchronous Friday 03/20/26 11:30A - 2:29P  in the Rec Gym. <a href=\"https://map.concept3d.com/?id=1005#!m/166062\" target=\"_blank\">https://map.concept3d.com/?id=1005#!m/166062</a>. </p>"
             }
         ],
         "Due Dates": [
+                        {
+                "name": "finalpractice-CSE20W26",
+                "due": "Practice questions for the final exam"
+            },
             {
                 "name": "Final exam",
                 "due": "Friday 03/20/26 at 11:30am"
