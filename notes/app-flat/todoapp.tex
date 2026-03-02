@@ -63,7 +63,345 @@
 \begin{document}
 \begin{flushright}
     \StrBefore{\currfilename}{.}
-\end{flushright} \section*{Finite sets definition}
+\end{flushright} \section*{Cardinality recap}
+
+
+
+The set of positive integers $\mathbb{Z}^{+}$ is countably infinite.
+
+The set of integers $\mathbb{Z}$ is countably infinite and is a proper superset of $\mathbb{Z}^{+}$. 
+In fact, the set difference 
+$$\mathbb{Z} \setminus \mathbb{Z}^{+} = \{ x \in \mathbb{Z} \mid x \notin \mathbb{Z}^+\} 
+= \{ x \in \mathbb{Z} \mid x \leq 0 \}$$ is countably infinite.
+
+The set of rationals 
+$\mathbb{Q} = \left\{ \frac{p}{q} \mid p \in \mathbb{Z}  \text{ and  } 
+q  \in \mathbb{Z} \text{ and } q \neq  0 \right\}$ is countably infinite.
+
+
+The set of real numbers $\mathbb{R}$ is uncountable. In fact, the closed 
+interval $\{x \in \mathbb{R} ~|~ 0 \leq x \leq 1\}$, 
+any other nonempty closed interval of real numbers whose endpoints are 
+unequal, as well as the related intervals that exclude one or both of the endpoints are
+each uncountable.
+The set of {\bf irrational} numbers $\overline{\mathbb{Q}} = \mathbb{R} - \mathbb{Q}
+= \{ x \in \mathbb{R} \mid x \notin \mathbb{Q} \}$ is uncountable.
+
+\vfill
+
+We can classify any set as 
+\begin{itemize}
+\item {\bf Finite} size. Fact: For each positive number $n$, for any sets $X$ and $Y$ each 
+size $n$, there is a bijection between $X$ and $Y$.
+\item {\bf Countably Infinite}. Fact: for any countably infinite sets $X$ and $Y$, there is a bijection
+between $X$ and $Y$.
+\item {\bf Uncountable}. Examples: $\mathcal{P}(\mathbb{N})$, the power set of any infinite set, 
+the set of real numbers, any nonempty interval of real numbers. Fact: there are (many) examples 
+of uncountable sets that do not have a bijection between them.
+\end{itemize} \vfill
+\section*{Cardinality final review}
+
+
+{\bf True or False}?  For all sets $A$ and $B$ where  $A \subseteq B$, 
+if $A$ is infinite then $B$ is finite.
+
+\vfill
+
+{\bf True or False}?   For all sets $A$ and $B$ where  $A \subseteq B$, 
+if $A$ is countable then $B$ is countable.
+
+\vfill
+
+{\bf True or False}?   For all sets $A$ and $B$ where  $A \subseteq B$, 
+if $B$ is infinite then $A$ is finite.
+
+\vfill
+
+{\bf True or False}?   For all sets $A$ and $B$ where  $A \subseteq B$, 
+if $B$ is uncountable then $A$ is countable.
+
+\vfill \vfill
+\section*{Binary relation definition}
+
+
+{\bf Definition}: When $A$ and $B$ are sets, we say any subset of $A \times B$ is a {\bf binary relation}. 
+A relation $R$ can also be represented as
+
+\begin{itemize}
+\item A function $f_{TF} : A \times B \to \{T, F\}$
+where, for $a \in A$ and $b \in B$, $f_{TF}(~(a,b)~) = 
+\begin{cases} 
+    T \qquad&\text{when } (a,b) \in R \\
+    F \qquad&\text{when } (a,b) \notin R
+\end{cases}$
+\item A function $f_{\mathcal{P}} : A   \to \mathcal{P}(B)$ where, for $a \in A$, 
+$f_{\mathcal{P}}( a ) = \{ b \in B ~|~ (a,b) \in R \}$
+\end{itemize}
+
+When $A$ is a set, we say any subset of $A \times A$ is a (binary) {\bf relation} on $A$.
+
+ \vfill
+\section*{Relations as graphs}
+
+
+For relation $R$ on a set $A$, we can represent this relation as a
+{\bf graph}: a collection of nodes (vertices) and edges (arrows). The 
+nodes of the graph are the elements of $A$ and 
+there is an edge from $a$ to $b$ exactly when $(a,b) \in R$.
+ \vfill
+\section*{Binary relation examples}
+
+
+{\it Example}: For $A = \mathcal{P}(\mathbb{R})$, we can define the relation $EQ_{\mathbb{R}}$ on $A$ as 
+\[
+\{ (X_1, X_2 ) \in\mathcal{P}(\mathbb{R})  \times \mathcal{P}(\mathbb{R}) ~|~ |X_1| = |X_2| \}
+\]
+
+\vfill
+
+{\it Example}: Let $R_{(\textbf{mod } n)}$ be the set of all pairs of integers $(a, b)$ such that $(a \textbf{ mod } n = b \textbf{ mod } n)$.
+Then $a$ is {\bf congruent to} $b$ \textbf{mod} $n$ means $(a, b) \in R_{(\textbf{mod } n)}$. A common notation is to write this as $a \equiv b (\textbf{mod } n)$.
+
+
+$R_{(\textbf{mod } n)}$ is a relation on the set $\underline{\phantom{\mathbb{Z}}\hspace{20em}}$
+
+
+Some example elements of $R_{(\textbf{mod } 4)}$ are: 
+
+\vfill \vfill
+\section*{Reflexive relation definition}
+
+
+A relation $R$ on a set $A$ is called {\bf reflexive} 
+means $(a, a) \in R$ for every element $a \in A$. 
+ \vfill
+\section*{Reflexive relation informally}
+
+
+{\it Informally}, every element is related to itself.
+
+{\it Graphically}, there are self-loops (edge from a node back to itself) at 
+every node. \vfill
+\section*{Symmetric relation definition}
+
+
+A relation $R$ on a set $A$ is called {\bf symmetric} means 
+$(b, a) \in R$ whenever $(a, b) \in R$, for all $a, b \in A$. 
+ \vfill
+\section*{Symmetric relation informally}
+
+
+{\it Informally}, order doesn't matter for this relation.
+
+{\it Graphically}, every edge has a paired ``backwards'' edge so we might
+as well drop the arrows and think of edges as undirected. \vfill
+\section*{Transitive relation definition}
+
+
+A relation $R$ on a set $A$ is called {\bf transitive} means 
+whenever $(a, b) \in R$ and $(b, c) \in R$, then $(a, c) \in R$, for all $a, b, c \in A$.
+ \vfill
+\section*{Transitive relation informally}
+
+
+{\it Informally}, chains of relations collapse.
+
+{\it Graphically}, there's a shortcut between any endpoints of a chain of 
+edges. \vfill
+\section*{Antisymmetric relation definition}
+
+
+A relation $R$ on a set $A$ is called {\bf antisymmetric} means 
+$\forall a \in A ~\forall b \in A~\left(~\left( ~(a,b) \in R \land (b,a) \in R ~\right) \to a=b~\right)$
+ \vfill
+\section*{Antisymmetric relation informally}
+
+
+{\it Informally}, the relation has directionality.
+
+{\it Graphically}, can organize the nodes of the graph so that 
+all non-self loop edges go up. \vfill
+\section*{Binary relation properties examples}
+
+
+
+When the domain is $\{ a,b,c,d,e,f,g,h\}$ define a relation that is {\bf not reflexive} and 
+is {\bf not symmetric} and is {\bf not transitive}.
+
+\vfill
+
+When the domain is $\{ a,b,c,d,e,f,g,h\}$ define a relation that is {\bf not reflexive} but 
+is {\bf symmetric} and is {\bf transitive}.
+
+\vfill
+
+When the domain is $\{ a,b,c,d,e,f,g,h\}$ define a relation that is {\bf symmetric} and
+is {\bf antisymmetric}.
+
+\vfill
+
+Is the relation $EQ_{\mathbb{R}}$ reflexive? symmetric? transitive? antisymmetric?
+
+\vfill
+
+Is the relation $R_{(\textbf{mod } 4)}$ reflexive? symmetric? transitive? antisymmetric?
+
+\vfill
+%
+ \vfill
+\section*{Equivalence relation definition}
+
+
+A relation is an {\bf equivalence relation} means it is reflexive, symmetric, and transitive. \vfill
+\section*{Partial order definition}
+
+
+A relation is a {\bf partial ordering} (or partial order) means 
+it is reflexive, antisymmetric, and transitive. \vfill
+\section*{Hasse diagram definition}
+
+
+For a partial ordering, its {\bf Hasse diagram} is a graph representing the 
+relationship between elements in the ordering. The nodes (vertices) of the graph 
+are the elements of the 
+domain of the binary relation. The edges do not have arrow heads. The
+directionality of the partial order is indicated by 
+the arrangements of the nodes. The nodes are arranged so that nodes connected to nodes
+above them by edges indicate that the relation holds between the 
+lower node and the higher node. 
+Moreover, the diagram omits self-loops and 
+omits edges that are guaranteed by transitivity.
+ \vfill
+\section*{Hasse diagram example}
+
+
+Draw the Hasse diagram of the partial order on the set $\{a,b,c,d,e,f,g\}$ defined as
+\begin{align*}
+    \{  &(a,a), (b,b), (c,c), (d,d), (e,e), (f,f), (g,g), \\
+        &(a,c), (a,d), (d,g), (a,g), (b,f), (b,e), (e,g), (b,g) \}
+\end{align*}
+
+\vspace{100pt}
+
+%
+ \vfill
+\section*{Partition definition}
+
+
+A {\bf partition} of a set $A$ is a set of non-empty, disjoint subsets 
+$A_1, A_2, \cdots, A_n$ such that 
+\[
+    A = \bigcup_{i=1}^{n} A_i = \{ x \mid \exists i (x \in A_i) \}
+\] \vfill
+\section*{Equivalence class definition}
+
+
+An {\bf equivalence class} of an element $a \in A$ 
+with respect to an equivalence relation $R$ on the set $A$ is the set 
+\[
+    \{s \in A \mid (a, s) \in R \}
+\] 
+We write $[a]_R$ for this set, which is the equivalence class of $a$ with respect to $R$. \vfill
+\section*{Congruence classes mod four}
+
+
+{\it Recall}: We say $a$ is {\bf congruent to} $b$ \textbf{mod} $n$ 
+means $(a, b) \in R_{(\textbf{mod } n)}$. 
+A common notation is to write this as $a \equiv b (\textbf{mod } n)$.
+
+We can partition the set of integers using equivalence classes of  $R_{(\textbf{mod } 4)}$
+
+\begin{align*}
+    [0]_{R_{(\textbf{mod } 4)}} &= \phantom{ \{ x \in \mathbb{Z} \mid x \equiv 0 ((\textbf{mod } 4)) \} 
+    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = 0 \textbf{ mod } 4 = 0 \} = \{ 4c \mid c \in \mathbb{Z}\} }\\
+    [1]_{R_{(\textbf{mod } 4)}} &= \phantom{ \{ x \in \mathbb{Z} \mid x \equiv 1 ((\textbf{mod } 4)) \} 
+    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = 1 \textbf{ mod } 4 = 1 \} = \{ 4c+1 \mid c \in \mathbb{Z}\} }\\
+    [2]_{R_{(\textbf{mod } 4)}} &= \phantom{ \{ x \in \mathbb{Z} \mid x \equiv 2 ((\textbf{mod } 4)) \} 
+    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = 2 \textbf{ mod } 4 = 0 \} = \{ 4c+2 \mid c \in \mathbb{Z}\} }\\
+    [3]_{R_{(\textbf{mod } 4)}} &= \phantom{ \{ x \in \mathbb{Z} \mid x \equiv 3 ((\textbf{mod } 4)) \} 
+    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = 3 \textbf{ mod } 4 = 3 \} = \{ 4c+3 \mid c \in \mathbb{Z}\} }\\
+    [4]_{R_{(\textbf{mod } 4)}} &= \phantom{ \{ x \in \mathbb{Z} \mid x \equiv 4 ((\textbf{mod } 4)) \} 
+    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = 4 \textbf{ mod } 4 = 0 \} = \{ 4c \mid c \in \mathbb{Z}\} }\\
+    [5]_{R_{(\textbf{mod } 4)}} &= \phantom{ \{ x \in \mathbb{Z} \mid x \equiv 5 ((\textbf{mod } 4)) \} 
+    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = 5 \textbf{ mod } 4 = 1 \} = \{ 4c+1 \mid c \in \mathbb{Z}\} }\\
+    [-1]_{R_{(\textbf{mod } 4)}} &= \phantom{ \{ x \in \mathbb{Z} \mid x \equiv -1 ((\textbf{mod } 4)) \} 
+    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = -1 \textbf{ mod } 4 = 3 \} = \{ 4c+3 \mid c \in \mathbb{Z}\} }
+\end{align*}
+\[
+\mathbb{Z} =  [0]_{R_{(\textbf{mod } 4)}}~ \cup ~[1]_{R_{(\textbf{mod } 4)}} ~\cup~[2]_{R_{(\textbf{mod } 4)}}~\cup~
+[3]_{R_{(\textbf{mod } 4)}}
+\]
+
+
+
+
+
+ \vfill
+\section*{Modular arithmetic motivation}
+
+
+Integers are useful because they can be used to encode other objects
+and have multiple representations. However, infinite sets are sometimes
+expensive to work with computationally. Reducing our attention to 
+a {\it partition of the integers} based on congrunce mod $n$, where
+each part is represented by a (not too large) integer gives a useful 
+compromise where many algebraic properties of the integers are preserved, 
+and we also get the benefits of a finite domain. Moreover, modular arithmetic
+is well-suited to model any cyclic behavior. \vfill
+\section*{Congruence mod n lemma}
+
+
+{\bf Lemma}: For $a, b \in \mathbb{Z}$ 
+and positive integer $n$, $(a,b) \in R_{(\textbf{mod } n)}$ if and only if  $n | a-b$.
+
+{\bf Proof}: 
+
+\phantom{Consider arbitrary integers $a,b$ and arbitrary positive integer $n$.}
+
+\phantom{Assume $a \textbf{ mod } n = b \textbf{ mod } n$. Call this 
+remainder $r$ and we have integers $q_1, q_2$ such that $a = q_1 n + r$
+and $b = q_2 n + r$. Calculating $a-b = (q_1 n + r) - (q_2n +r) = (q_1 - q_2)n$ 
+an integer multiple of $n$, as required.}
+
+\phantom{Assume there is integer $c$ with $a-b = cn$. By long division 
+there are integers $q$ and $r$ ($0 \leq r < n$) with $b = qn + r$. Then 
+$a = b + cn = qn+r + cn = (q+c)n + r$. Since long division gives a unique remainder,
+this means $a \textbf{ mod } n = r = b \textbf{ mod } n$, as required.}
+
+\vspace{200pt} \vfill
+\section*{Modular arithmetic}
+
+
+{\bf Modular arithmetic}: 
+
+{\bf Lemma}: For $a, b, c, d \in \mathbb{Z}$ 
+and positive integer $n$, if $a \equiv b ~(\textbf{ mod } n)$ and $c \equiv d ~(\textbf{ mod } n)$ 
+then $a+c \equiv b+d ~(\textbf{ mod } n)$ and $ac \equiv bd ~(\textbf{ mod } n)$.
+{\bf Informally}: can bring mod ``inside" and do it first, for addition and for multiplication.
+
+
+$(102 + 48) \textbf{ mod } 10 = \underline{\phantom{\hspace{3in}}} $ 
+
+$(7 \cdot 10) \textbf{ mod } 5 = \underline{\phantom{\hspace{3.3in}}} $ 
+
+$(2^5) \textbf{ mod } 3 =  \underline{\phantom{\hspace{3.45in}}} $ 
+
+\vfill
+
+ \vfill
+\section*{Modular arithmetic final review}
+
+
+Compute the last digit of 
+\[
+    (42)^{2026}
+\]
+
+\vfill
+
+{\it Extra} Describe the pattern that helps you perform this computation 
+and prove it using mathematical induction. \vfill
+\section*{Finite sets definition}
 
 
 {\bf Definition}: A {\bf finite} set is one whose distinct elements can be counted by a natural number.
