@@ -217,6 +217,10 @@
                 "source": "Week8.tex"
             },
             {
+                "name": "Discussion Notes",
+                "source": "DiscussionWeek8.pdf"
+            },
+            {
                 "name": "(Video) Functions for cardinality",
                 "source": "https://youtu.be/2-oZ8SnzNAQ"
             },
@@ -252,12 +256,12 @@
                 "source": "Week9.tex"
             },
             {
-                "name": "(Video) Partial orders and Hasse Diagrams",
-                "source": "https://youtu.be/sH9znwj91Cs"
+                "name": "Discussion Notes",
+                "source": "DiscussionWeek9.pdf"
             },
             {
-                "name": "(Video) Diffie-Hellman and cryptography",
-                "source": "https://youtu.be/oKOwGlevpyg"
+                "name": "(Video) Partial orders and Hasse Diagrams",
+                "source": "https://youtu.be/sH9znwj91Cs"
             },
             {
                 "name": "(Video) Modular Exponentiation",
@@ -286,6 +290,10 @@
             {
                 "name": "Notes",
                 "source": "Week10.tex"
+            },
+            {
+                "name": "(Video) Diffie-Hellman and cryptography",
+                "source": "https://youtu.be/oKOwGlevpyg"
             }
         ],
         "Due Dates": [
