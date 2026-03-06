@@ -280,18 +280,18 @@ Is the relation $R_{(\textbf{mod } 4)}$ reflexive? symmetric? transitive? antisy
 %
  \vfill
 
-{\it Summary}: binary relations can be useful for organizing elements in a domain. 
-Some binary relations have special properties that make them act like some familiar relations.
-Equivalence relations (reflexive, symmetric, transitive binary relations) ``act like'' equals.
-Partial orders (reflexive, antisymmetric, transitive binary relations) ``act like'' less than or equals to.
-\vfill\newpage
+\newpage
 \subsection*{Definitions and representations}
 
 
 A relation is an {\bf equivalence relation} means it is reflexive, symmetric, and transitive. 
 
 A relation is a {\bf partial ordering} (or partial order) means 
-it is reflexive, antisymmetric, and transitive. 
+it is reflexive, antisymmetric, and transitive. {\it Summary}: binary relations can be useful for organizing elements in a domain. 
+Some binary relations have special properties that make them act like some familiar relations.
+Equivalence relations (reflexive, symmetric, transitive binary relations) ``act like'' equals.
+Partial orders (reflexive, antisymmetric, transitive binary relations) ``act like'' less than or equals to.
+
 
 For a partial ordering, its {\bf Hasse diagram} is a graph representing the 
 relationship between elements in the ordering. The nodes (vertices) of the graph 
@@ -318,7 +318,6 @@ Draw the Hasse diagram of the partial order on the set $\{a,b,c,d,e,f,g\}$ defin
  \vfill
 \newpage
 \section*{Week 9 Friday: Equivalence relations applications}
-\subsection*{Exploring equivalence relations}
 
 
 A {\bf partition} of a set $A$ is a set of non-empty, disjoint subsets 
@@ -340,7 +339,57 @@ Also, given a partition $P$ of $A$, the relation $R_P$ on $A$ given by
 \[
     R_P = \{ (x,y) \in A \times A ~|~ \text{$x$ and $y$ are in the same part of the partition $P$}\}
 \]
-is an equivalence relation on $A$. \vfill
+is an equivalence relation on $A$. 
+
+
+
+{\bf Claim}: For each  $a \in U$, $[a]_{E}  \neq  \emptyset$.
+
+{\bf Proof}: Towards a $\underline{\phantom{\hspace{1.3in}}}$ 
+consider an arbitrary element $a$ in $U$. 
+We will work to show that $[a]_E \neq \emptyset$, namely that $\exists x \in [a]_E$.
+By definition of equivalence classes, we can rewrite this goal as 
+$$\exists x \in U ~( ~(a,x) \in E~)$$ 
+Towards a $\underline{\phantom{\hspace{1.3in}}}$, consider $x = a$, 
+an element of $U$ by definition. By $\underline{\phantom{\hspace{1.3in}}}$ of $E$, 
+we know that $(a,a) \in E$  and thus the existential quantification has been proved.\\
+
+
+{\bf Claim}: For each $a \in U$, there is some $b \in U$  such that $a \in [b]_{E}$.
+
+Towards a $\underline{\phantom{\hspace{1.3in}}}$ 
+consider an arbitrary element $a$ in $U$. By definition of equivalence classes, 
+we can rewrite the goal as 
+$$\exists b \in U ~( ~(b,a) \in E~)$$
+Towards a $\underline{\phantom{\hspace{1.3in}}}$, consider $b = a$, 
+an element of $U$ by definition. By $\underline{\phantom{\hspace{1.3in}}}$  of $E$, 
+we know that $(a,a) \in E$  and thus the existential quantification has been proved. \\
+ 
+{\bf Claim}: For each  $a,b  \in U$ , $(~(a,b)  \in  E ~\to ~ [a]_{E}  = [b]_{E}~)$
+and  $(~(a,b)  \notin  E ~\to ~ [a]_{E} \cap[b]_{E} = \emptyset~)$
+
+\phantom{Let $a,b$ be arbitrary. For first goal, assume towards
+direct proof that $(a,b) \in E$. To show $[a]_E = [b]_E$ 
+first consider arbitrary element $x$ in $[a]_E$. By definition
+$(a,x) \in E$ so by symmetry, $(x,a) \in E$ and by 
+transitivity with assumption, $(x,b)\in E$. Thus, by definition
+of equivalence class, $x \in [b]_E$. Similarly, take arbitrary
+element $y \in [b]_E$. By definition $(y,b) \in E$ 
+and applying symmetry to assumption, we have $(b,a) \in E$
+so by transitivity $(y,a) \in E$ and $y \in[a]_E$, as required
+to complete the proof of set equality. For the second goal, 
+assume (towards a proof by contrapositive) that $[a]_E \cap [b]_E 
+\neq \emptyset$. Then there is a witness $w \in [a]_E \cap [b]_E$.
+By definition of equivalence classes $(a,w) \in E$ and $(b,w) \in E$.
+By symmetry, we have $(w,b) \in E$ so by transitivity $(a,b) \in E$,
+as required.}
+
+\vfill
+
+{\bf Corollary}: Given an equivalence relation $E$ on set $U$,  
+$\{ [x]_{E} \mid x \in U  \}$ is a partition of $U$.
+\vfill 
+\newpage
 
 
 {\it Recall}: We say $a$ is {\bf congruent to} $b$ \textbf{mod} $n$ 
@@ -375,7 +424,6 @@ We can partition the set of integers using equivalence classes of  $R_{(\textbf{
 
 
  \vfill
-\newpage
 
 
 Integers are useful because they can be used to encode other objects
@@ -385,7 +433,9 @@ a {\it partition of the integers} based on congrunce mod $n$, where
 each part is represented by a (not too large) integer gives a useful 
 compromise where many algebraic properties of the integers are preserved, 
 and we also get the benefits of a finite domain. Moreover, modular arithmetic
-is well-suited to model any cyclic behavior. 
+is well-suited to model any cyclic behavior. \vfill
+\newpage
+
 
 {\bf Lemma}: For $a, b \in \mathbb{Z}$ 
 and positive integer $n$, $(a,b) \in R_{(\textbf{mod } n)}$ if and only if  $n | a-b$.
@@ -435,5 +485,5 @@ Compute the last digit of
 \vfill
 
 {\it Extra} Describe the pattern that helps you perform this computation 
-and prove it using mathematical induction. 
+and prove it using mathematical induction and/or modular arithmetic. 
 \end{document}

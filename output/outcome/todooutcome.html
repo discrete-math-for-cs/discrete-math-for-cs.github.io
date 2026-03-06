@@ -370,6 +370,54 @@ class="math display">\[\{s \in A \mid (a, s) \in R \}\]</span> We write
 <span class="math inline">\([a]_R\)</span> for this set, which is the
 equivalence class of <span class="math inline">\(a\)</span> with respect
 to <span class="math inline">\(R\)</span>.</p>
+<h1 class="unnumbered" id="equivalence-relations-partitions">Equivalence
+relations partitions</h1>
+<p><span><strong>Claim</strong></span>: For each <span
+class="math inline">\(a \in U\)</span>, <span
+class="math inline">\([a]_{E}  \neq  \emptyset\)</span>.</p>
+<p><span><strong>Proof</strong></span>: Towards a <span
+class="math inline">\(\underline{\phantom{\hspace{1.3in}}}\)</span>
+consider an arbitrary element <span class="math inline">\(a\)</span> in
+<span class="math inline">\(U\)</span>. We will work to show that <span
+class="math inline">\([a]_E \neq \emptyset\)</span>, namely that <span
+class="math inline">\(\exists x \in [a]_E\)</span>. By definition of
+equivalence classes, we can rewrite this goal as <span
+class="math display">\[\exists x \in U ~( ~(a,x) \in E~)\]</span>
+Towards a <span
+class="math inline">\(\underline{\phantom{\hspace{1.3in}}}\)</span>,
+consider <span class="math inline">\(x = a\)</span>, an element of <span
+class="math inline">\(U\)</span> by definition. By <span
+class="math inline">\(\underline{\phantom{\hspace{1.3in}}}\)</span> of
+<span class="math inline">\(E\)</span>, we know that <span
+class="math inline">\((a,a) \in E\)</span> and thus the existential
+quantification has been proved.<br />
+<span><strong>Claim</strong></span>: For each <span
+class="math inline">\(a \in U\)</span>, there is some <span
+class="math inline">\(b \in U\)</span> such that <span
+class="math inline">\(a \in [b]_{E}\)</span>.</p>
+<p>Towards a <span
+class="math inline">\(\underline{\phantom{\hspace{1.3in}}}\)</span>
+consider an arbitrary element <span class="math inline">\(a\)</span> in
+<span class="math inline">\(U\)</span>. By definition of equivalence
+classes, we can rewrite the goal as <span class="math display">\[\exists
+b \in U ~( ~(b,a) \in E~)\]</span> Towards a <span
+class="math inline">\(\underline{\phantom{\hspace{1.3in}}}\)</span>,
+consider <span class="math inline">\(b = a\)</span>, an element of <span
+class="math inline">\(U\)</span> by definition. By <span
+class="math inline">\(\underline{\phantom{\hspace{1.3in}}}\)</span> of
+<span class="math inline">\(E\)</span>, we know that <span
+class="math inline">\((a,a) \in E\)</span> and thus the existential
+quantification has been proved.<br />
+<span><strong>Claim</strong></span>: For each <span
+class="math inline">\(a,b  \in U\)</span> , <span
+class="math inline">\((~(a,b)  \in  E ~\to ~ [a]_{E}  =
+[b]_{E}~)\)</span> and <span class="math inline">\((~(a,b)  \notin  E
+~\to ~ [a]_{E} \cap[b]_{E} = \emptyset~)\)</span></p>
+<p><span><strong>Corollary</strong></span>: Given an equivalence
+relation <span class="math inline">\(E\)</span> on set <span
+class="math inline">\(U\)</span>, <span class="math inline">\(\{ [x]_{E}
+\mid x \in U  \}\)</span> is a partition of <span
+class="math inline">\(U\)</span>.</p>
 <h1 class="unnumbered" id="congruence-classes-mod-four">Congruence
 classes mod four</h1>
 <p><span><em>Recall</em></span>: We say <span
@@ -455,7 +503,8 @@ arithmetic final review</h1>
 <p>Compute the last digit of <span
 class="math display">\[(42)^{2026}\]</span></p>
 <p><span><em>Extra</em></span> Describe the pattern that helps you
-perform this computation and prove it using mathematical induction.</p>
+perform this computation and prove it using mathematical induction
+and/or modular arithmetic.</p>
 <h1 class="unnumbered" id="cardinality-caution">Cardinality caution</h1>
 <p><span><em>Caution</em></span>: we use familiar symbols to define
 cardinality, like <span class="math inline">\(| \phantom{\cdots} | \leq
@@ -2410,5 +2459,385 @@ class="math inline">\(w=7\)</span>:</td>
 </tr>
 </tbody>
 </table>
+<h1 class="unnumbered" id="modular-arithmetic-cycling-examples">Modular
+arithmetic cycling examples</h1>
+<p><span><strong>Application: Cycling</strong></span></p>
+<p>How many minutes past the hour are we at? <span><em>Model
+with</em></span> <span class="math inline">\(+15 \textbf{ mod }
+60\)</span></p>
+<table>
+<tbody>
+<tr>
+<td style="text-align: left;"><span><strong>Time:</strong></span></td>
+<td style="text-align: center;">12:00pm</td>
+<td style="text-align: center;">12:15pm</td>
+<td style="text-align: center;">12:30pm</td>
+<td style="text-align: center;">12:45pm</td>
+<td style="text-align: center;">1:00pm</td>
+<td style="text-align: center;">1:15pm</td>
+<td style="text-align: center;">1:30pm</td>
+<td style="text-align: center;">1:45pm</td>
+<td style="text-align: center;">2:00pm</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><span><strong>“Minutes
+past":</strong></span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(15\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(30\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(45\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(15\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(30\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(45\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<p>Replace each English letter by a letter that’s fifteen ahead of it in
+the alphabet <span><em>Model with</em></span> <span
+class="math inline">\(+15 \textbf{ mod } 26\)</span></p>
+<table>
+<tbody>
+<tr>
+<td style="text-align: left;"><span><strong>Original
+index:</strong></span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(2\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(3\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(4\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(5\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(6\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(7\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(8\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(9\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(10\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(11\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(12\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(13\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(14\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(15\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(16\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(17\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(18\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(19\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(20\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(21\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(22\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(23\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(24\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(25\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><span><strong>Original
+letter:</strong></span></td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">D</td>
+<td style="text-align: center;">E</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">G</td>
+<td style="text-align: center;">H</td>
+<td style="text-align: center;">I</td>
+<td style="text-align: center;">J</td>
+<td style="text-align: center;">K</td>
+<td style="text-align: center;">L</td>
+<td style="text-align: center;">M</td>
+<td style="text-align: center;">N</td>
+<td style="text-align: center;">O</td>
+<td style="text-align: center;">P</td>
+<td style="text-align: center;">Q</td>
+<td style="text-align: center;">R</td>
+<td style="text-align: center;">S</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">U</td>
+<td style="text-align: center;">V</td>
+<td style="text-align: center;">W</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">Y</td>
+<td style="text-align: center;">Z</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span><strong>Shifted
+letter</strong></span>:</td>
+<td style="text-align: center;">P</td>
+<td style="text-align: center;">Q</td>
+<td style="text-align: center;">R</td>
+<td style="text-align: center;">S</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">U</td>
+<td style="text-align: center;">V</td>
+<td style="text-align: center;">W</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">Y</td>
+<td style="text-align: center;">Z</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">D</td>
+<td style="text-align: center;">E</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">G</td>
+<td style="text-align: center;">H</td>
+<td style="text-align: center;">I</td>
+<td style="text-align: center;">J</td>
+<td style="text-align: center;">K</td>
+<td style="text-align: center;">L</td>
+<td style="text-align: center;">M</td>
+<td style="text-align: center;">N</td>
+<td style="text-align: center;">O</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span><strong>Shifted
+index:</strong></span></td>
+<td style="text-align: center;"><span
+class="math inline">\(15\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(16\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(17\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(18\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(19\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(20\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(21\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(22\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(23\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(24\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(25\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(2\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(3\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(4\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(5\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(6\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(7\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(8\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(9\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(10\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(11\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(12\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(13\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(14\)</span></td>
+</tr>
+</tbody>
+</table>
+<h1 class="unnumbered"
+id="equivalence-relations-examples-ratings">Equivalence relations
+examples ratings</h1>
+<p>Recall that in a movie recommendation system, each user’s ratings of
+movies is represented as a <span class="math inline">\(n\)</span>-tuple
+(with the positive integer <span class="math inline">\(n\)</span> being
+the number of movies in the database), and each component of the <span
+class="math inline">\(n\)</span>-tuple is an element of the collection
+<span class="math inline">\(\{-1,0,1\}\)</span>.</p>
+<p>We call <span class="math inline">\(Rt_5\)</span> the set of all
+ratings <span class="math inline">\(5\)</span>-tuples.</p>
+<p>Define <span class="math inline">\(d: Rt_5 \times Rt_5 \to
+\mathbb{N}\)</span> by <span class="math display">\[d (~(~ (x_1, x_2,
+x_3, x_4, x_5), (y_1, y_2, y_3, y_4, y_5) ~) ~) = \sum_{i=1}^5 |x_i -
+y_i|\]</span></p>
+<p>Consider the following binary relations on <span
+class="math inline">\(Rt_5\)</span>. <span
+class="math display">\[E_{proj} =  \{ ( ~(x_1, x_2, x_3, x_4, x_5),
+(y_1, y_2, y_3, y_4, y_5)~) \in
+         Rt_5 \times Rt_5 ~\mid~(x_1 = y_1) \land  (x_2 = y_2) \land
+(x_3 = y_3) \}\]</span></p>
+<p>Example ordered pair in <span
+class="math inline">\(E_{proj}\)</span>:</p>
+<p>Reflexive? Symmetric? Transitive? Antisymmetric?</p>
+<p><span class="math display">\[E_{dist} =  \{ (u,v) \in Rt_5 \times
+Rt_5 ~\mid~ d( ~(u,v)~ ) \leq 2 \}\]</span> Example ordered pair in
+<span class="math inline">\(E_{dist}\)</span>:</p>
+<p>Reflexive? Symmetric? Transitive? Antisymmetric?</p>
+<p><span class="math display">\[E_{circ} =  \{ (u,v) \in Rt_5 \times
+Rt_5 ~\mid~ d(~ ( ~(0,0,0,0,0)~, u)~ ) =  d( ~(~(0,0,0,0,0),v~)~)
+\}\]</span> Example ordered pair in <span
+class="math inline">\(E_{circ}\)</span>:</p>
+<p>Reflexive? Symmetric? Transitive? Antisymmetric?</p>
+<p>The partition of <span class="math inline">\(Rt_5\)</span> defined by
+<span class="math inline">\(\underline{\phantom{E_{proj}}}\)</span>
+is</p>
+<p>The partition of <span class="math inline">\(Rt_5\)</span> defined by
+<span class="math inline">\(E = \underline{\phantom{E_{circ}}}\)</span>
+is</p>
+<p><span class="math inline">\(\begin{aligned}
+    \{ ~~  &amp; \\
+    &amp;[ ~(0,0,0,0,0)~ ]_E   \\
+    &amp;, [ ~(0,0,0,0,1)~ ]_E \\
+    &amp;, [ ~(0,0,0,1,1)~ ]_E \\
+    &amp;, [ ~(0,0,1,1,1)~ ]_E \\
+    &amp;, [ ~(0,1,1,1,1)~ ]_E \\
+    &amp;, [ ~(1,1,1,1,1)~ ]_E \\
+    \qquad\}  &amp; \\
+\end{aligned}\)</span></p>
+<p>How many elements are in each part of the partition?</p>
+<h1 class="unnumbered" id="netflix-clustering-scenario">Netflix
+clustering scenario</h1>
+<p><span><strong>Scenario</strong></span>: Good morning! You’re a user
+experience engineer at Netflix. A product goal is to design customized
+home pages for groups of users who have similar interests. Your manager
+tasks you with designing an algorithm for producing a clustering of
+users based on their movie interests, so that customized homepages can
+be engineered for each group.</p>
+<p>Your idea: equivalence relations!</p>
+<p><span class="math display">\[E_{id} = \{ ( ~(x_1, x_2, x_3, x_4,
+x_5), (x_1, x_2, x_3, x_4, x_5)~) \mid
+    (x_1, x_2, x_3, x_4, x_5) \in Rt_5  \}\]</span></p>
+<p><span><em>Describe how each homepage should be designed
+…</em></span></p>
+<p><span class="math display">\[E_{proj} =  \{ ( ~(x_1, x_2, x_3, x_4,
+x_5), (y_1, y_2, y_3, y_4, y_5)~) \in
+         Rt_5 \times Rt_5 ~\mid~(x_1 = y_1) \land  (x_2 = y_2) \land
+(x_3 = y_3) \}\]</span></p>
+<p><span><em>Describe how each homepage should be designed
+…</em></span></p>
+<p><span class="math display">\[E_{circ} =  \{ (u,v) \in Rt_5 \times
+Rt_5 ~\mid~ d(~ ( ~(0,0,0,0,0)~, u)~ ) =  d( ~(~(0,0,0,0,0),v~)~)
+\}\]</span></p>
+<p><span><em>Describe how each homepage should be designed
+…</em></span></p>
+<h1 class="unnumbered" id="set-construction-final-review">Set
+construction final review</h1>
+<p>The bases of RNA strands are elements of the set <span
+class="math inline">\(B = \{\texttt{A}, \texttt{C}, \texttt{G},
+\texttt{U}\}\)</span>. The set of RNA strands <span
+class="math inline">\(S\)</span> is defined (recursively) by: <span
+class="math display">\[\begin{array}{ll}
+\textrm{Basis Step: } &amp; \texttt{A}\in S, \texttt{C}\in S,
+\texttt{U}\in S, \texttt{G}\in S \\
+\textrm{Recursive Step: } &amp; \textrm{If } s \in S\textrm{ and }b \in
+B \textrm{, then }sb \in S
+\end{array}\]</span> where <span class="math inline">\(sb\)</span> is
+string concatenation.</p>
+<p>Each of the sets below is described using set builder notation.
+Rewrite them using the roster method.</p>
+<ul>
+<li><p><span class="math inline">\(\{s \in S ~|~ \text{the leftmost base
+in $s$ is the same as the rightmost base in $s$ and
+$s$ has length $3$} \}\)</span></p></li>
+<li><p><span class="math inline">\(\{s \in S ~|~ \text{there are twice
+as many $\texttt{A}$s as $\texttt{C}$s in $s$ and $s$ has length $1$}
+\}\)</span></p></li>
+</ul>
+<p>Certain sequences of bases serve important biological functions in
+translating RNA to proteins. The following recursive definition gives a
+special set of RNA strands: The set of RNA strands <span
+class="math inline">\(\hat{S}\)</span> is defined (recursively) by</p>
+<p><span class="math display">\[\begin{alignat*}
+{2}
+\text{Basis step:} &amp; &amp; \texttt{A}\texttt{U}\texttt{G}\in
+\hat{S}\\
+\text{Recursive step:} &amp; \qquad&amp; \text{If } s \in \hat{S} \text{
+and } x \in R \text{, then } sx\in \hat{S}\\
+\end{alignat*}\]</span> where <span class="math inline">\(R = \{
+\texttt{U}\texttt{U}\texttt{U}, \texttt{C}\texttt{U}\texttt{C},
+\texttt{A}\texttt{U}\texttt{C}, \texttt{A}\texttt{U}\texttt{G},
+\texttt{G}\texttt{U}\texttt{U}, \texttt{C}\texttt{C}\texttt{U},
+\texttt{G}\texttt{C}\texttt{U}, \texttt{U}\texttt{G}\texttt{G},
+\texttt{G}\texttt{G}\texttt{A}\}\)</span>.</p>
+<p>Each of the sets below is described using set builder notation.
+Rewrite them using the roster method.</p>
+<ul>
+<li><p><span class="math inline">\(\{s \in \hat{S} ~|~ s \text{ has
+length less than or equal to $5$} \}\)</span></p></li>
+<li><p><span class="math inline">\(\{s \in S ~|~ \text{there are twice
+as many $\texttt{C}$s as $\texttt{A}$s in $s$ and $s$ has length $6$}
+\}\)</span></p></li>
+</ul>
+<h1 class="unnumbered" id="set-operations-final-review">Set operations
+final review</h1>
+<p>Let <span class="math inline">\(W = \mathcal{P}( \{
+1,2,3,4,5\})\)</span>. Consider the statement <span
+class="math display">\[\forall A \in W~ \forall B \in W ~ \forall C \in
+W~ ((A \cap B = A \cap C) \to (B=C) )\]</span> Translate the statement
+to English. Negate the statement and translate this negation to English.
+Decide whether the original statement or its negation is true and
+justify your decision.</p>
+<h1 class="unnumbered" id="function-properties-final-review">Function
+properties final review</h1>
+<p>The set of linked lists of natural numbers <span
+class="math inline">\(L\)</span> is defined by <span
+class="math display">\[\begin{alignat*}
+{2}
+\text{Basis step:} &amp; &amp;[] \in L \\
+\text{Recursive step:} &amp; \qquad&amp; \text{If } l \in L \text{ and }
+n \in \mathbb{N} \text{, then } (n,l) \in L\\
+\end{alignat*}\]</span> The function <span class="math inline">\(length:
+L \to \mathbb{N}\)</span> that computes the length of a list is <span
+class="math display">\[\begin{alignat*}
+{2}
+\text{Basis step:} &amp; &amp;length([]) = 0\\
+\text{Recursive step:} &amp; \qquad&amp; \text{If $l \in L$ and $n \in
+\mathbb{N}$, then } length( ( n,l) ) = 1 + length(l)\\
+\end{alignat*}\]</span></p>
+<p>Prove or disprove: the function <span
+class="math inline">\(length\)</span> is onto.</p>
+<p>Prove or disprove: the function <span
+class="math inline">\(length\)</span> is one-to-one.</p>
 </body>
 </html>

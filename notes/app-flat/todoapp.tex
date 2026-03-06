@@ -302,6 +302,57 @@ with respect to an equivalence relation $R$ on the set $A$ is the set
     \{s \in A \mid (a, s) \in R \}
 \] 
 We write $[a]_R$ for this set, which is the equivalence class of $a$ with respect to $R$. \vfill
+\section*{Equivalence relations partitions}
+
+
+
+
+{\bf Claim}: For each  $a \in U$, $[a]_{E}  \neq  \emptyset$.
+
+{\bf Proof}: Towards a $\underline{\phantom{\hspace{1.3in}}}$ 
+consider an arbitrary element $a$ in $U$. 
+We will work to show that $[a]_E \neq \emptyset$, namely that $\exists x \in [a]_E$.
+By definition of equivalence classes, we can rewrite this goal as 
+$$\exists x \in U ~( ~(a,x) \in E~)$$ 
+Towards a $\underline{\phantom{\hspace{1.3in}}}$, consider $x = a$, 
+an element of $U$ by definition. By $\underline{\phantom{\hspace{1.3in}}}$ of $E$, 
+we know that $(a,a) \in E$  and thus the existential quantification has been proved.\\
+
+
+{\bf Claim}: For each $a \in U$, there is some $b \in U$  such that $a \in [b]_{E}$.
+
+Towards a $\underline{\phantom{\hspace{1.3in}}}$ 
+consider an arbitrary element $a$ in $U$. By definition of equivalence classes, 
+we can rewrite the goal as 
+$$\exists b \in U ~( ~(b,a) \in E~)$$
+Towards a $\underline{\phantom{\hspace{1.3in}}}$, consider $b = a$, 
+an element of $U$ by definition. By $\underline{\phantom{\hspace{1.3in}}}$  of $E$, 
+we know that $(a,a) \in E$  and thus the existential quantification has been proved. \\
+ 
+{\bf Claim}: For each  $a,b  \in U$ , $(~(a,b)  \in  E ~\to ~ [a]_{E}  = [b]_{E}~)$
+and  $(~(a,b)  \notin  E ~\to ~ [a]_{E} \cap[b]_{E} = \emptyset~)$
+
+\phantom{Let $a,b$ be arbitrary. For first goal, assume towards
+direct proof that $(a,b) \in E$. To show $[a]_E = [b]_E$ 
+first consider arbitrary element $x$ in $[a]_E$. By definition
+$(a,x) \in E$ so by symmetry, $(x,a) \in E$ and by 
+transitivity with assumption, $(x,b)\in E$. Thus, by definition
+of equivalence class, $x \in [b]_E$. Similarly, take arbitrary
+element $y \in [b]_E$. By definition $(y,b) \in E$ 
+and applying symmetry to assumption, we have $(b,a) \in E$
+so by transitivity $(y,a) \in E$ and $y \in[a]_E$, as required
+to complete the proof of set equality. For the second goal, 
+assume (towards a proof by contrapositive) that $[a]_E \cap [b]_E 
+\neq \emptyset$. Then there is a witness $w \in [a]_E \cap [b]_E$.
+By definition of equivalence classes $(a,w) \in E$ and $(b,w) \in E$.
+By symmetry, we have $(w,b) \in E$ so by transitivity $(a,b) \in E$,
+as required.}
+
+\vfill
+
+{\bf Corollary}: Given an equivalence relation $E$ on set $U$,  
+$\{ [x]_{E} \mid x \in U  \}$ is a partition of $U$.
+\vfill \vfill
 \section*{Congruence classes mod four}
 
 
@@ -400,7 +451,7 @@ Compute the last digit of
 \vfill
 
 {\it Extra} Describe the pattern that helps you perform this computation 
-and prove it using mathematical induction. \vfill
+and prove it using mathematical induction and/or modular arithmetic. \vfill
 \section*{Finite sets definition}
 
 
@@ -3279,5 +3330,358 @@ because its domain is the set of nonnegative integers.
 
 \vfill
 \end{comment}
+ \vfill
+\section*{Modular arithmetic cycling examples}
+
+
+{\bf Application: Cycling}
+
+How many minutes past the hour are we at?  \hfill {\it Model with} $+15 \textbf{ mod } 60$
+
+\begin{tabular}{lccccccccccc}
+{\bf Time:} &12:00pm  &12:15pm&12:30pm  &12:45pm&1:00pm  &1:15pm&1:30pm  &1:45pm&2:00pm \\
+{\bf ``Minutes past":} &$0$ & $15$ & $30$ & $45$ &$0$ & $15$ & $30$ & $45$ &$0$\\
+\end{tabular}
+\vfill
+
+Replace each English letter by a letter that's fifteen ahead of it in the alphabet
+  \hfill {\it Model with} $+15 \textbf{ mod } 26$
+
+{\tiny
+\begin{tabular}{lcccccccccccccccccccccccccc}
+{\bf Original index:} & $0$ & $1$
+ & $2$ & $3$ &  $4$ & $5$ &  $6$ & $7$ &  $8$ & $9$ & $10$ & $11$ & $12$ & $13$ & $14$ & $15$ & 
+  $16$ & $17$ &  $18$ & $19$ &  $20$ & $21$ &  $22$ & $23$ & $24$ & $25$\\
+{\bf Original letter:} & A & B& C & D & E & F& G& H & I & J & K & L &M & N& O &P &Q & R & S & T & U & V & W & X & Y & Z \\
+{\bf Shifted letter}: &P &Q & R & S & T & U & V & W & X & Y & Z & A & B& C & D & E & F& G& H & I & J & K & L &M & N& O \\
+{\bf Shifted index:} &$15$ & 
+  $16$ & $17$ &  $18$ & $19$ &  $20$ & $21$ &  $22$ & $23$ & $24$ & $25$ & $0$ & $1$
+ & $2$ & $3$ &  $4$ & $5$ &  $6$ & $7$ &  $8$ & $9$ & $10$ & $11$ & $12$ & $13$ & $14$ 
+\end{tabular}
+}
+\vfill \vfill
+\section*{Equivalence relations examples ratings}
+
+
+Recall that 
+in a movie recommendation system, each 
+user's ratings of movies is represented as a $n$-tuple 
+(with the positive integer $n$ 
+being the number of movies in the database), 
+and each component of 
+the $n$-tuple is an element of the collection $\{-1,0,1\}$. 
+
+We call $Rt_5$ the set of all ratings $5$-tuples.
+
+Define $d: Rt_5 \times Rt_5 \to \mathbb{N}$ by
+\[
+    d (~(~ (x_1, x_2, x_3, x_4, x_5), (y_1, y_2, y_3, y_4, y_5) ~) ~) = \sum_{i=1}^5 |x_i - y_i|
+\]
+
+Consider the following binary relations on $Rt_5$.
+\[
+    E_{proj} =  \{ ( ~(x_1, x_2, x_3, x_4, x_5), (y_1, y_2, y_3, y_4, y_5)~) \in
+         Rt_5 \times Rt_5 ~\mid~(x_1 = y_1) \land  (x_2 = y_2) \land (x_3 = y_3) \}
+\]
+
+Example ordered pair in $E_{proj}$: 
+
+\vspace{20pt}
+
+Reflexive? Symmetric? Transitive? Antisymmetric?
+
+\vspace{120pt}
+
+
+
+\[
+    E_{dist} =  \{ (u,v) \in Rt_5 \times Rt_5 ~\mid~ d( ~(u,v)~ ) \leq 2 \}
+\]
+Example ordered pair in $E_{dist}$: 
+
+\vspace{20pt}
+
+Reflexive? Symmetric? Transitive? Antisymmetric?
+
+\vspace{120pt}
+
+
+\[
+E_{circ} =  \{ (u,v) \in Rt_5 \times Rt_5 ~\mid~ d(~ ( ~(0,0,0,0,0)~, u)~ ) =  d( ~(~(0,0,0,0,0),v~)~) \}
+\]
+Example ordered pair in $E_{circ}$: 
+
+\vspace{20pt}
+
+Reflexive? Symmetric? Transitive? Antisymmetric?
+
+\vspace{120pt}
+
+The partition of $Rt_5$ defined by $\underline{\phantom{E_{proj}}}$ is
+
+\resizebox{0.9\hsize}{!}{
+\begin{math}
+\begin{aligned}
+    \{ ~~ \{~ &(-1,-1,-1,-1,-1), (-1,-1,-1,-1,0), (-1,-1,-1,-1,1),
+     (-1,-1,-1,0,-1), (-1,-1,-1,0,0), (-1,-1,-1,0,1), 
+     (-1,-1,-1,1,-1), (-1,-1,-1,1,0), (-1,-1,-1,1,1) ~\},\\
+    ~~ \{~ &(-1,-1,0,-1,-1), (-1,-1,0,-1,0), (-1,-1,0,-1,1),
+    (-1,-1,0,0,-1), (-1,-1,0,0,0), (-1,-1,0,0,1), 
+    (-1,-1,0,1,-1), (-1,-1,0,1,0), (-1,-1,0,1,1) ~\},\\
+    ~~ \{~ &(-1,-1,1,-1,-1), (-1,-1,1,-1,0), (-1,-1,1,-1,1),
+    (-1,-1,1,0,-1), (-1,-1,1,0,0), (-1,-1,1,0,1), 
+    (-1,-1,1,1,-1), (-1,-1,1,1,0), (-1,-1,1,1,1) ~\},\\
+    ~~ \{~ &(-1,0,-1,-1,-1), (-1,0,-1,-1,0), (-1,0,-1,-1,1),
+    (-1,0,-1,0,-1), (-1,0,-1,0,0), (-1,0,-1,0,1), 
+    (-1,0,-1,1,-1), (-1,0,-1,1,0), (-1,0,-1,1,1) ~\},\\
+    ~~ \{~ &(-1,0,0,-1,-1), (-1,0,0,-1,0), (-1,0,0,-1,1),
+    (-1,0,0,0,-1), (-1,0,0,0,0), (-1,0,0,0,1), 
+    (-1,0,0,1,-1), (-1,0,0,1,0), (-1,0,0,1,1) ~\},\\
+    ~~ \{~ &(-1,0,1,-1,-1), (-1,0,1,-1,0), (-1,0,1,-1,1),
+    (-1,0,1,0,-1), (-1,0,1,0,0), (-1,0,1,0,1), 
+    (-1,0,1,1,-1), (-1,0,1,1,0), (-1,0,1,1,1) ~\},\\
+    ~~ \{~ &(-1,1,-1,-1,-1), (-1,1,-1,-1,0), (-1,1,-1,-1,1),
+    (-1,1,-1,0,-1), (-1,1,-1,0,0), (-1,1,-1,0,1), 
+    (-1,1,-1,1,-1), (-1,1,-1,1,0), (-1,1,-1,1,1) ~\},\\
+    ~~ \{~ &(-1,1,0,-1,-1), (-1,1,0,-1,0), (-1,1,0,-1,1),
+    (-1,1,0,0,-1), (-1,1,0,0,0), (-1,1,0,0,1), 
+    (-1,1,0,1,-1), (-1,1,0,1,0), (-1,1,0,1,-1) ~\},\\
+    ~~ \{~ &(-1,1,1,-1,-1), (-1,1,1,-1,0), (-1,1,1,-1,1),
+    (-1,1,1,0,-1), (-1,1,1,0,0), (-1,1,1,0,1), 
+    (-1,1,1,1,-1), (-1,1,1,1,0), (-1,1,1,1,1) ~\},\\
+~~ \{~ &(0,-1,-1,-1,-1), (0,-1,-1,-1,0), (0,-1,-1,-1,1),
+   (0,-1,-1,0,-1), (0,-1,-1,0,0), (0,-1,-1,0,1), 
+   (0,-1,-1,1,-1), (0,-1,-1,1,0), (0,-1,-1,1,1) ~\},\\
+  ~~ \{~ &(0,-1,0,-1,-1), (0,-1,0,-1,0), (0,-1,0,-1,1),
+  (0,-1,0,0,-1), (0,-1,0,0,0), (0,-1,0,0,1), 
+  (0,-1,0,1,-1), (0,-1,0,1,0), (0,-1,0,1,1) ~\},\\
+  ~~ \{~ &(0,-1,1,-1,-1), (0,-1,1,-1,0), (0,-1,1,-1,1),
+  (0,-1,1,0,-1), (0,-1,1,0,0), (0,-1,1,0,1), 
+  (0,-1,1,1,-1), (0,-1,1,1,0), (0,-1,1,1,1) ~\},\\
+  ~~ \{~ &(0,0,-1,-1,-1), (0,0,-1,-1,0), (0,0,-1,-1,1),
+  (0,0,-1,0,-1), (0,0,-1,0,0), (0,0,-1,0,1), 
+  (0,0,-1,1,-1), (0,0,-1,1,0), (0,0,-1,1,1) ~\},\\
+  ~~ \{~ &(0,0,0,-1,-1), (0,0,0,-1,0), (0,0,0,-1,1),
+  (0,0,0,0,-1),(0,0,0,0,0), (0,0,0,0,1), 
+  (0,0,0,1,-1),(0,0,0,1,0), (0,0,0,1,1) ~\},\\
+  ~~ \{~ &(0,0,1,-1,-1), (0,0,1,-1,0), (0,0,1,-1,1),
+  (0,0,1,0,-1), (0,0,1,0,0), (0,0,1,0,1), 
+  (0,0,1,1,-1), (0,0,1,1,0), (0,0,1,1,1) ~\},\\
+  ~~ \{~ &(0,1,-1,-1,-1), (0,1,-1,-1,0), (0,1,-1,-1,1),
+  (0,1,-1,0,-1), (0,1,-1,0,0), (0,1,-1,0,1), 
+  (0,1,-1,1,-1), (0,1,-1,1,0), (0,1,-1,1,1) ~\},\\
+  ~~ \{~ &(0,1,0,-1,-1), (0,1,0,-1,0), (0,1,0,-1,1),
+  (0,1,0,0,-1), (0,1,0,0,0), (0,1,0,0,1), 
+  (0,1,0,1,-1), (0,1,0,1,0), (0,1,0,1,-1) ~\},\\
+  ~~ \{~ &(0,1,1,-1,-1), (0,1,1,-1,0), (0,1,1,-1,1),
+  (0,1,1,0,-1), (0,1,1,0,0), (0,1,1,0,1), 
+  (0,1,1,1,-1), (0,1,1,1,0), (0,1,1,1,1) ~\},\\
+~~ \{~ &(1,-1,-1,-1,-1), (1,-1,-1,-1,0), (1,-1,-1,-1,1),
+    (1,-1,-1,0,-1),(1,-1,-1,0,0), (1,-1,-1,0,1), 
+    (1,-1,-1,1,-1), (1,-1,-1,1,0), (1,-1,-1,1,1) ~\},\\
+   ~~ \{~ &(1,-1,0,-1,-1), (1,-1,0,-1,0), (1,-1,0,-1,1),
+   (1,-1,0,0,-1), (1,-1,0,0,0), (1,-1,0,0,1), 
+   (1,-1,0,1,-1), (1,-1,0,1,0), (1,-1,0,1,1) ~\},\\
+   ~~ \{~ &(1,-1,1,-1,-1), (1,-1,1,-1,0), (1,-1,1,-1,1),
+   (1,-1,1,0,-1), (1,-1,1,0,0), (1,-1,1,0,1), 
+   (1,-1,1,1,-1), (1,-1,1,1,0), (1,-1,1,1,1) ~\},\\
+   ~~ \{~ &(1,0,-1,-1,-1), (1,0,-1,-1,0), (1,0,-1,-1,1),
+   (1,0,-1,0,-1), (1,0,-1,0,0), (1,0,-1,0,1), 
+   (1,0,-1,1,-1), (1,0,-1,1,0), (1,0,-1,1,1) ~\},\\
+   ~~ \{~ &(1,0,0,-1,-1), (1,0,0,-1,0), (1,0,0,-1,1),
+   (1,0,0,0,-1), (1,0,0,0,0), (1,0,0,0,1), 
+   (1,0,0,1,-1), (1,0,0,1,0), (1,0,0,1,1) ~\},\\
+   ~~ \{~ &(1,0,1,-1,-1), (1,0,1,-1,0), (1,0,1,-1,1),
+   (1,0,1,0,-1), (1,0,1,0,0), (1,0,1,0,1), 
+   (1,0,1,1,-1), (1,0,1,1,0), (1,0,1,1,1) ~\},\\
+   ~~ \{~ &(1,1,-1,-1,-1), (1,1,-1,-1,0), (1,1,-1,-1,1),
+   (1,1,-1,0,-1), (1,1,-1,0,0), (1,1,-1,0,1), 
+   (1,1,-1,1,-1), (1,1,-1,1,0), (1,1,-1,1,1) ~\},\\
+   ~~ \{~ &(1,1,0,-1,-1), (1,1,0,-1,0), (1,1,0,-1,1),
+   (1,1,0,0,-1), (1,1,0,0,0), (1,1,0,0,1), 
+   (1,1,0,1,-1), (1,1,0,1,0), (1,1,0,1,-1) ~\},\\
+   ~~ \{~ &(1,1,1,-1,-1), (1,1,1,-1,0), (1,1,1,-1,1),
+   (1,1,1,0,-1), (1,1,1,0,0), (1,1,1,0,1), 
+   (1,1,1,1,-1), (1,1,1,1,0), (1,1,1,1,1) ~\}\\
+\} \qquad & \\
+\end{aligned}
+\end{math}
+}
+
+The partition of $Rt_5$ defined by $E = \underline{\phantom{E_{circ}}}$ is
+
+\begin{math}
+\begin{aligned}
+    \{ ~~  & \\
+    &[ ~(0,0,0,0,0)~ ]_E   \\
+    &, [ ~(0,0,0,0,1)~ ]_E \\
+    &, [ ~(0,0,0,1,1)~ ]_E \\
+    &, [ ~(0,0,1,1,1)~ ]_E \\
+    &, [ ~(0,1,1,1,1)~ ]_E \\
+    &, [ ~(1,1,1,1,1)~ ]_E \\
+    \qquad\}  & \\
+\end{aligned}
+\end{math}
+
+How many elements are in each part of the partition? \vfill
+\section*{Netflix clustering scenario}
+
+
+{\bf Scenario}: Good morning! You're a user experience engineer at Netflix. A
+product goal is to design customized home pages for groups of users who have
+similar interests. Your manager tasks you with designing an algorithm for
+producing a clustering of users based on their movie interests,
+so that customized homepages can be engineered for each group.
+
+
+
+Your idea: equivalence relations! 
+
+
+\[
+    E_{id} = \{ ( ~(x_1, x_2, x_3, x_4, x_5), (x_1, x_2, x_3, x_4, x_5)~) \mid 
+    (x_1, x_2, x_3, x_4, x_5) \in Rt_5  \}
+\]
+
+{\it Describe how each homepage should be designed \ldots }
+
+\vspace{100pt}
+
+
+
+\[
+    E_{proj} =  \{ ( ~(x_1, x_2, x_3, x_4, x_5), (y_1, y_2, y_3, y_4, y_5)~) \in
+         Rt_5 \times Rt_5 ~\mid~(x_1 = y_1) \land  (x_2 = y_2) \land (x_3 = y_3) \}
+\]
+
+
+{\it Describe how each homepage should be designed \ldots }
+
+\vspace{100pt}
+
+\[
+E_{circ} =  \{ (u,v) \in Rt_5 \times Rt_5 ~\mid~ d(~ ( ~(0,0,0,0,0)~, u)~ ) =  d( ~(~(0,0,0,0,0),v~)~) \}
+\]
+
+{\it Describe how each homepage should be designed \ldots }
+
+
+\vspace{100pt}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%
+ \vfill
+\section*{Set construction final review}
+
+
+The bases of RNA strands are elements of the set $B = \{\A, \C, \G, \U \}$. 
+The set of RNA strands $S$ is defined (recursively) by:
+\[
+\begin{array}{ll}
+\textrm{Basis Step: } & \A \in S, \C \in S, \U \in S, \G \in S \\
+\textrm{Recursive Step: } & \textrm{If } s \in S\textrm{ and }b \in B \textrm{, then }sb \in S
+\end{array}
+\]
+where $sb$ is string concatenation.
+
+Each of the sets below is described using set builder notation. Rewrite them using the roster method. 
+\begin{itemize}
+\item $\{s \in S ~|~ \text{the leftmost base in $s$ is the same as the rightmost base in $s$ and 
+$s$ has length $3$} \}$ 
+
+\vspace{50pt}
+
+\item $\{s \in S ~|~ \text{there are twice as many $\A$s as $\C$s in $s$ and $s$ has length $1$} \}$ 
+
+\vspace{50pt}
+
+\end{itemize}
+
+Certain 
+ sequences of bases serve important biological functions in translating RNA to proteins. The following
+ recursive definition gives a special set of RNA strands: The set of RNA strands $\hat{S}$ is defined (recursively)
+ by 
+ 
+ \begin{alignat*}{2}
+\text{Basis step:} & & \A\U\G \in \hat{S}\\
+\text{Recursive step:} & \qquad& \text{If } s \in \hat{S} \text{ and } x \in R \text{, then } sx\in \hat{S}\\
+ \end{alignat*}
+ where $R = \{ \U\U\U, \C\U\C, \A\U\C, \A\U\G, \G\U\U, \C\C\U, \G\C\U, \U\G\G, \G\G\A \}$.
+
+Each of the sets below is described using set builder notation. Rewrite them using the roster method. 
+\begin{itemize}
+\item $\{s \in \hat{S} ~|~ s \text{ has length less than or equal to $5$} \}$ 
+
+\vspace{50pt}
+
+
+\item $\{s \in S ~|~ \text{there are twice as many $\C$s as $\A$s in $s$ and $s$ has length $6$} \}$ 
+
+\vspace{50pt}
+
+\end{itemize} \vfill
+\section*{Set operations final review}
+
+
+Let $W = \mathcal{P}( \{ 1,2,3,4,5\})$. Consider the statement 
+\[
+\forall A \in W~ \forall B \in W ~ \forall C \in W~ ((A \cap B = A \cap C) \to (B=C) )
+\]
+Translate the statement to English.
+Negate the statement 
+and translate this negation to English.
+Decide whether the original statement or its negation is true
+and justify your decision.
+ \vfill
+\section*{Function properties final review}
+
+
+The set of linked lists of natural numbers $L$ is defined by 
+ \begin{alignat*}{2}
+\text{Basis step:} & &[] \in L \\
+\text{Recursive step:} & \qquad& \text{If } l \in L \text{ and } n \in \mathbb{N} \text{, then } (n,l) \in L\\
+ \end{alignat*}
+ The function $length: L \to \mathbb{N}$ that computes the length of a list is
+  \begin{alignat*}{2}
+\text{Basis step:} & &length([]) = 0\\
+\text{Recursive step:} & \qquad& \text{If $l \in L$ and $n \in \mathbb{N}$, then } length( ( n,l) ) = 1 + length(l)\\
+ \end{alignat*}
+
+Prove or disprove: the function $length$ is onto.
+
+\vfill
+
+Prove or disprove: the function $length$ is one-to-one.
+
+\vfill
  \vfill
 \end{document}
