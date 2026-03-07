@@ -253,6 +253,20 @@ Is the relation $R_{(\textbf{mod } 4)}$ reflexive? symmetric? transitive? antisy
 
 
 A relation is an {\bf equivalence relation} means it is reflexive, symmetric, and transitive. \vfill
+\section*{Equivalence relation examples}
+
+
+
+{\it Example}: For $A = \mathcal{P}(\mathbb{R})$, the relation $EQ_{\mathbb{R}}$ defined on $A$ as 
+\[
+\{ (X_1, X_2 ) \in\mathcal{P}(\mathbb{R})  \times \mathcal{P}(\mathbb{R}) ~|~ |X_1| = |X_2| \}
+\]
+is an equivalence relation.
+
+\vfill
+
+{\it Example}: For $A = \mathbb{Z}$, for each positive integer $n$, the relation $R_{(\textbf{mod } n)}$ defined as the set of ordered pairs $(a, b)$ such that $(a \textbf{ mod } n = b \textbf{ mod } n)$ is an equivalence relation.
+\vfill \vfill
 \section*{Partial order definition}
 
 
@@ -302,6 +316,52 @@ with respect to an equivalence relation $R$ on the set $A$ is the set
     \{s \in A \mid (a, s) \in R \}
 \] 
 We write $[a]_R$ for this set, which is the equivalence class of $a$ with respect to $R$. \vfill
+\section*{Congruence classes mod four}
+
+
+{\it Recall}: We say $a$ is {\bf congruent to} $b$ \textbf{mod} $n$ 
+means $(a, b) \in R_{(\textbf{mod } n)}$. 
+A common notation is to write this as $a \equiv b (\textbf{mod } n)$.
+
+We can partition the set of integers using equivalence classes of  $R_{(\textbf{mod } 4)}$
+
+\begin{align*}
+    [0]_{R_{(\textbf{mod } 4)}} &= \phantom{ \{ x \in \mathbb{Z} \mid x \equiv 0 ((\textbf{mod } 4)) \} 
+    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = 0 \textbf{ mod } 4 = 0 \} = \{ 4c \mid c \in \mathbb{Z}\} }\\
+    [1]_{R_{(\textbf{mod } 4)}} &= \phantom{ \{ x \in \mathbb{Z} \mid x \equiv 1 ((\textbf{mod } 4)) \} 
+    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = 1 \textbf{ mod } 4 = 1 \} = \{ 4c+1 \mid c \in \mathbb{Z}\} }\\
+    [2]_{R_{(\textbf{mod } 4)}} &= \phantom{ \{ x \in \mathbb{Z} \mid x \equiv 2 ((\textbf{mod } 4)) \} 
+    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = 2 \textbf{ mod } 4 = 0 \} = \{ 4c+2 \mid c \in \mathbb{Z}\} }\\
+    [3]_{R_{(\textbf{mod } 4)}} &= \phantom{ \{ x \in \mathbb{Z} \mid x \equiv 3 ((\textbf{mod } 4)) \} 
+    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = 3 \textbf{ mod } 4 = 3 \} = \{ 4c+3 \mid c \in \mathbb{Z}\} }\\
+    [4]_{R_{(\textbf{mod } 4)}} &= \phantom{ \{ x \in \mathbb{Z} \mid x \equiv 4 ((\textbf{mod } 4)) \} 
+    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = 4 \textbf{ mod } 4 = 0 \} = \{ 4c \mid c \in \mathbb{Z}\} }\\
+    [5]_{R_{(\textbf{mod } 4)}} &= \phantom{ \{ x \in \mathbb{Z} \mid x \equiv 5 ((\textbf{mod } 4)) \} 
+    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = 5 \textbf{ mod } 4 = 1 \} = \{ 4c+1 \mid c \in \mathbb{Z}\} }\\
+    [-1]_{R_{(\textbf{mod } 4)}} &= \phantom{ \{ x \in \mathbb{Z} \mid x \equiv -1 ((\textbf{mod } 4)) \} 
+    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = -1 \textbf{ mod } 4 = 3 \} = \{ 4c+3 \mid c \in \mathbb{Z}\} }
+\end{align*}
+\[
+\mathbb{Z} =  [0]_{R_{(\textbf{mod } 4)}}~ \cup ~[1]_{R_{(\textbf{mod } 4)}} ~\cup~[2]_{R_{(\textbf{mod } 4)}}~\cup~
+[3]_{R_{(\textbf{mod } 4)}}
+\]
+
+
+
+
+
+ \vfill
+\section*{Modular arithmetic motivation}
+
+
+Integers are useful because they can be used to encode other objects
+and have multiple representations. However, infinite sets are sometimes
+expensive to work with computationally. Reducing our attention to 
+a {\it partition of the integers} based on congrunce mod $n$, where
+each part is represented by a (not too large) integer gives a useful 
+compromise where many algebraic properties of the integers are preserved, 
+and we also get the benefits of a finite domain. Moreover, modular arithmetic
+is well-suited to model any cyclic behavior. \vfill
 \section*{Equivalence relations partitions}
 
 
@@ -353,52 +413,35 @@ as required.}
 {\bf Corollary}: Given an equivalence relation $E$ on set $U$,  
 $\{ [x]_{E} \mid x \in U  \}$ is a partition of $U$.
 \vfill \vfill
-\section*{Congruence classes mod four}
+\section*{Modular arithmetic}
 
 
-{\it Recall}: We say $a$ is {\bf congruent to} $b$ \textbf{mod} $n$ 
-means $(a, b) \in R_{(\textbf{mod } n)}$. 
-A common notation is to write this as $a \equiv b (\textbf{mod } n)$.
-
-We can partition the set of integers using equivalence classes of  $R_{(\textbf{mod } 4)}$
-
-\begin{align*}
-    [0]_{R_{(\textbf{mod } 4)}} &= \phantom{ \{ x \in \mathbb{Z} \mid x \equiv 0 ((\textbf{mod } 4)) \} 
-    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = 0 \textbf{ mod } 4 = 0 \} = \{ 4c \mid c \in \mathbb{Z}\} }\\
-    [1]_{R_{(\textbf{mod } 4)}} &= \phantom{ \{ x \in \mathbb{Z} \mid x \equiv 1 ((\textbf{mod } 4)) \} 
-    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = 1 \textbf{ mod } 4 = 1 \} = \{ 4c+1 \mid c \in \mathbb{Z}\} }\\
-    [2]_{R_{(\textbf{mod } 4)}} &= \phantom{ \{ x \in \mathbb{Z} \mid x \equiv 2 ((\textbf{mod } 4)) \} 
-    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = 2 \textbf{ mod } 4 = 0 \} = \{ 4c+2 \mid c \in \mathbb{Z}\} }\\
-    [3]_{R_{(\textbf{mod } 4)}} &= \phantom{ \{ x \in \mathbb{Z} \mid x \equiv 3 ((\textbf{mod } 4)) \} 
-    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = 3 \textbf{ mod } 4 = 3 \} = \{ 4c+3 \mid c \in \mathbb{Z}\} }\\
-    [4]_{R_{(\textbf{mod } 4)}} &= \phantom{ \{ x \in \mathbb{Z} \mid x \equiv 4 ((\textbf{mod } 4)) \} 
-    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = 4 \textbf{ mod } 4 = 0 \} = \{ 4c \mid c \in \mathbb{Z}\} }\\
-    [5]_{R_{(\textbf{mod } 4)}} &= \phantom{ \{ x \in \mathbb{Z} \mid x \equiv 5 ((\textbf{mod } 4)) \} 
-    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = 5 \textbf{ mod } 4 = 1 \} = \{ 4c+1 \mid c \in \mathbb{Z}\} }\\
-    [-1]_{R_{(\textbf{mod } 4)}} &= \phantom{ \{ x \in \mathbb{Z} \mid x \equiv -1 ((\textbf{mod } 4)) \} 
-    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = -1 \textbf{ mod } 4 = 3 \} = \{ 4c+3 \mid c \in \mathbb{Z}\} }
-\end{align*}
-\[
-\mathbb{Z} =  [0]_{R_{(\textbf{mod } 4)}}~ \cup ~[1]_{R_{(\textbf{mod } 4)}} ~\cup~[2]_{R_{(\textbf{mod } 4)}}~\cup~
-[3]_{R_{(\textbf{mod } 4)}}
-\]
+{\bf Modular arithmetic}: 
 
 
+{\bf Informally}: can bring mod ``inside" and do it first, for addition and for multiplication.
 
+{\bf Claim}: For $a, b, c, d \in \mathbb{Z}$ 
+and positive integer $n$, if $a \equiv b ~(\textbf{ mod } n)$ and $c \equiv d ~(\textbf{ mod } n)$ 
+then $a+c \equiv b+d ~(\textbf{ mod } n)$ and $ac \equiv bd ~(\textbf{ mod } n)$.
 
+$123456 \times 789012 \textbf{ mod } 1000 = $
 
- \vfill
-\section*{Modular arithmetic motivation}
+\vfill
 
+Smaller examples work too: 
 
-Integers are useful because they can be used to encode other objects
-and have multiple representations. However, infinite sets are sometimes
-expensive to work with computationally. Reducing our attention to 
-a {\it partition of the integers} based on congrunce mod $n$, where
-each part is represented by a (not too large) integer gives a useful 
-compromise where many algebraic properties of the integers are preserved, 
-and we also get the benefits of a finite domain. Moreover, modular arithmetic
-is well-suited to model any cyclic behavior. \vfill
+$(102 + 48) \textbf{ mod } 10 = $ 
+
+$(7 \cdot 10) \textbf{ mod } 5 =$
+
+Let's consider exponentiation: 
+
+$(2^5) \textbf{ mod } 3 = $ 
+
+\vfill
+
+To prove the claim: the following lemma is useful. \vfill
 \section*{Congruence mod n lemma}
 
 
@@ -420,26 +463,6 @@ $a = b + cn = qn+r + cn = (q+c)n + r$. Since long division gives a unique remain
 this means $a \textbf{ mod } n = r = b \textbf{ mod } n$, as required.}
 
 \vspace{200pt} \vfill
-\section*{Modular arithmetic}
-
-
-{\bf Modular arithmetic}: 
-
-{\bf Lemma}: For $a, b, c, d \in \mathbb{Z}$ 
-and positive integer $n$, if $a \equiv b ~(\textbf{ mod } n)$ and $c \equiv d ~(\textbf{ mod } n)$ 
-then $a+c \equiv b+d ~(\textbf{ mod } n)$ and $ac \equiv bd ~(\textbf{ mod } n)$.
-{\bf Informally}: can bring mod ``inside" and do it first, for addition and for multiplication.
-
-
-$(102 + 48) \textbf{ mod } 10 = \underline{\phantom{\hspace{3in}}} $ 
-
-$(7 \cdot 10) \textbf{ mod } 5 = \underline{\phantom{\hspace{3.3in}}} $ 
-
-$(2^5) \textbf{ mod } 3 =  \underline{\phantom{\hspace{3.45in}}} $ 
-
-\vfill
-
- \vfill
 \section*{Modular arithmetic final review}
 
 

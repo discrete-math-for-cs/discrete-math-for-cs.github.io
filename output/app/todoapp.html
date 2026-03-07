@@ -383,6 +383,21 @@ reflexive? symmetric? transitive? antisymmetric?</p>
 relation definition</h1>
 <p>A relation is an <span><strong>equivalence relation</strong></span>
 means it is reflexive, symmetric, and transitive.</p>
+<h1 class="unnumbered" id="equivalence-relation-examples">Equivalence
+relation examples</h1>
+<p><span><em>Example</em></span>: For <span class="math inline">\(A =
+\mathcal{P}(\mathbb{R})\)</span>, the relation <span
+class="math inline">\(EQ_{\mathbb{R}}\)</span> defined on <span
+class="math inline">\(A\)</span> as <span class="math display">\[\{
+(X_1, X_2 ) \in\mathcal{P}(\mathbb{R})  \times \mathcal{P}(\mathbb{R})
+~|~ |X_1| = |X_2| \}\]</span> is an equivalence relation.</p>
+<p><span><em>Example</em></span>: For <span class="math inline">\(A =
+\mathbb{Z}\)</span>, for each positive integer <span
+class="math inline">\(n\)</span>, the relation <span
+class="math inline">\(R_{(\textbf{mod } n)}\)</span> defined as the set
+of ordered pairs <span class="math inline">\((a, b)\)</span> such that
+<span class="math inline">\((a \textbf{ mod } n = b \textbf{ mod }
+n)\)</span> is an equivalence relation.</p>
 <h1 class="unnumbered" id="partial-order-definition">Partial order
 definition</h1>
 <p>A relation is a <span><strong>partial ordering</strong></span> (or
@@ -423,54 +438,6 @@ class="math display">\[\{s \in A \mid (a, s) \in R \}\]</span> We write
 <span class="math inline">\([a]_R\)</span> for this set, which is the
 equivalence class of <span class="math inline">\(a\)</span> with respect
 to <span class="math inline">\(R\)</span>.</p>
-<h1 class="unnumbered" id="equivalence-relations-partitions">Equivalence
-relations partitions</h1>
-<p><span><strong>Claim</strong></span>: For each <span
-class="math inline">\(a \in U\)</span>, <span
-class="math inline">\([a]_{E}  \neq  \emptyset\)</span>.</p>
-<p><span><strong>Proof</strong></span>: Towards a <span
-class="math inline">\(\underline{\phantom{\hspace{1.3in}}}\)</span>
-consider an arbitrary element <span class="math inline">\(a\)</span> in
-<span class="math inline">\(U\)</span>. We will work to show that <span
-class="math inline">\([a]_E \neq \emptyset\)</span>, namely that <span
-class="math inline">\(\exists x \in [a]_E\)</span>. By definition of
-equivalence classes, we can rewrite this goal as <span
-class="math display">\[\exists x \in U ~( ~(a,x) \in E~)\]</span>
-Towards a <span
-class="math inline">\(\underline{\phantom{\hspace{1.3in}}}\)</span>,
-consider <span class="math inline">\(x = a\)</span>, an element of <span
-class="math inline">\(U\)</span> by definition. By <span
-class="math inline">\(\underline{\phantom{\hspace{1.3in}}}\)</span> of
-<span class="math inline">\(E\)</span>, we know that <span
-class="math inline">\((a,a) \in E\)</span> and thus the existential
-quantification has been proved.<br />
-<span><strong>Claim</strong></span>: For each <span
-class="math inline">\(a \in U\)</span>, there is some <span
-class="math inline">\(b \in U\)</span> such that <span
-class="math inline">\(a \in [b]_{E}\)</span>.</p>
-<p>Towards a <span
-class="math inline">\(\underline{\phantom{\hspace{1.3in}}}\)</span>
-consider an arbitrary element <span class="math inline">\(a\)</span> in
-<span class="math inline">\(U\)</span>. By definition of equivalence
-classes, we can rewrite the goal as <span class="math display">\[\exists
-b \in U ~( ~(b,a) \in E~)\]</span> Towards a <span
-class="math inline">\(\underline{\phantom{\hspace{1.3in}}}\)</span>,
-consider <span class="math inline">\(b = a\)</span>, an element of <span
-class="math inline">\(U\)</span> by definition. By <span
-class="math inline">\(\underline{\phantom{\hspace{1.3in}}}\)</span> of
-<span class="math inline">\(E\)</span>, we know that <span
-class="math inline">\((a,a) \in E\)</span> and thus the existential
-quantification has been proved.<br />
-<span><strong>Claim</strong></span>: For each <span
-class="math inline">\(a,b  \in U\)</span> , <span
-class="math inline">\((~(a,b)  \in  E ~\to ~ [a]_{E}  =
-[b]_{E}~)\)</span> and <span class="math inline">\((~(a,b)  \notin  E
-~\to ~ [a]_{E} \cap[b]_{E} = \emptyset~)\)</span></p>
-<p><span><strong>Corollary</strong></span>: Given an equivalence
-relation <span class="math inline">\(E\)</span> on set <span
-class="math inline">\(U\)</span>, <span class="math inline">\(\{ [x]_{E}
-\mid x \in U  \}\)</span> is a partition of <span
-class="math inline">\(U\)</span>.</p>
 <h1 class="unnumbered" id="congruence-classes-mod-four">Congruence
 classes mod four</h1>
 <p><span><em>Recall</em></span>: We say <span
@@ -526,6 +493,76 @@ by a (not too large) integer gives a useful compromise where many
 algebraic properties of the integers are preserved, and we also get the
 benefits of a finite domain. Moreover, modular arithmetic is well-suited
 to model any cyclic behavior.</p>
+<h1 class="unnumbered" id="equivalence-relations-partitions">Equivalence
+relations partitions</h1>
+<p><span><strong>Claim</strong></span>: For each <span
+class="math inline">\(a \in U\)</span>, <span
+class="math inline">\([a]_{E}  \neq  \emptyset\)</span>.</p>
+<p><span><strong>Proof</strong></span>: Towards a <span
+class="math inline">\(\underline{\phantom{\hspace{1.3in}}}\)</span>
+consider an arbitrary element <span class="math inline">\(a\)</span> in
+<span class="math inline">\(U\)</span>. We will work to show that <span
+class="math inline">\([a]_E \neq \emptyset\)</span>, namely that <span
+class="math inline">\(\exists x \in [a]_E\)</span>. By definition of
+equivalence classes, we can rewrite this goal as <span
+class="math display">\[\exists x \in U ~( ~(a,x) \in E~)\]</span>
+Towards a <span
+class="math inline">\(\underline{\phantom{\hspace{1.3in}}}\)</span>,
+consider <span class="math inline">\(x = a\)</span>, an element of <span
+class="math inline">\(U\)</span> by definition. By <span
+class="math inline">\(\underline{\phantom{\hspace{1.3in}}}\)</span> of
+<span class="math inline">\(E\)</span>, we know that <span
+class="math inline">\((a,a) \in E\)</span> and thus the existential
+quantification has been proved.<br />
+<span><strong>Claim</strong></span>: For each <span
+class="math inline">\(a \in U\)</span>, there is some <span
+class="math inline">\(b \in U\)</span> such that <span
+class="math inline">\(a \in [b]_{E}\)</span>.</p>
+<p>Towards a <span
+class="math inline">\(\underline{\phantom{\hspace{1.3in}}}\)</span>
+consider an arbitrary element <span class="math inline">\(a\)</span> in
+<span class="math inline">\(U\)</span>. By definition of equivalence
+classes, we can rewrite the goal as <span class="math display">\[\exists
+b \in U ~( ~(b,a) \in E~)\]</span> Towards a <span
+class="math inline">\(\underline{\phantom{\hspace{1.3in}}}\)</span>,
+consider <span class="math inline">\(b = a\)</span>, an element of <span
+class="math inline">\(U\)</span> by definition. By <span
+class="math inline">\(\underline{\phantom{\hspace{1.3in}}}\)</span> of
+<span class="math inline">\(E\)</span>, we know that <span
+class="math inline">\((a,a) \in E\)</span> and thus the existential
+quantification has been proved.<br />
+<span><strong>Claim</strong></span>: For each <span
+class="math inline">\(a,b  \in U\)</span> , <span
+class="math inline">\((~(a,b)  \in  E ~\to ~ [a]_{E}  =
+[b]_{E}~)\)</span> and <span class="math inline">\((~(a,b)  \notin  E
+~\to ~ [a]_{E} \cap[b]_{E} = \emptyset~)\)</span></p>
+<p><span><strong>Corollary</strong></span>: Given an equivalence
+relation <span class="math inline">\(E\)</span> on set <span
+class="math inline">\(U\)</span>, <span class="math inline">\(\{ [x]_{E}
+\mid x \in U  \}\)</span> is a partition of <span
+class="math inline">\(U\)</span>.</p>
+<h1 class="unnumbered" id="modular-arithmetic">Modular arithmetic</h1>
+<p><span><strong>Modular arithmetic</strong></span>:</p>
+<p><span><strong>Informally</strong></span>: can bring mod “inside" and
+do it first, for addition and for multiplication.</p>
+<p><span><strong>Claim</strong></span>: For <span
+class="math inline">\(a, b, c, d \in \mathbb{Z}\)</span> and positive
+integer <span class="math inline">\(n\)</span>, if <span
+class="math inline">\(a \equiv b ~(\textbf{ mod } n)\)</span> and <span
+class="math inline">\(c \equiv d ~(\textbf{ mod } n)\)</span> then <span
+class="math inline">\(a+c \equiv b+d ~(\textbf{ mod } n)\)</span> and
+<span class="math inline">\(ac \equiv bd ~(\textbf{ mod }
+n)\)</span>.</p>
+<p><span class="math inline">\(123456 \times 789012 \textbf{ mod } 1000
+=\)</span></p>
+<p>Smaller examples work too:</p>
+<p><span class="math inline">\((102 + 48) \textbf{ mod } 10
+=\)</span></p>
+<p><span class="math inline">\((7 \cdot 10) \textbf{ mod } 5
+=\)</span></p>
+<p>Let’s consider exponentiation:</p>
+<p><span class="math inline">\((2^5) \textbf{ mod } 3 =\)</span></p>
+<p>To prove the claim: the following lemma is useful.</p>
 <h1 class="unnumbered" id="congruence-mod-n-lemma">Congruence mod n
 lemma</h1>
 <p><span><strong>Lemma</strong></span>: For <span
@@ -534,23 +571,6 @@ class="math inline">\(a, b \in \mathbb{Z}\)</span> and positive integer
 class="math inline">\((a,b) \in R_{(\textbf{mod } n)}\)</span> if and
 only if <span class="math inline">\(n | a-b\)</span>.</p>
 <p><span><strong>Proof</strong></span>:</p>
-<h1 class="unnumbered" id="modular-arithmetic">Modular arithmetic</h1>
-<p><span><strong>Modular arithmetic</strong></span>:</p>
-<p><span><strong>Lemma</strong></span>: For <span
-class="math inline">\(a, b, c, d \in \mathbb{Z}\)</span> and positive
-integer <span class="math inline">\(n\)</span>, if <span
-class="math inline">\(a \equiv b ~(\textbf{ mod } n)\)</span> and <span
-class="math inline">\(c \equiv d ~(\textbf{ mod } n)\)</span> then <span
-class="math inline">\(a+c \equiv b+d ~(\textbf{ mod } n)\)</span> and
-<span class="math inline">\(ac \equiv bd ~(\textbf{ mod } n)\)</span>.
-<span><strong>Informally</strong></span>: can bring mod “inside" and do
-it first, for addition and for multiplication.</p>
-<p><span class="math inline">\((102 + 48) \textbf{ mod } 10 =
-\underline{\phantom{\hspace{3in}}}\)</span></p>
-<p><span class="math inline">\((7 \cdot 10) \textbf{ mod } 5 =
-\underline{\phantom{\hspace{3.3in}}}\)</span></p>
-<p><span class="math inline">\((2^5) \textbf{ mod } 3
-=  \underline{\phantom{\hspace{3.45in}}}\)</span></p>
 <h1 class="unnumbered" id="modular-arithmetic-final-review">Modular
 arithmetic final review</h1>
 <p>Compute the last digit of <span

@@ -413,6 +413,19 @@ reflexive? symmetric? transitive? antisymmetric?</p>
 and representations</h2>
 <p>A relation is an <span><strong>equivalence relation</strong></span>
 means it is reflexive, symmetric, and transitive.</p>
+<p><span><em>Example</em></span>: For <span class="math inline">\(A =
+\mathcal{P}(\mathbb{R})\)</span>, the relation <span
+class="math inline">\(EQ_{\mathbb{R}}\)</span> defined on <span
+class="math inline">\(A\)</span> as <span class="math display">\[\{
+(X_1, X_2 ) \in\mathcal{P}(\mathbb{R})  \times \mathcal{P}(\mathbb{R})
+~|~ |X_1| = |X_2| \}\]</span> is an equivalence relation.</p>
+<p><span><em>Example</em></span>: For <span class="math inline">\(A =
+\mathbb{Z}\)</span>, for each positive integer <span
+class="math inline">\(n\)</span>, the relation <span
+class="math inline">\(R_{(\textbf{mod } n)}\)</span> defined as the set
+of ordered pairs <span class="math inline">\((a, b)\)</span> such that
+<span class="math inline">\((a \textbf{ mod } n = b \textbf{ mod }
+n)\)</span> is an equivalence relation.</p>
 <p>A relation is a <span><strong>partial ordering</strong></span> (or
 partial order) means it is reflexive, antisymmetric, and transitive.
 <span><em>Summary</em></span>: binary relations can be useful for
@@ -451,9 +464,59 @@ equivalence relation <span class="math inline">\(R\)</span> on the set
 class="math display">\[\{s \in A \mid (a, s) \in R \}\]</span> We write
 <span class="math inline">\([a]_R\)</span> for this set, which is the
 equivalence class of <span class="math inline">\(a\)</span> with respect
-to <span class="math inline">\(R\)</span>.
-<span><strong>Fact</strong></span>: When <span
-class="math inline">\(R\)</span> is an equivalence relation on a
+to <span class="math inline">\(R\)</span>.</p>
+<p><span><em>Recall</em></span>: We say <span
+class="math inline">\(a\)</span> is <span><strong>congruent
+to</strong></span> <span class="math inline">\(b\)</span>
+<strong>mod</strong> <span class="math inline">\(n\)</span> means <span
+class="math inline">\((a, b) \in R_{(\textbf{mod } n)}\)</span>. A
+common notation is to write this as <span class="math inline">\(a \equiv
+b (\textbf{mod } n)\)</span>.</p>
+<p>We can partition the set of integers using equivalence classes of
+<span class="math inline">\(R_{(\textbf{mod } 4)}\)</span></p>
+<p><span class="math display">\[\begin{align*}
+    [0]_{R_{(\textbf{mod } 4)}} &amp;= \phantom{ \{ x \in \mathbb{Z}
+\mid x \equiv 0 ((\textbf{mod } 4)) \}
+    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = 0 \textbf{ mod } 4 =
+0 \} = \{ 4c \mid c \in \mathbb{Z}\} }\\
+    [1]_{R_{(\textbf{mod } 4)}} &amp;= \phantom{ \{ x \in \mathbb{Z}
+\mid x \equiv 1 ((\textbf{mod } 4)) \}
+    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = 1 \textbf{ mod } 4 =
+1 \} = \{ 4c+1 \mid c \in \mathbb{Z}\} }\\
+    [2]_{R_{(\textbf{mod } 4)}} &amp;= \phantom{ \{ x \in \mathbb{Z}
+\mid x \equiv 2 ((\textbf{mod } 4)) \}
+    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = 2 \textbf{ mod } 4 =
+0 \} = \{ 4c+2 \mid c \in \mathbb{Z}\} }\\
+    [3]_{R_{(\textbf{mod } 4)}} &amp;= \phantom{ \{ x \in \mathbb{Z}
+\mid x \equiv 3 ((\textbf{mod } 4)) \}
+    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = 3 \textbf{ mod } 4 =
+3 \} = \{ 4c+3 \mid c \in \mathbb{Z}\} }\\
+    [4]_{R_{(\textbf{mod } 4)}} &amp;= \phantom{ \{ x \in \mathbb{Z}
+\mid x \equiv 4 ((\textbf{mod } 4)) \}
+    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = 4 \textbf{ mod } 4 =
+0 \} = \{ 4c \mid c \in \mathbb{Z}\} }\\
+    [5]_{R_{(\textbf{mod } 4)}} &amp;= \phantom{ \{ x \in \mathbb{Z}
+\mid x \equiv 5 ((\textbf{mod } 4)) \}
+    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = 5 \textbf{ mod } 4 =
+1 \} = \{ 4c+1 \mid c \in \mathbb{Z}\} }\\
+    [-1]_{R_{(\textbf{mod } 4)}} &amp;= \phantom{ \{ x \in \mathbb{Z}
+\mid x \equiv -1 ((\textbf{mod } 4)) \}
+    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = -1 \textbf{ mod } 4
+= 3 \} = \{ 4c+3 \mid c \in \mathbb{Z}\} }
+\end{align*}\]</span> <span class="math display">\[\mathbb{Z}
+=  [0]_{R_{(\textbf{mod } 4)}}~ \cup ~[1]_{R_{(\textbf{mod } 4)}}
+~\cup~[2]_{R_{(\textbf{mod } 4)}}~\cup~
+[3]_{R_{(\textbf{mod } 4)}}\]</span></p>
+<p>Integers are useful because they can be used to encode other objects
+and have multiple representations. However, infinite sets are sometimes
+expensive to work with computationally. Reducing our attention to a
+<span><em>partition of the integers</em></span> based on congrunce mod
+<span class="math inline">\(n\)</span>, where each part is represented
+by a (not too large) integer gives a useful compromise where many
+algebraic properties of the integers are preserved, and we also get the
+benefits of a finite domain. Moreover, modular arithmetic is well-suited
+to model any cyclic behavior. <span><strong>Fact</strong></span>: When
+<span class="math inline">\(R\)</span> is an equivalence relation on a
 nonempty set <span class="math inline">\(A\)</span>, the collection of
 equivalence classes of <span class="math inline">\(R\)</span> is a
 partition of <span class="math inline">\(A\)</span>.</p>
@@ -510,79 +573,33 @@ relation <span class="math inline">\(E\)</span> on set <span
 class="math inline">\(U\)</span>, <span class="math inline">\(\{ [x]_{E}
 \mid x \in U  \}\)</span> is a partition of <span
 class="math inline">\(U\)</span>.</p>
-<p><span><em>Recall</em></span>: We say <span
-class="math inline">\(a\)</span> is <span><strong>congruent
-to</strong></span> <span class="math inline">\(b\)</span>
-<strong>mod</strong> <span class="math inline">\(n\)</span> means <span
-class="math inline">\((a, b) \in R_{(\textbf{mod } n)}\)</span>. A
-common notation is to write this as <span class="math inline">\(a \equiv
-b (\textbf{mod } n)\)</span>.</p>
-<p>We can partition the set of integers using equivalence classes of
-<span class="math inline">\(R_{(\textbf{mod } 4)}\)</span></p>
-<p><span class="math display">\[\begin{align*}
-    [0]_{R_{(\textbf{mod } 4)}} &amp;= \phantom{ \{ x \in \mathbb{Z}
-\mid x \equiv 0 ((\textbf{mod } 4)) \}
-    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = 0 \textbf{ mod } 4 =
-0 \} = \{ 4c \mid c \in \mathbb{Z}\} }\\
-    [1]_{R_{(\textbf{mod } 4)}} &amp;= \phantom{ \{ x \in \mathbb{Z}
-\mid x \equiv 1 ((\textbf{mod } 4)) \}
-    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = 1 \textbf{ mod } 4 =
-1 \} = \{ 4c+1 \mid c \in \mathbb{Z}\} }\\
-    [2]_{R_{(\textbf{mod } 4)}} &amp;= \phantom{ \{ x \in \mathbb{Z}
-\mid x \equiv 2 ((\textbf{mod } 4)) \}
-    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = 2 \textbf{ mod } 4 =
-0 \} = \{ 4c+2 \mid c \in \mathbb{Z}\} }\\
-    [3]_{R_{(\textbf{mod } 4)}} &amp;= \phantom{ \{ x \in \mathbb{Z}
-\mid x \equiv 3 ((\textbf{mod } 4)) \}
-    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = 3 \textbf{ mod } 4 =
-3 \} = \{ 4c+3 \mid c \in \mathbb{Z}\} }\\
-    [4]_{R_{(\textbf{mod } 4)}} &amp;= \phantom{ \{ x \in \mathbb{Z}
-\mid x \equiv 4 ((\textbf{mod } 4)) \}
-    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = 4 \textbf{ mod } 4 =
-0 \} = \{ 4c \mid c \in \mathbb{Z}\} }\\
-    [5]_{R_{(\textbf{mod } 4)}} &amp;= \phantom{ \{ x \in \mathbb{Z}
-\mid x \equiv 5 ((\textbf{mod } 4)) \}
-    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = 5 \textbf{ mod } 4 =
-1 \} = \{ 4c+1 \mid c \in \mathbb{Z}\} }\\
-    [-1]_{R_{(\textbf{mod } 4)}} &amp;= \phantom{ \{ x \in \mathbb{Z}
-\mid x \equiv -1 ((\textbf{mod } 4)) \}
-    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = -1 \textbf{ mod } 4
-= 3 \} = \{ 4c+3 \mid c \in \mathbb{Z}\} }
-\end{align*}\]</span> <span class="math display">\[\mathbb{Z}
-=  [0]_{R_{(\textbf{mod } 4)}}~ \cup ~[1]_{R_{(\textbf{mod } 4)}}
-~\cup~[2]_{R_{(\textbf{mod } 4)}}~\cup~
-[3]_{R_{(\textbf{mod } 4)}}\]</span></p>
-<p>Integers are useful because they can be used to encode other objects
-and have multiple representations. However, infinite sets are sometimes
-expensive to work with computationally. Reducing our attention to a
-<span><em>partition of the integers</em></span> based on congrunce mod
-<span class="math inline">\(n\)</span>, where each part is represented
-by a (not too large) integer gives a useful compromise where many
-algebraic properties of the integers are preserved, and we also get the
-benefits of a finite domain. Moreover, modular arithmetic is well-suited
-to model any cyclic behavior.</p>
+<p><span><strong>Modular arithmetic</strong></span>:</p>
+<p><span><strong>Informally</strong></span>: can bring mod “inside" and
+do it first, for addition and for multiplication.</p>
+<p><span><strong>Claim</strong></span>: For <span
+class="math inline">\(a, b, c, d \in \mathbb{Z}\)</span> and positive
+integer <span class="math inline">\(n\)</span>, if <span
+class="math inline">\(a \equiv b ~(\textbf{ mod } n)\)</span> and <span
+class="math inline">\(c \equiv d ~(\textbf{ mod } n)\)</span> then <span
+class="math inline">\(a+c \equiv b+d ~(\textbf{ mod } n)\)</span> and
+<span class="math inline">\(ac \equiv bd ~(\textbf{ mod }
+n)\)</span>.</p>
+<p><span class="math inline">\(123456 \times 789012 \textbf{ mod } 1000
+=\)</span></p>
+<p>Smaller examples work too:</p>
+<p><span class="math inline">\((102 + 48) \textbf{ mod } 10
+=\)</span></p>
+<p><span class="math inline">\((7 \cdot 10) \textbf{ mod } 5
+=\)</span></p>
+<p>Let’s consider exponentiation:</p>
+<p><span class="math inline">\((2^5) \textbf{ mod } 3 =\)</span></p>
+<p>To prove the claim: the following lemma is useful.</p>
 <p><span><strong>Lemma</strong></span>: For <span
 class="math inline">\(a, b \in \mathbb{Z}\)</span> and positive integer
 <span class="math inline">\(n\)</span>, <span
 class="math inline">\((a,b) \in R_{(\textbf{mod } n)}\)</span> if and
 only if <span class="math inline">\(n | a-b\)</span>.</p>
 <p><span><strong>Proof</strong></span>:</p>
-<p><span><strong>Modular arithmetic</strong></span>:</p>
-<p><span><strong>Lemma</strong></span>: For <span
-class="math inline">\(a, b, c, d \in \mathbb{Z}\)</span> and positive
-integer <span class="math inline">\(n\)</span>, if <span
-class="math inline">\(a \equiv b ~(\textbf{ mod } n)\)</span> and <span
-class="math inline">\(c \equiv d ~(\textbf{ mod } n)\)</span> then <span
-class="math inline">\(a+c \equiv b+d ~(\textbf{ mod } n)\)</span> and
-<span class="math inline">\(ac \equiv bd ~(\textbf{ mod } n)\)</span>.
-<span><strong>Informally</strong></span>: can bring mod “inside" and do
-it first, for addition and for multiplication.</p>
-<p><span class="math inline">\((102 + 48) \textbf{ mod } 10 =
-\underline{\phantom{\hspace{3in}}}\)</span></p>
-<p><span class="math inline">\((7 \cdot 10) \textbf{ mod } 5 =
-\underline{\phantom{\hspace{3.3in}}}\)</span></p>
-<p><span class="math inline">\((2^5) \textbf{ mod } 3
-=  \underline{\phantom{\hspace{3.45in}}}\)</span></p>
 <p>Compute the last digit of <span
 class="math display">\[(42)^{2026}\]</span></p>
 <p><span><em>Extra</em></span> Describe the pattern that helps you
