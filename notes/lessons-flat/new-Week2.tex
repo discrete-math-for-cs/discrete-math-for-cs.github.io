@@ -403,6 +403,8 @@ units determined by base.
 \vfill
 
 
+
+
 \begin{algorithm}[caption={Calculating base $b$ expansion, from left}]
 procedure $\textit{basebmost}$($n, b$: positive integers with $b > 1$)
 $v$ := $n$
@@ -414,6 +416,8 @@ for $i$ := $1$ to $k$
     $v$ := $v -  b^{k-i}$
 return $(a_{k-1}, \ldots, a_0) \{(a_{k-1} \ldots a_0)_b~\textrm{ is the base } b \textrm{ expansion of } n \}$
 \end{algorithm}
+ 
+
 
 \vfill
 \vfill
@@ -426,16 +430,24 @@ Idea: {\tiny(when $k > 1$)}
       n &= a_{k-1} b^{k-1} + \cdots + a_1 b + a_0 \\
         &= b ( a_{k-1} b^{k-2} + \cdots + a_1) + a_0\end{align*}
     so $a_0 = n \textbf{ mod } b$ and $a_{k-1} b^{k-2} + \cdots + a_1 = n \textbf{ div } b$.
-\begin{algorithm}[caption={Calculating base $b$ expansion, from right}]
-procedure $\textit{basebleast}$($n, b$: positive integers with $b > 1$)
-$k$ := $0$
-$q$ := $n$
-while $q  \neq 0$
-  $a_{k}$ := $q$ mod $b$
-  $k$ := $k+1$
-  $q$ := $q$ div $b$
+
+
+
+
+
+\begin{algorithm}[caption={Calculating base $b$ expansion, from left}]
+procedure $\textit{basebmost}$($n, b$: positive integers with $b > 1$)
+$v$ := $n$
+$k$ := $1 + $ output of $logb$ algorithm with inputs $b$ and $n$
+for $i$ := $1$ to $k$
+  $a_{k-i}$ := $0$
+  while $v \geq b^{k-i}$
+    $a_{k-i}$ := $a_{k-i} + 1$
+    $v$ := $v -  b^{k-i}$
 return $(a_{k-1}, \ldots, a_0) \{(a_{k-1} \ldots a_0)_b~\textrm{ is the base } b \textrm{ expansion of } n \}$
 \end{algorithm}
+ 
+
 
 
 \vfill
@@ -505,36 +517,6 @@ where  $a_0, a_1, \ldots, a_{w-1}, c_1, \ldots, c_{w'}$ are nonnegative integers
 $$x \geq \sum_{i=0}^{w-1} a_{i} b^{i} + \sum_{j=1}^{w'}  c_{j} b^{-j} \hfill
 \textrm{\qquad and \qquad}
 \hfill x < \sum_{i=0}^{w-1} a_{i} b^{i} + \sum_{j=1}^{w'} c_{j} b^{-j} + b^{-w'}$$
-
-\begin{center}
-\begin{tabular}{|c|p{5in}|}
-\hline
-& \\
-$3.75$  in fixed-width binary,& \\
-integer part width $2$,&\\
- fractional part width $8$ & \\
-& \\
-& \\
-& \\
-& \\
-\hline
-& \\
-$0.1$  in fixed-width binary, & \\
-integer part width $2$, &\\
- fractional part width $8$ & \\
- & \\
- & \\
- & \\
- & \\
- \hline
-\end{tabular}
-\end{center}
-
-\vfill
-
-\includegraphics[width=2in]{resources/images/ArithmeticDemo.png}
-
-Note: Java uses floating point, not fixed width representation, but similar rounding errors appear in both.
  \newpage
 
 
@@ -780,58 +762,7 @@ sign-magnitude and 2s complement.
 \end{enumerate} }
 \end{enumerate}
 \item Multiple representations
-{
-
-We saw last week that, mathematically, a color can be represented as a $3$-tuple $(r, g, b)$ 
-where $r$ represents the red component, $g$ the green component, $b$ the blue component and where each of $r$, $g$, $b$ must be from the collection $\{x \in \mathbb{N}\mid 0 \leq x \leq 255 \}$.
-As an alternative representation, in this assignment
-we'll use base $b$ fixed-width expansions to represent colors
-as individual numbers.
-
-{\bf Definition}: A {\bf hex color} is a nonnegative
-integer, $n$, that has a base $16$ fixed-width $6$  expansion
-$$n = (r_1r_2g_1g_2b_1b_2)_{16,6}$$ 
-where $(r_1r_2)_{16,2}$ is the red
-component, $(g_1g_2)_{16,2}$ is the green component, 
-and $(b_1b_2)_{16,2}$ is the
-blue. 
-\begin{enumerate}
-\item What is the hex color corresponding to full black? Namely, this means setting the value in each of the 
-    red, green, and blue components to be the minimum $0$.
-    \begin{enumerate}
-    \item[] $0$
-    \item[] $(0,0,0)$
-    \item[] $15^{5}+15^4+15^3+15^2+15^1+1$
-    \item[] $15\cdot 16^{5}+15\cdot 16^4+15\cdot 16^3+15 \cdot 16^2+15 \cdot 16^1+15$
-    \item[] $16^{5}+16^4+16^3+16^2+16^1+1$
-    \end{enumerate}
-\item What is the hex color corresponding to full white? Namely, this means setting the value in each of the 
-red, green, and blue components to be the maximum $255$.
-    \begin{enumerate}
-    \item[] $0$
-    \item[] $(0,0,0)$
-    \item[] $15^{5}+15^4+15^3+15^2+15^1+1$
-    \item[] $15\cdot 16^{5}+15\cdot 16^4+15\cdot 16^3+15 \cdot 16^2+15 \cdot 16^1+15$
-    \item[] $16^{5}+16^4+16^3+16^2+16^1+1$
-    \end{enumerate}
-\item Select all and only  correct representations of the hex color which is 
-full green (so the red and blue components are $0$ and green is set to $255$).
-\begin{enumerate}
-    \item[] $(00FF00)_{16,6}$
-    \item[] $(00FF00)_{16}$
-    \item[] $255$
-    \item[] $255\cdot 256$
-    \item[] $255\cdot 16^2$
-    \item[] $65280$
-    \end{enumerate}
-\item Which of the following is a definition using set builder notation for the set of hex colors. (Select all and only correct choices)
-    \begin{enumerate}
-    \item[] $\{ x \in \mathbb{Z} \mid 0 \leq x \leq 16777215\}$
-    \item[] $\{ x \in \mathbb{Z} \mid 0 \leq x \leq 16^6 -1\}$
-    \item[] $\{ x \in \mathbb{N} \mid x \leq 16777215\}$
-    \item[] $\{ x \in \mathbb{N} \mid x \leq 16^6 -1\}$
-    \end{enumerate}
-\end{enumerate} }
+{\input{../activity-snippets/color-hexcolor-intro-question.tex}}
 \end{enumerate}
 \end{comment}
 

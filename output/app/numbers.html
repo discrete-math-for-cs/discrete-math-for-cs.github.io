@@ -700,23 +700,26 @@ mod } b\)</span> and <span class="math inline">\(a_{k-1} b^{k-2} +
 \cdots + a_1 = n \textbf{ div } b\)</span>.</p>
 <div class="algorithm">
 <p>procedure <span
-class="math inline">\(\textit{basebleast}\)</span>(<span
+class="math inline">\(\textit{basebmost}\)</span>(<span
 class="math inline">\(n, b\)</span>: positive integers with <span
 class="math inline">\(b &gt; 1\)</span>) <span
-class="math inline">\(k\)</span> := <span
-class="math inline">\(0\)</span> <span class="math inline">\(q\)</span>
-:= <span class="math inline">\(n\)</span> while <span
-class="math inline">\(q  \neq 0\)</span> <span
-class="math inline">\(a_{k}\)</span> := <span
-class="math inline">\(q\)</span> mod <span
-class="math inline">\(b\)</span> <span class="math inline">\(k\)</span>
-:= <span class="math inline">\(k+1\)</span> <span
-class="math inline">\(q\)</span> := <span
-class="math inline">\(q\)</span> div <span
-class="math inline">\(b\)</span> return <span
-class="math inline">\((a_{k-1}, \ldots, a_0) \{(a_{k-1} \ldots
-a_0)_b~\textrm{ is the base } b \textrm{ expansion of } n
-\}\)</span></p>
+class="math inline">\(v\)</span> := <span
+class="math inline">\(n\)</span> <span class="math inline">\(k\)</span>
+:= <span class="math inline">\(1 +\)</span> output of <span
+class="math inline">\(logb\)</span> algorithm with inputs <span
+class="math inline">\(b\)</span> and <span
+class="math inline">\(n\)</span> for <span
+class="math inline">\(i\)</span> := <span
+class="math inline">\(1\)</span> to <span
+class="math inline">\(k\)</span> <span
+class="math inline">\(a_{k-i}\)</span> := <span
+class="math inline">\(0\)</span> while <span class="math inline">\(v
+\geq b^{k-i}\)</span> <span class="math inline">\(a_{k-i}\)</span> :=
+<span class="math inline">\(a_{k-i} + 1\)</span> <span
+class="math inline">\(v\)</span> := <span class="math inline">\(v
+-  b^{k-i}\)</span> return <span class="math inline">\((a_{k-1}, \ldots,
+a_0) \{(a_{k-1} \ldots a_0)_b~\textrm{ is the base } b \textrm{
+expansion of } n \}\)</span></p>
 </div>
 <h1 class="unnumbered" id="base-expansion-review">Base expansion
 review</h1>
