@@ -292,6 +292,10 @@
                 "source": "Week10.tex"
             },
             {
+                "name": "Discussion Notes",
+                "source": "CSE_20_Week_10_Discussion.pdf"
+            },
+            {
                 "name": "(Video) Diffie-Hellman and cryptography",
                 "source": "https://youtu.be/oKOwGlevpyg"
             }
