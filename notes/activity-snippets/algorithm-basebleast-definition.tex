@@ -1,0 +1,13 @@
+%! app: Numbers
+%! outcome: trace algorithms
+
+\begin{algorithm}[caption={Calculating base $b$ expansion, from right}]
+procedure $\textit{basebleast}$($n, b$: positive integers with $b > 1$)
+$k$ := $0$
+$q$ := $n$
+while $q  \neq 0$
+  $a_{k}$ := $q$ mod $b$
+  $k$ := $k+1$
+  $q$ := $q$ div $b$
+return $(a_{k-1}, \ldots, a_0) \{(a_{k-1} \ldots a_0)_b~\textrm{ is the base } b \textrm{ expansion of } n \}$
+\end{algorithm}

@@ -10,18 +10,19 @@ units determined by base.
 
 \vfill
 
+\input{../activity-snippets/algorithm-basebmost-definition.tex}
 
-\begin{algorithm}[caption={Calculating base $b$ expansion, from left}]
-procedure $\textit{basebmost}$($n, b$: positive integers with $b > 1$)
-$v$ := $n$
-$k$ := $1 + $ output of $logb$ algorithm with inputs $b$ and $n$
-for $i$ := $1$ to $k$
-  $a_{k-i}$ := $0$
-  while $v \geq b^{k-i}$
-    $a_{k-i}$ := $a_{k-i} + 1$
-    $v$ := $v -  b^{k-i}$
-return $(a_{k-1}, \ldots, a_0) \{(a_{k-1} \ldots a_0)_b~\textrm{ is the base } b \textrm{ expansion of } n \}$
-\end{algorithm}
+% \begin{algorithm}[caption={Calculating base $b$ expansion, from left}]
+% procedure $\textit{basebmost}$($n, b$: positive integers with $b > 1$)
+% $v$ := $n$
+% $k$ := $1 + $ output of $logb$ algorithm with inputs $b$ and $n$
+% for $i$ := $1$ to $k$
+%   $a_{k-i}$ := $0$
+%   while $v \geq b^{k-i}$
+%     $a_{k-i}$ := $a_{k-i} + 1$
+%     $v$ := $v -  b^{k-i}$
+% return $(a_{k-1}, \ldots, a_0) \{(a_{k-1} \ldots a_0)_b~\textrm{ is the base } b \textrm{ expansion of } n \}$
+% \end{algorithm}
 
 \vfill
 \vfill
@@ -38,17 +39,21 @@ return $(a_{k-1}, \ldots, a_0) \{(a_{k-1} \ldots a_0)_b~\textrm{ is the base } b
     so $a_0 = n \textbf{ mod } b$ and $a_{k-1} b^{k-2} + \cdots + a_1 = n \textbf{ div } b$.
 %\end{minipage}
 %\columnbreak
-\begin{algorithm}[caption={Calculating base $b$ expansion, from right}]
-procedure $\textit{basebleast}$($n, b$: positive integers with $b > 1$)
-$k$ := $0$
-$q$ := $n$
-while $q  \neq 0$
-  $a_{k}$ := $q$ mod $b$
-  $k$ := $k+1$
-  $q$ := $q$ div $b$
-return $(a_{k-1}, \ldots, a_0) \{(a_{k-1} \ldots a_0)_b~\textrm{ is the base } b \textrm{ expansion of } n \}$
-\end{algorithm}
-%\end{multicols}
+
+\input{../activity-snippets/algorithm-basebmost-definition.tex}
+
+
+% \begin{algorithm}[caption={Calculating base $b$ expansion, from right}]
+% procedure $\textit{basebleast}$($n, b$: positive integers with $b > 1$)
+% $k$ := $0$
+% $q$ := $n$
+% while $q  \neq 0$
+%   $a_{k}$ := $q$ mod $b$
+%   $k$ := $k+1$
+%   $q$ := $q$ div $b$
+% return $(a_{k-1}, \ldots, a_0) \{(a_{k-1} \ldots a_0)_b~\textrm{ is the base } b \textrm{ expansion of } n \}$
+% \end{algorithm}
+% %\end{multicols}
 
 \vfill
 \vfill

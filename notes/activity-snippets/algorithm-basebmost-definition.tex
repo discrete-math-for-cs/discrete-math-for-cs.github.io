@@ -1,0 +1,15 @@
+%! app: Numbers
+%! outcome: trace algorithms
+
+
+\begin{algorithm}[caption={Calculating base $b$ expansion, from left}]
+procedure $\textit{basebmost}$($n, b$: positive integers with $b > 1$)
+$v$ := $n$
+$k$ := $1 + $ output of $logb$ algorithm with inputs $b$ and $n$
+for $i$ := $1$ to $k$
+  $a_{k-i}$ := $0$
+  while $v \geq b^{k-i}$
+    $a_{k-i}$ := $a_{k-i} + 1$
+    $v$ := $v -  b^{k-i}$
+return $(a_{k-1}, \ldots, a_0) \{(a_{k-1} \ldots a_0)_b~\textrm{ is the base } b \textrm{ expansion of } n \}$
+\end{algorithm}
