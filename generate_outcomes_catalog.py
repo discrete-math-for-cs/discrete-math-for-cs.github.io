@@ -129,29 +129,28 @@ def generate_latex_output(outcomes_dict, json_structure, only_in_weekly, only_in
     latex_content += "% This file aggregates learning outcomes from Week1.tex through Week10.tex\n"
     latex_content += "% in discrete-math-for-cs/notes/lessons/\n\n"
     latex_content += "\\documentclass[10pt, oneside]{article}\n\n"
-    latex_content += "\\usepackage[letterpaper, scale=0.9, centering]{geometry}\n"
+    latex_content += "\\usepackage[letterpaper, scale=0.8, centering]{geometry}\n"
     latex_content += "\\usepackage{fancyhdr}\n"
     latex_content += "\\setlength{\\parindent}{0em}\n"
-    latex_content += "\\setlength{\\parskip}{0.5em}\n\n"
+    latex_content += "\\setlength{\\parskip}{0.2em}\n\n"
+    latex_content += "\\usepackage{enumitem}\n"
+    latex_content += "\\setlist{nosep, leftmargin=1.2em}\n\n"
     latex_content += "\\pagestyle{fancy}\n"
     latex_content += "\\fancyhf{}\n"
     latex_content += "\\renewcommand{\\headrulewidth}{0pt}\n"
-    latex_content += "\\rfoot{{\\footnotesize Copyright Mia Minnes, Winter 2026}}\n\n"
+    latex_content += "\\rfoot{{\\footnotesize Learning Outcomes for CSE 20. Copyright Mia Minnes, Winter 2026}}\n\n"
     latex_content += "\\usepackage{titlesec}\n\n"
+    latex_content += "\\titleformat{\\section}[runin]{\\normalfont\\Large\\bfseries}{Outcome}{0.3em}{}"
+    latex_content += "\\titleformat{\subsection}[runin]{\\normalfont\\large\\bfseries}{Outcome}{0.3em}{}"
     latex_content += "\\author{CSE20W26}\n\n"
     latex_content += "\\input{../../resources/discrete-math-packages}\n\n"
     latex_content += "\\begin{document}\n"
     latex_content += "\\thispagestyle{fancy}\n\n"
-    latex_content += "\\section*{Learning Outcomes for CSE 20}\n\n"
-    latex_content += "This document aggregates all learning outcomes from the weekly lesson plans,\n"
-    latex_content += "structured according to the hierarchy in outcomes.json.\n\n"
-    latex_content += "\\tableofcontents\n\n"
-    latex_content += "\\newpage\n\n"
     
     # Process the 3 top-level categories from JSON
     for top_level_key, top_level_value in json_structure.items():
         top_level_desc = top_level_value.get('Description', '')
-        latex_content += "\\section{" + top_level_key + "}\n\n"
+        latex_content += "\\section*{" + top_level_key + "}\n\n"
         if top_level_desc:
             latex_content += top_level_desc + "\n\n"
         
@@ -159,7 +158,7 @@ def generate_latex_output(outcomes_dict, json_structure, only_in_weekly, only_in
         if 'Children' in top_level_value:
             for second_level_key, second_level_value in top_level_value['Children'].items():
                 second_level_desc = second_level_value.get('Description', '')
-                latex_content += "\\subsection{" + second_level_key + "}\n\n"
+                latex_content += "\\subsection*{" + second_level_key + "}\n\n"
                 if second_level_desc:
                     latex_content += second_level_desc + "\n\n"
                 
@@ -175,11 +174,12 @@ def generate_latex_output(outcomes_dict, json_structure, only_in_weekly, only_in
                             if leaf_desc in weeks_lookup:
                                 weeks = weeks_lookup[leaf_desc]
                                 weeks_str = ", ".join(["Week " + str(w) for w in sorted(weeks)])
-                                latex_content += "% Appears in: " + weeks_str + "\n"
+                                latex_content += "% Appears in: \n" 
+                                latex_content += "(" + weeks_str + ")\n"
                             latex_content += "\n"
                     latex_content += "\\end{itemize}\n\n"
                 
-                latex_content += "\\vfill\n\n"
+                #latex_content += "\\vfill\n\n"
         
         latex_content += "\\newpage\n\n"
     
@@ -197,7 +197,7 @@ def generate_latex_output(outcomes_dict, json_structure, only_in_weekly, only_in
                 latex_content += "% Appears in: " + weeks_str + "\n"
             latex_content += "\n"
         latex_content += "\\end{itemize}\n\n"
-        latex_content += "\\vfill\n\\newpage\n\n"
+        #latex_content += "\\vfill\n\\newpage\n\n"
     
     # Add section for outcomes only in JSON
     if only_in_json:

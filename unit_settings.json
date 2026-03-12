@@ -330,6 +330,10 @@
             {
                 "name": "Definitions that will be provided during the final exam",
                 "source": "definitions.pdf"
+            },
+            {
+                "name": "Learning outcomes for the course",
+                "source": "outcomes.pdf"
             }
         ],
         "Due Dates": [
@@ -338,8 +342,12 @@
                 "due": "Practice questions for the final exam"
             },
             {
+                "name": "Review session",
+                "due": "Wednesday  03/18/26 at 9:30am in CENTR  115"
+            }
+            {
                 "name": "Final exam",
-                "due": "Friday 03/20/26 at 11:30am"
+                "due": "Friday 03/20/26 at 11:30am in REC Gym"
             }
         ]
     }
