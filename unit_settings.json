@@ -320,7 +320,7 @@
     {
         "header": "Finals week",
         "outcomes": "Final exam",
-        "CalendarInfo": "Dates: Final exam 03/20/26 11:30am in person on campus",
+        "CalendarInfo": "The final exam is in person and synchronous Friday 03/20/26 11:30A - 2:29P  in the Rec Gym. <a href=\"https://map.concept3d.com/?id=1005#!m/166062\" target=\"_blank\">https://map.concept3d.com/?id=1005#!m/166062</a>.",
         "ExpandInCalendar": true,
         "content": [
             {
@@ -334,6 +334,14 @@
             {
                 "name": "Learning outcomes for the course",
                 "source": "outcomes.pdf"
+            },
+            {
+                "name": "Picture of REC gym exam setup",
+                "source": "RECGymExamSetup.pdf"
+            },
+            {
+                "name": "Seat map of REC gym exam setup",
+                "source": "REC_GYM_Room_Diagram_revised_2016.pdf"
             }
         ],
         "Due Dates": [
