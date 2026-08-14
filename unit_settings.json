@@ -1,8 +1,8 @@
 [
     {
-        "header": "Week 1",
+        "header": "Week 0 and 1",
         "outcomes": "Introduction and data types",
-        "CalendarInfo": " Dates: 01/05/26 - 01/11/26<br> Welcome! Please take our pre-class survey on <a href=\"https://canvas.ucsd.edu/\" target=\"_blank\">Canvas</a>. See you Monday 1pm in CENTER HALL 115. Notes for class are linked below: we recommend attending class in person each day (if you can). We'll be working directly on quiz and homework questions in many classes to help you get started with problem solving. Discussion sections will include a review of the lecture material for the week and example problems. They are scheduled for Mondays at 5pm in CENTER HALL 115.",
+        "CalendarInfo": " Dates: 09/24/26 - 10/02/26<br> Welcome! Please take our pre-class survey on <a href=\"https://canvas.ucsd.edu/\" target=\"_blank\">Canvas</a>. See you Friday 9am in Franklin Antonio Hall Room 1301. Notes for class are linked below: we recommend attending class in person each day (if you can). We'll be working directly on quiz and homework questions in many classes to help you get started with problem solving. Discussion sections will include a review of the lecture material for the week and example problems. They are scheduled for Mondays at 7pm in Mosaic Room 0114.",
         "ExpandInCalendar": false,
         "content": [
             {
@@ -10,8 +10,8 @@
                 "source": "Week1.tex"
             },
             {
-                "name": "Lecture Hall: CENTER 115",
-                "source": "<br><iframe height=\"600px\" width=\"100%\" src=\"https://map.concept3d.com/?id=1005#!m/163044?\" frameborder=\"0\"></iframe>"
+                "name": "Lecture Hall: Franklin Antonio Hall Room 1301",
+                "source": "<br><iframe height=\"600px\" width=\"100%\" src=\"https://arcg.is/1bqKva3\" frameborder=\"0\"></iframe>"
             },
             {
                 "name": "(Video) Course Intro",
@@ -48,7 +48,7 @@
                 "due": "01/12/26"
             },
             {
-                "name": "hw1-definitions-and-notation-CSE20W26",
+                "name": "hw1-definitions-and-notation-CSE20S26",
                 "due": "01/15/26 at 5pm (late submission until 8am next morning)"
             }
         ]
@@ -98,7 +98,7 @@
                 "due": "01/26/26"
             },
             {
-                "name": "hw2-numbers-CSE20W26",
+                "name": "hw2-numbers-CSE20S26",
                 "due": "01/29/26 at 5pm (late submission until 8am next morning)"
             }
         ]
@@ -182,7 +182,7 @@
                 "due": "02/9/26"
             },
             {
-                "name": "hw3-circuits-and-logic-CSE20W26",
+                "name": "hw3-circuits-and-logic-CSE20S26",
                 "due": "02/12/26 at 5pm (late submission until 8am next morning)"
             }
         ]
@@ -240,7 +240,7 @@
                 "due": "02/23/26"
             },
             {
-                "name": "hw4-proofs-sets-recursion-CSE20W26",
+                "name": "hw4-proofs-sets-recursion-CSE20S26",
                 "due": "02/26/26 at 5pm (late submission until 8am next morning)"
             }
         ]
@@ -312,7 +312,7 @@
                 "due": "03/09/26"
             },
             {
-                "name": "hw5-cardinality-functions-relations-CSE20W26",
+                "name": "hw5-cardinality-functions-relations-CSE20S26",
                 "due": "03/12/26 at 5pm (late submission until 8am next morning)"
             }
         ]
@@ -346,16 +346,12 @@
         ],
         "Due Dates": [
                         {
-                "name": "finalpractice-CSE20W26",
+                "name": "finalpractice-CSE20S26",
                 "due": "Practice questions for the final exam"
             },
             {
-                "name": "Review session",
-                "due": "Wednesday  03/18/26 at 9:30am in CENTR  115"
-            },
-            {
                 "name": "Final exam",
-                "due": "Friday 03/20/26 at 11:30am in REC Gym"
+                "due": "Friday 03/20/26 at 11:30am in location TBA"
             }
         ]
     }
