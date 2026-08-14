@@ -1,38 +1,32 @@
 [
    {
-      "name": "hw1-definitions-and-notation-CSE20W26",
+      "name": "hw1-definitions-and-notation-CSE20F26",
       "addExtensions": true,
-      "Information": "This is a group optional assignment",
-      "solutionsFile": "hw1-sample-solutions-definitions-and-notation-CSE20W26.pdf"
+      "Information": "This is a group optional assignment"
    },
    {
-      "name": "hw2-numbers-CSE20W26",
+      "name": "hw2-numbers-CSE20F26",
       "addExtensions": true,
-      "Information": "This is a group optional assignment",
-      "solutionsFile": "hw2-sample-solutions-numbers-CSE20W26.pdf"
+      "Information": "This is a group optional assignment"
    },
    {
-      "name": "hw3-circuits-and-logic-CSE20W26",
+      "name": "hw3-circuits-and-logic-CSE20F26",
       "addExtensions": true,
-      "Information": "This is a group optional assignment",
-      "solutionsFile": "hw3-sample-solutions-circuits-and-logic-CSE20W26.pdf"
+      "Information": "This is a group optional assignment"
    },
    {
-      "name": "hw4-proofs-sets-recursion-CSE20W26",
+      "name": "hw4-proofs-sets-recursion-CSE20F26",
       "addExtensions": true,
-      "Information": "This is a group optional assignment",
-      "solutionsFile": "hw4-sample-solutions-proofs-sets-recursion-CSE20W26.pdf"
+      "Information": "This is a group optional assignment"
    },
    {
-      "name": "hw5-cardinality-functions-relations-CSE20W26",
+      "name": "hw5-cardinality-functions-relations-CSE20F26",
       "addExtensions": true,
-      "Information": "This is a group optional assignment",
-      "solutionsFile": "hw5-sample-solutions-cardinality-functions-relations-CSE20W26.pdf"
+      "Information": "This is a group optional assignment"
    },
    {
-      "name": "finalpractice-CSE20W26",
+      "name": "finalpractice-CSE20F26",
       "addExtensions": true,
-      "Information": "Final exam is during exam week, at the time and location posted in the Schedule of Classes. To study for the exam, we recommend reviewing class notes (e.g. annotations linked on the class website, supplementary video from the class website), reviewing homework (and its posted sample solutions), and in particular *working examples* (extra examples in lecture notes, review quizzes, discussion examples) and getting feedback (office hours and Piazza). This collection of practice questions may also be helpful, but is not meant to represent the actual length or format of the test.",
-      "solutionsFile": "finalpractice-sample-solutions-CSE20W26.pdf"
+      "Information": "Final exam is during exam week, at the time and location posted in the Schedule of Classes. To study for the exam, we recommend reviewing class notes (e.g. annotations linked on the class website, supplementary video from the class website), reviewing homework (and its posted sample solutions), and in particular *working examples* (extra examples in lecture notes, review quizzes, discussion examples) and getting feedback (office hours and Piazza). This collection of practice questions may also be helpful, but is not meant to represent the actual length or format of the test."
    }
 ]

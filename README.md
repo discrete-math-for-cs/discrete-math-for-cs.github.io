@@ -58,4 +58,4 @@ Steps for archiving:
 
 (8) Configure Pages on GitHub: In repo, Settings --> Pages --> Build and deployment --> Source: Deploy from a branch --> Branch --> "published" . Then click "Save".
 
-(9) update main page template in discrete-math-for-cs/templates/index_template.html to point to newly archived offering.
+(9) update top buttons in main page template in discrete-math-for-cs/templates/index_template.html to point to current offering and update bottom buttons to include newly archived offering.

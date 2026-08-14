@@ -22,41 +22,37 @@
             {
                 "name": "Canvas #FinAid Quiz",
                 "link": "https://canvas.ucsd.edu/",
-                "due": "01/11/26"
+                "due": "10/02/26"
             }
         ]
     },
     {
         "header": "Week 2",
         "outcomes": "Number representations",
-        "CalendarInfo": " Dates: 01/12/26-01/16/26",
+        "CalendarInfo": " Dates: 10/05/26-10/09/26",
         "ExpandInCalendar": false,
         "content": [
             {
                 "name": "Notes",
                 "source": "Week2.tex"
-            },
-            {
-                "name": "Discussion Notes",
-                "source": "CSE20Discussion12_1.pdf"
             }
         ],
         "Due Dates": [
             {
                 "name": "Review Quiz",
                 "link": "https://us.prairielearn.com/pl/",
-                "due": "01/12/26"
+                "due": "10/04/26"
             },
             {
-                "name": "hw1-definitions-and-notation-CSE20S26",
-                "due": "01/15/26 at 5pm (late submission until 8am next morning)"
+                "name": "hw1-definitions-and-notation-CSE20W26",
+                "due": "10/08/26 at 5pm (late submission until 8am next morning)"
             }
         ]
     },
     {
         "header": "Week 3",
         "outcomes": "Circuits and Propositional Logic",
-        "CalendarInfo": " Dates: 01/19/26-01/23/26.  No class on Monday 01/19/2026 in observance of Martin Luther King Jr. Day.",
+        "CalendarInfo": " Dates: 10/12/26-10/16/26.",
         "ExpandInCalendar": false,
         "content": [
             {
@@ -70,16 +66,16 @@
         ],
         "Due Dates": [
             {
-                "name": "Review Quiz - extended due date for RQ2",
+                "name": "Review Quiz",
                 "link": "https://us.prairielearn.com/pl/",
-                "due": "01/26/26"
+                "due": "10/11/26"
             }
         ]
     },
     {
         "header": "Week 4",
         "outcomes": "Predicate Logic",
-        "CalendarInfo": " Dates: 01/26/26 - 01/30/26.",
+        "CalendarInfo": " Dates: 10/19/26 - 10/23/26.",
         "ExpandInCalendar": false,
         "content": [
             {
@@ -95,18 +91,18 @@
             {
                 "name": "Review Quiz",
                 "link": "https://us.prairielearn.com/pl/",
-                "due": "01/26/26"
+                "due": "10/18/26"
             },
             {
-                "name": "hw2-numbers-CSE20S26",
-                "due": "01/29/26 at 5pm (late submission until 8am next morning)"
+                "name": "hw2-numbers-CSE20W26",
+                "due": "10/22/26 at 5pm (late submission until 8am next morning)"
             }
         ]
     },
     {
         "header": "Week 5",
         "outcomes": "Proof Strategies",
-        "CalendarInfo": " Dates: 02/02/26 - 02/06/26.   Test 1 in CBTF this week.  The test covers material in Weeks 1 through Week 5.  To study for the exam, we recommend reviewing class notes (e.g. annotations linked on the class website, supplementary video from the class website), reviewing homework (and its posted sample solutions), and in particular *working examples* (extra examples in lecture notes, review quizzes, discussion examples) and getting feedback (office hours and Piazza).",
+        "CalendarInfo": " Dates: 10/26/26 - 10/30/26.   Test 1 in CBTF this week.  The test covers material in Weeks 1 through Week 5.  To study for the exam, we recommend reviewing class notes (e.g. annotations linked on the class website, supplementary video from the class website), reviewing homework (and its posted sample solutions), and in particular *working examples* (extra examples in lecture notes, review quizzes, discussion examples) and getting feedback (office hours and Piazza).",
         "ExpandInCalendar": false,
         "content": [
             {
@@ -138,24 +134,24 @@
             {
                 "name": "Test 1 Attempt 1",
                 "link": "https://prairietest.com",
-                "due": "Test 1 Testing window: 02/02/26 - 02/06/26. Sign up in advance at the CBTF."
+                "due": "Test 1 Testing window: TBD. Sign up in advance at the CBTF."
             },
             {
                 "name": "Midquarter feedback",
-                "link": "https://canvas.ucsd.edu/courses/71479/quizzes/235976",
+                "link": "",
                 "due": "Opens week 5 on Canvas."
             },
             {
                 "name": "Review Quiz",
                 "link": "https://us.prairielearn.com/pl/",
-                "due": "02/06/26"
+                "due": "10/25/26"
             }
         ]
     },
     {
         "header": "Week 6",
         "outcomes": "Proofs, Recursion, and Induction",
-        "CalendarInfo": " Dates: 02/09/26-02/13/26",
+        "CalendarInfo": " Dates: 11/02/26-11/06/26",
         "ExpandInCalendar": false,
         "content": [
             {
@@ -179,18 +175,18 @@
             {
                 "name": "Review Quiz",
                 "link": "https://us.prairielearn.com/pl/",
-                "due": "02/9/26"
+                "due": "11/01/26"
             },
             {
-                "name": "hw3-circuits-and-logic-CSE20S26",
-                "due": "02/12/26 at 5pm (late submission until 8am next morning)"
+                "name": "hw3-circuits-and-logic-CSE20W26",
+                "due": "11/05/26 at 5pm (late submission until 8am next morning)"
             }
         ]
     },
     {
         "header": "Week 7",
         "outcomes": "More recursion and induction",
-        "CalendarInfo": " Dates: 02/16/26-02/20/26. No class on Monday February 16 in observance of Presidents Day.",
+        "CalendarInfo": " Dates: 11/09/26-11/13/26. No class on Wednesday November 11 in observance of Veterans Day.",
         "ExpandInCalendar": false,
         "content": [
             {
@@ -202,23 +198,19 @@
             {
                 "name": "Review Quiz",
                 "link": "https://us.prairielearn.com/pl/",
-                "due": "02/16/26"
+                "due": "11/08/26"
             }
         ]
     },
     {
         "header": "Week 8",
         "outcomes": "Functions and Cardinality",
-        "CalendarInfo": " Dates: 02/23/26-02/27/26",
+        "CalendarInfo": " Dates: 11/16/26-11/20/26",
         "ExpandInCalendar": false,
         "content": [
             {
                 "name": "Notes",
                 "source": "Week8.tex"
-            },
-            {
-                "name": "Discussion Notes",
-                "source": "DiscussionWeek8.pdf"
             },
             {
                 "name": "(Video) Functions for cardinality",
@@ -237,27 +229,23 @@
             {
                 "name": "Review Quiz",
                 "link": "https://us.prairielearn.com/pl/",
-                "due": "02/23/26"
+                "due": "11/15/26"
             },
             {
-                "name": "hw4-proofs-sets-recursion-CSE20S26",
-                "due": "02/26/26 at 5pm (late submission until 8am next morning)"
+                "name": "hw4-proofs-sets-recursion-CSE20W26",
+                "due": "11/19/26 at 5pm (late submission until 8am next morning)"
             }
         ]
     },
     {
         "header": "Week 9",
         "outcomes": "Relations and Modular Arithmetic",
-        "CalendarInfo": "Dates: 03/02/26-03/06/26.   Test 2 in CBTF this week.  The test covers material in Weeks 5 through Week 9.  To study for the exam, we recommend reviewing class notes (e.g. annotations linked on the class website, supplementary video from the class website), reviewing homework (and its posted sample solutions), and in particular *working examples* (extra examples in lecture notes, review quizzes, discussion examples) and getting feedback (office hours and Piazza).",
-        "ExpandInCalendar": true,
+        "CalendarInfo": "Dates: 11/23/26-11/27/26.  No class on Friday November 27 in observance of Thanksgiving Holiday.  Test 2 in CBTF this week.  The test covers material in Weeks 5 through Week 9.  To study for the exam, we recommend reviewing class notes (e.g. annotations linked on the class website, supplementary video from the class website), reviewing homework (and its posted sample solutions), and in particular *working examples* (extra examples in lecture notes, review quizzes, discussion examples) and getting feedback (office hours and Piazza).",
+        "ExpandInCalendar": false,
         "content": [
             {
                 "name": "Notes",
                 "source": "Week9.tex"
-            },
-            {
-                "name": "Discussion Notes",
-                "source": "DiscussionWeek9.pdf"
             },
             {
                 "name": "(Video) Partial orders and Hasse Diagrams",
@@ -272,20 +260,15 @@
             {
                 "name": "Test 2 Attempt 1",
                 "link": "https://prairietest.com",
-                "due": "Second attempt testing windows for Test 1 and Test 2: 03/09/26 - 03/13/26. Sign up in advance at the CBTF."
-            },
-            {
-                "name": "Student Evaluations of Teaching",
-                "link": "https://academicaffairs.ucsd.edu/Modules/Evals",
-                "due": "03/14/26 at 8am"
+                "due": "Second attempt testing windows for Test 1 and Test 2: TBD. Sign up in advance at the CBTF."
             }
         ]
     },
     {
         "header": "Week 10",
         "outcomes": "Relations and Clustering",
-        "CalendarInfo": " Dates: 03/09/26-03/13/26",
-        "ExpandInCalendar": true,
+        "CalendarInfo": " Dates: 11/30/26 - 12/04/26",
+        "ExpandInCalendar": false,
         "content": [
             {
                 "name": "Notes",
@@ -304,28 +287,33 @@
             {
                 "name": "CBTF Attempt 2 tests",
                 "link": "https://prairietest.com",
-                "due": "Second attempt testing windows for Test 1 and Test 2: 03/09/26 - 03/13/26. Sign up in advance at the CBTF."
+                "due": "Second attempt testing windows for Test 1 and Test 2: TBD. Sign up in advance at the CBTF."
             },
             {
                 "name": "Review Quiz",
                 "link": "https://us.prairielearn.com/pl/",
-                "due": "03/09/26"
+                "due": "11/29/26"
             },
             {
-                "name": "hw5-cardinality-functions-relations-CSE20S26",
-                "due": "03/12/26 at 5pm (late submission until 8am next morning)"
+                "name": "hw5-cardinality-functions-relations-CSE20W26",
+                "due": "12/03/26 at 5pm (late submission until 8am next morning"
+            },
+            {
+                "name": "Student Evaluations of Teaching",
+                "link": "https://academicaffairs.ucsd.edu/Modules/Evals",
+                "due": "12/05/26 at 8am"
             }
         ]
     },
     {
         "header": "Finals week",
         "outcomes": "Final exam",
-        "CalendarInfo": "The final exam is in person and synchronous Friday 03/20/26 11:30A - 2:29P  in the Rec Gym. <a href=\"https://map.concept3d.com/?id=1005#!m/166062\" target=\"_blank\">https://map.concept3d.com/?id=1005#!m/166062</a>.",
-        "ExpandInCalendar": true,
+        "CalendarInfo": "The final exam is in person and synchronous Wednesday 12/09/26 8:00A - 11:29A in location TBA.",
+        "ExpandInCalendar": false,
         "content": [
             {
                 "name": "Final exam details",
-                "source": "<p>The final exam is in person and synchronous Friday 03/20/26 11:30A - 2:29P  in the Rec Gym. <a href=\"https://map.concept3d.com/?id=1005#!m/166062\" target=\"_blank\">https://map.concept3d.com/?id=1005#!m/166062</a>. <br><br><br><br>Assigned seats for the final exam will be posted on Canvas. Save time by checking your seat before the exam.<br><br>Bring your physical UC San Diego student ID to the exam. Bring at least one pen and/or pencil to write the exam.<br><br> Here are the instructions that will be on the front page of the exam packet:<ul><li>No calculators, textbooks, or personal notes are allowed during the exam.</li><li>All paper associated with your exam (exam booklet, extra paper, definitions booklet) must be handed to a proctor when you submit the exam. Your full name and PID must be clearly visible on the front page of the exam booklet and on any extra paper. The academic integrity pledge needs to  be completed in the designated portion of the exam booklet.</li><li>If you want extra paper during the exam, raise your hand and a proctor will give you some.</li><li>Answers must be written in the designated areas of the exam booklet. Your solution will be evaluated both for correctness and clarity. Use clear notation that is consistent with our class notes and definitions.Definitions of relevant sets and functions are in the definitions booklet. Read the instructions for each part carefully to determine what is required for full credit.</li><li>All electronic devices (phones, smartwatches, cameras, headphones/earbuds, tablets, portable chargers, etc.) must be turned off and placed in a closed bag and may not be accessed during the exam. Any device found on your person or within arm's reach after the start of the exam is a violation of class policy and may result in a 0 on the exam, regardless of whether the device was used. If the violation is judged to include cheating (e.g., the device was used to obtain answers), the instructors are required to report the incident to the Academic Integrity Office.</li><li>You may not speak to any other student in the exam room while the exam is in progress (including after you hand in your own exam). You may not share any information about the exam with anyone who has not taken it or with any service. If you must leave the room (e.g., restroom, emergency) during the exam, you must receive permission from a proctor and sign the exam‑exit log at the door (both when you leave and when you return). In this case, you will turn in all personal items (including the closed bag with electronics) to a proctor before exiting.</li><li>We will not be answering questions about the exam during the exam period. If any bugs are found in the exam after the exam period,  affected question(s) will be addressed during grading. </li><li>This exam is <b>160 minutes</b> long. Read all the problems first before you start working on any of them, so you can manage your time wisely.</li>"
+                "source": "<p>The final exam is in person and synchronous Wednesday 12/09/26 8:00A - 11:29A in location TBA. <br><br><br><br>Assigned seats for the final exam will be posted on Canvas. Save time by checking your seat before the exam.<br><br>Bring your physical UC San Diego student ID to the exam. Bring at least one pen and/or pencil to write the exam.<br><br> Here are the instructions that will be on the front page of the exam packet:<ul><li>No calculators, textbooks, or personal notes are allowed during the exam.</li><li>All paper associated with your exam (exam booklet, extra paper, definitions booklet) must be handed to a proctor when you submit the exam. Your full name and PID must be clearly visible on the front page of the exam booklet and on any extra paper. The academic integrity pledge needs to  be completed in the designated portion of the exam booklet.</li><li>If you want extra paper during the exam, raise your hand and a proctor will give you some.</li><li>Answers must be written in the designated areas of the exam booklet. Your solution will be evaluated both for correctness and clarity. Use clear notation that is consistent with our class notes and definitions.Definitions of relevant sets and functions are in the definitions booklet. Read the instructions for each part carefully to determine what is required for full credit.</li><li>All electronic devices (phones, smartwatches, cameras, headphones/earbuds, tablets, portable chargers, etc.) must be turned off and placed in a closed bag and may not be accessed during the exam. Any device found on your person or within arm's reach after the start of the exam is a violation of class policy and may result in a 0 on the exam, regardless of whether the device was used. If the violation is judged to include cheating (e.g., the device was used to obtain answers), the instructors are required to report the incident to the Academic Integrity Office.</li><li>You may not speak to any other student in the exam room while the exam is in progress (including after you hand in your own exam). You may not share any information about the exam with anyone who has not taken it or with any service. If you must leave the room (e.g., restroom, emergency) during the exam, you must receive permission from a proctor and sign the exam‑exit log at the door (both when you leave and when you return). In this case, you will turn in all personal items (including the closed bag with electronics) to a proctor before exiting.</li><li>We will not be answering questions about the exam during the exam period. If any bugs are found in the exam after the exam period,  affected question(s) will be addressed during grading. </li><li>This exam is <b>160 minutes</b> long. Read all the problems first before you start working on any of them, so you can manage your time wisely.</li>"
             },
             {
                 "name": "Definitions that will be provided during the final exam",
@@ -334,24 +322,16 @@
             {
                 "name": "Learning outcomes for the course",
                 "source": "outcomes.pdf"
-            },
-            {
-                "name": "Picture of REC gym exam setup",
-                "source": "RECGymExamSetup.pdf"
-            },
-            {
-                "name": "Seat map of REC gym exam setup",
-                "source": "REC_GYM_Room_Diagram_revised_2016.pdf"
             }
         ],
         "Due Dates": [
                         {
-                "name": "finalpractice-CSE20S26",
+                "name": "finalpractice-CSE20F26",
                 "due": "Practice questions for the final exam"
             },
             {
                 "name": "Final exam",
-                "due": "Friday 03/20/26 at 11:30am in location TBA"
+                "due": "Wednesday 12/09/26 at 11:30am in location TBA"
             }
         ]
     }
