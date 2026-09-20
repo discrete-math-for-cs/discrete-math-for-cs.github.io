@@ -24,7 +24,7 @@
         if true: all snippets present in notes/activity-snippets will be added to the end of outcome/application compiled files (generated/notes/outcome or /app)
         if false: snippets which are not included in any lesons/ .tex files will not be included in outcome/application compiled files (generated/notes/outcome or /app)
 
- outcomes.json: contains first, second, and third tier learning outcomes of Discrete Maths (specifically CSE 20) and the attributes of each outcome
+ outcomes.json: contains first, second, and third tier learning outcomes of Discrete Maths (specifically CSE 020) and the attributes of each outcome
     
     First tier outcome (top-level key) (str) : these are program/theory outcomes and are displayed as box titles on overview_outcome.html
         Description (str): description of the first tier outcome
