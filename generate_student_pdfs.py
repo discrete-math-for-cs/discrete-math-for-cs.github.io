@@ -16,7 +16,7 @@ Required Arguments:
                          (also expected: ID, SIS User ID, SIS Login ID, Notes)
 
 Optional Arguments:
-    --suffix SUFFIX       Suffix for output filenames (default: CSE20W26)
+    --suffix SUFFIX       Suffix for output filenames (default: CSE020F26)
     --output-dir DIR      Output directory for PDFs (default: current directory)
     --keep-aux            Keep auxiliary LaTeX files (.aux, .log, etc.)
     --extra           Generate additional PDFs that aren't customized to students (default: 0)
@@ -298,8 +298,8 @@ For more information, see the module docstring.
     )
     parser.add_argument(
         '--suffix',
-        default='CSE20W26',
-        help='Suffix for output filenames (default: CSE20W26)'
+        default='CSE020F26',
+        help='Suffix for output filenames (default: CSE020F26)'
     )
     parser.add_argument(
         '--output-dir',

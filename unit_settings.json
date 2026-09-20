@@ -22,7 +22,12 @@
             {
                 "name": "Canvas #FinAid Quiz",
                 "link": "https://canvas.ucsd.edu/",
-                "due": "10/02/26"
+                "due": "10/09/26"
+            },
+            {
+                "name": "Practice test at CBTF",
+                "link": "https://prairietest.com",
+                "due": "Practice test testing window: 9/28-10/2. Sign up in advance for the CBTF through PrairieTest [Optional]."
             }
         ]
     },
@@ -41,11 +46,11 @@
             {
                 "name": "Review Quiz",
                 "link": "https://us.prairielearn.com/pl/",
-                "due": "10/04/26"
+                "due": "10/05/26"
             },
             {
-                "name": "hw1-definitions-and-notation-CSE20W26",
-                "due": "10/08/26 at 5pm (late submission until 8am next morning)"
+                "name": "hw1-definitions-and-notation-CSE020F26",
+                "due": "10/06/26 at 5pm (late submission until 8am next morning)"
             }
         ]
     },
@@ -68,7 +73,7 @@
             {
                 "name": "Review Quiz",
                 "link": "https://us.prairielearn.com/pl/",
-                "due": "10/11/26"
+                "due": "10/12/26"
             }
         ]
     },
@@ -91,11 +96,11 @@
             {
                 "name": "Review Quiz",
                 "link": "https://us.prairielearn.com/pl/",
-                "due": "10/18/26"
+                "due": "10/19/26"
             },
             {
-                "name": "hw2-numbers-CSE20W26",
-                "due": "10/22/26 at 5pm (late submission until 8am next morning)"
+                "name": "hw2-numbers-CSE020F26",
+                "due": "10/20/26 at 5pm (late submission until 8am next morning)"
             }
         ]
     },
@@ -132,19 +137,19 @@
         ],
         "Due Dates": [
             {
-                "name": "Test 1 Attempt 1",
+                "name": "Test 1",
                 "link": "https://prairietest.com",
-                "due": "Test 1 Testing window: TBD. Sign up in advance at the CBTF."
+                "due": "Test 1 Testing window: 10/26-10/31. Sign up in advance for the CBTF through PrairieTest."
             },
             {
                 "name": "Midquarter feedback",
-                "link": "",
+                "link": "https://canvas.ucsd.edu/courses/77744/assignments/1192299",
                 "due": "Opens week 5 on Canvas."
             },
             {
                 "name": "Review Quiz",
                 "link": "https://us.prairielearn.com/pl/",
-                "due": "10/25/26"
+                "due": "10/26/26"
             }
         ]
     },
@@ -175,11 +180,11 @@
             {
                 "name": "Review Quiz",
                 "link": "https://us.prairielearn.com/pl/",
-                "due": "11/01/26"
+                "due": "11/02/26"
             },
             {
-                "name": "hw3-circuits-and-logic-CSE20W26",
-                "due": "11/05/26 at 5pm (late submission until 8am next morning)"
+                "name": "hw3-circuits-and-logic-CSE020F26",
+                "due": "11/03/26 at 5pm (late submission until 8am next morning)"
             }
         ]
     },
@@ -198,7 +203,7 @@
             {
                 "name": "Review Quiz",
                 "link": "https://us.prairielearn.com/pl/",
-                "due": "11/08/26"
+                "due": "11/09/26"
             }
         ]
     },
@@ -229,11 +234,16 @@
             {
                 "name": "Review Quiz",
                 "link": "https://us.prairielearn.com/pl/",
-                "due": "11/15/26"
+                "due": "11/16/26"
             },
             {
-                "name": "hw4-proofs-sets-recursion-CSE20W26",
-                "due": "11/19/26 at 5pm (late submission until 8am next morning)"
+                "name": "hw4-proofs-sets-recursion-CSE020F26",
+                "due": "11/17/26 at 5pm (late submission until 8am next morning)"
+            },
+            {
+                "name": "Test 2",
+                "link": "https://prairietest.com",
+                "due": "Test 2 Testing window: 11/20-11/30. Sign up in advance for the CBTF through PrairieTest."
             }
         ]
     },
@@ -258,9 +268,14 @@
         ],
         "Due Dates": [
             {
-                "name": "Test 2 Attempt 1",
+                "name": "Review Quiz",
+                "link": "https://us.prairielearn.com/pl/",
+                "due": "11/23/26"
+            },
+            {
+                "name": "Test 2",
                 "link": "https://prairietest.com",
-                "due": "Second attempt testing windows for Test 1 and Test 2: TBD. Sign up in advance at the CBTF."
+                "due": "Test 2 Testing window: 11/20-11/30. Sign up in advance for the CBTF through PrairieTest."
             }
         ]
     },
@@ -285,18 +300,18 @@
         ],
         "Due Dates": [
             {
-                "name": "CBTF Attempt 2 tests",
-                "link": "https://prairietest.com",
-                "due": "Second attempt testing windows for Test 1 and Test 2: TBD. Sign up in advance at the CBTF."
-            },
-            {
                 "name": "Review Quiz",
                 "link": "https://us.prairielearn.com/pl/",
                 "due": "11/29/26"
             },
             {
-                "name": "hw5-cardinality-functions-relations-CSE20W26",
-                "due": "12/03/26 at 5pm (late submission until 8am next morning"
+                "name": "Test Re-take",
+                "link": "https://prairietest.com",
+                "due": "Second attempt testing window for Test 1 or Test 2: 12/1-12/4. Sign up in advance at the CBTF."
+            },
+            {
+                "name": "hw5-cardinality-functions-relations-CSE020F26",
+                "due": "12/01/26 at 5pm (late submission until 8am next morning"
             },
             {
                 "name": "Student Evaluations of Teaching",
@@ -313,7 +328,7 @@
         "content": [
             {
                 "name": "Final exam details",
-                "source": "<p>The final exam is in person and synchronous Wednesday 12/09/26 8:00A - 11:29A in location TBA. <br><br><br><br>Assigned seats for the final exam will be posted on Canvas. Save time by checking your seat before the exam.<br><br>Bring your physical UC San Diego student ID to the exam. Bring at least one pen and/or pencil to write the exam.<br><br> Here are the instructions that will be on the front page of the exam packet:<ul><li>No calculators, textbooks, or personal notes are allowed during the exam.</li><li>All paper associated with your exam (exam booklet, extra paper, definitions booklet) must be handed to a proctor when you submit the exam. Your full name and PID must be clearly visible on the front page of the exam booklet and on any extra paper. The academic integrity pledge needs to  be completed in the designated portion of the exam booklet.</li><li>If you want extra paper during the exam, raise your hand and a proctor will give you some.</li><li>Answers must be written in the designated areas of the exam booklet. Your solution will be evaluated both for correctness and clarity. Use clear notation that is consistent with our class notes and definitions.Definitions of relevant sets and functions are in the definitions booklet. Read the instructions for each part carefully to determine what is required for full credit.</li><li>All electronic devices (phones, smartwatches, cameras, headphones/earbuds, tablets, portable chargers, etc.) must be turned off and placed in a closed bag and may not be accessed during the exam. Any device found on your person or within arm's reach after the start of the exam is a violation of class policy and may result in a 0 on the exam, regardless of whether the device was used. If the violation is judged to include cheating (e.g., the device was used to obtain answers), the instructors are required to report the incident to the Academic Integrity Office.</li><li>You may not speak to any other student in the exam room while the exam is in progress (including after you hand in your own exam). You may not share any information about the exam with anyone who has not taken it or with any service. If you must leave the room (e.g., restroom, emergency) during the exam, you must receive permission from a proctor and sign the exam‑exit log at the door (both when you leave and when you return). In this case, you will turn in all personal items (including the closed bag with electronics) to a proctor before exiting.</li><li>We will not be answering questions about the exam during the exam period. If any bugs are found in the exam after the exam period,  affected question(s) will be addressed during grading. </li><li>This exam is <b>160 minutes</b> long. Read all the problems first before you start working on any of them, so you can manage your time wisely.</li>"
+                "source": "<p>The final exam is in person and synchronous Wednesday 12/09/26 8:00A - 11:29A in location TBA. <br><br><br><br>Assigned seats for the final exam will be posted on Canvas. Save time by checking your seat before the exam.<br><br>Bring your physical UC San Diego student ID to the exam. Bring at least one pen and/or pencil to write the exam.<br><br> Here are the instructions that will be on the front page of the exam packet:<ul><li>No calculators, textbooks, or personal notes are allowed during the exam.</li><li>All paper associated with your exam (exam booklet, extra paper, definitions booklet) must be handed to a proctor when you submit the exam. Your full name and TSN must be clearly visible on the front page of the exam booklet and on any extra paper. The academic integrity pledge needs to  be completed in the designated portion of the exam booklet.</li><li>If you want extra paper during the exam, raise your hand and a proctor will give you some.</li><li>Answers must be written in the designated areas of the exam booklet. Your solution will be evaluated both for correctness and clarity. Use clear notation that is consistent with our class notes and definitions.Definitions of relevant sets and functions are in the definitions booklet. Read the instructions for each part carefully to determine what is required for full credit.</li><li>All electronic devices (phones, smartwatches, cameras, headphones/earbuds, tablets, portable chargers, etc.) must be turned off and placed in a closed bag and may not be accessed during the exam. Any device found on your person or within arm's reach after the start of the exam is a violation of class policy and may result in a 0 on the exam, regardless of whether the device was used. If the violation is judged to include cheating (e.g., the device was used to obtain answers), the instructors are required to report the incident to the Academic Integrity Office.</li><li>You may not speak to any other student in the exam room while the exam is in progress (including after you hand in your own exam). You may not share any information about the exam with anyone who has not taken it or with any service. If you must leave the room (e.g., restroom, emergency) during the exam, you must receive permission from a proctor and sign the exam‑exit log at the door (both when you leave and when you return). In this case, you will turn in all personal items (including the closed bag with electronics) to a proctor before exiting.</li><li>We will not be answering questions about the exam during the exam period. If any bugs are found in the exam after the exam period,  affected question(s) will be addressed during grading. </li><li>This exam is <b>160 minutes</b> long. Read all the problems first before you start working on any of them, so you can manage your time wisely.</li>"
             },
             {
                 "name": "Definitions that will be provided during the final exam",
