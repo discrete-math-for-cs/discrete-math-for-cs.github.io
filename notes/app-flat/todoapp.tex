@@ -63,22 +63,7 @@
 \begin{document}
 \begin{flushright}
     \StrBefore{\currfilename}{.}
-\end{flushright} \section*{Fixed width definition}
-
-
-{\bf Definition} For $b$ an integer greater than $1$, $w$ a positive integer, 
-and $n$ a nonnegative integer
-$\underline{\phantom{\hspace{1in}}}$, ~
-the {\bf base $b$ fixed-width $w$ expansion of $n$}  is
-\[
-(a_{w-1} \cdots a_1 a_0)_{b,w}
-\]
-where  $a_0, a_1, \ldots, a_{w-1}$ are nonnegative integers less than $b$ and
-\[
-n =  \sum_{i=0}^{w-1} a_{i} b^{i}
-\]
- \vfill
-\section*{Fixed width example}
+\end{flushright} \section*{Fixed width example}
 
 
 \begin{center}
@@ -193,53 +178,6 @@ For positive integer $n$, to represent $-n$ in
 
 {\it Challenge: use definitions to explain why
 each of these approaches works.} \vfill
-\section*{Representing zero}
-
-
-{\bf Representing $0$}:
-
-So far, we have representations for
-positive and negative integers. What about $0$?
-
-\begin{tabular}{|cc|p{3.4in}|p{3.7in}|}
-   \hline
-   & & To  represent a {\bf non-negative} integer $n$ & To represent a {\bf non-positive} integer $-n$\\
-   \hline
-   && &  \\
-   &\parbox[t]{2mm}{\multirow{4}{*}{\rotatebox[origin=c]{90}{Sign-magnitude}}} &
-   $[ 0a_{w-2} \cdots a_0]_{s,w}$, where $n =  (a_{w-2} \cdots a_0)_{2,w-1}$& 
-   $[1a_{w-2} \cdots a_0]_{s,w}$
-   , where $n =  (a_{w-2} \cdots a_0)_{2,w-1}$\\
-   && & \\
-   && Example $n=0$, $w=7$:  & Example $-n=0$, $w=7$: \\
-   && & \\
-   && & \\
-   && & \\
-   && & \\
-   && & \\
-   && & \\
-   && & \\
-   && & \\
-   && & \\
-   && & \\
-\hline
-   &&  &  \\
-   &\parbox[t]{2mm}{\multirow{4}{*}{\rotatebox[origin=c]{90}{2s complement}}} &
-   $[0a_{w-2} \cdots a_0]_{2c,w}$, where $n =  (a_{w-2} \cdots a_0)_{2,w-1}$& $[1a_{w-2} \cdots a_0]_{2c,w}$, where $2^{w-1} - n =  (a_{w-2} \cdots a_0)_{2,w-1}$\\
-   && & \\
-   && Example $n=0$, $w=7$:  & Example $-n=0$, $w=7$: \\
-   && & \\
-   && & \\
-   && & \\
-   && & \\
-   && & \\
-   && & \\
-   && & \\
-   && & \\
-   && & \\
-   && & \\
-\hline
-\end{tabular} \vfill
 \section*{Netflix intro}
 
 

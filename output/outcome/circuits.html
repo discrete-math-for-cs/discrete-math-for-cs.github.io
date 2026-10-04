@@ -195,18 +195,11 @@ time, using the usual column-by-column and carry arithmetic, and
 dropping the carry from the leftmost column so the result is the same
 width as the summands. <span><em>Does this give the right value for the
 sum?</em></span></p>
-<div class="multicols">
-<p><span>2</span> <span class="math display">\[\begin{align*}
-   &amp; [0~ 1~ 0~ 1]_{s,4}\\
-+ &amp;  [1~ 1~ 0~ 1]_{s,4}\\
-&amp;\overline{\phantom{[0~0~1~0]_{s,4}}}\\
-\end{align*}\]</span></p>
 <p><span class="math display">\[\begin{align*}
-   &amp; [0~ 1~ 0~ 1]_{2c,4}\\
-+ &amp;  [1~ 0~ 1~ 1]_{2c,4}\\
-&amp;\overline{\phantom{[0~0~0~0]_{2c,4}}}\\
+   &amp; [2~ 6]_{10,2}\\
++ &amp;  [8~ 4]_{10,2}\\
+&amp;\overline{\phantom{[0~0]_{10,2}}}\\
 \end{align*}\]</span></p>
-</div>
 <div class="multicols">
 <p><span>3</span> <span class="math display">\[\begin{align*}
       &amp; (1~ 1~ 0~ 1~ 0~ 0)_{2,6}\\
@@ -224,6 +217,8 @@ sum?</em></span></p>
    &amp;\overline{\phantom{(1~1~1~0~0~1)_2}}\\
 \end{align*}\]</span></p>
 </div>
+<p>Can fixed-width addition be used to calculate <span
+class="math inline">\(17 + (-17) = 0\)</span>? Hint: use 5 bits.</p>
 <h1 class="unnumbered" id="circuits-basics">Circuits basics</h1>
 <p>In a <span><strong>combinatorial circuit</strong></span> (also known
 as a <span><strong>logic circuit</strong></span>), we have

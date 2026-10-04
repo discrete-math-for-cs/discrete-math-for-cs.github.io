@@ -146,6 +146,83 @@ $(1401)_{16}$
 \vfill
 \vfill
  \vfill
+\section*{Fixed width definition}
+
+
+{\bf Definition} For $b$ an integer greater than $1$, $w$ a positive integer, 
+and $n$ a nonnegative integer
+$\underline{\phantom{\hspace{1in}}}$, ~
+the {\bf base $b$ fixed-width $w$ expansion of $n$}  is
+\[
+(a_{w-1} \cdots a_1 a_0)_{b,w}
+\]
+where  $a_0, a_1, \ldots, a_{w-1}$ are nonnegative integers less than $b$ and
+\[
+n =  \sum_{i=0}^{w-1} a_{i} b^{i}
+\]
+ \vfill
+\section*{Representing zero}
+
+
+{\bf Representing $0$}: Which of the representations so far allow us to represent $0$?
+
+\vfill
+
+
+\begin{comment}
+So far, we have representations for
+positive and negative integers. What about $0$?
+
+\begin{tabular}{|cc|p{3.4in}|p{3.7in}|}
+   \hline
+   & & To  represent a {\bf non-negative} integer $n$ & To represent a {\bf non-positive} integer $-n$\\
+   \hline
+   && &  \\
+   &\parbox[t]{2mm}{\multirow{4}{*}{\rotatebox[origin=c]{90}{Sign-magnitude}}} &
+   $[ 0a_{w-2} \cdots a_0]_{s,w}$, where $n =  (a_{w-2} \cdots a_0)_{2,w-1}$& 
+   $[1a_{w-2} \cdots a_0]_{s,w}$
+   , where $n =  (a_{w-2} \cdots a_0)_{2,w-1}$\\
+   && & \\
+   && Example $n=0$, $w=7$:  & Example $-n=0$, $w=7$: \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+\hline
+   &&  &  \\
+   &\parbox[t]{2mm}{\multirow{4}{*}{\rotatebox[origin=c]{90}{2s complement}}} &
+   $[0a_{w-2} \cdots a_0]_{2c,w}$, where $n =  (a_{w-2} \cdots a_0)_{2,w-1}$& $[1a_{w-2} \cdots a_0]_{2c,w}$, where $2^{w-1} - n =  (a_{w-2} \cdots a_0)_{2,w-1}$\\
+   && & \\
+   && Example $n=0$, $w=7$:  & Example $-n=0$, $w=7$: \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+\hline
+\end{tabular}
+\end{comment} \vfill
+\section*{Base expansion review}
+
+
+Find and fix any and all mistakes with the following:
+\begin{itemize}
+\item[(a)] $(1)_2 = (1)_8$
+\item[(b)] $(142)_{10} = (142)_{16}$
+\item[(c)] $(20)_{10} = (10100)_2$
+\item[(d)] $(35)_8 = (1D)_{16}$
+\end{itemize} \vfill
 \section*{Algorithm definition}
 
 
@@ -260,16 +337,6 @@ return $(a_{k-1}, \ldots, a_0) \{(a_{k-1} \ldots a_0)_b~\textrm{ is the base } b
 \vfill
 \vfill
 \newpage \vfill
-\section*{Base expansion review}
-
-
-Find and fix any and all mistakes with the following:
-\begin{itemize}
-\item[(a)] $(1)_2 = (1)_8$
-\item[(b)] $(142)_{10} = (142)_{16}$
-\item[(c)] $(20)_{10} = (10100)_2$
-\item[(d)] $(35)_8 = (1D)_{16}$
-\end{itemize} \vfill
 \section*{Base conversion algorithm}
 
 

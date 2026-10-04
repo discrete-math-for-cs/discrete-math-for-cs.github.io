@@ -91,7 +91,6 @@
 
 \item Know, select and apply appropriate computing knowledge and problem-solving techniques. Reason about computation and systems. Use mathematical techniques to solve problems. Determine appropriate conceptual tools to apply to new situations. Know when tools do not apply and try different approaches. Critically analyze and evaluate candidate solutions.
 \begin{itemize}
-    \item Using a recursive definition to evaluate a function or determine membership in a set
     \item Using the definitions of the div and mod operators on integers
 \end{itemize}
 
@@ -192,6 +191,139 @@ $(1401)_{16}$
 \vfill
 \vfill
  
+
+{\bf Definition} For $b$ an integer greater than $1$, $w$ a positive integer, 
+and $n$ a nonnegative integer
+$\underline{\phantom{\hspace{1in}}}$, ~
+the {\bf base $b$ fixed-width $w$ expansion of $n$}  is
+\[
+(a_{w-1} \cdots a_1 a_0)_{b,w}
+\]
+where  $a_0, a_1, \ldots, a_{w-1}$ are nonnegative integers less than $b$ and
+\[
+n =  \sum_{i=0}^{w-1} a_{i} b^{i}
+\]
+ 
+
+\begin{center}
+    \begin{tabular}{|c|c|c|c|c|}
+    \hline
+    Decimal &  Binary  & Binary fixed-width $10$& Binary fixed-width $7$ & Binary fixed-width $4$\\
+    $b=10$ & $b=2$ & $b=2$, $w =  10$& $b=2$, $w =  7$& $b=2$, $w =  4$ \\
+    \hline 
+    &&&&  \\
+    $(20)_{10}$&\phantom{$(10100)_{2}$\qquad\qquad}&&  &\\
+    &&&&  \\
+\hline
+    \end{tabular}
+    \end{center}
+ \vfill
+\newpage
+
+
+
+
+{\bf Definition} For $b$ an integer greater than $1$, $w$ a positive integer, 
+$w'$ a positive  integer, and $x$ a real number the {\bf base $b$ fixed-width 
+expansion of $x$ with integer part width $w$  and fractional part width $w'$} is
+$(a_{w-1} \cdots a_1 a_0 .  c_{1} \cdots c_{w'})_{b,w,w'}$
+where  $a_0, a_1, \ldots, a_{w-1}, c_1, \ldots, c_{w'}$ are nonnegative integers less than $b$ and
+$$x \geq \sum_{i=0}^{w-1} a_{i} b^{i} + \sum_{j=1}^{w'}  c_{j} b^{-j} \hfill
+\textrm{\qquad and \qquad}
+\hfill x < \sum_{i=0}^{w-1} a_{i} b^{i} + \sum_{j=1}^{w'} c_{j} b^{-j} + b^{-w'}$$
+ 
+\begin{center}
+\begin{tabular}{|c|p{5in}|}
+\hline
+& \\
+$3.75$  in fixed-width binary,& \\
+integer part width $2$,&\\
+ fractional part width $8$ & \\
+& \\
+& \\
+& \\
+& \\
+\hline
+& \\
+$0.1$  in fixed-width binary, & \\
+integer part width $2$, &\\
+ fractional part width $8$ & \\
+ & \\
+ & \\
+ & \\
+ & \\
+ \hline
+\end{tabular}
+\end{center}
+
+\vfill
+
+\includegraphics[width=2in]{../../resources/images/ArithmeticDemo.png}
+
+Note: Java uses floating point, not fixed width representation, but similar rounding errors appear in both.
+ \vfill
+
+
+{\bf Representing $0$}: Which of the representations so far allow us to represent $0$?
+
+\vfill
+
+
+\begin{comment}
+So far, we have representations for
+positive and negative integers. What about $0$?
+
+\begin{tabular}{|cc|p{3.4in}|p{3.7in}|}
+   \hline
+   & & To  represent a {\bf non-negative} integer $n$ & To represent a {\bf non-positive} integer $-n$\\
+   \hline
+   && &  \\
+   &\parbox[t]{2mm}{\multirow{4}{*}{\rotatebox[origin=c]{90}{Sign-magnitude}}} &
+   $[ 0a_{w-2} \cdots a_0]_{s,w}$, where $n =  (a_{w-2} \cdots a_0)_{2,w-1}$& 
+   $[1a_{w-2} \cdots a_0]_{s,w}$
+   , where $n =  (a_{w-2} \cdots a_0)_{2,w-1}$\\
+   && & \\
+   && Example $n=0$, $w=7$:  & Example $-n=0$, $w=7$: \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+\hline
+   &&  &  \\
+   &\parbox[t]{2mm}{\multirow{4}{*}{\rotatebox[origin=c]{90}{2s complement}}} &
+   $[0a_{w-2} \cdots a_0]_{2c,w}$, where $n =  (a_{w-2} \cdots a_0)_{2,w-1}$& $[1a_{w-2} \cdots a_0]_{2c,w}$, where $2^{w-1} - n =  (a_{w-2} \cdots a_0)_{2,w-1}$\\
+   && & \\
+   && Example $n=0$, $w=7$:  & Example $-n=0$, $w=7$: \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+   && & \\
+\hline
+\end{tabular}
+\end{comment} 
+\newpage
+\section*{Week 2 Wednesday: Algorithms for numbers}
+
+
+Find and fix any and all mistakes with the following:
+\begin{itemize}
+\item[(a)] $(1)_2 = (1)_8$
+\item[(b)] $(142)_{10} = (142)_{16}$
+\item[(c)] $(20)_{10} = (10100)_2$
+\item[(d)] $(35)_8 = (1D)_{16}$
+\end{itemize} 
 
 \fbox{\parbox{\textwidth}{{\bf New!} An algorithm is a finite sequence of precise instructions for solving a problem.
 \hfill
@@ -303,18 +435,6 @@ return $(a_{k-1}, \ldots, a_0) \{(a_{k-1} \ldots a_0)_b~\textrm{ is the base } b
 \vfill
 \newpage 
 
-\newpage
-\section*{Week 2 Wednesday: Algorithms for numbers}
-
-
-Find and fix any and all mistakes with the following:
-\begin{itemize}
-\item[(a)] $(1)_2 = (1)_8$
-\item[(b)] $(142)_{10} = (142)_{16}$
-\item[(c)] $(20)_{10} = (10100)_2$
-\item[(d)] $(35)_8 = (1D)_{16}$
-\end{itemize} 
-
 
 
 Practice: write an algorithm for converting from base $b_1$ expansion to base $b_2$ expansion:
@@ -331,74 +451,8 @@ Step 2: Use the Least Significant First algorithm to write this value in
 }
 \vspace{200pt} 
 
-{\bf Definition} For $b$ an integer greater than $1$, $w$ a positive integer, 
-and $n$ a nonnegative integer
-$\underline{\phantom{\hspace{1in}}}$, ~
-the {\bf base $b$ fixed-width $w$ expansion of $n$}  is
-\[
-(a_{w-1} \cdots a_1 a_0)_{b,w}
-\]
-where  $a_0, a_1, \ldots, a_{w-1}$ are nonnegative integers less than $b$ and
-\[
-n =  \sum_{i=0}^{w-1} a_{i} b^{i}
-\]
- 
-
-\begin{center}
-    \begin{tabular}{|c|c|c|c|c|}
-    \hline
-    Decimal &  Binary  & Binary fixed-width $10$& Binary fixed-width $7$ & Binary fixed-width $4$\\
-    $b=10$ & $b=2$ & $b=2$, $w =  10$& $b=2$, $w =  7$& $b=2$, $w =  4$ \\
-    \hline 
-    &&&&  \\
-    $(20)_{10}$&\phantom{$(10100)_{2}$\qquad\qquad}&&  &\\
-    &&&&  \\
-\hline
-    \end{tabular}
-    \end{center}
- 
-
-
-
-{\bf Definition} For $b$ an integer greater than $1$, $w$ a positive integer, 
-$w'$ a positive  integer, and $x$ a real number the {\bf base $b$ fixed-width 
-expansion of $x$ with integer part width $w$  and fractional part width $w'$} is
-$(a_{w-1} \cdots a_1 a_0 .  c_{1} \cdots c_{w'})_{b,w,w'}$
-where  $a_0, a_1, \ldots, a_{w-1}, c_1, \ldots, c_{w'}$ are nonnegative integers less than $b$ and
-$$x \geq \sum_{i=0}^{w-1} a_{i} b^{i} + \sum_{j=1}^{w'}  c_{j} b^{-j} \hfill
-\textrm{\qquad and \qquad}
-\hfill x < \sum_{i=0}^{w-1} a_{i} b^{i} + \sum_{j=1}^{w'} c_{j} b^{-j} + b^{-w'}$$
- 
-\begin{center}
-\begin{tabular}{|c|p{5in}|}
-\hline
-& \\
-$3.75$  in fixed-width binary,& \\
-integer part width $2$,&\\
- fractional part width $8$ & \\
-& \\
-& \\
-& \\
-& \\
-\hline
-& \\
-$0.1$  in fixed-width binary, & \\
-integer part width $2$, &\\
- fractional part width $8$ & \\
- & \\
- & \\
- & \\
- & \\
- \hline
-\end{tabular}
-\end{center}
-
-\vfill
-
-\includegraphics[width=2in]{../../resources/images/ArithmeticDemo.png}
-
-Note: Java uses floating point, not fixed width representation, but similar rounding errors appear in both.
- \newpage
+\newpage
+\section*{Week 2 Friday: Numbers to circuits}
 
 
 {\bf Representing negative integers in binary}: Fix a positive integer  width for the representation  $w$, $w >1$.
@@ -450,58 +504,19 @@ For positive integer $n$, to represent $-n$ in
 \end{itemize}
 
 {\it Challenge: use definitions to explain why
-each of these approaches works.} 
-\newpage
-\section*{Week 2 Friday: Numbers to circuits}
-
-
-{\bf Representing $0$}:
-
-So far, we have representations for
-positive and negative integers. What about $0$?
-
-\begin{tabular}{|cc|p{3.4in}|p{3.7in}|}
-   \hline
-   & & To  represent a {\bf non-negative} integer $n$ & To represent a {\bf non-positive} integer $-n$\\
-   \hline
-   && &  \\
-   &\parbox[t]{2mm}{\multirow{4}{*}{\rotatebox[origin=c]{90}{Sign-magnitude}}} &
-   $[ 0a_{w-2} \cdots a_0]_{s,w}$, where $n =  (a_{w-2} \cdots a_0)_{2,w-1}$& 
-   $[1a_{w-2} \cdots a_0]_{s,w}$
-   , where $n =  (a_{w-2} \cdots a_0)_{2,w-1}$\\
-   && & \\
-   && Example $n=0$, $w=7$:  & Example $-n=0$, $w=7$: \\
-   && & \\
-   && & \\
-   && & \\
-   && & \\
-   && & \\
-   && & \\
-   && & \\
-   && & \\
-   && & \\
-   && & \\
-\hline
-   &&  &  \\
-   &\parbox[t]{2mm}{\multirow{4}{*}{\rotatebox[origin=c]{90}{2s complement}}} &
-   $[0a_{w-2} \cdots a_0]_{2c,w}$, where $n =  (a_{w-2} \cdots a_0)_{2,w-1}$& $[1a_{w-2} \cdots a_0]_{2c,w}$, where $2^{w-1} - n =  (a_{w-2} \cdots a_0)_{2,w-1}$\\
-   && & \\
-   && Example $n=0$, $w=7$:  & Example $-n=0$, $w=7$: \\
-   && & \\
-   && & \\
-   && & \\
-   && & \\
-   && & \\
-   && & \\
-   && & \\
-   && & \\
-   && & \\
-   && & \\
-\hline
-\end{tabular} \newpage
+each of these approaches works.} \newpage
 
 
 {\bf Fixed-width addition}: adding one bit at time, using the usual column-by-column and carry arithmetic, and dropping the carry from the leftmost column so the result is the same width as the summands.  {\it Does this give the right value for the sum?}
+
+
+\begin{align*}
+   & [2~ 6]_{10,2}\\
++ &  [8~ 4]_{10,2}\\
+&\overline{\phantom{[0~0]_{10,2}}}\\
+\end{align*}
+
+\begin{comment}
 \begin{multicols}{2}
 \begin{align*}
    & [0~ 1~ 0~ 1]_{s,4}\\
@@ -516,7 +531,7 @@ positive and negative integers. What about $0$?
 \end{align*}
 
 \end{multicols}
-
+\end{comment}
 \vfill
 
 \begin{multicols}{3}
@@ -539,6 +554,12 @@ positive and negative integers. What about $0$?
    \end{align*}
 \end{multicols}
 \vfill
+
+Can fixed-width addition be used to calculate $17 + (-17) = 0$?
+Hint: use 5 bits.
+
+\vfill
+
 
 \newpage \vfill
 \vfill
