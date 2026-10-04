@@ -188,6 +188,515 @@
 <div class="flushright">
 
 </div>
+<h1 class="unnumbered"
+id="digital-circuits-basic-examples-number-representation">Digital
+circuits basic examples number representation</h1>
+<p><span><strong>Example digital circuit</strong></span>:</p>
+<p>Last time we considered this circuit:</p>
+<div class="center">
+<p><img src="../../resources/images/circuitEx.png" style="width:1.2in"
+alt="image" /></p>
+</div>
+<p>Design a digital circuit that, given a sign-magnitude width <span
+class="math inline">\(4\)</span> representation of an integer, outputs a
+sign-magnitude width <span class="math inline">\(4\)</span> represention
+of <span class="math inline">\(-1\)</span> times that integer.
+<span><em>Are there any corner cases where this circuit doesn’t
+work?</em></span></p>
+<p>Design a digital circuit that, given a 2s complement width <span
+class="math inline">\(4\)</span> representation of an integer, outputs a
+2s complement width <span class="math inline">\(4\)</span>
+representation of an <span class="math inline">\(-1\)</span> times that
+integer. <span><em>Are there any corner cases where this circuit doesn’t
+work?</em></span></p>
+<h1 class="unnumbered" id="half-adder-circuit">Half adder circuit</h1>
+<p><span><strong>Fixed-width addition</strong></span>: adding one bit at
+time, using the usual column-by-column and carry arithmetic, and
+dropping the carry from the leftmost column so the result is the same
+width as the summands. In many cases, this gives representation of the
+correct value for the sum when we interpret the summands in fixed-width
+binary or in 2s complement.</p>
+<p>For single column:</p>
+<div class="multicols">
+<p><span>2</span></p>
+<div class="center">
+<table>
+<tbody>
+<tr>
+<td colspan="2" style="text-align: center;">Input</td>
+<td colspan="2" style="text-align: center;">Output</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span
+class="math inline">\(x_0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(y_0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(c_0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(s_0\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="center">
+<p><img src="../../resources/images/half-adder.png" style="width:1.5in"
+alt="image" /></p>
+</div>
+</div>
+<h1 class="unnumbered" id="two-bit-adder-circuit">Two bit adder
+circuit</h1>
+<p>Draw a logic circuit that implements binary addition of two numbers
+that are each represented in fixed-width binary:</p>
+<ul>
+<li><p>Inputs <span class="math inline">\(x_0, y_0, x_1, y_1\)</span>
+represent <span class="math inline">\((x_1  x_0)_{2,2}\)</span> and
+<span class="math inline">\((y_1 y_0)_{2,2}\)</span></p></li>
+<li><p>Outputs <span class="math inline">\(z_0, z_1, z_2\)</span>
+represent <span class="math inline">\((z_2  z_1 z_0)_{2,3} =
+(x_1  x_0)_{2,2} + (y_1 y_0)_{2,2}\)</span> (may require up to width
+<span class="math inline">\(3\)</span>)</p></li>
+</ul>
+<p><span><em>First approach</em></span>: half-adder for each column,
+then combine carry from right column with sum of left column</p>
+<p>Write expressions for the circuit output values in terms of input
+values:</p>
+<p><span class="math inline">\(z_0 = \underline{\phantom{x_0 \oplus
+y_0\hspace{3in}}}\)</span></p>
+<p><span class="math inline">\(z_1 = \underline{\phantom{(x_1 \oplus
+y_1) \oplus c_0}\hspace{2.5in}}\)</span></p>
+<p><span class="math inline">\(z_2 = \underline{\phantom{(c_0 \land (x_1
+\oplus y_1)) \oplus c_1}\hspace{2in}}\)</span><br />
+<img src="../../resources/images/width-2-adder.png" style="width:1.7in"
+alt="image" /></p>
+<p><span><em>There are other approaches, for example</em></span>: for
+middle column, first add carry from right column to <span
+class="math inline">\(x_1\)</span>, then add result to <span
+class="math inline">\(y_1\)</span></p>
+<h1 class="unnumbered" id="logical-operators">Logical operators</h1>
+<p><span><strong>Logical operators</strong></span> aka propositional
+connectives</p>
+<table>
+<tbody>
+<tr>
+<td
+style="text-align: left;"><span><strong>Conjunction</strong></span></td>
+<td style="text-align: center;">AND</td>
+<td style="text-align: center;"><span
+class="math inline">\(\land\)</span></td>
+<td style="text-align: center;"><code>\land</code></td>
+<td style="text-align: center;">2 inputs</td>
+<td style="text-align: left;">Evaluates to <span
+class="math inline">\(T\)</span> exactly when
+<span><strong>both</strong></span> inputs are <span
+class="math inline">\(T\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><span><strong>Exclusive
+or</strong></span></td>
+<td style="text-align: center;">XOR</td>
+<td style="text-align: center;"><span
+class="math inline">\(\oplus\)</span></td>
+<td style="text-align: center;"><code>\oplus</code></td>
+<td style="text-align: center;">2 inputs</td>
+<td style="text-align: left;">Evaluates to <span
+class="math inline">\(T\)</span> exactly when <span><strong>exactly
+one</strong></span> of inputs is <span
+class="math inline">\(T\)</span></td>
+</tr>
+<tr>
+<td
+style="text-align: left;"><span><strong>Disjunction</strong></span></td>
+<td style="text-align: center;">OR</td>
+<td style="text-align: center;"><span
+class="math inline">\(\lor\)</span></td>
+<td style="text-align: center;"><code>\lor</code></td>
+<td style="text-align: center;">2 inputs</td>
+<td style="text-align: left;">Evaluates to <span
+class="math inline">\(T\)</span> exactly when <span><strong>at least
+one</strong></span> of inputs is <span
+class="math inline">\(T\)</span></td>
+</tr>
+<tr>
+<td
+style="text-align: left;"><span><strong>Negation</strong></span></td>
+<td style="text-align: center;">NOT</td>
+<td style="text-align: center;"><span
+class="math inline">\(\lnot\)</span></td>
+<td style="text-align: center;"><code>\lnot</code></td>
+<td style="text-align: center;">1 input</td>
+<td style="text-align: left;">Evaluates to <span
+class="math inline">\(T\)</span> exactly when its input is <span
+class="math inline">\(F\)</span></td>
+</tr>
+</tbody>
+</table>
+<h1 class="unnumbered" id="logical-operators-truth-tables">Logical
+operators truth tables</h1>
+<p>Truth tables: Input-output tables where we use <span
+class="math inline">\(T\)</span> for <span
+class="math inline">\(1\)</span> and <span
+class="math inline">\(F\)</span> for <span
+class="math inline">\(0\)</span>.</p>
+<div class="center">
+<table>
+<tbody>
+<tr>
+<td colspan="2" style="text-align: center;">Input</td>
+<td colspan="3" style="text-align: center;">Output</td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td
+style="text-align: center;"><span><strong>Conjunction</strong></span></td>
+<td style="text-align: center;"><span><strong>Exclusive
+or</strong></span></td>
+<td
+style="text-align: center;"><span><strong>Disjunction</strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span
+class="math inline">\(p\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(q\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(p \land
+q\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(p  \oplus  q\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(p
+\lor  q\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span
+class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(T\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span
+class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(T\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span
+class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(T\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span
+class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(F\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><img
+src="../../resources/images/xANDy.png" style="width:0.5in"
+alt="image" /></td>
+<td style="text-align: center;"><img
+src="../../resources/images/xXORy.png" style="width:0.5in"
+alt="image" /></td>
+<td style="text-align: center;"><img
+src="../../resources/images/xORy.png" style="width:0.5in"
+alt="image" /></td>
+</tr>
+</tbody>
+</table>
+<table>
+<tbody>
+<tr>
+<td style="text-align: center;">Input</td>
+<td style="text-align: center;">Output</td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td
+style="text-align: center;"><span><strong>Negation</strong></span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span
+class="math inline">\(p\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\lnot
+p\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span
+class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(F\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span
+class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(T\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><img
+src="../../resources/images/NOTx.png" style="width:0.5in"
+alt="image" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1 class="unnumbered"
+id="logical-operators-example-truth-table">Logical operators example
+truth table</h1>
+<div class="center">
+<table>
+<tbody>
+<tr>
+<td colspan="3" style="text-align: center;">Input</td>
+<td colspan="3" style="text-align: center;">Output</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span
+class="math inline">\(p\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(q\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(r\)</span></td>
+<td style="text-align: left;"></td>
+<td style="text-align: center;"><span class="math inline">\((p \land q)
+\oplus (~ ( p \oplus q) \land r~)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\((p \land q)
+\vee (~ ( p \oplus q) \land r~)\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span
+class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(T\)</span></td>
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span
+class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(F\)</span></td>
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span
+class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(T\)</span></td>
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span
+class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(F\)</span></td>
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span
+class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(T\)</span></td>
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span
+class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(F\)</span></td>
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span
+class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(T\)</span></td>
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span
+class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(F\)</span></td>
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1 class="unnumbered" id="truth-table-to-compound-proposition">Truth
+table to compound proposition</h1>
+<p>Given a truth table, how do we find an expression using the input
+variables and logical operators that has the output values specified in
+this table?</p>
+<p><span><em>Application</em></span>: design a circuit given a desired
+input-output relationship.</p>
+<div class="center">
+<table>
+<tbody>
+<tr>
+<td colspan="2" style="text-align: center;">Input</td>
+<td colspan="2" style="text-align: center;">Output</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span
+class="math inline">\(p\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(q\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(mystery_1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(mystery_2\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span
+class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(F\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span
+class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(F\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span
+class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(F\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span
+class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(T\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Expressions that have output <span
+class="math inline">\(mystery_1\)</span> are</p>
+<p>Expressions that have output <span
+class="math inline">\(mystery_2\)</span> are</p>
+<p><span><em>Idea</em></span>: To develop an algorithm for translating
+truth tables to expressions, define a convenient <span><strong>normal
+form</strong></span> for expressions.</p>
+<h1 class="unnumbered" id="dnf-cnf-definition">Dnf cnf definition</h1>
+<p><span><strong>Definition</strong></span> An expression built of
+variables and logical operators is in <span><strong>disjunctive normal
+form</strong></span> (DNF) means that it is an OR of ANDs of variables
+and their negations.</p>
+<p><span><strong>Definition</strong></span> An expression built of
+variables and logical operators is in <span><strong>conjunctive normal
+form</strong></span> (CNF) means that it is an AND of ORs of variables
+and their negations.</p>
 <h1 class="unnumbered" id="fixed-width-addition">Fixed width
 addition</h1>
 <p><span><strong>Fixed-width addition</strong></span>: adding one bit at
@@ -218,7 +727,8 @@ sum?</em></span></p>
 \end{align*}\]</span></p>
 </div>
 <p>Can fixed-width addition be used to calculate <span
-class="math inline">\(17 + (-17) = 0\)</span>? Hint: use 5 bits.</p>
+class="math inline">\(17 + (-17) = 0\)</span>? Hint: use 5 bits and 2s
+complement.</p>
 <h1 class="unnumbered" id="circuits-basics">Circuits basics</h1>
 <p>In a <span><strong>combinatorial circuit</strong></span> (also known
 as a <span><strong>logic circuit</strong></span>), we have
