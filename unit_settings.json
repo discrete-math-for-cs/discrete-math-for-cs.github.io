@@ -34,12 +34,17 @@
     {
         "header": "Week 2",
         "outcomes": "Number representations",
-        "CalendarInfo": " Dates: 10/05/26-10/09/26",
+        "CalendarInfo": " true: 10/05/26-10/09/26",
         "ExpandInCalendar": false,
         "content": [
             {
                 "name": "Notes",
                 "source": "Week2.tex"
+            }
+            ,
+            {
+                "name": "Discussion notes",
+                "source": "DI2_blank.pdf"
             }
         ],
         "Due Dates": [
