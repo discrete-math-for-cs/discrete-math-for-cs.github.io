@@ -2,7 +2,8 @@
    {
       "name": "hw1-definitions-and-notation-CSE20F26",
       "addExtensions": true,
-      "Information": "This assignment must be completed in a group of 3. The assignment grade is based on (1) typed solutions and (2) a synchronous Q&A session with a TA about the assignment."
+      "Information": "This assignment must be completed in a group of 3. The assignment grade is based on (1) typed solutions and (2) a synchronous Q&A session with a TA about the assignment.",
+      "solutionsFile": "hw1-solutions-CSE20F26.pdf"
    },
    {
       "name": "hw2-numbers-CSE20F26",
