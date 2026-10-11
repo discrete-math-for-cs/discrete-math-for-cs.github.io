@@ -77,7 +77,7 @@ Design a digital circuit that, given a sign-magnitude width $4$ representation o
 
 \vfill
 
-Design a digital circuit that, given a 2s complement width $4$ representation of an integer, outputs a 2s complement width $4$ representation of an $-1$ times that integer.  {\it Are there any corner cases where this circuit doesn't work?}
+Design a digital circuit that, given a 2s complement width $4$ representation of an integer, outputs a 2s complement width $4$ representation of $-1$ times that integer.  {\it Are there any corner cases where this circuit doesn't work?}
 
 \vfill \vfill
 \section*{Half adder circuit}
@@ -86,6 +86,7 @@ Design a digital circuit that, given a 2s complement width $4$ representation of
 {\bf Fixed-width addition}: adding one bit at time, using the usual column-by-column and carry arithmetic, and dropping the carry from the leftmost column so the result is the same width as the summands.  In many cases, this gives representation of the correct value for the sum when we interpret the summands
 in fixed-width binary or in 2s complement.
 
+{\bf Addition}: 
 For single column:
 
 \begin{multicols}{2}
@@ -146,6 +147,8 @@ $z_2 = \underline{\phantom{(c_0 \land x_1) \oplus ((c_0 \oplus x_1)\land y_1)}\h
 
 {\it Extra example} Describe how to generalize this addition circuit for larger width inputs.
 \end{comment}
+
+Extra practice: how does this circuit change if we're representing fixed-width addition?
  \vfill
 \section*{Logical operators}
 
