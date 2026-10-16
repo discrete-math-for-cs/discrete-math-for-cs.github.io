@@ -63,7 +63,82 @@
 \begin{document}
 \begin{flushright}
     \StrBefore{\currfilename}{.}
-\end{flushright} \section*{Logical operators}
+\end{flushright} \section*{Logical operators binary truth table definition}
+
+
+\begin{center}
+    \begin{tabular}{cc||c|c|c|c|c}
+    \multicolumn{2}{c||}{Input}  & \multicolumn{5}{c}{Output} \\
+     & & Conjunction &  Exclusive or & Disjunction  &  Conditional & Biconditional  \\
+    $p$ & $q$ & $p \wedge q$ &  $p  \oplus  q$ & $p \vee  q$ & $p \to q$ & $p \leftrightarrow q$\\
+    \hline
+    $T$ & $T$ & $T$ & $F$ & $T$ & $T$& $T$\\
+    $T$ & $F$ & $F$ & $T$ & $T$ & $F$& $F$\\
+    $F$ & $T$ & $F$ & $T$ & $T$ & $T$& $F$\\
+    $F$ & $F$ & $F$ & $F$ & $F$ & $T$& $T$\\
+    \hline
+    && ``$p$ and $q$'' & ``$p$ xor $q$'' & ``$p$ or $q$'' & ``if $p$ then $q$'' & ``$p$ if and only if $q$''
+    \end{tabular}
+\end{center}
+     \vfill
+\section*{Hypothesis conclusion}
+
+
+The only way to make  the conditional statement $p \to q$ false is to \underline{\phantom{\hspace{3in}}}\\
+
+\begin{tabular}{llll}
+The {\bf  hypothesis}  of $p \to q$ is  &\underline{\phantom{\hspace{1in}}} &
+The {\bf  antecedent}  of $p \to q$ is  &\underline{\phantom{\hspace{1in}}} \\
+&&&  \\
+The {\bf  conclusion}  of $p \to q$ is & \underline{\phantom{\hspace{1in}}}&
+The {\bf  consequent}  of $p \to q$ is & \underline{\phantom{\hspace{1in}}}\\
+&&&  \\
+\end{tabular}
+ \vfill
+\section*{Compound propositions recursive definition}
+
+
+We can use a recursive definition to describe all 
+compound propositions that use propositional variables 
+from a specified collection.  Here's the definition
+for all compound propositions whose propositional variables 
+are in $\{p, q\}$.
+
+\[
+\begin{array}{ll}
+\textrm{Basis Step: } & p \textrm{ and } q \textrm{ are each a compound proposition} \\
+\textrm{Recursive Step: } & \textrm{If } x \textrm{ is a compound proposition then so is } (\lnot x) 
+\textrm{ and if } \\
+& x \textrm{ and } y \textrm{ are both compound propositions then so is each of }\\
+&(x \land y), (x \oplus y), (x \lor y), (x \to y), (x \leftrightarrow y)
+\end{array}
+\] \vfill
+\section*{Compound propositions precedence}
+
+
+Order of operations (Precedence) for logical operators: 
+
+Negation, then conjunction / disjunction, then conditional / biconditionals.
+
+Example: $\lnot p \lor \lnot q$ means $(\lnot p) \lor (\lnot q)$.
+ \vfill
+\section*{Consistency example}
+
+
+{\bf Consistency}: 
+\begin{quote}
+Whenever the system software is being upgraded, users cannot access the file system. 
+If users can access the file system, then they can save new files. 
+If users cannot save new files, then the system software is not being upgraded.
+\end{quote}
+
+\begin{enumerate}
+\item Translate to symbolic compound propositions
+\vfill
+\item Look for some truth assignment to the propositional variables for which all the compound propositions output $T$
+\vfill
+\end{enumerate} \vfill
+\section*{Logical operators}
 
 
 {\bf Logical operators} aka propositional connectives
