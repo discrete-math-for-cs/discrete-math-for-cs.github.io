@@ -8,7 +8,8 @@
    {
       "name": "hw2-numbers-CSE20F26",
       "addExtensions": true,
-      "Information": "This assignment must be completed in a group of 3. The assignment grade is based on (1) typed solutions and (2) a synchronous Q&A session with a TA about the assignment."
+      "Information": "This assignment must be completed in a group of 3. The assignment grade is based on (1) typed solutions and (2) a synchronous Q&A session with a TA about the assignment.",
+      "solutionsFile": "hw2-solutions-CSE20F26.pdf"
    },
    {
       "name": "hw3-circuits-and-logic-CSE20F26",
