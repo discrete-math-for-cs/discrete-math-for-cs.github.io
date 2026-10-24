@@ -67,7 +67,7 @@
         "header": "Week 3",
         "outcomes": "Circuits and Propositional Logic",
         "CalendarInfo": " Dates: 10/12/26-10/16/26.",
-        "ExpandInCalendar": true,
+        "ExpandInCalendar": false,
         "content": [
             {
                 "name": "Notes",
@@ -125,7 +125,7 @@
         "header": "Week 5",
         "outcomes": "Proof Strategies",
         "CalendarInfo": " Dates: 10/26/26 - 10/30/26.   Test 1 in CBTF this week.  The test covers material in Weeks 1 through Week 5.  To study for the exam, we recommend reviewing class notes (e.g. annotations linked on the class website, supplementary video from the class website), reviewing homework (and its posted sample solutions), and in particular *working examples* (extra examples in lecture notes, review quizzes, discussion examples) and getting feedback (office hours and Piazza).",
-        "ExpandInCalendar": false,
+        "ExpandInCalendar": true,
         "content": [
             {
                 "name": "Notes",
