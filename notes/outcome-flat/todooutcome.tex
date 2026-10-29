@@ -835,6 +835,472 @@ Is the original statement {\bf True} or {\bf False}?
 
 \vfill
  \vfill
+\section*{Rna rnalen basecount definitions}
+
+
+{\it Recall the definitions}: The set of RNA strands $S$ is defined (recursively) by:
+\[
+\begin{array}{ll}
+\textrm{Basis Step: } & \A \in S, \C \in S, \U \in S, \G \in S \\
+\textrm{Recursive Step: } & \textrm{If } s \in S\textrm{ and }b \in B \textrm{, then }sb \in S
+\end{array}
+\]
+where $sb$ is string concatenation.
+
+The function \textit{rnalen} that computes the length of RNA strands in $S$ is defined recursively by:
+\[
+\begin{array}{llll}
+& & \textit{rnalen} : S & \to \mathbb{Z}^+ \\
+\textrm{Basis Step:} & \textrm{If } b \in B\textrm{ then } & \textit{rnalen}(b) & = 1 \\
+\textrm{Recursive Step:} & \textrm{If } s \in S\textrm{ and }b \in B\textrm{, then  } & \textit{rnalen}(sb) & = 1 + \textit{rnalen}(s)
+\end{array}
+\]
+
+The function \textit{basecount} that computes the number of a given base 
+$b$ appearing in a RNA strand $s$ is defined recursively by:
+\[
+\begin{array}{llll}
+& & \textit{basecount} : S \times B & \to \mathbb{N} \\
+\textrm{Basis Step:} &  \textrm{If } b_1 \in B, b_2 \in B & \textit{basecount}(~(b_1, b_2)~) & =
+        \begin{cases}
+            1 & \textrm{when } b_1 = b_2 \\
+            0 & \textrm{when } b_1 \neq b_2 \\
+        \end{cases} \\
+\textrm{Recursive Step:} & \textrm{If } s \in S, b_1 \in B, b_2 \in B &\textit{basecount}(~(s b_1, b_2)~) & =
+        \begin{cases}
+            1 + \textit{basecount}(~(s, b_2)~) & \textrm{when } b_1 = b_2 \\
+            \textit{basecount}(~(s, b_2)~) & \textrm{when } b_1 \neq b_2 \\
+        \end{cases}
+\end{array}
+\] \vfill
+\section*{Alternating quantifiers proofs rna examples}
+
+
+Which proof strategies could be used to prove each of the following statements?
+
+{\it Hint: first translate the statements to English and identify the main logical structure.}
+
+
+$\forall b \in B~\exists s \in S~(~basecount(~(s,b)~)~ > 0~)$
+
+\vfill
+
+$\exists s \in S~\forall b \in B~(~basecount(~(s,b)~)~ > 0~)$
+
+\vfill
+
+$\exists s \in S \, (\textit{rnalen(s)} = \textit{basecount}(~(s, \A)~)$
+
+\vfill
+
+$\forall s \in S ~\exists b\in B ~(~basecount(~(s,b)~) > 0~)$
+
+\vfill
+
+$\forall s \in S \, (\textit{rnalen(s)} \geq \textit{basecount}(~(s, \A)~))$
+
+\vfill
+
+$\forall s \in S~(~rnalen(s) > 0~)$
+
+\vfill
+ \vfill
+\section*{Structural induction motivating example rna}
+
+
+{\bf Claim} $\forall s \in S ~(~rnalen(s) > 0~)$
+
+{\bf Proof}: Let $s$ be an arbitrary RNA strand. By the recursive definition of $S$,
+either $s \in B$ or there is some strand $s_0$ and some base $b$ such that $s = s_0 b$.
+We will show that the inequality holds for both cases.
+
+{$\phantom{Basis}$} {\bf Case}: Assume $s \in B$. We need to show $rnalen(s) > 0$. 
+By the basis step in the definition of $rnalen$,
+$$rnalen(s) = 1$$
+which is greater than $0$, as required.
+
+{$\phantom{Recursive}$} {\bf Case}: Assume there is some strand $s_0$ and some base $b$ 
+such that $s = s_0 b$. We will show {\it (the stronger claim)} that 
+\[
+    \forall u \in S ~\forall b \in B ~( ~\textit{rnalen}(u) >0  \to 
+    \textit{rnalen}(ub) >0 ~)
+\]
+Consider an arbitrary RNA strand $u$ and an arbitrary base $b$, and assume towards a
+direct proof,$~~{\phantom{ this is the induction hypothesis}}~~$ that
+\[
+    rnalen(u) > 0
+\]
+We need to show that $rnalen(ub) > 0$.
+\[
+    rnalen(ub) = 1 + rnalen (u) > 1 + 0 = 1 > 0
+\]
+as required. \vfill
+\section*{Proof strategies structural induction}
+
+
+\fbox{\parbox{\textwidth}{{\bf Proof by Structural Induction} 
+To prove a universal quantification over a recursively defined set:
+\begin{itemize}
+    \item[] {\bf Basis Step}:  Show the statement holds for elements specified in the basis step of the definition.
+    \item[]  {\bf Recursive Step}:  Show that if the statement is true for each of the elements used to construct
+    new elements in the recursive step of the definition, the result holds for these new elements.
+    \end{itemize}
+}}
+     \vfill
+\section*{Structural induction example rnalen basecount}
+
+
+{\bf Claim} $\forall s \in S \, (\textit{rnalen(s)} \geq \textit{basecount}(~(s, \A)~))$:
+
+{\bf Proof}: We proceed by structural induction on the recursively defined set $S$.
+
+{\bf Basis  Case}: We need to prove that 
+the inequality holds for each element in the basis step of the recursive
+definition of $S$. 
+Need to show 
+\begin{align*}
+          &(~ rnalen(\A) \geq basecount(~(\A, \A)~)~) \land (~ rnalen(\C) \geq basecount(~(\C, \A)~)~) \\
+    \land & (~ rnalen(\U) \geq basecount(~(\U, \A)~)~) \land (~ rnalen(\G) \geq basecount(~(\G, \A)~)~)
+\end{align*}
+We calculate, using the definitions of $rnalen$ and $basecount$:
+
+\vspace{100pt}
+
+{\bf Recursive Case}: We will prove that 
+\[
+    \forall u \in S ~\forall b \in B ~( ~rnalen(u) \geq basecount(~(u, \A)~) \to 
+    rnalen(ub) \geq basecount(~(ub, \A)~)
+\]
+
+Consider arbitrary RNA strand $u$ and arbitrary base $b$. Assume, as the {\bf induction hypothesis},
+that $rnalen(u) \geq basecount(~(u,\A)~)$. We need to show that $rnalen(ub) \geq basecount(~(ub, \A)~)$.
+
+Using the recursive step in the definition of the function $rnalen$:
+\[
+    rnalen(ub) = 1 + rnalen(u)
+\]
+The recursive step in the definition of the function $basecount$ has two cases. We notice that 
+$b = \A \lor b \neq \A$ and we proceed by cases.
+
+{\it Case i.} Assume $b = \A$.
+
+Using the first case in the recursive step in the definition of the function $basecount$:
+\[
+    basecount(~(ub, \A)~) = 1 + basecount(~(u,\A)~)
+\]
+By the {\bf induction hypothesis}, we know that $basecount(~(u,\A)~) \leq rnalen(u)$ so:
+\[
+    basecount(~(ub, \A)~) = 1 + basecount(~(u,\A)~) \leq 1 + rnalen(u) = rnalen (ub)
+\]
+and, thus, $basecount(~(ub,\A)~) \leq rnalen(ub)$, as required.
+
+{\it Case ii.} Assume $b \neq \A$. 
+
+Using the second case in the recursive step in the definition of the function $basecount$:
+\[
+    basecount(~(ub, \A)~) = basecount(~(u,\A)~)
+\]
+By the {\bf induction hypothesis}, we know that $basecount(~(u,\A)~) \leq rnalen(u)$ so:
+\[
+    basecount(~(ub, \A)~) = basecount(~(u,\A)~) \leq rnalen(u) < 1 + rnalen(u) = rnalen (ub)
+\]
+and, thus, $basecount(~(ub,\A)~) \leq rnalen(ub)$, as required.
+ \vfill
+\section*{Proofs signposting kinds of claims}
+
+
+To organize our proofs, it's useful to highlight which claims are most important for 
+our overall goals.
+We use some terminology to describe different roles statements can have.
+
+{\bf Theorem}: Statement that can be shown to be true, usually an important one.
+
+Less important theorems can be called {\bf proposition}, {\bf fact}, {\bf result}, {\bf claim}.
+
+{\bf Lemma}: A less important theorem that is useful in proving a theorem.
+ 
+{\bf Corollary}: A theorem that can be proved directly after another one has been proved, 
+without needing a lot of extra work.
+
+{\bf Invariant}: A theorem that describes a property that is true about an algorithm or 
+system no matter what inputs are used.
+
+
+
+
+ \vfill
+\section*{Proof strategy mathematical induction}
+
+
+\fbox{\parbox{\textwidth}{
+
+{\bf Proof by Mathematical Induction}
+
+To prove a universal quantification over the set of all integers greater than
+or  equal to some  base integer $b$,
+
+\vspace{-10pt}
+
+\begin{itemize}
+\item[] {\bf Basis Step}:  Show the property holds for $b$. 
+\item[]  {\bf Recursive Step}:  Consider an arbitrary integer $n$ greater than or  equal to  $b$, assume
+    (as the {\bf induction hypothesis})  that the property holds  for $n$, and use  this and
+    other facts to  prove that  the property holds for $n+1$.
+\end{itemize}
+
+}} \vfill
+\section*{Structural induction example sum of powers}
+
+
+The set $\mathbb{N}$ is recursively defined.
+Therefore, the function $sumPow: \mathbb{N} \to \mathbb{N}$
+which computes, for input $i$, the sum of the nonnegative powers of $2$
+up to and including exponent $i$ is defined
+recursively by
+
+\begin{alignat*}{2}
+    \text{Basis step:  } \qquad & sumPow(0) = 1 &\\
+    \text{Recursive step:  } & \text{If } x \in \mathbb{N} \text{, then } &sumPow(x+1) = sumPow(x) + 2^{x+1}
+\end{alignat*}
+
+$sumPow(0) =$
+
+\vspace{20pt}
+
+$sumPow(1) =$
+
+\vspace{20pt}
+
+$sumPow(2) =$
+
+\vspace{20pt}
+
+
+Fill in the blanks in the following proof of 
+\[
+    \forall n \in \mathbb{N}~(sumPow(n) = 2^{n+1} - 1)
+\]
+
+{\bf Proof}: Since $\mathbb{N}$ is recursively defined, we proceed by \underline{\phantom{structural induction \hspace{0.3in}}}.
+
+{\bf Basis case}: We need to show that \underline{\phantom{$sumPow(0) = 2^{0+1} - 1$ \hspace{0.2in}}}.
+Evaluating each side: $LHS = sumPow(0) = 1$ by the basis case in the recursive definition
+of $sumPow$; $RHS = 2^{0+1} - 1 = 2^1 - 1 = 2-1 = 1$. Since $1=1$, the equality holds.
+
+{\bf Recursive case}: Consider arbitrary natural number $n$ and assume, as the 
+\underline{\phantom{Induction Hypothesis (IH)}} that $sumPow(n) = 2^{n+1} - 1$. We need to show that
+\underline{\phantom{$sumPow(n+1) = 2^{(n+1) + 1} - 1$}}.  Evaluating each side: 
+\[
+LHS = sumPow(n+1) \overset{\text{rec def}}{=} sumPow(n)  + 2^{n+1}\overset{\text{IH}}{=} (2^{n+1} - 1) + 2^{n+1}.
+\]
+\[
+RHS = 2^{(n+1)+1}- 1 \overset{\text{exponent rules}}{=} 2 \cdot 2^{n+1} -1  = \left(2^{n+1} + 2^{n+1} \right) - 1
+\overset{\text{regrouping}}{=}  (2^{n+1} - 1) + 2^{n+1} 
+\]
+Thus, $LHS = RHS$. The structural induction is complete and we have proved the universal generalization.
+$\square$
+
+ \vfill
+\section*{Proof strategy strong induction}
+
+
+\fbox{\parbox{\textwidth}{
+
+{\bf Proof by Strong Induction}
+
+To prove that a universal quantification over the set of all integers greater than or equal to some  base integer $b$ holds,  pick a  fixed nonnegative integer  $j$ and then: \hfill 
+
+\begin{tabularx}{\textwidth}{lX}
+    {\bf Basis Step}: & Show the statement holds for $b$, $b+1$, \ldots, $b+j$. \\
+    {\bf Recursive Step}: & Consider an arbitrary integer $n$ greater than or  equal to $b+j$, assume
+    (as the {\bf strong  induction hypothesis})  that the property holds  for {\bf each of} $b$, $b+1$, \ldots, $n$, 	
+    and use  this and
+    other facts to  prove that  the property holds for $n+1$.
+\end{tabularx}
+}} 
+ \vfill
+\section*{Binary expansions exist proof}
+
+
+{\bf Theorem}: Every positive integer is a sum of (one or more) distinct powers of $2$.
+{\it Binary expansions exist!}
+
+
+
+
+The idea in the ``Least significant first" algorithm 
+for computing binary expansions is that the binary
+expansion of {\it half} a number becomes {\it part} of the binary expansion of 
+the number of itself. We can use this 
+idea in a proof by strong induction that binary expansions exist for all 
+positive integers $n$.
+
+
+{\bf Proof by strong induction}, with $b=1$ and $j=0$. We need to prove
+that for each positive integer $n$, there is 
+a positive integer $k$ and coefficients $a_0, \ldots, a_{k-1}$ 
+where each $a_i$ is $0$ or $1$ and $a_{k-1} \neq 0$, and 
+\[
+n = \sum_{i=0}^{k-1} a_i 2^i
+\]
+
+
+
+{\bf Basis step}:  WTS property is true about  $1$.
+
+\phantom{Choose $a_0 = 1$, then $(a_0)_2 = 1 \cdot 2^0 = 1$.}
+\vspace{80pt}
+
+
+{\bf Recursive step}: Consider an arbitrary integer $n \geq 1$.
+
+Assume (as the strong induction hypothesis, IH) that the property is true about  each of $1, \ldots, n$.  
+
+WTS that the property is true about $n+1$.
+
+{\it Idea}: We will apply the IH to $(n+1) \textbf{ div } 2$.
+
+{\it Why is this ok?}
+
+\phantom{Notice that $(n+1) \textbf{ div } 2$ is greater than or equal to 
+$1$ and less than or equal to $n$ because $n \geq 1$.}
+
+\vfill
+\newpage
+{\it Why is this helpful?}
+
+By the IH, we can write $(n+1) \textbf{ div } 2$ as 
+a sum of powers of $2$. In other words, 
+there are values $a_{k-1}, \ldots, a_0$ such that each $a_i$ is $0$ or $1$, $a_{k-1} = 1$, 
+and
+\[
+    \sum_{i=0}^{k-1} a_i 2^i = (n+1) \textbf{ div } 2   
+\]
+Define the collection of coefficients
+\[
+   c_{j} = 
+   \begin{cases}
+        a_{j-1} \qquad&\text{if $1 \leq j \leq k$}\\
+        (n+1) \textbf{ mod } 2 &\text{if $j = 0$}
+   \end{cases}
+\]
+Calculating: 
+\begin{alignat*}{2}
+    \sum_{j=0}^k c_j 2^j &= c_0 + \sum_{j=1}^k c_j 2^j 
+    = c_0 + \sum_{i=0}^{k-1} c_{i+1} 2^{i+1} &\qquad &\text{re-indexing the summation}\\
+    &= c_0 + 2 \cdot \sum_{i=0}^{k-1} c_{i+1}2^i &\qquad &\text{factoring out a $2$ from each term in the sum}\\
+    &= c_0 + 2 \cdot \sum_{i=0}^{k-1} a_{i} 2^i &\qquad &\text{by definition of $c_{i+1}$}\\
+    &= c_0 + 2 \left(~(n+1) \textbf{ div } 2 ~\right) &\qquad &\text{by IH} \\
+    &= \left(~ (n+1) \textbf{ mod } 2 ~\right ) + 2 \left(~(n+1) \textbf{ div } 2 ~\right) &\qquad &\text{by definition of $c_0$} \\
+    &= n+1 &\qquad&\text{by definition of long division}
+\end{alignat*}
+
+Thus, $n+1$ can be expressed as a sum of powers of $2$, as required. \vfill
+\section*{Linked lists definition}
+
+
+{\bf Definition} The set of linked lists of natural numbers $L$ is defined recursively by
+\[
+\begin{array}{ll}
+    \textrm{Basis Step: } & [] \in L \\
+    \textrm{Recursive Step: } & \textrm{If } l \in L\textrm{ and }n \in \mathbb{N} \textrm{, then } (n, l) \in L
+\end{array}
+\] \vfill
+\section*{Linked lists examples}
+
+
+Visually:
+
+\vspace{50pt}
+
+Example: the list with two nodes whose first node has $20$ and whose second node
+has $42$
+
+\vspace{50pt} \vfill
+\section*{Linked list length definition}
+
+
+{\bf Definition}: The length of a linked list of natural numbers $L$, $length: L \to \mathbb{N}$ is defined by
+\[
+\begin{array}{llll}
+\textrm{Basis Step:} &  & length(~[]~) &= 0 \\
+\textrm{Recursive Step:} & \textrm{If } l \in L\textrm{ and }n \in \mathbb{N}\textrm{, then  } & length(~(n, l)~)  &= 1+ length(l)
+\end{array}
+\]
+ \vfill
+\section*{Linked lists prepend definition}
+
+
+{\bf Definition}: The function $prepend : L \times \mathbb{N} \to L$ that adds an element at the 
+front of a linked list is defined by
+\[
+\phantom{prepend(~(l, n)~) = (n, l)}
+\]
+ \vfill
+\section*{Linked list append definition}
+
+
+{\bf Definition} The function $append : L \times \mathbb{N} \to L$ that 
+adds an element at the end of a linked list is defined by
+\[
+\begin{array}{llll}
+\textrm{Basis Step:} & \textrm{If } m \in \mathbb{N}\textrm{ then } & \phantom{append(~([], m)~)} & \phantom{= (m, []) }\\
+\textrm{Recursive Step:} & \textrm{If } l \in L\textrm{ and }n \in \mathbb{N}\textrm{ and }m \in \mathbb{N}\textrm{, then  } & \phantom{append(~(~(n, l), m~)~) } &\phantom{= (n, append(~(l, m)~)~)}
+\end{array}
+\] \vfill
+\section*{Linked list append length claim proof}
+
+
+{\bf Claim}: $\forall l \in L ~ (~length(~append(~(l, 100)~)~) > length(l)~)$
+
+{\bf Proof:} By structural induction on $L$, we have two cases:
+
+{\bf Basis Step}
+
+    \begin{tabular}{l p{3.5in}}
+     1. \textbf{To Show} $length(~append(~([], 100)~)~) > length(~[]~)$
+    & Because $[]$ is the only element defined in the basis step of $L$, 
+    we only need to prove that the property holds for $[]$.\\
+    &  \\
+     2. \textbf{To Show} $length(~(100,[])~) > length(~[]~)$
+    &  By basis step in definition of $append$.\\
+    &  \\
+     3. \textbf{To Show} $(1 +length(~[]~)) > length(~[]~)$
+    &  By recursive step in definition of $length$.\\
+    &  \\    
+     4. \textbf{To Show} $1+0 > 0$
+    &  By basis step in definition of $length$.\\
+    &  \\    
+    5. $T$
+    & By properties of integers \\
+    &  \\    
+    QED & Because we got to $T$ only by rewriting \textbf{To Show} to equivalent statements, using well-defined proof techniques, and applying definitions. \\
+    \end{tabular}
+
+{\bf Recursive Step}
+
+Consider an arbitrary: $l' \in L$, $n \in \mathbb{N}$, and we  assume
+as the {\bf induction hypothesis} that:
+\[
+length(~append(~(l', 100~)~)~) > length(l')
+\]
+Our goal is to show that $length(~append( ~(~(n,l'), 100~)~)~) > length(~(n,l')~)$ is also true. 
+We start by working with
+one side of the candidate inequality:
+\begin{align*}
+LHS &= length(~append( ~(~ (n,l'), 100~)~)~) \\
+&= length(~(n, append(~(l', 100)~)~ )~) \qquad \text{by the recursive definition of $append$}\\
+&= 1 + length(~ append(~(l', 100)~) ~) \qquad \text{by the recursive definition of $length$}\\
+&> 1+ length(l')  \qquad \text{by the induction hypothesis}\\
+&= length( (n,l') )  \qquad \text{by the recursive definition of $length$}\\
+&= RHS 
+\end{align*} \vfill
+\section*{Linked list example each length}
+
+
+Prove or disprove: $\forall n \in \mathbb{N} ~\exists l \in L ~(~length(l) = n~)$
+
+\vspace{300pt} \vfill
 \section*{Tautology contradiction contingency examples}
 
 
