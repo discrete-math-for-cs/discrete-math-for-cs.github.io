@@ -181,6 +181,10 @@
                 "source": "Week6.tex"
             },
             {
+                "name": "Discussion notes",
+                "source": "DiscussionW6_blank.pdf"
+            },
+            {
                 "name": "(Video) Comparing induction strategies",
                 "source": "https://youtu.be/4xAhIngGwcU"
             },
@@ -305,10 +309,6 @@
             {
                 "name": "Notes",
                 "source": "Week10.tex"
-            },
-            {
-                "name": "Discussion Notes",
-                "source": "CSE_20_Week_10_Discussion.pdf"
             },
             {
                 "name": "(Video) Diffie-Hellman and cryptography",
