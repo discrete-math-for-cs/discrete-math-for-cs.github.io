@@ -34,7 +34,7 @@
     {
         "header": "Week 2",
         "outcomes": "Number representations",
-        "CalendarInfo": " true: 10/05/26-10/09/26",
+        "CalendarInfo": " Dates: 10/05/26-10/09/26",
         "ExpandInCalendar": false,
         "content": [
             {
@@ -90,7 +90,7 @@
         "header": "Week 4",
         "outcomes": "Predicate Logic",
         "CalendarInfo": " Dates: 10/19/26 - 10/23/26.",
-        "ExpandInCalendar": true,
+        "ExpandInCalendar": false,
         "content": [
             {
                 "name": "Notes",
@@ -174,7 +174,7 @@
         "header": "Week 6",
         "outcomes": "Proofs, Recursion, and Induction",
         "CalendarInfo": " Dates: 11/02/26-11/06/26",
-        "ExpandInCalendar": false,
+        "ExpandInCalendar": true,
         "content": [
             {
                 "name": "Notes",
