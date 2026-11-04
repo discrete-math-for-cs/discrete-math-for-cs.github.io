@@ -188,6 +188,583 @@
 <div class="flushright">
 
 </div>
+<h1 class="unnumbered" id="reflexive-relation-definition">Reflexive
+relation definition</h1>
+<p>A relation <span class="math inline">\(R\)</span> on a set <span
+class="math inline">\(A\)</span> is called
+<span><strong>reflexive</strong></span> means <span
+class="math inline">\((a, a) \in R\)</span> for every element <span
+class="math inline">\(a \in A\)</span>.</p>
+<h1 class="unnumbered" id="reflexive-relation-informally">Reflexive
+relation informally</h1>
+<p><span><em>Informally</em></span>, every element is related to
+itself.</p>
+<p><span><em>Graphically</em></span>, there are self-loops (edge from a
+node back to itself) at every node.</p>
+<h1 class="unnumbered" id="symmetric-relation-definition">Symmetric
+relation definition</h1>
+<p>A relation <span class="math inline">\(R\)</span> on a set <span
+class="math inline">\(A\)</span> is called
+<span><strong>symmetric</strong></span> means <span
+class="math inline">\((b, a) \in R\)</span> whenever <span
+class="math inline">\((a, b) \in R\)</span>, for all <span
+class="math inline">\(a, b \in A\)</span>.</p>
+<h1 class="unnumbered" id="symmetric-relation-informally">Symmetric
+relation informally</h1>
+<p><span><em>Informally</em></span>, order doesn’t matter for this
+relation.</p>
+<p><span><em>Graphically</em></span>, every edge has a paired
+“backwards” edge so we might as well drop the arrows and think of edges
+as undirected.</p>
+<h1 class="unnumbered" id="transitive-relation-definition">Transitive
+relation definition</h1>
+<p>A relation <span class="math inline">\(R\)</span> on a set <span
+class="math inline">\(A\)</span> is called
+<span><strong>transitive</strong></span> means whenever <span
+class="math inline">\((a, b) \in R\)</span> and <span
+class="math inline">\((b, c) \in R\)</span>, then <span
+class="math inline">\((a, c) \in R\)</span>, for all <span
+class="math inline">\(a, b, c \in A\)</span>.</p>
+<h1 class="unnumbered" id="transitive-relation-informally">Transitive
+relation informally</h1>
+<p><span><em>Informally</em></span>, chains of relations collapse.</p>
+<p><span><em>Graphically</em></span>, there’s a shortcut between any
+endpoints of a chain of edges.</p>
+<h1 class="unnumbered"
+id="antisymmetric-relation-definition">Antisymmetric relation
+definition</h1>
+<p>A relation <span class="math inline">\(R\)</span> on a set <span
+class="math inline">\(A\)</span> is called
+<span><strong>antisymmetric</strong></span> means <span
+class="math inline">\(\forall a \in A ~\forall b \in A~\left(~\left(
+~(a,b) \in R \land (b,a) \in R ~\right) \to a=b~\right)\)</span></p>
+<h1 class="unnumbered"
+id="antisymmetric-relation-informally">Antisymmetric relation
+informally</h1>
+<p><span><em>Informally</em></span>, the relation has
+directionality.</p>
+<p><span><em>Graphically</em></span>, can organize the nodes of the
+graph so that all non-self loop edges go up.</p>
+<h1 class="unnumbered" id="binary-relation-properties-examples">Binary
+relation properties examples</h1>
+<p>When the domain is <span class="math inline">\(\{
+a,b,c,d,e,f,g,h\}\)</span> define a relation that is <span><strong>not
+reflexive</strong></span> and is <span><strong>not
+symmetric</strong></span> and is <span><strong>not
+transitive</strong></span>.</p>
+<p>When the domain is <span class="math inline">\(\{
+a,b,c,d,e,f,g,h\}\)</span> define a relation that is <span><strong>not
+reflexive</strong></span> but is <span><strong>symmetric</strong></span>
+and is <span><strong>transitive</strong></span>.</p>
+<p>When the domain is <span class="math inline">\(\{
+a,b,c,d,e,f,g,h\}\)</span> define a relation that is
+<span><strong>symmetric</strong></span> and is
+<span><strong>antisymmetric</strong></span>.</p>
+<p>Is the relation <span class="math inline">\(EQ_{\mathbb{R}}\)</span>
+reflexive? symmetric? transitive? antisymmetric?</p>
+<p>Is the relation <span class="math inline">\(R_{(\textbf{mod }
+4)}\)</span> reflexive? symmetric? transitive? antisymmetric?</p>
+<h1 class="unnumbered" id="equivalence-relation-definition">Equivalence
+relation definition</h1>
+<p>A relation is an <span><strong>equivalence relation</strong></span>
+means it is reflexive, symmetric, and transitive.</p>
+<h1 class="unnumbered" id="equivalence-relation-examples">Equivalence
+relation examples</h1>
+<p><span><em>Example</em></span>: For <span class="math inline">\(A =
+\mathcal{P}(\mathbb{R})\)</span>, the relation <span
+class="math inline">\(EQ_{\mathbb{R}}\)</span> defined on <span
+class="math inline">\(A\)</span> as <span class="math display">\[\{
+(X_1, X_2 ) \in\mathcal{P}(\mathbb{R})  \times \mathcal{P}(\mathbb{R})
+~|~ |X_1| = |X_2| \}\]</span> is an equivalence relation.</p>
+<p><span><em>Example</em></span>: For <span class="math inline">\(A =
+\mathbb{Z}\)</span>, for each positive integer <span
+class="math inline">\(n\)</span>, the relation <span
+class="math inline">\(R_{(\textbf{mod } n)}\)</span> defined as the set
+of ordered pairs <span class="math inline">\((a, b)\)</span> such that
+<span class="math inline">\((a \textbf{ mod } n = b \textbf{ mod }
+n)\)</span> is an equivalence relation.</p>
+<h1 class="unnumbered" id="partial-order-definition">Partial order
+definition</h1>
+<p>A relation is a <span><strong>partial ordering</strong></span> (or
+partial order) means it is reflexive, antisymmetric, and transitive.</p>
+<h1 class="unnumbered" id="hasse-diagram-definition">Hasse diagram
+definition</h1>
+<p>For a partial ordering, its <span><strong>Hasse
+diagram</strong></span> is a graph representing the relationship between
+elements in the ordering. The nodes (vertices) of the graph are the
+elements of the domain of the binary relation. The edges do not have
+arrow heads. The directionality of the partial order is indicated by the
+arrangements of the nodes. The nodes are arranged so that nodes
+connected to nodes above them by edges indicate that the relation holds
+between the lower node and the higher node. Moreover, the diagram omits
+self-loops and omits edges that are guaranteed by transitivity.</p>
+<h1 class="unnumbered" id="hasse-diagram-example">Hasse diagram
+example</h1>
+<p>Draw the Hasse diagram of the partial order on the set <span
+class="math inline">\(\{a,b,c,d,e,f,g\}\)</span> defined as <span
+class="math display">\[\begin{align*}
+    \{  &amp;(a,a), (b,b), (c,c), (d,d), (e,e), (f,f), (g,g), \\
+        &amp;(a,c), (a,d), (d,g), (a,g), (b,f), (b,e), (e,g), (b,g) \}
+\end{align*}\]</span></p>
+<h1 class="unnumbered" id="partition-definition">Partition
+definition</h1>
+<p>A <span><strong>partition</strong></span> of a set <span
+class="math inline">\(A\)</span> is a set of non-empty, disjoint subsets
+<span class="math inline">\(A_1, A_2, \cdots, A_n\)</span> such that
+<span class="math display">\[A = \bigcup_{i=1}^{n} A_i = \{ x \mid
+\exists i (x \in A_i) \}\]</span></p>
+<h1 class="unnumbered" id="equivalence-class-definition">Equivalence
+class definition</h1>
+<p>An <span><strong>equivalence class</strong></span> of an element
+<span class="math inline">\(a \in A\)</span> with respect to an
+equivalence relation <span class="math inline">\(R\)</span> on the set
+<span class="math inline">\(A\)</span> is the set <span
+class="math display">\[\{s \in A \mid (a, s) \in R \}\]</span> We write
+<span class="math inline">\([a]_R\)</span> for this set, which is the
+equivalence class of <span class="math inline">\(a\)</span> with respect
+to <span class="math inline">\(R\)</span>.</p>
+<h1 class="unnumbered" id="congruence-classes-mod-four">Congruence
+classes mod four</h1>
+<p><span><em>Recall</em></span>: We say <span
+class="math inline">\(a\)</span> is <span><strong>congruent
+to</strong></span> <span class="math inline">\(b\)</span>
+<strong>mod</strong> <span class="math inline">\(n\)</span> means <span
+class="math inline">\((a, b) \in R_{(\textbf{mod } n)}\)</span>. A
+common notation is to write this as <span class="math inline">\(a \equiv
+b (\textbf{mod } n)\)</span>.</p>
+<p>We can partition the set of integers using equivalence classes of
+<span class="math inline">\(R_{(\textbf{mod } 4)}\)</span></p>
+<p><span class="math display">\[\begin{align*}
+    [0]_{R_{(\textbf{mod } 4)}} &amp;= \phantom{ \{ x \in \mathbb{Z}
+\mid x \equiv 0 ((\textbf{mod } 4)) \}
+    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = 0 \textbf{ mod } 4 =
+0 \} = \{ 4c \mid c \in \mathbb{Z}\} }\\
+    [1]_{R_{(\textbf{mod } 4)}} &amp;= \phantom{ \{ x \in \mathbb{Z}
+\mid x \equiv 1 ((\textbf{mod } 4)) \}
+    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = 1 \textbf{ mod } 4 =
+1 \} = \{ 4c+1 \mid c \in \mathbb{Z}\} }\\
+    [2]_{R_{(\textbf{mod } 4)}} &amp;= \phantom{ \{ x \in \mathbb{Z}
+\mid x \equiv 2 ((\textbf{mod } 4)) \}
+    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = 2 \textbf{ mod } 4 =
+0 \} = \{ 4c+2 \mid c \in \mathbb{Z}\} }\\
+    [3]_{R_{(\textbf{mod } 4)}} &amp;= \phantom{ \{ x \in \mathbb{Z}
+\mid x \equiv 3 ((\textbf{mod } 4)) \}
+    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = 3 \textbf{ mod } 4 =
+3 \} = \{ 4c+3 \mid c \in \mathbb{Z}\} }\\
+    [4]_{R_{(\textbf{mod } 4)}} &amp;= \phantom{ \{ x \in \mathbb{Z}
+\mid x \equiv 4 ((\textbf{mod } 4)) \}
+    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = 4 \textbf{ mod } 4 =
+0 \} = \{ 4c \mid c \in \mathbb{Z}\} }\\
+    [5]_{R_{(\textbf{mod } 4)}} &amp;= \phantom{ \{ x \in \mathbb{Z}
+\mid x \equiv 5 ((\textbf{mod } 4)) \}
+    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = 5 \textbf{ mod } 4 =
+1 \} = \{ 4c+1 \mid c \in \mathbb{Z}\} }\\
+    [-1]_{R_{(\textbf{mod } 4)}} &amp;= \phantom{ \{ x \in \mathbb{Z}
+\mid x \equiv -1 ((\textbf{mod } 4)) \}
+    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = -1 \textbf{ mod } 4
+= 3 \} = \{ 4c+3 \mid c \in \mathbb{Z}\} }
+\end{align*}\]</span> <span class="math display">\[\mathbb{Z}
+=  [0]_{R_{(\textbf{mod } 4)}}~ \cup ~[1]_{R_{(\textbf{mod } 4)}}
+~\cup~[2]_{R_{(\textbf{mod } 4)}}~\cup~
+[3]_{R_{(\textbf{mod } 4)}}\]</span></p>
+<h1 class="unnumbered" id="modular-arithmetic-motivation">Modular
+arithmetic motivation</h1>
+<p>Integers are useful because they can be used to encode other objects
+and have multiple representations. However, infinite sets are sometimes
+expensive to work with computationally. Reducing our attention to a
+<span><em>partition of the integers</em></span> based on congrunce mod
+<span class="math inline">\(n\)</span>, where each part is represented
+by a (not too large) integer gives a useful compromise where many
+algebraic properties of the integers are preserved, and we also get the
+benefits of a finite domain. Moreover, modular arithmetic is well-suited
+to model any cyclic behavior.</p>
+<h1 class="unnumbered" id="equivalence-relations-partitions">Equivalence
+relations partitions</h1>
+<p><span><strong>Claim</strong></span>: For each <span
+class="math inline">\(a \in U\)</span>, <span
+class="math inline">\([a]_{E}  \neq  \emptyset\)</span>.</p>
+<p><span><strong>Proof</strong></span>: Towards a <span
+class="math inline">\(\underline{\phantom{\hspace{1.3in}}}\)</span>
+consider an arbitrary element <span class="math inline">\(a\)</span> in
+<span class="math inline">\(U\)</span>. We will work to show that <span
+class="math inline">\([a]_E \neq \emptyset\)</span>, namely that <span
+class="math inline">\(\exists x \in [a]_E\)</span>. By definition of
+equivalence classes, we can rewrite this goal as <span
+class="math display">\[\exists x \in U ~( ~(a,x) \in E~)\]</span>
+Towards a <span
+class="math inline">\(\underline{\phantom{\hspace{1.3in}}}\)</span>,
+consider <span class="math inline">\(x = a\)</span>, an element of <span
+class="math inline">\(U\)</span> by definition. By <span
+class="math inline">\(\underline{\phantom{\hspace{1.3in}}}\)</span> of
+<span class="math inline">\(E\)</span>, we know that <span
+class="math inline">\((a,a) \in E\)</span> and thus the existential
+quantification has been proved.<br />
+<span><strong>Claim</strong></span>: For each <span
+class="math inline">\(a \in U\)</span>, there is some <span
+class="math inline">\(b \in U\)</span> such that <span
+class="math inline">\(a \in [b]_{E}\)</span>.</p>
+<p>Towards a <span
+class="math inline">\(\underline{\phantom{\hspace{1.3in}}}\)</span>
+consider an arbitrary element <span class="math inline">\(a\)</span> in
+<span class="math inline">\(U\)</span>. By definition of equivalence
+classes, we can rewrite the goal as <span class="math display">\[\exists
+b \in U ~( ~(b,a) \in E~)\]</span> Towards a <span
+class="math inline">\(\underline{\phantom{\hspace{1.3in}}}\)</span>,
+consider <span class="math inline">\(b = a\)</span>, an element of <span
+class="math inline">\(U\)</span> by definition. By <span
+class="math inline">\(\underline{\phantom{\hspace{1.3in}}}\)</span> of
+<span class="math inline">\(E\)</span>, we know that <span
+class="math inline">\((a,a) \in E\)</span> and thus the existential
+quantification has been proved.<br />
+<span><strong>Claim</strong></span>: For each <span
+class="math inline">\(a,b  \in U\)</span> , <span
+class="math inline">\((~(a,b)  \in  E ~\to ~ [a]_{E}  =
+[b]_{E}~)\)</span> and <span class="math inline">\((~(a,b)  \notin  E
+~\to ~ [a]_{E} \cap[b]_{E} = \emptyset~)\)</span></p>
+<p><span><strong>Corollary</strong></span>: Given an equivalence
+relation <span class="math inline">\(E\)</span> on set <span
+class="math inline">\(U\)</span>, <span class="math inline">\(\{ [x]_{E}
+\mid x \in U  \}\)</span> is a partition of <span
+class="math inline">\(U\)</span>.</p>
+<h1 class="unnumbered" id="modular-arithmetic">Modular arithmetic</h1>
+<p><span><strong>Modular arithmetic</strong></span>:</p>
+<p><span><strong>Informally</strong></span>: can bring mod “inside" and
+do it first, for addition and for multiplication.</p>
+<p><span><strong>Claim</strong></span>: For <span
+class="math inline">\(a, b, c, d \in \mathbb{Z}\)</span> and positive
+integer <span class="math inline">\(n\)</span>, if <span
+class="math inline">\(a \equiv b ~(\textbf{ mod } n)\)</span> and <span
+class="math inline">\(c \equiv d ~(\textbf{ mod } n)\)</span> then <span
+class="math inline">\(a+c \equiv b+d ~(\textbf{ mod } n)\)</span> and
+<span class="math inline">\(ac \equiv bd ~(\textbf{ mod }
+n)\)</span>.</p>
+<p><span class="math inline">\(123456 \times 789012 \textbf{ mod } 1000
+=\)</span></p>
+<p>Smaller examples work too:</p>
+<p><span class="math inline">\((102 + 48) \textbf{ mod } 10
+=\)</span></p>
+<p><span class="math inline">\((7 \cdot 10) \textbf{ mod } 5
+=\)</span></p>
+<p>Let’s consider exponentiation:</p>
+<p><span class="math inline">\((2^5) \textbf{ mod } 3 =\)</span></p>
+<p>To prove the claim: the following lemma is useful.</p>
+<h1 class="unnumbered" id="congruence-mod-n-lemma">Congruence mod n
+lemma</h1>
+<p><span><strong>Lemma</strong></span>: For <span
+class="math inline">\(a, b \in \mathbb{Z}\)</span> and positive integer
+<span class="math inline">\(n\)</span>, <span
+class="math inline">\((a,b) \in R_{(\textbf{mod } n)}\)</span> if and
+only if <span class="math inline">\(n | a-b\)</span>.</p>
+<p><span><strong>Proof</strong></span>:</p>
+<h1 class="unnumbered" id="modular-arithmetic-final-review">Modular
+arithmetic final review</h1>
+<p>Compute the last digit of <span
+class="math display">\[(42)^{2026}\]</span></p>
+<p><span><em>Extra</em></span> Describe the pattern that helps you
+perform this computation and prove it using mathematical induction
+and/or modular arithmetic.</p>
+<h1 class="unnumbered" id="cardinality-caution">Cardinality caution</h1>
+<p><span><em>Caution</em></span>: we use familiar symbols to define
+cardinality, like <span class="math inline">\(| \phantom{\cdots} | \leq
+| \phantom{\cdots} |\)</span> and <span class="math inline">\(|
+\phantom{\cdots} | \geq | \phantom{\cdots} |\)</span> and <span
+class="math inline">\(| \phantom{\cdots} | = | \phantom{\cdots}
+|\)</span>, but the meaning of these symbols depends on context. We’ve
+seen that vertical lines can mean absolute value (for real numbers),
+divisibility (for integers), and now sizes (for sets).</p>
+<p>Now we see that <span class="math inline">\(\leq\)</span> and <span
+class="math inline">\(\geq\)</span> can mean comparing numbers or
+comparing sizes of sets. When the sets being compared are finite, the
+definitions of <span class="math inline">\(|A| \leq |B|\)</span>
+agree.</p>
+<p>But, properties of numbers cannot be assumed when comparing
+cardinalities of infinite sets.</p>
+<p>In a nutshell: cardinality of sets is defined via functions. This
+definition agrees with the usual notion of “size” for finite sets.</p>
+<h1 class="unnumbered" id="cantor-schroder-bernstein-theorem">Cantor
+schroder bernstein theorem</h1>
+<p><span><strong>Cantor-Schroder-Bernstein Theorem</strong></span>: For
+all nonempty sets, <span class="math display">\[|A| = |B| \qquad\text{if
+and only if} \qquad (|A| \leq |B| ~\text{and}~ |B| \leq |A|)
+\qquad\text{if and only if} \qquad (|A| \geq |B| ~\text{and}~ |B| \geq
+|A|)\]</span></p>
+<p>To prove <span class="math inline">\(|A| = |B|\)</span>, we can do
+any <span><strong>one</strong></span> of the following</p>
+<ul>
+<li><p>Prove there exists a bijection <span class="math inline">\(f:  A
+\to B\)</span>;</p></li>
+<li><p>Prove there exists a bijection <span class="math inline">\(f:
+B  \to  A\)</span>;</p></li>
+<li><p>Prove there exists two functions <span class="math inline">\(f_1:
+A \to B\)</span>, <span class="math inline">\(f_2: B \to  A\)</span>
+where each of <span class="math inline">\(f_1, f_2\)</span> is
+one-to-one.</p></li>
+<li><p>Prove there exists two functions <span class="math inline">\(f_1:
+A \to B\)</span>, <span class="math inline">\(f_2: B \to  A\)</span>
+where each of <span class="math inline">\(f_1, f_2\)</span> is
+onto.</p></li>
+</ul>
+<h1 class="unnumbered" id="countably-infinite-definition">Countably
+infinite definition</h1>
+<p><span><strong>Definition</strong></span>: A set <span
+class="math inline">\(A\)</span> is <span><strong>countably
+infinite</strong></span> means it is the same size as <span
+class="math inline">\(\mathbb{N}\)</span>.</p>
+<h1 class="unnumbered"
+id="countably-infinite-examples-sets-of-numbers">Countably infinite
+examples sets of numbers</h1>
+<p><span><strong>Natural numbers</strong></span> <span
+class="math inline">\(\mathbb{N}\)</span> <span><em>List</em></span>:
+<span class="math inline">\(0~~1~~2~~3~~4~~5~~6~~7~~8~~9~~10
+\ldots\)</span></p>
+<p><span class="math inline">\(identity: \mathbb{N} \to
+\mathbb{N}\)</span> with <span class="math inline">\(identity(n) =
+n\)</span></p>
+<p><span><em>Claim</em></span>: <span
+class="math inline">\(identity\)</span> is a bijection.
+<span><em>Proof</em></span>: Ex.
+<span><strong>Corollary</strong></span>: <span class="math inline">\(|
+\mathbb{N} | = |\mathbb{N}|~\)</span></p>
+<p><span><strong>Positive integers</strong></span> <span
+class="math inline">\(\mathbb{Z}^+\)</span> <span><em>List</em></span>:
+<span
+class="math inline">\(1~~2~~3~~4~~5~~6~~7~~8~~9~~10~~11\ldots\)</span></p>
+<p><span class="math inline">\(positives: \mathbb{N} \to
+\mathbb{Z}^+\)</span> with <span class="math inline">\(positives(n) =
+n+1\)</span></p>
+<p><span><em>Claim</em></span>: <span
+class="math inline">\(positives\)</span> is a bijection.
+<span><em>Proof</em></span>: Ex.<span><strong>Corollary</strong></span>:
+<span class="math inline">\(| \mathbb{N} | = |\mathbb{Z}^+|\)</span></p>
+<p><span><strong>Negative integers <span
+class="math inline">\(\mathbb{Z}^-\)</span></strong></span><span><em>List</em></span>:
+<span class="math inline">\(-1\)</span> <span
+class="math inline">\(-2\)</span> <span
+class="math inline">\(-3\)</span> <span
+class="math inline">\(-4\)</span> <span
+class="math inline">\(-5\)</span> <span
+class="math inline">\(-6\)</span> <span
+class="math inline">\(-7\)</span> <span
+class="math inline">\(-8\)</span> <span
+class="math inline">\(-9\)</span> <span
+class="math inline">\(-10\)</span> <span
+class="math inline">\(-11\)</span>…</p>
+<p><span class="math inline">\(negatives: \mathbb{N} \to
+\mathbb{Z}^-\)</span> with <span class="math inline">\(negatives(n) =
+-n-1\)</span></p>
+<p><span><em>Claim</em></span>: <span
+class="math inline">\(negatives\)</span> is a bijection.
+<span><strong>Corollary</strong></span>: <span class="math inline">\(|
+\mathbb{N} | = |\mathbb{Z}^-|\)</span></p>
+<p><span><em>Proof</em></span>: We need to show it is a well-defined
+function that is one-to-one and onto.</p>
+<ul>
+<li><p>Well-defined?</p>
+<p>Consider an arbitrary element of the domain, <span
+class="math inline">\(n \in \mathbb{N}\)</span>. We need to show it maps
+to exactly one element of <span
+class="math inline">\(\mathbb{Z}^-\)</span>.</p></li>
+<li><p>One-to-one?</p>
+<p>Consider arbitrary elements of the domain <span
+class="math inline">\(a, b \in \mathbb{N}\)</span>. We need to show that
+<span class="math display">\[\left(~negatives(a) = negatives(b) ~\right)
+\to (a=b)\]</span></p></li>
+<li><p>Onto?</p>
+<p>Consider arbitrary element of the codomain <span
+class="math inline">\(b \in \mathbb{Z}^-\)</span>. We need witness in
+<span class="math inline">\(\mathbb{N}\)</span> that maps to <span
+class="math inline">\(b\)</span>.</p></li>
+</ul>
+<p><span><strong>Integers</strong></span> <span
+class="math inline">\(\mathbb{Z}\)</span> <span><em>List</em></span>:
+<span
+class="math inline">\(0~-1~~1~-2~~2~-3~~3~-4~~4~-5~~5\)</span>…</p>
+<p><span class="math inline">\(f: \mathbb{Z} \to \mathbb{N}\)</span>
+with <span class="math inline">\(f(x) = \begin{cases}2x &amp;\text{if $x
+\geq 0$} \\-2x-1 &amp;\text{if $x &lt; 0$} \end{cases}\)</span></p>
+<p><span><em>Claim</em></span>: <span class="math inline">\(f\)</span>
+is a bijection. <span><em>Proof</em></span>:
+Ex.<span><strong>Corollary</strong></span>: <span
+class="math inline">\(| \mathbb{Z} | = |\mathbb{N}|\)</span></p>
+<h1 class="unnumbered"
+id="countably-infinite-examples-other-sets">Countably infinite examples
+other sets</h1>
+<p><span><strong>More examples of countably infinite
+sets</strong></span></p>
+<p><span><strong>Claim</strong></span>: <span
+class="math inline">\(S\)</span> is countably infinite</p>
+<p><span><em>Similarly: The set of all strings over a specific alphabet
+is countably infinite.</em></span></p>
+<div class="center">
+<p>Bijection using alphabetical-ish ordering (first order by length,
+then alphabetically among strings of same length) of strands</p>
+</div>
+<p><span><strong>Claim</strong></span>: <span
+class="math inline">\(L\)</span> is countably infinite</p>
+<div class="multicols">
+<p><span>2</span> <span class="math display">\[\begin{align*}
+    &amp;list: \mathbb{N} \to L \\
+    &amp;list(n) = (n, []) \\
+    &amp;
+\end{align*}\]</span></p>
+<p><span class="math display">\[\begin{align*}
+    &amp;toNum: L \to \mathbb{N} \\
+    &amp;toNum([]) = 0 \\
+    &amp;toNum( ~(n,l)~) = 2^n 3^{toNum(l)} \qquad \text{for $n \in
+\mathbb{N}$, $l \in L$}
+\end{align*}\]</span></p>
+</div>
+<p><span><strong>Claim</strong></span>: <span
+class="math inline">\(|\mathbb{Z}^+| = |\mathbb{Q}|\)</span></p>
+<p>One-to-one function from <span
+class="math inline">\(\mathbb{Z}^+\)</span> to <span
+class="math inline">\(\mathbb{Q}\)</span> is <span
+class="math inline">\(f_1: \mathbb{Z}^+ \to \mathbb{Q}\)</span> with
+<span class="math inline">\(f_1(n) = n\)</span> for all <span
+class="math inline">\(n \in \mathbb{N}\)</span>.</p>
+<p><span class="math display">\[\begin{align*}
+    &amp;f_2: \mathbb{Q} \to \mathbb{Z} \times \mathbb{Z} \\
+    &amp;f_2(x) = \begin{cases}
+        (0,1) &amp; \text{if $x = 0$} \\
+        (p,q) &amp; \text{if $x = \frac{p}{q}$,}\\
+                &amp; \text{$gcd(p,q) = 1$, $q &gt; 0$}
+    \end{cases}
+\end{align*}\]</span></p>
+<div class="multicols">
+<p><span>2</span> <span class="math display">\[\begin{align*}
+    &amp;f_3: \mathbb{Z} \times \mathbb{Z} \to \mathbb{Z}^+ \times
+\mathbb{Z}^+ \\
+    &amp;f_3(~(x,y)~) = \begin{cases}
+        (2x+2, 2y+2) &amp; \text{if $x \geq 0, y \geq 0$} \\
+        (-2x-1, 2y+2) &amp; \text{if $x &lt; 0, y \geq 0$} \\
+        (2x+2, -2y+1) &amp; \text{if $x \geq 0, y &lt; 0$} \\
+        (-2x-1, -2y-1) &amp; \text{if $x &lt; 0, y &lt; 0$} \\
+    \end{cases}
+\end{align*}\]</span></p>
+<p><span class="math display">\[\begin{align*}
+    &amp;f_4: \mathbb{Z}^+ \times \mathbb{Z}^+ \to \mathbb{Z}^+ \\
+    &amp;f_4(~(x,y)~) = 2^x 3^y \qquad \text{for $x,y \in \mathbb{Z}^+$}
+\end{align*}\]</span></p>
+</div>
+<h1 class="unnumbered" id="cardinality-categories">Cardinality
+categories</h1>
+<p>A set <span class="math inline">\(A\)</span> is
+<span><strong>finite</strong></span> means it is empty or it is the same
+size as <span class="math inline">\(\{ 1, \ldots, n \}\)</span> for some
+<span class="math inline">\(n \in \mathbb{N}\)</span>.</p>
+<p>A set <span class="math inline">\(A\)</span> is
+<span><strong>countably infinite</strong></span> means it is the same
+size as <span class="math inline">\(\mathbb{N}\)</span>.
+<span><em>Notice: all countably infinite sets are the same size as each
+other.</em></span></p>
+<p>A set <span class="math inline">\(A\)</span> is
+<span><strong>countable</strong></span> means it is either finite or
+countably infinite.</p>
+<p>A set <span class="math inline">\(A\)</span> is
+<span><strong>uncountable</strong></span> means it is not countable.</p>
+<h1 class="unnumbered" id="cardinality-countability-lemmas">Cardinality
+countability lemmas</h1>
+<p><span><strong>Lemmas about countable and uncountable
+sets</strong></span></p>
+<p><span><strong>Lemma</strong></span>: If <span
+class="math inline">\(A\)</span> is a subset of a countable set, then
+it’s countable.</p>
+<p><span><strong>Lemma</strong></span>: If <span
+class="math inline">\(A\)</span> is a superset of an uncountable set,
+then it’s uncountable.</p>
+<p><span><strong>Lemma</strong></span>: If <span
+class="math inline">\(A\)</span> and <span
+class="math inline">\(B\)</span> are countable sets, then <span
+class="math inline">\(A \cup B\)</span> is countable and <span
+class="math inline">\(A \cap B\)</span> is countable.</p>
+<p><span><strong>Lemma</strong></span>: If <span
+class="math inline">\(A\)</span> and <span
+class="math inline">\(B\)</span> are countable sets, then <span
+class="math inline">\(A \times B\)</span> is countable.</p>
+<p><span><em>Generalize pairing ideas from <span
+class="math inline">\(\mathbb{Z}^+ \times \mathbb{Z}^+\)</span> to <span
+class="math inline">\(\mathbb{Z}^+\)</span></em></span></p>
+<p><span><strong>Lemma</strong></span>: If <span
+class="math inline">\(A\)</span> is a subset of <span
+class="math inline">\(B\)</span> , to show that <span
+class="math inline">\(|A| = |B|\)</span>, it’s enough to give one-to-one
+function from <span class="math inline">\(B\)</span> to <span
+class="math inline">\(A\)</span> or an onto function from <span
+class="math inline">\(A\)</span> to <span
+class="math inline">\(B\)</span>.</p>
+<h1 class="unnumbered" id="cardinality-final-review">Cardinality final
+review</h1>
+<p><span><strong>True or False</strong></span>? For all sets <span
+class="math inline">\(A\)</span> and <span
+class="math inline">\(B\)</span> where <span class="math inline">\(A
+\subseteq B\)</span>, if <span class="math inline">\(A\)</span> is
+infinite then <span class="math inline">\(B\)</span> is finite.</p>
+<p><span><strong>True or False</strong></span>? For all sets <span
+class="math inline">\(A\)</span> and <span
+class="math inline">\(B\)</span> where <span class="math inline">\(A
+\subseteq B\)</span>, if <span class="math inline">\(A\)</span> is
+countable then <span class="math inline">\(B\)</span> is countable.</p>
+<p><span><strong>True or False</strong></span>? For all sets <span
+class="math inline">\(A\)</span> and <span
+class="math inline">\(B\)</span> where <span class="math inline">\(A
+\subseteq B\)</span>, if <span class="math inline">\(B\)</span> is
+infinite then <span class="math inline">\(A\)</span> is finite.</p>
+<p><span><strong>True or False</strong></span>? For all sets <span
+class="math inline">\(A\)</span> and <span
+class="math inline">\(B\)</span> where <span class="math inline">\(A
+\subseteq B\)</span>, if <span class="math inline">\(B\)</span> is
+uncountable then <span class="math inline">\(A\)</span> is
+countable.</p>
+<h1 class="unnumbered" id="binary-relation-definition">Binary relation
+definition</h1>
+<p><span><strong>Definition</strong></span>: When <span
+class="math inline">\(A\)</span> and <span
+class="math inline">\(B\)</span> are sets, we say any subset of <span
+class="math inline">\(A \times B\)</span> is a <span><strong>binary
+relation</strong></span>. A relation <span
+class="math inline">\(R\)</span> can also be represented as</p>
+<ul>
+<li><p>A function <span class="math inline">\(f_{TF} : A \times B \to
+\{T, F\}\)</span> where, for <span class="math inline">\(a \in
+A\)</span> and <span class="math inline">\(b \in B\)</span>, <span
+class="math inline">\(f_{TF}(~(a,b)~) =
+\begin{cases}
+    T \qquad&amp;\text{when } (a,b) \in R \\
+    F \qquad&amp;\text{when } (a,b) \notin R
+\end{cases}\)</span></p></li>
+<li><p>A function <span class="math inline">\(f_{\mathcal{P}} : A   \to
+\mathcal{P}(B)\)</span> where, for <span class="math inline">\(a \in
+A\)</span>, <span class="math inline">\(f_{\mathcal{P}}( a ) = \{ b \in
+B ~|~ (a,b) \in R \}\)</span></p></li>
+</ul>
+<p>When <span class="math inline">\(A\)</span> is a set, we say any
+subset of <span class="math inline">\(A \times A\)</span> is a (binary)
+<span><strong>relation</strong></span> on <span
+class="math inline">\(A\)</span>.</p>
+<h1 class="unnumbered" id="binary-relation-examples">Binary relation
+examples</h1>
+<p><span><em>Example</em></span>: For <span class="math inline">\(A =
+\mathcal{P}(\mathbb{R})\)</span>, we can define the relation <span
+class="math inline">\(EQ_{\mathbb{R}}\)</span> on <span
+class="math inline">\(A\)</span> as <span class="math display">\[\{
+(X_1, X_2 ) \in\mathcal{P}(\mathbb{R})  \times \mathcal{P}(\mathbb{R})
+~|~ |X_1| = |X_2| \}\]</span></p>
+<p><span><em>Example</em></span>: Let <span
+class="math inline">\(R_{(\textbf{mod } n)}\)</span> be the set of all
+pairs of integers <span class="math inline">\((a, b)\)</span> such that
+<span class="math inline">\((a \textbf{ mod } n = b \textbf{ mod }
+n)\)</span>. Then <span class="math inline">\(a\)</span> is
+<span><strong>congruent to</strong></span> <span
+class="math inline">\(b\)</span> <strong>mod</strong> <span
+class="math inline">\(n\)</span> means <span class="math inline">\((a,
+b) \in R_{(\textbf{mod } n)}\)</span>. A common notation is to write
+this as <span class="math inline">\(a \equiv b (\textbf{mod }
+n)\)</span>.</p>
+<p><span class="math inline">\(R_{(\textbf{mod } n)}\)</span> is a
+relation on the set <span
+class="math inline">\(\underline{\phantom{\mathbb{Z}}\hspace{20em}}\)</span></p>
+<p>Some example elements of <span class="math inline">\(R_{(\textbf{mod
+} 4)}\)</span> are:</p>
 <h1 class="unnumbered" id="rna-rnalen-basecount-definitions">Rna rnalen
 basecount definitions</h1>
 <p><span><em>Recall the definitions</em></span>: The set of RNA strands
@@ -1235,6 +1812,92 @@ $length$}\\
 example each length</h1>
 <p>Prove or disprove: <span class="math inline">\(\forall n \in
 \mathbb{N} ~\exists l \in L ~(~length(l) = n~)\)</span></p>
+<h1 class="unnumbered" id="proof-strategy-proof-by-contradiction">Proof
+strategy proof by contradiction</h1>
+<h1 class="unnumbered" id="rational-numbers-definition">Rational numbers
+definition</h1>
+<p>The <span><strong>set of rational numbers</strong></span>, <span
+class="math inline">\(\mathbb{Q}\)</span> is defined as <span
+class="math display">\[\left\{ \frac{p}{q} \mid p \in \mathbb{Z}  \text{
+and  } q  \in \mathbb{Z} \text{ and } q \neq  0 \right\}
+\text{~~~~or, equivalently,~~~~}
+\{ x  \in  \mathbb{R} \mid \exists p \in \mathbb{Z}  \exists q \in
+\mathbb{Z}^+ ( p =  x \cdot q) \}\]</span></p>
+<p><span><em>Extra practice</em></span>: Use the definition of set
+equality to prove that the definitions above give the same set.</p>
+<h1 class="unnumbered" id="proof-by-contradiction-irrational">Proof by
+contradiction irrational</h1>
+<p><span><strong>Goal</strong></span>: The square root of <span
+class="math inline">\(2\)</span> is not a rational number. In other
+words: <span class="math inline">\(\neg \exists x \in \mathbb{Q} ( x^2
+-  2 = 0)\)</span></p>
+<p><span><strong>Attempted proof</strong></span>: The definition of the
+set of rational numbers is the collection of fractions <span
+class="math inline">\(p/q\)</span> where <span
+class="math inline">\(p\)</span> is an integer and <span
+class="math inline">\(q\)</span> is a nonzero integer. Looking for a
+<span><strong>witness</strong></span> <span
+class="math inline">\(p\)</span> and <span
+class="math inline">\(q\)</span>, we can write the square root of <span
+class="math inline">\(2\)</span> as the fraction <span
+class="math inline">\(\sqrt{2 }/1\)</span>, where <span
+class="math inline">\(1\)</span> is a nonzero integer. Since the
+numerator is not in the domain, this witness is not allowed, and we have
+shown that the square root of <span class="math inline">\(2\)</span> is
+not a fraction of integers (with nonzero denominator). Thus, the square
+root of <span class="math inline">\(2\)</span> is not rational.</p>
+<p><span><em>The problem in the above attempted proof is
+that</em></span> <u></u></p>
+<p><span><strong>Lemma 1:</strong></span> For every two integers <span
+class="math inline">\(a\)</span> and <span
+class="math inline">\(b\)</span>, not both zero, with <span
+class="math inline">\(gcd(~(a,b)~) = 1\)</span>, it is not the case that
+both <span class="math inline">\(a\)</span> is even and <span
+class="math inline">\(b\)</span> is even.</p>
+<p><span><strong>Lemma 2:</strong></span> For every integer <span
+class="math inline">\(x\)</span>, <span class="math inline">\(x\)</span>
+is even if and only if <span class="math inline">\(x^2\)</span> is
+even.</p>
+<p><span><strong>Proof</strong></span>: Towards a proof by
+contradiction, we will define a statement <span
+class="math inline">\(r\)</span> such that <span
+class="math inline">\(\sqrt{2} \in \mathbb{Q} \to (r \land \lnot
+r)\)</span>.</p>
+<p>Assume that <span class="math inline">\(\sqrt{2} \in
+\mathbb{Q}\)</span>. Namely, there are positive integers <span
+class="math inline">\(p, q\)</span> such that <span
+class="math display">\[\sqrt{2} = \frac{p}{q}\]</span> Let <span
+class="math inline">\(a= \frac{p}{gcd( ~(p,q)~)}\)</span>, <span
+class="math inline">\(b = \frac{q}{gcd(~(p,q)~)}\)</span>, then <span
+class="math display">\[\sqrt{2} = \frac{a}{b} \qquad \text{and} \qquad
+gcd(~(a,b)~) = 1\]</span></p>
+<p>By Lemma 1, <span class="math inline">\(a\)</span> and <span
+class="math inline">\(b\)</span> are not both even. We define <span
+class="math inline">\(r\)</span> to be the statement “<span
+class="math inline">\(a\)</span> is even and <span
+class="math inline">\(b\)</span> is even”, and we have proved <span
+class="math inline">\(\lnot r\)</span>.</p>
+<p>Squaring both sides and clearing denominator: <span
+class="math inline">\(2b^2 = a^2\)</span>.</p>
+<p>By definition of even, since <span class="math inline">\(b^2\)</span>
+is an integer<span class="math inline">\(, a^2\)</span> is even.</p>
+<p>By Lemma 2, this guarantees that <span
+class="math inline">\(a\)</span> is even too. So, by definition of even,
+there is some integer (call it <span class="math inline">\(c\)</span>),
+such that <span class="math inline">\(a = 2c\)</span>.</p>
+<p>Plugging into the equation: <span class="math display">\[2b^2 = a^2 =
+(2c)^2 = 4c^2\]</span> and dividing both sides by <span
+class="math inline">\(2\)</span> <span class="math display">\[b^2 =
+2c^2\]</span> and since <span class="math inline">\(c^2\)</span> is an
+integer, <span class="math inline">\(b^2\)</span> is even. By Lemma 2,
+<span class="math inline">\(b\)</span> is even too. Thus, <span
+class="math inline">\(a\)</span> is even and <span
+class="math inline">\(b\)</span> is even and we have proved <span
+class="math inline">\(r\)</span>.</p>
+<p>In other words, assuming that <span class="math inline">\(\sqrt{2}
+\in \mathbb{Q}\)</span> guarantees <span class="math inline">\(r \land
+\lnot r\)</span>, which is impossible, so <span
+class="math inline">\(\sqrt{2} \notin \mathbb{Q}\)</span>. QED</p>
 <h1 class="unnumbered"
 id="tautology-contradiction-contingency-examples">Tautology
 contradiction contingency examples</h1>

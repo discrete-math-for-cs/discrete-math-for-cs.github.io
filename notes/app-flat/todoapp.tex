@@ -63,7 +63,874 @@
 \begin{document}
 \begin{flushright}
     \StrBefore{\currfilename}{.}
-\end{flushright} \section*{Rna rnalen basecount definitions}
+\end{flushright} \section*{Reflexive relation definition}
+
+
+A relation $R$ on a set $A$ is called {\bf reflexive} 
+means $(a, a) \in R$ for every element $a \in A$. 
+ \vfill
+\section*{Reflexive relation informally}
+
+
+{\it Informally}, every element is related to itself.
+
+{\it Graphically}, there are self-loops (edge from a node back to itself) at 
+every node. \vfill
+\section*{Symmetric relation definition}
+
+
+A relation $R$ on a set $A$ is called {\bf symmetric} means 
+$(b, a) \in R$ whenever $(a, b) \in R$, for all $a, b \in A$. 
+ \vfill
+\section*{Symmetric relation informally}
+
+
+{\it Informally}, order doesn't matter for this relation.
+
+{\it Graphically}, every edge has a paired ``backwards'' edge so we might
+as well drop the arrows and think of edges as undirected. \vfill
+\section*{Transitive relation definition}
+
+
+A relation $R$ on a set $A$ is called {\bf transitive} means 
+whenever $(a, b) \in R$ and $(b, c) \in R$, then $(a, c) \in R$, for all $a, b, c \in A$.
+ \vfill
+\section*{Transitive relation informally}
+
+
+{\it Informally}, chains of relations collapse.
+
+{\it Graphically}, there's a shortcut between any endpoints of a chain of 
+edges. \vfill
+\section*{Antisymmetric relation definition}
+
+
+A relation $R$ on a set $A$ is called {\bf antisymmetric} means 
+$\forall a \in A ~\forall b \in A~\left(~\left( ~(a,b) \in R \land (b,a) \in R ~\right) \to a=b~\right)$
+ \vfill
+\section*{Antisymmetric relation informally}
+
+
+{\it Informally}, the relation has directionality.
+
+{\it Graphically}, can organize the nodes of the graph so that 
+all non-self loop edges go up. \vfill
+\section*{Binary relation properties examples}
+
+
+
+When the domain is $\{ a,b,c,d,e,f,g,h\}$ define a relation that is {\bf not reflexive} and 
+is {\bf not symmetric} and is {\bf not transitive}.
+
+\vfill
+
+When the domain is $\{ a,b,c,d,e,f,g,h\}$ define a relation that is {\bf not reflexive} but 
+is {\bf symmetric} and is {\bf transitive}.
+
+\vfill
+
+When the domain is $\{ a,b,c,d,e,f,g,h\}$ define a relation that is {\bf symmetric} and
+is {\bf antisymmetric}.
+
+\vfill
+
+Is the relation $EQ_{\mathbb{R}}$ reflexive? symmetric? transitive? antisymmetric?
+
+\vfill
+
+Is the relation $R_{(\textbf{mod } 4)}$ reflexive? symmetric? transitive? antisymmetric?
+
+\vfill
+%
+ \vfill
+\section*{Equivalence relation definition}
+
+
+A relation is an {\bf equivalence relation} means it is reflexive, symmetric, and transitive. \vfill
+\section*{Equivalence relation examples}
+
+
+
+{\it Example}: For $A = \mathcal{P}(\mathbb{R})$, the relation $EQ_{\mathbb{R}}$ defined on $A$ as 
+\[
+\{ (X_1, X_2 ) \in\mathcal{P}(\mathbb{R})  \times \mathcal{P}(\mathbb{R}) ~|~ |X_1| = |X_2| \}
+\]
+is an equivalence relation.
+
+\vfill
+
+{\it Example}: For $A = \mathbb{Z}$, for each positive integer $n$, the relation $R_{(\textbf{mod } n)}$ defined as the set of ordered pairs $(a, b)$ such that $(a \textbf{ mod } n = b \textbf{ mod } n)$ is an equivalence relation.
+\vfill \vfill
+\section*{Partial order definition}
+
+
+A relation is a {\bf partial ordering} (or partial order) means 
+it is reflexive, antisymmetric, and transitive. \vfill
+\section*{Hasse diagram definition}
+
+
+For a partial ordering, its {\bf Hasse diagram} is a graph representing the 
+relationship between elements in the ordering. The nodes (vertices) of the graph 
+are the elements of the 
+domain of the binary relation. The edges do not have arrow heads. The
+directionality of the partial order is indicated by 
+the arrangements of the nodes. The nodes are arranged so that nodes connected to nodes
+above them by edges indicate that the relation holds between the 
+lower node and the higher node. 
+Moreover, the diagram omits self-loops and 
+omits edges that are guaranteed by transitivity.
+ \vfill
+\section*{Hasse diagram example}
+
+
+Draw the Hasse diagram of the partial order on the set $\{a,b,c,d,e,f,g\}$ defined as
+\begin{align*}
+    \{  &(a,a), (b,b), (c,c), (d,d), (e,e), (f,f), (g,g), \\
+        &(a,c), (a,d), (d,g), (a,g), (b,f), (b,e), (e,g), (b,g) \}
+\end{align*}
+
+\vspace{100pt}
+
+%
+ \vfill
+\section*{Partition definition}
+
+
+A {\bf partition} of a set $A$ is a set of non-empty, disjoint subsets 
+$A_1, A_2, \cdots, A_n$ such that 
+\[
+    A = \bigcup_{i=1}^{n} A_i = \{ x \mid \exists i (x \in A_i) \}
+\] \vfill
+\section*{Equivalence class definition}
+
+
+An {\bf equivalence class} of an element $a \in A$ 
+with respect to an equivalence relation $R$ on the set $A$ is the set 
+\[
+    \{s \in A \mid (a, s) \in R \}
+\] 
+We write $[a]_R$ for this set, which is the equivalence class of $a$ with respect to $R$. \vfill
+\section*{Congruence classes mod four}
+
+
+{\it Recall}: We say $a$ is {\bf congruent to} $b$ \textbf{mod} $n$ 
+means $(a, b) \in R_{(\textbf{mod } n)}$. 
+A common notation is to write this as $a \equiv b (\textbf{mod } n)$.
+
+We can partition the set of integers using equivalence classes of  $R_{(\textbf{mod } 4)}$
+
+\begin{align*}
+    [0]_{R_{(\textbf{mod } 4)}} &= \phantom{ \{ x \in \mathbb{Z} \mid x \equiv 0 ((\textbf{mod } 4)) \} 
+    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = 0 \textbf{ mod } 4 = 0 \} = \{ 4c \mid c \in \mathbb{Z}\} }\\
+    [1]_{R_{(\textbf{mod } 4)}} &= \phantom{ \{ x \in \mathbb{Z} \mid x \equiv 1 ((\textbf{mod } 4)) \} 
+    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = 1 \textbf{ mod } 4 = 1 \} = \{ 4c+1 \mid c \in \mathbb{Z}\} }\\
+    [2]_{R_{(\textbf{mod } 4)}} &= \phantom{ \{ x \in \mathbb{Z} \mid x \equiv 2 ((\textbf{mod } 4)) \} 
+    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = 2 \textbf{ mod } 4 = 0 \} = \{ 4c+2 \mid c \in \mathbb{Z}\} }\\
+    [3]_{R_{(\textbf{mod } 4)}} &= \phantom{ \{ x \in \mathbb{Z} \mid x \equiv 3 ((\textbf{mod } 4)) \} 
+    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = 3 \textbf{ mod } 4 = 3 \} = \{ 4c+3 \mid c \in \mathbb{Z}\} }\\
+    [4]_{R_{(\textbf{mod } 4)}} &= \phantom{ \{ x \in \mathbb{Z} \mid x \equiv 4 ((\textbf{mod } 4)) \} 
+    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = 4 \textbf{ mod } 4 = 0 \} = \{ 4c \mid c \in \mathbb{Z}\} }\\
+    [5]_{R_{(\textbf{mod } 4)}} &= \phantom{ \{ x \in \mathbb{Z} \mid x \equiv 5 ((\textbf{mod } 4)) \} 
+    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = 5 \textbf{ mod } 4 = 1 \} = \{ 4c+1 \mid c \in \mathbb{Z}\} }\\
+    [-1]_{R_{(\textbf{mod } 4)}} &= \phantom{ \{ x \in \mathbb{Z} \mid x \equiv -1 ((\textbf{mod } 4)) \} 
+    = \{ x \in \mathbb{Z} \mid x \textbf{ mod } 4 = -1 \textbf{ mod } 4 = 3 \} = \{ 4c+3 \mid c \in \mathbb{Z}\} }
+\end{align*}
+\[
+\mathbb{Z} =  [0]_{R_{(\textbf{mod } 4)}}~ \cup ~[1]_{R_{(\textbf{mod } 4)}} ~\cup~[2]_{R_{(\textbf{mod } 4)}}~\cup~
+[3]_{R_{(\textbf{mod } 4)}}
+\]
+
+
+
+
+
+ \vfill
+\section*{Modular arithmetic motivation}
+
+
+Integers are useful because they can be used to encode other objects
+and have multiple representations. However, infinite sets are sometimes
+expensive to work with computationally. Reducing our attention to 
+a {\it partition of the integers} based on congrunce mod $n$, where
+each part is represented by a (not too large) integer gives a useful 
+compromise where many algebraic properties of the integers are preserved, 
+and we also get the benefits of a finite domain. Moreover, modular arithmetic
+is well-suited to model any cyclic behavior. \vfill
+\section*{Equivalence relations partitions}
+
+
+
+
+{\bf Claim}: For each  $a \in U$, $[a]_{E}  \neq  \emptyset$.
+
+{\bf Proof}: Towards a $\underline{\phantom{\hspace{1.3in}}}$ 
+consider an arbitrary element $a$ in $U$. 
+We will work to show that $[a]_E \neq \emptyset$, namely that $\exists x \in [a]_E$.
+By definition of equivalence classes, we can rewrite this goal as 
+$$\exists x \in U ~( ~(a,x) \in E~)$$ 
+Towards a $\underline{\phantom{\hspace{1.3in}}}$, consider $x = a$, 
+an element of $U$ by definition. By $\underline{\phantom{\hspace{1.3in}}}$ of $E$, 
+we know that $(a,a) \in E$  and thus the existential quantification has been proved.\\
+
+
+{\bf Claim}: For each $a \in U$, there is some $b \in U$  such that $a \in [b]_{E}$.
+
+Towards a $\underline{\phantom{\hspace{1.3in}}}$ 
+consider an arbitrary element $a$ in $U$. By definition of equivalence classes, 
+we can rewrite the goal as 
+$$\exists b \in U ~( ~(b,a) \in E~)$$
+Towards a $\underline{\phantom{\hspace{1.3in}}}$, consider $b = a$, 
+an element of $U$ by definition. By $\underline{\phantom{\hspace{1.3in}}}$  of $E$, 
+we know that $(a,a) \in E$  and thus the existential quantification has been proved. \\
+ 
+{\bf Claim}: For each  $a,b  \in U$ , $(~(a,b)  \in  E ~\to ~ [a]_{E}  = [b]_{E}~)$
+and  $(~(a,b)  \notin  E ~\to ~ [a]_{E} \cap[b]_{E} = \emptyset~)$
+
+\phantom{Let $a,b$ be arbitrary. For first goal, assume towards
+direct proof that $(a,b) \in E$. To show $[a]_E = [b]_E$ 
+first consider arbitrary element $x$ in $[a]_E$. By definition
+$(a,x) \in E$ so by symmetry, $(x,a) \in E$ and by 
+transitivity with assumption, $(x,b)\in E$. Thus, by definition
+of equivalence class, $x \in [b]_E$. Similarly, take arbitrary
+element $y \in [b]_E$. By definition $(y,b) \in E$ 
+and applying symmetry to assumption, we have $(b,a) \in E$
+so by transitivity $(y,a) \in E$ and $y \in[a]_E$, as required
+to complete the proof of set equality. For the second goal, 
+assume (towards a proof by contrapositive) that $[a]_E \cap [b]_E 
+\neq \emptyset$. Then there is a witness $w \in [a]_E \cap [b]_E$.
+By definition of equivalence classes $(a,w) \in E$ and $(b,w) \in E$.
+By symmetry, we have $(w,b) \in E$ so by transitivity $(a,b) \in E$,
+as required.}
+
+\vfill
+
+{\bf Corollary}: Given an equivalence relation $E$ on set $U$,  
+$\{ [x]_{E} \mid x \in U  \}$ is a partition of $U$.
+\vfill \vfill
+\section*{Modular arithmetic}
+
+
+{\bf Modular arithmetic}: 
+
+
+{\bf Informally}: can bring mod ``inside" and do it first, for addition and for multiplication.
+
+{\bf Claim}: For $a, b, c, d \in \mathbb{Z}$ 
+and positive integer $n$, if $a \equiv b ~(\textbf{ mod } n)$ and $c \equiv d ~(\textbf{ mod } n)$ 
+then $a+c \equiv b+d ~(\textbf{ mod } n)$ and $ac \equiv bd ~(\textbf{ mod } n)$.
+
+$123456 \times 789012 \textbf{ mod } 1000 = $
+
+\vfill
+
+Smaller examples work too: 
+
+$(102 + 48) \textbf{ mod } 10 = $ 
+
+$(7 \cdot 10) \textbf{ mod } 5 =$
+
+Let's consider exponentiation: 
+
+$(2^5) \textbf{ mod } 3 = $ 
+
+\vfill
+
+To prove the claim: the following lemma is useful. \vfill
+\section*{Congruence mod n lemma}
+
+
+{\bf Lemma}: For $a, b \in \mathbb{Z}$ 
+and positive integer $n$, $(a,b) \in R_{(\textbf{mod } n)}$ if and only if  $n | a-b$.
+
+{\bf Proof}: 
+
+\phantom{Consider arbitrary integers $a,b$ and arbitrary positive integer $n$.}
+
+\phantom{Assume $a \textbf{ mod } n = b \textbf{ mod } n$. Call this 
+remainder $r$ and we have integers $q_1, q_2$ such that $a = q_1 n + r$
+and $b = q_2 n + r$. Calculating $a-b = (q_1 n + r) - (q_2n +r) = (q_1 - q_2)n$ 
+an integer multiple of $n$, as required.}
+
+\phantom{Assume there is integer $c$ with $a-b = cn$. By long division 
+there are integers $q$ and $r$ ($0 \leq r < n$) with $b = qn + r$. Then 
+$a = b + cn = qn+r + cn = (q+c)n + r$. Since long division gives a unique remainder,
+this means $a \textbf{ mod } n = r = b \textbf{ mod } n$, as required.}
+
+\vspace{200pt} \vfill
+\section*{Modular arithmetic final review}
+
+
+Compute the last digit of 
+\[
+    (42)^{2026}
+\]
+
+\vfill
+
+{\it Extra} Describe the pattern that helps you perform this computation 
+and prove it using mathematical induction and/or modular arithmetic. \vfill
+\section*{Cardinality caution}
+
+
+{\it Caution}: we use 
+familiar symbols to define cardinality, like
+$| \phantom{\cdots} | \leq | \phantom{\cdots} |$
+and 
+$| \phantom{\cdots} | \geq | \phantom{\cdots} |$
+and 
+$| \phantom{\cdots} | = | \phantom{\cdots} |$, 
+but the meaning of these symbols depends on context.
+We've seen that vertical lines can mean absolute
+value (for real numbers), divisibility (for integers), 
+and now sizes (for sets). 
+
+Now we see that $\leq$ and $\geq$ can mean comparing
+numbers or comparing sizes of sets. When the sets being 
+compared are finite, the definitions 
+of $|A| \leq |B|$ agree. 
+
+But, properties of numbers cannot be assumed when comparing
+cardinalities of infinite sets.
+
+In a nutshell: cardinality of sets is defined via functions.
+This definition agrees with the usual notion of ``size'' for 
+finite sets. \vfill
+\section*{Cardinality properties}
+
+
+{\bf Properties of cardinality}
+\begin{align*}
+&\forall A ~ (~  |A| = |A| ~)\\
+&\forall A ~ \forall B ~(~ |A| = |B|  ~\to ~ |B| = |A|~)\\
+&\forall A ~ \forall B ~ \forall C~ (~ (|A| = |B| ~\wedge~ |B| = |C|) ~\to ~ |A| = |C|~)
+\end{align*}
+
+{\it Extra practice with proofs:} Use the definitions of bijections to prove these properties. \vfill
+\section*{Cantor schroder bernstein theorem}
+
+
+{\bf Cantor-Schroder-Bernstein Theorem}: For all nonempty sets,
+\[
+|A| = |B| \qquad\text{if and only if} \qquad (|A| \leq |B| ~\text{and}~ |B| \leq |A|)
+\qquad\text{if and only if} \qquad (|A| \geq |B| ~\text{and}~ |B| \geq |A|)
+\]
+
+To prove $|A| = |B|$,  we can do any {\bf one} of the following
+
+\begin{itemize}\setlength{\itemsep}{-5pt}
+\item Prove there exists  a bijection $f:  A \to B$;
+\item Prove there exists a  bijection  $f: B  \to  A$;
+\item Prove there exists two functions $f_1: A \to B$, $f_2: B \to  A$ where each of $f_1, f_2$ is one-to-one.
+\item Prove there exists two functions $f_1: A \to B$, $f_2: B \to  A$ where each of $f_1, f_2$ is onto.
+\end{itemize} \vfill
+\section*{Countably infinite definition}
+
+
+{\bf Definition}: A set $A$ is {\bf countably infinite} means it is the 
+same size as $\mathbb{N}$.
+
+ \vfill
+\section*{Countably infinite examples sets of numbers}
+
+
+{\bf Natural numbers} $\mathbb{N}$ \hfill {\it List}:  $0~~1~~2~~3~~4~~5~~6~~7~~8~~9~~10 \ldots$
+
+$identity: \mathbb{N} \to \mathbb{N}$ with $identity(n) = n$
+
+{\it Claim}: $identity$ is a bijection. {\it Proof}: Ex. \hfill {\bf Corollary}: $ | \mathbb{N} | = |\mathbb{N}|~$
+
+{\bf Positive integers} $\mathbb{Z}^+$ \hfill {\it List}:  $1~~2~~3~~4~~5~~6~~7~~8~~9~~10~~11\ldots$
+
+$positives: \mathbb{N} \to \mathbb{Z}^+$ with $positives(n) = n+1$
+
+{\it Claim}: $positives$ is a bijection.  {\it Proof}: Ex.\hfill {\bf Corollary}: $ | \mathbb{N} | = |\mathbb{Z}^+|$
+
+{\bf Negative integers $\mathbb{Z}^-$}\hfill  {\it List}: $-1$~$-2$~$-3$~$-4$~$-5$~$-6$~$-7$~$-8$~$-9$~$-10$~$-11$\ldots
+
+$negatives: \mathbb{N} \to \mathbb{Z}^-$ with $negatives(n) = -n-1$
+
+{\it Claim}: $negatives$ is a bijection. \hfill {\bf Corollary}: $ | \mathbb{N} | = |\mathbb{Z}^-|$
+
+{\it Proof}: We need to show it is a well-defined function that is one-to-one and onto.
+
+\begin{itemize}
+\item Well-defined? 
+
+Consider an arbitrary element of the domain, $n \in \mathbb{N}$. We need to show it maps to exactly one element of $\mathbb{Z}^-$.
+
+\vfill
+
+\item One-to-one?
+
+
+Consider arbitrary elements of the domain $a, b \in \mathbb{N}$. We need to show that 
+$$\left(~negatives(a) = negatives(b) ~\right) \to (a=b)$$
+
+\vfill
+
+\item Onto?
+
+Consider arbitrary element of the codomain $b \in \mathbb{Z}^-$. We need witness in $\mathbb{N}$ that maps to $b$.
+
+\vfill
+\end{itemize}
+
+{\bf Integers} $\mathbb{Z}$ \hfill {\it List}:  $0~-1~~1~-2~~2~-3~~3~-4~~4~-5~~5$\ldots
+
+$f: \mathbb{Z} \to \mathbb{N}$ with $f(x) = \begin{cases}2x &\text{if $x \geq 0$} \\-2x-1 &\text{if $x < 0$} \end{cases}$
+
+{\it Claim}: $f$ is a bijection.  {\it Proof}: Ex.\hfill {\bf Corollary}: $ | \mathbb{Z} | = |\mathbb{N}|$
+\newpage
+
+
+ \vfill
+\section*{Countably infinite examples other sets}
+
+
+{\bf More examples of countably infinite sets}
+
+{\bf Claim}: $S$ is countably infinite
+
+{\it Similarly: The set of all strings over a specific alphabet is countably infinite.}
+\begin{center}
+Bijection using alphabetical-ish ordering
+(first order by length, then alphabetically among strings of same length) 
+of strands
+\end{center}
+
+\vspace{50pt}
+
+
+{\bf Claim}: $L$ is countably infinite
+
+\begin{multicols}{2}
+\begin{align*}
+    &list: \mathbb{N} \to L \\
+    &list(n) = (n, []) \\
+    &
+\end{align*}
+
+\begin{align*}
+    &toNum: L \to \mathbb{N} \\
+    &toNum([]) = 0 \\
+    &toNum( ~(n,l)~) = 2^n 3^{toNum(l)} \qquad \text{for $n \in \mathbb{N}$, $l \in L$}
+\end{align*}
+\end{multicols}
+\vspace{30pt}
+
+{\bf Claim}: $|\mathbb{Z}^+| = |\mathbb{Q}|$ 
+
+One-to-one function from $\mathbb{Z}^+$ to $\mathbb{Q}$
+is $f_1: \mathbb{Z}^+ \to \mathbb{Q}$ with $f_1(n) = n$ for all 
+$n \in \mathbb{N}$.
+
+\vspace{30pt}
+
+
+\begin{align*}
+    &f_2: \mathbb{Q} \to \mathbb{Z} \times \mathbb{Z} \\
+    &f_2(x) = \begin{cases}
+        (0,1) & \text{if $x = 0$} \\
+        (p,q) & \text{if $x = \frac{p}{q}$,}\\
+                & \text{$gcd(p,q) = 1$, $q > 0$}
+    \end{cases}
+\end{align*}
+\begin{multicols}{2}
+\begin{align*}
+    &f_3: \mathbb{Z} \times \mathbb{Z} \to \mathbb{Z}^+ \times \mathbb{Z}^+ \\
+    &f_3(~(x,y)~) = \begin{cases}
+        (2x+2, 2y+2) & \text{if $x \geq 0, y \geq 0$} \\
+        (-2x-1, 2y+2) & \text{if $x < 0, y \geq 0$} \\
+        (2x+2, -2y+1) & \text{if $x \geq 0, y < 0$} \\
+        (-2x-1, -2y-1) & \text{if $x < 0, y < 0$} \\
+    \end{cases}
+\end{align*}
+
+\begin{align*}
+    &f_4: \mathbb{Z}^+ \times \mathbb{Z}^+ \to \mathbb{Z}^+ \\
+    &f_4(~(x,y)~) = 2^x 3^y \qquad \text{for $x,y \in \mathbb{Z}^+$}
+\end{align*}
+\end{multicols} \vfill
+\section*{Cardinality categories}
+
+
+A set $A$ is {\bf finite} means it is empty or it is the same size as $\{ 1, \ldots, n \}$ for some $n \in \mathbb{N}$.
+
+A set $A$ is {\bf countably infinite} means it is the same size as $\mathbb{N}$. {\it Notice: 
+all countably infinite sets are the same size as each other.}
+
+A set $A$ is {\bf countable} means it is either finite or countably infinite.
+
+A set $A$ is {\bf uncountable} means it is not countable. \vfill
+\section*{Cardinality countability lemmas}
+
+
+{\bf Lemmas about countable and uncountable sets}
+
+{\bf Lemma}: If $A$ is a subset of a countable set, then it's countable.
+
+\vspace{80pt}
+
+{\bf Lemma}: If $A$ is a superset of an uncountable set, then it's uncountable.
+
+\vspace{80pt}
+
+{\bf Lemma}: If $A$ and $B$ are countable sets, then $A \cup B$ is countable
+and $A \cap B$ is countable.
+
+\vspace{80pt}
+
+{\bf Lemma}: If $A$ and $B$ are countable sets, then $A \times B$ is countable.
+
+{\it Generalize pairing ideas from $\mathbb{Z}^+ \times \mathbb{Z}^+$ to $\mathbb{Z}^+$}
+
+\vspace{50pt}
+
+{\bf Lemma}: If $A$ is a subset of $B$ , to show that $|A| = |B|$, 
+it's enough to give one-to-one function from $B$ to $A$ or an onto function 
+from $A$ to $B$.
+
+\vspace{80pt}
+ \vfill
+\section*{Cardinality power sets}
+
+
+{\it Recall}: When $U$ is a set, $\mathcal{P}(U) = \{ X \mid X \subseteq U\}$
+
+{\it Key idea}: For finite sets, the power set of a set has strictly greater size than the set itself.
+Does this extend to infinite sets?
+
+{\bf Definition}: For two sets $A, B$, we use the notation $|A| < |B|$ to denote
+$(~|A| \leq |B| ~) \land \lnot (~|A| = |B|)$.
+
+\begin{alignat*}{4}
+    &\emptyset = \{ \} \qquad &&\mathcal{P}(\emptyset) = \{ \emptyset \} \qquad &&|\emptyset| < |\mathcal{P}(\emptyset)| \\
+    &\{1 \} \qquad &&\mathcal{P}(\{1\}) = \{ \emptyset, \{1\} \} \qquad &&|\{1\}| < |\mathcal{P}(\{1\})| \\
+    &\{1,2 \} \qquad &&\mathcal{P}(\{1,2\}) = \{ \emptyset, \{1\}, \{2\}, \{1,2\} \} \qquad &&|\{1,2\}| < |\mathcal{P}(\{1,2\})| \\
+\end{alignat*}
+
+{\bf $\mathbb{N}$ and its power set}
+
+Example elements of $\mathbb{N}$ 
+
+\vspace{20pt}
+
+Example elements of $\mathcal{P}(\mathbb{N})$
+
+\vspace{20pt}
+
+{\bf Claim}: $| \mathbb{N} | \leq |\mathcal{P} ( \mathbb{N} ) |$
+
+\vspace{100pt}
+\newpage
+{\bf Claim}: There is an uncountable set.  Example: $\underline{\phantom{~~~\mathcal{P}(\mathbb{N})~~~}}$
+
+{\bf Proof}:  By definition of countable, since $\underline{\phantom{~~~\mathcal{P}(\mathbb{N})~~~}}$
+is not finite, {\bf to show} is $|\mathbb{N}| \neq  |\mathcal{P}(\mathbb{N})|$ .
+
+Rewriting using  the definition of  cardinality, {\bf to show} is
+
+\phantom{$\neg \exists f : \mathbb{N} \to \mathcal{P}(\mathbb{N})  ~~(f \text{ is a bijection})~~$}
+
+\phantom{or equivalently $\forall f : \mathbb{N} \to \mathcal{P}(\mathbb{N})  ~~(f \text{ is not a bijection})~~$}
+
+
+Towards a proof by  universal generalization,  consider  an arbitrary function $f:  \mathbb{N} \to\mathcal{P}(\mathbb{N})$.
+
+{\bf To show}: $f$ is not a bijection.  It's enough to show that $f$ is not onto.
+
+Rewriting using the definition of  onto, {\bf to show}:
+\[
+\neg  \forall  B \in  \mathcal{P}(\mathbb{N}) ~\exists a \in \mathbb{N}  ~(~f(a) =  B~)
+\]
+. By logical  equivalence, we can write this as an existential statement:
+\[
+\underline{\phantom{\qquad\qquad\exists B \in  \mathcal{P}(\mathbb{N}) ~\forall a \in \mathbb{N}  ~(~f(a) \neq  B~)\qquad\qquad}}
+\]
+In search of a witness, define the following  collection of nonnegative integers:
+\[
+D_f = \{ n \in \mathbb{N}  ~\mid~  n \notin f(n)  \}
+\]
+. By  definition  of power  set, since  all elements  of  $D_f$ are  in  $\mathbb{N}$,   $D_f \in \mathcal{P}(\mathbb{N})$.  It's enough to prove the following Lemma: 
+
+{\bf Lemma}: $\forall a \in \mathbb{N}  ~(~f(a) \neq  D_f~)$.
+
+
+{\bf Proof  of lemma}: \phantom{Towards universal  generalization, consider an arbitrary  $a \in \mathbb{N}$.
+By definition  of set equality, {\bf to show} is  $\exists  x ( \neg  (x \in f(a)~  \leftrightarrow  ~x \in D_f))$.
+For a witness, consider $x = a$.  There are two cases:  $a \in  f(a)~\vee~a \notin f(a)$. By definition 
+of $D_f$, each guarantees that $f(a) \neq  D_f$.}\\
+
+\vspace{50pt}
+
+By  the Lemma, we  have proved that $f$ is not onto, and since $f$ was arbitrary, there are no onto
+functions from $\mathbb{N}$ to $\mathcal{P}(\mathbb{N})$. QED
+
+
+{\bf Where does $D_f$ come from?} The idea is to build a set that would ``disagree" with 
+each of the images of $f$ about some element. 
+
+\begin{center}
+\begin{tabular}{c|c|ccccccc}
+$n \in \mathbb{N}$ & $f(n) = X_n$ &  Is $0   \in X_n$?   & Is $1 \in X_n$?  &  Is $2 \in X_n$?  &  Is $3 \in X_n$?  &
+ Is $4 \in X_n$?  &  \ldots & Is $n \in D_f$?\\
+\hline
+$0$ & $f(0) = X_0$ & {\bf  Y~/~N}  & Y~/~N & Y~/~N & Y~/~N &Y~/~N & \ldots & {\bf  N~/~Y }\\
+$1$ & $f(1) = X_1$ & Y~/~N  & {\bf  Y~/~N} & Y~/~N & Y~/~N & Y~/~N & \ldots & {\bf  N~/~Y }\\
+$2$ & $f(2) = X_2$ & Y~/~N  & Y~/~N & {\bf  Y~/~N} & Y~/~N &Y~/~N & \ldots & {\bf  N~/~Y }\\
+$3$ & $f(3) = X_3$ & Y~/~N  & Y~/~N & Y~/~N & {\bf  Y~/~N} & Y~/~N & \ldots & {\bf  N~/~Y }\\
+$4$ & $f(4) = X_4$ & Y~/~N  & Y~/~N & Y~/~N & Y~/~N &{\bf  Y~/~N} & \ldots & {\bf  N~/~Y }\\
+\vdots
+\end{tabular}
+\end{center} \vfill
+\section*{Cardinality rationals reals}
+
+
+{\bf Comparing $\mathbb{Q}$ and $\mathbb{R}$} 
+
+
+Both $\mathbb{Q}$ and $\mathbb{R}$ have no greatest element.
+
+Both $\mathbb{Q}$ and $\mathbb{R}$ have no least element.
+
+The quantified statement 
+\[
+    \forall x \forall y (x < y \to \exists z ( x < z < y) )
+\]
+is true about both $\mathbb{Q}$ and $\mathbb{R}$.
+
+Both $\mathbb{Q}$ and $\mathbb{R}$ are infinite. But, $\mathbb{Q}$ is countably infinite
+whereas $\mathbb{R}$ is uncountable.\\
+
+
+{\bf The set of real numbers}
+
+$\mathbb{Z} \subsetneq \mathbb{Q} \subsetneq \mathbb{R}$
+
+
+{\bf  Order axioms} (Rosen Appendix 1): 
+
+\begin{center}
+\begin{tabular}{p{1.2in}p{4in}}
+Reflexivity &  $\forall a \in  \mathbb{R} (a \leq a)$\\
+Antisymmetry &  $\forall a \in  \mathbb{R}~\forall b \in \mathbb{R}~(~(a \leq b~ \wedge ~b \leq a) \to (a=b)~)$\\
+Transitivity &  $\forall a \in  \mathbb{R}~\forall b \in \mathbb{R}~\forall c \in \mathbb{R}~
+(~(a \leq b \wedge b \leq c) ~\to  ~(a \leq c)~)$ \\
+Trichotomy & 
+$\forall a \in \mathbb{R}~\forall b \in \mathbb{R}~ ( ~(a=b ~\vee~ b > a ~\vee~ a  < b)  $
+\end{tabular}
+\end{center}
+
+
+{\bf  Completeness axioms} (Rosen Appendix 1): 
+
+
+\begin{center}
+\begin{tabular}{p{1.4in}p{6in}}
+Least upper bound &  Every nonempty set of real numbers that 
+is bounded  above has  a  least upper bound  
+\\
+Nested intervals &  For each sequence  of intervals  $[a_n , b_n]$
+where, for each $n$, $a_n < a_{n+1} < b_{n+1} < b_n$, there
+is at least one  real number $x$ such that, for all $n$, 
+$a_n \leq x \leq b_n$.\\
+\end{tabular}
+\end{center}
+
+Each real  number $r  \in  \mathbb{R}$ is described by a function to give better and better approximations
+\[
+x_r: \mathbb{Z}^+ \to \{0,1\}  \qquad  \text{where  $x_r(n ) =  n^{th} $ bit in  binary expansion of $r$}
+\]
+\begin{center}
+\begin{tabular}{|c|c|p{3.9in}|}
+\hline
+$r$ & Binary expansion & $x_r$ \\
+\hline
+$0.1$ & $0.00011001 \ldots$ &  $x_{0.1}(n) = \begin{cases} 0&\text{if $n > 1$ and $(n~\text{\bf mod}~4) =2$} \\
+0&\text{if $n=1$ or if $n > 1$ and $(n~\text{\bf mod}~4) =3$} \\1&\text{if $n > 1$ and $(n~\text{\bf mod}~4) =0$} \\
+1&\text{if $n > 1$ and $(n~\text{\bf mod}~4) =1$} \end{cases}$  \\
+&&  \\
+\hline
+$\sqrt{2} - 1 = 0.4142135 \ldots$  &$0.01101010\ldots$& Use linear approximations
+(tangent lines from calculus) to get algorithm for bounding error of successive operations. Define 
+$x_{\sqrt{2}-1}(n)$ to be  $n^{th}$ bit in approximation  that has error less than  $2^{-(n+1)}$.
+\\
+&& \\
+\hline
+\end{tabular}
+\end{center}
+
+\newpage 
+
+{\bf Claim}: $\{  r \in \mathbb{R} ~\mid~ 0 \leq r ~\wedge~ r \leq 1 \}$ is uncountable.
+
+{\it Approach 1}: Mimic proof that $\mathcal{P}(\mathbb{Z}^+)$ is uncountable.
+
+
+{\bf Proof}:  By definition of countable, since $\{  r \in \mathbb{R} ~\mid~ 0 \leq r ~\wedge~ r \leq 1 \}$
+is not finite, {\bf to show} is $|\mathbb{N}| \neq  |\{  r \in \mathbb{R} ~\mid~ 0 \leq r ~\wedge~ r \leq 1 \}|$ .
+
+
+{\bf To show} is
+$\forall f : \mathbb{Z}^+ \to \{  r \in \mathbb{R} ~\mid~ 0 \leq r ~\wedge~ r \leq 1 \}  ~~(f \text{ is not a bijection})~~$.
+Towards a proof by  universal generalization, consider  an arbitrary function 
+$f:  \mathbb{Z}^+ \to \{  r \in \mathbb{R} ~\mid~ 0 \leq r ~\wedge~ r \leq 1 \}$.
+{\bf To show}: $f$ is not a bijection.  It's enough to show that $f$ is not onto.
+Rewriting using the definition of  onto, {\bf to show}:
+\[
+\exists x \in \{  r \in \mathbb{R} ~\mid~ 0 \leq r ~\wedge~ r \leq 1 \} ~\forall a \in \mathbb{N}  ~(~f(a) \neq  x~)
+\]
+In search of a witness, define the following  real number by defining its binary expansion
+\[
+d_f = 0.b_1 b_2 b_3 \cdots
+\]
+where $b_i = 1-b_{ii}$ where $b_{jk}$ is the coefficient of $2^{-k}$ in the binary expansion of $f(j)$.
+Since\footnote{There's a subtle imprecision in this part of the proof as presented, but it can be fixed.} $d_f \neq f(a)$ for any positive integer $a$, $f$ is not onto.
+
+
+{\it Approach 2}: Nested closed interval property
+
+{\bf To show} $f: \mathbb{N} \to \{  r \in \mathbb{R} ~\mid~ 0  \leq r ~\wedge~ r \leq 1 \}$ is not onto. 
+{\bf  Strategy}: Build
+a sequence of nested closed intervals that each avoid some $f(n)$.   Then  the real
+number that is in all of the intervals  can't be $f(n)$ for any $n$. Hence,  $f$ is not  onto.
+
+Consider the function $f: \mathbb{N} \to \{  r \in \mathbb{R} ~\mid~ 0 \leq r ~\wedge~ r \leq 1 \}$ with  $f(n) = \frac{1+\sin(n)}{2}$
+
+\begin{center}
+\begin{tabular}{c||p{1.65in} || p{3in} }
+$n$ &  $f(n)$& Interval that avoids $f(n)$ \\
+\hline
+$0$ & $0.5$ &  \\
+$1$ &$0.920735\ldots$  &  \\
+$2$ &$0.954649\ldots$ &  \\
+$3$ &$0.570560\ldots$ & \\
+$4$ &$0.121599\ldots $&  \\
+\vdots &  &\\
+\end{tabular}
+\end{center}
+  \vfill
+\section*{Cardinality uncountable examples}
+
+
+\begin{itemize}
+    \item The power set of any countably infinite set is uncountable. For example:
+    \[
+        \mathcal{P}(\mathbb{N}), \mathcal{P}(\mathbb{Z^+}), \mathcal{P}(\mathbb{Z})
+    \]
+    are each uncountable.
+    \item The closed interval $\{x \in \mathbb{R} ~|~ 0 \leq x \leq 1\}$, any other nonempty closed interval of real numbers whose endpoints are 
+    unequal, as well as the related intervals that exclude one or both of the endpoints.
+    \item The set of all real numbers $\mathbb{R}$ is uncountable and the set of irrational
+    real numbers $\overline{\mathbb{Q}}$ is uncountable.
+\end{itemize} \vfill
+\section*{Cardinality recap}
+
+
+
+The set of positive integers $\mathbb{Z}^{+}$ is countably infinite.
+
+The set of integers $\mathbb{Z}$ is countably infinite and is a proper superset of $\mathbb{Z}^{+}$. 
+In fact, the set difference 
+$$\mathbb{Z} \setminus \mathbb{Z}^{+} = \{ x \in \mathbb{Z} \mid x \notin \mathbb{Z}^+\} 
+= \{ x \in \mathbb{Z} \mid x \leq 0 \}$$ is countably infinite.
+
+The set of rationals 
+$\mathbb{Q} = \left\{ \frac{p}{q} \mid p \in \mathbb{Z}  \text{ and  } 
+q  \in \mathbb{Z} \text{ and } q \neq  0 \right\}$ is countably infinite.
+
+
+The set of real numbers $\mathbb{R}$ is uncountable. In fact, the closed 
+interval $\{x \in \mathbb{R} ~|~ 0 \leq x \leq 1\}$, 
+any other nonempty closed interval of real numbers whose endpoints are 
+unequal, as well as the related intervals that exclude one or both of the endpoints are
+each uncountable.
+The set of {\bf irrational} numbers $\overline{\mathbb{Q}} = \mathbb{R} - \mathbb{Q}
+= \{ x \in \mathbb{R} \mid x \notin \mathbb{Q} \}$ is uncountable.
+
+\vfill
+
+We can classify any set as 
+\begin{itemize}
+\item {\bf Finite} size. Fact: For each positive number $n$, for any sets $X$ and $Y$ each 
+size $n$, there is a bijection between $X$ and $Y$.
+\item {\bf Countably Infinite}. Fact: for any countably infinite sets $X$ and $Y$, there is a bijection
+between $X$ and $Y$.
+\item {\bf Uncountable}. Examples: $\mathcal{P}(\mathbb{N})$, the power set of any infinite set, 
+the set of real numbers, any nonempty interval of real numbers. Fact: there are (many) examples 
+of uncountable sets that do not have a bijection between them.
+\end{itemize} \vfill
+\section*{Cardinality final review}
+
+
+{\bf True or False}?  For all sets $A$ and $B$ where  $A \subseteq B$, 
+if $A$ is infinite then $B$ is finite.
+
+\vfill
+
+{\bf True or False}?   For all sets $A$ and $B$ where  $A \subseteq B$, 
+if $A$ is countable then $B$ is countable.
+
+\vfill
+
+{\bf True or False}?   For all sets $A$ and $B$ where  $A \subseteq B$, 
+if $B$ is infinite then $A$ is finite.
+
+\vfill
+
+{\bf True or False}?   For all sets $A$ and $B$ where  $A \subseteq B$, 
+if $B$ is uncountable then $A$ is countable.
+
+\vfill \vfill
+\section*{Binary relation definition}
+
+
+{\bf Definition}: When $A$ and $B$ are sets, we say any subset of $A \times B$ is a {\bf binary relation}. 
+A relation $R$ can also be represented as
+
+\begin{itemize}
+\item A function $f_{TF} : A \times B \to \{T, F\}$
+where, for $a \in A$ and $b \in B$, $f_{TF}(~(a,b)~) = 
+\begin{cases} 
+    T \qquad&\text{when } (a,b) \in R \\
+    F \qquad&\text{when } (a,b) \notin R
+\end{cases}$
+\item A function $f_{\mathcal{P}} : A   \to \mathcal{P}(B)$ where, for $a \in A$, 
+$f_{\mathcal{P}}( a ) = \{ b \in B ~|~ (a,b) \in R \}$
+\end{itemize}
+
+When $A$ is a set, we say any subset of $A \times A$ is a (binary) {\bf relation} on $A$.
+
+ \vfill
+\section*{Relations as graphs}
+
+
+For relation $R$ on a set $A$, we can represent this relation as a
+{\bf graph}: a collection of nodes (vertices) and edges (arrows). The 
+nodes of the graph are the elements of $A$ and 
+there is an edge from $a$ to $b$ exactly when $(a,b) \in R$.
+ \vfill
+\section*{Binary relation examples}
+
+
+{\it Example}: For $A = \mathcal{P}(\mathbb{R})$, we can define the relation $EQ_{\mathbb{R}}$ on $A$ as 
+\[
+\{ (X_1, X_2 ) \in\mathcal{P}(\mathbb{R})  \times \mathcal{P}(\mathbb{R}) ~|~ |X_1| = |X_2| \}
+\]
+
+\vfill
+
+{\it Example}: Let $R_{(\textbf{mod } n)}$ be the set of all pairs of integers $(a, b)$ such that $(a \textbf{ mod } n = b \textbf{ mod } n)$.
+Then $a$ is {\bf congruent to} $b$ \textbf{mod} $n$ means $(a, b) \in R_{(\textbf{mod } n)}$. A common notation is to write this as $a \equiv b (\textbf{mod } n)$.
+
+
+$R_{(\textbf{mod } n)}$ is a relation on the set $\underline{\phantom{\mathbb{Z}}\hspace{20em}}$
+
+
+Some example elements of $R_{(\textbf{mod } 4)}$ are: 
+
+\vfill \vfill
+\section*{Rna rnalen basecount definitions}
 
 
 {\it Recall the definitions}: The set of RNA strands $S$ is defined (recursively) by:
@@ -1652,6 +2519,346 @@ LHS &= length(~append( ~(~ (n,l'), 100~)~)~) \\
 Prove or disprove: $\forall n \in \mathbb{N} ~\exists l \in L ~(~length(l) = n~)$
 
 \vspace{300pt} \vfill
+\section*{Proof strategy proof by contradiction}
+
+
+\fbox{\parbox{\textwidth}{
+
+{\bf New! Proof by Contradiction} 
+
+To prove that a statement $p$ is true, pick another statement $r$ and once we show
+that $\neg p  \to (r \wedge  \neg r)$ then  we can conclude that  $p$ is  true.
+
+{\it Informally} The statement we care about can't possibly be false, so it must be true.
+}} 
+
+ \vfill
+\section*{Least greatest proofs}
+
+
+For a set of numbers $X$, how do you formalize ``there is a greatest $X$'' 
+or ``there is a least $X$''?
+
+\vspace{30pt}
+
+{\bf Prove} or {\bf  disprove}:  There is a least prime number.
+
+\vspace{100pt}
+
+{\bf Prove} or {\bf  disprove}: There is a greatest integer. 
+
+{\it Approach 1, De Morgan's and universal generalization}: 
+
+\vspace{100pt}
+
+{\it Approach 2, proof by contradiction}: 
+
+\vspace{200pt}
+
+{\it Extra examples}: 
+Prove or disprove that $\mathbb{N}$,  $\mathbb{Q}$ each have a
+least and a greatest element. 
+ \vfill
+\section*{Gcd definition}
+
+
+{\bf Definition}: {\bf Greatest common divisor} Let $a$ and $b$ be integers, not both zero. The largest integer $d$ such that 
+$d$ is a  factor of $a$ and $d$ is a factor of  $b$ is called the greatest common divisor of $a$ and $b$ 
+and is denoted by $gcd(~(a, b)~)$. \vfill
+\section*{Gcd examples}
+
+
+Why do we restrict to the situation where $a$ and $b$ are not both zero?
+
+\vspace{50pt}
+
+
+Calculate $gcd(~(10,15)~)$
+
+\vspace{50pt}
+
+Calculate $gcd(~(10,20)~)$
+
+\vspace{50pt} \vfill
+\section*{Gcd basic claims}
+
+
+{\bf Claim}: For any integers $a,b$ (not both zero), $gcd(~(a,b)~) \geq 1$.
+
+{\bf Proof}: {\it Show that $1$ is a common factor of any two integers, so since the gcd 
+is the greatest common factor it is greater than or equal to any common factor.}
+
+\vspace{150pt}
+
+{\bf Claim}: For any positive integers $a,b$, $gcd(~(a,b)~) \leq a$ and $gcd( ~(a,b)~) \leq b$.
+
+{\bf Proof} {\it Using the definition of gcd and the fact that factors of a positive integer
+are less than or equal to that integer.}
+
+\vspace{150pt}
+
+{\bf Claim}: For any positive integers $a,b$, if $a$ divides $b$ then $gcd(~(a,b)~) = a$.
+
+{\bf Proof} {\it Using previous claim and definition of gcd.}
+
+\vspace{150pt}
+
+
+{\bf Claim}: For any positive integers $a,b,c$, if there is some integer $q$ such that $a = bq + c$,
+\[
+    gcd(~(a,b)~) = gcd (~(b,c)~)
+\]
+{\bf Proof} {\it Prove that any common divisor of $a,b$ divides $c$ and that any common 
+divisor of $b,c$ divides $a$.}
+
+\vspace{150pt}
+ \vfill
+\section*{Gcd lemma relatively prime}
+
+
+{\bf Lemma}: For any integers $p, q$ (not both zero), 
+$gcd \left(~ \left(~\frac{p}{gcd(~(p,q)~)}, \frac{q}{gcd(~(p,q)~)} ~\right) ~\right) = 1$ .
+In other words, can reduce to relatively prime integers by dividing by gcd.
+
+{\bf Proof}:
+
+Let $x$ be arbitrary positive integer and assume that $x$ is a 
+factor of each of $\frac{p}{gcd(~(p,q)~)}$ and $\frac{q}{gcd(~(p,q)~)}$. 
+This gives integers $\alpha$, $\beta$ such that 
+\[
+    \alpha x = \frac{p}{gcd(~(p,q)~)} \qquad \qquad \beta x = \frac{q}{gcd(~(p,q)~)}
+\]
+Multiplying both sides by the denominator in the RHS: 
+\[
+    \alpha x \cdot gcd(~(p,q)~)= p \qquad \qquad \beta x \cdot gcd(~(p,q)~)= q
+\]
+In other words, $x \cdot gcd(~(p,q)~)$ is a common divisor of $p, q$. By definition of $gcd$, this means
+\[
+    x \cdot gcd (~(p,q)~) \leq gcd (~(p,q)~)
+\]
+and since $gcd(~(p,q)~)$ is positive, this means, $x \leq 1$.
+\vspace{350pt}
+ \vfill
+\section*{Rational numbers definition}
+
+
+The {\bf set  of rational numbers}, $\mathbb{Q}$  is defined as 
+\[
+\left\{ \frac{p}{q} \mid p \in \mathbb{Z}  \text{ and  } q  \in \mathbb{Z} \text{ and } q \neq  0 \right\}
+\text{~~~~or, equivalently,~~~~}
+\{ x  \in  \mathbb{R} \mid \exists p \in \mathbb{Z}  \exists q \in \mathbb{Z}^+ ( p =  x \cdot q) \}
+\]
+
+{\it Extra practice}: Use the definition of set equality to prove that the definitions above  give the same set.
+
+ \vfill
+\section*{Proof by contradiction irrational}
+
+
+{\bf Goal}:  The square root of $2$ is not a rational number.  In other words: $\neg \exists x \in \mathbb{Q} ( x^2 -  2 = 0)$
+
+{\bf Attempted proof}: The definition of the set of rational numbers is the collection of fractions $p/q$ where $p$ is an integer and $q$ is a nonzero integer. Looking for a {\bf witness} $p$ and $q$, we can write the square root of $2$ as the fraction 
+$\sqrt{2 }/1$, where $1$ is a nonzero integer. Since the numerator is not in the domain, this witness is not allowed, and we have shown that the square root of $2$ is not a fraction of integers (with nonzero denominator). Thus, the square root of $2$ is not rational.
+
+
+{\it The problem in the above attempted proof is that} \underline{\phantom{it only considers one candidate witness
+and does not prove that no witnesses exist.}}
+
+
+{\bf Lemma 1:} For every two integers $a$ and  $b$, not both zero, with  $gcd(~(a,b)~) = 1$, it is not the case that both $a$
+is  even and $b$ is even.
+
+
+{\bf Lemma 2:} For every integer  $x$, $x$ is  even if and only if $x^2$  is even.
+
+
+{\bf Proof}: Towards a proof by contradiction, we will define a statement 
+$r$ such that $\sqrt{2} \in \mathbb{Q} \to (r \land \lnot r)$. 
+
+Assume that $\sqrt{2} \in \mathbb{Q}$. Namely, there are positive integers
+$p, q$ such that 
+\[
+    \sqrt{2} = \frac{p}{q}
+\]
+Let $a= \frac{p}{gcd( ~(p,q)~)}$, $b = \frac{q}{gcd(~(p,q)~)}$, then 
+\[
+    \sqrt{2} = \frac{a}{b} \qquad \text{and} \qquad gcd(~(a,b)~) = 1
+\]
+
+By Lemma 1, $a$ and $b$ are not both even. We define $r$ to be the 
+statement ``$a$ is even and $b$ is even'', and we have proved $\lnot r$.
+
+Squaring both sides and clearing denominator: $2b^2 = a^2$.
+
+By definition of even, since $b^2$ is an integer$, a^2$ is even.
+
+By Lemma 2, this guarantees that $a$ is even too. So, by 
+definition of even, there is some integer (call it $c$), such that $a = 2c$.
+
+Plugging into the equation:
+\[
+    2b^2 = a^2 = (2c)^2 = 4c^2
+\]
+and dividing both sides by $2$
+\[
+    b^2 = 2c^2
+\]
+and since $c^2$ is an integer, $b^2$ is even. By Lemma 2, $b$ is even too.
+Thus, $a$ is even and $b$ is even and we have proved $r$. 
+
+In other words, assuming that $\sqrt{2} \in \mathbb{Q}$ guarantees $r \land \lnot r$, 
+which is impossible, so $\sqrt{2} \notin \mathbb{Q}$. QED
+
+ \vfill
+\section*{Finite sets definition}
+
+
+{\bf Definition}: A {\bf finite} set is one whose distinct elements can be counted by a natural number.
+ \vfill
+\section*{Cardinality motivation}
+
+
+{\bf Motivating question}: when can we say one set is {\it bigger than} another?
+
+{\it Does the definition change when we're comparing finite sets? infinite sets?}
+
+Which is bigger? 
+\begin{itemize}
+    \item The set $\{1,2,3\}$ or the set $\{0,1,2,3\}$?
+    \item The set $\{0, \pi, \sqrt{2} \}$ or the set $\{\mathbb{N}, \mathbb{R}, \emptyset\}$?
+    \item The set $\mathbb{N}$ or the set $\mathbb{Q}$?
+    \item The set $\mathbb{Q}$ or the set $\mathbb{R}$?
+    \item The set $\mathbb{N}$ or the set $\mathbb{R}^+$?
+\end{itemize}
+
+ \vfill
+\section*{Cardinality rationale for functions}
+
+
+{\bf Key idea for cardinality}: Counting 
+distinct elements is a way of labelling elements
+with natural numbers. This is a function!
+In general, functions let us 
+associate elements of one set with those
+of another. If the association is ``{\it good}", 
+we get a correspondence between the elements of the subsets
+which can relate the sizes of the sets. \vfill
+\section*{Musical chairs analogy}
+
+
+{\it Analogy}: Musical chairs
+
+\begin{multicols}{2}
+\includegraphics[width=1.8in]{../../resources/images/musicalchairs.png}
+\columnbreak
+
+People try to sit down when the music stops
+
+Person\sun~ sits in Chair 1,
+Person\smiley~ sits in Chair 2,
+
+Person\frownie~  is left standing!
+\end{multicols}
+What does this say about the number of chairs and the number of people?
+
+\vspace{100pt} \vfill
+\section*{Well defined functions}
+
+
+Recall that a function is defined by its (1) domain, (2) codomain, and (3) rule assigning each 
+element in the domain exactly one element in the codomain. 
+The domain and codomain are nonempty sets.
+The rule can be depicted as a table, formula, English description, etc.
+
+A function can {\it fail to be well-defined} if there is some 
+domain element where the function rule doesn't give a
+unique codomain element. For example, the function rule might lead to 
+more than one potential image, or to an image outside of the codomain.
+
+
+{\it Example}: $f_A: \mathbb{R}^+ \to \mathbb{Q}$ with $f_A(x) = x$ is {\bf not} a well-defined function because
+
+\vspace{100pt}
+
+
+{\it Example}: $f_B: \mathbb{Q} \to \mathbb{Z}$ with $f_B\left(\frac{p}{q}\right) = p+q$ is {\bf not} a well-defined function because
+
+\vspace{100pt}
+
+
+{\it Example}: $f_C: \mathbb{Z} \to \mathbb{R}$ with $f_C(x) = \frac{x}{|x|}$ is {\bf not} a well-defined function because
+
+\vspace{100pt}
+ \vfill
+\section*{Injective function definition}
+
+
+{\bf Definition} : A function $f: D  \to C$ is {\bf one-to-one} (or  injective) 
+means for every $a,b$ in the domain $D$, 
+if $f(a) = f(b)$ then  $a=b$.
+
+Formally, $f: D  \to  C$ is  one-to-one  means $\underline{\phantom{\forall a \in D \forall b \in D ~(f(a) = f(b) \to a = b)}}$.
+ \vfill
+\section*{Injective functions visually}
+
+
+Informally, a function being one-to-one means ``no duplicate images''.
+
+\phantom{Draw finite domain, finite codomain picture with duplicate image.}
+\vspace{50pt} \vfill
+\section*{Cardinality lower bound definition}
+
+
+{\bf Definition}:  For nonempty sets $A, B$, we say that {\bf the  cardinality of $A$ is  no  bigger than the cardinality of $B$}, 
+and write $|A| \leq |B|$, to mean there is a  one-to-one function  with domain $A$  and codomain $B$.
+Also, we define $|\emptyset| \leq |B|$ for all sets $B$. \vfill
+\section*{Injective cardinality musical chairs}
+
+
+{\it In the analogy}: The function $sitter: \{ Chair1, Chair2\} \to \{ Person\sun, Person\smiley, Person\frownie \}$ given
+by $sitter(Chair1) = Person\sun$,  $sitter(Chair2) = Person\smiley$, is one-to-one and witnesses that 
+\[
+| \{ Chair1, Chair2\} | \leq |\{ Person\sun, Person\smiley, Person\frownie \}|
+\] \vfill
+\section*{Surjective function definition}
+
+
+{\bf Definition}: A function $f: D  \to C$ is {\bf onto} (or  surjective) means for every $b$ in the codomain, 
+there  is an element $a$ in the domain with  $f(a) = b$.
+
+Formally, $f: D  \to  C$ is  onto  means $\underline{\phantom{\forall b \in C  \exists a \in D ( f(a) = b)}}$.
+ \vfill
+\section*{Surjective functions visually}
+
+
+Informally, a function being onto means ``every potential image is an actual image''.
+
+\phantom{Draw finite domain, finite codomain picture with duplicate image.}
+\vspace{50pt} \vfill
+\section*{Cardinality upper bound definition}
+
+
+{\bf Definition}:  For nonempty sets $A, B$, we say that {\bf the  cardinality of $A$ is  no  smaller than 
+the cardinality of  $B$}, and 
+write $|A| \geq |B|$, to mean there is an onto function  with domain $A$  and codomain $B$.
+Also, we define $|A| \geq |\emptyset|$ for all sets $A$.
+ \vfill
+\section*{Surjective cardinality musical chairs}
+
+
+{\it In the analogy}: The function $triedToSit: \{ Person\sun, Person\smiley, Person\frownie \} \to  \{ Chair1, Chair2\} $ given
+by $triedToSit(Person\sun) = Chair1$,  $triedToSit(Person\smiley) = Chair2$, 
+$triedToSit(Person\frownie) = Chair2$, is onto and witnesses that 
+\[
+ |\{ Person\sun, Person\smiley, Person\frownie \}| \geq | \{ Chair1, Chair2\} |
+\] \vfill
+\section*{Bijection definition}
+
+
+{\bf Definition} : A function $f: D  \to C$ is a {\bf bijection} means that it is both 
+one-to-one  and onto. The {\bf inverse} of a  bijection $f: D  \to  C$ is 
+the function $g: C  \to  D$  such that $g(b) = a$ iff  $f(a) =  b$.
+ \vfill
 \section*{Compound proposition definitions}
 
 
