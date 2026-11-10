@@ -215,13 +215,21 @@
     },
     {
         "header": "Week 7",
-        "outcomes": "More recursion and induction",
+        "outcomes": "Proofs by contradiction, functions and cardinality",
         "CalendarInfo": " Dates: 11/09/26-11/13/26. No class on Wednesday November 11 in observance of Veterans Day.",
         "ExpandInCalendar": false,
         "content": [
             {
                 "name": "Notes",
                 "source": "Week7.tex"
+            },
+            {
+                "name": "Discussion notes",
+                "source": "files/W7_DI_empty.pdf"
+            },
+            {
+                "name": "(Video) Functions for cardinality",
+                "source": "https://youtu.be/2-oZ8SnzNAQ"
             }
         ],
         "Due Dates": [
@@ -241,10 +249,6 @@
             {
                 "name": "Notes",
                 "source": "Week8.tex"
-            },
-            {
-                "name": "(Video) Functions for cardinality",
-                "source": "https://youtu.be/2-oZ8SnzNAQ"
             },
             {
                 "name": "(Video) All RNA strands and all Linked Lists: countably infinite",
