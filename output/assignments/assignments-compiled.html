@@ -187,14 +187,494 @@
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">hw1-definitions-and-notationhw2-numbershw3-circuits-and-logichw4-proofs-sets-recursion</h1>
+<h1 class="title">hw1-definitions-and-notationhw2-numbershw3-circuits-and-logichw4-proofs-sets-recursionhw5-cardinality-functions-relations</h1>
 <p class="author">CSE020F26</p>
 <p class="date">Due: 10/06/26 at 5pm (no penalty late submission until
 8am next morning)Due: 10/20/26 at 5pm (no penalty late submission until
 8am next morning)Due: 11/03/26 at 5pm (no penalty late submission until
 8am next morning)Due: 11/17/26 at 5pm (no penalty late submission until
-8am next morning)</p>
+8am next morning)Due: 12/01/2026 at 5pm (late submission until 8am next
+morning)</p>
 </header>
+<div class="center">
+<p><span> CSE 20 Fall 2026<br />
+Exam Practice </span></p>
+</div>
+<dl>
+<dt>1. Modeling, Sets and Functions, Algorithms</dt>
+<dd>
+<p>In machine learning, clustering can be used to group similar data for
+prediction and recommendation. For example, each Netflix user’s viewing
+history can be represented as a <span
+class="math inline">\(n\)</span>-tuple indicating their preferences
+about movies in the database, where <span
+class="math inline">\(n\)</span> is the number of movies in the
+database. Each element in the <span
+class="math inline">\(n\)</span>-tuple indicate the user’s rating of the
+corresponding movie: <span class="math inline">\(1\)</span> indicates
+the person liked the movie, <span class="math inline">\(-1\)</span> that
+they didn’t, and <span class="math inline">\(0\)</span> that they didn’t
+rate it one way or another.</p>
+<p>Consider the following algorithm for determining if a user’s viewing
+history represents strong opinions on many movies.</p>
+<div class="algorithm">
+<p>procedure <span class="math inline">\(\textit{opinion}\)</span>(<span
+class="math inline">\((r_1, \ldots, r_n)\)</span>: a <span
+class="math inline">\(n\)</span>-tuple of ratings; <span
+class="math inline">\(c\)</span>: a nonnegative integer) <span
+class="math inline">\(sum\)</span> := <span
+class="math inline">\(0\)</span> for <span
+class="math inline">\(i\)</span> := <span
+class="math inline">\(1\)</span> to <span
+class="math inline">\(n\)</span> if <span class="math inline">\(r_i \neq
+0\)</span> <span class="math inline">\(sum\)</span> := <span
+class="math inline">\(sum + 1\)</span> return <span
+class="math inline">\(sum \geq c\)</span></p>
+</div>
+<ol>
+<li><p>When <span class="math inline">\(n = 3\)</span>, describe the set
+of all <span class="math inline">\(n\)</span>-tuples representing user
+ratings</p>
+<ol>
+<li><p>By the roster method.</p></li>
+<li><p>With set builder notation.</p></li>
+<li><p>Using a recursive definition.</p></li>
+</ol></li>
+<li><p>What are the possible return (output) values of this
+algorithm?</p></li>
+<li><p><span><strong>Trace</strong></span> the computation of <span
+class="math inline">\(opinion( (-1, 0, 0, 0, 1, 1,-1),
+2)\)</span>.</p></li>
+<li><p>Give an example of a nonnegative integer <span
+class="math inline">\(c\)</span> so that, no matter which <span
+class="math inline">\(n\)</span>-tuple <span class="math inline">\((r_1,
+\ldots, r_n)\)</span> we consider, <span class="math inline">\(opinion(
+(r_1, \ldots, r_n), c)\)</span> will have the same value. What value is
+it?</p></li>
+</ol>
+</dd>
+<dt>2. Sets and Functions</dt>
+<dd>
+<p><br />
+</p>
+<ol>
+<li><p>Give a recursive definition for the set <span
+class="math inline">\(\mathbb{N}\)</span>.</p></li>
+<li><p>Use the recursive definition from part (a) to give a recursive
+definition for the function with domain <span
+class="math inline">\(\mathbb{N}\)</span>, codomain <span
+class="math inline">\(\mathbb{N}\)</span> which computes, for input
+<span class="math inline">\(i\)</span>, the sum of the first <span
+class="math inline">\(i\)</span> powers of <span
+class="math inline">\(2\)</span>. For example, on input <span
+class="math inline">\(0\)</span>, the function evaluates to <span
+class="math inline">\(2^0\)</span>, namely to <span
+class="math inline">\(1\)</span>. On input <span
+class="math inline">\(1\)</span>, the function evaluates to <span
+class="math inline">\(2^0 + 2^1\)</span>, namely <span
+class="math inline">\(3\)</span>. On input <span
+class="math inline">\(2\)</span>, the function evaluates to <span
+class="math inline">\(2^0 + 2^1 + 2^2\)</span>, namely <span
+class="math inline">\(7\)</span>.</p></li>
+</ol>
+</dd>
+<dt>3. Base expansions, Multiple representations</dt>
+<dd>
+<p><br />
+</p>
+<ol>
+<li><p>Compute the ternary (base 3) expansion of <span
+class="math inline">\(28\)</span>.</p></li>
+<li><p>Compute the product of <span
+class="math inline">\((6A)_{16}\)</span> and <span
+class="math inline">\((11)_{16}\)</span>, without converting either
+number to another base.</p></li>
+<li><p>Confirm your answer for part (b) by converting <span
+class="math inline">\((6A)_{16}\)</span> and <span
+class="math inline">\((11)_{16}\)</span> to decimal, multiplying them,
+and converting the product to base <span
+class="math inline">\(16\)</span>.</p></li>
+<li><p>How many bits will there be in the binary (base <span
+class="math inline">\(2\)</span>) expansion of <span
+class="math inline">\(2020\)</span>? Can you compute this without fully
+converting <span class="math inline">\(2020\)</span> to base <span
+class="math inline">\(2\)</span>?</p></li>
+<li><p>Give an example of a number that can be represented in base 2
+fixed-width 3, but not in base 2 expansion.</p></li>
+<li><p>Give an example of a number that can be represented in base 2
+expansion, but not in base 2, fixed-width 3 expansion.</p></li>
+<li><p>Give the representation of -7 in sign-magnitude width 3 and 2s
+complement width 3. Then do the same for width 4.</p></li>
+<li><p>Give the representation of 10.5625 in fixed-width base-2
+expansion with integer width 4 and fractional width 9.</p></li>
+</ol>
+</dd>
+<dt>4. Circuits</dt>
+<dd>
+<p>A triangular number (or triangle number) counts the objects that can
+form an equilateral triangle, as in the diagram below. The <span
+class="math inline">\(n^{\text{th}}\)</span> triangular number is the
+sum of the first <span class="math inline">\(n\)</span> integers, as
+shown in the following figure illustrating the first four triangular
+numbers (what is the fifth one?):</p>
+<div class="center">
+<p><img src="../../resources/images/triangle.png" style="width:2.7in"
+alt="image" /></p>
+</div>
+<p>Design a circuit that takes four inputs <span
+class="math inline">\(x_0, x_1, x_2, x_3\)</span> and outputs True (T or
+1) if the integer value <span
+class="math inline">\((x_3x_2x_1x_0)_{2,4}\)</span> is a triangular
+number, and False (F or 0) otherwise. You may assume that 0 is not a
+triangular number. (<span><em>Credit: UBC Department of Computer
+Science</em></span>)</p>
+</dd>
+<dt>5. Circuits, Compound Propositions, Logical Equivalence</dt>
+<dd>
+<p><br />
+</p>
+<ol>
+<li><p>Draw a logic circuit that uses <span><strong>exactly
+three</strong></span> gates and is logically equivalent to <span
+class="math display">\[q \leftrightarrow (p \wedge r)\]</span> You may
+(only) use AND, OR, NOT, and XOR gates.</p></li>
+<li><p>Write a compound proposition which is logically equivalent to
+<span class="math display">\[(p \oplus q) \leftrightarrow r\]</span> You
+may only use the logical operators negation (<span
+class="math inline">\(\neg\)</span>), conjunction <span
+class="math inline">\((\wedge)\)</span>, and disjunction <span
+class="math inline">\((\vee)\)</span>.</p></li>
+<li><p>Find a compound proposition that is in DNF (disjunctive normal
+form) and is logically equivalent to <span class="math display">\[(p
+\vee q \vee \neg r) \wedge (p \vee \neg q \vee r ) \wedge (\neg p \vee q
+\vee r)\]</span></p></li>
+</ol>
+</dd>
+<dt>6. Translating Propositional Logic</dt>
+<dd>
+<p><br />
+</p>
+<div class="multicols">
+<p><span>2</span></p>
+<ul>
+<li><p><span class="math inline">\(p\)</span> is “The display is
+13.3-inch"</p></li>
+<li><p><span class="math inline">\(r\)</span> is “There is at least
+128GB of flash storage"</p></li>
+<li><p><span class="math inline">\(u\)</span> is “There is at least
+512GB of flash storage"</p></li>
+<li><p><span class="math inline">\(q\)</span> is “The processor is 2.2
+GHz"</p></li>
+<li><p><span class="math inline">\(s\)</span> is “There is at least
+256GB of flash storage"</p></li>
+</ul>
+</div>
+<ol>
+<li><p>Are the statements <span class="math display">\[p \to (r \vee s
+\vee u) \qquad, \qquad
+q \to (s \vee u) \qquad, \qquad
+p \leftrightarrow q
+\qquad, \qquad \neg u\]</span> consistent? If so, translate to English a
+possible assignment of truth values to the input propositions that makes
+all four statements true simultaneously.</p></li>
+<li><p>Consider this statement in English:</p>
+<blockquote>
+<p>It’s not the case that both the display is 13.3-inch and the
+processor is 2.2 GHz.</p>
+</blockquote>
+<p>Determine whether each of the compound propositions below is
+equivalent to the <span><strong>negation</strong></span> of that
+statement, and justify your answers using either truth tables or other
+equivalences.</p>
+<p>Possible compound propositions:</p>
+<ul>
+<li><p><span class="math inline">\(\neg p \vee \neg q\)</span></p></li>
+<li><p><span class="math inline">\(\neg (p \to \neg q)\)</span></p></li>
+<li><p><span class="math inline">\(\neg ( p \wedge q)\)</span></p></li>
+<li><p><span class="math inline">\((\neg p \leftrightarrow \neg q)
+\wedge p\)</span></p></li>
+</ul></li>
+<li><p>Consider the compound proposition <span class="math display">\[(p
+\wedge q) \to (r \vee s \vee u)\]</span> Express the
+<span><strong>contrapositive</strong></span> of this conditional as a
+compound proposition.</p>
+<p>Then, give an assignment of truth values to each of the input
+propositional variables for which the original compound proposition is
+True but its <span><strong>converse</strong></span> is False.</p></li>
+</ol>
+</dd>
+<dt>7. Evaluating predicates, Evaluating nested predicates</dt>
+<dd>
+<p><br />
+</p>
+<ol>
+<li><p>Over the domain <span class="math inline">\(\{
+1,2,3,4,5\}\)</span> give an example of predicates <span
+class="math inline">\(P(x), Q(x)\)</span> which demonstrate that <span
+class="math display">\[(\forall x P(x)) \vee (\forall x Q(x))
+\qquad \text{is not logically equivalent to} \qquad
+\forall x  (~ P(x) \vee Q(x) ~)\]</span></p></li>
+<li><p>Over the domain <span class="math inline">\(\{0,1,2\}\)</span>,
+give an example of predicates <span class="math inline">\(P(x),
+Q(x)\)</span> for which all of these statements are true: <span
+class="math display">\[\forall x (P(x) \to Q(x))\]</span> <span
+class="math display">\[\exists x \, P(x)\]</span> <span
+class="math display">\[\exists x \, \neg P(x)\]</span> <span
+class="math display">\[\exists x \, \neg Q(x)\]</span></p></li>
+</ol>
+</dd>
+<dt>8. Evaluating predicates, Evaluating nested predicates</dt>
+<dd>
+<p>Recall that <span class="math inline">\(S\)</span> is defined as the
+set of all RNA strands, where each strand is a nonempty string made of
+the bases in <span class="math inline">\(B =
+\{\texttt{A},\texttt{U},\texttt{G},\texttt{C}\}\)</span>. Recall the
+definition of the following predicates: <span
+class="math inline">\(L_{\texttt{A}}\)</span> with domain <span
+class="math inline">\(S\)</span> is defined recursively by:</p>
+<ul>
+<li><p>Basis step: <span
+class="math inline">\(L_{\texttt{A}}(\texttt{A}) = T\)</span>, <span
+class="math inline">\(L_{\texttt{A}}(\texttt{C}) =
+L_{\texttt{A}}(\texttt{G}) = L_{\texttt{A}}(\texttt{U}) =
+F\)</span></p></li>
+<li><p>Recursive step: If <span class="math inline">\(s \in S\)</span>
+and <span class="math inline">\(b \in B\)</span>, then <span
+class="math inline">\(L_{\texttt{A}}(sb) =
+L_{\texttt{A}}(s)\)</span></p></li>
+</ul>
+<p><span
+class="math inline">\(P_{\texttt{A}\texttt{U}\texttt{C}}\)</span> with
+domain <span class="math inline">\(S\)</span> is defined as the
+predicate whose truth set is the collection of RNA strands where the
+string <span
+class="math inline">\(\texttt{A}\texttt{U}\texttt{C}\)</span> is a
+substring (appears inside <span class="math inline">\(s\)</span>, in
+order and consecutively)</p>
+<p><span class="math inline">\(L\)</span> with domain <span
+class="math inline">\(S \times \mathbb{Z}^+\)</span> is defined by, for
+<span class="math inline">\(s \in S\)</span> and <span
+class="math inline">\(n \in \mathbb{Z}^+\)</span>, <span
+class="math display">\[L( s, n) = \begin{cases}
+T &amp;\qquad\text{if $rnalen(s) = n$}\\
+F &amp;\qquad\text{otherwise}\\
+\end{cases}\]</span></p>
+<ol>
+<li><p>Give a witness for <span class="math inline">\(\exists s_1  \,
+\exists s_2 \,(L(s_1, 4) \land L(s_2,4) \land
+\neg ( s_1 = s_2) )\)</span> where <span
+class="math inline">\(S\)</span> is the set of RNA strands, <span
+class="math inline">\(L(s, n)\)</span> is a predicate with domain <span
+class="math inline">\(S
+\times \mathbb{Z}^+\)</span> that is true when <span
+class="math inline">\(s\)</span> has length <span
+class="math inline">\(n\)</span></p></li>
+<li><p>Give a counterexample that disproves <span
+class="math inline">\(\forall i  \,(\neg
+L(\texttt{A}\texttt{C}\texttt{U}, i))\)</span></p></li>
+<li><p>Determine which of the following statements is True or False (you
+do not need to prove your answer).</p>
+<ol>
+<li><p><span class="math inline">\(\exists n \in \mathbb{Z}^+~ \forall s
+\in S~ ( P_{\texttt{A}\texttt{U}\texttt{C}}(s) \to \lnot L(s,n)
+)\)</span></p></li>
+<li><p><span class="math inline">\(\exists n \in \mathbb{Z}^+~ \forall s
+\in S~ ( P_{\texttt{A}\texttt{U}\texttt{C}}(s) \land \lnot L(s,n)
+)\)</span></p></li>
+<li><p><span class="math inline">\(\forall s \in S~\exists n \in
+\mathbb{Z}^+~ ( P_{\texttt{A}\texttt{U}\texttt{C}}(s) \lor \lnot L(s,n)
+)\)</span></p></li>
+<li><p><span class="math inline">\(\forall s \in S~\exists n \in
+\mathbb{Z}^+~ (L(s,n) \to \lnot
+P_{\texttt{A}\texttt{U}\texttt{C}}(s))\)</span></p></li>
+</ol></li>
+</ol>
+</dd>
+<dt>9. Predicates and Quantifiers</dt>
+<dd>
+<p>Express each of the following statements symbolically using
+quantifiers, variables, propositional connectives, and predicates (make
+sure to define the domain and the meaning of any predicates you
+introduce). Then, express its negation as a logically equivalent
+compound proposition without a <span class="math inline">\(\neg\)</span>
+in front. Decide whether the statement or its negation is true, and
+prove it.</p>
+<ol>
+<li><p>If <span class="math inline">\(m\)</span> is an integer, <span
+class="math inline">\(m^2 + m +1\)</span> is odd.</p></li>
+<li><p>For all integers <span class="math inline">\(n\)</span> greater
+than <span class="math inline">\(5\)</span>, <span
+class="math inline">\(2^n-1\)</span> is not prime.</p></li>
+<li><p>If <span class="math inline">\(n\)</span> and <span
+class="math inline">\(m\)</span> are even integers, then <span
+class="math inline">\(n - m\)</span> is even.</p></li>
+</ol>
+</dd>
+<dt>10. Proof strategies</dt>
+<dd>
+<p>Prove each of the following claims. Use only basic definitions and
+general proof strategies in your proofs; do not use any results proved
+in class / the textbook as lemmas. You may use basic properties of real
+numbers that we stated (without proof) in class, e.g. that the
+difference of two integers is an integer.</p>
+<ol>
+<li><p>The difference of any rational number and any irrational number
+is irrational.</p></li>
+<li><p>If <span class="math inline">\(a, b, c\)</span> are integers and
+<span class="math inline">\(a^2 + b^2 = c^2\)</span>, then at least one
+of <span class="math inline">\(a\)</span> and <span
+class="math inline">\(b\)</span> is even.</p></li>
+<li><p>For any integer <span class="math inline">\(n\)</span>, <span
+class="math inline">\(n^2 + 5\)</span> is not divisible by <span
+class="math inline">\(4\)</span>.</p></li>
+<li><p>For all positive integers <span
+class="math inline">\(a,b,c\)</span>, if <span class="math inline">\(a
+\not | bc\)</span> then <span class="math inline">\(a \not | b\)</span>.
+<span>(The notation <span class="math inline">\(a \not | b\)</span>
+means “a does not divide b”).</span></p></li>
+</ol>
+<p><span><strong>Bonus</strong></span>: Watch the video <a
+href="https://www.youtube.com/watch?v=MhJN9sByRS0"
+class="uri">https://www.youtube.com/watch?v=MhJN9sByRS0</a> and write
+down the statement and one or both of the proofs described using the
+notation, definitions, and proof strategies from CSE 20.</p>
+</dd>
+<dt>11. Sets</dt>
+<dd>
+<p>Prove or disprove each of the following statements.</p>
+<ol>
+<li><p>For all sets <span class="math inline">\(A\)</span> and <span
+class="math inline">\(B\)</span>, <span
+class="math inline">\(\mathcal{P}(A) \cup \mathcal{P}(B) = \mathcal{P}(A
+\cup B)\)</span>.</p></li>
+<li><p>For all sets <span class="math inline">\(A\)</span> and <span
+class="math inline">\(B\)</span>, <span
+class="math inline">\(\mathcal{P}(A) \cap \mathcal{P}(B) = \mathcal{P}(A
+\cap B)\)</span>.</p></li>
+<li><p>For any sets <span class="math inline">\(A, B, C, D\)</span>, if
+the Cartesian products <span class="math inline">\(A\times B\)</span>
+and <span class="math inline">\(C \times D\)</span> are disjoint then
+either <span class="math inline">\(A\)</span> and <span
+class="math inline">\(C\)</span> are disjoint or <span
+class="math inline">\(B\)</span> and <span
+class="math inline">\(D\)</span> are disjoint (or both).</p></li>
+<li><p>There are sets <span class="math inline">\(A, B\)</span> such
+that <span class="math inline">\(A \in B\)</span> and <span
+class="math inline">\(A \subseteq B\)</span>.</p></li>
+<li><p>For all sets <span class="math inline">\(A, B, C\)</span>: <span
+class="math inline">\(A \cap B = \emptyset\)</span> and <span
+class="math inline">\(B \cap C = \emptyset\)</span> if and only if <span
+class="math inline">\((A \cap B) \cap C = \emptyset\)</span>.</p></li>
+</ol>
+</dd>
+<dt>12. Induction and Recursion</dt>
+<dd>
+<p>Prove the following statements:</p>
+<ol>
+<li><p><span class="math inline">\(\forall s \in S \, (~rnalen(s) =
+basecount(s,\texttt{A}) + basecount(s,\texttt{C}) +
+basecount(s,\texttt{U}) + basecount(s,\texttt{G})~)\)</span> where <span
+class="math inline">\(S\)</span> RNA strands and the functions <span
+class="math inline">\(rnalen\)</span> and <span
+class="math inline">\(basecount\)</span> are define recursively as:
+<span class="math display">\[\begin{array}{llll}
+  &amp; &amp; \textit{rnalen} : S &amp; \to \mathbb{Z}^+ \\
+  \textrm{Basis Step:} &amp; \textrm{If } b \in B\textrm{ then } &amp;
+\textit{rnalen}(b) &amp; = 1 \\
+  \textrm{Recursive Step:} &amp; \textrm{If } s \in S\textrm{ and }b \in
+B\textrm{, then  } &amp; \textit{rnalen}(sb) &amp; = 1 +
+\textit{rnalen}(s)
+  \end{array}\]</span> <span class="math display">\[\begin{array}{llll}
+  &amp; &amp; \textit{basecount} : S \times B &amp; \to \mathbb{N} \\
+  \textrm{Basis Step:} &amp;  \textrm{If } b_1 \in B, b_2 \in B &amp;
+\textit{basecount}(b_1, b_2) &amp; =
+          \begin{cases}
+              1 &amp; \textrm{when } b_1 = b_2 \\
+              0 &amp; \textrm{when } b_1 \neq b_2 \\
+          \end{cases} \\
+  \textrm{Recursive Step:} &amp; \textrm{If } s \in S, b_1 \in B, b_2
+\in B &amp;\textit{basecount}(s b_1, b_2) &amp; =
+          \begin{cases}
+              1 + \textit{basecount}(s, b_2) &amp; \\
+              \qquad \textrm{when } b_1 = b_2 &amp;\\
+              \textit{basecount}(s, b_2) &amp; \\
+              \qquad \textrm{when } b_1 \neq b_2 &amp;\\
+          \end{cases}
+  \end{array}\]</span></p></li>
+<li><p><span class="math inline">\(\forall l_1 \in L \, \forall l_2 \in
+L \, (\textit{sum}(\textit{concat}(l_1, l_2)) = \textit{sum}(l_1) +
+\textit{sum}(l_2))\)</span>, where the function <span
+class="math inline">\(\textit{concat}\)</span> is defined as: <span
+class="math display">\[\begin{array}{llll}
+&amp; &amp; \textit{concat} : L \times L &amp; \to L \\
+\textrm{Basis Step:} &amp; \textrm{If } l \in L &amp;
+\textit{concat}([], l) &amp; = l \\
+\textrm{Recursive Step:} &amp; \textrm{If } l, l&#39; \in L\textrm{ and
+}n \in \mathbb{N}\textrm{, then  } &amp; \textit{concat}((n, l), l&#39;)
+&amp; = (n, \textit{concat}(l, l&#39;))
+\end{array}\]</span> and the function <span
+class="math inline">\(\textit{sum} : L \to \mathbb{N}\)</span> that sums
+all the elements of a list and is defined by: <span
+class="math display">\[\begin{array}{llll}
+&amp; &amp; \textit{sum} : L &amp; \to \mathbb{N} \\
+\textrm{Basis Step:} &amp; &amp; \textit{sum}([]) &amp; = 0 \\
+\textrm{Recursive Step:} &amp; \textrm{If } l \in L, n \in \mathbb{N}
+&amp; \textit{sum}((n, l)) &amp; = n + \textit{sum}(l)
+\end{array}\]</span></p></li>
+</ol>
+</dd>
+<dt>13. Induction and Recursion</dt>
+<dd>
+<p>At time 0, a particle resides at the point 0 on the real line. Within
+1 second, it divides into 2 particles that fly in opposite directions
+and stop at distance 1 from the original particle. Within the next
+second, each of these particles again divides into 2 particles flying in
+opposite directions and stopping at distance 1 from the point of
+division, and so on. Whenever particles meet they annihilate (leaving
+nothing behind). How many particles will there be at time <span
+class="math inline">\(2^{11} -1\)</span>? You do not need to justify
+your answer. Hint: Derive a formula for the number/ locations of
+particles at time <span class="math inline">\(2^n-1\)</span> for
+arbitrary positive integer n, prove the formula using induction, and
+apply it when <span class="math inline">\(n=11\)</span>.</p>
+</dd>
+<dt>14. Induction and Recursion</dt>
+<dd>
+<p>Prove that every positive integer has a base <span
+class="math inline">\(3\)</span> expansion. <span><em>Hint: use strong
+induction.</em></span></p>
+</dd>
+<dt>15. Functions &amp; Cardinalities of sets</dt>
+<dd>
+<p>Prove each of the following claims.</p>
+<ol>
+<li><p>For the “function" <span class="math inline">\(f: \mathbb{Z} \to
+\{0, 1, 2, 3 \}\)</span> given by <span class="math inline">\(f(x) =
+x~\text{\bf mod}~5\)</span>, it is not the case that every element of
+the domain maps to exactly one element of the codomain (that is, it is
+not a well-defined function).</p></li>
+<li><p>The “function" <span class="math inline">\(f: \mathcal{P}(
+\mathbb{Z}^+) \to \mathbb{Z}\)</span> given by <span
+class="math display">\[f(A) = \text{the maximum element in
+A}\]</span> is not well-defined.</p></li>
+<li><p>There is a one-to-one function with domain <span
+class="math inline">\(\{a,b,c\}\)</span> and codomain <span
+class="math inline">\(\mathbb{R}\)</span>.</p></li>
+<li><p>There is an onto function with domain <span
+class="math inline">\(R\)</span> and codomain <span
+class="math inline">\(\{ \pi, \frac{1}{17} \}\)</span>, where <span
+class="math inline">\(R\)</span> is the set of user ratings in a
+database with 5 movies.</p></li>
+<li><p>The Cartesian product <span class="math inline">\(\mathbb{Z}^+
+\times \{ a,b,c \}\)</span> is countable.</p></li>
+<li><p>The interval of real numbers <span class="math inline">\(\{x \in
+\mathbb{R}  ~\mid~ 5  \leq x \leq 8\}\)</span> is uncountable.
+<span><em>Hint: you may use the fact that the unit interval <span
+class="math inline">\(\{  x \in \mathbb{R} ~\mid~ 0  \leq x
+\leq  1\}\)</span> is uncountable.</em></span></p></li>
+</ol>
+</dd>
+</dl>
 <p><span><strong>In this assignment,</strong></span></p>
 <p>You will practice reading and applying definitions to get comfortable
 working with mathematical language.</p>
@@ -1973,6 +2453,563 @@ even.</p></li>
 common divisior of 7 and 19 is 1.</p></li>
 <li><p>There are two positive integers greater than 20 that have the
 same greatest common divisor with 20.</p></li>
+</ol></li>
+</ol>
+<p><span><strong>In this assignment</strong></span>, you will work with
+cardinality, functions, and binary relations and prove properties about
+them, practicing proof strategies and applications.</p>
+<p><span><strong>Relevant class material</strong></span>: Weeks 8, 9,
+10.</p>
+<p>You will submit this assignment via Gradescope (<a
+href="https://www.gradescope.com">https://www.gradescope.com</a>) in the
+assignment called “hw5-cardinality-functions-relations”.</p>
+<p><span><strong>For all HW assignments:</strong></span> These homework
+assignments must be done in groups of three students. Please ensure your
+name(s) and TSN(s) are clearly visible on the first page of your
+homework submission, start each question on a new page, and upload the
+PDF to Gradescope. If you’re working in a group, <span><em>submit only
+one submission per group</em></span>: one partner uploads the submission
+through their Gradescope account and then adds the other group members
+to the Gradescope submission by selecting their name(s) in the “Add
+Group Members” dialog box. You will need to re-add your group member(s)
+every time you resubmit a new version of your assignment.</p>
+<p>All submitted homework for this class must be typed. You can use a
+word processing editor if you like (Microsoft Word, Open Office,
+Notepad, Vim, Google Docs, etc.) but you might find it useful to take
+this opportunity to learn LaTeX. LaTeX is a markup language used widely
+in computer science and mathematics. The homework assignments are typed
+using LaTeX and you can use the source files as templates for
+typesetting your solutions.</p>
+<p>After you submit the PDF of the homework, you will meet with a TA for
+a Homework Q&amp;A session. This session is a primary component of your
+homework score. All group members must be present and able to fully
+participate in discussions of each question.</p>
+<p><span><strong>Integrity reminders</strong></span></p>
+<ul>
+<li><p>Problems should be solved together, not divided up between the
+partners. The homework is designed to give you practice with the main
+concepts and techniques of the course, while getting to know and learn
+from your classmates.</p></li>
+<li><p>Use only resources explicitly allowed for each assignment.
+Resources not affiliated with this quarter’s version of the class may
+use inconsistent notation or definitions. When consulting resources,
+balance getting the help you need while also protecting the learning
+experience you will have when the ‘aha’ moments of solving the problem
+authentically happen.</p></li>
+<li><p>Do not share written solutions or partial solutions for homework
+with other students in the class who are not in your group. Doing so
+would dilute their learning experience and detract from their success in
+the class.</p></li>
+</ul>
+<p>When discussing your homework solutions, you should be prepared to
+describe</p>
+<ul>
+<li><p>The key ideas that establish the correctness of any final
+answers.</p></li>
+<li><p>What evidence demonstrates the soundness of your results and
+methods.</p></li>
+<li><p>What would need to change in the solution to solve a similar but
+different question.</p></li>
+</ul>
+<p>A rule of thumb for the level of detail to include is to imagine
+someone who is taking the class alongside you but missed about a week’s
+worth of content: does your writeup have enough detail for them to learn
+from it?</p>
+<p>To demonstrate your honest effort in answering homework questions, we
+expect you to include your attempt to answer *each* part of the
+question. If you get stuck with your attempt, you can still demonstrate
+your effort by explaining where you got stuck and what you did to try to
+get unstuck (e.g. reviewing annotated notes from class, checking the
+relevant textbook sections, looking up comparable questions on the
+relevant weekly review quizzes, asking questions on Piazza, attending
+(instructor/TA/tutor) office hours, consulting generative AI tools,
+etc.).</p>
+<p>In your proofs and disproofs of statements below, justify each step
+by reference to a component of the following proof strategies we have
+discussed so far, and/or to relevant definitions and calculations.</p>
+<ul>
+<li><p>A counterexample can be used to prove that <span
+class="math inline">\(\forall x P(x)\)</span> is
+<span><strong>false</strong></span>.</p></li>
+<li><p>A witness can be used to prove that <span
+class="math inline">\(\exists x P(x)\)</span> is
+<span><strong>true</strong></span>.</p></li>
+<li><p><span><strong>Proof of universal by exhaustion</strong></span>:
+To prove that <span class="math inline">\(\forall x \, P(x)\)</span> is
+true when <span class="math inline">\(P\)</span> has a finite domain,
+evaluate the predicate at <span><strong>each</strong></span> domain
+element to confirm that it is always T.</p></li>
+<li><p><span><strong>Proof by universal generalization</strong></span>:
+To prove that <span class="math inline">\(\forall x \, P(x)\)</span> is
+true, we can take an arbitrary element <span
+class="math inline">\(e\)</span> from the domain and show that <span
+class="math inline">\(P(e)\)</span> is true, without making any
+assumptions about <span class="math inline">\(e\)</span> other than that
+it comes from the domain.</p></li>
+<li><p>To prove that <span class="math inline">\(\exists x P(x)\)</span>
+is <span><strong>false</strong></span>, write the universal statement
+that is logically equivalent to its negation and then prove it true
+using universal generalization.</p></li>
+<li><p><span><strong>Strategies for conjunction</strong></span>: To
+prove that <span class="math inline">\(p \land q\)</span> is true, have
+two subgoals: subgoal (1) prove <span class="math inline">\(p\)</span>
+is true; and, subgoal (2) prove <span class="math inline">\(q\)</span>
+is true. To prove that <span class="math inline">\(p \land q\)</span> is
+false, it’s enough to prove that <span class="math inline">\(p\)</span>
+is false. To prove that <span class="math inline">\(p \land q\)</span>
+is false, it’s enough to prove that <span
+class="math inline">\(q\)</span> is false.</p></li>
+<li><p><span><strong>Proof of Conditional by Direct
+Proof</strong></span>: To prove that the implication <span
+class="math inline">\(p \to q\)</span> is true, we can assume <span
+class="math inline">\(p\)</span> is true and use that assumption to show
+<span class="math inline">\(q\)</span> is true.</p></li>
+<li><p><span><strong>Proof of Conditional by Contrapositive
+Proof</strong></span>: To prove that the implication <span
+class="math inline">\(p \to q\)</span> is true, we can assume <span
+class="math inline">\(\neg q\)</span> is true and use that assumption to
+show <span class="math inline">\(\neg p\)</span> is true.</p></li>
+<li><p><span><strong>Proof by Cases</strong></span>: To prove <span
+class="math inline">\(q\)</span> when we know <span
+class="math inline">\(p_1 \lor p_2\)</span>, show that <span
+class="math inline">\(p_1 \to q\)</span> and <span
+class="math inline">\(p_2 \to q\)</span>.</p></li>
+<li><p><span><strong>Proof by Structural Induction</strong></span>: To
+prove that <span class="math inline">\(\forall x \in X \, P(x)\)</span>
+where <span class="math inline">\(X\)</span> is a recursively defined
+set, prove two cases:</p>
+<table>
+<tbody>
+<tr>
+<td style="text-align: left;">Basis Step:</td>
+<td style="text-align: left;">Show the statement holds for elements
+specified in the basis step of the definition.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Recursive Step:</td>
+<td style="text-align: left;">Show that if the statement is true for
+each of the elements used to construct new elements in the recursive
+step of the definition, the result holds for these new elements.</td>
+</tr>
+</tbody>
+</table></li>
+<li><p><span><strong>Proof by Mathematical Induction</strong></span>: To
+prove a universal quantification over the set of all integers greater
+than or equal to some base integer <span
+class="math inline">\(b\)</span>:</p>
+<table>
+<tbody>
+<tr>
+<td style="text-align: left;">Basis Step:</td>
+<td style="text-align: left;">Show the statement holds for <span
+class="math inline">\(b\)</span>.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Recursive Step:</td>
+<td style="text-align: left;">Consider an arbitrary integer <span
+class="math inline">\(n\)</span> greater than or equal to <span
+class="math inline">\(b\)</span>, assume (as the <span><strong>induction
+hypothesis</strong></span>) that the property holds for <span
+class="math inline">\(n\)</span>, and use this and other facts to prove
+that the property holds for <span
+class="math inline">\(n+1\)</span>.</td>
+</tr>
+</tbody>
+</table></li>
+<li><p><span><strong>Proof by Strong Induction</strong></span> To prove
+that a universal quantification over the set of all integers greater
+than or equal to some base integer <span
+class="math inline">\(b\)</span> holds, pick a fixed nonnegative integer
+<span class="math inline">\(j\)</span> and then:</p>
+<table>
+<tbody>
+<tr>
+<td style="text-align: left;">Basis Step:</td>
+<td style="text-align: left;">Show the statement holds for <span
+class="math inline">\(b\)</span>, <span
+class="math inline">\(b+1\)</span>, …, <span
+class="math inline">\(b+j\)</span>.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Recursive Step:</td>
+<td style="text-align: left;">Consider an arbitrary integer <span
+class="math inline">\(n\)</span> greater than or equal to <span
+class="math inline">\(b+j\)</span>, assume (as the <span><strong>strong
+induction hypothesis</strong></span>) that the property holds for
+<span><strong>each of</strong></span> <span
+class="math inline">\(b\)</span>, <span
+class="math inline">\(b+1\)</span>, …, <span
+class="math inline">\(n\)</span>, and use this and other facts to prove
+that the property holds for <span
+class="math inline">\(n+1\)</span>.</td>
+</tr>
+</tbody>
+</table></li>
+<li><p><span><strong>Proof by Contradiction</strong></span></p>
+<p>To prove that a statement <span class="math inline">\(p\)</span> is
+true, pick another statement <span class="math inline">\(r\)</span> and
+once we show that <span class="math inline">\(\neg p  \to (r
+\wedge  \neg r)\)</span> then we can conclude that <span
+class="math inline">\(p\)</span> is true.</p>
+<p><span><em>Informally</em></span> The statement we care about can’t
+possibly be false, so it must be true.</p></li>
+</ul>
+<p><span><strong>Assigned questions</strong></span></p>
+<ol>
+<li><p>Binary relations. In the review quiz, we considered the binary
+relation on <span class="math inline">\(\mathbb{Z}^+\)</span> defined by
+<span class="math display">\[\{(a,b) \mid \exists c \in \mathbb{Z}(b =
+ac)\}\]</span> Let’s call that relation <span
+class="math inline">\(R_1\)</span>. Consider the following other binary
+relations on <span class="math inline">\(\mathbb{Z}^{+}\)</span>: <span
+class="math display">\[R_2 = \{ (a,b) \in \mathbb{Z}^+ \times
+\mathbb{Z}^+ \mid gcd (~ (a,b) ~) = 1\}\]</span> <span
+class="math display">\[R_3 = \{ (a,b) \in \mathbb{Z}^+ \times
+\mathbb{Z}^+ \mid a+b \leq 2026\}\]</span></p>
+<hr />
+<p><span><em>Sample response that can be used as reference for the
+detail expected in your answer:</em></span> To prove that <span
+class="math inline">\(R_1\)</span> is not symmetric we need to find a
+counterexample to <span class="math display">\[\forall x \in
+\mathbb{Z}^+ \forall y \in \mathbb{Z}^+ \left(~(x,y) \in R_1 \to (y,x)
+\in R_1 ~\right)\]</span> Consider <span class="math inline">\(x =
+2\)</span> and <span class="math inline">\(y=4\)</span>. Then <span
+class="math inline">\((x,y) \in R_1\)</span> because <span
+class="math inline">\(\exists c \in \mathbb{Z} ( y = xc )\)</span> is
+witnessed by the integer <span class="math inline">\(c = 2\)</span>,
+since <span class="math inline">\(4 = 2 \cdot 2\)</span>. However, <span
+class="math inline">\(\exists c  \in \mathbb{Z} ( x = yc )\)</span> is
+not true: to prove this, we consider an arbitrary integer <span
+class="math inline">\(c\)</span> and consider the two (exhaustive) cases
+<span class="math inline">\(c \geq 1\)</span> and <span
+class="math inline">\(c &lt; 1\)</span>. In case 1, assume <span
+class="math inline">\(c \geq 1\)</span>, and then <span
+class="math inline">\(yc = 4c \geq 4 &gt; 3\)</span> so <span
+class="math inline">\(yc \neq 2 = x\)</span>. In case 2, assume <span
+class="math inline">\(c &lt; 1\)</span> so <span class="math inline">\(c
+\leq 0\)</span>, and then <span class="math inline">\(yc = 4c \leq
+0\)</span> so is not equal to <span class="math inline">\(2\)</span>,
+which is <span class="math inline">\(x\)</span>. Thus, we’ve found
+positive integers <span class="math inline">\(x\)</span> and <span
+class="math inline">\(y\)</span> where <span class="math inline">\((x,y)
+\in R_1\)</span> and <span class="math inline">\((y,x) \notin
+R_1\)</span> so <span class="math inline">\(R_1\)</span> is not
+symmetric.</p>
+<hr />
+<ol>
+<li><p>Give example positive integers that are related according to each
+of these three relations. In other words, give example values <span
+class="math inline">\((a_1, b_1)\)</span>, <span
+class="math inline">\((a_2, b_2)\)</span>, and <span
+class="math inline">\((a_3, b_3)\)</span> such that <span
+class="math inline">\((a_i, b_i) \in R_i\)</span> for each <span
+class="math inline">\(i =1,2,3\)</span>.</p></li>
+<li><p>Prove that <span class="math inline">\(R_2\)</span> is not
+transitive.</p></li>
+<li><p>Prove that <span class="math inline">\(R_3\)</span> is not
+reflexive.</p></li>
+<li><p>Prove that <span class="math inline">\(R_2\)</span> is
+symmetric.</p></li>
+<li><p>Prove that <span class="math inline">\(R_3\)</span> is not
+anti-symmetric.</p></li>
+<li><p>Give an example relation on <span
+class="math inline">\(\mathbb{Z}^+\)</span> that is both symmetric and
+anti-symmetric. Briefly justify your example.</p></li>
+</ol></li>
+<li><p>Equivalence relations. Recall that we say <span
+class="math inline">\(a\)</span> is <span><strong>congruent
+to</strong></span> <span class="math inline">\(b\)</span>
+<strong>mod</strong> <span class="math inline">\(n\)</span> means <span
+class="math inline">\((a, b) \in R_{(\textbf{mod } n)}\)</span>, that is
+<span class="math inline">\((a \textbf{ mod } n = b \textbf{ mod }
+n)\)</span>. A common notation is to write this as <span
+class="math inline">\(a \equiv b (\textbf{mod } n)\)</span>.</p>
+<p>A <span><strong>modular inverse</strong></span> of an integer <span
+class="math inline">\(x\)</span> relative to modulus <span
+class="math inline">\(n\)</span> (where <span
+class="math inline">\(n\)</span> is a positive number and <span
+class="math inline">\(x\)</span> is an integer between <span
+class="math inline">\(0\)</span> and <span
+class="math inline">\(n-1\)</span>, inclusive) is defined to be an
+integer <span class="math inline">\(y\)</span> between <span
+class="math inline">\(0\)</span> and <span
+class="math inline">\(n-1\)</span> (inclusive) such that <span
+class="math inline">\(xy \equiv 1 (\textbf{mod } n)\)</span>.</p>
+<ol>
+<li><p>Fill in the two multiplication tables below. In the left table,
+each cell in row labelled <span class="math inline">\(a\)</span> and
+column labelled <span class="math inline">\(b\)</span> is an integer
+<span class="math inline">\(p\)</span> in the set <span
+class="math inline">\(\{0, 1, 2, 3, 4\}\)</span> satisfying <span
+class="math inline">\(ab \equiv p ({\textbf{mod } 5})\)</span>. In the
+right table, each cell in row labelled <span
+class="math inline">\(a\)</span> and column labelled <span
+class="math inline">\(b\)</span> is an integer <span
+class="math inline">\(p\)</span> in the set <span
+class="math inline">\(\{0, 1, 2, 3, 4, 5\}\)</span> satisfying <span
+class="math inline">\(ab \equiv p ({\textbf{mod } 6})\)</span>.</p>
+<div class="center">
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"></th>
+<th style="text-align: center;">0</th>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">2</th>
+<th style="text-align: center;">3</th>
+<th style="text-align: center;">4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"> </td>
+<td style="text-align: center;"> </td>
+<td style="text-align: center;"> </td>
+<td style="text-align: center;"> </td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"> </td>
+<td style="text-align: center;"> </td>
+<td style="text-align: center;"> </td>
+<td style="text-align: center;"> </td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"> </td>
+<td style="text-align: center;"> </td>
+<td style="text-align: center;"> </td>
+<td style="text-align: center;"> </td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"> </td>
+<td style="text-align: center;"> </td>
+<td style="text-align: center;"> </td>
+<td style="text-align: center;"> </td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"></th>
+<th style="text-align: center;">0</th>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">2</th>
+<th style="text-align: center;">3</th>
+<th style="text-align: center;">4</th>
+<th style="text-align: center;">5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"> </td>
+<td style="text-align: center;"> </td>
+<td style="text-align: center;"> </td>
+<td style="text-align: center;"> </td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"> </td>
+<td style="text-align: center;"> </td>
+<td style="text-align: center;"> </td>
+<td style="text-align: center;"> </td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"> </td>
+<td style="text-align: center;"> </td>
+<td style="text-align: center;"> </td>
+<td style="text-align: center;"> </td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"> </td>
+<td style="text-align: center;"> </td>
+<td style="text-align: center;"> </td>
+<td style="text-align: center;"> </td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"> </td>
+<td style="text-align: center;"> </td>
+<td style="text-align: center;"> </td>
+<td style="text-align: center;"> </td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div></li>
+<li><p>Does each integer <span class="math inline">\(x\)</span> between
+<span class="math inline">\(1\)</span> and <span
+class="math inline">\(4\)</span> (inclusive) have a modular inverse
+relative to modulus <span class="math inline">\(5\)</span>? Does each
+integer <span class="math inline">\(y\)</span> between <span
+class="math inline">\(1\)</span> and <span
+class="math inline">\(5\)</span> (inclusive) have a modular inverse
+relative to modulus <span class="math inline">\(6\)</span>? Justify your
+answers using appropriate proof strategies and definitions.</p></li>
+<li><p>Is there an example of integers <span class="math inline">\(x_1,
+x_2\)</span> between <span class="math inline">\(1\)</span> and <span
+class="math inline">\(4\)</span> (inclusive) so that <span
+class="math inline">\(x_1x_2 \equiv 0 (\textbf{mod } 5)\)</span>? Is
+there an example of integers <span class="math inline">\(y_1,
+y_2\)</span> between <span class="math inline">\(1\)</span> and <span
+class="math inline">\(5\)</span> (inclusive) so that <span
+class="math inline">\(y_1y_2 \equiv 0 (\textbf{mod } 6)\)</span>?
+Justify your answers using appropriate proof strategies and
+definitions.</p></li>
+</ol></li>
+<li><p>Partial orders. Recall the recursive definition of the set of
+linked lists of natural numbers (from class) <span
+class="math display">\[\begin{array}{ll}
+        \textrm{Basis Step: } &amp; [] \in L \\
+        \textrm{Recursive Step: } &amp; \textrm{If } l \in L\textrm{ and
+}n \in \mathbb{N} \textrm{, then } (n, l) \in L
+    \end{array}\]</span> and the definition of the function which gives
+the length of a linked list of natural numbers <span
+class="math inline">\(length: L \to \mathbb{N}\)</span> <span
+class="math display">\[\begin{array}{llll}
+            \textrm{Basis Step:} &amp;  &amp; length(~[]~) &amp;= 0 \\
+            \textrm{Recursive Step:} &amp; \textrm{If } l \in L\textrm{
+and }n \in \mathbb{N}\textrm{, then  } &amp; length(~(n, l)~)  &amp;= 1+
+length(l)
+        \end{array}\]</span></p>
+<p>For this question, we’ll restrict our attention to just linked lists
+with data in the set <span class="math inline">\(\{0,1\}\)</span> which
+have length <span class="math inline">\(0\)</span>, <span
+class="math inline">\(1\)</span>, or <span
+class="math inline">\(2\)</span>. Let’s call this restricted set of
+lists <span class="math inline">\(L&#39;\)</span>.</p>
+<p><span><em>Note</em></span>: <span
+class="math inline">\(L&#39;\)</span> has <span
+class="math inline">\(7\)</span> distinct elements.</p>
+<p>Define two different partial orders with domain <span
+class="math inline">\(L&#39;\)</span>. For each of the partial orders,
+you can specify its definition by listing the set of ordered pairs with
+roster method, giving a set builder definition, giving a recursive
+definition, or using a clear and precise English description of which
+lists are related to one another. Then, draw the Hasse diagram for each
+of the two partial orders you defined.</p></li>
+<li><p>Equivalence classes and partitions. Recall that in a movie
+recommendation system, each user’s ratings of movies is represented as a
+<span class="math inline">\(n\)</span>-tuple (with the positive integer
+<span class="math inline">\(n\)</span> being the number of movies in the
+database), and each component of the <span
+class="math inline">\(n\)</span>-tuple is an element of the collection
+<span class="math inline">\(\{-1,0,1\}\)</span>. Assume there are five
+movies in the database, so that each user’s ratings can be represented
+as a <span class="math inline">\(5\)</span>-tuple. We call <span
+class="math inline">\(Rt_5\)</span> the set of all ratings <span
+class="math inline">\(5\)</span>-tuples. Consider the binary relation on
+the set of all <span class="math inline">\(5\)</span>-tuples where each
+component of the <span class="math inline">\(5\)</span>-tuple is an
+element of the collection <span
+class="math inline">\(\{-1,0,1\}\)</span>: <span
+class="math display">\[G = \{ (u,v) \in Rt_5 \times Rt_5 \mid \text{the
+number of $1$s in $u$ is the same as the number of $1$s in $v$}
+\}\]</span> This is an equivalence relation (you do not need to prove
+this).</p>
+<p>Recall that the <span><strong>equivalence class</strong></span> of an
+element <span class="math inline">\(x \in X\)</span> for an equivalence
+relation <span class="math inline">\(\sim\)</span> on the set <span
+class="math inline">\(X\)</span> is the set <span
+class="math inline">\(\{s \in X | (x, s) \in \sim \}\)</span>. We write
+this as <span class="math inline">\([x]_\sim\)</span>.</p>
+<ol>
+<li><p>Find a ratings <span class="math inline">\(5\)</span>-tuple <span
+class="math inline">\(v\)</span> such that <span
+class="math inline">\([v]_{G} = \{v \}\)</span>. Justify your choice of
+<span class="math inline">\(v\)</span>.</p></li>
+<li><p>Find distinct ratings <span
+class="math inline">\(5\)</span>-tuples <span class="math inline">\(u_1,
+u_2\)</span> (<span class="math inline">\(u_1 \neq u_2\)</span>) whose
+equivalence classes <span class="math inline">\([u_1]_{G}\)</span> and
+<span class="math inline">\([u_2]_{G}\)</span> have the same
+size.</p></li>
+<li><p>Find distinct ratings <span
+class="math inline">\(5\)</span>-tuples <span class="math inline">\(w_1,
+w_2\)</span> (<span class="math inline">\(w_1 \neq w_2\)</span>) whose
+equivalence classes <span class="math inline">\([w_1]_{G}\)</span> and
+<span class="math inline">\([w_2]_{G}\)</span> have different
+sizes.</p></li>
+</ol></li>
+<li><p>Modular exponentiation. Imagine you are playing the role of Alice
+in the Diffie Hellman key agreement (exchange) protocol. You and Bob
+have agreed to use the prime <span class="math inline">\(p = 7\)</span>
+and its primitive root <span class="math inline">\(a = 3\)</span>. Your
+secret integer is <span class="math inline">\(k_1 = 3\)</span>.</p>
+<ol>
+<li><p>Calculate the number you send to Bob, <span
+class="math inline">\(a^{k_1} \textrm{\bf ~mod~} p\)</span>. Use the
+modular exponentiation algorithm for the calculation. Include a trace of
+the algorithm in your solution.</p>
+<div class="algorithm">
+<p>procedure <span
+class="math inline">\(modular~exponentiation\)</span>(<span
+class="math inline">\(b\)</span>: integer; <span class="math inline">\(n
+= (a_{k-1}a_{k-2} \ldots a_1 a_0)_2\)</span>, <span
+class="math inline">\(m\)</span>: positive integers) <span
+class="math inline">\(x\)</span> := <span
+class="math inline">\(1\)</span> <span
+class="math inline">\(power\)</span> := <span
+class="math inline">\(b\)</span> mod <span
+class="math inline">\(m\)</span> for <span
+class="math inline">\(i\)</span>:= <span
+class="math inline">\(0\)</span> to <span
+class="math inline">\(k-1\)</span> if <span class="math inline">\(a_i =
+1\)</span> then <span class="math inline">\(x\)</span>:= <span
+class="math inline">\((x \cdot power)\)</span> mod <span
+class="math inline">\(m\)</span> <span
+class="math inline">\(power\)</span> := <span
+class="math inline">\((power \cdot power)\)</span> mod <span
+class="math inline">\(m\)</span> return <span
+class="math inline">\(x\)</span> <span
+class="math inline">\(\{x~\textrm{equals}~b^n \textbf{ mod }
+m\}\)</span></p>
+</div></li>
+<li><p>Bob sends you the number <span class="math inline">\(5\)</span>.
+Compute your shared key, <span
+class="math inline">\(\left(a^{k_2}\right)^{k_1}  
+        \textrm{\bf ~mod~} p\)</span>. Hint: <span
+class="math inline">\(a^{k_2} \textrm{\bf ~mod~} p\)</span> is what Bob
+sent you. Include all relevant calculations, annotated with
+explanations, for full credit.</p></li>
+<li><p>What are some possible values for Bob’s secret integer? What
+algorithm are you using to compute them?</p></li>
 </ol></li>
 </ol>
 <section id="footnotes" class="footnotes footnotes-end-of-document"
