@@ -58,7 +58,7 @@
                 "due": "10/05/26"
             },
             {
-                "name": "hw1-definitions-and-notation-CSE020F26",
+                "name": "hw1-definitions-and-notation-CSE20F26",
                 "due": "10/06/26 at 5pm (late submission until 8am next morning)"
             }
         ]
@@ -116,7 +116,7 @@
                 "due": "10/19/26"
             },
             {
-                "name": "hw2-numbers-CSE020F26",
+                "name": "hw2-numbers-CSE20F26",
                 "due": "10/20/26 at 5pm (late submission until 8am next morning)"
             }
         ]
@@ -208,7 +208,7 @@
                 "due": "11/02/26"
             },
             {
-                "name": "hw3-circuits-and-logic-CSE020F26",
+                "name": "hw3-circuits-and-logic-CSE20F26",
                 "due": "11/03/26 at 5pm (late submission until 8am next morning)"
             }
         ]
@@ -228,6 +228,10 @@
                 "source": "W7_DI_empty.pdf"
             },
             {
+                "name": "Discussion notes (filled)",
+                "source": "W7_filled.pdf"
+            },
+            {
                 "name": "(Video) Functions for cardinality",
                 "source": "https://youtu.be/2-oZ8SnzNAQ"
             }
@@ -244,7 +248,7 @@
         "header": "Week 8",
         "outcomes": "Functions and Cardinality",
         "CalendarInfo": " Dates: 11/16/26-11/20/26",
-        "ExpandInCalendar": false,
+        "ExpandInCalendar": true,
         "content": [
             {
                 "name": "Notes",
@@ -266,7 +270,7 @@
                 "due": "11/16/26"
             },
             {
-                "name": "hw4-proofs-sets-recursion-CSE020F26",
+                "name": "hw4-proofs-sets-recursion-CSE20F26",
                 "due": "11/17/26 at 5pm (late submission until 8am next morning)"
             },
             {
@@ -335,8 +339,8 @@
                 "due": "Second attempt testing window for Test 1 or Test 2: 12/1-12/4. Sign up in advance at the CBTF."
             },
             {
-                "name": "hw5-cardinality-functions-relations-CSE020F26",
-                "due": "12/01/26 at 5pm (late submission until 8am next morning"
+                "name": "hw5-cardinality-functions-relations-CSE20F26",
+                "due": "12/01/26 at 5pm (late submission until 8am next morning)"
             },
             {
                 "name": "Student Evaluations of Teaching",
